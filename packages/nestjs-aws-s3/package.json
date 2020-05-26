@@ -17,9 +17,9 @@
   "publishConfig": {
     "access": "public"
   },
-  "peerDependencies": {
-    "@nestjs/common": ">=6.3.2",
-    "aws-sdk": "^>=2.4.0"
+  "dependencies": {
+    "@nestjs/common": "^6.3.2",
+    "aws-sdk": "^2.471.0"
   },
   "devDependencies": {
     "typescript": "3.9.3"
