@@ -1,0 +1,27 @@
+{
+  "name": "@atlantis-lab/nestjs-tinkoff",
+  "version": "0.0.0",
+  "license": "MIT",
+  "main": "dist/index.js",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "clean": "rm -r -f dist",
+    "prepublishOnly": "yarn run build",
+    "prebuild": "yarn clean",
+    "build": "tsc -p tsconfig.json",
+    "prepack": "pubflow store",
+    "postpack": "pubflow restore"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "peerDependencies": {
+    "@aunited/tinkoff-api": "^0.0.1-pre-alpha.5",
+    "@nestjs/common": ">=6.3.2"
+  },
+  "devDependencies": {
+    "typescript": "3.9.3"
+  }
+}

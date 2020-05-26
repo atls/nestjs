@@ -1,0 +1,27 @@
+{
+  "name": "@atlantis-lab/nestjs-aws-s3",
+  "version": "0.0.0",
+  "license": "MIT",
+  "main": "dist/index.js",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "clean": "rm -r -f dist",
+    "prepublishOnly": "yarn run build",
+    "prebuild": "yarn clean",
+    "build": "tsc -p tsconfig.json",
+    "prepack": "pubflow store",
+    "postpack": "pubflow restore"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "peerDependencies": {
+    "@nestjs/common": ">=6.3.2",
+    "aws-sdk": "^>=2.4.0"
+  },
+  "devDependencies": {
+    "typescript": "3.9.3"
+  }
+}
