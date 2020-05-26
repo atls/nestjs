@@ -1,0 +1,7 @@
+{
+  "extends": "@monstrs/tsconfig/tsconfig.base.json",
+  "include": ["packages/**/**/*"],
+  "compilerOptions": {
+    "skipLibCheck": true
+  }
+}
