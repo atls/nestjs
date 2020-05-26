@@ -22,6 +22,7 @@
     "@nestjs/common": "^6.3.2"
   },
   "devDependencies": {
-    "typescript": "3.9.3"
+    "typescript": "3.9.3",
+    "@monstrs/publish-flow": "0.1.3"
   }
 }
