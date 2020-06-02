@@ -66,10 +66,10 @@
     "@angular-devkit/core" "8.3.18"
     rxjs "6.4.0"
 
-"@aunited/tinkoff-api@0.0.1-pre-alpha.6":
-  version "0.0.1-pre-alpha.6"
-  resolved "https://registry.yarnpkg.com/@aunited/tinkoff-api/-/tinkoff-api-0.0.1-pre-alpha.6.tgz#8b6d05e0e04f962fc84720d94ca3c0aa3afeebeb"
-  integrity sha512-wOU8BynD/T/C04KoBVa+YVJGwfEUSX7YcKaeU8HHLF+qzLRY8lgDy+7t5tep+/EiYxTvd6/sK5y/TZjxXGzhXA==
+"@aunited/tinkoff-api@0.0.1":
+  version "0.0.1"
+  resolved "https://registry.yarnpkg.com/@aunited/tinkoff-api/-/tinkoff-api-0.0.1.tgz#7bbad249acd20b5fffcd96249bb9ad22b6aa1d4f"
+  integrity sha512-ElrXR2C6wCAx3zb035PXVtZX9sSATqxmcT5xvOBYLLJViy4SsoWA/31uQxxsDaUZLO/A93g/LklbOyu4lToUhQ==
   dependencies:
     node-fetch "2.6.0"
 
