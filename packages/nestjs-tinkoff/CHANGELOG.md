@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.1](https://github.com/Atlantis-Lab/nestjs/compare/@atlantis-lab/nestjs-tinkoff@1.0.0...@atlantis-lab/nestjs-tinkoff@1.0.1) (2020-06-03)
+
+
+### Reverts
+
+* Revert "chore(release): %s" ([87a88c7](https://github.com/Atlantis-Lab/nestjs/commit/87a88c70804af72a949b8d5a5389a718e3801643))
+
+
+
+
+
 # [1.0.0](https://github.com/Atlantis-Lab/nestjs/compare/@atlantis-lab/nestjs-tinkoff@0.0.1...@atlantis-lab/nestjs-tinkoff@1.0.0) (2020-06-02)
 
 ### chore
