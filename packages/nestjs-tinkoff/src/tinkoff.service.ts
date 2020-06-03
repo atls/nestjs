@@ -5,7 +5,7 @@ import { TINKOFF_API_OPTIONS }           from './tinkoff.constants'
 
 @Injectable()
 export class TinkoffService extends Tinkoff {
-  constructor(@Inject(TINKOFF_API_OPTIONS) options: TinkoffPublicOptions) {
+  public constructor(@Inject(TINKOFF_API_OPTIONS) options: TinkoffPublicOptions) {
     super(options)
   }
 }
