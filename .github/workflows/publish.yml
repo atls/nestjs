@@ -1,0 +1,96 @@
+name: Publish Packages
+on:
+  pull_request:
+    types: [closed]
+    branches:
+      - master
+
+jobs:
+  run:
+    name: Release
+    runs-on: ubuntu-latest
+
+    steps:
+      # Checkout
+      - uses: actions/checkout@v2
+        with:
+          ref: 'master'
+          fetch-depth: 0
+        if: >
+          github.event.pull_request.merged == true &&
+          github.event.pull_request.base.ref == 'master'
+
+      # Configure GPG
+      - run: |
+          mkdir -p ~/.gnupg/
+          printf "$GPG_SIGNING_KEY" | base64 --decode > ~/.gnupg/private.key
+          gpg --import ~/.gnupg/private.key
+        env:
+          GPG_SIGNING_KEY: ${{ secrets.GPG_SIGNING_KEY }}
+        if: >
+          github.event.pull_request.merged == true &&
+          github.event.pull_request.base.ref == 'master'
+
+      # Configure Git
+      - run: |
+          git config --local user.email $GIT_EMAIL
+          git config --local user.name $GIT_USER
+          git config --local user.signingkey $GPG_KEY_ID
+          git config --local commit.gpgsign true
+        env:
+          GIT_USER: ${{ secrets.GIT_USER }}
+          GIT_EMAIL: ${{ secrets.GIT_EMAIL }}
+          GPG_KEY_ID: ${{ secrets.GPG_KEY_ID}}
+        if: >
+          github.event.pull_request.merged == true &&
+          github.event.pull_request.base.ref == 'master'
+
+      # NPM Registry
+      - uses: actions/setup-node@v1
+        with:
+          node-version: '14.x'
+          registry-url: 'https://registry.npmjs.org'
+          scope: ${{ secrets.SCOPE }}
+        if: >
+          github.event.pull_request.merged == true &&
+          github.event.pull_request.base.ref == 'master'
+
+      # Install
+      - run: yarn
+        if: >
+          github.event.pull_request.merged == true &&
+          github.event.pull_request.base.ref == 'master'
+
+      # Release
+      - run: yarn lerna version --yes
+        env:
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
+        if: >
+          github.event.pull_request.merged == true &&
+          github.event.pull_request.base.ref == 'master'
+
+      # Publish to NPM
+      - run: yarn lerna publish from-package --no-verify-access --yes
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+        if: >
+          github.event.pull_request.merged == true &&
+          github.event.pull_request.base.ref == 'master'
+
+      # Github Registry
+      - uses: actions/setup-node@v1
+        with:
+          node-version: '14.x'
+          registry-url: 'https://npm.pkg.github.com'
+          scope: ${{ secrets.SCOPE }}
+        if: >
+          github.event.pull_request.merged == true &&
+          github.event.pull_request.base.ref == 'master'
+
+      # Publish to Github Registry
+      - run: yarn lerna publish from-package --no-verify-access --yes
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.GH_TOKEN }}
+        if: >
+          github.event.pull_request.merged == true &&
+          github.event.pull_request.base.ref == 'master'
