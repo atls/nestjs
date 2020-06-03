@@ -1,5 +1,6 @@
 {
   "name": "@atlantis-lab/nestjs-aws-s3",
+  "repository": "git@github.com:Atlantis-Lab/nestjs.git",
   "version": "1.0.0",
   "license": "MIT",
   "main": "dist/index.js",
@@ -14,9 +15,6 @@
     "prepack": "pubflow store",
     "postpack": "pubflow restore"
   },
-  "publishConfig": {
-    "access": "public"
-  },
   "peerDependencies": {
     "@nestjs/common": "^6.0.0",
     "aws-sdk": "^2.0.1"
@@ -26,5 +24,8 @@
     "@nestjs/common": "6.11.11",
     "aws-sdk": "2.687.0",
     "typescript": "3.9.3"
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }
