@@ -16,7 +16,7 @@
     "postpack": "pubflow restore"
   },
   "peerDependencies": {
-    "@aunited/tinkoff-api": "^0.0.1-pre-alpha.6 || ^0.0.1",
+    "@aunited/tinkoff-api": "^0.0.1",
     "@nestjs/common": "^6.0.0"
   },
   "devDependencies": {
