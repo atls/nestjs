@@ -12,7 +12,7 @@
   },
   "devDependencies": {
     "@monstrs/mctl": "0.1.82",
-    "@types/node": "14.0.14",
+    "@types/node": "14.0.22",
     "husky": "4.2.5",
     "lerna": "3.22.1",
     "typescript": "3.9.6"
