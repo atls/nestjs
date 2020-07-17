@@ -1,5 +1,6 @@
-import { DynamicModule, Module } from '@nestjs/common'
 import { S3 }                    from 'aws-sdk'
+
+import { DynamicModule, Module } from '@nestjs/common'
 
 import { AwsS3CoreModule }       from './aws-s3-core.module'
 
