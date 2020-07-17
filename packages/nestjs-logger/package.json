@@ -1,0 +1,40 @@
+{
+  "name": "@atlantis-lab/nestjs-logger",
+  "repository": "git@github.com:Atlantis-Lab/nestjs.git",
+  "version": "0.0.0",
+  "license": "MIT",
+  "main": "dist/index.js",
+  "source": "src/index.ts",
+  "typings": "dist/types/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "clean": "rimraf dist",
+    "prepublishOnly": "yarn run build",
+    "prebuild": "rimraf dist",
+    "build": "tsc -p tsconfig.json"
+  },
+  "peerDependencies": {
+    "@google-cloud/logging-winston": "3.0.6",
+    "@nestjs/common": "6.0.2",
+    "@nestjs/core": "6.0.2",
+    "reflect-metadata": "0.1.12",
+    "rxjs": "6.3.3"
+  },
+  "devDependencies": {
+    "@nestjs/common": "7.0.9",
+    "@nestjs/core": "7.0.9",
+    "@types/node": "13.13.4",
+    "reflect-metadata": "0.1.13",
+    "rimraf": "3.0.2",
+    "rxjs": "6.5.5",
+    "typescript": "3.3.4000"
+  },
+  "dependencies": {
+    "winston": "3.2.1"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}
