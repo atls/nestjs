@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.1.0](https://github.com/Atlantis-Lab/nestjs/compare/@atlantis-lab/nestjs-aws-s3@1.0.17...@atlantis-lab/nestjs-aws-s3@1.1.0) (2020-07-18)
+
+
+### Features
+
+* **nestjs-logger:** init ([a8ecdb0](https://github.com/Atlantis-Lab/nestjs/commit/a8ecdb0712f9cd5c86b5d7378a3f635c4598a0ae))
+
+
+
+
+
 ## [1.0.17](https://github.com/Atlantis-Lab/nestjs/compare/@atlantis-lab/nestjs-aws-s3@1.0.16...@atlantis-lab/nestjs-aws-s3@1.0.17) (2020-07-17)
 
 **Note:** Version bump only for package @atlantis-lab/nestjs-aws-s3
