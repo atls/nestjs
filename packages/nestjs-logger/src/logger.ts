@@ -4,11 +4,9 @@ import { INNER_LOGGER }       from './logger.constants'
 
 @Injectable()
 export class Logger {
-  private readonly logger: any
-
   constructor(
     @Inject(INNER_LOGGER)
-    logger: any
+    private readonly logger: any
   ) {}
 
   debug(message: any, data?: object): void {

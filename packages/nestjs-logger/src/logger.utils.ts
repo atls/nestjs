@@ -3,6 +3,7 @@ import { join } from 'path'
 export const getRootPackage = (): any => {
   try {
     const packagePath = join(process.cwd(), 'package.json')
+    // eslint-disable-next-line
     return require(packagePath)
   } catch (error) {
     console.log(error)
