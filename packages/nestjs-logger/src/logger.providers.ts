@@ -19,6 +19,7 @@ export const createInnerLoggerConfig = (): {
   }
   if (process.env.GOOGLE_CLOUD_LOGGING_ENABLED) {
     try {
+      // eslint-disable-next-line
       const { LoggingWinston } = require('@google-cloud/logging-winston')
       const cloudLogging = new LoggingWinston({
         serviceContext: getCloudLogginServiceContext(),
