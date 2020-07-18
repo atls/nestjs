@@ -1,4 +1,5 @@
 import { TinkoffPublicOptions }  from '@aunited/tinkoff-api'
+
 import { DynamicModule, Module } from '@nestjs/common'
 
 import { TINKOFF_API_OPTIONS }   from './tinkoff.constants'

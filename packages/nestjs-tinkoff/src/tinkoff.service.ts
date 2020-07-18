@@ -1,4 +1,5 @@
 import { Tinkoff, TinkoffPublicOptions } from '@aunited/tinkoff-api'
+
 import { Inject, Injectable }            from '@nestjs/common'
 
 import { TINKOFF_API_OPTIONS }           from './tinkoff.constants'
