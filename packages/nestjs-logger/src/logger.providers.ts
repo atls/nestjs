@@ -18,18 +18,14 @@ export const createInnerLoggerConfig = (): {
     rejectionHandlers: [new transports.Console()],
   }
   if (process.env.GOOGLE_CLOUD_LOGGING_ENABLED) {
-    try {
-      // eslint-disable-next-line
-      const { LoggingWinston } = require('@google-cloud/logging-winston')
-      const cloudLogging = new LoggingWinston({
-        serviceContext: getCloudLogginServiceContext(),
-      })
-      config.transports.push(cloudLogging)
-      config.exceptionHandlers.push(cloudLogging)
-      config.rejectionHandlers.push(cloudLogging)
-    } catch (error) {
-      console.log(error)
-    }
+    // eslint-disable-next-line
+    const { LoggingWinston } = require('@google-cloud/logging-winston')
+    const cloudLogging = new LoggingWinston({
+      serviceContext: getCloudLogginServiceContext(),
+    })
+    config.transports.push(cloudLogging)
+    config.exceptionHandlers.push(cloudLogging)
+    config.rejectionHandlers.push(cloudLogging)
   }
   return config
 }
