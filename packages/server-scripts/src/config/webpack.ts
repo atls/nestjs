@@ -2,8 +2,9 @@ import StartServerWebpackPlugin       from 'start-server-webpack-plugin'
 import glob                           from 'glob-promise'
 import nodeExternals                  from 'webpack-node-externals'
 import { HotModuleReplacementPlugin } from 'webpack'
-import { getPackages }                from '@lerna/project'
 import { join, relative }             from 'path'
+
+import { getPackages }                from '@lerna/project'
 
 import paths                          from './paths'
 
