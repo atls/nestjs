@@ -1,0 +1,43 @@
+{
+  "name": "@atlantis-lab/server-scripts",
+  "version": "0.0.0",
+  "license": "MIT",
+  "main": "dist/index.js",
+  "umd:main": "dist/index.umd.js",
+  "module": "dist/index.mjs",
+  "typings": "dist/index.d.ts",
+  "source": "src/index.ts",
+  "files": [
+    "dist",
+    "bin"
+  ],
+  "bin": {
+    "server-scripts": "./bin/server-scripts.js"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "clean": "rimraf dist",
+    "prepublishOnly": "yarn run build",
+    "prebuild": "rimraf dist",
+    "build": "tsc -p tsconfig.json"
+  },
+  "dependencies": {
+    "chalk": "^2.4.2",
+    "file-loader": "^4.0.0",
+    "glob-promise": "^3.4.0",
+    "react-dev-utils": "^9.0.1",
+    "start-server-webpack-plugin": "^2.2.5",
+    "ts-loader": "^6.0.4",
+    "ts-node": "^8.3.0",
+    "webpack": "^4.35.3",
+    "webpack-dev-server": "^3.7.2",
+    "webpack-node-externals": "^1.7.2",
+    "@lerna/project": "3.21.0"
+  },
+  "devDependencies": {
+    "@types/node": "10.12.25",
+    "rimraf": "2.6.3"
+  }
+}
