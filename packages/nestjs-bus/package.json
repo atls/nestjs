@@ -16,14 +16,14 @@
     "build": "tsc -p tsconfig.json"
   },
   "peerDependencies": {
-    "@atlantis-lab/nestjs-logger": "0.2.0",
+    "@atlantis-lab/nestjs-logger": "0.2.1",
     "@nestjs/common": "^6.0.2",
     "@nestjs/core": "^6.0.2",
     "reflect-metadata": "^0.1.12",
     "rxjs": "^6.3.3"
   },
   "devDependencies": {
-    "@atlantis-lab/nestjs-logger": "0.2.0",
+    "@atlantis-lab/nestjs-logger": "^0.2.1",
     "@nestjs/common": "7.0.9",
     "@nestjs/core": "7.0.9",
     "@nestjs/platform-express": "7.0.9",
