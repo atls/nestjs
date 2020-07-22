@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.2.0](https://github.com/Atlantis-Lab/nestjs/compare/@atlantis-lab/nestjs-tinkoff@1.1.0...@atlantis-lab/nestjs-tinkoff@1.2.0) (2020-07-22)
+
+
+### Features
+
+* **nestjs-signed-url:** init ([1e4be2d](https://github.com/Atlantis-Lab/nestjs/commit/1e4be2dd5ea6e5264d580e975d9256e57fecffc4))
+
+
+
+
+
 # [1.1.0](https://github.com/Atlantis-Lab/nestjs/compare/@atlantis-lab/nestjs-tinkoff@1.0.8...@atlantis-lab/nestjs-tinkoff@1.1.0) (2020-07-18)
 
 
