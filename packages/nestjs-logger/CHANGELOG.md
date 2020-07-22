@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.2.1](https://github.com/Atlantis-Lab/nestjs/compare/@atlantis-lab/nestjs-logger@0.2.0...@atlantis-lab/nestjs-logger@0.2.1) (2020-07-22)
+
+
+### Bug Fixes
+
+* **nestjs-logger:** missmatch typings path ([00a89e3](https://github.com/Atlantis-Lab/nestjs/commit/00a89e3ef171ddcea2a5d229fad2b3bc128576fa))
+
+
+
+
+
 # [0.2.0](https://github.com/Atlantis-Lab/nestjs/compare/@atlantis-lab/nestjs-logger@0.1.0...@atlantis-lab/nestjs-logger@0.2.0) (2020-07-20)
 
 
