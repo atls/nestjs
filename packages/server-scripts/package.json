@@ -1,5 +1,6 @@
 {
   "name": "@atlantis-lab/server-scripts",
+  "repository": "git@github.com:Atlantis-Lab/nestjs.git",
   "version": "0.1.0",
   "license": "MIT",
   "main": "dist/index.js",
