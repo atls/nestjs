@@ -1,7 +1,7 @@
 {
   "name": "@atlantis-lab/nestjs-aws-s3",
   "repository": "git@github.com:Atlantis-Lab/nestjs.git",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "license": "MIT",
   "main": "dist/index.js",
   "files": [
@@ -22,7 +22,7 @@
   "devDependencies": {
     "@monstrs/publish-flow": "0.1.3",
     "@nestjs/common": "7.3.2",
-    "aws-sdk": "2.716.0",
+    "aws-sdk": "2.717.0",
     "typescript": "3.9.7"
   },
   "publishConfig": {
