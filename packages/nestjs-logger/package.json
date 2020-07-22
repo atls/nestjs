@@ -5,7 +5,7 @@
   "license": "MIT",
   "main": "dist/index.js",
   "source": "src/index.ts",
-  "typings": "dist/types/index.d.ts",
+  "typings": "dist/index.d.ts",
   "files": [
     "dist"
   ],
