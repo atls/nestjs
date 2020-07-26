@@ -66,13 +66,6 @@
     "@angular-devkit/core" "8.3.20"
     rxjs "6.4.0"
 
-"@atlantis-lab/nestjs-logger@^0.2.1":
-  version "0.2.1"
-  resolved "https://registry.yarnpkg.com/@atlantis-lab/nestjs-logger/-/nestjs-logger-0.2.1.tgz#2050a37739c9bd8c166410e4ee5c130422408b76"
-  integrity sha512-bBPkiKdM5JK4y3QNi/8J3rSAnPthoSzKBHpO8phdkEtWRB0ZOTP7B1KV1mXvjZxPILDUUII056FHRPDKhX80MA==
-  dependencies:
-    winston "3.2.1"
-
 "@atlantis-lab/tsconfig@0.0.21":
   version "0.0.21"
   resolved "https://registry.yarnpkg.com/@atlantis-lab/tsconfig/-/tsconfig-0.0.21.tgz#b5de1c080dc835151d71652f0c3aeb0c21a88b9a"
