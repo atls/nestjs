@@ -12,7 +12,6 @@
   "scripts": {
     "clean": "rimraf lib",
     "prepublishOnly": "yarn run build",
-    "prebuild": "rimraf lib",
     "build": "tsc -p tsconfig.json"
   },
   "peerDependencies": {
