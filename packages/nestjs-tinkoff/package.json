@@ -10,7 +10,6 @@
   "scripts": {
     "clean": "rm -r -f dist",
     "prepublishOnly": "yarn run build",
-    "prebuild": "yarn clean",
     "build": "tsc -p tsconfig.json",
     "prepack": "pubflow store",
     "postpack": "pubflow restore"
