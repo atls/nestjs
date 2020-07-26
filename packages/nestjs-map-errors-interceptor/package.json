@@ -19,8 +19,8 @@
     "rxjs": "^6.3.3"
   },
   "devDependencies": {
-    "@nestjs/common": "6.0.2",
-    "@nestjs/core": "6.0.2",
+    "@nestjs/common": "6.11.11",
+    "@nestjs/core": "6.11.11",
     "@types/node": "11.15.18",
     "reflect-metadata": "0.1.13",
     "rimraf": "2.6.3",
