@@ -1889,10 +1889,10 @@
     tslib "^1.9.3"
     uuid "^3.3.2"
 
-"@node-ts/logger-core@0.1.0":
-  version "0.1.0"
-  resolved "https://registry.yarnpkg.com/@node-ts/logger-core/-/logger-core-0.1.0.tgz#27a5520f7a83d671a897fcbbda8f7deb269a43f4"
-  integrity sha512-BlfjHLRHvPZNfaSBelo6yyK6ZKvMqUei5tvd5ezaHxbKHSN5xGQM2TRASfQ0jhvRlYdVIezk7aH8CeD6F9aylg==
+"@node-ts/logger-core@0.1.1":
+  version "0.1.1"
+  resolved "https://registry.yarnpkg.com/@node-ts/logger-core/-/logger-core-0.1.1.tgz#5ed9f6f001eecc87625b223c6c7c95c2330da5bc"
+  integrity sha512-CwVSxcWySDZmQbi5HHh15fUogavEE0yUVE6U4/F12aFaY7QKleBdfR1u+BvSb3XyfIjJUbiS6RPxCcXhkaHyOg==
 
 "@nodelib/fs.scandir@2.1.3":
   version "2.1.3"
