@@ -38,7 +38,7 @@
     "@node-ts/bus-core": "0.5.2",
     "@node-ts/bus-messages": "0.2.2",
     "@node-ts/bus-rabbitmq": "0.5.1",
-    "@node-ts/logger-core": "0.1.0",
+    "@node-ts/logger-core": "0.1.1",
     "amqplib": "0.5.5",
     "inversify": "5.0.1",
     "serialize-error": "7.0.1"
