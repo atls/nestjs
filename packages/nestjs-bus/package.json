@@ -1,7 +1,7 @@
 {
   "name": "@atlantis-lab/nestjs-bus",
   "repository": "git@github.com:Atlantis-Lab/nestjs.git",
-  "version": "0.1.3",
+  "version": "0.1.5",
   "license": "MIT",
   "main": "dist/index.js",
   "source": "src/index.ts",
@@ -31,10 +31,10 @@
     "reflect-metadata": "0.1.13",
     "rimraf": "3.0.2",
     "rxjs": "6.6.0",
-    "typescript": "^3.8.3"
+    "typescript": "3.9.7"
   },
   "dependencies": {
-    "@atlantis-lab/nestjs-logger": "0.2.4",
+    "@atlantis-lab/nestjs-logger": "0.2.5",
     "@node-ts/bus-core": "0.5.2",
     "@node-ts/bus-messages": "0.2.2",
     "@node-ts/bus-rabbitmq": "0.6.0",
