@@ -1,7 +1,7 @@
 {
   "name": "@atlantis-lab/nestjs-signed-url",
   "repository": "git@github.com:Atlantis-Lab/nestjs.git",
-  "version": "0.1.0",
+  "version": "0.1.5",
   "license": "MIT",
   "main": "lib/index.js",
   "source": "src/index.ts",
@@ -12,7 +12,6 @@
   "scripts": {
     "clean": "rimraf lib",
     "prepublishOnly": "yarn run build",
-    "prebuild": "rimraf lib",
     "build": "tsc -p tsconfig.json"
   },
   "peerDependencies": {
@@ -22,14 +21,14 @@
     "rxjs": "^6.3.3"
   },
   "devDependencies": {
-    "@google-cloud/storage": "3.3.0",
-    "@nestjs/common": "7.0.9",
-    "@nestjs/core": "7.0.9",
-    "@types/node": "13.13.4",
+    "@google-cloud/storage": "3.5.0",
+    "@nestjs/common": "7.3.2",
+    "@nestjs/core": "7.3.2",
+    "@types/node": "13.13.15",
     "reflect-metadata": "0.1.13",
     "rimraf": "3.0.2",
-    "rxjs": "6.5.5",
-    "typescript": "^3.8.3"
+    "rxjs": "6.6.0",
+    "typescript": "3.9.7"
   },
   "publishConfig": {
     "access": "public"
