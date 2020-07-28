@@ -1850,12 +1850,12 @@
     serialize-error "^4.1.0"
     tslib "^1.9.3"
 
-"@node-ts/bus-core@^0.5.2":
-  version "0.5.9"
-  resolved "https://registry.yarnpkg.com/@node-ts/bus-core/-/bus-core-0.5.9.tgz#1ace58f2ad1669354a3548a842005d3c660b84d3"
-  integrity sha512-LWWf2WA3yaBHKOfe0qaUievMQVLrIWjvF1Y5lRyp1ePmLvvnypmZmLBim4IH920tmfNWJDQ3CjGKYnvsPx1rgg==
+"@node-ts/bus-core@^0.6.0":
+  version "0.6.0"
+  resolved "https://registry.yarnpkg.com/@node-ts/bus-core/-/bus-core-0.6.0.tgz#6e45127a8455b58ef64bbdfabee9b90b035d9390"
+  integrity sha512-k8+nrqrPDO3Ik5nuYE8MmJFaqPLJ+8KJLxFOPm/vGd9zhFLq/F6U0tamay762XZu31tGEZZXTvxTzhiMkT2J8w==
   dependencies:
-    "@node-ts/bus-messages" "^0.2.3"
+    "@node-ts/bus-messages" "^0.3.0"
     "@types/node" "^12.12.37"
     autobind-decorator "^2.4.0"
     class-transformer "^0.2.3"
@@ -1871,20 +1871,27 @@
   dependencies:
     tslib "^1.9.3"
 
-"@node-ts/bus-messages@^0.2.2", "@node-ts/bus-messages@^0.2.3":
+"@node-ts/bus-messages@^0.2.2":
   version "0.2.3"
   resolved "https://registry.yarnpkg.com/@node-ts/bus-messages/-/bus-messages-0.2.3.tgz#93eea4832b30e46d8b7244b6b19e75d4c765c5ae"
   integrity sha512-Wx15syvIqajVOaXyPA28d1DfxxHgLuPJjpw+IQ8HfSi6L96bvp7QuRntWitE8ck6K5zAvjs8b1L21MXgD6dTtQ==
   dependencies:
     tslib "^1.9.3"
 
-"@node-ts/bus-rabbitmq@0.5.1":
-  version "0.5.1"
-  resolved "https://registry.yarnpkg.com/@node-ts/bus-rabbitmq/-/bus-rabbitmq-0.5.1.tgz#421ea75be98ca8dda695b99f5d6d2828c356b2c5"
-  integrity sha512-DXDznJ+/HF7cMiidjkXX3tBqGAFoYeEerW8Zs0PUvNQ5JiRqUwtrgJTOrS+k4t0o6XNZyc8bDI1S4i25Qiuwbg==
+"@node-ts/bus-messages@^0.3.0":
+  version "0.3.0"
+  resolved "https://registry.yarnpkg.com/@node-ts/bus-messages/-/bus-messages-0.3.0.tgz#a5e19474e54f24ff683fa4fd8e54e65ecb68ce78"
+  integrity sha512-rrjo6v8dv21kqbYcWFkohmUS7BwIfn6xyCPiAxAvVpdQ2QYdUY1e9XYshWg9PSmlCtKKYh2Hs4kFf4Mj4Yc10A==
   dependencies:
-    "@node-ts/bus-core" "^0.5.2"
-    "@node-ts/bus-messages" "^0.2.2"
+    tslib "^1.9.3"
+
+"@node-ts/bus-rabbitmq@0.6.0":
+  version "0.6.0"
+  resolved "https://registry.yarnpkg.com/@node-ts/bus-rabbitmq/-/bus-rabbitmq-0.6.0.tgz#18b03054c72c18895c326d4b1a7d746863fdc061"
+  integrity sha512-eY6brZaDn6nEaKNk09ijS38oS68/mKPCS5pqjbqj8tUGc1c2B3TRxigSSukMMKGcFh+ryZrVJwBJs7F8cIaIJA==
+  dependencies:
+    "@node-ts/bus-core" "^0.6.0"
+    "@node-ts/bus-messages" "^0.3.0"
     amqplib "^0.5.3"
     tslib "^1.9.3"
     uuid "^3.3.2"
