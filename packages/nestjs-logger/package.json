@@ -15,7 +15,7 @@
     "build": "tsc -p tsconfig.json"
   },
   "peerDependencies": {
-    "@google-cloud/logging-winston": "3.0.6",
+    "@google-cloud/logging-winston": "4.0.0",
     "@nestjs/common": "6.11.11",
     "@nestjs/core": "6.11.11",
     "reflect-metadata": "0.1.13",
