@@ -30,7 +30,7 @@
     "glob-promise": "^3.4.0",
     "react-dev-utils": "^9.0.1",
     "start-server-webpack-plugin": "^2.2.5",
-    "ts-loader": "^6.0.4",
+    "ts-loader": "^8.0.0",
     "ts-node": "^8.3.0",
     "webpack": "^4.35.3",
     "webpack-dev-server": "^3.7.2",
