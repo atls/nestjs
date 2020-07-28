@@ -24,7 +24,7 @@
     "@types/node": "11.15.18",
     "reflect-metadata": "0.1.13",
     "rimraf": "2.6.3",
-    "rxjs": "6.4.0",
+    "rxjs": "6.6.0",
     "typescript": "3.9.7"
   },
   "publishConfig": {
