@@ -23,7 +23,7 @@
     "@nestjs/core": "6.11.11",
     "@types/node": "11.15.18",
     "reflect-metadata": "0.1.13",
-    "rimraf": "2.6.3",
+    "rimraf": "2.7.1",
     "rxjs": "6.6.0",
     "typescript": "3.9.7"
   },
