@@ -1,7 +1,7 @@
 {
   "name": "@atlantis-lab/nestjs-tinkoff",
   "repository": "git@github.com:Atlantis-Lab/nestjs.git",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "license": "MIT",
   "main": "dist/index.js",
   "files": [
@@ -10,7 +10,6 @@
   "scripts": {
     "clean": "rm -r -f dist",
     "prepublishOnly": "yarn run build",
-    "prebuild": "yarn clean",
     "build": "tsc -p tsconfig.json",
     "prepack": "pubflow store",
     "postpack": "pubflow restore"
