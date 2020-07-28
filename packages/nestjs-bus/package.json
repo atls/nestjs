@@ -31,7 +31,7 @@
     "reflect-metadata": "0.1.13",
     "rimraf": "3.0.2",
     "rxjs": "6.6.0",
-    "typescript": "^3.8.3"
+    "typescript": "3.9.7"
   },
   "dependencies": {
     "@atlantis-lab/nestjs-logger": "0.2.5",
