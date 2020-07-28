@@ -38,6 +38,6 @@
   },
   "devDependencies": {
     "@types/node": "10.12.25",
-    "rimraf": "2.6.3"
+    "rimraf": "3.0.2"
   }
 }
