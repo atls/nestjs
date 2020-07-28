@@ -18,7 +18,7 @@
     "@google-cloud/logging-winston": "3.0.6",
     "@nestjs/common": "6.11.11",
     "@nestjs/core": "6.11.11",
-    "reflect-metadata": "0.1.12",
+    "reflect-metadata": "0.1.13",
     "rxjs": "6.6.0"
   },
   "devDependencies": {
