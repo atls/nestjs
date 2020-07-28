@@ -26,7 +26,7 @@
     "@nestjs/platform-express": "7.3.2",
     "@nestjs/testing": "7.3.2",
     "@types/amqplib": "0.5.13",
-    "@types/node": "13.13.4",
+    "@types/node": "13.13.15",
     "@types/serialize-error": "4.0.1",
     "reflect-metadata": "0.1.13",
     "rimraf": "3.0.2",
