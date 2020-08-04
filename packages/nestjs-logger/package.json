@@ -12,7 +12,6 @@
   "scripts": {
     "clean": "rimraf dist",
     "prepublishOnly": "yarn run build",
-    "prebuild": "rimraf dist",
     "build": "tsc -p tsconfig.json"
   },
   "peerDependencies": {
