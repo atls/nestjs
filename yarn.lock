@@ -66,10 +66,10 @@
     "@angular-devkit/core" "8.3.20"
     rxjs "6.4.0"
 
-"@atlantis-lab/tsconfig@0.0.21":
-  version "0.0.21"
-  resolved "https://registry.yarnpkg.com/@atlantis-lab/tsconfig/-/tsconfig-0.0.21.tgz#b5de1c080dc835151d71652f0c3aeb0c21a88b9a"
-  integrity sha512-6+JNfhO05P70/xjEzxfSvAjP9PoFwKm0qsFupTVJKNWm2wp2CauQ1q92pcGd89Nfq8hfGhWzIT6AXtn2PoCeRg==
+"@atlantis-lab/tsconfig@0.0.23":
+  version "0.0.23"
+  resolved "https://registry.yarnpkg.com/@atlantis-lab/tsconfig/-/tsconfig-0.0.23.tgz#0e41276663b14d0e2475bbf672c974c6810f0805"
+  integrity sha512-CAIy1zJrDbIGAeT/ClPXRvjqdWaH4C/8dVWshEzA8fRMyMrsVvr0ilrYvp6DeIFxc9Kvab/WNRUKo2hscBzitg==
 
 "@aunited/tinkoff-api@0.0.1":
   version "0.0.1"
