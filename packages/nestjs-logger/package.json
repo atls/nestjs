@@ -31,7 +31,7 @@
     "typescript": "3.3.4000"
   },
   "dependencies": {
-    "winston": "3.2.1"
+    "winston": "3.3.3"
   },
   "publishConfig": {
     "access": "public"
