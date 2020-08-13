@@ -3,14 +3,14 @@
   "repository": "git@github.com:Atlantis-Lab/nestjs.git",
   "version": "0.1.5",
   "license": "MIT",
-  "main": "lib/index.js",
+  "main": "dist/index.js",
   "source": "src/index.ts",
-  "typings": "lib/index.d.ts",
+  "typings": "dist/index.d.ts",
   "files": [
-    "lib"
+    "dist"
   ],
   "scripts": {
-    "clean": "rimraf lib",
+    "clean": "rimraf dist",
     "prepublishOnly": "yarn run build",
     "build": "tsc -p tsconfig.json"
   },
