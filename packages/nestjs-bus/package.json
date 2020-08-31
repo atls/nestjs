@@ -15,8 +15,8 @@
     "build": "tsc -p tsconfig.json"
   },
   "peerDependencies": {
-    "@nestjs/common": "^6.0.2",
-    "@nestjs/core": "^6.0.2",
+    "@nestjs/common": "^6.0.2 || ^7.0.0",
+    "@nestjs/core": "^6.0.2 || ^7.0.0",
     "reflect-metadata": "^0.1.12",
     "rxjs": "^6.3.3"
   },
