@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.2.6](https://github.com/Atlantis-Lab/nestjs/compare/@atlantis-lab/nestjs-logger@0.2.5...@atlantis-lab/nestjs-logger@0.2.6) (2020-09-08)
+
+
+### Bug Fixes
+
+* **deps:** update dependency winston to v3.3.3 ([fd4b80d](https://github.com/Atlantis-Lab/nestjs/commit/fd4b80d5f7c66f00caa73529c55bde5a24ffa251))
+
+
+
+
+
 ## [0.2.5](https://github.com/Atlantis-Lab/nestjs/compare/@atlantis-lab/nestjs-logger@0.2.4...@atlantis-lab/nestjs-logger@0.2.5) (2020-07-28)
 
 **Note:** Version bump only for package @atlantis-lab/nestjs-logger
