@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.1.8](https://github.com/Atlantis-Lab/nestjs/compare/@atlantis-lab/nestjs-bus@0.1.7...@atlantis-lab/nestjs-bus@0.1.8) (2020-09-08)
+
+
+### Bug Fixes
+
+* **deps:** update dependency @node-ts/bus-messages to v0.3.0 ([764bda1](https://github.com/Atlantis-Lab/nestjs/commit/764bda13ab3662bf7d9980a54d357af01966ce72))
+
+
+
+
+
 ## [0.1.7](https://github.com/Atlantis-Lab/nestjs/compare/@atlantis-lab/nestjs-bus@0.1.6...@atlantis-lab/nestjs-bus@0.1.7) (2020-09-08)
 
 **Note:** Version bump only for package @atlantis-lab/nestjs-bus
