@@ -37,7 +37,7 @@
     "webpack-node-externals": "^2.0.0"
   },
   "devDependencies": {
-    "@types/node": "10.17.28",
+    "@types/node": "10.17.37",
     "rimraf": "3.0.2"
   }
 }
