@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.1.9](https://github.com/Atlantis-Lab/nestjs/compare/@atlantis-lab/nestjs-bus@0.1.8...@atlantis-lab/nestjs-bus@0.1.9) (2020-10-07)
+
+
+### Bug Fixes
+
+* **deps:** update dependency @node-ts/logger-core to v0.1.1 ([9ddeedf](https://github.com/Atlantis-Lab/nestjs/commit/9ddeedf59e0f0c3ed8630ae61950f4153e803cd3))
+* **deps:** update dependency amqplib to v0.6.0 ([93e3ea3](https://github.com/Atlantis-Lab/nestjs/commit/93e3ea3fc60b2cda14625ea906eb7a00ccc8d2b5))
+
+
+
+
+
 ## [0.1.8](https://github.com/Atlantis-Lab/nestjs/compare/@atlantis-lab/nestjs-bus@0.1.7...@atlantis-lab/nestjs-bus@0.1.8) (2020-09-08)
 
 ### Bug Fixes
