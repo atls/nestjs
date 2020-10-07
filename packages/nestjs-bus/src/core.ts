@@ -1,26 +1,33 @@
 /* eslint prettier/prettier: 0 */
 
-import { ApplicationBootstrap, BUS_SYMBOLS }                     from '@node-ts/bus-core'
-import { BUS_INTERNAL_SYMBOLS }                                  from '@node-ts/bus-core/dist/bus-symbols'
-import { Container }                                             from 'inversify'
+import { ApplicationBootstrap, BUS_SYMBOLS } from '@node-ts/bus-core'
+import { BUS_INTERNAL_SYMBOLS }              from '@node-ts/bus-core/dist/bus-symbols'
+import { Container }                         from 'inversify'
 
-import { Logger }                                                from '@atlantis-lab/nestjs-logger'
-import { DynamicModule, Module }                                 from '@nestjs/common'
-import { OnApplicationBootstrap, OnModuleDestroy, OnModuleInit } from '@nestjs/common'
-import { ModuleRef }                                             from '@nestjs/core'
-import { MessageAttributes }                                     from '@node-ts/bus-messages'
+import { Logger }                            from '@atlantis-lab/nestjs-logger'
+import {
+  DynamicModule,
+  Global,
+  Module,
+  OnApplicationBootstrap,
+  OnModuleDestroy,
+  OnModuleInit,
+} from '@nestjs/common'
+import { ModuleRef }                         from '@nestjs/core'
+import { MessageAttributes }                 from '@node-ts/bus-messages'
 
-import { Bus }                                                   from './bus'
-import { HandlerRegistry }                                       from './handler'
-import { ExplorerService }                                       from './services'
+import { Bus }                               from './bus'
+import { HandlerRegistry }                   from './handler'
+import { ExplorerService }                   from './services'
 
+@Global()
 @Module({})
 export class BusCoreModule implements OnModuleInit, OnModuleDestroy, OnApplicationBootstrap {
-  private readonly applicationBootstrap: any
-
-  private readonly bus: any
-
-  constructor(private readonly explorerService: ExplorerService) {}
+  constructor(
+    private readonly explorerService: ExplorerService,
+    private readonly applicationBootstrap: ApplicationBootstrap,
+    private readonly bus: Bus
+  ) {}
 
   static forRoot(transportProvider: any): DynamicModule {
     const messageHandlingContextProvider = {

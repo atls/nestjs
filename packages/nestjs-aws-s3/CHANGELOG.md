@@ -3,6 +3,86 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.13](https://github.com/Atlantis-Lab/nestjs/compare/@atlantis-lab/nestjs-aws-s3@1.1.12...@atlantis-lab/nestjs-aws-s3@1.1.13) (2020-09-15)
+
+**Note:** Version bump only for package @atlantis-lab/nestjs-aws-s3
+
+
+
+
+
+## [1.1.12](https://github.com/Atlantis-Lab/nestjs/compare/@atlantis-lab/nestjs-aws-s3@1.1.11...@atlantis-lab/nestjs-aws-s3@1.1.12) (2020-09-06)
+
+**Note:** Version bump only for package @atlantis-lab/nestjs-aws-s3
+
+
+
+
+
+## [1.1.11](https://github.com/Atlantis-Lab/nestjs/compare/@atlantis-lab/nestjs-aws-s3@1.1.10...@atlantis-lab/nestjs-aws-s3@1.1.11) (2020-08-31)
+
+**Note:** Version bump only for package @atlantis-lab/nestjs-aws-s3
+
+
+
+
+
+## [1.1.10](https://github.com/Atlantis-Lab/nestjs/compare/@atlantis-lab/nestjs-aws-s3@1.1.9...@atlantis-lab/nestjs-aws-s3@1.1.10) (2020-08-26)
+
+**Note:** Version bump only for package @atlantis-lab/nestjs-aws-s3
+
+
+
+
+
+## [1.1.9](https://github.com/Atlantis-Lab/nestjs/compare/@atlantis-lab/nestjs-aws-s3@1.1.8...@atlantis-lab/nestjs-aws-s3@1.1.9) (2020-08-21)
+
+**Note:** Version bump only for package @atlantis-lab/nestjs-aws-s3
+
+
+
+
+
+## [1.1.8](https://github.com/Atlantis-Lab/nestjs/compare/@atlantis-lab/nestjs-aws-s3@1.1.7...@atlantis-lab/nestjs-aws-s3@1.1.8) (2020-08-20)
+
+**Note:** Version bump only for package @atlantis-lab/nestjs-aws-s3
+
+
+
+
+
+## [1.1.7](https://github.com/Atlantis-Lab/nestjs/compare/@atlantis-lab/nestjs-aws-s3@1.1.6...@atlantis-lab/nestjs-aws-s3@1.1.7) (2020-08-18)
+
+**Note:** Version bump only for package @atlantis-lab/nestjs-aws-s3
+
+
+
+
+
+## [1.1.6](https://github.com/Atlantis-Lab/nestjs/compare/@atlantis-lab/nestjs-aws-s3@1.1.5...@atlantis-lab/nestjs-aws-s3@1.1.6) (2020-08-17)
+
+**Note:** Version bump only for package @atlantis-lab/nestjs-aws-s3
+
+
+
+
+
+## [1.1.5](https://github.com/Atlantis-Lab/nestjs/compare/@atlantis-lab/nestjs-aws-s3@1.1.4...@atlantis-lab/nestjs-aws-s3@1.1.5) (2020-08-10)
+
+**Note:** Version bump only for package @atlantis-lab/nestjs-aws-s3
+
+
+
+
+
+## [1.1.4](https://github.com/Atlantis-Lab/nestjs/compare/@atlantis-lab/nestjs-aws-s3@1.1.3...@atlantis-lab/nestjs-aws-s3@1.1.4) (2020-07-28)
+
+**Note:** Version bump only for package @atlantis-lab/nestjs-aws-s3
+
+
+
+
+
 ## [1.1.3](https://github.com/Atlantis-Lab/nestjs/compare/@atlantis-lab/nestjs-aws-s3@1.1.2...@atlantis-lab/nestjs-aws-s3@1.1.3) (2020-07-26)
 
 **Note:** Version bump only for package @atlantis-lab/nestjs-aws-s3
