@@ -1,7 +1,7 @@
 {
   "name": "@atlantis-lab/nestjs-bus",
   "repository": "git@github.com:Atlantis-Lab/nestjs.git",
-  "version": "0.1.5",
+  "version": "0.1.8",
   "license": "MIT",
   "main": "dist/index.js",
   "source": "src/index.ts",
@@ -15,8 +15,8 @@
     "build": "tsc -p tsconfig.json"
   },
   "peerDependencies": {
-    "@nestjs/common": "^6.0.2",
-    "@nestjs/core": "^6.0.2",
+    "@nestjs/common": "^6.0.2 || ^7.0.0",
+    "@nestjs/core": "^6.0.2 || ^7.0.0",
     "reflect-metadata": "^0.1.12",
     "rxjs": "^6.3.3"
   },
@@ -34,11 +34,11 @@
     "typescript": "3.9.7"
   },
   "dependencies": {
-    "@atlantis-lab/nestjs-logger": "0.2.5",
+    "@atlantis-lab/nestjs-logger": "0.2.6",
     "@node-ts/bus-core": "0.5.2",
-    "@node-ts/bus-messages": "0.2.2",
+    "@node-ts/bus-messages": "0.3.0",
     "@node-ts/bus-rabbitmq": "0.5.1",
-    "@node-ts/logger-core": "0.1.0",
+    "@node-ts/logger-core": "0.1.1",
     "amqplib": "0.6.0",
     "inversify": "5.0.1",
     "serialize-error": "7.0.1"
