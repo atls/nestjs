@@ -1,7 +1,7 @@
 {
   "name": "@atlantis-lab/nestjs-signed-url",
   "repository": "git@github.com:Atlantis-Lab/nestjs.git",
-  "version": "0.1.7",
+  "version": "0.1.8",
   "license": "MIT",
   "main": "dist/index.js",
   "source": "src/index.ts",

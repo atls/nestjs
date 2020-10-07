@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.1.5](https://github.com/Atlantis-Lab/nestjs/compare/@atlantis-lab/server-scripts@0.1.4...@atlantis-lab/server-scripts@0.1.5) (2020-10-07)
+
+
+### Bug Fixes
+
+* **deps:** update dependency ts-node to v9 ([c3f4ae4](https://github.com/Atlantis-Lab/nestjs/commit/c3f4ae46d8a558b991598f22e23180cd287dd066))
+
+
+
+
+
 ## [0.1.4](https://github.com/Atlantis-Lab/nestjs/compare/@atlantis-lab/server-scripts@0.1.3...@atlantis-lab/server-scripts@0.1.4) (2020-07-28)
 
 **Note:** Version bump only for package @atlantis-lab/server-scripts
