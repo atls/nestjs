@@ -5,77 +5,44 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ## [0.2.6](https://github.com/Atlantis-Lab/nestjs/compare/@atlantis-lab/nestjs-logger@0.2.5...@atlantis-lab/nestjs-logger@0.2.6) (2020-09-08)
 
-
 ### Bug Fixes
 
-* **deps:** update dependency winston to v3.3.3 ([fd4b80d](https://github.com/Atlantis-Lab/nestjs/commit/fd4b80d5f7c66f00caa73529c55bde5a24ffa251))
-
-
-
-
+- **deps:** update dependency winston to v3.3.3 ([fd4b80d](https://github.com/Atlantis-Lab/nestjs/commit/fd4b80d5f7c66f00caa73529c55bde5a24ffa251))
 
 ## [0.2.5](https://github.com/Atlantis-Lab/nestjs/compare/@atlantis-lab/nestjs-logger@0.2.4...@atlantis-lab/nestjs-logger@0.2.5) (2020-07-28)
 
 **Note:** Version bump only for package @atlantis-lab/nestjs-logger
 
-
-
-
-
 ## [0.2.4](https://github.com/Atlantis-Lab/nestjs/compare/@atlantis-lab/nestjs-logger@0.2.3...@atlantis-lab/nestjs-logger@0.2.4) (2020-07-28)
 
 **Note:** Version bump only for package @atlantis-lab/nestjs-logger
-
-
-
-
 
 ## [0.2.3](https://github.com/Atlantis-Lab/nestjs/compare/@atlantis-lab/nestjs-logger@0.2.2...@atlantis-lab/nestjs-logger@0.2.3) (2020-07-28)
 
 **Note:** Version bump only for package @atlantis-lab/nestjs-logger
 
-
-
-
-
 ## [0.2.2](https://github.com/Atlantis-Lab/nestjs/compare/@atlantis-lab/nestjs-logger@0.2.1...@atlantis-lab/nestjs-logger@0.2.2) (2020-07-26)
 
 **Note:** Version bump only for package @atlantis-lab/nestjs-logger
 
-
-
-
-
 ## [0.2.1](https://github.com/Atlantis-Lab/nestjs/compare/@atlantis-lab/nestjs-logger@0.2.0...@atlantis-lab/nestjs-logger@0.2.1) (2020-07-22)
-
 
 ### Bug Fixes
 
-* **nestjs-logger:** missmatch typings path ([00a89e3](https://github.com/Atlantis-Lab/nestjs/commit/00a89e3ef171ddcea2a5d229fad2b3bc128576fa))
-
-
-
-
+- **nestjs-logger:** missmatch typings path ([00a89e3](https://github.com/Atlantis-Lab/nestjs/commit/00a89e3ef171ddcea2a5d229fad2b3bc128576fa))
 
 # [0.2.0](https://github.com/Atlantis-Lab/nestjs/compare/@atlantis-lab/nestjs-logger@0.1.0...@atlantis-lab/nestjs-logger@0.2.0) (2020-07-20)
 
-
 ### chore
 
-* **nestjs-logger:** use error throws instead of log ([269b860](https://github.com/Atlantis-Lab/nestjs/commit/269b860ea5354ce42aadf03e63d635911c60f427))
-
+- **nestjs-logger:** use error throws instead of log ([269b860](https://github.com/Atlantis-Lab/nestjs/commit/269b860ea5354ce42aadf03e63d635911c60f427))
 
 ### BREAKING CHANGES
 
-* **nestjs-logger:** INNER_LOGGER_CONFIG provider now throws errors
-
-
-
-
+- **nestjs-logger:** INNER_LOGGER_CONFIG provider now throws errors
 
 # 0.1.0 (2020-07-18)
 
-
 ### Features
 
-* **nestjs-logger:** init ([a8ecdb0](https://github.com/Atlantis-Lab/nestjs/commit/a8ecdb0712f9cd5c86b5d7378a3f635c4598a0ae))
+- **nestjs-logger:** init ([a8ecdb0](https://github.com/Atlantis-Lab/nestjs/commit/a8ecdb0712f9cd5c86b5d7378a3f635c4598a0ae))
