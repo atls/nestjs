@@ -30,7 +30,7 @@
     "@types/serialize-error": "4.0.1",
     "reflect-metadata": "0.1.13",
     "rimraf": "3.0.2",
-    "rxjs": "6.6.0",
+    "rxjs": "6.6.3",
     "typescript": "3.9.7"
   },
   "dependencies": {
@@ -38,8 +38,8 @@
     "@node-ts/bus-core": "0.5.2",
     "@node-ts/bus-messages": "0.3.0",
     "@node-ts/bus-rabbitmq": "0.5.1",
-    "@node-ts/logger-core": "0.1.0",
-    "amqplib": "0.5.5",
+    "@node-ts/logger-core": "0.1.1",
+    "amqplib": "0.6.0",
     "inversify": "5.0.1",
     "serialize-error": "7.0.1"
   },
