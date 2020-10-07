@@ -11,9 +11,9 @@
     "build": "lerna run build"
   },
   "devDependencies": {
-    "@atlantis-lab/tsconfig": "0.0.23",
+    "@atlantis-lab/tsconfig": "0.1.2",
     "@monstrs/mctl": "0.1.82",
-    "@types/node": "14.0.26",
+    "@types/node": "14.11.5",
     "husky": "4.3.0",
     "lerna": "3.22.1",
     "typescript": "3.9.7"
