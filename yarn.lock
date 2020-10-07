@@ -1851,10 +1851,10 @@
     serialize-error "^4.1.0"
     tslib "^1.11.1"
 
-"@node-ts/bus-messages@0.2.2":
-  version "0.2.2"
-  resolved "https://registry.yarnpkg.com/@node-ts/bus-messages/-/bus-messages-0.2.2.tgz#b980f0aa9d6ab83f51b78330b05f9c0e722f8adc"
-  integrity sha512-XRHiNEmQCyeqHcGI76LZOVujub6VaRdEgNeLgL4zAj1gcHOiC/51/+PNB8FzAyaHltfi0oB7grGunLXd5aeMeg==
+"@node-ts/bus-messages@0.3.0":
+  version "0.3.0"
+  resolved "https://registry.yarnpkg.com/@node-ts/bus-messages/-/bus-messages-0.3.0.tgz#a5e19474e54f24ff683fa4fd8e54e65ecb68ce78"
+  integrity sha512-rrjo6v8dv21kqbYcWFkohmUS7BwIfn6xyCPiAxAvVpdQ2QYdUY1e9XYshWg9PSmlCtKKYh2Hs4kFf4Mj4Yc10A==
   dependencies:
     tslib "^1.9.3"
 
@@ -1876,10 +1876,10 @@
     tslib "^1.9.3"
     uuid "^3.3.2"
 
-"@node-ts/logger-core@0.1.0":
-  version "0.1.0"
-  resolved "https://registry.yarnpkg.com/@node-ts/logger-core/-/logger-core-0.1.0.tgz#27a5520f7a83d671a897fcbbda8f7deb269a43f4"
-  integrity sha512-BlfjHLRHvPZNfaSBelo6yyK6ZKvMqUei5tvd5ezaHxbKHSN5xGQM2TRASfQ0jhvRlYdVIezk7aH8CeD6F9aylg==
+"@node-ts/logger-core@0.1.1":
+  version "0.1.1"
+  resolved "https://registry.yarnpkg.com/@node-ts/logger-core/-/logger-core-0.1.1.tgz#5ed9f6f001eecc87625b223c6c7c95c2330da5bc"
+  integrity sha512-CwVSxcWySDZmQbi5HHh15fUogavEE0yUVE6U4/F12aFaY7QKleBdfR1u+BvSb3XyfIjJUbiS6RPxCcXhkaHyOg==
 
 "@nodelib/fs.scandir@2.1.3":
   version "2.1.3"
@@ -2968,10 +2968,10 @@ ajv@^6.12.2:
     json-schema-traverse "^0.4.1"
     uri-js "^4.2.2"
 
-amqplib@0.5.5:
-  version "0.5.5"
-  resolved "https://registry.yarnpkg.com/amqplib/-/amqplib-0.5.5.tgz#698f0cb577e0591954a90572fcb3b8998a76fd40"
-  integrity sha512-sWx1hbfHbyKMw6bXOK2k6+lHL8TESWxjAx5hG8fBtT7wcxoXNIsFxZMnFyBjxt3yL14vn7WqBDe5U6BGOadtLg==
+amqplib@0.6.0:
+  version "0.6.0"
+  resolved "https://registry.yarnpkg.com/amqplib/-/amqplib-0.6.0.tgz#87857c7c95d56d22438ced4cf1f7e5f0dc43b309"
+  integrity sha512-zXCh4jQ77TBZe1YtvZ1n7sUxnTjnNagpy8MVi2yc1ive239pS3iLwm4e4d5o4XZGx1BdTKQ/U0ZmaDU3c8MxYQ==
   dependencies:
     bitsyntax "~0.1.0"
     bluebird "^3.5.2"
@@ -3315,10 +3315,10 @@ autobind-decorator@^2.4.0:
   resolved "https://registry.yarnpkg.com/autobind-decorator/-/autobind-decorator-2.4.0.tgz#ea9e1c98708cf3b5b356f7cf9f10f265ff18239c"
   integrity sha512-OGYhWUO72V6DafbF8PM8rm3EPbfuyMZcJhtm5/n26IDwO18pohE4eNazLoCGhPiXOCD0gEGmrbU3849QvM8bbw==
 
-aws-sdk@2.747.0:
-  version "2.747.0"
-  resolved "https://registry.yarnpkg.com/aws-sdk/-/aws-sdk-2.747.0.tgz#487776536a7f8e4e18d57ff22dd50d777f1d0fe8"
-  integrity sha512-JA2ygLXFw0tLjc6nlauH3wnc6haoPU023fJCZN01xrw22l+s4rRjVGxJmG83VrfCmq+lrqCv0kVwlzyxbixGhA==
+aws-sdk@2.752.0:
+  version "2.752.0"
+  resolved "https://registry.yarnpkg.com/aws-sdk/-/aws-sdk-2.752.0.tgz#0d6e38bd43f023f44ad5db66be6f6afc0d9a1278"
+  integrity sha512-0/8Pt8/qEgxt02IEvRjinR3cEj1YmmPlJqie4NhCWmmXmI4wDmEb5Em3A2XvU1dNwS0fpQEcuRcaQ/pWi/mScg==
   dependencies:
     buffer "4.9.2"
     events "1.1.1"
