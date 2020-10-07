@@ -61,6 +61,12 @@ jobs:
           github.event.pull_request.merged == true &&
           github.event.pull_request.base.ref == 'master'
 
+      # Build
+      - run: yarn build
+        if: >
+          github.event.pull_request.merged == true &&
+          github.event.pull_request.base.ref == 'master'
+
       # Release
       - run: yarn lerna version --yes
         env:
