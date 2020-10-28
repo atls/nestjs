@@ -1,6 +1,4 @@
-/* eslint prettier/prettier: 0 */
-
-import { HandlerRegistration, HandlerResolver }        from '@node-ts/bus-core'
+import { HandlerRegistration }                         from '@node-ts/bus-core'
 import { Handler, MessageType }                        from '@node-ts/bus-core/dist/handler/handler'
 import {
   ClassConstructor,
@@ -18,7 +16,17 @@ export type HandlerType =
   | ClassConstructor<Handler<Message>>
   | ((context: interfaces.Context) => Handler<Message>)
 
-function getHandlerName(handler: any) {
+export type HandlerDetails = {
+  symbol: symbol
+  handler: HandlerType
+}
+
+export type MessageRegistryEntry = {
+  messageType: MessageType
+  handlers: Array<HandlerDetails>
+}
+
+function getHandlerName(handler: any): string {
   return isCC(handler) ? handler.prototype.constructor.name : handler.constructor.name
 }
 
@@ -26,7 +34,9 @@ function getHandlerName(handler: any) {
 export class HandlerRegistry {
   private container: any
 
-  private handlerResolvers: any[] = []
+  private registry: { [key: string]: MessageRegistryEntry } = {}
+
+  private unhandledMessages: string[] = []
 
   constructor(
     @Inject(LOGGER_SYMBOLS.Logger)
@@ -35,14 +45,22 @@ export class HandlerRegistry {
   ) {}
 
   register<TMessage extends MessageType = MessageType>(
-    resolver: (message: TMessage) => boolean,
+    messageName: string,
     symbol: symbol,
     handler: HandlerType,
-    messageType?: ClassConstructor<Message>,
-    topicIdentifier?: string
+    messageType?: ClassConstructor<TMessage>
   ): void {
+    if (!this.registry[messageName]) {
+      this.registry[messageName] = {
+        messageType,
+        handlers: [],
+      }
+    }
+
     const handlerName = getHandlerName(handler)
-    const handlerAlreadyRegistered = this.handlerResolvers.some((f: any) => f.symbol === symbol)
+    const handlerAlreadyRegistered = this.registry[messageName].handlers.some(
+      f => f.symbol === symbol
+    )
 
     if (handlerAlreadyRegistered) {
       this.logger.warn("Attempted to re-register a handler that's already registered", {
@@ -52,6 +70,20 @@ export class HandlerRegistry {
     }
 
     if (isCC(handler)) {
+      const allRegisteredHandlers = [...Object.values(this.registry)].flatMap(
+        message => message.handlers
+      )
+      const handlerNameAlreadyRegistered = allRegisteredHandlers.some(
+        f => f.handler.name === handler.name
+      )
+
+      if (handlerNameAlreadyRegistered) {
+        throw new Error(
+          'Attempted to register a handler, when a handler with the same name has already been registered. ' +
+            `Handlers must be registered with a unique name - "${handler.name}"`
+        )
+      }
+
       try {
         decorate(injectable(), handler)
         this.logger.trace(
@@ -62,39 +94,38 @@ export class HandlerRegistry {
       } catch (_a) {}
     }
 
-    this.handlerResolvers.push({
-      messageType,
-      resolver,
+    const handlerDetails = {
       symbol,
       handler,
-      topicIdentifier,
-    })
+    }
+    this.registry[messageName].handlers.push(handlerDetails)
     this.logger.info('Handler registered', {
-      messageName: messageType ? messageType.name : undefined,
+      messageType: messageName,
       handler: handlerName,
     })
   }
 
-  get<TMessage extends MessageType>(message: TMessage): HandlerRegistration<TMessage>[] {
-    const resolvedHandlers = this.handlerResolvers.filter(resolvers => resolvers.resolver(message))
-    if (resolvedHandlers.length === 0) {
-      this.logger.warn(
-        'No handlers were registered for message. ' +
-          "This could mean that either the handlers haven't been registered with bootstrap.registerHandler(), " +
-          "or that the underlying transport is subscribed to messages that aren't handled and should be removed.",
-        { receivedMessage: message }
-      )
+  get<TMessage extends MessageType>(messageName: string): HandlerRegistration<TMessage>[] {
+    if (!(messageName in this.registry)) {
+      if (!this.unhandledMessages.some(m => m === messageName)) {
+        this.unhandledMessages.push(messageName)
+        this.logger.warn(
+          `No handlers were registered for message "${messageName}". ` +
+            "This could mean that either the handlers haven't been registered with bootstrap.registerHandler(), " +
+            "or that the underlying transport is subscribed to messages that aren't handled and should be removed."
+        )
+      }
       return []
     }
-    return resolvedHandlers.map(h => ({
+    return this.registry[messageName].handlers.map(h => ({
       defaultContainer: this.container,
       resolveHandler: container => {
-        this.logger.debug('Resolving handlers for message.', {
-          receivedMessage: message,
+        this.logger.debug(`Resolving handlers for ${messageName}.`, {
+          receivedMessage: messageName,
         })
         let handler = null
         try {
-          handler = this.moduleRef.get(h.handler, {
+          handler = this.moduleRef.get(h.handler as ClassConstructor<Handler<Message>>, {
             strict: false,
           })
           // eslint-disable-next-line
@@ -106,7 +137,7 @@ export class HandlerRegistry {
           return container.get(h.symbol)
         } catch (error) {
           this.logger.error('Could not resolve handler from the IoC container.', {
-            receivedMessage: message,
+            receivedMessage: messageName,
             error: serializeError(error),
           })
           throw error
@@ -124,26 +155,38 @@ export class HandlerRegistry {
     return handler.constructor.name
   }
 
-  get messageSubscriptions(): HandlerResolver[] {
-    return this.handlerResolvers
+  getMessageNames() {
+    return Object.keys(this.registry)
+  }
+
+  getMessageConstructor(messageName) {
+    if (!(messageName in this.registry)) {
+      return undefined
+    }
+    return this.registry[messageName].messageType
   }
 
   private bindHandlers() {
-    this.handlerResolvers.forEach(handlerRegistration => {
-      const handlerName = getHandlerName(handlerRegistration.handler)
-      this.logger.debug('Binding handler to message', { handlerName })
+    Object.entries(this.registry).forEach(([messageName, messageHandler]) => {
+      messageHandler.handlers.forEach(handlerRegistration => {
+        const handlerName = getHandlerName(handlerRegistration.handler)
+        this.logger.debug('Binding handler to message', {
+          messageName,
+          handlerName,
+        })
 
-      if (isCC(handlerRegistration.handler)) {
-        this.container
-          .bind(handlerRegistration.symbol)
-          .to(handlerRegistration.handler)
-          .inTransientScope()
-      } else {
-        this.container
-          .bind(handlerRegistration.symbol)
-          .toDynamicValue(handlerRegistration.handler)
-          .inTransientScope()
-      }
+        if (isCC(handlerRegistration.handler)) {
+          this.container
+            .bind(handlerRegistration.symbol)
+            .to(handlerRegistration.handler)
+            .inTransientScope()
+        } else {
+          this.container
+            .bind(handlerRegistration.symbol)
+            .toDynamicValue(handlerRegistration.handler)
+            .inTransientScope()
+        }
+      })
     })
   }
 }
