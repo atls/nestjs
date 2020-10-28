@@ -1,10 +1,8 @@
-/* eslint prettier/prettier: 0 */
-
 import { ApplicationBootstrap, BUS_SYMBOLS } from '@node-ts/bus-core'
 import { BUS_INTERNAL_SYMBOLS }              from '@node-ts/bus-core/dist/bus-symbols'
 import { Container }                         from 'inversify'
 
-import { Logger }                            from '@atlantis-lab/nestjs-logger'
+import { Logger, LoggerModule }              from '@atlantis-lab/nestjs-logger'
 import {
   DynamicModule,
   Global,
@@ -57,6 +55,7 @@ export class BusCoreModule implements OnModuleInit, OnModuleDestroy, OnApplicati
     }
     return {
       module: BusCoreModule,
+      imports: [LoggerModule.forRoot()],
       providers: [
         ExplorerService,
         messageHandlingContextProvider,
