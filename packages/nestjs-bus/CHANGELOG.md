@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.2.0](https://github.com/Atlantis-Lab/nestjs/compare/@atlantis-lab/nestjs-bus@0.1.9...@atlantis-lab/nestjs-bus@0.2.0) (2020-10-28)
+
+
+### Bug Fixes
+
+* **nestjs-bus:** add import LoggerModule to BusCoreModule.forRoot static method ([43c6472](https://github.com/Atlantis-Lab/nestjs/commit/43c6472abf599ee5b34b30ce5cccee0099e0e519)), closes [#114](https://github.com/Atlantis-Lab/nestjs/issues/114)
+
+
+### Features
+
+* **nestjs-bus:** add mutliple handlers per message ([73b6f4a](https://github.com/Atlantis-Lab/nestjs/commit/73b6f4a0bc8267ded46b61de53070aa4c754ce41)), closes [#114](https://github.com/Atlantis-Lab/nestjs/issues/114)
+
+
+
+
+
 ## [0.1.9](https://github.com/Atlantis-Lab/nestjs/compare/@atlantis-lab/nestjs-bus@0.1.8...@atlantis-lab/nestjs-bus@0.1.9) (2020-10-07)
 
 
