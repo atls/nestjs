@@ -28,7 +28,7 @@
     "chalk": "^4.0.0",
     "file-loader": "^6.0.0",
     "glob-promise": "^3.4.0",
-    "react-dev-utils": "^10.0.0",
+    "react-dev-utils": "^11.0.0",
     "start-server-webpack-plugin": "^2.2.5",
     "ts-loader": "^8.0.0",
     "ts-node": "^9.0.0",
