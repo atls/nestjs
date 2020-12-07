@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.2.9](https://github.com/Atlantis-Lab/nestjs/compare/@atlantis-lab/nestjs-logger@0.2.8...@atlantis-lab/nestjs-logger@0.2.9) (2020-12-07)
+
+**Note:** Version bump only for package @atlantis-lab/nestjs-logger
+
+
+
+
+
 ## [0.2.8](https://github.com/Atlantis-Lab/nestjs/compare/@atlantis-lab/nestjs-logger@0.2.7...@atlantis-lab/nestjs-logger@0.2.8) (2020-12-07)
 
 **Note:** Version bump only for package @atlantis-lab/nestjs-logger

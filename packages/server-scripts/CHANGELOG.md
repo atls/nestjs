@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.1.6](https://github.com/Atlantis-Lab/nestjs/compare/@atlantis-lab/server-scripts@0.1.5...@atlantis-lab/server-scripts@0.1.6) (2020-12-07)
+
+
+### Bug Fixes
+
+* **deps:** update dependency react-dev-utils to v11 ([e135d54](https://github.com/Atlantis-Lab/nestjs/commit/e135d549ef8b5feb32eda7399449cd9e88d6e99b))
+
+
+
+
+
 ## [0.1.5](https://github.com/Atlantis-Lab/nestjs/compare/@atlantis-lab/server-scripts@0.1.4...@atlantis-lab/server-scripts@0.1.5) (2020-10-07)
 
 
