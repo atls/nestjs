@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.1.10](https://github.com/Atlantis-Lab/nestjs/compare/@atlantis-lab/nestjs-signed-url@0.1.9...@atlantis-lab/nestjs-signed-url@0.1.10) (2020-12-07)
+
+**Note:** Version bump only for package @atlantis-lab/nestjs-signed-url
+
+
+
+
+
 ## [0.1.9](https://github.com/Atlantis-Lab/nestjs/compare/@atlantis-lab/nestjs-signed-url@0.1.8...@atlantis-lab/nestjs-signed-url@0.1.9) (2020-12-07)
 
 **Note:** Version bump only for package @atlantis-lab/nestjs-signed-url
