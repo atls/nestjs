@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0](https://github.com/Atlantis-Lab/nestjs/compare/@atlantis-lab/nestjs-tinkoff@1.2.2...@atlantis-lab/nestjs-tinkoff@2.0.0) (2020-12-29)
+
+
+### Features
+
+* **nestjs-tinkoff:** migrate to @atlantis-lab/tinkoff-api ([a698c3a](https://github.com/Atlantis-Lab/nestjs/commit/a698c3a7aa612ef4a4fb66faa2547bc51949e822))
+
+
+### BREAKING CHANGES
+
+* **nestjs-tinkoff:** You should be use @alantis-lab/tinkoff-api instead of @aunited packages
+
+
+
+
+
 ## [1.2.2](https://github.com/Atlantis-Lab/nestjs/compare/@atlantis-lab/nestjs-tinkoff@1.2.1...@atlantis-lab/nestjs-tinkoff@1.2.2) (2020-12-07)
 
 **Note:** Version bump only for package @atlantis-lab/nestjs-tinkoff
