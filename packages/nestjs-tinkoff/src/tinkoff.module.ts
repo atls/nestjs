@@ -1,4 +1,4 @@
-import { TinkoffPublicOptions }  from '@aunited/tinkoff-api'
+import { TinkoffPublicOptions }  from '@atlantis-lab/tinkoff-api'
 
 import { DynamicModule, Module } from '@nestjs/common'
 
