@@ -66,17 +66,18 @@
     "@angular-devkit/core" "8.3.20"
     rxjs "6.4.0"
 
+"@atlantis-lab/tinkoff-api@0.1.1":
+  version "0.1.1"
+  resolved "https://registry.yarnpkg.com/@atlantis-lab/tinkoff-api/-/tinkoff-api-0.1.1.tgz#bf591c4f5fcb0d18c60bffedda947c7fb43cc498"
+  integrity sha512-akwjFgx5C1TJtJADyb6y+SJJCAouFUnrxqP5RczlndmRJzBgrkKbXYrGycPlUDcBKOWcGmCYsm2aDCTvUubZ8A==
+  dependencies:
+    node-fetch "2.6.1"
+    rimraf "3.0.2"
+
 "@atlantis-lab/tsconfig@0.1.2":
   version "0.1.2"
   resolved "https://registry.yarnpkg.com/@atlantis-lab/tsconfig/-/tsconfig-0.1.2.tgz#3365c6e2b4a1a2fe396c1208a41a66aa69f67375"
   integrity sha512-GR3AxPnaC3drLf+65SsW07c3HsaSJYdoU2mIj5Dtw6dsiu6JboCSjiX1k3l+rF2DsF75c7+gNL+f5EB2SmV12A==
-
-"@aunited/tinkoff-api@0.0.1":
-  version "0.0.1"
-  resolved "https://registry.yarnpkg.com/@aunited/tinkoff-api/-/tinkoff-api-0.0.1.tgz#7bbad249acd20b5fffcd96249bb9ad22b6aa1d4f"
-  integrity sha512-ElrXR2C6wCAx3zb035PXVtZX9sSATqxmcT5xvOBYLLJViy4SsoWA/31uQxxsDaUZLO/A93g/LklbOyu4lToUhQ==
-  dependencies:
-    node-fetch "2.6.0"
 
 "@babel/code-frame@7.10.4", "@babel/code-frame@^7.5.5":
   version "7.10.4"
@@ -9472,7 +9473,12 @@ node-fetch-npm@^2.0.2:
     json-parse-better-errors "^1.0.0"
     safe-buffer "^5.1.1"
 
-node-fetch@2.6.0, node-fetch@^2.2.0, node-fetch@^2.3.0, node-fetch@^2.5.0:
+node-fetch@2.6.1:
+  version "2.6.1"
+  resolved "https://registry.yarnpkg.com/node-fetch/-/node-fetch-2.6.1.tgz#045bd323631f76ed2e2b55573394416b639a0052"
+  integrity sha512-V4aYg89jEoVRxRb2fJdAg8FHvI7cEyYdVAh94HH0UIK8oJxUfkjlDQN9RbMx+bEjP7+ggMiFRprSti032Oipxw==
+
+node-fetch@^2.2.0, node-fetch@^2.3.0, node-fetch@^2.5.0:
   version "2.6.0"
   resolved "https://registry.yarnpkg.com/node-fetch/-/node-fetch-2.6.0.tgz#e633456386d4aa55863f676a7ab0daa8fdecb0fd"
   integrity sha512-8dG4H5ujfvFiqDmVu9fQ5bOHUC15JMjMY/Zumv26oOvvVJjM67KF8koCWIabKQ1GJIa9r2mMZscBq/TbdOcmNA==
