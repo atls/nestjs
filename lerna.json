@@ -1,5 +1,4 @@
 {
-  "lerna": "3.22.0",
   "packages": ["packages/*"],
   "npmClient": "yarn",
   "useWorkspaces": true,
@@ -8,8 +7,7 @@
     "version": {
       "allowBranch": "master",
       "conventionalCommits": true,
-      "exact": true,
-      "message": "chore(release): %s"
+      "exact": true
     }
   }
 }
