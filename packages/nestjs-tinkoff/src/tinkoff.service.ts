@@ -1,4 +1,4 @@
-import { Tinkoff, TinkoffPublicOptions } from '@aunited/tinkoff-api'
+import { Tinkoff, TinkoffPublicOptions } from '@atlantis-lab/tinkoff-api'
 
 import { Inject, Injectable }            from '@nestjs/common'
 
