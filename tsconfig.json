@@ -1,5 +1,5 @@
 {
-  "extends": "@monstrs/tsconfig/tsconfig.base.json",
+  "extends": "@atlantis-lab/tsconfig/tsconfig.base.json",
   "include": ["packages/**/**/*"],
   "compilerOptions": {
     "skipLibCheck": true
