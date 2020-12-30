@@ -16,14 +16,14 @@
   },
   "peerDependencies": {
     "@google-cloud/logging-winston": "4.0.0",
-    "@nestjs/common": "7.4.4",
-    "@nestjs/core": "7.4.4",
+    "@nestjs/common": "7.6.5",
+    "@nestjs/core": "7.6.5",
     "reflect-metadata": "0.1.13",
     "rxjs": "6.6.3"
   },
   "devDependencies": {
-    "@nestjs/common": "7.3.2",
-    "@nestjs/core": "7.3.2",
+    "@nestjs/common": "7.6.5",
+    "@nestjs/core": "7.6.5",
     "@types/node": "14.14.10",
     "reflect-metadata": "0.1.13",
     "rimraf": "3.0.2",
