@@ -156,7 +156,7 @@
     execa "3.4.0"
     tslib "^1"
 
-"@atlantis-lab/actl@^0.4.5":
+"@atlantis-lab/actl@0.4.5":
   version "0.4.5"
   resolved "https://registry.yarnpkg.com/@atlantis-lab/actl/-/actl-0.4.5.tgz#a0fac55a0420089da3c9b87cd8e46db70b3addb0"
   integrity sha512-njB/MyD0u3V+1ScuohPKs+AhDthobfrXUMLnzHPs4IZyGMyBG2hsi3xUWfNx1jOI/fjayjVE5HDOvGXC8hKwfQ==
