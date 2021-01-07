@@ -1,16 +1,14 @@
-name: Publisher
+name: Publish
 
 on:
   pull_request:
     types: [closed]
     branches: [master]
-    paths-ignore:
-      - '!**package.json'
-      - '!**yarn.lock'
 
 jobs:
-  build:
+  publish:
     runs-on: ubuntu-latest
+    
     steps:
       - uses: actions/checkout@v2
 
@@ -37,9 +35,11 @@ jobs:
         run: yarn
 
       - name: Create Release
-        run: yarn lerna version --yes
-        env:
-          GH_TOKEN: ${{ secrets.GH_TOKEN }}
+        run: |
+          yarn lerna version --no-git-tag-version --yes
+          git add .
+          git commit -m 'chore(release): publish'
+          git push
 
       - name: Config NPM
         uses: actions/setup-node@v1
