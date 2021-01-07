@@ -2,7 +2,7 @@ import { Tinkoff, TinkoffPublicOptions } from '@atlantis-lab/tinkoff-api'
 
 import { Inject, Injectable }            from '@nestjs/common'
 
-import { TINKOFF_API_OPTIONS }           from './tinkoff.constants'
+import { TINKOFF_API_OPTIONS }           from '../tinkoff.constants'
 
 @Injectable()
 export class TinkoffService extends Tinkoff {
