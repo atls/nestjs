@@ -2,8 +2,8 @@ import { TinkoffPublicOptions }  from '@atlantis-lab/tinkoff-api'
 
 import { DynamicModule, Module } from '@nestjs/common'
 
+import { TinkoffService }        from './services'
 import { TINKOFF_API_OPTIONS }   from './tinkoff.constants'
-import { TinkoffService }        from './tinkoff.service'
 
 @Module({
   providers: [TinkoffService],
