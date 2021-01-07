@@ -66,10 +66,10 @@
     "@angular-devkit/core" "8.3.20"
     rxjs "6.4.0"
 
-"@atlantis-lab/tinkoff-api@0.1.1":
-  version "0.1.1"
-  resolved "https://registry.yarnpkg.com/@atlantis-lab/tinkoff-api/-/tinkoff-api-0.1.1.tgz#bf591c4f5fcb0d18c60bffedda947c7fb43cc498"
-  integrity sha512-akwjFgx5C1TJtJADyb6y+SJJCAouFUnrxqP5RczlndmRJzBgrkKbXYrGycPlUDcBKOWcGmCYsm2aDCTvUubZ8A==
+"@atlantis-lab/tinkoff-api@0.1.5":
+  version "0.1.5"
+  resolved "https://registry.yarnpkg.com/@atlantis-lab/tinkoff-api/-/tinkoff-api-0.1.5.tgz#df6f85065c2bfce80fa4146c11cf60a1b24d223a"
+  integrity sha512-HR4fz+VQYq9qPt+2aHqhSyR/sAydUStGx3voqG+PaPAz4dQu6wcWLydAXJhtGNWCCbHZZ0ugpDB8t6LbXCJhgQ==
   dependencies:
     node-fetch "2.6.1"
     rimraf "3.0.2"

@@ -1,2 +1,3 @@
 export * from './tinkoff.module'
-export * from './tinkoff.service'
+export * from './services'
+export * from './guards'
