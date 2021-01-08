@@ -1,7 +1,7 @@
 {
   "name": "@atlantis-lab/nestjs-logger",
   "repository": "git@github.com:Atlantis-Lab/nestjs.git",
-  "version": "0.2.10",
+  "version": "0.2.11",
   "license": "BSD-3 Clause",
   "main": "dist/index.js",
   "source": "src/index.ts",

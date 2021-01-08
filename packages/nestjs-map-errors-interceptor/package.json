@@ -1,7 +1,7 @@
 {
   "name": "@atlantis-lab/nestjs-map-errors-interceptor",
   "repository": "git@github.com:Atlantis-Lab/nestjs.git",
-  "version": "0.1.9",
+  "version": "0.1.10",
   "license": "BSD-3 Clause",
   "main": "dist/index.js",
   "source": "src/index.ts",
