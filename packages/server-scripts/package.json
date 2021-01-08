@@ -1,7 +1,7 @@
 {
   "name": "@atlantis-lab/server-scripts",
   "repository": "git@github.com:Atlantis-Lab/nestjs.git",
-  "version": "0.1.7",
+  "version": "0.1.8",
   "license": "BSD-3 Clause",
   "main": "dist/index.js",
   "umd:main": "dist/index.umd.js",

@@ -1,7 +1,7 @@
 {
   "name": "@atlantis-lab/nestjs-tinkoff",
   "repository": "git@github.com:Atlantis-Lab/nestjs.git",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "license": "BSD-3 Clause",
   "main": "dist/index.js",
   "files": [
