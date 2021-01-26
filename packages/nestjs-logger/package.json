@@ -1,7 +1,7 @@
 {
   "name": "@atlantis-lab/nestjs-logger",
   "repository": "git@github.com:Atlantis-Lab/nestjs.git",
-  "version": "0.2.13",
+  "version": "0.2.16",
   "license": "BSD-3 Clause",
   "main": "dist/index.js",
   "source": "src/index.ts",
@@ -15,7 +15,7 @@
     "build": "tsc -p tsconfig.json"
   },
   "peerDependencies": {
-    "@google-cloud/logging-winston": "4.0.0",
+    "@google-cloud/logging-winston": "4.0.2",
     "@nestjs/common": "7.4.4",
     "@nestjs/core": "7.4.4",
     "reflect-metadata": "0.1.13",
