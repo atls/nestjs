@@ -1,4 +1,4 @@
-name: Publish
+name: Publishing
 
 on:
   pull_request:
@@ -6,9 +6,8 @@ on:
     branches: [master]
 
 jobs:
-  publish:
+  publishing:
     runs-on: ubuntu-latest
-    
     steps:
       - uses: actions/checkout@v2
 
@@ -35,14 +34,12 @@ jobs:
         run: yarn
 
       - name: Create Release
-        run: |
-          yarn lerna version --no-git-tag-version --yes
-          git add .
-          git commit -m 'chore(release): publish'
-          git push
+        run: yarn lerna version --yes
+        env:
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
 
       - name: Config NPM
-        uses: actions/setup-node@v1
+        uses: actions/setup-node@v2
         with:
           node-version: 14
           registry-url: https://registry.npmjs.org/
@@ -53,7 +50,7 @@ jobs:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
       - name: Config GPR
-        uses: actions/setup-node@v1
+        uses: actions/setup-node@v2
         with:
           node-version: 14
           registry-url: https://npm.pkg.github.com/

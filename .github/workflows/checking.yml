@@ -1,14 +1,14 @@
-name: Check
+name: Checking
 
 on:
   pull_request:
     paths:
       - '**'
+      - '!.github/**'
 
 jobs:
-  check:
+  checking:
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout
         uses: actions/checkout@v2
