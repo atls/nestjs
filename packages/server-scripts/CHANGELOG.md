@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 0.1.14 (2021-01-26)
+
+**Note:** Version bump only for package @atlantis-lab/server-scripts
+
+
+
+
+
 ## 0.1.13 (2021-01-21)
 
 **Note:** Version bump only for package @atlantis-lab/server-scripts
