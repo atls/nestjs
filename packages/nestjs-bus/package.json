@@ -40,7 +40,7 @@
     "@node-ts/bus-rabbitmq": "0.6.4",
     "@node-ts/logger-core": "0.1.1",
     "amqplib": "0.6.0",
-    "inversify": "5.0.1",
+    "inversify": "5.0.5",
     "serialize-error": "7.0.1"
   },
   "publishConfig": {
