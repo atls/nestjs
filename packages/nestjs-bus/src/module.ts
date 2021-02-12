@@ -14,7 +14,7 @@ export class BusModule {
   static forMemory(): DynamicModule {
     const transportProvider = {
       provide: BUS_SYMBOLS.Transport,
-      useFactory: (logger: any) => new MemoryQueue(logger),
+      useFactory: (logger: any, handlerRegistry?: any) => new MemoryQueue(logger, handlerRegistry),
       inject: [Logger],
     }
     return {
@@ -27,7 +27,14 @@ export class BusModule {
     const connectionFactory = () => connect(configuration.connectionString)
     const transportProvider = {
       provide: BUS_SYMBOLS.Transport,
-      useFactory: (logger: any) => new RabbitMqTransport(connectionFactory, configuration, logger),
+      useFactory: (logger: any, handlerRegistry?: any, messageSerializer?: any) =>
+        new RabbitMqTransport(
+          connectionFactory,
+          configuration,
+          logger,
+          handlerRegistry,
+          messageSerializer
+        ),
       inject: [Logger],
     }
     return {
