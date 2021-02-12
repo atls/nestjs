@@ -1,5 +1,6 @@
 import { ApplicationBootstrap, BUS_SYMBOLS } from '@node-ts/bus-core'
 import { BUS_INTERNAL_SYMBOLS }              from '@node-ts/bus-core/dist/bus-symbols'
+import { MessageAttributes }                 from '@node-ts/bus-messages'
 import { Container }                         from 'inversify'
 
 import { Logger, LoggerModule }              from '@atlantis-lab/nestjs-logger'
@@ -12,7 +13,6 @@ import {
   OnModuleInit,
 } from '@nestjs/common'
 import { ModuleRef }                         from '@nestjs/core'
-import { MessageAttributes }                 from '@node-ts/bus-messages'
 
 import { Bus }                               from './bus'
 import { HandlerRegistry }                   from './handler'
@@ -43,8 +43,20 @@ export class BusCoreModule implements OnModuleInit, OnModuleDestroy, OnApplicati
         transport: any,
         logger: any,
         handlerRegistry: any,
-        messageHandlingContext: any
-      ) => new Bus(transport, logger, handlerRegistry, messageHandlingContext),
+        messageHandlingContext: any,
+        busHooks?: any,
+        busConfiguration?: any,
+        rawMessage?: any
+      ) =>
+        new Bus(
+          transport,
+          logger,
+          handlerRegistry,
+          messageHandlingContext,
+          busHooks,
+          busConfiguration,
+          rawMessage
+        ),
       inject: [BUS_SYMBOLS.Transport, Logger, HandlerRegistry, BUS_SYMBOLS.MessageHandlingContext],
     }
     const applicationBootstrapProvider = {
@@ -79,6 +91,7 @@ export class BusCoreModule implements OnModuleInit, OnModuleDestroy, OnApplicati
       bind(BUS_SYMBOLS.Bus).toConstantValue(this.bus)
     })
 
+    // @ts-ignore
     await this.applicationBootstrap.initialize(container)
   }
 
