@@ -3,7 +3,7 @@ import { Test }                           from '@nestjs/testing'
 import { SignedUrlService }               from '../src'
 import { GcsStorage, STORAGE, SignedUrl } from '../src/storage'
 
-describe('CatsController', () => {
+describe('SignedUrlService', () => {
   let signedUrlService: SignedUrlService
   const storageProvider = {
     provide: STORAGE,
