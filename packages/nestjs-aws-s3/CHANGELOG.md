@@ -3,6 +3,118 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 1.1.32 (2021-02-14)
+
+**Note:** Version bump only for package @atlantis-lab/nestjs-aws-s3
+
+
+
+
+
+## 1.1.31 (2021-02-14)
+
+**Note:** Version bump only for package @atlantis-lab/nestjs-aws-s3
+
+
+
+
+
+## 1.1.30 (2021-02-12)
+
+**Note:** Version bump only for package @atlantis-lab/nestjs-aws-s3
+
+
+
+
+
+## 1.1.29 (2021-02-12)
+
+**Note:** Version bump only for package @atlantis-lab/nestjs-aws-s3
+
+
+
+
+
+## 1.1.28 (2021-02-12)
+
+**Note:** Version bump only for package @atlantis-lab/nestjs-aws-s3
+
+
+
+
+
+## 1.1.27 (2021-02-04)
+
+**Note:** Version bump only for package @atlantis-lab/nestjs-aws-s3
+
+
+
+
+
+## 1.1.26 (2021-01-31)
+
+**Note:** Version bump only for package @atlantis-lab/nestjs-aws-s3
+
+
+
+
+
+## 1.1.25 (2021-01-26)
+
+**Note:** Version bump only for package @atlantis-lab/nestjs-aws-s3
+
+
+
+
+
+## 1.1.24 (2021-01-21)
+
+**Note:** Version bump only for package @atlantis-lab/nestjs-aws-s3
+
+
+
+
+
+## 1.1.23 (2021-01-16)
+
+**Note:** Version bump only for package @atlantis-lab/nestjs-aws-s3
+
+
+
+
+
+## 1.1.22 (2021-01-16)
+
+**Note:** Version bump only for package @atlantis-lab/nestjs-aws-s3
+
+
+
+
+
+## 1.1.21 (2021-01-11)
+
+**Note:** Version bump only for package @atlantis-lab/nestjs-aws-s3
+
+
+
+
+
+## 1.1.20 (2021-01-08)
+
+**Note:** Version bump only for package @atlantis-lab/nestjs-aws-s3
+
+
+
+
+
+## 1.1.19 (2021-01-08)
+
+**Note:** Version bump only for package @atlantis-lab/nestjs-aws-s3
+
+
+
+
+
 ## [1.1.18](https://github.com/Atlantis-Lab/nestjs/compare/@atlantis-lab/nestjs-aws-s3@1.1.17...@atlantis-lab/nestjs-aws-s3@1.1.18) (2020-12-29)
 
 **Note:** Version bump only for package @atlantis-lab/nestjs-aws-s3

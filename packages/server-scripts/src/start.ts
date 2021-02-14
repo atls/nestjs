@@ -23,13 +23,12 @@ export const bootstrap = async () => {
     urls: {},
   } as any)
   // eslint-disable-next-line
-  const watching = compiler.watch({}, error => {
+  return compiler.watch({}, error => {
     if (error) {
       return console.log(error)
     }
     console.log(chalk.cyan('Starting the development server...\n'))
   })
-  return watching
 }
 
 const handleSignals = watching => {

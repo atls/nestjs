@@ -4,13 +4,13 @@ import {
   ClassConstructor,
   isClassConstructor as isCC,
 } from '@node-ts/bus-core/dist/util/class-constructor'
+import { Message }                                     from '@node-ts/bus-messages'
 import { LOGGER_SYMBOLS, Logger }                      from '@node-ts/logger-core'
 import { Container, decorate, injectable, interfaces } from 'inversify'
 import { serializeError }                              from 'serialize-error'
 
 import { Inject }                                      from '@nestjs/common'
 import { ModuleRef }                                   from '@nestjs/core'
-import { Message }                                     from '@node-ts/bus-messages'
 
 export type HandlerType =
   | ClassConstructor<Handler<Message>>
