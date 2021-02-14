@@ -1,7 +1,7 @@
 {
   "name": "@atlantis-lab/server-scripts",
   "repository": "git@github.com:Atlantis-Lab/nestjs.git",
-  "version": "0.1.7",
+  "version": "0.1.21",
   "license": "BSD-3 Clause",
   "main": "dist/index.js",
   "umd:main": "dist/index.umd.js",
@@ -29,12 +29,13 @@
     "start-server-webpack-plugin": "^2.2.5",
     "ts-loader": "^8.0.0",
     "ts-node": "^9.0.0",
-    "webpack": "^4.35.3",
+    "webpack": "^5.0.0",
     "webpack-dev-server": "^3.7.2",
     "webpack-node-externals": "^2.0.0"
   },
   "devDependencies": {
-    "@types/node": "14.14.10",
+    "@nestjs/testing": "^7.6.12",
+    "@types/node": "14.14.20",
     "rimraf": "3.0.2"
   },
   "publishConfig": {

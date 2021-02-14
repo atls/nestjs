@@ -1,4 +1,4 @@
-import { ServiceBus } from '@node-ts/bus-core/dist/service-bus'
+import { ServiceBus } from '@node-ts/bus-core'
 
 import { Injectable } from '@nestjs/common'
 

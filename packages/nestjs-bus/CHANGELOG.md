@@ -3,6 +3,118 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 0.2.18 (2021-02-14)
+
+**Note:** Version bump only for package @atlantis-lab/nestjs-bus
+
+
+
+
+
+## 0.2.17 (2021-02-14)
+
+**Note:** Version bump only for package @atlantis-lab/nestjs-bus
+
+
+
+
+
+## 0.2.16 (2021-02-12)
+
+**Note:** Version bump only for package @atlantis-lab/nestjs-bus
+
+
+
+
+
+## 0.2.15 (2021-02-12)
+
+**Note:** Version bump only for package @atlantis-lab/nestjs-bus
+
+
+
+
+
+## 0.2.14 (2021-02-12)
+
+**Note:** Version bump only for package @atlantis-lab/nestjs-bus
+
+
+
+
+
+## 0.2.13 (2021-02-04)
+
+**Note:** Version bump only for package @atlantis-lab/nestjs-bus
+
+
+
+
+
+## 0.2.12 (2021-01-31)
+
+**Note:** Version bump only for package @atlantis-lab/nestjs-bus
+
+
+
+
+
+## 0.2.11 (2021-01-26)
+
+**Note:** Version bump only for package @atlantis-lab/nestjs-bus
+
+
+
+
+
+## 0.2.10 (2021-01-21)
+
+**Note:** Version bump only for package @atlantis-lab/nestjs-bus
+
+
+
+
+
+## 0.2.9 (2021-01-16)
+
+**Note:** Version bump only for package @atlantis-lab/nestjs-bus
+
+
+
+
+
+## 0.2.8 (2021-01-16)
+
+**Note:** Version bump only for package @atlantis-lab/nestjs-bus
+
+
+
+
+
+## 0.2.7 (2021-01-11)
+
+**Note:** Version bump only for package @atlantis-lab/nestjs-bus
+
+
+
+
+
+## 0.2.6 (2021-01-08)
+
+**Note:** Version bump only for package @atlantis-lab/nestjs-bus
+
+
+
+
+
+## 0.2.5 (2021-01-08)
+
+**Note:** Version bump only for package @atlantis-lab/nestjs-bus
+
+
+
+
+
 ## [0.2.4](https://github.com/Atlantis-Lab/nestjs/compare/@atlantis-lab/nestjs-bus@0.2.3...@atlantis-lab/nestjs-bus@0.2.4) (2020-12-29)
 
 **Note:** Version bump only for package @atlantis-lab/nestjs-bus
