@@ -54,11 +54,11 @@ export const createWebpackConfig = async webpackEnv => {
     },
     externals: [
       nodeExternals({
-        whitelist: [...workspaces, 'webpack/hot/poll?100'],
+        allowlist: [...workspaces, 'webpack/hot/poll?100'],
       }),
       nodeExternals({
         modulesDir: paths.rootNodeModules,
-        whitelist: [...workspaces, 'webpack/hot/poll?100'],
+        allowlist: [...workspaces, 'webpack/hot/poll?100'],
       }),
     ],
     resolve: {
