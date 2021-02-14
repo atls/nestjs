@@ -6,7 +6,6 @@ import { CanActivate, ExecutionContext, Injectable } from '@nestjs/common'
 export class RequestVerifierGuard implements CanActivate {
   public canActivate(context: ExecutionContext): boolean {
     const { body } = context.switchToHttp().getRequest()
-    const verified = verifyRequest(body)
-    return verified
+    return verifyRequest(body)
   }
 }
