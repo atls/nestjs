@@ -1,11 +1,18 @@
+import { CallHandler, ExecutionContext, Injectable, NestInterceptor } from '@nestjs/common'
 import { Observable, of, throwError }                                 from 'rxjs'
 import { catchError }                                                 from 'rxjs/operators'
 
-import { CallHandler, ExecutionContext, Injectable, NestInterceptor } from '@nestjs/common'
-
 const mapErrors = (result, error) => {
   if (error.children && error.children.length > 0) {
-    return { ...result, [error.property]: error.children.reduce(mapErrors, {}) }
+    const errors = Array.isArray(error.value)
+      ? error.value.map((_, index) => {
+          const itemError = error.children.find(({ property }) => property === index.toString())
+          if (!itemError) return {}
+
+          return itemError.children.reduce(mapErrors, {})
+        })
+      : error.children.reduce(mapErrors, {})
+    return { ...result, [error.property]: errors }
   }
 
   return { ...result, [error.property]: Object.values(error.constraints)[0] || '' }
