@@ -1,6 +1,8 @@
 import { RequestVerifierGuard } from '../src'
 
-const requestVerifierGuard = new RequestVerifierGuard()
+const tinkoffMock = { security: { verify: jest.fn(arg => arg) } }
+// @ts-ignore
+const requestVerifierGuard = new RequestVerifierGuard(tinkoffMock)
 
 const executionContext = {
   switchToHttp: jest.fn().mockReturnThis(),
