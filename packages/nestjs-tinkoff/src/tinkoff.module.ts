@@ -1,5 +1,4 @@
 import { TinkoffPublicOptions }  from '@atlantis-lab/tinkoff-api'
-
 import { DynamicModule, Module } from '@nestjs/common'
 
 import { TinkoffService }        from './services'

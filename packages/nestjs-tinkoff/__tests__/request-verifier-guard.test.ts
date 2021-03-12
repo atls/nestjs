@@ -1,8 +1,8 @@
-import { Test } from '@nestjs/testing'
-import { Controller, Post, UseGuards, HttpCode, HttpStatus } from '@nestjs/common'
-import request from 'supertest';
+import request                                               from 'supertest'
+import { Controller, HttpCode, HttpStatus, Post, UseGuards } from '@nestjs/common'
+import { Test }                                              from '@nestjs/testing'
 
-import { RequestVerifierGuard, TinkoffAPIModule, TinkoffService } from '../src'
+import { RequestVerifierGuard, TinkoffAPIModule }            from '../src'
 
 @Controller('/')
 class SomeController {
@@ -23,9 +23,7 @@ describe('test', () => {
 
   beforeAll(async () => {
     const module = await Test.createTestingModule({
-      imports: [
-        TinkoffAPIModule.register(options)
-      ],
+      imports: [TinkoffAPIModule.register(options)],
       controllers: [SomeController],
     }).compile()
 
@@ -33,7 +31,7 @@ describe('test', () => {
 
     await app.init()
   })
-  
+
   it('boo', async () => {
     const payload: any = {
       Token: '0384b0f144043de7d1aa848f0e38c494f7e5243efee1e2675fcaa5be534e6a91',
@@ -59,6 +57,6 @@ describe('test', () => {
   })
 
   afterAll(async () => {
-    await app.close();
-  });
+    await app.close()
+  })
 })

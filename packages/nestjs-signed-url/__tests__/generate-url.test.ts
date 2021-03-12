@@ -32,7 +32,7 @@ describe('SignedUrlService', () => {
       expect(
         signedUrlService.generateWriteUrl('test', 'test', {
           type: 'test',
-        })
+        }),
       ).toBe(result)
     })
   })
