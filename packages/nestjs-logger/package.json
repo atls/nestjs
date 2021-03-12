@@ -16,8 +16,8 @@
   },
   "peerDependencies": {
     "@google-cloud/logging-winston": "4.0.2",
-    "@nestjs/common": "7.4.4",
-    "@nestjs/core": "7.4.4",
+    "@nestjs/common": ">=7.0.0",
+    "@nestjs/core": ">=7.0.0",
     "reflect-metadata": "0.1.13",
     "rxjs": "6.6.3"
   },

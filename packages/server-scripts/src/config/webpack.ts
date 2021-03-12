@@ -22,7 +22,7 @@ export const createWebpackConfig = async webpackEnv => {
         config,
       ].filter(Boolean),
     }),
-    {}
+    {},
   )
   return {
     mode: isEnvProduction ? 'production' : isEnvDevelopment && 'development',

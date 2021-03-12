@@ -7,181 +7,94 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 **Note:** Version bump only for package @atlantis-lab/nestjs-bus
 
-
-
-
-
 ## 0.2.18 (2021-02-14)
 
 **Note:** Version bump only for package @atlantis-lab/nestjs-bus
-
-
-
-
 
 ## 0.2.17 (2021-02-14)
 
 **Note:** Version bump only for package @atlantis-lab/nestjs-bus
 
-
-
-
-
 ## 0.2.16 (2021-02-12)
 
 **Note:** Version bump only for package @atlantis-lab/nestjs-bus
-
-
-
-
 
 ## 0.2.15 (2021-02-12)
 
 **Note:** Version bump only for package @atlantis-lab/nestjs-bus
 
-
-
-
-
 ## 0.2.14 (2021-02-12)
 
 **Note:** Version bump only for package @atlantis-lab/nestjs-bus
-
-
-
-
 
 ## 0.2.13 (2021-02-04)
 
 **Note:** Version bump only for package @atlantis-lab/nestjs-bus
 
-
-
-
-
 ## 0.2.12 (2021-01-31)
 
 **Note:** Version bump only for package @atlantis-lab/nestjs-bus
-
-
-
-
 
 ## 0.2.11 (2021-01-26)
 
 **Note:** Version bump only for package @atlantis-lab/nestjs-bus
 
-
-
-
-
 ## 0.2.10 (2021-01-21)
 
 **Note:** Version bump only for package @atlantis-lab/nestjs-bus
-
-
-
-
 
 ## 0.2.9 (2021-01-16)
 
 **Note:** Version bump only for package @atlantis-lab/nestjs-bus
 
-
-
-
-
 ## 0.2.8 (2021-01-16)
 
 **Note:** Version bump only for package @atlantis-lab/nestjs-bus
-
-
-
-
 
 ## 0.2.7 (2021-01-11)
 
 **Note:** Version bump only for package @atlantis-lab/nestjs-bus
 
-
-
-
-
 ## 0.2.6 (2021-01-08)
 
 **Note:** Version bump only for package @atlantis-lab/nestjs-bus
-
-
-
-
 
 ## 0.2.5 (2021-01-08)
 
 **Note:** Version bump only for package @atlantis-lab/nestjs-bus
 
-
-
-
-
 ## [0.2.4](https://github.com/Atlantis-Lab/nestjs/compare/@atlantis-lab/nestjs-bus@0.2.3...@atlantis-lab/nestjs-bus@0.2.4) (2020-12-29)
 
 **Note:** Version bump only for package @atlantis-lab/nestjs-bus
-
-
-
-
 
 ## [0.2.3](https://github.com/Atlantis-Lab/nestjs/compare/@atlantis-lab/nestjs-bus@0.2.2...@atlantis-lab/nestjs-bus@0.2.3) (2020-12-07)
 
 **Note:** Version bump only for package @atlantis-lab/nestjs-bus
 
-
-
-
-
 ## [0.2.2](https://github.com/Atlantis-Lab/nestjs/compare/@atlantis-lab/nestjs-bus@0.2.1...@atlantis-lab/nestjs-bus@0.2.2) (2020-12-07)
 
 **Note:** Version bump only for package @atlantis-lab/nestjs-bus
-
-
-
-
 
 ## [0.2.1](https://github.com/Atlantis-Lab/nestjs/compare/@atlantis-lab/nestjs-bus@0.2.0...@atlantis-lab/nestjs-bus@0.2.1) (2020-12-07)
 
 **Note:** Version bump only for package @atlantis-lab/nestjs-bus
 
-
-
-
-
 # [0.2.0](https://github.com/Atlantis-Lab/nestjs/compare/@atlantis-lab/nestjs-bus@0.1.9...@atlantis-lab/nestjs-bus@0.2.0) (2020-10-28)
-
 
 ### Bug Fixes
 
-* **nestjs-bus:** add import LoggerModule to BusCoreModule.forRoot static method ([43c6472](https://github.com/Atlantis-Lab/nestjs/commit/43c6472abf599ee5b34b30ce5cccee0099e0e519)), closes [#114](https://github.com/Atlantis-Lab/nestjs/issues/114)
-
+- **nestjs-bus:** add import LoggerModule to BusCoreModule.forRoot static method ([43c6472](https://github.com/Atlantis-Lab/nestjs/commit/43c6472abf599ee5b34b30ce5cccee0099e0e519)), closes [#114](https://github.com/Atlantis-Lab/nestjs/issues/114)
 
 ### Features
 
-* **nestjs-bus:** add mutliple handlers per message ([73b6f4a](https://github.com/Atlantis-Lab/nestjs/commit/73b6f4a0bc8267ded46b61de53070aa4c754ce41)), closes [#114](https://github.com/Atlantis-Lab/nestjs/issues/114)
-
-
-
-
+- **nestjs-bus:** add mutliple handlers per message ([73b6f4a](https://github.com/Atlantis-Lab/nestjs/commit/73b6f4a0bc8267ded46b61de53070aa4c754ce41)), closes [#114](https://github.com/Atlantis-Lab/nestjs/issues/114)
 
 ## [0.1.9](https://github.com/Atlantis-Lab/nestjs/compare/@atlantis-lab/nestjs-bus@0.1.8...@atlantis-lab/nestjs-bus@0.1.9) (2020-10-07)
 
-
 ### Bug Fixes
 
-* **deps:** update dependency @node-ts/logger-core to v0.1.1 ([9ddeedf](https://github.com/Atlantis-Lab/nestjs/commit/9ddeedf59e0f0c3ed8630ae61950f4153e803cd3))
-* **deps:** update dependency amqplib to v0.6.0 ([93e3ea3](https://github.com/Atlantis-Lab/nestjs/commit/93e3ea3fc60b2cda14625ea906eb7a00ccc8d2b5))
-
-
-
-
+- **deps:** update dependency @node-ts/logger-core to v0.1.1 ([9ddeedf](https://github.com/Atlantis-Lab/nestjs/commit/9ddeedf59e0f0c3ed8630ae61950f4153e803cd3))
+- **deps:** update dependency amqplib to v0.6.0 ([93e3ea3](https://github.com/Atlantis-Lab/nestjs/commit/93e3ea3fc60b2cda14625ea906eb7a00ccc8d2b5))
 
 ## [0.1.8](https://github.com/Atlantis-Lab/nestjs/compare/@atlantis-lab/nestjs-bus@0.1.7...@atlantis-lab/nestjs-bus@0.1.8) (2020-09-08)
 

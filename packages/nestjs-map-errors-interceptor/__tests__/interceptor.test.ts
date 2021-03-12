@@ -30,7 +30,7 @@ describe('MapValidationErrorsInterceptor', () => {
       callHandler.handle().pipe.mockResolvedValueOnce(() => {})
       jest.spyOn(interceptor, 'intercept').mockImplementation(() => callHandler.handle().pipe())
       expect(await interceptor.intercept(executionContext, callHandler as any)).toBe(
-        callHandler.handle().pipe()
+        callHandler.handle().pipe(),
       )
     })
   })

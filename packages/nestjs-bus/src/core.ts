@@ -1,9 +1,3 @@
-import { ApplicationBootstrap, BUS_SYMBOLS } from '@node-ts/bus-core'
-import { BUS_INTERNAL_SYMBOLS }              from '@node-ts/bus-core/dist/bus-symbols'
-import { MessageAttributes }                 from '@node-ts/bus-messages'
-import { Container }                         from 'inversify'
-
-import { Logger, LoggerModule }              from '@atlantis-lab/nestjs-logger'
 import {
   DynamicModule,
   Global,
@@ -13,6 +7,12 @@ import {
   OnModuleInit,
 } from '@nestjs/common'
 import { ModuleRef }                         from '@nestjs/core'
+import { ApplicationBootstrap, BUS_SYMBOLS } from '@node-ts/bus-core'
+import { BUS_INTERNAL_SYMBOLS }              from '@node-ts/bus-core/dist/bus-symbols'
+import { Container }                         from 'inversify'
+
+import { Logger, LoggerModule }              from '@atlantis-lab/nestjs-logger'
+import { MessageAttributes }                 from '@node-ts/bus-messages'
 
 import { Bus }                               from './bus'
 import { HandlerRegistry }                   from './handler'
@@ -24,7 +24,7 @@ export class BusCoreModule implements OnModuleInit, OnModuleDestroy, OnApplicati
   constructor(
     private readonly explorerService: ExplorerService,
     private readonly applicationBootstrap: ApplicationBootstrap,
-    private readonly bus: Bus
+    private readonly bus: Bus,
   ) {}
 
   static forRoot(transportProvider: any): DynamicModule {
@@ -46,7 +46,7 @@ export class BusCoreModule implements OnModuleInit, OnModuleDestroy, OnApplicati
         messageHandlingContext: any,
         busHooks?: any,
         busConfiguration?: any,
-        rawMessage?: any
+        rawMessage?: any,
       ) =>
         new Bus(
           transport,
@@ -55,7 +55,7 @@ export class BusCoreModule implements OnModuleInit, OnModuleDestroy, OnApplicati
           messageHandlingContext,
           busHooks,
           busConfiguration,
-          rawMessage
+          rawMessage,
         ),
       inject: [BUS_SYMBOLS.Transport, Logger, HandlerRegistry, BUS_SYMBOLS.MessageHandlingContext],
     }
