@@ -1,5 +1,5 @@
 {
-  "extends": "@monstrs/tsconfig/tsconfig.lib.json",
+  "extends": "@atlantis-lab/tsconfig/tsconfig.lib.json",
   "compilerOptions": {
     "outDir": "dist",
     "skipLibCheck": true
