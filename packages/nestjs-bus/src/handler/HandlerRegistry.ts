@@ -1,16 +1,16 @@
+import { Inject }                                      from '@nestjs/common'
+import { ModuleRef }                                   from '@nestjs/core'
 import { HandlerRegistration }                         from '@node-ts/bus-core'
 import { Handler, MessageType }                        from '@node-ts/bus-core/dist/handler/handler'
 import {
   ClassConstructor,
   isClassConstructor as isCC,
 } from '@node-ts/bus-core/dist/util/class-constructor'
-import { Message }                                     from '@node-ts/bus-messages'
 import { LOGGER_SYMBOLS, Logger }                      from '@node-ts/logger-core'
 import { Container, decorate, injectable, interfaces } from 'inversify'
 import { serializeError }                              from 'serialize-error'
 
-import { Inject }                                      from '@nestjs/common'
-import { ModuleRef }                                   from '@nestjs/core'
+import { Message }                                     from '@node-ts/bus-messages'
 
 export type HandlerType =
   | ClassConstructor<Handler<Message>>
@@ -41,14 +41,14 @@ export class HandlerRegistry {
   constructor(
     @Inject(LOGGER_SYMBOLS.Logger)
     private readonly logger: Logger,
-    private readonly moduleRef: ModuleRef
+    private readonly moduleRef: ModuleRef,
   ) {}
 
   register<TMessage extends MessageType = MessageType>(
     messageName: string,
     symbol: symbol,
     handler: HandlerType,
-    messageType?: ClassConstructor<TMessage>
+    messageType?: ClassConstructor<TMessage>,
   ): void {
     if (!this.registry[messageName]) {
       this.registry[messageName] = {
@@ -59,7 +59,7 @@ export class HandlerRegistry {
 
     const handlerName = getHandlerName(handler)
     const handlerAlreadyRegistered = this.registry[messageName].handlers.some(
-      f => f.symbol === symbol
+      f => f.symbol === symbol,
     )
 
     if (handlerAlreadyRegistered) {
@@ -71,16 +71,16 @@ export class HandlerRegistry {
 
     if (isCC(handler)) {
       const allRegisteredHandlers = [...Object.values(this.registry)].flatMap(
-        message => message.handlers
+        message => message.handlers,
       )
       const handlerNameAlreadyRegistered = allRegisteredHandlers.some(
-        f => f.handler.name === handler.name
+        f => f.handler.name === handler.name,
       )
 
       if (handlerNameAlreadyRegistered) {
         throw new Error(
           'Attempted to register a handler, when a handler with the same name has already been registered. ' +
-            `Handlers must be registered with a unique name - "${handler.name}"`
+            `Handlers must be registered with a unique name - "${handler.name}"`,
         )
       }
 
@@ -88,7 +88,7 @@ export class HandlerRegistry {
         decorate(injectable(), handler)
         this.logger.trace(
           `Handler "${handler.name}" was missing the "injectable()" decorator. ` +
-            'This has been added automatically'
+            'This has been added automatically',
         )
         // eslint-disable-next-line
       } catch (_a) {}
@@ -112,7 +112,7 @@ export class HandlerRegistry {
         this.logger.warn(
           `No handlers were registered for message "${messageName}". ` +
             "This could mean that either the handlers haven't been registered with bootstrap.registerHandler(), " +
-            "or that the underlying transport is subscribed to messages that aren't handled and should be removed."
+            "or that the underlying transport is subscribed to messages that aren't handled and should be removed.",
         )
       }
       return []

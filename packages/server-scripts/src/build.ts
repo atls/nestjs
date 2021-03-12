@@ -10,6 +10,7 @@ process.env.BABEL_ENV = 'production'
 process.env.NODE_ENV = 'production'
 
 process.on('unhandledRejection', err => {
+  // eslint-disable-next-line
   throw err
 })
 
@@ -59,8 +60,8 @@ const handleStat = ({ warnings }) => {
     console.log(warnings.join('\n\n'))
     console.log(
       `\nSearch for the ${chalk.underline(
-        chalk.yellow('keywords')
-      )} to learn more about each warning.`
+        chalk.yellow('keywords'),
+      )} to learn more about each warning.`,
     )
     console.log(`To ignore, add ${chalk.cyan('// eslint-disable-next-line')} to the line before.\n`)
   } else {
