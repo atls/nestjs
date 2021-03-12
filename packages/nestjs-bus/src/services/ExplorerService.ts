@@ -1,8 +1,7 @@
+import { Injectable, Type }         from '@nestjs/common'
 import { InstanceWrapper }          from '@nestjs/core/injector/instance-wrapper'
 import { Module }                   from '@nestjs/core/injector/module'
 import { ModulesContainer }         from '@nestjs/core/injector/modules-container'
-
-import { Injectable, Type }         from '@nestjs/common'
 
 import { HANDLES_MESSAGE_METADATA } from '../decorators/constants'
 
@@ -13,14 +12,14 @@ export class ExplorerService {
   explore(): any {
     const modules = [...(this.modulesContainer as any).values()]
     const events = this.flatMap(modules, instance =>
-      this.filterProvider(instance, HANDLES_MESSAGE_METADATA)
+      this.filterProvider(instance, HANDLES_MESSAGE_METADATA),
     )
     return { events }
   }
 
   flatMap<T>(
     modules: Module[],
-    callback: (instance: InstanceWrapper) => Type<any> | undefined
+    callback: (instance: InstanceWrapper) => Type<any> | undefined,
   ): Type<T>[] {
     const items: any[] = modules
       .map(module => [...(module.providers as any).values()].map(callback))

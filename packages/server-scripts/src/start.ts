@@ -8,6 +8,7 @@ process.env.BABEL_ENV = 'development'
 process.env.NODE_ENV = 'development'
 
 process.on('unhandledRejection', err => {
+  // eslint-disable-next-line
   throw err
 })
 
@@ -23,7 +24,7 @@ export const bootstrap = async () => {
     urls: {},
   } as any)
   // eslint-disable-next-line
-  return compiler.watch({}, error => {
+  return compiler.watch({}, (error) => {
     if (error) {
       return console.log(error)
     }

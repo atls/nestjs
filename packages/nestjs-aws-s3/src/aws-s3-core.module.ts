@@ -1,6 +1,5 @@
-import { S3 }                            from 'aws-sdk'
-
 import { DynamicModule, Global, Module } from '@nestjs/common'
+import { S3 }                            from 'aws-sdk'
 
 import { AWS_S3_OPTIONS }                from './aws-s3.constants'
 import { AwsS3Service }                  from './aws-s3.service'
