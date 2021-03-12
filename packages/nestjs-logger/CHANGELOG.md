@@ -7,153 +7,77 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 **Note:** Version bump only for package @atlantis-lab/nestjs-logger
 
-
-
-
-
 ## 0.2.24 (2021-02-14)
 
 **Note:** Version bump only for package @atlantis-lab/nestjs-logger
-
-
-
-
 
 ## 0.2.23 (2021-02-14)
 
 **Note:** Version bump only for package @atlantis-lab/nestjs-logger
 
-
-
-
-
 ## 0.2.22 (2021-02-12)
 
 **Note:** Version bump only for package @atlantis-lab/nestjs-logger
-
-
-
-
 
 ## 0.2.21 (2021-02-12)
 
 **Note:** Version bump only for package @atlantis-lab/nestjs-logger
 
-
-
-
-
 ## 0.2.20 (2021-02-12)
 
 **Note:** Version bump only for package @atlantis-lab/nestjs-logger
-
-
-
-
 
 ## 0.2.19 (2021-02-04)
 
 **Note:** Version bump only for package @atlantis-lab/nestjs-logger
 
-
-
-
-
 ## 0.2.18 (2021-01-31)
 
 **Note:** Version bump only for package @atlantis-lab/nestjs-logger
-
-
-
-
 
 ## 0.2.17 (2021-01-26)
 
 **Note:** Version bump only for package @atlantis-lab/nestjs-logger
 
-
-
-
-
 ## 0.2.16 (2021-01-21)
 
 **Note:** Version bump only for package @atlantis-lab/nestjs-logger
-
-
-
-
 
 ## 0.2.15 (2021-01-16)
 
 **Note:** Version bump only for package @atlantis-lab/nestjs-logger
 
-
-
-
-
 ## 0.2.14 (2021-01-16)
 
 **Note:** Version bump only for package @atlantis-lab/nestjs-logger
-
-
-
-
 
 ## 0.2.13 (2021-01-11)
 
 **Note:** Version bump only for package @atlantis-lab/nestjs-logger
 
-
-
-
-
 ## 0.2.12 (2021-01-08)
 
 **Note:** Version bump only for package @atlantis-lab/nestjs-logger
-
-
-
-
 
 ## 0.2.11 (2021-01-08)
 
 **Note:** Version bump only for package @atlantis-lab/nestjs-logger
 
-
-
-
-
 ## [0.2.10](https://github.com/Atlantis-Lab/nestjs/compare/@atlantis-lab/nestjs-logger@0.2.9...@atlantis-lab/nestjs-logger@0.2.10) (2020-12-29)
 
 **Note:** Version bump only for package @atlantis-lab/nestjs-logger
-
-
-
-
 
 ## [0.2.9](https://github.com/Atlantis-Lab/nestjs/compare/@atlantis-lab/nestjs-logger@0.2.8...@atlantis-lab/nestjs-logger@0.2.9) (2020-12-07)
 
 **Note:** Version bump only for package @atlantis-lab/nestjs-logger
 
-
-
-
-
 ## [0.2.8](https://github.com/Atlantis-Lab/nestjs/compare/@atlantis-lab/nestjs-logger@0.2.7...@atlantis-lab/nestjs-logger@0.2.8) (2020-12-07)
 
 **Note:** Version bump only for package @atlantis-lab/nestjs-logger
 
-
-
-
-
 ## [0.2.7](https://github.com/Atlantis-Lab/nestjs/compare/@atlantis-lab/nestjs-logger@0.2.6...@atlantis-lab/nestjs-logger@0.2.7) (2020-10-07)
 
 **Note:** Version bump only for package @atlantis-lab/nestjs-logger
-
-
-
-
 
 ## [0.2.6](https://github.com/Atlantis-Lab/nestjs/compare/@atlantis-lab/nestjs-logger@0.2.5...@atlantis-lab/nestjs-logger@0.2.6) (2020-09-08)
 

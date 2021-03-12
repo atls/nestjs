@@ -1,6 +1,5 @@
-import { createLogger, transports }          from 'winston'
-
 import { Provider }                          from '@nestjs/common'
+import { createLogger, transports }          from 'winston'
 
 import { INNER_LOGGER, INNER_LOGGER_CONFIG } from './logger.constants'
 import { getCloudLogginServiceContext }      from './logger.utils'

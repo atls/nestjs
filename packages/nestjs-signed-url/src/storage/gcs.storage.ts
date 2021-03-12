@@ -18,7 +18,7 @@ export class GcsStorage extends AbstractStorage implements OnModuleInit {
   async generateWriteUrl(
     bucket: string,
     filename: string,
-    options: SignUrlOptions
+    options: SignUrlOptions,
   ): Promise<SignedUrl> {
     const params = {
       version: 'v4',

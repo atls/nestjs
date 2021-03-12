@@ -6,7 +6,7 @@ import { INNER_LOGGER }       from './logger.constants'
 export class Logger {
   constructor(
     @Inject(INNER_LOGGER)
-    private readonly logger: any
+    private readonly logger: any,
   ) {}
 
   debug(message: any, data?: object): void {

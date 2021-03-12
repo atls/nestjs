@@ -1,14 +1,19 @@
+import { CallHandler, ExecutionContext, Injectable, NestInterceptor } from '@nestjs/common'
 import { Observable, of, throwError }                                 from 'rxjs'
 import { catchError }                                                 from 'rxjs/operators'
 
-import { CallHandler, ExecutionContext, Injectable, NestInterceptor } from '@nestjs/common'
-
 const mapErrors = (result, error) => {
   if (error.children && error.children.length > 0) {
-    return { ...result, [error.property]: error.children.reduce(mapErrors, {}) }
+    return {
+      ...result,
+      [error.property]: error.children.reduce(mapErrors, {}),
+    }
   }
 
-  return { ...result, [error.property]: Object.values(error.constraints)[0] || '' }
+  return {
+    ...result,
+    [error.property]: Object.values(error.constraints)[0] || '',
+  }
 }
 
 @Injectable()
@@ -25,7 +30,7 @@ export class MapValidationErrorsInterceptor implements NestInterceptor {
           return of({ errors: errors.reduce(mapErrors, {}) })
         }
         return throwError(error)
-      })
+      }),
     )
   }
 }
