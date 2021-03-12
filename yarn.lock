@@ -2054,7 +2054,7 @@
     serialize-error "^4.1.0"
     tslib "^1.11.1"
 
-"@node-ts/bus-core@^0.6.4":
+"@node-ts/bus-core@^0.6.5":
   version "0.6.5"
   resolved "https://registry.yarnpkg.com/@node-ts/bus-core/-/bus-core-0.6.5.tgz#a8a4255f617f4009016becc08e69505e0746155e"
   integrity sha512-AKGEeDspW6v6lLrtbCs85GPRqIpS2t/Kuh5NmiK/VOn4wxluG5Rfn4MeqF05Dc995q21KEWp3w5RojudviESaw==
@@ -2082,12 +2082,12 @@
   dependencies:
     tslib "^1.13.0"
 
-"@node-ts/bus-rabbitmq@0.6.4":
-  version "0.6.4"
-  resolved "https://registry.yarnpkg.com/@node-ts/bus-rabbitmq/-/bus-rabbitmq-0.6.4.tgz#48c9447c0b0fa28c1d3db0070cefc387fa537236"
-  integrity sha512-pDAjMg8TuFVVEi3FORP6oF4yOlx6o3DytNxznuPgHz7eMkemcsW9+Y4AtH+ksLdVJ+JwcO1Gr52DrprdT/3Haw==
+"@node-ts/bus-rabbitmq@0.6.5":
+  version "0.6.5"
+  resolved "https://registry.yarnpkg.com/@node-ts/bus-rabbitmq/-/bus-rabbitmq-0.6.5.tgz#f621ebe58b5c11c6858360c5baad3c57d6c70057"
+  integrity sha512-ldnhYZPE4EKiAiH/XG1DfVs5weW8k0kXAEiRFbFGY5qMS7rANMiKzP+EXwMbGdMl8Jv4a38Wx2fsPKuMzrBANw==
   dependencies:
-    "@node-ts/bus-core" "^0.6.4"
+    "@node-ts/bus-core" "^0.6.5"
     "@node-ts/bus-messages" "^0.3.1"
     amqplib "^0.6.0"
     tslib "^1.9.3"
