@@ -2040,21 +2040,7 @@
     optional "0.1.4"
     tslib "2.0.0"
 
-"@node-ts/bus-core@0.6.3":
-  version "0.6.3"
-  resolved "https://registry.yarnpkg.com/@node-ts/bus-core/-/bus-core-0.6.3.tgz#e2434bc6f13051224a42b2e861b39fe218e106ab"
-  integrity sha512-JkRBZgTy8tAUGs0rkizbeUzYxitCLeRpEdATKD+Y4RMkXdERhOX6fiZ67GRMEj2s0ihT9JLPgG9UZ+vvcRhmrQ==
-  dependencies:
-    "@node-ts/bus-messages" "^0.3.0"
-    "@types/node" "^12.12.37"
-    autobind-decorator "^2.4.0"
-    class-transformer "^0.2.3"
-    inversify "^5.0.1"
-    reflect-metadata "^0.1.13"
-    serialize-error "^4.1.0"
-    tslib "^1.11.1"
-
-"@node-ts/bus-core@^0.6.4":
+"@node-ts/bus-core@0.6.5", "@node-ts/bus-core@^0.6.4":
   version "0.6.5"
   resolved "https://registry.yarnpkg.com/@node-ts/bus-core/-/bus-core-0.6.5.tgz#a8a4255f617f4009016becc08e69505e0746155e"
   integrity sha512-AKGEeDspW6v6lLrtbCs85GPRqIpS2t/Kuh5NmiK/VOn4wxluG5Rfn4MeqF05Dc995q21KEWp3w5RojudviESaw==
@@ -2075,7 +2061,7 @@
   dependencies:
     tslib "^1.9.3"
 
-"@node-ts/bus-messages@^0.3.0", "@node-ts/bus-messages@^0.3.1":
+"@node-ts/bus-messages@^0.3.1":
   version "0.3.1"
   resolved "https://registry.yarnpkg.com/@node-ts/bus-messages/-/bus-messages-0.3.1.tgz#91c0fe2d62f5c282e002640fc37d6907ac65d6bf"
   integrity sha512-y+sHpaLmk4e/amZdTSDrG/4R1FIYLM3EC9dbTxSpIttLSi2El4DUm0GTi1iX2yXzweVo56FmhzQLephF6jKoIw==
@@ -2578,7 +2564,7 @@
   resolved "https://registry.yarnpkg.com/@types/node/-/node-14.14.20.tgz#f7974863edd21d1f8a494a73e8e2b3658615c340"
   integrity sha512-Y93R97Ouif9JEOWPIUyU+eyIdyRqQR0I8Ez1dzku4hDx34NWh4HbtIc3WNzwB1Y9ULvNGeu5B8h8bVL5cAk4/A==
 
-"@types/node@^12.12.37", "@types/node@^12.12.39":
+"@types/node@^12.12.39":
   version "12.20.5"
   resolved "https://registry.yarnpkg.com/@types/node/-/node-12.20.5.tgz#4ca82a766f05c359fd6c77505007e5a272f4bb9b"
   integrity sha512-5Oy7tYZnu3a4pnJ//d4yVvOImExl4Vtwf0D40iKUlU+XlUsyV9iyFWyCFlwy489b72FMAik/EFwRkNLjjOdSPg==
@@ -4038,11 +4024,6 @@ cjs-module-lexer@^0.6.0:
   version "0.6.0"
   resolved "https://registry.yarnpkg.com/cjs-module-lexer/-/cjs-module-lexer-0.6.0.tgz#4186fcca0eae175970aee870b9fe2d6cf8d5655f"
   integrity sha512-uc2Vix1frTfnuzxxu1Hp4ktSvM3QaI4oXl4ZUqL1wjTu/BGki9TrCWoqLTg/drR1KwAEarXuRFCG2Svr1GxPFw==
-
-class-transformer@^0.2.3:
-  version "0.2.3"
-  resolved "https://registry.yarnpkg.com/class-transformer/-/class-transformer-0.2.3.tgz#598c92ca71dcca73f91ccb875d74a3847ccfa32d"
-  integrity sha512-qsP+0xoavpOlJHuYsQJsN58HXSl8Jvveo+T37rEvCEeRfMWoytAyR0Ua/YsFgpM6AZYZ/og2PJwArwzJl1aXtQ==
 
 class-transformer@^0.3.1:
   version "0.3.2"

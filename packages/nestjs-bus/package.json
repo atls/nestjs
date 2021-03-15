@@ -35,7 +35,7 @@
   },
   "dependencies": {
     "@atlantis-lab/nestjs-logger": "0.2.28",
-    "@node-ts/bus-core": "0.6.3",
+    "@node-ts/bus-core": "0.6.5",
     "@node-ts/bus-messages": "0.3.0",
     "@node-ts/bus-rabbitmq": "0.6.4",
     "@node-ts/logger-core": "0.1.1",
