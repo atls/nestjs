@@ -15,7 +15,10 @@ const mapErrors = (result, error) => {
     return { ...result, [error.property]: errors }
   }
 
-  return { ...result, [error.property]: Object.values(error.constraints)[0] || '' }
+  return {
+    ...result,
+    [error.property]: Object.values(error.constraints)[0] || '',
+  }
 }
 
 @Injectable()

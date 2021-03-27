@@ -1,1 +1,1 @@
-export * from './HandlesMessage'
+export * from './handles-message'
