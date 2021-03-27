@@ -8,9 +8,7 @@ import { busRabbitMQConfigurationFactory } from './factory'
 import { BUS_RABBITMQ_CONFIGURATION } from './symbols'
 import { Transport } from './enums'
 
-@Module({
-  providers: [],
-})
+@Module({})
 export class BusModule {
   public static forRoot = (options: BusModuleOptions): DynamicModule => {
     switch (options.transport) {
