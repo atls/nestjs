@@ -1,12 +1,27 @@
-import { Module, DynamicModule, OnModuleInit, Global, Inject, OnModuleDestroy, OnApplicationBootstrap } from '@nestjs/common'
-import { MetadataScanner } from '@nestjs/core'
-import { ApplicationBootstrap, BusModule, BUS_SYMBOLS } from '@node-ts/bus-core'
-import { LOGGER_SYMBOLS } from '@node-ts/logger-core'
-import { Container } from 'inversify'
-import { Logger, LoggerModule } from '@atlantis-lab/nestjs-logger'
-import { busServiceProviders, applicationBootstrapProviders, handlerRegistryProviders, applicationContainer } from './providers'
+import {
+  DynamicModule,
+  Global,
+  Inject,
+  Module,
+  OnApplicationBootstrap,
+  OnModuleDestroy,
+  OnModuleInit,
+} from '@nestjs/common'
+import { MetadataScanner }       from '@nestjs/core'
+import { ApplicationBootstrap, BUS_SYMBOLS, BusModule } from '@node-ts/bus-core'
+import { LOGGER_SYMBOLS }        from '@node-ts/logger-core'
+import { Container }             from 'inversify'
+
+import { Logger, LoggerModule }  from '@atlantis-lab/nestjs-logger'
+
+import { ExplorerService }       from './services'
 import { APPLICATION_CONTAINER } from './symbols'
-import { ExplorerService } from './services'
+import {
+  applicationBootstrapProviders,
+  applicationContainer,
+  busServiceProviders,
+  handlerRegistryProviders,
+} from './providers'
 
 @Global()
 @Module({
@@ -18,11 +33,7 @@ import { ExplorerService } from './services'
     applicationContainer,
     ExplorerService,
   ],
-  exports: [
-    ...busServiceProviders,
-    ...applicationBootstrapProviders,
-    ...handlerRegistryProviders,
-  ],
+  exports: [...busServiceProviders, ...applicationBootstrapProviders, ...handlerRegistryProviders],
 })
 export class BusMemoryModule implements OnModuleInit, OnModuleDestroy, OnApplicationBootstrap {
   public constructor(

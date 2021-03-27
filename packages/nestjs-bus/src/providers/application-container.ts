@@ -1,8 +1,9 @@
-import { Provider } from '@nestjs/common'
-import { Container } from 'inversify'
-import { BusModule, BUS_SYMBOLS } from '@node-ts/bus-core'
-import { LoggerModule } from '@node-ts/logger-core'
-import { APPLICATION_CONTAINER } from '../symbols'
+import { Provider }               from '@nestjs/common'
+import { BUS_SYMBOLS, BusModule } from '@node-ts/bus-core'
+import { LoggerModule }           from '@node-ts/logger-core'
+import { Container }              from 'inversify'
+
+import { APPLICATION_CONTAINER }  from '../symbols'
 
 export const applicationContainer: Provider<Container> = {
   provide: APPLICATION_CONTAINER,
