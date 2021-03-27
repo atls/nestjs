@@ -5,14 +5,24 @@ import { ApplicationBootstrap, BusModule } from '@node-ts/bus-core'
 import { Container } from 'inversify'
 import { Logger, LoggerModule } from '@atlantis-lab/nestjs-logger'
 import { APPLICATION_CONTAINER, BUS_RABBITMQ_CONFIGURATION } from './symbols'
-import { busService, handlerRegistry, applicationBootstrap, applicationContainer } from './providers'
+import { busServiceProviders, applicationBootstrapProviders, handlerRegistryProviders, applicationContainer } from './providers'
 import { ExplorerService } from './services'
 
 @Global()
 @Module({
-  imports: [LoggerModule],
-  providers: [busService, handlerRegistry, applicationBootstrap, applicationContainer, ExplorerService],
-  exports: [busService, handlerRegistry, applicationBootstrap],
+  imports: [LoggerModule.forRoot()],
+  providers: [
+    ...busServiceProviders,
+    ...applicationBootstrapProviders,
+    ...handlerRegistryProviders,
+    applicationContainer,
+    ExplorerService,
+  ],
+  exports: [
+    ...busServiceProviders,
+    ...applicationBootstrapProviders,
+    ...handlerRegistryProviders,
+  ],
 })
 export class BusRabbitMQModule implements OnModuleInit, OnModuleDestroy, OnApplicationBootstrap {
   public constructor(
