@@ -3,7 +3,7 @@ import { InstanceWrapper }          from '@nestjs/core/injector/instance-wrapper
 import { Module }                   from '@nestjs/core/injector/module'
 import { ModulesContainer }         from '@nestjs/core/injector/modules-container'
 
-import { HANDLES_MESSAGE_METADATA } from '../decorators/constants'
+import { HANDLES_MESSAGE_METADATA } from '../symbols'
 
 @Injectable()
 export class ExplorerService {
@@ -28,7 +28,7 @@ export class ExplorerService {
     return items.filter(element => !!element)
   }
 
-  filterProvider(wrapper: InstanceWrapper, metadataKey: string): Type<any> | undefined {
+  filterProvider(wrapper: InstanceWrapper, metadataKey: any): Type<any> | undefined {
     const { instance } = wrapper
 
     if (!instance) {
@@ -38,7 +38,7 @@ export class ExplorerService {
     return this.extractMetadata(instance, metadataKey)
   }
 
-  extractMetadata(instance: Object, metadataKey: string): Type<any> | undefined {
+  extractMetadata(instance: Object, metadataKey: any): Type<any> | undefined {
     if (!instance.constructor) {
       return undefined
     }
