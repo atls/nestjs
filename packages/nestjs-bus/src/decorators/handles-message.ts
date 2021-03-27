@@ -1,6 +1,6 @@
 import { HandlesMessage as BusCoreHandlesMessage } from '@node-ts/bus-core'
 
-import { HANDLES_MESSAGE_METADATA }                from './constants'
+import { HANDLES_MESSAGE_METADATA }                from '../symbols'
 
 export const HandlesMessage = (event: any) => {
   return (target: any) => {
