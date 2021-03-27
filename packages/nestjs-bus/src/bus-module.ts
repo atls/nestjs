@@ -1,16 +1,10 @@
 import { DynamicModule, Module }           from '@nestjs/common'
-import { BusModule as NodeTSBusModule }    from '@node-ts/bus-core'
-import {
-  BUS_RABBITMQ_SYMBOLS,
-  BusRabbitMqModule,
-  RabbitMqTransportConfiguration,
-} from '@node-ts/bus-rabbitmq'
+import { RabbitMqTransportConfiguration }  from '@node-ts/bus-rabbitmq'
 
 import { BusMemoryModule }                 from './bus-memory-module'
 import { BusRabbitMQModule }               from './bus-rabbitmq-module'
 import { Transport }                       from './enums'
 import { BusModuleOptions }                from './interfaces'
-import { BUS_RABBITMQ_CONFIGURATION }      from './symbols'
 import { busRabbitMQConfigurationFactory } from './factory'
 
 @Module({})
@@ -21,6 +15,8 @@ export class BusModule {
         return BusModule.forMemory()
       case Transport.RabbitMQ:
         return BusModule.forRabbitMQ(options.configuration)
+      default:
+        throw new Error('Unknown transport')
     }
   }
 

@@ -11,7 +11,7 @@ export class ExplorerService {
 
   explore(): any {
     const modules = [...(this.modulesContainer as any).values()]
-    const events = this.flatMap(modules, (instance) =>
+    const events = this.flatMap(modules, instance =>
       this.filterProvider(instance, HANDLES_MESSAGE_METADATA),
     )
     return { events }
@@ -22,10 +22,10 @@ export class ExplorerService {
     callback: (instance: InstanceWrapper) => Type<any> | undefined,
   ): Type<T>[] {
     const items: any[] = modules
-      .map((module) => [...(module.providers as any).values()].map(callback))
+      .map(module => [...(module.providers as any).values()].map(callback))
       .reduce((a, b) => a.concat(b), [])
 
-    return items.filter((element) => !!element)
+    return items.filter(element => !!element)
   }
 
   filterProvider(wrapper: InstanceWrapper, metadataKey: any): Type<any> | undefined {
