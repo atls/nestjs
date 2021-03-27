@@ -1,5 +1,6 @@
 import { RabbitMqTransportConfiguration } from '@node-ts/bus-rabbitmq'
-import { Transport } from '../enums'
+
+import { Transport }                      from '../enums'
 
 export interface RabbitMQBusModuleOptions {
   readonly transport: Transport.RabbitMQ

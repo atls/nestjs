@@ -4,7 +4,7 @@ export { ApplicationBootstrap, ServiceBus, HandlerRegistry } from '@node-ts/bus-
 export { BUS_SYMBOLS } from './symbols'
 export * from './bus-module'
 export * from './enums'
-export { BusModuleOptions }  from './interfaces'
+export { BusModuleOptions } from './interfaces'
 export * from './decorators'
 
 /**

@@ -1,12 +1,17 @@
-import { Module, DynamicModule } from '@nestjs/common'
-import { BusRabbitMqModule, BUS_RABBITMQ_SYMBOLS, RabbitMqTransportConfiguration } from '@node-ts/bus-rabbitmq'
-import { BusModule as NodeTSBusModule } from '@node-ts/bus-core'
-import { BusModuleOptions } from './interfaces'
-import { BusRabbitMQModule } from './bus-rabbitmq-module'
-import { BusMemoryModule } from './bus-memory-module'
+import { DynamicModule, Module }           from '@nestjs/common'
+import { BusModule as NodeTSBusModule }    from '@node-ts/bus-core'
+import {
+  BUS_RABBITMQ_SYMBOLS,
+  BusRabbitMqModule,
+  RabbitMqTransportConfiguration,
+} from '@node-ts/bus-rabbitmq'
+
+import { BusMemoryModule }                 from './bus-memory-module'
+import { BusRabbitMQModule }               from './bus-rabbitmq-module'
+import { Transport }                       from './enums'
+import { BusModuleOptions }                from './interfaces'
+import { BUS_RABBITMQ_CONFIGURATION }      from './symbols'
 import { busRabbitMQConfigurationFactory } from './factory'
-import { BUS_RABBITMQ_CONFIGURATION } from './symbols'
-import { Transport } from './enums'
 
 @Module({})
 export class BusModule {

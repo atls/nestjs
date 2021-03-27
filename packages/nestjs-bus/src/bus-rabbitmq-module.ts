@@ -1,12 +1,27 @@
-import { Module, DynamicModule, Global, OnModuleInit, Inject, OnApplicationBootstrap, OnModuleDestroy } from '@nestjs/common'
-import * as NodeTSBusRabbitMQ from '@node-ts/bus-rabbitmq'
-import { LOGGER_SYMBOLS } from '@node-ts/logger-core'
-import { ApplicationBootstrap, BusModule } from '@node-ts/bus-core'
-import { Container } from 'inversify'
-import { Logger, LoggerModule } from '@atlantis-lab/nestjs-logger'
+import * as NodeTSBusRabbitMQ                                from '@node-ts/bus-rabbitmq'
+import {
+  DynamicModule,
+  Global,
+  Inject,
+  Module,
+  OnApplicationBootstrap,
+  OnModuleDestroy,
+  OnModuleInit,
+} from '@nestjs/common'
+import { ApplicationBootstrap, BusModule }                   from '@node-ts/bus-core'
+import { LOGGER_SYMBOLS }                                    from '@node-ts/logger-core'
+import { Container }                                         from 'inversify'
+
+import { Logger, LoggerModule }                              from '@atlantis-lab/nestjs-logger'
+
+import { ExplorerService }                                   from './services'
 import { APPLICATION_CONTAINER, BUS_RABBITMQ_CONFIGURATION } from './symbols'
-import { busServiceProviders, applicationBootstrapProviders, handlerRegistryProviders, applicationContainer } from './providers'
-import { ExplorerService } from './services'
+import {
+  applicationBootstrapProviders,
+  applicationContainer,
+  busServiceProviders,
+  handlerRegistryProviders,
+} from './providers'
 
 @Global()
 @Module({
@@ -18,11 +33,7 @@ import { ExplorerService } from './services'
     applicationContainer,
     ExplorerService,
   ],
-  exports: [
-    ...busServiceProviders,
-    ...applicationBootstrapProviders,
-    ...handlerRegistryProviders,
-  ],
+  exports: [...busServiceProviders, ...applicationBootstrapProviders, ...handlerRegistryProviders],
 })
 export class BusRabbitMQModule implements OnModuleInit, OnModuleDestroy, OnApplicationBootstrap {
   public constructor(
@@ -36,14 +47,12 @@ export class BusRabbitMQModule implements OnModuleInit, OnModuleDestroy, OnAppli
   ) {}
 
   public onModuleInit() {
-    this.applicationContainer.load(
-      new NodeTSBusRabbitMQ.BusRabbitMqModule(),
-    )
+    this.applicationContainer.load(new NodeTSBusRabbitMQ.BusRabbitMqModule())
 
     this.applicationContainer
       .bind(NodeTSBusRabbitMQ.BUS_RABBITMQ_SYMBOLS.TransportConfiguration)
       .toConstantValue(this.busRabbitMQOptions)
-    
+
     this.applicationContainer.rebind(LOGGER_SYMBOLS.Logger).toConstantValue(this.logger)
 
     const { events } = this.explorerService.explore()
