@@ -1,14 +1,22 @@
-import { Controller, Post, Body, HttpCode, HttpStatus, Inject, Get, Param, NotFoundException, ParseIntPipe } from '@nestjs/common'
-import { BUS_SYMBOLS, Bus } from '@node-ts/bus-core'
+import {
+  Body,
+  Controller,
+  Get,
+  HttpCode,
+  HttpStatus,
+  NotFoundException,
+  Param,
+  ParseIntPipe,
+  Post,
+} from '@nestjs/common'
+
+import { Bus }               from '../../../../src'
 import { CreateUserCommand } from '../messages'
-import { userRepository } from '../repository'
+import { userRepository }    from '../repository'
 
 @Controller('user')
 export class UserController {
-  public constructor(
-    @Inject(BUS_SYMBOLS.Bus)
-    private readonly bus: Bus,
-  ) {}
+  public constructor(private readonly bus: Bus) {}
 
   @Post()
   @HttpCode(HttpStatus.OK)
