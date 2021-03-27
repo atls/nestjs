@@ -1,7 +1,8 @@
-import request from 'supertest'
-import { Test } from '@nestjs/testing'
+import request                          from 'supertest'
 import { HttpStatus, INestApplication } from '@nestjs/common'
-import { BusMemoryModule, CreateUserCommand, userRepository } from './src'
+import { Test }                         from '@nestjs/testing'
+
+import { BusMemoryModule }              from './src'
 
 describe('BusModule', () => {
   let app: INestApplication
@@ -10,16 +11,18 @@ describe('BusModule', () => {
     const module = await Test.createTestingModule({
       imports: [BusMemoryModule],
     }).compile()
-    
+
     app = module.createNestApplication()
 
     await app.init()
   })
-  
+
   it('should create a user', async () => {
     const payload = {
       id: 1,
-      username: Math.random().toString(16).slice(2),
+      username: Math.random()
+        .toString(16)
+        .slice(2),
     }
 
     const createUserResponse = await request(app.getHttpServer())
