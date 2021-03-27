@@ -7,25 +7,13 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 **Note:** Version bump only for package @atlantis-lab/server-scripts
 
-
-
-
-
 ## 0.1.24 (2021-03-15)
 
 **Note:** Version bump only for package @atlantis-lab/server-scripts
 
-
-
-
-
 ## 0.1.23 (2021-03-12)
 
 **Note:** Version bump only for package @atlantis-lab/server-scripts
-
-
-
-
 
 ## 0.1.22 (2021-02-14)
 
