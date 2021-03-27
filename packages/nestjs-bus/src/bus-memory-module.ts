@@ -1,5 +1,4 @@
 import {
-  DynamicModule,
   Global,
   Inject,
   Module,
@@ -7,8 +6,7 @@ import {
   OnModuleDestroy,
   OnModuleInit,
 } from '@nestjs/common'
-import { MetadataScanner }       from '@nestjs/core'
-import { ApplicationBootstrap, BUS_SYMBOLS, BusModule } from '@node-ts/bus-core'
+import { ApplicationBootstrap }  from '@node-ts/bus-core'
 import { LOGGER_SYMBOLS }        from '@node-ts/logger-core'
 import { Container }             from 'inversify'
 
@@ -18,7 +16,7 @@ import { ExplorerService }       from './services'
 import { APPLICATION_CONTAINER } from './symbols'
 import {
   applicationBootstrapProviders,
-  applicationContainer,
+  applicationContainer as applicationContainerProvider,
   busServiceProviders,
   handlerRegistryProviders,
 } from './providers'
@@ -30,7 +28,7 @@ import {
     ...busServiceProviders,
     ...applicationBootstrapProviders,
     ...handlerRegistryProviders,
-    applicationContainer,
+    applicationContainerProvider,
     ExplorerService,
   ],
   exports: [...busServiceProviders, ...applicationBootstrapProviders, ...handlerRegistryProviders],
