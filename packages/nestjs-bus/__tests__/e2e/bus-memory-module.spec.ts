@@ -2,7 +2,6 @@ import request from 'supertest'
 import { Test } from '@nestjs/testing'
 import { HttpStatus, INestApplication } from '@nestjs/common'
 import { BusMemoryModule, CreateUserCommand, userRepository } from './src'
-import { Bus } from '../../src'
 
 describe('BusModule', () => {
   let app: INestApplication
@@ -23,11 +22,21 @@ describe('BusModule', () => {
       username: Math.random().toString(16).slice(2),
     }
 
-    return request(app.getHttpServer())
+    const createUserResponse = await request(app.getHttpServer())
       .post('/user')
-      .send(payload)
       .set('Accept', 'application/json')
-      .expect(HttpStatus.OK)
+      .send(payload)
+
+    expect(createUserResponse.status).toBe(HttpStatus.OK)
+    expect(createUserResponse.body).toMatchObject(payload)
+
+    const findUserResponse = await request(app.getHttpServer())
+      .get(`/user/${payload.id}`)
+      .set('Accept', 'application/json')
+      .send()
+
+    expect(findUserResponse.status).toBe(HttpStatus.OK)
+    expect(findUserResponse.body).toMatchObject(payload)
   })
 
   afterAll(async () => {

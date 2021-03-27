@@ -1,9 +1,15 @@
 import { Module } from '@nestjs/common'
-import { BusModule, Bus } from '../../../src'
+import { CreateUserHandler } from './handlers'
+import { BusModule, Transport } from '../../../src'
 import { UserController } from './controllers'
 
 @Module({
-  imports: [BusModule.forMemory()],
+  imports: [
+    BusModule.forRoot({
+      transport: Transport.Memory,
+    }),
+  ],
+  providers: [CreateUserHandler],
   controllers: [UserController],
 })
 export class BusMemoryModule {}
