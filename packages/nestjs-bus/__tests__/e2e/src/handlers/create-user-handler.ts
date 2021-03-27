@@ -1,9 +1,9 @@
-import { Handler } from '@node-ts/bus-core'
-import { Inject } from '@nestjs/common'
+import { Handler }           from '@node-ts/bus-core'
+
+import { HandlesMessage }    from '../../../../src'
 import { CreateUserCommand } from '../messages'
-import { userRepository } from '../repository'
-import { UserModel } from '../models'
-import { HandlesMessage } from '../../../../src'
+import { UserModel }         from '../models'
+import { userRepository }    from '../repository'
 
 @HandlesMessage(CreateUserCommand)
 export class CreateUserHandler implements Handler<CreateUserCommand> {

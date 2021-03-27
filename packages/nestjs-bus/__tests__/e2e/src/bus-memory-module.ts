@@ -1,7 +1,8 @@
-import { Module } from '@nestjs/common'
-import { CreateUserHandler } from './handlers'
+import { Module }               from '@nestjs/common'
+
 import { BusModule, Transport } from '../../../src'
-import { UserController } from './controllers'
+import { UserController }       from './controllers'
+import { CreateUserHandler }    from './handlers'
 
 @Module({
   imports: [
