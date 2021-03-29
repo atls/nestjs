@@ -7,25 +7,13 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 **Note:** Version bump only for package @atlantis-lab/nestjs-tinkoff
 
-
-
-
-
 ## 2.0.18 (2021-03-15)
 
 **Note:** Version bump only for package @atlantis-lab/nestjs-tinkoff
 
-
-
-
-
 ## 2.0.17 (2021-03-12)
 
 **Note:** Version bump only for package @atlantis-lab/nestjs-tinkoff
-
-
-
-
 
 ## 2.0.16 (2021-02-14)
 
