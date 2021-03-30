@@ -1,14 +1,15 @@
 #!/usr/bin/env node
 
-process.on('unhandledRejection', (err) => {
+process.on('unhandledRejection', err => {
+  // eslint-disable-next-line
   throw err
 })
 
-const path = require('path')
 const spawn = require('cross-spawn')
+
 const args = process.argv.slice(2)
 
-const scriptIndex = args.findIndex((x) => x === 'build' || x === 'start')
+const scriptIndex = args.findIndex(x => x === 'build' || x === 'start')
 
 const script = scriptIndex === -1 ? args[0] : args[scriptIndex]
 const nodeArgs = scriptIndex > 0 ? args.slice(0, scriptIndex) : []
@@ -18,9 +19,7 @@ switch (script) {
   case 'start': {
     const result = spawn.sync(
       'node',
-      nodeArgs
-        .concat(require.resolve('../dist/' + script + '.js'))
-        .concat(args.slice(scriptIndex + 1)),
+      `${nodeArgs}${require.resolve(`../dist/${script}.js`)}${args.slice(scriptIndex + 1)}`,
       { stdio: 'inherit' },
     )
 
@@ -46,7 +45,7 @@ switch (script) {
     break
   }
   default:
-    console.log('Unknown script "' + script + '".')
+    console.log(`Unknown script " ${script} ".`)
 
     break
 }
