@@ -30,7 +30,8 @@
     "ts-loader": "^8.0.0",
     "webpack": "^5.0.0",
     "webpack-dev-server": "^3.7.2",
-    "webpack-node-externals": "^2.0.0"
+    "webpack-node-externals": "^2.0.0",
+    "cross-spawn": "7.0.3"
   },
   "devDependencies": {
     "@nestjs/testing": "7.3.2",
