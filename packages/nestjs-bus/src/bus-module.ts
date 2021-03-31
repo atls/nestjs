@@ -1,42 +1,27 @@
-import { DynamicModule, Module }           from '@nestjs/common'
-import { RabbitMqTransportConfiguration }  from '@node-ts/bus-rabbitmq'
+import { DynamicModule, Module } from '@nestjs/common'
 
-import { BusMemoryModule }                 from './bus-memory-module'
-import { BusRabbitMQModule }               from './bus-rabbitmq-module'
-import { Transport }                       from './enums'
-import { BusModuleOptions }                from './interfaces'
-import { busRabbitMQConfigurationFactory } from './factory'
+import { BusCoreModule }         from './bus-core-module'
+import { Transport }             from './enums'
+import { BusModuleOptions }      from './interfaces'
 
 @Module({})
 export class BusModule {
   public static forRoot = (options: BusModuleOptions): DynamicModule => {
-    switch (options.transport) {
-      case Transport.Memory:
-        return BusModule.forMemory()
-      case Transport.RabbitMQ:
-        return BusModule.forRabbitMQ(options.configuration)
-      default:
-        throw new Error('Unknown transport')
-    }
-  }
-
-  private static forMemory = (): DynamicModule => {
     const module: DynamicModule = {
       module: BusModule,
-      imports: [BusMemoryModule],
+      imports: [],
       providers: [],
     }
 
-    return module
-  }
-
-  private static forRabbitMQ = (configuration: RabbitMqTransportConfiguration): DynamicModule => {
-    const busRabbitMQConfiguration = busRabbitMQConfigurationFactory(configuration)
-
-    const module: DynamicModule = {
-      module: BusModule,
-      imports: [BusRabbitMQModule],
-      providers: [busRabbitMQConfiguration],
+    switch (options.transport) {
+      case Transport.Memory:
+        module.imports.push(BusCoreModule.forMemory())
+        break
+      case Transport.RabbitMQ:
+        module.imports.push(BusCoreModule.forRabbitMQ(options.configuration))
+        break
+      default:
+        throw new Error('Unknown transport')
     }
 
     return module
