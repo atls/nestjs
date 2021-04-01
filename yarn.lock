@@ -278,6 +278,11 @@
   resolved "https://registry.yarnpkg.com/@atlantis-lab/tsconfig/-/tsconfig-0.1.11.tgz#a82ea3ada7154c0b54972bece70a5fffab82968c"
   integrity sha512-Au/Bbd6QXzLFoNGaIQ/i0xyN0GNvj384z/6VrTFDCkJ8Mb73I1acnNpaSrdNSdJFwmkdF7yp0h8pmW9Qh6w2sA==
 
+"@atlantis-lab/tsconfig@0.1.12":
+  version "0.1.12"
+  resolved "https://registry.yarnpkg.com/@atlantis-lab/tsconfig/-/tsconfig-0.1.12.tgz#58c1b1e3bc0f5a7bec1e6723f62f38672e75f34b"
+  integrity sha512-TDEIDZTKQ8zHPhFNt2vOQ3Iai99/x4DeR0CjI3Rdb87YmmoO1F4aXzhY0qJGgyBXUQb6cZ9AAEwsda1lB7admg==
+
 "@babel/code-frame@7.10.4":
   version "7.10.4"
   resolved "https://registry.yarnpkg.com/@babel/code-frame/-/code-frame-7.10.4.tgz#168da1a36e90da68ae8d49c0f1b48c7c6249213a"
