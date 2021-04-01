@@ -265,13 +265,12 @@
     import-sort-parser-typescript "^6.0.0"
     import-sort-style "^6.0.0"
 
-"@atlantis-lab/tinkoff-api@0.1.7":
-  version "0.1.7"
-  resolved "https://registry.yarnpkg.com/@atlantis-lab/tinkoff-api/-/tinkoff-api-0.1.7.tgz#dc6cd2a49aca79faef1305eb07eeb5d846250e14"
-  integrity sha512-1suz3WSb3ZdZEHGrCEZSTUg6g4RLKlfhX2ruv1RlUdUxjQbycJs2EuANYB6w+u0NfRTX0enjADkdGKnFCS65MQ==
+"@atlantis-lab/tinkoff-api@0.1.13":
+  version "0.1.13"
+  resolved "https://registry.yarnpkg.com/@atlantis-lab/tinkoff-api/-/tinkoff-api-0.1.13.tgz#b653d916202fd9f253c257e495a4d620f77b8c63"
+  integrity sha512-GeSUYe9rhe853Vg2GsCbY+UwPU0T0p0BlC0CiT1b02P/FblkakRIuRMMUgjbdMavKFh5O1/nK9Nkv4YuvrnK9A==
   dependencies:
     node-fetch "2.6.1"
-    rimraf "3.0.2"
 
 "@atlantis-lab/tsconfig@0.1.11":
   version "0.1.11"
