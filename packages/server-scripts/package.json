@@ -21,7 +21,7 @@
     "build": "tsc -p tsconfig.json"
   },
   "dependencies": {
-    "@lerna/project": "3.21.0",
+    "@lerna/project": "4.0.0",
     "chalk": "^4.0.0",
     "cross-spawn": "7.0.3",
     "file-loader": "^6.0.0",
