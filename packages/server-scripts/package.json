@@ -35,7 +35,7 @@
   },
   "devDependencies": {
     "@nestjs/testing": "7.3.2",
-    "@types/node": "14.14.20",
+    "@types/node": "14.14.41",
     "rimraf": "3.0.2"
   },
   "publishConfig": {
