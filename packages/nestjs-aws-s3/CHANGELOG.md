@@ -7,49 +7,25 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 **Note:** Version bump only for package @atlantis-lab/nestjs-aws-s3
 
-
-
-
-
 ## 1.1.41 (2021-05-02)
 
 **Note:** Version bump only for package @atlantis-lab/nestjs-aws-s3
-
-
-
-
 
 ## 1.1.40 (2021-04-01)
 
 **Note:** Version bump only for package @atlantis-lab/nestjs-aws-s3
 
-
-
-
-
 ## 1.1.39 (2021-03-31)
 
 **Note:** Version bump only for package @atlantis-lab/nestjs-aws-s3
-
-
-
-
 
 ## 1.1.38 (2021-03-30)
 
 **Note:** Version bump only for package @atlantis-lab/nestjs-aws-s3
 
-
-
-
-
 ## 1.1.37 (2021-03-29)
 
 **Note:** Version bump only for package @atlantis-lab/nestjs-aws-s3
-
-
-
-
 
 ## 1.1.36 (2021-03-15)
 
