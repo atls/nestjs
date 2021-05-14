@@ -18,7 +18,7 @@ export const createFailedValidationHandler = <T extends {}>(invalidObj: T) => {
       from(
         validate(invalidObj).then((validationErrors: Array<ValidationError>) => {
           throw new ErrorToIntrecept(validationErrors)
-        }),
+        })
       ),
   }
 }

@@ -1,15 +1,11 @@
 /* eslint-disable prettier/prettier */
 
-import request            from 'supertest'
-import {
-  BadRequestException,
-  INestApplication,
-  ValidationPipe,
-}                         from '@nestjs/common'
-import { ExpressAdapter } from '@nestjs/platform-express'
-import { Test }           from '@nestjs/testing'
+import request                                                   from 'supertest'
+import { BadRequestException, INestApplication, ValidationPipe } from '@nestjs/common'
+import { ExpressAdapter }                                        from '@nestjs/platform-express'
+import { Test }                                                  from '@nestjs/testing'
 
-import { CatsController } from './resources'
+import { CatsController }                                        from './resources'
 
 describe('e2e map errors interceptor', () => {
   let app: INestApplication
@@ -24,8 +20,8 @@ describe('e2e map errors interceptor', () => {
     app.useGlobalPipes(
       new ValidationPipe({
         transform: true,
-        exceptionFactory: error => new BadRequestException(error),
-      }),
+        exceptionFactory: (error) => new BadRequestException(error),
+      })
     )
 
     await app.init()
