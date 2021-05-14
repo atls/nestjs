@@ -14,11 +14,9 @@ const executionContext = {
 }
 
 const callHandler = {
-  handle: () => {
-    return {
-      pipe: jest.fn(),
-    }
-  },
+  handle: () => ({
+    pipe: jest.fn(),
+  }),
 }
 
 describe('MapValidationErrorsInterceptor', () => {

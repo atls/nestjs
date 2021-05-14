@@ -3,6 +3,7 @@ import 'reflect-metadata'
 import { INestApplication } from '@nestjs/common'
 import { Test }             from '@nestjs/testing'
 
+// @ts-ignore
 import { LoggerModule }     from '@atls/nestjs-logger'
 
 import { BusModule }        from '../module'
