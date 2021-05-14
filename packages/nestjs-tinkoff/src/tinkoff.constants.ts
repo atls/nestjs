@@ -1,1 +1,0 @@
-export const TINKOFF_API_OPTIONS = Symbol('TINKOFF_API_OPTIONS')

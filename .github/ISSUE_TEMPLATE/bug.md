@@ -1,7 +1,6 @@
 ---
 name: Bug
 about: Что-то где-то сдохло
-title: '[bug]'
 labels: bug
 assignees: TorinAsakura
 ---

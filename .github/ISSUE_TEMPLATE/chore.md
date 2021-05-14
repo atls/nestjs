@@ -1,7 +1,6 @@
 ---
 name: Chore
 about: Не фича и не баг
-title: '[chore]'
 labels: chore
 assignees: TorinAsakura
 ---
