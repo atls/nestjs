@@ -1,12 +1,13 @@
 import { DynamicModule, Global, Inject, Module }                 from '@nestjs/common'
 import { OnApplicationBootstrap, OnModuleDestroy, OnModuleInit } from '@nestjs/common'
 import { ModuleRef }                                             from '@nestjs/core'
-import { ApplicationBootstrap, BUS_SYMBOLS }     from '@node-ts/bus-core'
+import { ApplicationBootstrap, BUS_SYMBOLS }                     from '@node-ts/bus-core'
 import { BUS_INTERNAL_SYMBOLS }                                  from '@node-ts/bus-core/dist/bus-symbols'
 import { MessageAttributes }                                     from '@node-ts/bus-messages'
 import { Container }                                             from 'inversify'
 
-import { Logger }                                  from '@atls/nestjs-logger'
+// @ts-ignore
+import { Logger }                                                from '@atls/nestjs-logger'
 
 import { Bus }                                                   from './bus'
 import { HandlerRegistry }                                       from './handler'
@@ -37,6 +38,7 @@ export class BusCoreModule implements OnModuleInit, OnModuleDestroy, OnApplicati
     const busProvider = {
       provide: Bus,
       useFactory: (transport, logger, handlerRegistry, messageHandlingContext) =>
+        // @ts-ignore
         new Bus(transport, logger, handlerRegistry, messageHandlingContext),
       inject: [BUS_SYMBOLS.Transport, Logger, HandlerRegistry, BUS_SYMBOLS.MessageHandlingContext],
     }
@@ -65,7 +67,7 @@ export class BusCoreModule implements OnModuleInit, OnModuleDestroy, OnApplicati
   async onModuleInit() {
     const { events } = this.explorerService.explore()
 
-    events.map((event) => {
+    events.forEach((event) => {
       this.applicationBootstrap.registerHandler(event)
     })
   }
