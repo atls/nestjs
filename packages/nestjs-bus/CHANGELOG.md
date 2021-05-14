@@ -7,49 +7,25 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 **Note:** Version bump only for package @atlantis-lab/nestjs-bus
 
-
-
-
-
 ## 0.2.27 (2021-05-02)
 
 **Note:** Version bump only for package @atlantis-lab/nestjs-bus
-
-
-
-
 
 ## 0.2.26 (2021-04-01)
 
 **Note:** Version bump only for package @atlantis-lab/nestjs-bus
 
-
-
-
-
 ## 0.2.25 (2021-03-31)
 
 **Note:** Version bump only for package @atlantis-lab/nestjs-bus
-
-
-
-
 
 ## 0.2.24 (2021-03-30)
 
 **Note:** Version bump only for package @atlantis-lab/nestjs-bus
 
-
-
-
-
 ## 0.2.23 (2021-03-29)
 
 **Note:** Version bump only for package @atlantis-lab/nestjs-bus
-
-
-
-
 
 ## 0.2.22 (2021-03-15)
 

@@ -7,49 +7,25 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 **Note:** Version bump only for package @atlantis-lab/nestjs-logger
 
-
-
-
-
 ## 0.2.33 (2021-05-02)
 
 **Note:** Version bump only for package @atlantis-lab/nestjs-logger
-
-
-
-
 
 ## 0.2.32 (2021-04-01)
 
 **Note:** Version bump only for package @atlantis-lab/nestjs-logger
 
-
-
-
-
 ## 0.2.31 (2021-03-31)
 
 **Note:** Version bump only for package @atlantis-lab/nestjs-logger
-
-
-
-
 
 ## 0.2.30 (2021-03-30)
 
 **Note:** Version bump only for package @atlantis-lab/nestjs-logger
 
-
-
-
-
 ## 0.2.29 (2021-03-29)
 
 **Note:** Version bump only for package @atlantis-lab/nestjs-logger
-
-
-
-
 
 ## 0.2.28 (2021-03-15)
 

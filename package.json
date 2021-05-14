@@ -1,29 +1,14 @@
 {
+  "name": "nestjs",
   "private": true,
   "license": "BSD-3 Clause",
-  "scripts": {
-    "lint": "actl lint",
-    "test": "actl test",
-    "commit": "actl commit",
-    "format": "actl format",
-    "typecheck": "actl typecheck",
-    "checkcommit": "actl precommit",
-    "build": "lerna run build"
-  },
   "devDependencies": {
-    "@atlantis-lab/actl": "0.4.32",
     "@atlantis-lab/tsconfig": "0.1.11",
+    "@atls/actl-cli": "^0.4.39",
     "husky": "5.1.3",
-    "lerna": "3.22.1",
     "typescript": "4.1.3"
   },
   "workspaces": [
     "packages/**/*"
-  ],
-  "husky": {
-    "hooks": {
-      "pre-commit": "actl precommit",
-      "commit-msg": "actl commitmsg"
-    }
-  }
+  ]
 }

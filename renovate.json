@@ -1,9 +1,0 @@
-{
-  "automerge": false,
-  "timezone": "Europe/Moscow",
-  "schedule": ["before 9am on the first day of the month"],
-  "semanticCommitScope": "deps",
-  "semanticCommitType": "chore",
-  "semanticCommits": "enabled",
-  "labels": ["dependencies"]
-}
