@@ -1,7 +1,6 @@
 ---
 name: Feature
 about: Изменение ломающее обратную совместимость
-title: '[feature]'
 labels: feature
 assignees: TorinAsakura
 ---

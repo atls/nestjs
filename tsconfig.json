@@ -1,8 +1,7 @@
 {
   "extends": "@atlantis-lab/tsconfig/tsconfig.base.json",
-  "include": ["packages/**/**/*"],
   "compilerOptions": {
-    "skipLibCheck": true,
-    "target": "ES6"
-  }
+    "target": "es2017"
+  },
+  "include": ["packages/**/**/*"]
 }
