@@ -21,7 +21,7 @@ export class MapValidationErrorsInterceptor implements NestInterceptor {
   // eslint-disable-next-line class-methods-use-this
   intercept(context: ExecutionContext, next: CallHandler): Observable<any> {
     return next.handle().pipe(
-      catchError(error => {
+      catchError((error) => {
         if (error.response && error.response.message && Array.isArray(error.response.message)) {
           const errors = error.response.message
 
