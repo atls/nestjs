@@ -12,13 +12,11 @@ class ErrorToIntrecept extends Error {
   }
 }
 
-export const createFailedValidationHandler = <T extends {}>(invalidObj: T) => {
-  return {
-    handle: () =>
-      from(
-        validate(invalidObj).then((validationErrors: Array<ValidationError>) => {
-          throw new ErrorToIntrecept(validationErrors)
-        })
-      ),
-  }
-}
+export const createFailedValidationHandler = <T extends {}>(invalidObj: T) => ({
+  handle: () =>
+    from(
+      validate(invalidObj).then((validationErrors: Array<ValidationError>) => {
+        throw new ErrorToIntrecept(validationErrors)
+      })
+    ),
+})

@@ -1,19 +1,21 @@
-import { DynamicModule, Global, Inject, Module, OnModuleInit }  from '@nestjs/common'
-import { BUS_SYMBOLS, Bus }                                     from '@node-ts/bus-core'
-import { MemoryQueue }                                          from '@node-ts/bus-core/dist/transport'
-import { BUS_RABBITMQ_SYMBOLS, RabbitMqTransportConfiguration } from '@node-ts/bus-rabbitmq'
+import { DynamicModule, Module }          from '@nestjs/common'
+import { BUS_SYMBOLS }                    from '@node-ts/bus-core'
+import { MemoryQueue }                    from '@node-ts/bus-core/dist/transport'
+import { RabbitMqTransportConfiguration } from '@node-ts/bus-rabbitmq'
 
-import { Logger }                                               from '@atls/nestjs-logger'
+// @ts-ignore
+import { Logger }                         from '@atls/nestjs-logger'
 
-import { BusCoreModule }                                        from './core'
-import { RabbitMqTransport }                                    from './transport'
-import { connect }                                              from './amqp'
+import { BusCoreModule }                  from './core'
+import { RabbitMqTransport }              from './transport'
+import { connect }                        from './amqp'
 
 @Module({})
 export class BusModule {
   static forMemory(): DynamicModule {
     const transportProvider = {
       provide: BUS_SYMBOLS.Transport,
+      // @ts-ignore
       useFactory: (logger) => new MemoryQueue(logger),
       inject: [Logger],
     }
@@ -29,6 +31,7 @@ export class BusModule {
 
     const transportProvider = {
       provide: BUS_SYMBOLS.Transport,
+      // @ts-ignore
       useFactory: (logger) => new RabbitMqTransport(connectionFactory, configuration, logger),
       inject: [Logger],
     }

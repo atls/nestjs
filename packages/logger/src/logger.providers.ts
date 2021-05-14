@@ -29,16 +29,14 @@ export const createInnerLoggerConfig = (): {
   return config
 }
 
-export const createLoggerProviders = (): Provider<any>[] => {
-  return [
-    {
-      provide: INNER_LOGGER_CONFIG,
-      useFactory: () => exports.createInnerLoggerConfig(),
-    },
-    {
-      provide: INNER_LOGGER,
-      useFactory: (options) => createLogger(options),
-      inject: [INNER_LOGGER_CONFIG],
-    },
-  ]
-}
+export const createLoggerProviders = (): Provider<any>[] => [
+  {
+    provide: INNER_LOGGER_CONFIG,
+    useFactory: () => exports.createInnerLoggerConfig(),
+  },
+  {
+    provide: INNER_LOGGER,
+    useFactory: (options) => createLogger(options),
+    inject: [INNER_LOGGER_CONFIG],
+  },
+]

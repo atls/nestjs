@@ -235,8 +235,10 @@ __metadata:
     amqp-connection-manager: ^3.2.0
     amqplib: ^0.5.5
     inversify: ^5.0.1
+    promise-breaker: ^5.0.0
     reflect-metadata: 0.1.13
     rxjs: 6.5.5
+    serialize-error: ^8.1.0
     typescript: ^3.8.3
   peerDependencies:
     "@atls/nestjs-logger": "*"
@@ -280,7 +282,7 @@ __metadata:
     "@types/supertest": 2.0.4
     class-validator: 0.13.1
     reflect-metadata: 0.1.13
-    rxjs: 6.6.3
+    rxjs: 6.6.7
     supertest: 6.1.3
     typescript: 4.1.3
   peerDependencies:
@@ -7003,7 +7005,7 @@ fsevents@^2.1.2:
   languageName: node
   linkType: hard
 
-"logform@npm:^2.2.0":
+"logform@npm:*, logform@npm:^2.2.0":
   version: 2.2.0
   resolution: "logform@npm:2.2.0"
   dependencies:
@@ -8966,7 +8968,7 @@ resolve@^2.0.0-next.3:
   languageName: node
   linkType: hard
 
-"rxjs@npm:^6.4.0, rxjs@npm:^6.6.0, rxjs@npm:^6.6.6":
+"rxjs@npm:6.6.7, rxjs@npm:^6.4.0, rxjs@npm:^6.6.0, rxjs@npm:^6.6.6":
   version: 6.6.7
   resolution: "rxjs@npm:6.6.7"
   dependencies:
@@ -9114,6 +9116,15 @@ resolve@^2.0.0-next.3:
   dependencies:
     type-fest: ^0.3.0
   checksum: 458a42f817db81eed107c98c62a8dd7f797d5b2a6578511012e02fcc55f08b8e8d616c3d41d7d410ef6e3b364287fb4f558a1ad6858256dd0f042f71b7a92155
+  languageName: node
+  linkType: hard
+
+"serialize-error@npm:^8.1.0":
+  version: 8.1.0
+  resolution: "serialize-error@npm:8.1.0"
+  dependencies:
+    type-fest: ^0.20.2
+  checksum: b22c9db390d378433b1796fd60144f5a2aef16f23cff8be59e719328e11a5220a31baf9020bb3cc2faf31901754b5683459c1824478bb1427ad6f1ea5bf70ef7
   languageName: node
   linkType: hard
 

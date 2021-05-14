@@ -34,6 +34,7 @@ export class ExplorerService {
   filterProvider(wrapper: InstanceWrapper, metadataKey: string): Type<any> | undefined {
     const { instance } = wrapper
     if (!instance) {
+      // @ts-ignore
       return undefined
     }
     return this.extractMetadata(instance, metadataKey)
@@ -41,9 +42,12 @@ export class ExplorerService {
 
   extractMetadata(instance: Object, metadataKey: string): Type<any> {
     if (!instance.constructor) {
+      // @ts-ignore
       return
     }
     const metadata = Reflect.getMetadata(metadataKey, instance.constructor)
+    // @ts-ignore
+    // eslint-disable-next-line
     return metadata ? (instance.constructor as Type<any>) : undefined
   }
 }

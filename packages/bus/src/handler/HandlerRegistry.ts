@@ -1,11 +1,15 @@
+/* eslint-disable @typescript-eslint/no-use-before-define */
+
 import serializeError                                          from 'serialize-error'
 import { ModuleRef }                                           from '@nestjs/core'
 import { HandlerRegistration, HandlerResolver }                from '@node-ts/bus-core'
+// eslint-disable-next-line
 import {
   Handler,
   HandlerPrototype,
   MessageType,
 }              from '@node-ts/bus-core/dist/handler/handler'
+// eslint-disable-next-line
 import {
   ClassConstructor,
   isClassConstructor,
@@ -25,6 +29,7 @@ type HandlerType =
 @injectable()
 export class HandlerRegistry {
   private container: Container
+
   private handlerResolvers: HandlerResolver[] = []
 
   constructor(
@@ -107,9 +112,11 @@ export class HandlerRegistry {
         let handler = null
 
         try {
+          // @ts-ignore
           handler = this.moduleRef.get<Handler<MessageType>>(h.handler as any, {
             strict: false,
           })
+          // eslint-disable-next-line
         } catch (error) {}
 
         if (handler) {
@@ -121,6 +128,7 @@ export class HandlerRegistry {
         } catch (error) {
           this.logger.error('Could not resolve handler from the IoC container.', {
             receivedMessage: message,
+            // @ts-ignore
             error: serializeError(error),
           })
           throw error

@@ -6,6 +6,7 @@ export const getRootPackage = (): any => {
     // eslint-disable-next-line
     return require(packagePath)
   } catch (error) {
+    // eslint-disable-next-line
     console.log(error)
     return null
   }

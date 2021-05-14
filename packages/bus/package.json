@@ -41,6 +41,8 @@
     "@node-ts/logger-core": "^0.1.0",
     "amqp-connection-manager": "^3.2.0",
     "amqplib": "^0.5.5",
-    "inversify": "^5.0.1"
+    "inversify": "^5.0.1",
+    "promise-breaker": "^5.0.0",
+    "serialize-error": "^8.1.0"
   }
 }

@@ -1,5 +1,7 @@
 import { CallHandler, ExecutionContext, Injectable, NestInterceptor } from '@nestjs/common'
 import { Observable, of, throwError }                                 from 'rxjs'
+
+// eslint-disable-next-line
 import { catchError }                                                 from 'rxjs/operators'
 
 const mapErrors = (result, error) => {
@@ -26,7 +28,8 @@ export class MapValidationErrorsInterceptor implements NestInterceptor {
           const errors = error.response.message
 
           return of({ errors: errors.reduce(mapErrors, {}) })
-        } else if (error.message && error.message.message && Array.isArray(error.message.message)) {
+        }
+        if (error.message && error.message.message && Array.isArray(error.message.message)) {
           const errors = error.message.message
 
           return of({ errors: errors.reduce(mapErrors, {}) })
