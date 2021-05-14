@@ -1,0 +1,46 @@
+{
+  "name": "@atls/nestjs-bus",
+  "repository": "git@github.com:Atlantis-Lab/nestjs.git",
+  "version": "0.2.28",
+  "license": "BSD-3 Clause",
+  "main": "dist/index.js",
+  "source": "src/index.ts",
+  "typings": "dist/types/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "build": "yarn app library build",
+    "postpack": "rm -rf dist",
+    "prepack": "yarn run build"
+  },
+  "peerDependencies": {
+    "@atls/nestjs-logger": "*",
+    "@nestjs/common": "^6.0.2",
+    "@nestjs/core": "^6.0.2",
+    "reflect-metadata": "^0.1.12",
+    "rxjs": "^6.3.3"
+  },
+  "devDependencies": {
+    "@nestjs/common": "7.0.9",
+    "@nestjs/core": "7.0.9",
+    "@nestjs/platform-express": "7.0.9",
+    "@nestjs/testing": "^7.0.9",
+    "@types/node": "13.13.4",
+    "reflect-metadata": "0.1.13",
+    "rxjs": "6.5.5",
+    "typescript": "^3.8.3"
+  },
+  "dependencies": {
+    "@node-ts/bus-core": "^0.5.2",
+    "@node-ts/bus-messages": "^0.2.2",
+    "@node-ts/bus-rabbitmq": "^0.5.1",
+    "@node-ts/logger-core": "^0.1.0",
+    "amqp-connection-manager": "^3.2.0",
+    "amqplib": "^0.5.5",
+    "inversify": "^5.0.1"
+  }
+}

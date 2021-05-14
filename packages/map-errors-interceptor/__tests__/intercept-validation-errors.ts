@@ -37,7 +37,7 @@ describe('MapValidationErrorsInterceptor', () => {
       }
 
       return expect(
-        interceptor.intercept(executionContext, createFailedValidationHandler(obj)).toPromise(),
+        interceptor.intercept(executionContext, createFailedValidationHandler(obj)).toPromise()
       ).resolves.toEqual(expectedError)
     })
   })
@@ -63,7 +63,7 @@ describe('MapValidationErrorsInterceptor', () => {
       }
 
       return expect(
-        interceptor.intercept(executionContext, createFailedValidationHandler(obj)).toPromise(),
+        interceptor.intercept(executionContext, createFailedValidationHandler(obj)).toPromise()
       ).resolves.toEqual(expectedError)
     })
   })
@@ -99,7 +99,7 @@ describe('MapValidationErrorsInterceptor', () => {
       }
 
       return expect(
-        interceptor.intercept(executionContext, createFailedValidationHandler(obj)).toPromise(),
+        interceptor.intercept(executionContext, createFailedValidationHandler(obj)).toPromise()
       ).resolves.toEqual(expectedError)
     })
   })
