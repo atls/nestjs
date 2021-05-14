@@ -1,0 +1,40 @@
+name: Publish
+
+on:
+  workflow_dispatch:
+
+jobs:
+  run:
+    name: Publish
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          ref: master
+
+      - name: Setup Node
+        uses: actions/setup-node@v1
+        with:
+          node-version: '14.10'
+
+      - name: Install
+        run: yarn install
+
+      - name: Npm Publish
+        run: |
+          yarn version apply --all
+          yarn workspaces changed foreach --verbose --topological --no-private npm publish --access public
+        env:
+          YARN_NPM_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+      - name: Commit changes
+        uses: EndBug/add-and-commit@v7
+        env:
+          GITHUB_TOKEN: '${{ secrets.GITHUB_TOKEN }}'
+        with:
+          author_name: github-actions
+          author_email: 41898282+github-actions[bot]@users.noreply.github.com
+          message: 'chore(common): publish'
+          branch: master
