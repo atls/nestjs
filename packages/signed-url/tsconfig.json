@@ -1,7 +1,0 @@
-{
-  "extends": "@atlantis-lab/tsconfig/tsconfig.lib.json",
-  "compilerOptions": {
-    "outDir": "./lib"
-  },
-  "include": ["src"]
-}

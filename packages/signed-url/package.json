@@ -1,6 +1,6 @@
 {
   "name": "@atlantis-lab/nestjs-signed-url",
-  "repository": "git@github.com:Atlantis-Lab/nestjs.git",
+  "repository": "git@github.com:atls/nestjs.git",
   "version": "0.1.35",
   "license": "BSD-3 Clause",
   "main": "dist/index.js",
@@ -10,9 +10,9 @@
     "dist"
   ],
   "scripts": {
-    "clean": "rimraf dist",
-    "prepublishOnly": "yarn run build",
-    "build": "tsc -p tsconfig.json"
+    "build": "yarn app library build",
+    "postpack": "rm -rf dist",
+    "prepack": "yarn run build"
   },
   "peerDependencies": {
     "@nestjs/common": "^7.3.0",
@@ -27,7 +27,6 @@
     "@nestjs/testing": "7.3.2",
     "@types/node": "14.14.20",
     "reflect-metadata": "0.1.13",
-    "rimraf": "3.0.2",
     "rxjs": "6.6.3",
     "typescript": "4.1.3"
   },
