@@ -27,7 +27,10 @@ export class GcsStorage extends AbstractStorage implements OnModuleInit {
       contentType: options.type,
     }
 
-    const [url] = await this.storage.bucket(bucket).file(filename).getSignedUrl(params)
+    const [url] = await this.storage
+      .bucket(bucket)
+      .file(filename)
+      .getSignedUrl(params)
 
     return { url, fields: [] }
   }
@@ -39,7 +42,10 @@ export class GcsStorage extends AbstractStorage implements OnModuleInit {
       expires: Date.now() + 15 * 60 * 1000,
     }
 
-    const [url] = await this.storage.bucket(bucket).file(filename).getSignedUrl(params)
+    const [url] = await this.storage
+      .bucket(bucket)
+      .file(filename)
+      .getSignedUrl(params)
 
     return { url, fields: [] }
   }
