@@ -1,6 +1,6 @@
 {
   "name": "@atls/nestjs-aws-s3",
-  "repository": "git@github.com:Atlantis-Lab/nestjs.git",
+  "repository": "git@github.com:atls/nestjs.git",
   "version": "1.1.42",
   "license": "BSD-3 Clause",
   "main": "dist/index.js",
