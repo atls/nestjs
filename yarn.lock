@@ -2830,7 +2830,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"apollo-server-core@npm:^2.13.0, apollo-server-core@npm:^2.23.0, apollo-server-core@npm:^2.24.0":
+"apollo-server-core@npm:*, apollo-server-core@npm:^2.13.0, apollo-server-core@npm:^2.23.0, apollo-server-core@npm:^2.24.0":
   version: 2.24.0
   resolution: "apollo-server-core@npm:2.24.0"
   dependencies:
@@ -6410,6 +6410,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"graphql@npm:*":
+  version: 15.5.0
+  resolution: "graphql@npm:15.5.0"
+  checksum: 789cdcb069a3e00592e779002217a6bc5fd09efad63ee8c4190c4b3ea96c89010e74f085fb1cba876a0bb0e324e01df2eddb84d79dca90a28e582bc425fef9ef
+  languageName: node
+  linkType: hard
+
 "growly@npm:^1.3.0":
   version: 1.3.0
   resolution: "growly@npm:1.3.0"
@@ -8317,7 +8324,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"long@npm:^4.0.0":
+"long@npm:*, long@npm:^4.0.0":
   version: 4.0.0
   resolution: "long@npm:4.0.0"
   checksum: 9cebc1ee8b9ea15278c977f61250ac41becdf7216104905f0d198c147ed2a7a090a2d83bb212878d3dc3ccb0199e6428862f848ec4b0ecfeab4dfe24eccf21b3
