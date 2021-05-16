@@ -1,7 +1,28 @@
 {
-  "extends": "@atlantis-lab/tsconfig/tsconfig.base.json",
   "compilerOptions": {
-    "target": "es2017"
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "declaration": false,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "importHelpers": false,
+    "isolatedModules": false,
+    "module": "esnext",
+    "moduleResolution": "node",
+    "noFallthroughCasesInSwitch": true,
+    "noImplicitAny": false,
+    "noImplicitReturns": false,
+    "noImplicitThis": false,
+    "noUnusedLocals": false,
+    "noUnusedParameters": false,
+    "pretty": true,
+    "removeComments": true,
+    "resolveJsonModule": true,
+    "strict": true,
+    "sourceMap": false,
+    "target": "es2017",
+    "jsx": "react"
   },
-  "include": ["packages/**/**/*"]
+  "include": ["packages/**/*"]
 }
