@@ -1,0 +1,7 @@
+releases:
+  "@atlantis-lab/nestjs-signed-url": patch
+  "@atls/nestjs-aws-s3": patch
+  "@atls/nestjs-bus": patch
+  "@atls/nestjs-dataloader": patch
+  "@atls/nestjs-logger": patch
+  "@atls/nestjs-map-errors-interceptor": patch
