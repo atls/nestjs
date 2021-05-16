@@ -1,4 +1,0 @@
-releases:
-  "@atls/nestjs-bus": patch
-  "@atls/nestjs-logger": patch
-  "@atls/nestjs-map-errors-interceptor": patch
