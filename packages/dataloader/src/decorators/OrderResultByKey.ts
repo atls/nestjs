@@ -1,8 +1,12 @@
-export const OrderResultByKey = function(key = 'id', defaultValue = undefined) {
-  return function(target: any, propertyKey: string, descriptor: PropertyDescriptor) {
+/* eslint-disable no-useless-catch */
+
+export const OrderResultByKey =
+  (key = 'id', defaultValue = undefined) =>
+  (target: any, propertyKey: string, descriptor: PropertyDescriptor) => {
     const original = descriptor.value
 
-    descriptor.value = async function(keys, ...args) {
+    // eslint-disable-next-line no-param-reassign
+    descriptor.value = async (keys, ...args) => {
       try {
         const method = original.bind(this)
         const result = await method(keys, ...args)
@@ -15,7 +19,7 @@ export const OrderResultByKey = function(key = 'id', defaultValue = undefined) {
           {}
         )
 
-        return keys.map(itemKey => resultByKey[itemKey] || defaultValue)
+        return keys.map((itemKey) => resultByKey[itemKey] || defaultValue)
       } catch (error) {
         throw error
       }
@@ -23,4 +27,3 @@ export const OrderResultByKey = function(key = 'id', defaultValue = undefined) {
 
     return descriptor
   }
-}
