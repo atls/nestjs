@@ -354,10 +354,10 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@atls/nestjs-bus@workspace:packages/bus"
   dependencies:
-    "@nestjs/common": 7.0.9
-    "@nestjs/core": 7.0.9
+    "@nestjs/common": ^7.6.15
+    "@nestjs/core": ^7.6.15
     "@nestjs/platform-express": 7.0.9
-    "@nestjs/testing": ^7.0.9
+    "@nestjs/testing": ^7.6.15
     "@node-ts/bus-core": ^0.5.2
     "@node-ts/bus-messages": ^0.2.2
     "@node-ts/bus-rabbitmq": ^0.5.1
@@ -373,8 +373,8 @@ __metadata:
     typescript: ^3.8.3
   peerDependencies:
     "@atls/nestjs-logger": "*"
-    "@nestjs/common": ^6.0.2
-    "@nestjs/core": ^6.0.2
+    "@nestjs/common": ^7.6.15
+    "@nestjs/core": ^7.6.15
     reflect-metadata: ^0.1.12
     rxjs: ^6.3.3
   languageName: unknown
@@ -1402,19 +1402,28 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@nestjs/common@npm:7.0.9":
-  version: 7.0.9
-  resolution: "@nestjs/common@npm:7.0.9"
+"@nestjs/common@npm:*, @nestjs/common@npm:^7.0.0, @nestjs/common@npm:^7.6.15":
+  version: 7.6.17
+  resolution: "@nestjs/common@npm:7.6.17"
   dependencies:
-    axios: 0.19.2
-    cli-color: 2.0.0
-    iterare: 1.2.0
-    tslib: 1.11.1
-    uuid: 7.0.3
+    axios: 0.21.1
+    iterare: 1.2.1
+    tslib: 2.2.0
+    uuid: 8.3.2
   peerDependencies:
+    cache-manager: "*"
+    class-transformer: "*"
+    class-validator: "*"
     reflect-metadata: ^0.1.12
     rxjs: ^6.0.0
-  checksum: 3e50a64dd6543410de1e7379643ffb01edecd473991340ecc8171170a4d9258cb53a4c413cf06f7e7a63d48e7d97e628aa7127d5e124098617d0143979917301
+  peerDependenciesMeta:
+    cache-manager:
+      optional: true
+    class-transformer:
+      optional: true
+    class-validator:
+      optional: true
+  checksum: bb18eb9778e76a2003d51afab14e5564165f3650916eda4871e4d45c95dd12acc337b90e65e8ac35da674c35f2e11dbc820c6dbc044538cd80d63febee62c795
   languageName: node
   linkType: hard
 
@@ -1431,50 +1440,6 @@ __metadata:
     reflect-metadata: ^0.1.12
     rxjs: ^6.0.0
   checksum: b4edda4df98ce613436604b8818a7b2e6e71adfc340754274b91d38746152ffbd7d305d571453dabbd68b58ce04d2bb9300d8f50906520e6f958bf2f122de2aa
-  languageName: node
-  linkType: hard
-
-"@nestjs/common@npm:^7.0.0, @nestjs/common@npm:^7.6.15":
-  version: 7.6.15
-  resolution: "@nestjs/common@npm:7.6.15"
-  dependencies:
-    axios: 0.21.1
-    iterare: 1.2.1
-    tslib: 2.1.0
-    uuid: 8.3.2
-  peerDependencies:
-    cache-manager: "*"
-    class-transformer: "*"
-    class-validator: "*"
-    reflect-metadata: ^0.1.12
-    rxjs: ^6.0.0
-  peerDependenciesMeta:
-    cache-manager:
-      optional: true
-    class-transformer:
-      optional: true
-    class-validator:
-      optional: true
-  checksum: 2146bcf85392f3bff14554af7a5eb63123b34f93017ce8e4602a66f4e04a5968a4c0afa26b55b2a40e182783dcfaafa0583bbb12768fd5b88f9ad833531e7293
-  languageName: node
-  linkType: hard
-
-"@nestjs/core@npm:7.0.9":
-  version: 7.0.9
-  resolution: "@nestjs/core@npm:7.0.9"
-  dependencies:
-    "@nuxtjs/opencollective": 0.2.2
-    fast-safe-stringify: 2.0.7
-    iterare: 1.2.0
-    object-hash: 2.0.3
-    path-to-regexp: 3.2.0
-    tslib: 1.11.1
-    uuid: 7.0.3
-  peerDependencies:
-    "@nestjs/common": ^7.0.0
-    reflect-metadata: ^0.1.12
-    rxjs: ^6.0.0
-  checksum: ca5822197448264d6ebb8f09784c50176662f75187c36b5ea3bb9d60db1a29e2fb4487e7ddc3719372d861cb738a755bf3f7d483ec8b690570669e7903a0084e
   languageName: node
   linkType: hard
 
@@ -1635,7 +1600,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@nestjs/testing@npm:^7.0.9, @nestjs/testing@npm:^7.6.15":
+"@nestjs/testing@npm:^7.6.15":
   version: 7.6.15
   resolution: "@nestjs/testing@npm:7.6.15"
   dependencies:
@@ -7487,13 +7452,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"iterare@npm:1.2.0":
-  version: 1.2.0
-  resolution: "iterare@npm:1.2.0"
-  checksum: b3f87ff6cba51882b67579dd35a08deb544658497d718784d0eeea8bfd3a4d31e18bef5b1fe192ac37780456930c5890749ca933aa9575fa28f08599256de457
-  languageName: node
-  linkType: hard
-
 "iterare@npm:1.2.1":
   version: 1.2.1
   resolution: "iterare@npm:1.2.1"
@@ -12045,15 +12003,6 @@ typescript@4.1.3:
   bin:
     uuid: ./bin/uuid
   checksum: f407d974ca30b20bfbd32ae9cc05d20e18df5fd9e5fa088d91db04a6597125dcc8d09eeeb7237782724daba36418e24f557e0245e6ce7b8e4ad25d6436f1cde1
-  languageName: node
-  linkType: hard
-
-"uuid@npm:7.0.3":
-  version: 7.0.3
-  resolution: "uuid@npm:7.0.3"
-  bin:
-    uuid: dist/bin/uuid
-  checksum: a56be8a5bbf2bae755d749d0693637274935b5ae250dfaaaf79241391cf1a7c142a202492196363ec62ec51a476e5e3fc4de2944d854abf2e9b35a33e0e31d4c
   languageName: node
   linkType: hard
 
