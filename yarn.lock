@@ -468,6 +468,29 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@atls/nestjs-typeorm-seeding@workspace:packages/typeorm-seeding":
+  version: 0.0.0-use.local
+  resolution: "@atls/nestjs-typeorm-seeding@workspace:packages/typeorm-seeding"
+  dependencies:
+    "@atls/typeorm-seeding": ^0.0.1
+    "@nestjs/common": ^7.6.15
+    "@nestjs/core": ^7.6.15
+    "@nestjs/testing": ^7.6.15
+    "@nestjs/typeorm": ^7.1.5
+    "@types/node": ^14.17.1
+    "@types/sql.js": ^1
+    reflect-metadata: 0.1.13
+    rxjs: 6.6.7
+    sql.js: ^1.5.0
+    typeorm: ^0.2
+  peerDependencies:
+    "@nestjs/common": ^7.5.0
+    "@nestjs/core": ^7.5.0
+    reflect-metadata: ^0.1.12
+    rxjs: ^6.3.3
+  languageName: unknown
+  linkType: soft
+
 "@atls/prettier-plugin-import-align@npm:0.0.2":
   version: 0.0.2
   resolution: "@atls/prettier-plugin-import-align@npm:0.0.2"
@@ -488,6 +511,16 @@ __metadata:
     globby: "*"
     prettier: "*"
   checksum: 05d1d6ae03856fc68e94e00e2025390b3d75b3f77fed48ef280c51926f02323bb228e2a4418c36ca19c2e67808feae554634630c7425765cf410a49528a07a0f
+  languageName: node
+  linkType: hard
+
+"@atls/typeorm-seeding@npm:^0.0.1":
+  version: 0.0.1
+  resolution: "@atls/typeorm-seeding@npm:0.0.1"
+  dependencies:
+    faker: ^5.5.3
+    typeorm: ^0.2
+  checksum: 0600f8f0a7669117cc557b38f3812987d58d9a96813eb61f11fde40f039e79f5d750f1567e037669c871b92fe7ed9e66faeb0916dcccf406756561ca26b26cbe
   languageName: node
   linkType: hard
 
@@ -1402,7 +1435,23 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@nestjs/common@npm:*, @nestjs/common@npm:^7.0.0, @nestjs/common@npm:^7.6.15":
+"@nestjs/common@npm:7.3.2":
+  version: 7.3.2
+  resolution: "@nestjs/common@npm:7.3.2"
+  dependencies:
+    axios: 0.19.2
+    cli-color: 2.0.0
+    iterare: 1.2.1
+    tslib: 2.0.0
+    uuid: 8.2.0
+  peerDependencies:
+    reflect-metadata: ^0.1.12
+    rxjs: ^6.0.0
+  checksum: b4edda4df98ce613436604b8818a7b2e6e71adfc340754274b91d38746152ffbd7d305d571453dabbd68b58ce04d2bb9300d8f50906520e6f958bf2f122de2aa
+  languageName: node
+  linkType: hard
+
+"@nestjs/common@npm:^7.0.0, @nestjs/common@npm:^7.6.15":
   version: 7.6.17
   resolution: "@nestjs/common@npm:7.6.17"
   dependencies:
@@ -1424,22 +1473,6 @@ __metadata:
     class-validator:
       optional: true
   checksum: bb18eb9778e76a2003d51afab14e5564165f3650916eda4871e4d45c95dd12acc337b90e65e8ac35da674c35f2e11dbc820c6dbc044538cd80d63febee62c795
-  languageName: node
-  linkType: hard
-
-"@nestjs/common@npm:7.3.2":
-  version: 7.3.2
-  resolution: "@nestjs/common@npm:7.3.2"
-  dependencies:
-    axios: 0.19.2
-    cli-color: 2.0.0
-    iterare: 1.2.1
-    tslib: 2.0.0
-    uuid: 8.2.0
-  peerDependencies:
-    reflect-metadata: ^0.1.12
-    rxjs: ^6.0.0
-  checksum: b4edda4df98ce613436604b8818a7b2e6e71adfc340754274b91d38746152ffbd7d305d571453dabbd68b58ce04d2bb9300d8f50906520e6f958bf2f122de2aa
   languageName: node
   linkType: hard
 
@@ -1617,6 +1650,21 @@ __metadata:
     "@nestjs/platform-express":
       optional: true
   checksum: c25a104af68ec78743d9f99087e0058684109251d5c9ac2fb0cc1451a479f9ac9e7e1a199bc70d49778a9d0768f3e536f1aef967b6ce60fb3b980e0d1e3bd2aa
+  languageName: node
+  linkType: hard
+
+"@nestjs/typeorm@npm:^7.1.5":
+  version: 7.1.5
+  resolution: "@nestjs/typeorm@npm:7.1.5"
+  dependencies:
+    uuid: 8.3.1
+  peerDependencies:
+    "@nestjs/common": ^6.7.0 || ^7.0.0
+    "@nestjs/core": ^6.7.0 || ^7.0.0
+    reflect-metadata: ^0.1.12
+    rxjs: ^6.0.0
+    typeorm: ^0.2.7
+  checksum: 1b0583ad6ea5809a476d3f03c51ffd0fb9df8c4ce540539794bf7c215d7aaf98b04860ff36f64b62882fdddabc97c4b6eca14184b65385b1daad3c1c742ac614
   languageName: node
   linkType: hard
 
@@ -1993,6 +2041,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/emscripten@npm:*":
+  version: 1.39.4
+  resolution: "@types/emscripten@npm:1.39.4"
+  checksum: b848421e2597a0ce56b74c6427f843cfd8f26dec8eaaa1929317e9417bc06eaa934057c317cbb561ade2f5462b6906e37868608211e09f9f507dca62066795a8
+  languageName: node
+  linkType: hard
+
 "@types/express-serve-static-core@npm:*, @types/express-serve-static-core@npm:^4.17.18":
   version: 4.17.19
   resolution: "@types/express-serve-static-core@npm:4.17.19"
@@ -2241,6 +2296,16 @@ __metadata:
     "@types/mime": ^1
     "@types/node": "*"
   checksum: f261127514057b5c038d76259128d7b765dd92bfeaf769d05b8ddf5f254d066ce6142a935e2fc707bb3009d6544a979591852f0d135d0ed4d0c56db08738df6b
+  languageName: node
+  linkType: hard
+
+"@types/sql.js@npm:^1":
+  version: 1.4.2
+  resolution: "@types/sql.js@npm:1.4.2"
+  dependencies:
+    "@types/emscripten": "*"
+    "@types/node": "*"
+  checksum: 204ebc1af3250553d838786473b7966f7a40f1829ba236be5bfe2142ee8fca3f8966060a902356af4ba390929197888232901552d123e4da8d8749075a09b2c8
   languageName: node
   linkType: hard
 
@@ -2816,7 +2881,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"apollo-server-core@npm:*, apollo-server-core@npm:^2.13.0, apollo-server-core@npm:^2.23.0, apollo-server-core@npm:^2.24.0":
+"apollo-server-core@npm:2.24.0, apollo-server-core@npm:^2.13.0, apollo-server-core@npm:^2.23.0, apollo-server-core@npm:^2.24.0":
   version: 2.24.0
   resolution: "apollo-server-core@npm:2.24.0"
   dependencies:
@@ -5628,6 +5693,13 @@ __metadata:
   version: 1.4.0
   resolution: "extsprintf@npm:1.4.0"
   checksum: 092e011574324c5cddd78b5a27f869c2703613c1140eb7763aef8f5b0e33769a9b4c7dbcc50acd39b6afebe79bf66adcec73bf3c84e095c5bcfb42306d128ad0
+  languageName: node
+  linkType: hard
+
+"faker@npm:^5.5.3":
+  version: 5.5.3
+  resolution: "faker@npm:5.5.3"
+  checksum: d03b74947497b9f6e16ce3b8e06299f95190f942064fc8a43ebfc39b0c447160e00fdf2355060a2589b4aa5827ddcf35cc50674f5a229b2d367b2eb5a3380490
   languageName: node
   linkType: hard
 
@@ -10893,6 +10965,13 @@ resolve@^2.0.0-next.3:
   languageName: node
   linkType: hard
 
+"sql.js@npm:*, sql.js@npm:^1.5.0":
+  version: 1.5.0
+  resolution: "sql.js@npm:1.5.0"
+  checksum: 7fd58c03e5c8ce92672fd53cf1ab371a9df36816bc110edc6847a3964314ef674aa29ce5c350696ebc43749835012bbf980b5d36bcf2ceab1ee5e3154493dd44
+  languageName: node
+  linkType: hard
+
 "sshpk@npm:^1.7.0":
   version: 1.16.1
   resolution: "sshpk@npm:1.16.1"
@@ -11783,6 +11862,33 @@ resolve@^2.0.0-next.3:
   languageName: node
   linkType: hard
 
+"typeorm@npm:^0.2":
+  version: 0.2.34
+  resolution: "typeorm@npm:0.2.34"
+  dependencies:
+    "@sqltools/formatter": ^1.2.2
+    app-root-path: ^3.0.0
+    buffer: ^6.0.3
+    chalk: ^4.1.0
+    cli-highlight: ^2.1.10
+    debug: ^4.3.1
+    dotenv: ^8.2.0
+    glob: ^7.1.6
+    js-yaml: ^4.0.0
+    mkdirp: ^1.0.4
+    reflect-metadata: ^0.1.13
+    sha.js: ^2.4.11
+    tslib: ^2.1.0
+    xml2js: ^0.4.23
+    yargonaut: ^1.1.4
+    yargs: ^16.2.0
+    zen-observable-ts: ^1.0.0
+  bin:
+    typeorm: cli.js
+  checksum: 1bf2488a19fcea08d3f53ecf2ae3877837e83814388cab053ab0e18b58d92e81977d8b0eef6afab155a22911f28aba074ecac7a91c672be3b93f935c4d60d81a
+  languageName: node
+  linkType: hard
+
 "typescript@*, typescript@4.2.4, typescript@^4.2.4":
   version: 4.2.4
   resolution: "typescript@npm:4.2.4"
@@ -12012,6 +12118,15 @@ typescript@4.1.3:
   bin:
     uuid: dist/bin/uuid
   checksum: 6059ba10c32a42897af628b9e434ff523713614714d93845c76ee153f0d9c7e88ab47b8d03cadbe5f4c39a57abc4fbff46ae533fff6318cc6c907e4cd626fcb2
+  languageName: node
+  linkType: hard
+
+"uuid@npm:8.3.1":
+  version: 8.3.1
+  resolution: "uuid@npm:8.3.1"
+  bin:
+    uuid: dist/bin/uuid
+  checksum: 6a5d07c5564614271237d8bbc5c1c72abf056343e91af8f67a8e6d29957a1a061f347b8425a1e499af32f5a8f0039c44d200dff663b9a8090c51a7f7b5031534
   languageName: node
   linkType: hard
 

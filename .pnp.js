@@ -49,6 +49,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
       {
         "name": "@atlantis-lab/nestjs-signed-url",
         "reference": "workspace:packages/signed-url"
+      },
+      {
+        "name": "@atls/nestjs-typeorm-seeding",
+        "reference": "workspace:packages/typeorm-seeding"
       }
     ],
     "enableTopLevelFallback": true,
@@ -61,6 +65,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
       ["@atls/nestjs-external-renderer", ["workspace:packages/external-renderer"]],
       ["@atls/nestjs-logger", ["workspace:packages/logger"]],
       ["@atls/nestjs-map-errors-interceptor", ["workspace:packages/map-errors-interceptor"]],
+      ["@atls/nestjs-typeorm-seeding", ["workspace:packages/typeorm-seeding"]],
       ["nestjs", ["workspace:."]]
     ],
     "fallbackPool": [
@@ -653,6 +658,26 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "SOFT",
         }]
       ]],
+      ["@atls/nestjs-typeorm-seeding", [
+        ["workspace:packages/typeorm-seeding", {
+          "packageLocation": "./packages/typeorm-seeding/",
+          "packageDependencies": [
+            ["@atls/nestjs-typeorm-seeding", "workspace:packages/typeorm-seeding"],
+            ["@atls/typeorm-seeding", "npm:0.0.1"],
+            ["@nestjs/common", "virtual:3da99a4dd1a45fbb12f3936831275fe6ef127b2869363613ce7e5fc10bfba69fce118823d76d677d80a9d976776b1a4cb7b1bb4ee5c5a306e3ceed973bf055a2#npm:7.6.17"],
+            ["@nestjs/core", "virtual:3da99a4dd1a45fbb12f3936831275fe6ef127b2869363613ce7e5fc10bfba69fce118823d76d677d80a9d976776b1a4cb7b1bb4ee5c5a306e3ceed973bf055a2#npm:7.6.15"],
+            ["@nestjs/testing", "virtual:3da99a4dd1a45fbb12f3936831275fe6ef127b2869363613ce7e5fc10bfba69fce118823d76d677d80a9d976776b1a4cb7b1bb4ee5c5a306e3ceed973bf055a2#npm:7.6.15"],
+            ["@nestjs/typeorm", "virtual:4c56eae0b7a5725dbb9f69b78e0ed76ca95742c7eb30048ba6c17be62575746d6e9bf03d3ed47ccc343b55d85ae415c29dc5042cc525b899cd5a0d43af680804#npm:7.1.5"],
+            ["@types/node", "npm:14.14.45"],
+            ["@types/sql.js", "npm:1.4.2"],
+            ["reflect-metadata", "npm:0.1.13"],
+            ["rxjs", "npm:6.6.7"],
+            ["sql.js", "npm:1.5.0"],
+            ["typeorm", "npm:0.2.34"]
+          ],
+          "linkType": "SOFT",
+        }]
+      ]],
       ["@atls/prettier-plugin-import-align", [
         ["npm:0.0.2", {
           "packageLocation": "./.yarn/cache/@atls-prettier-plugin-import-align-npm-0.0.2-fc2f8d28ff-f415d752a4.zip/node_modules/@atls/prettier-plugin-import-align/",
@@ -700,6 +725,17 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             "@types/prettier",
             "globby",
             "prettier"
+          ],
+          "linkType": "HARD",
+        }]
+      ]],
+      ["@atls/typeorm-seeding", [
+        ["npm:0.0.1", {
+          "packageLocation": "./.yarn/cache/@atls-typeorm-seeding-npm-0.0.1-dfa8de9a95-0600f8f0a7.zip/node_modules/@atls/typeorm-seeding/",
+          "packageDependencies": [
+            ["@atls/typeorm-seeding", "npm:0.0.1"],
+            ["faker", "npm:5.5.3"],
+            ["typeorm", "npm:0.2.34"]
           ],
           "linkType": "HARD",
         }]
@@ -2627,6 +2663,45 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD",
         }]
       ]],
+      ["@nestjs/typeorm", [
+        ["npm:7.1.5", {
+          "packageLocation": "./.yarn/cache/@nestjs-typeorm-npm-7.1.5-02bd94fec8-1b0583ad6e.zip/node_modules/@nestjs/typeorm/",
+          "packageDependencies": [
+            ["@nestjs/typeorm", "npm:7.1.5"]
+          ],
+          "linkType": "SOFT",
+        }],
+        ["virtual:4c56eae0b7a5725dbb9f69b78e0ed76ca95742c7eb30048ba6c17be62575746d6e9bf03d3ed47ccc343b55d85ae415c29dc5042cc525b899cd5a0d43af680804#npm:7.1.5", {
+          "packageLocation": "./.yarn/$$virtual/@nestjs-typeorm-virtual-2fff18fc3a/0/cache/@nestjs-typeorm-npm-7.1.5-02bd94fec8-1b0583ad6e.zip/node_modules/@nestjs/typeorm/",
+          "packageDependencies": [
+            ["@nestjs/typeorm", "virtual:4c56eae0b7a5725dbb9f69b78e0ed76ca95742c7eb30048ba6c17be62575746d6e9bf03d3ed47ccc343b55d85ae415c29dc5042cc525b899cd5a0d43af680804#npm:7.1.5"],
+            ["@nestjs/common", "virtual:3da99a4dd1a45fbb12f3936831275fe6ef127b2869363613ce7e5fc10bfba69fce118823d76d677d80a9d976776b1a4cb7b1bb4ee5c5a306e3ceed973bf055a2#npm:7.6.17"],
+            ["@nestjs/core", "virtual:3da99a4dd1a45fbb12f3936831275fe6ef127b2869363613ce7e5fc10bfba69fce118823d76d677d80a9d976776b1a4cb7b1bb4ee5c5a306e3ceed973bf055a2#npm:7.6.15"],
+            ["@types/nestjs__common", null],
+            ["@types/nestjs__core", null],
+            ["@types/reflect-metadata", null],
+            ["@types/rxjs", null],
+            ["@types/typeorm", null],
+            ["reflect-metadata", "npm:0.1.13"],
+            ["rxjs", "npm:6.6.7"],
+            ["typeorm", "npm:0.2.34"],
+            ["uuid", "npm:8.3.1"]
+          ],
+          "packagePeers": [
+            "@nestjs/common",
+            "@nestjs/core",
+            "@types/nestjs__common",
+            "@types/nestjs__core",
+            "@types/reflect-metadata",
+            "@types/rxjs",
+            "@types/typeorm",
+            "reflect-metadata",
+            "rxjs",
+            "typeorm"
+          ],
+          "linkType": "HARD",
+        }]
+      ]],
       ["@node-ts/bus-core", [
         ["npm:0.5.9", {
           "packageLocation": "./.yarn/cache/@node-ts-bus-core-npm-0.5.9-ce66cada8f-3b4e44f0f8.zip/node_modules/@node-ts/bus-core/",
@@ -3103,6 +3178,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD",
         }]
       ]],
+      ["@types/emscripten", [
+        ["npm:1.39.4", {
+          "packageLocation": "./.yarn/cache/@types-emscripten-npm-1.39.4-4d03380faa-b848421e25.zip/node_modules/@types/emscripten/",
+          "packageDependencies": [
+            ["@types/emscripten", "npm:1.39.4"]
+          ],
+          "linkType": "HARD",
+        }]
+      ]],
       ["@types/express", [
         ["npm:4.17.11", {
           "packageLocation": "./.yarn/cache/@types-express-npm-4.17.11-1b3f17f056-2818120a0f.zip/node_modules/@types/express/",
@@ -3387,6 +3471,17 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageDependencies": [
             ["@types/serve-static", "npm:1.13.9"],
             ["@types/mime", "npm:1.3.2"],
+            ["@types/node", "npm:14.14.45"]
+          ],
+          "linkType": "HARD",
+        }]
+      ]],
+      ["@types/sql.js", [
+        ["npm:1.4.2", {
+          "packageLocation": "./.yarn/cache/@types-sql.js-npm-1.4.2-b8aeb09777-204ebc1af3.zip/node_modules/@types/sql.js/",
+          "packageDependencies": [
+            ["@types/sql.js", "npm:1.4.2"],
+            ["@types/emscripten", "npm:1.39.4"],
             ["@types/node", "npm:14.14.45"]
           ],
           "linkType": "HARD",
@@ -7697,6 +7792,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/extsprintf-npm-1.4.0-2b015bcaab-092e011574.zip/node_modules/extsprintf/",
           "packageDependencies": [
             ["extsprintf", "npm:1.4.0"]
+          ],
+          "linkType": "HARD",
+        }]
+      ]],
+      ["faker", [
+        ["npm:5.5.3", {
+          "packageLocation": "./.yarn/cache/faker-npm-5.5.3-541ce97798-d03b749474.zip/node_modules/faker/",
+          "packageDependencies": [
+            ["faker", "npm:5.5.3"]
           ],
           "linkType": "HARD",
         }]
@@ -13656,6 +13760,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD",
         }]
       ]],
+      ["sql.js", [
+        ["npm:1.5.0", {
+          "packageLocation": "./.yarn/cache/sql.js-npm-1.5.0-2d9ba96f55-7fd58c03e5.zip/node_modules/sql.js/",
+          "packageDependencies": [
+            ["sql.js", "npm:1.5.0"]
+          ],
+          "linkType": "HARD",
+        }]
+      ]],
       ["sshpk", [
         ["npm:1.16.1", {
           "packageLocation": "./.yarn/cache/sshpk-npm-1.16.1-feb759e7e0-4bd7422634.zip/node_modules/sshpk/",
@@ -14685,6 +14798,32 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["mkdirp", "npm:1.0.4"],
             ["reflect-metadata", "npm:0.1.13"],
             ["sha.js", "npm:2.4.11"],
+            ["sql.js", "npm:1.5.0"],
+            ["tslib", "npm:2.2.0"],
+            ["xml2js", "npm:0.4.23"],
+            ["yargonaut", "npm:1.1.4"],
+            ["yargs", "npm:16.2.0"],
+            ["zen-observable-ts", "npm:1.0.0"]
+          ],
+          "linkType": "HARD",
+        }],
+        ["npm:0.2.34", {
+          "packageLocation": "./.yarn/cache/typeorm-npm-0.2.34-590a97efd6-1bf2488a19.zip/node_modules/typeorm/",
+          "packageDependencies": [
+            ["typeorm", "npm:0.2.34"],
+            ["@sqltools/formatter", "npm:1.2.3"],
+            ["app-root-path", "npm:3.0.0"],
+            ["buffer", "npm:6.0.3"],
+            ["chalk", "npm:4.1.1"],
+            ["cli-highlight", "npm:2.1.11"],
+            ["debug", "virtual:3a30ce45fe281934dea6d16a680f03c20e5a3d4030b14086a51eb174105b241aba914c176f867aba44429aa5c49baed14dbdaebb3c61c4f143742d0acd17f576#npm:4.3.2"],
+            ["dotenv", "npm:8.6.0"],
+            ["glob", "npm:7.1.7"],
+            ["js-yaml", "npm:4.1.0"],
+            ["mkdirp", "npm:1.0.4"],
+            ["reflect-metadata", "npm:0.1.13"],
+            ["sha.js", "npm:2.4.11"],
+            ["sql.js", "npm:1.5.0"],
             ["tslib", "npm:2.2.0"],
             ["xml2js", "npm:0.4.23"],
             ["yargonaut", "npm:1.1.4"],
@@ -14913,6 +15052,13 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/uuid-npm-8.2.0-c427ec33e0-6059ba10c3.zip/node_modules/uuid/",
           "packageDependencies": [
             ["uuid", "npm:8.2.0"]
+          ],
+          "linkType": "HARD",
+        }],
+        ["npm:8.3.1", {
+          "packageLocation": "./.yarn/cache/uuid-npm-8.3.1-8a5b02e900-6a5d07c556.zip/node_modules/uuid/",
+          "packageDependencies": [
+            ["uuid", "npm:8.3.1"]
           ],
           "linkType": "HARD",
         }],
