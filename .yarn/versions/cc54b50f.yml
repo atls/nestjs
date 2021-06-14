@@ -1,3 +1,0 @@
-releases:
-  "@atls/nestjs-bus": patch
-  "@atls/nestjs-external-renderer": patch
