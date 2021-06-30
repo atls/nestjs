@@ -1,0 +1,43 @@
+{
+  "name": "@atls/nestjs-grpc-identity",
+  "version": "0.0.0",
+  "license": "BSD-3-Clause",
+  "main": "src/index.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "yarn app library build",
+    "postpack": "rm -rf dist",
+    "prepack": "yarn run build"
+  },
+  "devDependencies": {
+    "@nestjs/common": "^7.6.15",
+    "@nestjs/core": "^7.6.15",
+    "@nestjs/microservices": "^7.6.15",
+    "@nestjs/testing": "^7.6.15",
+    "@types/jsonwebtoken": "^8.5.1",
+    "@types/jwk-to-pem": "^2.0.0",
+    "get-port": "^5.1.1",
+    "protobufjs": "^6.11.2",
+    "reflect-metadata": "0.1.13",
+    "rxjs": "^6.6.7"
+  },
+  "peerDependencies": {
+    "@nestjs/common": "^7.5.0",
+    "@nestjs/core": "^7.5.0",
+    "@nestjs/microservices": "^7.5.0",
+    "reflect-metadata": "^0.1.12",
+    "rxjs": "^6.6.7"
+  },
+  "publishConfig": {
+    "main": "dist/index.js",
+    "typings": "dist/index.d.ts"
+  },
+  "dependencies": {
+    "@atls/grpc-error-status": "^0.0.1",
+    "grpc": "^1.24.10",
+    "jsonwebtoken": "^8.5.1",
+    "jwks-rsa": "^2.0.3"
+  }
+}

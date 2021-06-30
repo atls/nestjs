@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+package test;
+
+service TestService {
+  rpc Test (ExecTestRequest) returns (ExecTestResponse) {}
+  rpc TestError (ExecTestRequest) returns (ExecTestResponse) {}
+  rpc TestStream (stream ExecTestRequest) returns (stream ExecTestResponse) {}
+  rpc TestAuth (ExecTestRequest) returns (ExecTestResponse) {}
+}
+
+message ExecTestRequest {
+  string id = 1;
+}
+
+message ExecTestResponse {
+  string id = 1;
+}
