@@ -22,7 +22,7 @@
     "@nestjs/common": "^7.6.15",
     "@nestjs/core": "^7.6.15",
     "reflect-metadata": "^0.1.12",
-    "rxjs": "^6.3.3"
+    "rxjs": "^6.6.7"
   },
   "devDependencies": {
     "@nestjs/common": "^7.6.15",
@@ -31,7 +31,7 @@
     "@nestjs/testing": "^7.6.15",
     "@types/node": "13.13.4",
     "reflect-metadata": "0.1.13",
-    "rxjs": "6.5.5",
+    "rxjs": "^6.6.7",
     "typescript": "^3.8.3"
   },
   "dependencies": {
