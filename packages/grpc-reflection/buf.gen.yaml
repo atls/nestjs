@@ -1,0 +1,6 @@
+version: v1beta1
+
+plugins:
+  - name: ts_proto
+    out: src
+    opt: ts_proto_out=proto,nestJs=true,addGrpcMetadata=true,esModuleInterop=true,useOptionals=true
