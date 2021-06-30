@@ -144,7 +144,7 @@ __metadata:
     "@nestjs/common": ^7.3.0
     "@nestjs/core": ^7.3.0
     reflect-metadata: ^0.1.12
-    rxjs: ^6.3.3
+    rxjs: ^6.6.7
   languageName: unknown
   linkType: soft
 
@@ -378,7 +378,7 @@ __metadata:
     inversify: ^5.0.1
     promise-breaker: ^5.0.0
     reflect-metadata: 0.1.13
-    rxjs: 6.5.5
+    rxjs: ^6.6.7
     serialize-error: ^8.1.0
     typescript: ^3.8.3
   peerDependencies:
@@ -386,7 +386,7 @@ __metadata:
     "@nestjs/common": ^7.6.15
     "@nestjs/core": ^7.6.15
     reflect-metadata: ^0.1.12
-    rxjs: ^6.3.3
+    rxjs: ^6.6.7
   languageName: unknown
   linkType: soft
 
@@ -402,7 +402,7 @@ __metadata:
     dataloader: ^2.0.0
     reflect-metadata: 0.1.13
     rimraf: 3.0.2
-    rxjs: 6.5.5
+    rxjs: ^6.6.7
     typescript: ^3.3.4000
   peerDependencies:
     "@nestjs/common": ^7.0.0
@@ -424,13 +424,13 @@ __metadata:
     get-port: ^5.1.1
     node-fetch: ^2.6.1
     reflect-metadata: 0.1.13
-    rxjs: 6.6.7
+    rxjs: ^6.6.7
     supertest: ^6.1.3
   peerDependencies:
     "@nestjs/common": ^7.5.0
     "@nestjs/core": ^7.5.0
     reflect-metadata: ^0.1.12
-    rxjs: ^6.3.3
+    rxjs: ^6.6.7
   languageName: unknown
   linkType: soft
 
@@ -448,7 +448,7 @@ __metadata:
     get-port: ^5.1.1
     grpc: ^1.24.10
     reflect-metadata: 0.1.13
-    rxjs: 6.6.7
+    rxjs: ^6.6.7
     supertest: ^6.1.3
   peerDependencies:
     "@nestjs/common": ^7.5.0
@@ -456,7 +456,7 @@ __metadata:
     "@nestjs/microservices": ^7.5.0
     class-validator: ^0.13
     reflect-metadata: ^0.1.12
-    rxjs: ^6.3.3
+    rxjs: ^6.6.7
   languageName: unknown
   linkType: soft
 
@@ -485,7 +485,7 @@ __metadata:
     lodash.get: ^4.4.2
     protobufjs: ^6.11.2
     reflect-metadata: 0.1.13
-    rxjs: 6.6.7
+    rxjs: ^6.6.7
     supertest: ^6.1.3
     uuid: ^8.3.2
   peerDependencies:
@@ -493,7 +493,7 @@ __metadata:
     "@nestjs/core": ^7.5.0
     "@nestjs/microservices": ^7.5.0
     reflect-metadata: ^0.1.12
-    rxjs: ^6.3.3
+    rxjs: ^6.6.7
   languageName: unknown
   linkType: soft
 
@@ -514,13 +514,13 @@ __metadata:
     jwks-rsa: ^2.0.3
     protobufjs: ^6.11.2
     reflect-metadata: 0.1.13
-    rxjs: 6.6.7
+    rxjs: ^6.6.7
   peerDependencies:
     "@nestjs/common": ^7.5.0
     "@nestjs/core": ^7.5.0
     "@nestjs/microservices": ^7.5.0
     reflect-metadata: ^0.1.12
-    rxjs: ^6.3.3
+    rxjs: ^6.6.7
   languageName: unknown
   linkType: soft
 
@@ -537,14 +537,14 @@ __metadata:
     get-port: ^5.1.1
     node-fetch: ^2.6.1
     reflect-metadata: 0.1.13
-    rxjs: 6.6.7
+    rxjs: ^6.6.7
     supertest: ^6.1.3
   peerDependencies:
     "@nestjs/common": ^7.5.0
     "@nestjs/core": ^7.5.0
     "@nestjs/microservices": ^7.5.0
     reflect-metadata: ^0.1.12
-    rxjs: ^6.3.3
+    rxjs: ^6.6.7
   languageName: unknown
   linkType: soft
 
@@ -565,14 +565,14 @@ __metadata:
     long: ^4.0.0
     protobufjs: ^6.11.2
     reflect-metadata: 0.1.13
-    rxjs: 6.6.7
+    rxjs: ^6.6.7
     supertest: ^6.1.3
   peerDependencies:
     "@nestjs/common": ^7.5.0
     "@nestjs/core": ^7.5.0
     "@nestjs/microservices": ^7.5.0
     reflect-metadata: ^0.1.12
-    rxjs: ^6.3.3
+    rxjs: ^6.6.7
   languageName: unknown
   linkType: soft
 
@@ -594,7 +594,7 @@ __metadata:
     "@nestjs/common": ^7.5.0
     "@nestjs/core": ^7.5.0
     reflect-metadata: ^0.1.12
-    rxjs: ^6.3.3
+    rxjs: ^6.6.7
   languageName: unknown
   linkType: soft
 
@@ -616,7 +616,7 @@ __metadata:
     typescript: 4.1.3
   peerDependencies:
     "@nestjs/common": ^7.3.0
-    rxjs: ^6.3.3
+    rxjs: ^6.6.7
   languageName: unknown
   linkType: soft
 
@@ -639,7 +639,7 @@ __metadata:
     "@nestjs/common": ^7.5.0
     "@nestjs/core": ^7.5.0
     reflect-metadata: ^0.1.12
-    rxjs: ^6.3.3
+    rxjs: ^6.6.7
   languageName: unknown
   linkType: soft
 
@@ -11095,15 +11095,6 @@ resolve@^2.0.0-next.3:
   languageName: node
   linkType: hard
 
-"rxjs@npm:6.5.5":
-  version: 6.5.5
-  resolution: "rxjs@npm:6.5.5"
-  dependencies:
-    tslib: ^1.9.0
-  checksum: a3882e0374af8aa32459ea9219fdcf24cb5a943cdf35f50da4ded48435ec474647c315b85c3e7b703927a55689e54037538cbd24789548d07b74e4865c4adb78
-  languageName: node
-  linkType: hard
-
 "rxjs@npm:6.6.3":
   version: 6.6.3
   resolution: "rxjs@npm:6.6.3"
@@ -11113,7 +11104,7 @@ resolve@^2.0.0-next.3:
   languageName: node
   linkType: hard
 
-"rxjs@npm:6.6.7, rxjs@npm:^6.4.0, rxjs@npm:^6.6.0, rxjs@npm:^6.6.6":
+"rxjs@npm:6.6.7, rxjs@npm:^6.4.0, rxjs@npm:^6.6.0, rxjs@npm:^6.6.6, rxjs@npm:^6.6.7":
   version: 6.6.7
   resolution: "rxjs@npm:6.6.7"
   dependencies:
