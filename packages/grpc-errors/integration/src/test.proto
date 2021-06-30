@@ -1,0 +1,20 @@
+syntax = "proto3";
+
+package test;
+
+service TestService {
+  rpc TestValidation (ExecTestRequest) returns (ExecTestResponse) {}
+}
+
+message TestChild {
+  string id = 1;
+}
+
+message ExecTestRequest {
+  string id = 1;
+  TestChild child = 2;
+}
+
+message ExecTestResponse {
+  string id = 1;
+}
