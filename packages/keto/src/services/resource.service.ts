@@ -6,7 +6,7 @@ const SEPARATOR = ':'
 
 @Injectable()
 export class ResourceService {
-  constructor(@Inject(RESOURCES_SCOPE) private scope: string | null) {}
+  constructor(@Inject(RESOURCES_SCOPE) private scope: string) {}
 
   withScope(resource: string) {
     if (!resource) {
@@ -30,10 +30,7 @@ export class ResourceService {
     }
 
     if (resource.includes(this.scope)) {
-      return resource
-        .replace(this.scope, '')
-        .split(SEPARATOR)
-        .pop()
+      return resource.replace(this.scope, '').split(SEPARATOR).pop()
     }
 
     return resource

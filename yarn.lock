@@ -605,6 +605,7 @@ __metadata:
   dependencies:
     "@nestjs/common": 7.0.9
     "@nestjs/core": 7.0.9
+    "@nestjs/graphql": ^7.0.0
     "@oryd/keto-client": ^0.5.6-alpha.1
     "@types/node": 13.13.4
     reflect-metadata: 0.1.13
@@ -7251,9 +7252,9 @@ __metadata:
   linkType: hard
 
 "graphql@npm:*":
-  version: 15.5.0
-  resolution: "graphql@npm:15.5.0"
-  checksum: 789cdcb069a3e00592e779002217a6bc5fd09efad63ee8c4190c4b3ea96c89010e74f085fb1cba876a0bb0e324e01df2eddb84d79dca90a28e582bc425fef9ef
+  version: 15.5.1
+  resolution: "graphql@npm:15.5.1"
+  checksum: 509cdc2fc072e7cd1b5a25cf3fe13838d41892b035434f02419c209608f89e323f5234ca7e2bde77e9371e629339cbd8435f1dbc8c250910e4e9ac0babfa6c64
   languageName: node
   linkType: hard
 
