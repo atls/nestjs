@@ -1,0 +1,4 @@
+releases:
+  "@atls/nestjs-hydra": patch
+  "@atls/nestjs-keto": patch
+  "@atls/nestjs-kratos": patch
