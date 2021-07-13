@@ -21,10 +21,7 @@ export class KetoAccessControlGuard implements CanActivate {
       return gqlContext.getContext().user
     }
 
-    return context
-      .switchToHttp()
-      .getRequest()
-      .get('x-user')
+    return context.switchToHttp().getRequest().get('x-user')
   }
 
   async canActivate(context: ExecutionContext): Promise<boolean> {
