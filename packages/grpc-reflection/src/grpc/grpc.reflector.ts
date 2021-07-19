@@ -4,7 +4,7 @@ import { ServerGrpc }                     from '@nestjs/microservices'
 
 import { loadSync }                       from '@grpc/proto-loader'
 import { ServiceDefinition }              from '@grpc/proto-loader'
-import { loadPackageDefinition }          from 'grpc'
+import { loadPackageDefinition }          from '@grpc/grpc-js'
 
 import { GRPC_REFLECTION_MODULE_OPTIONS } from '../module'
 import { GrpcReflectionModuleOptions }    from '../module'

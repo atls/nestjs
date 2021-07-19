@@ -1,6 +1,6 @@
 import { RpcException }   from '@nestjs/microservices'
 import { ErrorStatus }    from '@atls/grpc-error-status'
-import { status }         from 'grpc'
+import { status }         from '@grpc/grpc-js'
 import { AssertionError } from 'assert'
 
 export const assertionExceptionFactory = (error: AssertionError) => {

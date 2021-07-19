@@ -1,9 +1,9 @@
 import { OnApplicationBootstrap }         from '@nestjs/common'
 import { Injectable, Inject }             from '@nestjs/common'
 import { load }                           from '@grpc/proto-loader'
-import { loadPackageDefinition }          from 'grpc'
-import { GrpcObject }                     from 'grpc'
-import { Client }                         from 'grpc'
+import { loadPackageDefinition }          from '@grpc/grpc-js'
+import { GrpcObject }                     from '@grpc/grpc-js'
+import { Client }                         from '@grpc/grpc-js'
 import get                                from 'lodash.get'
 
 import { GRPC_HTTP_PROXY_MODULE_OPTIONS } from '../module'

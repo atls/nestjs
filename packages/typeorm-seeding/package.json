@@ -16,21 +16,21 @@
     "typeorm": "^0.2"
   },
   "devDependencies": {
-    "@nestjs/common": "^7.6.15",
-    "@nestjs/core": "^7.6.15",
-    "@nestjs/testing": "^7.6.15",
-    "@nestjs/typeorm": "^7.1.5",
+    "@nestjs/common": "^8.0.4",
+    "@nestjs/core": "^8.0.4",
+    "@nestjs/testing": "^8.0.4",
+    "@nestjs/typeorm": "^8.0.1",
     "@types/node": "^14.17.1",
-    "@types/sql.js": "^1",
+    "@types/sql.js": "^1.4.2",
     "reflect-metadata": "0.1.13",
-    "rxjs": "6.6.7",
+    "rxjs": "7.2.0",
     "sql.js": "^1.5.0"
   },
   "peerDependencies": {
-    "@nestjs/common": "^7.5.0",
-    "@nestjs/core": "^7.5.0",
+    "@nestjs/common": "^8.0.0",
+    "@nestjs/core": "^8.0.0",
     "reflect-metadata": "^0.1.12",
-    "rxjs": "^6.6.7"
+    "rxjs": "^6.3.3"
   },
   "publishConfig": {
     "main": "dist/index.js",
