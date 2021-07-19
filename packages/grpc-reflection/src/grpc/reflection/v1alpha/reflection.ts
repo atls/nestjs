@@ -3,7 +3,7 @@ import { GrpcMethod, GrpcStreamMethod } from '@nestjs/microservices'
 import Long                             from 'long'
 import _m0                              from 'protobufjs/minimal'
 import { Observable }                   from 'rxjs'
-import { Metadata }                     from 'grpc'
+import { Metadata }                     from '@grpc/grpc-js'
 
 export const protobufPackage = 'grpc.reflection.v1alpha'
 

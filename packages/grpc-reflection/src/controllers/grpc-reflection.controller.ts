@@ -2,7 +2,7 @@ import { Controller }               from '@nestjs/common'
 import { GrpcStreamMethod }         from '@nestjs/microservices'
 import { Observable }               from 'rxjs'
 import { Subject }                  from 'rxjs'
-import { status }                   from 'grpc'
+import { status }                   from '@grpc/grpc-js'
 
 import { ServerReflectionRequest }  from '../grpc'
 import { ServerReflectionResponse } from '../grpc'

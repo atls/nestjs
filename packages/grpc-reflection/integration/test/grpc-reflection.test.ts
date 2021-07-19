@@ -84,7 +84,7 @@ describe('grpc reflection', () => {
 
     const response = await serverReflection.serverReflectionInfo(request.asObservable()).toPromise()
 
-    expect(response.listServicesResponse?.service).toEqual(
+    expect(response?.listServicesResponse?.service).toEqual(
       expect.arrayContaining([
         expect.objectContaining({
           name: 'grpc.reflection.v1alpha.ServerReflection',
@@ -109,7 +109,7 @@ describe('grpc reflection', () => {
     const response = await serverReflection.serverReflectionInfo(request.asObservable()).toPromise()
 
     const descriptor = FileDescriptorProto.deserializeBinary(
-      response.fileDescriptorResponse?.fileDescriptorProto[0]
+      response?.fileDescriptorResponse?.fileDescriptorProto[0]
     )
 
     expect(descriptor.array).toContain('grpc_reflection_v1alpha.proto')
