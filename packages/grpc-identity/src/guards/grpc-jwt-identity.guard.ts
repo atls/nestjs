@@ -3,8 +3,8 @@ import { ExecutionContext } from '@nestjs/common'
 import { CanActivate }      from '@nestjs/common'
 import { Injectable }       from '@nestjs/common'
 import { ErrorStatus }      from '@atls/grpc-error-status'
-import { Metadata }         from 'grpc'
-import { status }           from 'grpc'
+import { Metadata }         from '@grpc/grpc-js'
+import { status }           from '@grpc/grpc-js'
 
 import { JwtVerifier }      from '../jwt'
 
