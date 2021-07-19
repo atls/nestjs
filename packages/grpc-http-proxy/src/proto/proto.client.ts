@@ -1,7 +1,7 @@
-import { credentials }  from 'grpc'
-import { Metadata }     from 'grpc'
-import { ServiceError } from 'grpc'
-import { Client }       from 'grpc'
+import { credentials }  from '@grpc/grpc-js'
+import { Metadata }     from '@grpc/grpc-js'
+import { ServiceError } from '@grpc/grpc-js'
+import { Client }       from '@grpc/grpc-js'
 
 export class ProtoClient {
   constructor(private readonly client: Client) {}

@@ -2,7 +2,7 @@ import { ValidationError } from '@nestjs/common'
 import { RpcException }    from '@nestjs/microservices'
 import { BadRequest }      from '@atls/grpc-error-status'
 import { ErrorStatus }     from '@atls/grpc-error-status'
-import { status }          from 'grpc'
+import { status }          from '@grpc/grpc-js'
 
 const traverseErrors = (
   errors: ValidationError[] = [],
