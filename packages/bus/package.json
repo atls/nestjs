@@ -19,19 +19,19 @@
   },
   "peerDependencies": {
     "@atls/nestjs-logger": "*",
-    "@nestjs/common": "^7.6.15",
-    "@nestjs/core": "^7.6.15",
+    "@nestjs/common": "^8.0.4",
+    "@nestjs/core": "^8.0.4",
     "reflect-metadata": "^0.1.12",
-    "rxjs": "^6.6.7"
+    "rxjs": "^7.2.0"
   },
   "devDependencies": {
-    "@nestjs/common": "^7.6.15",
-    "@nestjs/core": "^7.6.15",
-    "@nestjs/platform-express": "7.0.9",
-    "@nestjs/testing": "^7.6.15",
+    "@nestjs/common": "^8.0.4",
+    "@nestjs/core": "^8.0.4",
+    "@nestjs/platform-express": "^8.0.4",
+    "@nestjs/testing": "^8.0.4",
     "@types/node": "13.13.4",
     "reflect-metadata": "0.1.13",
-    "rxjs": "^6.6.7",
+    "rxjs": "^7.2.0",
     "typescript": "^3.8.3"
   },
   "dependencies": {
