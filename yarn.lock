@@ -424,20 +424,20 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@atls/nestjs-external-renderer@workspace:packages/external-renderer"
   dependencies:
-    "@nestjs/common": ^7.6.15
-    "@nestjs/core": ^7.6.15
-    "@nestjs/testing": ^7.6.15
+    "@nestjs/common": ^8.0.4
+    "@nestjs/core": ^8.0.4
+    "@nestjs/testing": ^8.0.4
     "@types/node": ^14.17.1
     get-port: ^5.1.1
     node-fetch: ^2.6.1
     reflect-metadata: 0.1.13
-    rxjs: ^6.6.7
+    rxjs: ^7.2.0
     supertest: ^6.1.3
   peerDependencies:
-    "@nestjs/common": ^7.5.0
-    "@nestjs/core": ^7.5.0
+    "@nestjs/common": ^8.0.4
+    "@nestjs/core": ^8.0.4
     reflect-metadata: ^0.1.12
-    rxjs: ^6.6.7
+    rxjs: ^7.2.0
   languageName: unknown
   linkType: soft
 
