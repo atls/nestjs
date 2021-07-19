@@ -1,0 +1,37 @@
+{
+  "name": "@atls/nestjs-keto",
+  "version": "0.0.1",
+  "license": "BSD-3-Clause",
+  "main": "src/index.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "yarn app library build",
+    "postpack": "rm -rf dist",
+    "prepack": "yarn run build"
+  },
+  "dependencies": {
+    "@oryd/keto-client": "^0.5.6-alpha.1"
+  },
+  "peerDependencies": {
+    "@nestjs/common": "^7.0.2",
+    "@nestjs/core": "^7.0.2",
+    "reflect-metadata": "^0.1.12",
+    "rxjs": "^6.3.3"
+  },
+  "devDependencies": {
+    "@nestjs/common": "7.0.9",
+    "@nestjs/core": "7.0.9",
+    "@nestjs/graphql": "^7.0.0",
+    "@types/node": "13.13.4",
+    "reflect-metadata": "0.1.13",
+    "rimraf": "3.0.2",
+    "rxjs": "6.5.5",
+    "typescript": "^3.8.3"
+  },
+  "publishConfig": {
+    "main": "dist/index.js",
+    "typings": "dist/index.d.ts"
+  }
+}
