@@ -670,21 +670,21 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@atls/nestjs-map-errors-interceptor@workspace:packages/map-errors-interceptor"
   dependencies:
-    "@nestjs/common": 7.3.2
-    "@nestjs/core": 7.3.2
-    "@nestjs/platform-express": 7.3.2
-    "@nestjs/testing": 7.3.2
+    "@nestjs/common": ^8.0.4
+    "@nestjs/core": ^8.0.4
+    "@nestjs/platform-express": ^8.0.4
+    "@nestjs/testing": ^8.0.4
     "@types/jest": 26.0.20
     "@types/node": 14.14.20
     "@types/supertest": 2.0.4
     class-validator: 0.13.1
     reflect-metadata: 0.1.13
-    rxjs: 6.6.7
+    rxjs: ^7.2.0
     supertest: 6.1.3
     typescript: 4.1.3
   peerDependencies:
-    "@nestjs/common": ^7.3.0
-    rxjs: ^6.6.7
+    "@nestjs/common": ^8.0.4
+    rxjs: ^7.2.0
   languageName: unknown
   linkType: soft
 
@@ -1806,25 +1806,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@nestjs/core@npm:7.3.2":
-  version: 7.3.2
-  resolution: "@nestjs/core@npm:7.3.2"
-  dependencies:
-    "@nuxtjs/opencollective": 0.2.2
-    fast-safe-stringify: 2.0.7
-    iterare: 1.2.1
-    object-hash: 2.0.3
-    path-to-regexp: 3.2.0
-    tslib: 2.0.0
-    uuid: 8.2.0
-  peerDependencies:
-    "@nestjs/common": ^7.0.0
-    reflect-metadata: ^0.1.12
-    rxjs: ^6.0.0
-  checksum: b8089c07cd787b7675a36379f0866e4ef692bc7735b756e65715d1be284d9619751396623da61b905f8f9c97b2d97c8026806fdea0ba34d3441f631a56f1c633
-  languageName: node
-  linkType: hard
-
 "@nestjs/core@npm:^7.0.0, @nestjs/core@npm:^7.6.15":
   version: 7.6.15
   resolution: "@nestjs/core@npm:7.6.15"
@@ -2007,19 +1988,19 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@nestjs/platform-express@npm:7.3.2":
-  version: 7.3.2
-  resolution: "@nestjs/platform-express@npm:7.3.2"
+"@nestjs/platform-express@npm:^8.0.4":
+  version: 8.0.4
+  resolution: "@nestjs/platform-express@npm:8.0.4"
   dependencies:
     body-parser: 1.19.0
     cors: 2.8.5
     express: 4.17.1
     multer: 1.4.2
-    tslib: 2.0.0
+    tslib: 2.3.0
   peerDependencies:
-    "@nestjs/common": ^7.0.0
-    "@nestjs/core": ^7.0.0
-  checksum: c9b3029a6c3611f5dff218f06c9f8353efc2848bde858c6c591b9d20366565a20782260c44d94314f86af5c259064c0cb0561c05ca48065a2e7ae9cb6e4a104d
+    "@nestjs/common": ^8.0.0
+    "@nestjs/core": ^8.0.0
+  checksum: 4614cf9213f9035c5f909230ea1d1160c8b1e2170412a9c40cc3d2549894a0926e69ad1ddc0f8c91dd812f51437d1f7191a7b6403cb641be43112b84a7b46ef3
   languageName: node
   linkType: hard
 
@@ -11719,7 +11700,7 @@ resolve@^2.0.0-next.3:
   languageName: node
   linkType: hard
 
-"rxjs@npm:7.2.0":
+"rxjs@npm:7.2.0, rxjs@npm:^7.2.0":
   version: 7.2.0
   resolution: "rxjs@npm:7.2.0"
   dependencies:
