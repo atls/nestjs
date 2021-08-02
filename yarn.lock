@@ -718,6 +718,28 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@atls/nestjs-typesense@workspace:packages/typesense":
+  version: 0.0.0-use.local
+  resolution: "@atls/nestjs-typesense@workspace:packages/typesense"
+  dependencies:
+    "@atls/logger": ^0.0.1
+    "@nestjs/common": ^8.0.5
+    "@nestjs/core": ^8.0.5
+    "@nestjs/testing": ^8.0.5
+    decamelize: ^5.0.0
+    get-port: ^5.1.1
+    reflect-metadata: 0.1.13
+    rxjs: 7.2.0
+    typesense: ^0.14.0
+  peerDependencies:
+    "@nestjs/common": ^8.0.0
+    "@nestjs/core": ^8.0.0
+    reflect-metadata: ^0.1.12
+    rxjs: ^6.3.3
+    typesense: ^0.14.0
+  languageName: unknown
+  linkType: soft
+
 "@atls/prettier-plugin-import-align@npm:0.0.2":
   version: 0.0.2
   resolution: "@atls/prettier-plugin-import-align@npm:0.0.2"
@@ -1727,6 +1749,31 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@nestjs/common@npm:^8.0.5":
+  version: 8.0.5
+  resolution: "@nestjs/common@npm:8.0.5"
+  dependencies:
+    axios: 0.21.1
+    iterare: 1.2.1
+    tslib: 2.3.0
+    uuid: 8.3.2
+  peerDependencies:
+    cache-manager: "*"
+    class-transformer: "*"
+    class-validator: "*"
+    reflect-metadata: ^0.1.12
+    rxjs: ^7.1.0
+  peerDependenciesMeta:
+    cache-manager:
+      optional: true
+    class-transformer:
+      optional: true
+    class-validator:
+      optional: true
+  checksum: cfbb263b8dddef28bd835b0407292958d168f9f07d0470ea19a40ec046913f8ca2cf99b566c373341feebbe637ff5d908d4223efc4dcd95cd2da51cd31cbf7fd
+  languageName: node
+  linkType: hard
+
 "@nestjs/core@npm:^8.0.4":
   version: 8.0.4
   resolution: "@nestjs/core@npm:8.0.4"
@@ -1753,6 +1800,35 @@ __metadata:
     "@nestjs/websockets":
       optional: true
   checksum: b7926bb587ff7b7dccc9dfaaeea8012a87ed44c95080448b244e4b794eb25fbdfcc5b3ae742c1d13f4570e06c4ee1836d9e91d5eb6ae80d1001e9e388086a1aa
+  languageName: node
+  linkType: hard
+
+"@nestjs/core@npm:^8.0.5":
+  version: 8.0.5
+  resolution: "@nestjs/core@npm:8.0.5"
+  dependencies:
+    "@nuxtjs/opencollective": 0.3.2
+    fast-safe-stringify: 2.0.8
+    iterare: 1.2.1
+    object-hash: 2.2.0
+    path-to-regexp: 3.2.0
+    tslib: 2.3.0
+    uuid: 8.3.2
+  peerDependencies:
+    "@nestjs/common": ^8.0.0
+    "@nestjs/microservices": ^8.0.0
+    "@nestjs/platform-express": ^8.0.0
+    "@nestjs/websockets": ^8.0.0
+    reflect-metadata: ^0.1.12
+    rxjs: ^7.1.0
+  peerDependenciesMeta:
+    "@nestjs/microservices":
+      optional: true
+    "@nestjs/platform-express":
+      optional: true
+    "@nestjs/websockets":
+      optional: true
+  checksum: 00835ccd88d316422c214252febcf76a94f35a02ec53a73779af7d7b879507c7704c5c21500b640947599a5a8af572af1ddd798114f67f938df664181dc5e7cd
   languageName: node
   linkType: hard
 
@@ -1896,6 +1972,26 @@ __metadata:
     "@nestjs/platform-express":
       optional: true
   checksum: 96ab73e9508db58be7c4278ee487e4056f5633e562b3696ca4fbda88b4034389c46b5dcb606ca3989179b1073bb0880e9564cf3f1b8697db74f2233c7a2cdcfe
+  languageName: node
+  linkType: hard
+
+"@nestjs/testing@npm:^8.0.5":
+  version: 8.0.5
+  resolution: "@nestjs/testing@npm:8.0.5"
+  dependencies:
+    optional: 0.1.4
+    tslib: 2.3.0
+  peerDependencies:
+    "@nestjs/common": ^8.0.0
+    "@nestjs/core": ^8.0.0
+    "@nestjs/microservices": ^8.0.0
+    "@nestjs/platform-express": ^8.0.0
+  peerDependenciesMeta:
+    "@nestjs/microservices":
+      optional: true
+    "@nestjs/platform-express":
+      optional: true
+  checksum: 1e6c973e732071cde6a0b524e7e6e5ff3ae2775d8612ac45f55f55c98a5b1e09fd0eb9e7944d1cf37de6cc592a3b708c058c110fc8eb345606dccdd6feb4db55
   languageName: node
   linkType: hard
 
@@ -3817,7 +3913,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"axios@npm:0.21.1":
+"axios@npm:0.21.1, axios@npm:^0.21.1":
   version: 0.21.1
   resolution: "axios@npm:0.21.1"
   dependencies:
@@ -5321,6 +5417,13 @@ __metadata:
   version: 1.2.0
   resolution: "decamelize@npm:1.2.0"
   checksum: ad8c51a7e7e0720c70ec2eeb1163b66da03e7616d7b98c9ef43cce2416395e84c1e9548dd94f5f6ffecfee9f8b94251fc57121a8b021f2ff2469b2bae247b8aa
+  languageName: node
+  linkType: hard
+
+"decamelize@npm:^5.0.0":
+  version: 5.0.0
+  resolution: "decamelize@npm:5.0.0"
+  checksum: 60512c65227d04d24413b48063480ddb7631476853379672af3cbe1b6e556c9e850b4d65741906a8876b3b68de0f4293226659dc79ba161eb5f7fdec2214ee44
   languageName: node
   linkType: hard
 
@@ -9254,7 +9357,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"loglevel@npm:^1.6.1, loglevel@npm:^1.6.7, loglevel@npm:^1.6.8":
+"loglevel@npm:^1.6.1, loglevel@npm:^1.6.7, loglevel@npm:^1.6.8, loglevel@npm:^1.7.1":
   version: 1.7.1
   resolution: "loglevel@npm:1.7.1"
   checksum: 715a4ae69ad75d4d3bd04e4f6e9edbc4cae4db34d1e7f54f426d8cebe2dd9fef891ca3789e839d927cdbc5fad73d789e998db0af2f11f4c40219c272bc923823
@@ -12992,6 +13095,18 @@ typescript@4.1.3:
     tsc: bin/tsc
     tsserver: bin/tsserver
   checksum: 62e5f6494f9bab9d36adeaf04e1b86199ae130af97345f1126e3216af8786de4c9808d0d29472ba98024ce17b26fd101affb5c25079153b8a273cf26af0bfaba
+  languageName: node
+  linkType: hard
+
+"typesense@npm:^0.14.0":
+  version: 0.14.0
+  resolution: "typesense@npm:0.14.0"
+  dependencies:
+    axios: ^0.21.1
+    loglevel: ^1.7.1
+  peerDependencies:
+    "@babel/runtime": ^7.14.6
+  checksum: a27b96f21a7e5c3b6a4cab150f6cd6c25e008e6e2538f9f244cb0abedafab1671334f1c6150b4d7466c7e0589b370dd708d16652ff6fcef2df9feda65cee4690
   languageName: node
   linkType: hard
 
