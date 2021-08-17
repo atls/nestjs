@@ -332,13 +332,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@atls/grpc-error-status@npm:^0.0.1":
-  version: 0.0.1
-  resolution: "@atls/grpc-error-status@npm:0.0.1"
+"@atls/grpc-error-status@npm:^0.0.3":
+  version: 0.0.3
+  resolution: "@atls/grpc-error-status@npm:0.0.3"
   dependencies:
-    google-protobuf: ^3.17.0
-    grpc: ^1.24.7
-  checksum: 9c084f473f13006466ef2260b3ab412dc3125dc7a355dac616fb43a61461a86a3444e4c21da9f8aba0bc2a197c906895ddbd2477a933815cc88e77d4978d0ccf
+    "@grpc/grpc-js": ^1.3.4
+    google-protobuf: ^3.17.3
+  checksum: f09ad6bc34b24886030d5c630f939ac531fb6e62f2b12ef22e107c275ce108513c98d11d088c04c6c8d33540fcf8c5a35304735f184ce6eb48a6a8c80e637da2
   languageName: node
   linkType: hard
 
@@ -445,7 +445,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@atls/nestjs-grpc-errors@workspace:packages/grpc-errors"
   dependencies:
-    "@atls/grpc-error-status": ^0.0.1
+    "@atls/grpc-error-status": ^0.0.3
     "@grpc/grpc-js": ^1.3.5
     "@nestjs/common": ^8.0.4
     "@nestjs/core": ^8.0.4
@@ -471,7 +471,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@atls/nestjs-grpc-http-proxy@workspace:packages/grpc-http-proxy"
   dependencies:
-    "@atls/grpc-error-status": ^0.0.1
+    "@atls/grpc-error-status": ^0.0.3
     "@grpc/grpc-js": ^1.3.5
     "@grpc/proto-loader": ^0.6.4
     "@nestjs/common": ^8.0.4
@@ -508,7 +508,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@atls/nestjs-grpc-identity@workspace:packages/grpc-identity"
   dependencies:
-    "@atls/grpc-error-status": ^0.0.1
+    "@atls/grpc-error-status": ^0.0.3
     "@grpc/grpc-js": ^1.3.5
     "@nestjs/common": ^8.0.4
     "@nestjs/core": ^8.0.4
@@ -537,6 +537,7 @@ __metadata:
   dependencies:
     "@atls/nestjs-grpc-http-proxy": "workspace:0.0.1"
     "@atls/nestjs-grpc-reflection": "workspace:0.0.1"
+    "@grpc/grpc-js": ^1.3.7
     "@nestjs/common": ^8.0.4
     "@nestjs/core": ^8.0.4
     "@nestjs/microservices": ^8.0.4
@@ -1434,6 +1435,15 @@ __metadata:
   peerDependencies:
     graphql: ^14.0.0 || ^15.0.0
   checksum: e40c29608d3380f589f756977f6afd1cc2b96dd08eaa392a412ee320dce98af32e62138ceae752e3db5561776370e3b7766a859eed0b52f8c1e35d0e8fabc6db
+  languageName: node
+  linkType: hard
+
+"@grpc/grpc-js@npm:^1.3.4, @grpc/grpc-js@npm:^1.3.7":
+  version: 1.3.7
+  resolution: "@grpc/grpc-js@npm:1.3.7"
+  dependencies:
+    "@types/node": ">=12.12.47"
+  checksum: 8d02972968afd4c54aaa6acc47d1601c73adc03829370fe4ced6b98679ee0b8cd10bcaa3e1d4d35f4eccdbd5f3e10304a10ef0006798b560226da5979dc84899
   languageName: node
   linkType: hard
 
@@ -7181,7 +7191,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"google-protobuf@npm:^3.17.0, google-protobuf@npm:^3.17.3":
+"google-protobuf@npm:^3.17.3":
   version: 3.17.3
   resolution: "google-protobuf@npm:3.17.3"
   checksum: efe264f3cf854a78f7197c4d8c84eabd1ce8c4ef2806cb3e0bb7f2b5e18f559739ab31adfefbd99e81312c3683f482400fa370896a8b0cc66adfedb114256420
@@ -7259,7 +7269,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"grpc@npm:*, grpc@npm:^1.24.7":
+"grpc@npm:*":
   version: 1.24.10
   resolution: "grpc@npm:1.24.10"
   dependencies:
