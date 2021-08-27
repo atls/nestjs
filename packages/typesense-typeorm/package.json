@@ -1,0 +1,43 @@
+{
+  "name": "@atls/nestjs-typesense-typeorm",
+  "version": "0.0.0",
+  "license": "BSD 3-Clause",
+  "main": "src/index.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "yarn app library build",
+    "postpack": "rm -rf dist",
+    "prepack": "yarn run build"
+  },
+  "dependencies": {
+    "@atls/logger": "^0.0.1",
+    "typeorm": "^0.2"
+  },
+  "devDependencies": {
+    "@atls/nestjs-typesense": "workspace:0.0.1",
+    "@nestjs/common": "^8.0.5",
+    "@nestjs/core": "^8.0.5",
+    "@nestjs/testing": "^8.0.5",
+    "@nestjs/typeorm": "^8.0.1",
+    "get-port": "^5.1.1",
+    "reflect-metadata": "0.1.13",
+    "rxjs": "7.2.0",
+    "sqlite3": "^5.0.2",
+    "testcontainers": "^7.18.1",
+    "typesense": "^0.14.0"
+  },
+  "peerDependencies": {
+    "@atls/nestjs-typesense": "*",
+    "@nestjs/common": "^8.0.0",
+    "@nestjs/core": "^8.0.0",
+    "reflect-metadata": "^0.1.12",
+    "rxjs": "^6.3.3",
+    "typesense": "^0.14.0"
+  },
+  "publishConfig": {
+    "main": "dist/index.js",
+    "typings": "dist/index.d.ts"
+  }
+}
