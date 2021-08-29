@@ -1,0 +1,169 @@
+syntax = "proto3";
+
+package examples.playground.v1;
+
+service PlaygroundService {
+  rpc Echo (EchoRequest) returns (EchoResponse);
+  rpc Switch (SwitchRequest) returns (SwitchResponse);
+  rpc Text (TextRequest) returns (TextResponse);
+  rpc Number (NumberRequest) returns (NumberResponse);
+  rpc Enum (EnumRequest) returns (EnumResponse);
+  rpc Nested (NestedRequest) returns (NestedResponse);
+  rpc Repeated (RepeatedRequest) returns (RepeatedResponse);
+  rpc KitchenSink (KitchenSinkRequest) returns (KitchenSinkResponse);
+}
+
+message EchoRequest {
+  string ping = 1;
+}
+
+message EchoResponse {
+  string pong = 1;
+}
+
+message SwitchRequest {
+  bool value = 1;
+}
+
+message SwitchResponse {
+  bool value = 1;
+}
+
+message TextRequest {
+  string message = 1;
+}
+
+message TextResponse {
+  string message = 1;
+}
+
+message NumberRequest {
+  int32 int32 = 1;
+  int64 int64 = 2;
+  uint32 uint32 = 3;
+  uint64 uint64 = 4;
+  sint32 sint32 = 5;
+  sint64 sint64 = 6;
+  fixed32 fixed32 = 7;
+  fixed64 fixed64 = 8;
+  sfixed32 sfixed32 = 9;
+  sfixed64 sfixed64 = 10;
+  double double = 11;
+  float float = 12;
+}
+
+message NumberResponse {
+  int32 int32 = 1;
+  int64 int64 = 2;
+  uint32 uint32 = 3;
+  uint64 uint64 = 4;
+  sint32 sint32 = 5;
+  sint64 sint64 = 6;
+  fixed32 fixed32 = 7;
+  fixed64 fixed64 = 8;
+  sfixed32 sfixed32 = 9;
+  sfixed64 sfixed64 = 10;
+  double double = 11;
+  float float = 12;
+}
+
+enum Corpus {
+  CORPUS_UNIVERSAL_UNSPECIFIED = 0;
+  CORPUS_WEB = 1;
+  CORPUS_IMAGES = 2;
+  CORPUS_LOCAL = 3;
+  CORPUS_NEWS = 4;
+  CORPUS_PRODUCTS = 5;
+  CORPUS_VIDEO = 6;
+}
+
+message EnumRequest {
+  Corpus corpus = 1;
+}
+
+message EnumResponse {
+  Corpus corpus = 1;
+}
+
+message NestedGrandChild {
+  string id = 1;
+  string value = 2;
+}
+
+message NestedChild {
+  string value = 1;
+  NestedGrandChild grand_child = 2;
+}
+
+message NestedResult {
+  string message = 1;
+  NestedChild child = 2;
+}
+
+message NestedRequest {
+  NestedResult result = 1;
+}
+
+message NestedResponse {
+  NestedResult result = 1;
+}
+
+message RepeatedResult {
+  string url = 1;
+  string title = 2;
+  repeated string snippets = 3;
+}
+
+message RepeatedRequest {
+  repeated RepeatedResult results = 1;
+}
+
+message RepeatedResponse {
+  repeated RepeatedResult results = 1;
+}
+
+message KitchenSinkAmount {
+  string amount = 1;
+  string currency = 2;
+}
+
+message KitchenSinkDocument {
+  string id = 1;
+  string type = 2;
+}
+
+message KitchenSinkInfo {
+  string title = 1;
+  string description = 2;
+  string url = 3;
+}
+
+message KitchenSinkItemField {
+  string key = 1;
+  string value = 2;
+}
+
+message KitchenSinkItem {
+  string price = 1;
+  string currency = 2;
+  int32 quantity = 3;
+  repeated KitchenSinkItemField fields = 4;
+}
+
+message KitchenSinkRequest {
+  string payment_method = 1;
+  string billing_account_id = 2;
+  KitchenSinkAmount amount = 3;
+  KitchenSinkDocument document = 4;
+  KitchenSinkInfo info = 5;
+  repeated KitchenSinkItem items = 6; 
+}
+
+message KitchenSinkResponse {
+  string payment_method = 1;
+  string billing_account_id = 2;
+  KitchenSinkAmount amount = 3;
+  KitchenSinkDocument document = 4;
+  KitchenSinkInfo info = 5;
+  repeated KitchenSinkItem items = 6; 
+}
