@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+package examples.echo.v1;
+
+service EchoService {
+  rpc Echo (EchoRequest) returns (EchoResponse);
+}
+
+message EchoRequest {
+  bool ping = 1;
+}
+
+message EchoResponse {
+  bool pong = 1;
+}
