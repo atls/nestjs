@@ -1,0 +1,48 @@
+syntax = "proto3";
+
+package tech.atls;
+
+service ExampleService {
+  rpc getMovies (MovieRequest) returns (MoviesResult) {}
+  rpc GetMetadata (GetMetadataRequest) returns (GetMetadataResponse) {}
+  rpc GetError (GetErrorRequest) returns (GetErrorResponse) {}
+  rpc GetMustRename (GetMustRenameRequest) returns (GetMustRenameResponse) {}
+  rpc SendMovies (MovieRequest) returns (MoviesResult) {}
+}
+
+message Movie {
+  string name = 1;
+  int32 year = 2;
+  float rating = 3;
+}
+
+message MovieRequest {
+}
+
+message MoviesResult {
+  repeated Movie result = 1;
+}
+
+message GetMetadataRequest {
+
+}
+
+message GetMetadataResponse {
+  string authorization = 1;
+}
+
+message GetErrorRequest {
+
+}
+
+message GetErrorResponse {
+  string result = 1;
+}
+
+message GetMustRenameRequest {
+
+}
+
+message GetMustRenameResponse {
+  string result = 1;
+}
