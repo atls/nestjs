@@ -76,7 +76,7 @@ describe('gateway', () => {
                   {
                     from: {
                       type: 'Query',
-                      field: 'tech_atlsampleService_(.*)',
+                      field: 'tech_atls_ExampleService_(.*)',
                     },
                     to: {
                       type: 'Query',
