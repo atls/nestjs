@@ -39,14 +39,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         "reference": "workspace:packages/aws-s3"
       },
       {
-        "name": "@atls/nestjs-bus",
-        "reference": "workspace:packages/bus"
-      },
-      {
-        "name": "@atls/nestjs-dataloader",
-        "reference": "workspace:packages/dataloader"
-      },
-      {
         "name": "@atls/nestjs-external-renderer",
         "reference": "workspace:packages/external-renderer"
       },
@@ -116,8 +108,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
     "fallbackExclusionList": [
       ["@atlantis-lab/nestjs-signed-url", ["workspace:packages/signed-url"]],
       ["@atls/nestjs-aws-s3", ["workspace:packages/aws-s3"]],
-      ["@atls/nestjs-bus", ["workspace:packages/bus"]],
-      ["@atls/nestjs-dataloader", ["workspace:packages/dataloader"]],
       ["@atls/nestjs-external-renderer", ["workspace:packages/external-renderer"]],
       ["@atls/nestjs-gateway", ["workspace:packages/gateway"]],
       ["@atls/nestjs-grpc-errors", ["workspace:packages/grpc-errors"]],
@@ -149,7 +139,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/jest", "npm:26.0.24"],
             ["@types/node", "npm:14.14.37"],
             ["husky", "npm:7.0.1"],
-            ["typescript", "patch:typescript@npm%3A4.3.5#~builtin<compat/typescript>::version=4.3.5&hash=d8b4e7"]
+            ["typescript", "patch:typescript@npm%3A4.3.5#~builtin<compat/typescript>::version=4.3.5&hash=32657b"]
           ],
           "linkType": "SOFT",
         }]
@@ -162,12 +152,12 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],
           "linkType": "SOFT",
         }],
-        ["virtual:0051fb3bd4cebdb836e20057c4d0ed562cdf795a76ff8379e7bd2f4633dd2680c7884e9df4b39d27ccbf59aa43e4a6b95b3b899bd1be87d7f4b787e495145d84#npm:0.25.2", {
-          "packageLocation": "./.yarn/__virtual__/@apollo-federation-virtual-52d1d02f4e/0/cache/@apollo-federation-npm-0.25.2-1a2f2bdb83-7ecadb7a77.zip/node_modules/@apollo/federation/",
+        ["virtual:d51903b8b271260a2680151ebe0ef3d0fd85dedfe846cd9170fe9cd1c07992e68e0edbec14b3b9083f09bcca7afe7c5e1ad2f6aef694c5c2a9e3cec4dcaeeda2#npm:0.25.2", {
+          "packageLocation": "./.yarn/__virtual__/@apollo-federation-virtual-f8823e6bad/0/cache/@apollo-federation-npm-0.25.2-1a2f2bdb83-7ecadb7a77.zip/node_modules/@apollo/federation/",
           "packageDependencies": [
-            ["@apollo/federation", "virtual:0051fb3bd4cebdb836e20057c4d0ed562cdf795a76ff8379e7bd2f4633dd2680c7884e9df4b39d27ccbf59aa43e4a6b95b3b899bd1be87d7f4b787e495145d84#npm:0.25.2"],
+            ["@apollo/federation", "virtual:d51903b8b271260a2680151ebe0ef3d0fd85dedfe846cd9170fe9cd1c07992e68e0edbec14b3b9083f09bcca7afe7c5e1ad2f6aef694c5c2a9e3cec4dcaeeda2#npm:0.25.2"],
             ["@types/graphql", null],
-            ["apollo-graphql", "virtual:0051fb3bd4cebdb836e20057c4d0ed562cdf795a76ff8379e7bd2f4633dd2680c7884e9df4b39d27ccbf59aa43e4a6b95b3b899bd1be87d7f4b787e495145d84#npm:0.9.3"],
+            ["apollo-graphql", "virtual:d51903b8b271260a2680151ebe0ef3d0fd85dedfe846cd9170fe9cd1c07992e68e0edbec14b3b9083f09bcca7afe7c5e1ad2f6aef694c5c2a9e3cec4dcaeeda2#npm:0.9.3"],
             ["graphql", null],
             ["lodash.xorby", "npm:4.7.0"]
           ],
@@ -186,21 +176,21 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],
           "linkType": "SOFT",
         }],
-        ["virtual:f33e2a37be0495fbfb72425533b09a9bc55ada820eb8b9cb7e8e0ca7033e4cbefb6bb64ce6973c8971f4eef136c74ed61d5726fffc1be878fde9263f97d5f05b#npm:0.29.1", {
-          "packageLocation": "./.yarn/__virtual__/@apollo-gateway-virtual-0051fb3bd4/0/cache/@apollo-gateway-npm-0.29.1-7298a9a6c5-65eec05db7.zip/node_modules/@apollo/gateway/",
+        ["virtual:8e391c35bf53192258b54b5e792ab3d7cd7db8dc0a02f87f331c6929b14a9c7a7ce72615dc438efc66db83e19e762f0cd9c55065f1c019def150716429b831e9#npm:0.29.1", {
+          "packageLocation": "./.yarn/__virtual__/@apollo-gateway-virtual-d51903b8b2/0/cache/@apollo-gateway-npm-0.29.1-7298a9a6c5-65eec05db7.zip/node_modules/@apollo/gateway/",
           "packageDependencies": [
-            ["@apollo/gateway", "virtual:f33e2a37be0495fbfb72425533b09a9bc55ada820eb8b9cb7e8e0ca7033e4cbefb6bb64ce6973c8971f4eef136c74ed61d5726fffc1be878fde9263f97d5f05b#npm:0.29.1"],
-            ["@apollo/federation", "virtual:0051fb3bd4cebdb836e20057c4d0ed562cdf795a76ff8379e7bd2f4633dd2680c7884e9df4b39d27ccbf59aa43e4a6b95b3b899bd1be87d7f4b787e495145d84#npm:0.25.2"],
-            ["@apollo/query-planner", "virtual:0051fb3bd4cebdb836e20057c4d0ed562cdf795a76ff8379e7bd2f4633dd2680c7884e9df4b39d27ccbf59aa43e4a6b95b3b899bd1be87d7f4b787e495145d84#npm:0.2.3"],
+            ["@apollo/gateway", "virtual:8e391c35bf53192258b54b5e792ab3d7cd7db8dc0a02f87f331c6929b14a9c7a7ce72615dc438efc66db83e19e762f0cd9c55065f1c019def150716429b831e9#npm:0.29.1"],
+            ["@apollo/federation", "virtual:d51903b8b271260a2680151ebe0ef3d0fd85dedfe846cd9170fe9cd1c07992e68e0edbec14b3b9083f09bcca7afe7c5e1ad2f6aef694c5c2a9e3cec4dcaeeda2#npm:0.25.2"],
+            ["@apollo/query-planner", "virtual:d51903b8b271260a2680151ebe0ef3d0fd85dedfe846cd9170fe9cd1c07992e68e0edbec14b3b9083f09bcca7afe7c5e1ad2f6aef694c5c2a9e3cec4dcaeeda2#npm:0.2.3"],
             ["@types/graphql", null],
             ["@types/node-fetch", "npm:2.5.10"],
-            ["apollo-graphql", "virtual:0051fb3bd4cebdb836e20057c4d0ed562cdf795a76ff8379e7bd2f4633dd2680c7884e9df4b39d27ccbf59aa43e4a6b95b3b899bd1be87d7f4b787e495145d84#npm:0.9.3"],
+            ["apollo-graphql", "virtual:d51903b8b271260a2680151ebe0ef3d0fd85dedfe846cd9170fe9cd1c07992e68e0edbec14b3b9083f09bcca7afe7c5e1ad2f6aef694c5c2a9e3cec4dcaeeda2#npm:0.9.3"],
             ["apollo-reporting-protobuf", "npm:3.0.0"],
             ["apollo-server-caching", "npm:3.1.0"],
-            ["apollo-server-core", "virtual:0051fb3bd4cebdb836e20057c4d0ed562cdf795a76ff8379e7bd2f4633dd2680c7884e9df4b39d27ccbf59aa43e4a6b95b3b899bd1be87d7f4b787e495145d84#npm:3.3.0"],
+            ["apollo-server-core", "virtual:d51903b8b271260a2680151ebe0ef3d0fd85dedfe846cd9170fe9cd1c07992e68e0edbec14b3b9083f09bcca7afe7c5e1ad2f6aef694c5c2a9e3cec4dcaeeda2#npm:3.3.0"],
             ["apollo-server-env", "npm:3.2.0-rc.0"],
-            ["apollo-server-errors", "virtual:0051fb3bd4cebdb836e20057c4d0ed562cdf795a76ff8379e7bd2f4633dd2680c7884e9df4b39d27ccbf59aa43e4a6b95b3b899bd1be87d7f4b787e495145d84#npm:3.1.0"],
-            ["apollo-server-types", "virtual:0051fb3bd4cebdb836e20057c4d0ed562cdf795a76ff8379e7bd2f4633dd2680c7884e9df4b39d27ccbf59aa43e4a6b95b3b899bd1be87d7f4b787e495145d84#npm:3.2.0"],
+            ["apollo-server-errors", "virtual:d51903b8b271260a2680151ebe0ef3d0fd85dedfe846cd9170fe9cd1c07992e68e0edbec14b3b9083f09bcca7afe7c5e1ad2f6aef694c5c2a9e3cec4dcaeeda2#npm:3.1.0"],
+            ["apollo-server-types", "virtual:d51903b8b271260a2680151ebe0ef3d0fd85dedfe846cd9170fe9cd1c07992e68e0edbec14b3b9083f09bcca7afe7c5e1ad2f6aef694c5c2a9e3cec4dcaeeda2#npm:3.2.0"],
             ["graphql", null],
             ["loglevel", "npm:1.7.1"],
             ["make-fetch-happen", "npm:8.0.14"],
@@ -243,10 +233,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],
           "linkType": "SOFT",
         }],
-        ["virtual:0051fb3bd4cebdb836e20057c4d0ed562cdf795a76ff8379e7bd2f4633dd2680c7884e9df4b39d27ccbf59aa43e4a6b95b3b899bd1be87d7f4b787e495145d84#npm:0.2.3", {
-          "packageLocation": "./.yarn/__virtual__/@apollo-query-planner-virtual-55d488a38d/0/cache/@apollo-query-planner-npm-0.2.3-66297845b0-436e23db2a.zip/node_modules/@apollo/query-planner/",
+        ["virtual:d51903b8b271260a2680151ebe0ef3d0fd85dedfe846cd9170fe9cd1c07992e68e0edbec14b3b9083f09bcca7afe7c5e1ad2f6aef694c5c2a9e3cec4dcaeeda2#npm:0.2.3", {
+          "packageLocation": "./.yarn/__virtual__/@apollo-query-planner-virtual-c9b2528eae/0/cache/@apollo-query-planner-npm-0.2.3-66297845b0-436e23db2a.zip/node_modules/@apollo/query-planner/",
           "packageDependencies": [
-            ["@apollo/query-planner", "virtual:0051fb3bd4cebdb836e20057c4d0ed562cdf795a76ff8379e7bd2f4633dd2680c7884e9df4b39d27ccbf59aa43e4a6b95b3b899bd1be87d7f4b787e495145d84#npm:0.2.3"],
+            ["@apollo/query-planner", "virtual:d51903b8b271260a2680151ebe0ef3d0fd85dedfe846cd9170fe9cd1c07992e68e0edbec14b3b9083f09bcca7afe7c5e1ad2f6aef694c5c2a9e3cec4dcaeeda2#npm:0.2.3"],
             ["@types/graphql", null],
             ["chalk", "npm:4.1.2"],
             ["deep-equal", "npm:2.0.5"],
@@ -275,6 +265,19 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],
           "linkType": "SOFT",
         }],
+        ["virtual:0ce7a24d7625c6aa8f2153d4340a376f4feedaa5f857403d0efa501c97e26bd559001678bf7ebd05a85f8cb2f8476d6eceee8855fd67978d2447fca950e28793#npm:0.5.1", {
+          "packageLocation": "./.yarn/__virtual__/@apollographql-apollo-tools-virtual-ac634ee925/0/cache/@apollographql-apollo-tools-npm-0.5.1-9b0748c7cd-02c47fa6f2.zip/node_modules/@apollographql/apollo-tools/",
+          "packageDependencies": [
+            ["@apollographql/apollo-tools", "virtual:0ce7a24d7625c6aa8f2153d4340a376f4feedaa5f857403d0efa501c97e26bd559001678bf7ebd05a85f8cb2f8476d6eceee8855fd67978d2447fca950e28793#npm:0.5.1"],
+            ["@types/graphql", null],
+            ["graphql", null]
+          ],
+          "packagePeers": [
+            "@types/graphql",
+            "graphql"
+          ],
+          "linkType": "HARD",
+        }],
         ["virtual:54265bf0b7618fd72dbabb2ffaf729efbd1eb2573fe474f3dffdab599a28bb40690768b9de9da56c64f75a201062bced6bd95932aa627caf640d99ff89f9481c#npm:0.5.0", {
           "packageLocation": "./.yarn/__virtual__/@apollographql-apollo-tools-virtual-b26eccbf86/0/cache/@apollographql-apollo-tools-npm-0.5.0-5d4b1000f7-8c775dad26.zip/node_modules/@apollographql/apollo-tools/",
           "packageDependencies": [
@@ -289,23 +292,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],
           "linkType": "HARD",
         }],
-        ["virtual:56c225a2aa7350e390c00fb9c77149e7e488995402eb45185214e6da9d84f18bbeb115dd594bd1f88641a82293c8cb34ccabbb9d381657db5451016d06c6f460#npm:0.5.1", {
-          "packageLocation": "./.yarn/__virtual__/@apollographql-apollo-tools-virtual-22cc6144ba/0/cache/@apollographql-apollo-tools-npm-0.5.1-9b0748c7cd-02c47fa6f2.zip/node_modules/@apollographql/apollo-tools/",
+        ["virtual:6e3c4c8370cd2a3ba4c46c11f50ef0a3f087fe3a12a9f1ed7ece454af23281fe98cd5949ae7c3884f8ac760599c5e9bfd1cac3804787863f38a92d791e30a23e#npm:0.5.0", {
+          "packageLocation": "./.yarn/__virtual__/@apollographql-apollo-tools-virtual-f613f8895d/0/cache/@apollographql-apollo-tools-npm-0.5.0-5d4b1000f7-8c775dad26.zip/node_modules/@apollographql/apollo-tools/",
           "packageDependencies": [
-            ["@apollographql/apollo-tools", "virtual:56c225a2aa7350e390c00fb9c77149e7e488995402eb45185214e6da9d84f18bbeb115dd594bd1f88641a82293c8cb34ccabbb9d381657db5451016d06c6f460#npm:0.5.1"],
-            ["@types/graphql", null],
-            ["graphql", null]
-          ],
-          "packagePeers": [
-            "@types/graphql",
-            "graphql"
-          ],
-          "linkType": "HARD",
-        }],
-        ["virtual:9f28c49b2608fcfee1d35160027126b66ad864a0443b8f120d206857bfeae2ecaf0724f9edd3cff3dd5b5e9169f32b3c43098d021ceaeee9b1d61e636c128965#npm:0.5.0", {
-          "packageLocation": "./.yarn/__virtual__/@apollographql-apollo-tools-virtual-5e54bfa17c/0/cache/@apollographql-apollo-tools-npm-0.5.0-5d4b1000f7-8c775dad26.zip/node_modules/@apollographql/apollo-tools/",
-          "packageDependencies": [
-            ["@apollographql/apollo-tools", "virtual:9f28c49b2608fcfee1d35160027126b66ad864a0443b8f120d206857bfeae2ecaf0724f9edd3cff3dd5b5e9169f32b3c43098d021ceaeee9b1d61e636c128965#npm:0.5.0"],
+            ["@apollographql/apollo-tools", "virtual:6e3c4c8370cd2a3ba4c46c11f50ef0a3f087fe3a12a9f1ed7ece454af23281fe98cd5949ae7c3884f8ac760599c5e9bfd1cac3804787863f38a92d791e30a23e#npm:0.5.0"],
             ["@types/graphql", null],
             ["apollo-env", "npm:0.10.0"],
             ["graphql", null]
@@ -318,13 +308,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]
       ]],
       ["@apollographql/graphql-playground-html", [
-        ["npm:1.6.24", {
-          "packageLocation": "./.yarn/cache/@apollographql-graphql-playground-html-npm-1.6.24-08e0bc7275-8e36e9cb0e.zip/node_modules/@apollographql/graphql-playground-html/",
-          "packageDependencies": [
-            ["@apollographql/graphql-playground-html", "npm:1.6.24"]
-          ],
-          "linkType": "HARD",
-        }],
         ["npm:1.6.27", {
           "packageLocation": "./.yarn/cache/@apollographql-graphql-playground-html-npm-1.6.27-167b01da2f-a345e8c7d1.zip/node_modules/@apollographql/graphql-playground-html/",
           "packageDependencies": [
@@ -370,10 +353,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],
           "linkType": "HARD",
         }],
-        ["virtual:9f28c49b2608fcfee1d35160027126b66ad864a0443b8f120d206857bfeae2ecaf0724f9edd3cff3dd5b5e9169f32b3c43098d021ceaeee9b1d61e636c128965#npm:8.1.3", {
-          "packageLocation": "./.yarn/__virtual__/@apollographql-graphql-upload-8-fork-virtual-12c004a5e9/0/cache/@apollographql-graphql-upload-8-fork-npm-8.1.3-bf5f01fb7f-cb30ef2230.zip/node_modules/@apollographql/graphql-upload-8-fork/",
+        ["virtual:6e3c4c8370cd2a3ba4c46c11f50ef0a3f087fe3a12a9f1ed7ece454af23281fe98cd5949ae7c3884f8ac760599c5e9bfd1cac3804787863f38a92d791e30a23e#npm:8.1.3", {
+          "packageLocation": "./.yarn/__virtual__/@apollographql-graphql-upload-8-fork-virtual-43a22ecb6f/0/cache/@apollographql-graphql-upload-8-fork-npm-8.1.3-bf5f01fb7f-cb30ef2230.zip/node_modules/@apollographql/graphql-upload-8-fork/",
           "packageDependencies": [
-            ["@apollographql/graphql-upload-8-fork", "virtual:9f28c49b2608fcfee1d35160027126b66ad864a0443b8f120d206857bfeae2ecaf0724f9edd3cff3dd5b5e9169f32b3c43098d021ceaeee9b1d61e636c128965#npm:8.1.3"],
+            ["@apollographql/graphql-upload-8-fork", "virtual:6e3c4c8370cd2a3ba4c46c11f50ef0a3f087fe3a12a9f1ed7ece454af23281fe98cd5949ae7c3884f8ac760599c5e9bfd1cac3804787863f38a92d791e30a23e#npm:8.1.3"],
             ["@types/express", "npm:4.17.13"],
             ["@types/fs-capacitor", "npm:2.0.0"],
             ["@types/graphql", null],
@@ -433,7 +416,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/node", "npm:14.14.37"],
             ["reflect-metadata", "npm:0.1.13"],
             ["rxjs", "npm:6.6.3"],
-            ["typescript", "patch:typescript@npm%3A4.1.3#~builtin<compat/typescript>::version=4.1.3&hash=d8b4e7"]
+            ["typescript", "patch:typescript@npm%3A4.1.3#~builtin<compat/typescript>::version=4.1.3&hash=32657b"]
           ],
           "linkType": "SOFT",
         }]
@@ -460,7 +443,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@atls/actl-typecheck", "npm:0.1.42"],
             ["@types/typescript", null],
             ["clipanion", "virtual:67784d4ac742cac8a605f772f0996478a4574e22eaafd7324d14fe894bf6c0c58f1f3afab8659fc26a3846aa9923d455aa1a6ef75a556eca00023a8792f65120#npm:3.0.1"],
-            ["typescript", "patch:typescript@npm%3A4.3.5#~builtin<compat/typescript>::version=4.3.5&hash=d8b4e7"]
+            ["typescript", "patch:typescript@npm%3A4.3.5#~builtin<compat/typescript>::version=4.3.5&hash=32657b"]
           ],
           "packagePeers": [
             "@types/typescript",
@@ -538,7 +521,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@atls/code-lint", "virtual:763333096635c97fb6c0c5428174af9a973c622c6836eda5e0cd73a92c37b0802738e90776550d1fbef905f2f8ee6db7daa2b70bf06641b256bee97b444dc377#npm:0.0.7"],
             ["@types/typescript", null],
             ["clipanion", "virtual:67784d4ac742cac8a605f772f0996478a4574e22eaafd7324d14fe894bf6c0c58f1f3afab8659fc26a3846aa9923d455aa1a6ef75a556eca00023a8792f65120#npm:3.0.1"],
-            ["typescript", "patch:typescript@npm%3A4.3.5#~builtin<compat/typescript>::version=4.3.5&hash=d8b4e7"]
+            ["typescript", "patch:typescript@npm%3A4.3.5#~builtin<compat/typescript>::version=4.3.5&hash=32657b"]
           ],
           "packagePeers": [
             "@types/typescript",
@@ -741,7 +724,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["ignore", "npm:5.1.8"],
             ["prettier", "npm:2.3.2"],
             ["react", "npm:17.0.2"],
-            ["typescript", "patch:typescript@npm%3A4.3.5#~builtin<compat/typescript>::version=4.3.5&hash=d8b4e7"]
+            ["typescript", "patch:typescript@npm%3A4.3.5#~builtin<compat/typescript>::version=4.3.5&hash=32657b"]
           ],
           "packagePeers": [
             "@types/react",
@@ -763,7 +746,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["fast-glob", "npm:3.2.5"],
             ["string-replace-loader", "virtual:9af56f53a9b24e505c63143808fc62101c2361a93deb5b105e424b227e770b8576a82e9ae59ac2e25a7fd81884ab19dbc8d63f3d064236198aeac4cc1fb2f680#npm:3.0.1"],
             ["ts-loader", "virtual:9af56f53a9b24e505c63143808fc62101c2361a93deb5b105e424b227e770b8576a82e9ae59ac2e25a7fd81884ab19dbc8d63f3d064236198aeac4cc1fb2f680#npm:9.2.4"],
-            ["typescript", "patch:typescript@npm%3A4.3.5#~builtin<compat/typescript>::version=4.3.5&hash=d8b4e7"],
+            ["typescript", "patch:typescript@npm%3A4.3.5#~builtin<compat/typescript>::version=4.3.5&hash=32657b"],
             ["webpack", "virtual:9af56f53a9b24e505c63143808fc62101c2361a93deb5b105e424b227e770b8576a82e9ae59ac2e25a7fd81884ab19dbc8d63f3d064236198aeac4cc1fb2f680#npm:5.47.1"],
             ["webpack-chain", "npm:6.5.1"]
           ],
@@ -805,7 +788,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@babel/code-frame", "npm:7.14.5"],
             ["chalk", "npm:4.1.2"],
             ["deepmerge", "npm:4.2.2"],
-            ["typescript", "patch:typescript@npm%3A4.4.3#~builtin<compat/typescript>::version=4.4.3&hash=d8b4e7"]
+            ["typescript", "patch:typescript@npm%3A4.4.3#~builtin<compat/typescript>::version=4.4.3&hash=32657b"]
           ],
           "linkType": "HARD",
         }]
@@ -841,52 +824,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/jest", "npm:26.0.20"],
             ["@types/node", "npm:14.14.37"],
             ["aws-sdk", "npm:2.824.0"],
-            ["typescript", "patch:typescript@npm%3A4.1.3#~builtin<compat/typescript>::version=4.1.3&hash=d8b4e7"]
-          ],
-          "linkType": "SOFT",
-        }]
-      ]],
-      ["@atls/nestjs-bus", [
-        ["workspace:packages/bus", {
-          "packageLocation": "./packages/bus/",
-          "packageDependencies": [
-            ["@atls/nestjs-bus", "workspace:packages/bus"],
-            ["@nestjs/common", "virtual:13b79bfc12f06d7a82c2d3a4180825b0c40a77e6246a694b73fadf296b555a22476f40568d9ce7d2cc5eead4d7e9262def7c089d33a706cbb959212abdf99804#npm:8.0.6"],
-            ["@nestjs/core", "virtual:13b79bfc12f06d7a82c2d3a4180825b0c40a77e6246a694b73fadf296b555a22476f40568d9ce7d2cc5eead4d7e9262def7c089d33a706cbb959212abdf99804#npm:8.0.6"],
-            ["@nestjs/platform-express", "virtual:13b79bfc12f06d7a82c2d3a4180825b0c40a77e6246a694b73fadf296b555a22476f40568d9ce7d2cc5eead4d7e9262def7c089d33a706cbb959212abdf99804#npm:8.0.6"],
-            ["@nestjs/testing", "virtual:13b79bfc12f06d7a82c2d3a4180825b0c40a77e6246a694b73fadf296b555a22476f40568d9ce7d2cc5eead4d7e9262def7c089d33a706cbb959212abdf99804#npm:8.0.6"],
-            ["@node-ts/bus-core", "virtual:13b79bfc12f06d7a82c2d3a4180825b0c40a77e6246a694b73fadf296b555a22476f40568d9ce7d2cc5eead4d7e9262def7c089d33a706cbb959212abdf99804#npm:0.5.9"],
-            ["@node-ts/bus-messages", "npm:0.2.3"],
-            ["@node-ts/bus-rabbitmq", "virtual:13b79bfc12f06d7a82c2d3a4180825b0c40a77e6246a694b73fadf296b555a22476f40568d9ce7d2cc5eead4d7e9262def7c089d33a706cbb959212abdf99804#npm:0.5.8"],
-            ["@node-ts/logger-core", "virtual:13b79bfc12f06d7a82c2d3a4180825b0c40a77e6246a694b73fadf296b555a22476f40568d9ce7d2cc5eead4d7e9262def7c089d33a706cbb959212abdf99804#npm:0.1.1"],
-            ["@types/node", "npm:14.14.37"],
-            ["amqp-connection-manager", "virtual:13b79bfc12f06d7a82c2d3a4180825b0c40a77e6246a694b73fadf296b555a22476f40568d9ce7d2cc5eead4d7e9262def7c089d33a706cbb959212abdf99804#npm:3.6.0"],
-            ["amqplib", "npm:0.5.6"],
-            ["inversify", "npm:5.1.1"],
-            ["promise-breaker", "npm:5.0.0"],
-            ["reflect-metadata", "npm:0.1.13"],
-            ["rxjs", "npm:7.3.0"],
-            ["serialize-error", "npm:8.1.0"],
-            ["typescript", "patch:typescript@npm%3A3.9.10#~builtin<compat/typescript>::version=3.9.10&hash=d8b4e7"]
-          ],
-          "linkType": "SOFT",
-        }]
-      ]],
-      ["@atls/nestjs-dataloader", [
-        ["workspace:packages/dataloader", {
-          "packageLocation": "./packages/dataloader/",
-          "packageDependencies": [
-            ["@atls/nestjs-dataloader", "workspace:packages/dataloader"],
-            ["@nestjs/common", "virtual:13b79bfc12f06d7a82c2d3a4180825b0c40a77e6246a694b73fadf296b555a22476f40568d9ce7d2cc5eead4d7e9262def7c089d33a706cbb959212abdf99804#npm:8.0.6"],
-            ["@nestjs/core", "virtual:03b6af22cb80149b513f081c991b2ee015111d59bbeac45ddf1903895b7fd87d34f48a2f3c80a4ef3aface38a0df360e482b938a22fb0c3db73366f989167c03#npm:8.0.6"],
-            ["@nestjs/graphql", "virtual:03b6af22cb80149b513f081c991b2ee015111d59bbeac45ddf1903895b7fd87d34f48a2f3c80a4ef3aface38a0df360e482b938a22fb0c3db73366f989167c03#npm:7.11.0"],
-            ["@types/node", "npm:14.14.37"],
-            ["apollo-server-express", "virtual:03b6af22cb80149b513f081c991b2ee015111d59bbeac45ddf1903895b7fd87d34f48a2f3c80a4ef3aface38a0df360e482b938a22fb0c3db73366f989167c03#npm:2.13.0"],
-            ["dataloader", "npm:2.0.0"],
-            ["reflect-metadata", "npm:0.1.13"],
-            ["rimraf", "npm:3.0.2"],
-            ["rxjs", "npm:7.3.0"],
-            ["typescript", "patch:typescript@npm%3A3.9.10#~builtin<compat/typescript>::version=3.9.10&hash=d8b4e7"]
+            ["typescript", "patch:typescript@npm%3A4.1.3#~builtin<compat/typescript>::version=4.1.3&hash=32657b"]
           ],
           "linkType": "SOFT",
         }]
@@ -1448,15 +1386,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./packages/keto/",
           "packageDependencies": [
             ["@atls/nestjs-keto", "workspace:packages/keto"],
-            ["@nestjs/common", "virtual:13b79bfc12f06d7a82c2d3a4180825b0c40a77e6246a694b73fadf296b555a22476f40568d9ce7d2cc5eead4d7e9262def7c089d33a706cbb959212abdf99804#npm:8.0.6"],
-            ["@nestjs/core", "virtual:03b6af22cb80149b513f081c991b2ee015111d59bbeac45ddf1903895b7fd87d34f48a2f3c80a4ef3aface38a0df360e482b938a22fb0c3db73366f989167c03#npm:8.0.6"],
-            ["@nestjs/graphql", "virtual:03b6af22cb80149b513f081c991b2ee015111d59bbeac45ddf1903895b7fd87d34f48a2f3c80a4ef3aface38a0df360e482b938a22fb0c3db73366f989167c03#npm:7.11.0"],
+            ["@nestjs/common", "virtual:dbeec2a67cd5b7df21dbb482402706a67666b54395be929020ff14095c088b24e526a00156d6ec5c34cd13efb5308fdaa1b65b7daa3ae278555df7c6cc176b12#npm:8.0.6"],
+            ["@nestjs/core", "virtual:dbeec2a67cd5b7df21dbb482402706a67666b54395be929020ff14095c088b24e526a00156d6ec5c34cd13efb5308fdaa1b65b7daa3ae278555df7c6cc176b12#npm:8.0.6"],
+            ["@nestjs/graphql", "virtual:dbeec2a67cd5b7df21dbb482402706a67666b54395be929020ff14095c088b24e526a00156d6ec5c34cd13efb5308fdaa1b65b7daa3ae278555df7c6cc176b12#npm:7.11.0"],
             ["@oryd/keto-client", "npm:0.5.6-alpha.1"],
             ["@types/node", "npm:14.14.37"],
             ["reflect-metadata", "npm:0.1.13"],
             ["rimraf", "npm:3.0.2"],
             ["rxjs", "npm:7.3.0"],
-            ["typescript", "patch:typescript@npm%3A3.9.10#~builtin<compat/typescript>::version=3.9.10&hash=d8b4e7"]
+            ["typescript", "patch:typescript@npm%3A3.9.10#~builtin<compat/typescript>::version=3.9.10&hash=32657b"]
           ],
           "linkType": "SOFT",
         }]
@@ -1516,7 +1454,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["reflect-metadata", "npm:0.1.13"],
             ["rxjs", "npm:7.3.0"],
             ["supertest", "npm:6.1.3"],
-            ["typescript", "patch:typescript@npm%3A4.1.3#~builtin<compat/typescript>::version=4.1.3&hash=d8b4e7"]
+            ["typescript", "patch:typescript@npm%3A4.1.3#~builtin<compat/typescript>::version=4.1.3&hash=32657b"]
           ],
           "linkType": "SOFT",
         }]
@@ -2390,25 +2328,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/@commitlint-types-npm-11.0.0-2bebde8042-1f9ec3ad3a.zip/node_modules/@commitlint/types/",
           "packageDependencies": [
             ["@commitlint/types", "npm:11.0.0"]
-          ],
-          "linkType": "HARD",
-        }]
-      ]],
-      ["@cspotcode/source-map-consumer", [
-        ["npm:0.8.0", {
-          "packageLocation": "./.yarn/cache/@cspotcode-source-map-consumer-npm-0.8.0-1f37e9e72b-c0c16ca3d2.zip/node_modules/@cspotcode/source-map-consumer/",
-          "packageDependencies": [
-            ["@cspotcode/source-map-consumer", "npm:0.8.0"]
-          ],
-          "linkType": "HARD",
-        }]
-      ]],
-      ["@cspotcode/source-map-support", [
-        ["npm:0.6.1", {
-          "packageLocation": "./.yarn/cache/@cspotcode-source-map-support-npm-0.6.1-2e72b80534-da9fb4f640.zip/node_modules/@cspotcode/source-map-support/",
-          "packageDependencies": [
-            ["@cspotcode/source-map-support", "npm:0.6.1"],
-            ["@cspotcode/source-map-consumer", "npm:0.8.0"]
           ],
           "linkType": "HARD",
         }]
@@ -3418,14 +3337,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],
           "linkType": "HARD",
         }],
-        ["virtual:b138fbc6ff8543f034173e9d45ad06f1995e561153a9dd68eff452672fac6e494335180f9118de068a62ecfa6175b63ed08d4704cefbad97484da8ad64041996#npm:8.1.2", {
-          "packageLocation": "./.yarn/__virtual__/@graphql-tools-merge-virtual-78bed0d7db/0/cache/@graphql-tools-merge-npm-8.1.2-6eddf247ec-54b9f56675.zip/node_modules/@graphql-tools/merge/",
+        ["virtual:8e391c35bf53192258b54b5e792ab3d7cd7db8dc0a02f87f331c6929b14a9c7a7ce72615dc438efc66db83e19e762f0cd9c55065f1c019def150716429b831e9#npm:6.2.14", {
+          "packageLocation": "./.yarn/__virtual__/@graphql-tools-merge-virtual-68baef1966/0/cache/@graphql-tools-merge-npm-6.2.14-5b9e215cc7-f5ac009e4d.zip/node_modules/@graphql-tools/merge/",
           "packageDependencies": [
-            ["@graphql-tools/merge", "virtual:b138fbc6ff8543f034173e9d45ad06f1995e561153a9dd68eff452672fac6e494335180f9118de068a62ecfa6175b63ed08d4704cefbad97484da8ad64041996#npm:8.1.2"],
-            ["@graphql-tools/utils", "virtual:c135c51b478abca01105dd3730be2279f76814dba11d80f233ea506dda13118d50f71b795f3527a794c51946beb00b5c4424b02cc26d65acd87d24c60d9a9c9d#npm:8.2.2"],
+            ["@graphql-tools/merge", "virtual:8e391c35bf53192258b54b5e792ab3d7cd7db8dc0a02f87f331c6929b14a9c7a7ce72615dc438efc66db83e19e762f0cd9c55065f1c019def150716429b831e9#npm:6.2.14"],
+            ["@graphql-tools/schema", "virtual:8e391c35bf53192258b54b5e792ab3d7cd7db8dc0a02f87f331c6929b14a9c7a7ce72615dc438efc66db83e19e762f0cd9c55065f1c019def150716429b831e9#npm:7.1.5"],
+            ["@graphql-tools/utils", "virtual:8e391c35bf53192258b54b5e792ab3d7cd7db8dc0a02f87f331c6929b14a9c7a7ce72615dc438efc66db83e19e762f0cd9c55065f1c019def150716429b831e9#npm:7.10.0"],
             ["@types/graphql", null],
             ["graphql", null],
-            ["tslib", "npm:2.3.1"]
+            ["tslib", "npm:2.2.0"]
           ],
           "packagePeers": [
             "@types/graphql",
@@ -3433,15 +3353,14 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],
           "linkType": "HARD",
         }],
-        ["virtual:f33e2a37be0495fbfb72425533b09a9bc55ada820eb8b9cb7e8e0ca7033e4cbefb6bb64ce6973c8971f4eef136c74ed61d5726fffc1be878fde9263f97d5f05b#npm:6.2.14", {
-          "packageLocation": "./.yarn/__virtual__/@graphql-tools-merge-virtual-213c064759/0/cache/@graphql-tools-merge-npm-6.2.14-5b9e215cc7-f5ac009e4d.zip/node_modules/@graphql-tools/merge/",
+        ["virtual:a9f7d4f18c527e40a66db7ca29e6d448e5001e338d6abe4b3758c110dbf9e79e97d9413bb4a3f83743bc1d1ea9850b3dcfeb3bf0207242fbc9f6d976b2917e31#npm:8.1.2", {
+          "packageLocation": "./.yarn/__virtual__/@graphql-tools-merge-virtual-051b0e7d9d/0/cache/@graphql-tools-merge-npm-8.1.2-6eddf247ec-54b9f56675.zip/node_modules/@graphql-tools/merge/",
           "packageDependencies": [
-            ["@graphql-tools/merge", "virtual:f33e2a37be0495fbfb72425533b09a9bc55ada820eb8b9cb7e8e0ca7033e4cbefb6bb64ce6973c8971f4eef136c74ed61d5726fffc1be878fde9263f97d5f05b#npm:6.2.14"],
-            ["@graphql-tools/schema", "virtual:f33e2a37be0495fbfb72425533b09a9bc55ada820eb8b9cb7e8e0ca7033e4cbefb6bb64ce6973c8971f4eef136c74ed61d5726fffc1be878fde9263f97d5f05b#npm:7.1.5"],
-            ["@graphql-tools/utils", "virtual:f33e2a37be0495fbfb72425533b09a9bc55ada820eb8b9cb7e8e0ca7033e4cbefb6bb64ce6973c8971f4eef136c74ed61d5726fffc1be878fde9263f97d5f05b#npm:7.10.0"],
+            ["@graphql-tools/merge", "virtual:a9f7d4f18c527e40a66db7ca29e6d448e5001e338d6abe4b3758c110dbf9e79e97d9413bb4a3f83743bc1d1ea9850b3dcfeb3bf0207242fbc9f6d976b2917e31#npm:8.1.2"],
+            ["@graphql-tools/utils", "virtual:6eaddbb2d12ed7c944d4a490ca5564b397655cd1f4d02647c05fc3cedba99f024b0ce6caa5dee86acef7c9775fde82f4f935f575ddea9bfc1f0dcdf18f859cf2#npm:8.2.2"],
             ["@types/graphql", null],
             ["graphql", null],
-            ["tslib", "npm:2.2.0"]
+            ["tslib", "npm:2.3.1"]
           ],
           "packagePeers": [
             "@types/graphql",
@@ -3465,12 +3384,12 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],
           "linkType": "SOFT",
         }],
-        ["virtual:56c225a2aa7350e390c00fb9c77149e7e488995402eb45185214e6da9d84f18bbeb115dd594bd1f88641a82293c8cb34ccabbb9d381657db5451016d06c6f460#npm:8.3.1", {
-          "packageLocation": "./.yarn/__virtual__/@graphql-tools-mock-virtual-c135c51b47/0/cache/@graphql-tools-mock-npm-8.3.1-bacc7bb888-fb021d72e6.zip/node_modules/@graphql-tools/mock/",
+        ["virtual:0ce7a24d7625c6aa8f2153d4340a376f4feedaa5f857403d0efa501c97e26bd559001678bf7ebd05a85f8cb2f8476d6eceee8855fd67978d2447fca950e28793#npm:8.3.1", {
+          "packageLocation": "./.yarn/__virtual__/@graphql-tools-mock-virtual-6eaddbb2d1/0/cache/@graphql-tools-mock-npm-8.3.1-bacc7bb888-fb021d72e6.zip/node_modules/@graphql-tools/mock/",
           "packageDependencies": [
-            ["@graphql-tools/mock", "virtual:56c225a2aa7350e390c00fb9c77149e7e488995402eb45185214e6da9d84f18bbeb115dd594bd1f88641a82293c8cb34ccabbb9d381657db5451016d06c6f460#npm:8.3.1"],
-            ["@graphql-tools/schema", "virtual:56c225a2aa7350e390c00fb9c77149e7e488995402eb45185214e6da9d84f18bbeb115dd594bd1f88641a82293c8cb34ccabbb9d381657db5451016d06c6f460#npm:8.2.0"],
-            ["@graphql-tools/utils", "virtual:c135c51b478abca01105dd3730be2279f76814dba11d80f233ea506dda13118d50f71b795f3527a794c51946beb00b5c4424b02cc26d65acd87d24c60d9a9c9d#npm:8.2.2"],
+            ["@graphql-tools/mock", "virtual:0ce7a24d7625c6aa8f2153d4340a376f4feedaa5f857403d0efa501c97e26bd559001678bf7ebd05a85f8cb2f8476d6eceee8855fd67978d2447fca950e28793#npm:8.3.1"],
+            ["@graphql-tools/schema", "virtual:0ce7a24d7625c6aa8f2153d4340a376f4feedaa5f857403d0efa501c97e26bd559001678bf7ebd05a85f8cb2f8476d6eceee8855fd67978d2447fca950e28793#npm:8.2.0"],
+            ["@graphql-tools/utils", "virtual:6eaddbb2d12ed7c944d4a490ca5564b397655cd1f4d02647c05fc3cedba99f024b0ce6caa5dee86acef7c9775fde82f4f935f575ddea9bfc1f0dcdf18f859cf2#npm:8.2.2"],
             ["@types/graphql", null],
             ["fast-json-stable-stringify", "npm:2.1.0"],
             ["graphql", null],
@@ -3555,6 +3474,23 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],
           "linkType": "SOFT",
         }],
+        ["virtual:0ce7a24d7625c6aa8f2153d4340a376f4feedaa5f857403d0efa501c97e26bd559001678bf7ebd05a85f8cb2f8476d6eceee8855fd67978d2447fca950e28793#npm:8.2.0", {
+          "packageLocation": "./.yarn/__virtual__/@graphql-tools-schema-virtual-a9f7d4f18c/0/cache/@graphql-tools-schema-npm-8.2.0-f6ecb2a637-479a910fb0.zip/node_modules/@graphql-tools/schema/",
+          "packageDependencies": [
+            ["@graphql-tools/schema", "virtual:0ce7a24d7625c6aa8f2153d4340a376f4feedaa5f857403d0efa501c97e26bd559001678bf7ebd05a85f8cb2f8476d6eceee8855fd67978d2447fca950e28793#npm:8.2.0"],
+            ["@graphql-tools/merge", "virtual:a9f7d4f18c527e40a66db7ca29e6d448e5001e338d6abe4b3758c110dbf9e79e97d9413bb4a3f83743bc1d1ea9850b3dcfeb3bf0207242fbc9f6d976b2917e31#npm:8.1.2"],
+            ["@graphql-tools/utils", "virtual:6eaddbb2d12ed7c944d4a490ca5564b397655cd1f4d02647c05fc3cedba99f024b0ce6caa5dee86acef7c9775fde82f4f935f575ddea9bfc1f0dcdf18f859cf2#npm:8.2.2"],
+            ["@types/graphql", null],
+            ["graphql", null],
+            ["tslib", "npm:2.3.1"],
+            ["value-or-promise", "npm:1.0.10"]
+          ],
+          "packagePeers": [
+            "@types/graphql",
+            "graphql"
+          ],
+          "linkType": "HARD",
+        }],
         ["virtual:3c914df5c6fb21c7191ca25e4f25499c6a47f10862daa6f840648161eb0d5486c88ad03ca4764501b3c2177b971dd7423016008f3ce3387fba4f1ac5390be7cc#npm:8.1.1", {
           "packageLocation": "./.yarn/__virtual__/@graphql-tools-schema-virtual-43e9e759ef/0/cache/@graphql-tools-schema-npm-8.1.1-eb613a8a74-6ffcdd0f7a.zip/node_modules/@graphql-tools/schema/",
           "packageDependencies": [
@@ -3572,16 +3508,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],
           "linkType": "HARD",
         }],
-        ["virtual:56c225a2aa7350e390c00fb9c77149e7e488995402eb45185214e6da9d84f18bbeb115dd594bd1f88641a82293c8cb34ccabbb9d381657db5451016d06c6f460#npm:8.2.0", {
-          "packageLocation": "./.yarn/__virtual__/@graphql-tools-schema-virtual-b138fbc6ff/0/cache/@graphql-tools-schema-npm-8.2.0-f6ecb2a637-479a910fb0.zip/node_modules/@graphql-tools/schema/",
+        ["virtual:8e391c35bf53192258b54b5e792ab3d7cd7db8dc0a02f87f331c6929b14a9c7a7ce72615dc438efc66db83e19e762f0cd9c55065f1c019def150716429b831e9#npm:7.1.5", {
+          "packageLocation": "./.yarn/__virtual__/@graphql-tools-schema-virtual-4acfddd4ef/0/cache/@graphql-tools-schema-npm-7.1.5-8ccd3263e7-4baf3a39bd.zip/node_modules/@graphql-tools/schema/",
           "packageDependencies": [
-            ["@graphql-tools/schema", "virtual:56c225a2aa7350e390c00fb9c77149e7e488995402eb45185214e6da9d84f18bbeb115dd594bd1f88641a82293c8cb34ccabbb9d381657db5451016d06c6f460#npm:8.2.0"],
-            ["@graphql-tools/merge", "virtual:b138fbc6ff8543f034173e9d45ad06f1995e561153a9dd68eff452672fac6e494335180f9118de068a62ecfa6175b63ed08d4704cefbad97484da8ad64041996#npm:8.1.2"],
-            ["@graphql-tools/utils", "virtual:c135c51b478abca01105dd3730be2279f76814dba11d80f233ea506dda13118d50f71b795f3527a794c51946beb00b5c4424b02cc26d65acd87d24c60d9a9c9d#npm:8.2.2"],
+            ["@graphql-tools/schema", "virtual:8e391c35bf53192258b54b5e792ab3d7cd7db8dc0a02f87f331c6929b14a9c7a7ce72615dc438efc66db83e19e762f0cd9c55065f1c019def150716429b831e9#npm:7.1.5"],
+            ["@graphql-tools/utils", "virtual:8e391c35bf53192258b54b5e792ab3d7cd7db8dc0a02f87f331c6929b14a9c7a7ce72615dc438efc66db83e19e762f0cd9c55065f1c019def150716429b831e9#npm:7.10.0"],
             ["@types/graphql", null],
             ["graphql", null],
-            ["tslib", "npm:2.3.1"],
-            ["value-or-promise", "npm:1.0.10"]
+            ["tslib", "npm:2.2.0"],
+            ["value-or-promise", "npm:1.0.6"]
           ],
           "packagePeers": [
             "@types/graphql",
@@ -3599,22 +3534,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["graphql", "npm:15.5.0"],
             ["tslib", "npm:2.3.1"],
             ["value-or-promise", "npm:1.0.10"]
-          ],
-          "packagePeers": [
-            "@types/graphql",
-            "graphql"
-          ],
-          "linkType": "HARD",
-        }],
-        ["virtual:f33e2a37be0495fbfb72425533b09a9bc55ada820eb8b9cb7e8e0ca7033e4cbefb6bb64ce6973c8971f4eef136c74ed61d5726fffc1be878fde9263f97d5f05b#npm:7.1.5", {
-          "packageLocation": "./.yarn/__virtual__/@graphql-tools-schema-virtual-fd5fd19148/0/cache/@graphql-tools-schema-npm-7.1.5-8ccd3263e7-4baf3a39bd.zip/node_modules/@graphql-tools/schema/",
-          "packageDependencies": [
-            ["@graphql-tools/schema", "virtual:f33e2a37be0495fbfb72425533b09a9bc55ada820eb8b9cb7e8e0ca7033e4cbefb6bb64ce6973c8971f4eef136c74ed61d5726fffc1be878fde9263f97d5f05b#npm:7.1.5"],
-            ["@graphql-tools/utils", "virtual:f33e2a37be0495fbfb72425533b09a9bc55ada820eb8b9cb7e8e0ca7033e4cbefb6bb64ce6973c8971f4eef136c74ed61d5726fffc1be878fde9263f97d5f05b#npm:7.10.0"],
-            ["@types/graphql", null],
-            ["graphql", null],
-            ["tslib", "npm:2.2.0"],
-            ["value-or-promise", "npm:1.0.6"]
           ],
           "packagePeers": [
             "@types/graphql",
@@ -3706,6 +3625,20 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],
           "linkType": "SOFT",
         }],
+        ["virtual:0ce7a24d7625c6aa8f2153d4340a376f4feedaa5f857403d0efa501c97e26bd559001678bf7ebd05a85f8cb2f8476d6eceee8855fd67978d2447fca950e28793#npm:8.1.1", {
+          "packageLocation": "./.yarn/__virtual__/@graphql-tools-utils-virtual-075e548159/0/cache/@graphql-tools-utils-npm-8.1.1-ea81e72b7a-fabae21ba4.zip/node_modules/@graphql-tools/utils/",
+          "packageDependencies": [
+            ["@graphql-tools/utils", "virtual:0ce7a24d7625c6aa8f2153d4340a376f4feedaa5f857403d0efa501c97e26bd559001678bf7ebd05a85f8cb2f8476d6eceee8855fd67978d2447fca950e28793#npm:8.1.1"],
+            ["@types/graphql", null],
+            ["graphql", null],
+            ["tslib", "npm:2.3.1"]
+          ],
+          "packagePeers": [
+            "@types/graphql",
+            "graphql"
+          ],
+          "linkType": "HARD",
+        }],
         ["virtual:2fea24a29012f72370bd988500f7a60e6e721b82d576192b95c3b445151fd4cd84e6e7172c9cd917507987cef9513a5c49c6410c258545279c07db1a5fae4365#npm:8.1.0", {
           "packageLocation": "./.yarn/__virtual__/@graphql-tools-utils-virtual-6bd4f89953/0/cache/@graphql-tools-utils-npm-8.1.0-3e96d008df-3b934ad103.zip/node_modules/@graphql-tools/utils/",
           "packageDependencies": [
@@ -3720,10 +3653,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],
           "linkType": "HARD",
         }],
-        ["virtual:56c225a2aa7350e390c00fb9c77149e7e488995402eb45185214e6da9d84f18bbeb115dd594bd1f88641a82293c8cb34ccabbb9d381657db5451016d06c6f460#npm:8.1.1", {
-          "packageLocation": "./.yarn/__virtual__/@graphql-tools-utils-virtual-20280d7dd5/0/cache/@graphql-tools-utils-npm-8.1.1-ea81e72b7a-fabae21ba4.zip/node_modules/@graphql-tools/utils/",
+        ["virtual:6eaddbb2d12ed7c944d4a490ca5564b397655cd1f4d02647c05fc3cedba99f024b0ce6caa5dee86acef7c9775fde82f4f935f575ddea9bfc1f0dcdf18f859cf2#npm:8.2.2", {
+          "packageLocation": "./.yarn/__virtual__/@graphql-tools-utils-virtual-ce0d556a83/0/cache/@graphql-tools-utils-npm-8.2.2-e2906abbc2-6380f73425.zip/node_modules/@graphql-tools/utils/",
           "packageDependencies": [
-            ["@graphql-tools/utils", "virtual:56c225a2aa7350e390c00fb9c77149e7e488995402eb45185214e6da9d84f18bbeb115dd594bd1f88641a82293c8cb34ccabbb9d381657db5451016d06c6f460#npm:8.1.1"],
+            ["@graphql-tools/utils", "virtual:6eaddbb2d12ed7c944d4a490ca5564b397655cd1f4d02647c05fc3cedba99f024b0ce6caa5dee86acef7c9775fde82f4f935f575ddea9bfc1f0dcdf18f859cf2#npm:8.2.2"],
             ["@types/graphql", null],
             ["graphql", null],
             ["tslib", "npm:2.3.1"]
@@ -3748,24 +3681,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],
           "linkType": "HARD",
         }],
-        ["virtual:c135c51b478abca01105dd3730be2279f76814dba11d80f233ea506dda13118d50f71b795f3527a794c51946beb00b5c4424b02cc26d65acd87d24c60d9a9c9d#npm:8.2.2", {
-          "packageLocation": "./.yarn/__virtual__/@graphql-tools-utils-virtual-74f7a8c424/0/cache/@graphql-tools-utils-npm-8.2.2-e2906abbc2-6380f73425.zip/node_modules/@graphql-tools/utils/",
+        ["virtual:8e391c35bf53192258b54b5e792ab3d7cd7db8dc0a02f87f331c6929b14a9c7a7ce72615dc438efc66db83e19e762f0cd9c55065f1c019def150716429b831e9#npm:7.10.0", {
+          "packageLocation": "./.yarn/__virtual__/@graphql-tools-utils-virtual-c96ca6d784/0/cache/@graphql-tools-utils-npm-7.10.0-475b037855-e40c29608d.zip/node_modules/@graphql-tools/utils/",
           "packageDependencies": [
-            ["@graphql-tools/utils", "virtual:c135c51b478abca01105dd3730be2279f76814dba11d80f233ea506dda13118d50f71b795f3527a794c51946beb00b5c4424b02cc26d65acd87d24c60d9a9c9d#npm:8.2.2"],
-            ["@types/graphql", null],
-            ["graphql", null],
-            ["tslib", "npm:2.3.1"]
-          ],
-          "packagePeers": [
-            "@types/graphql",
-            "graphql"
-          ],
-          "linkType": "HARD",
-        }],
-        ["virtual:f33e2a37be0495fbfb72425533b09a9bc55ada820eb8b9cb7e8e0ca7033e4cbefb6bb64ce6973c8971f4eef136c74ed61d5726fffc1be878fde9263f97d5f05b#npm:7.10.0", {
-          "packageLocation": "./.yarn/__virtual__/@graphql-tools-utils-virtual-4749d81089/0/cache/@graphql-tools-utils-npm-7.10.0-475b037855-e40c29608d.zip/node_modules/@graphql-tools/utils/",
-          "packageDependencies": [
-            ["@graphql-tools/utils", "virtual:f33e2a37be0495fbfb72425533b09a9bc55ada820eb8b9cb7e8e0ca7033e4cbefb6bb64ce6973c8971f4eef136c74ed61d5726fffc1be878fde9263f97d5f05b#npm:7.10.0"],
+            ["@graphql-tools/utils", "virtual:8e391c35bf53192258b54b5e792ab3d7cd7db8dc0a02f87f331c6929b14a9c7a7ce72615dc438efc66db83e19e762f0cd9c55065f1c019def150716429b831e9#npm:7.10.0"],
             ["@ardatan/aggregate-error", "npm:0.0.6"],
             ["@types/graphql", null],
             ["camel-case", "npm:4.1.2"],
@@ -4213,40 +4132,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],
           "linkType": "SOFT",
         }],
-        ["virtual:13b79bfc12f06d7a82c2d3a4180825b0c40a77e6246a694b73fadf296b555a22476f40568d9ce7d2cc5eead4d7e9262def7c089d33a706cbb959212abdf99804#npm:8.0.6", {
-          "packageLocation": "./.yarn/__virtual__/@nestjs-common-virtual-e3d20a09bc/0/cache/@nestjs-common-npm-8.0.6-8b03ec7c06-8e87f9eb40.zip/node_modules/@nestjs/common/",
-          "packageDependencies": [
-            ["@nestjs/common", "virtual:13b79bfc12f06d7a82c2d3a4180825b0c40a77e6246a694b73fadf296b555a22476f40568d9ce7d2cc5eead4d7e9262def7c089d33a706cbb959212abdf99804#npm:8.0.6"],
-            ["@grpc/proto-loader", "npm:0.6.4"],
-            ["@types/cache-manager", null],
-            ["@types/class-transformer", null],
-            ["@types/class-validator", null],
-            ["@types/reflect-metadata", null],
-            ["@types/rxjs", null],
-            ["axios", "npm:0.21.1"],
-            ["cache-manager", null],
-            ["class-transformer", null],
-            ["class-validator", null],
-            ["iterare", "npm:1.2.1"],
-            ["reflect-metadata", "npm:0.1.13"],
-            ["rxjs", "npm:7.3.0"],
-            ["tslib", "npm:2.3.0"],
-            ["uuid", "npm:8.3.2"]
-          ],
-          "packagePeers": [
-            "@types/cache-manager",
-            "@types/class-transformer",
-            "@types/class-validator",
-            "@types/reflect-metadata",
-            "@types/rxjs",
-            "cache-manager",
-            "class-transformer",
-            "class-validator",
-            "reflect-metadata",
-            "rxjs"
-          ],
-          "linkType": "HARD",
-        }],
         ["virtual:1ea9b02bf5134a349d75ab2cc63edf8e034b663a922071ff9e04895cb653a7e4dc83901caa7a8d4c6c6fb7291d4472fc3a57a9c4e3f5ad01bec6891968e2987d#npm:8.0.5", {
           "packageLocation": "./.yarn/__virtual__/@nestjs-common-virtual-4c25b867bc/0/cache/@nestjs-common-npm-8.0.5-f9065f4915-cfbb263b8d.zip/node_modules/@nestjs/common/",
           "packageDependencies": [
@@ -4450,6 +4335,40 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             "rxjs"
           ],
           "linkType": "HARD",
+        }],
+        ["virtual:dbeec2a67cd5b7df21dbb482402706a67666b54395be929020ff14095c088b24e526a00156d6ec5c34cd13efb5308fdaa1b65b7daa3ae278555df7c6cc176b12#npm:8.0.6", {
+          "packageLocation": "./.yarn/__virtual__/@nestjs-common-virtual-9f2b04f9de/0/cache/@nestjs-common-npm-8.0.6-8b03ec7c06-8e87f9eb40.zip/node_modules/@nestjs/common/",
+          "packageDependencies": [
+            ["@nestjs/common", "virtual:dbeec2a67cd5b7df21dbb482402706a67666b54395be929020ff14095c088b24e526a00156d6ec5c34cd13efb5308fdaa1b65b7daa3ae278555df7c6cc176b12#npm:8.0.6"],
+            ["@grpc/proto-loader", "npm:0.6.4"],
+            ["@types/cache-manager", null],
+            ["@types/class-transformer", null],
+            ["@types/class-validator", null],
+            ["@types/reflect-metadata", null],
+            ["@types/rxjs", null],
+            ["axios", "npm:0.21.1"],
+            ["cache-manager", null],
+            ["class-transformer", null],
+            ["class-validator", null],
+            ["iterare", "npm:1.2.1"],
+            ["reflect-metadata", "npm:0.1.13"],
+            ["rxjs", "npm:7.3.0"],
+            ["tslib", "npm:2.3.0"],
+            ["uuid", "npm:8.3.2"]
+          ],
+          "packagePeers": [
+            "@types/cache-manager",
+            "@types/class-transformer",
+            "@types/class-validator",
+            "@types/reflect-metadata",
+            "@types/rxjs",
+            "cache-manager",
+            "class-transformer",
+            "class-validator",
+            "reflect-metadata",
+            "rxjs"
+          ],
+          "linkType": "HARD",
         }]
       ]],
       ["@nestjs/core", [
@@ -4466,85 +4385,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@nestjs/core", "npm:8.0.6"]
           ],
           "linkType": "SOFT",
-        }],
-        ["virtual:03b6af22cb80149b513f081c991b2ee015111d59bbeac45ddf1903895b7fd87d34f48a2f3c80a4ef3aface38a0df360e482b938a22fb0c3db73366f989167c03#npm:8.0.6", {
-          "packageLocation": "./.yarn/unplugged/@nestjs-core-virtual-8d0ab3bddf/node_modules/@nestjs/core/",
-          "packageDependencies": [
-            ["@nestjs/core", "virtual:03b6af22cb80149b513f081c991b2ee015111d59bbeac45ddf1903895b7fd87d34f48a2f3c80a4ef3aface38a0df360e482b938a22fb0c3db73366f989167c03#npm:8.0.6"],
-            ["@nestjs/common", "virtual:13b79bfc12f06d7a82c2d3a4180825b0c40a77e6246a694b73fadf296b555a22476f40568d9ce7d2cc5eead4d7e9262def7c089d33a706cbb959212abdf99804#npm:8.0.6"],
-            ["@nestjs/microservices", null],
-            ["@nestjs/platform-express", "virtual:8d0ab3bddf5a4289caec7ae39639c8e27494fe0a016755a960d68fcaa37a25240e7fe38a36b33972cfee84128e8294885c9d110c3ca575e1690aa6edf8cec09f#npm:7.6.15"],
-            ["@nestjs/websockets", null],
-            ["@nuxtjs/opencollective", "npm:0.3.2"],
-            ["@types/nestjs__common", null],
-            ["@types/nestjs__microservices", null],
-            ["@types/nestjs__platform-express", null],
-            ["@types/nestjs__websockets", null],
-            ["@types/reflect-metadata", null],
-            ["@types/rxjs", null],
-            ["fast-safe-stringify", "npm:2.0.8"],
-            ["iterare", "npm:1.2.1"],
-            ["object-hash", "npm:2.2.0"],
-            ["path-to-regexp", "npm:3.2.0"],
-            ["reflect-metadata", "npm:0.1.13"],
-            ["rxjs", "npm:7.3.0"],
-            ["tslib", "npm:2.3.0"],
-            ["uuid", "npm:8.3.2"]
-          ],
-          "packagePeers": [
-            "@nestjs/common",
-            "@nestjs/microservices",
-            "@nestjs/websockets",
-            "@types/nestjs__common",
-            "@types/nestjs__microservices",
-            "@types/nestjs__platform-express",
-            "@types/nestjs__websockets",
-            "@types/reflect-metadata",
-            "@types/rxjs",
-            "reflect-metadata",
-            "rxjs"
-          ],
-          "linkType": "HARD",
-        }],
-        ["virtual:13b79bfc12f06d7a82c2d3a4180825b0c40a77e6246a694b73fadf296b555a22476f40568d9ce7d2cc5eead4d7e9262def7c089d33a706cbb959212abdf99804#npm:8.0.6", {
-          "packageLocation": "./.yarn/unplugged/@nestjs-core-virtual-a270aeda38/node_modules/@nestjs/core/",
-          "packageDependencies": [
-            ["@nestjs/core", "virtual:13b79bfc12f06d7a82c2d3a4180825b0c40a77e6246a694b73fadf296b555a22476f40568d9ce7d2cc5eead4d7e9262def7c089d33a706cbb959212abdf99804#npm:8.0.6"],
-            ["@nestjs/common", "virtual:13b79bfc12f06d7a82c2d3a4180825b0c40a77e6246a694b73fadf296b555a22476f40568d9ce7d2cc5eead4d7e9262def7c089d33a706cbb959212abdf99804#npm:8.0.6"],
-            ["@nestjs/microservices", null],
-            ["@nestjs/platform-express", "virtual:13b79bfc12f06d7a82c2d3a4180825b0c40a77e6246a694b73fadf296b555a22476f40568d9ce7d2cc5eead4d7e9262def7c089d33a706cbb959212abdf99804#npm:8.0.6"],
-            ["@nestjs/websockets", null],
-            ["@nuxtjs/opencollective", "npm:0.3.2"],
-            ["@types/nestjs__common", null],
-            ["@types/nestjs__microservices", null],
-            ["@types/nestjs__platform-express", null],
-            ["@types/nestjs__websockets", null],
-            ["@types/reflect-metadata", null],
-            ["@types/rxjs", null],
-            ["fast-safe-stringify", "npm:2.0.8"],
-            ["iterare", "npm:1.2.1"],
-            ["object-hash", "npm:2.2.0"],
-            ["path-to-regexp", "npm:3.2.0"],
-            ["reflect-metadata", "npm:0.1.13"],
-            ["rxjs", "npm:7.3.0"],
-            ["tslib", "npm:2.3.0"],
-            ["uuid", "npm:8.3.2"]
-          ],
-          "packagePeers": [
-            "@nestjs/common",
-            "@nestjs/microservices",
-            "@nestjs/platform-express",
-            "@nestjs/websockets",
-            "@types/nestjs__common",
-            "@types/nestjs__microservices",
-            "@types/nestjs__platform-express",
-            "@types/nestjs__websockets",
-            "@types/reflect-metadata",
-            "@types/rxjs",
-            "reflect-metadata",
-            "rxjs"
-          ],
-          "linkType": "HARD",
         }],
         ["virtual:16858278052b2a38cae130cf80186e9f5a5c65584c761d5652ad37b9aba77fbd5b49aea0aea7cf3631f29e400ca79a462e3d037c21eb1630b6cc5a6795d13aba#npm:8.0.5", {
           "packageLocation": "./.yarn/unplugged/@nestjs-core-virtual-c623a31bff/node_modules/@nestjs/core/",
@@ -4976,6 +4816,45 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],
           "linkType": "HARD",
         }],
+        ["virtual:dbeec2a67cd5b7df21dbb482402706a67666b54395be929020ff14095c088b24e526a00156d6ec5c34cd13efb5308fdaa1b65b7daa3ae278555df7c6cc176b12#npm:8.0.6", {
+          "packageLocation": "./.yarn/unplugged/@nestjs-core-virtual-3ebf7e44b0/node_modules/@nestjs/core/",
+          "packageDependencies": [
+            ["@nestjs/core", "virtual:dbeec2a67cd5b7df21dbb482402706a67666b54395be929020ff14095c088b24e526a00156d6ec5c34cd13efb5308fdaa1b65b7daa3ae278555df7c6cc176b12#npm:8.0.6"],
+            ["@nestjs/common", "virtual:dbeec2a67cd5b7df21dbb482402706a67666b54395be929020ff14095c088b24e526a00156d6ec5c34cd13efb5308fdaa1b65b7daa3ae278555df7c6cc176b12#npm:8.0.6"],
+            ["@nestjs/microservices", null],
+            ["@nestjs/platform-express", "virtual:3ebf7e44b09c5a4cd23545b1b8170f47deec95688ead6320582f445bde7da444ed89d085fbc203941952271449378b9d7d66d5a7a5a2afef26e3ef7b56bca604#npm:7.6.15"],
+            ["@nestjs/websockets", null],
+            ["@nuxtjs/opencollective", "npm:0.3.2"],
+            ["@types/nestjs__common", null],
+            ["@types/nestjs__microservices", null],
+            ["@types/nestjs__platform-express", null],
+            ["@types/nestjs__websockets", null],
+            ["@types/reflect-metadata", null],
+            ["@types/rxjs", null],
+            ["fast-safe-stringify", "npm:2.0.8"],
+            ["iterare", "npm:1.2.1"],
+            ["object-hash", "npm:2.2.0"],
+            ["path-to-regexp", "npm:3.2.0"],
+            ["reflect-metadata", "npm:0.1.13"],
+            ["rxjs", "npm:7.3.0"],
+            ["tslib", "npm:2.3.0"],
+            ["uuid", "npm:8.3.2"]
+          ],
+          "packagePeers": [
+            "@nestjs/common",
+            "@nestjs/microservices",
+            "@nestjs/websockets",
+            "@types/nestjs__common",
+            "@types/nestjs__microservices",
+            "@types/nestjs__platform-express",
+            "@types/nestjs__websockets",
+            "@types/reflect-metadata",
+            "@types/rxjs",
+            "reflect-metadata",
+            "rxjs"
+          ],
+          "linkType": "HARD",
+        }],
         ["virtual:f707dac3aa7229ebf4c650c03b38ba4b5be485988e92f2a5d4adf0d456b26619d3627f119111b9a68c2b1957c16eb741793fdeb10657222f4c5e22d93ee8bb43#npm:8.0.5", {
           "packageLocation": "./.yarn/unplugged/@nestjs-core-virtual-d26abf4520/node_modules/@nestjs/core/",
           "packageDependencies": [
@@ -5024,24 +4903,24 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],
           "linkType": "SOFT",
         }],
-        ["virtual:03b6af22cb80149b513f081c991b2ee015111d59bbeac45ddf1903895b7fd87d34f48a2f3c80a4ef3aface38a0df360e482b938a22fb0c3db73366f989167c03#npm:7.11.0", {
-          "packageLocation": "./.yarn/__virtual__/@nestjs-graphql-virtual-f33e2a37be/0/cache/@nestjs-graphql-npm-7.11.0-168bf1186c-3ddd0754cb.zip/node_modules/@nestjs/graphql/",
+        ["virtual:dbeec2a67cd5b7df21dbb482402706a67666b54395be929020ff14095c088b24e526a00156d6ec5c34cd13efb5308fdaa1b65b7daa3ae278555df7c6cc176b12#npm:7.11.0", {
+          "packageLocation": "./.yarn/__virtual__/@nestjs-graphql-virtual-8e391c35bf/0/cache/@nestjs-graphql-npm-7.11.0-168bf1186c-3ddd0754cb.zip/node_modules/@nestjs/graphql/",
           "packageDependencies": [
-            ["@nestjs/graphql", "virtual:03b6af22cb80149b513f081c991b2ee015111d59bbeac45ddf1903895b7fd87d34f48a2f3c80a4ef3aface38a0df360e482b938a22fb0c3db73366f989167c03#npm:7.11.0"],
-            ["@apollo/gateway", "virtual:f33e2a37be0495fbfb72425533b09a9bc55ada820eb8b9cb7e8e0ca7033e4cbefb6bb64ce6973c8971f4eef136c74ed61d5726fffc1be878fde9263f97d5f05b#npm:0.29.1"],
-            ["@graphql-tools/merge", "virtual:f33e2a37be0495fbfb72425533b09a9bc55ada820eb8b9cb7e8e0ca7033e4cbefb6bb64ce6973c8971f4eef136c74ed61d5726fffc1be878fde9263f97d5f05b#npm:6.2.14"],
-            ["@graphql-tools/schema", "virtual:f33e2a37be0495fbfb72425533b09a9bc55ada820eb8b9cb7e8e0ca7033e4cbefb6bb64ce6973c8971f4eef136c74ed61d5726fffc1be878fde9263f97d5f05b#npm:7.1.5"],
-            ["@graphql-tools/utils", "virtual:f33e2a37be0495fbfb72425533b09a9bc55ada820eb8b9cb7e8e0ca7033e4cbefb6bb64ce6973c8971f4eef136c74ed61d5726fffc1be878fde9263f97d5f05b#npm:7.10.0"],
-            ["@nestjs/common", "virtual:13b79bfc12f06d7a82c2d3a4180825b0c40a77e6246a694b73fadf296b555a22476f40568d9ce7d2cc5eead4d7e9262def7c089d33a706cbb959212abdf99804#npm:8.0.6"],
-            ["@nestjs/core", "virtual:03b6af22cb80149b513f081c991b2ee015111d59bbeac45ddf1903895b7fd87d34f48a2f3c80a4ef3aface38a0df360e482b938a22fb0c3db73366f989167c03#npm:8.0.6"],
-            ["@nestjs/mapped-types", "virtual:f33e2a37be0495fbfb72425533b09a9bc55ada820eb8b9cb7e8e0ca7033e4cbefb6bb64ce6973c8971f4eef136c74ed61d5726fffc1be878fde9263f97d5f05b#npm:0.4.1"],
+            ["@nestjs/graphql", "virtual:dbeec2a67cd5b7df21dbb482402706a67666b54395be929020ff14095c088b24e526a00156d6ec5c34cd13efb5308fdaa1b65b7daa3ae278555df7c6cc176b12#npm:7.11.0"],
+            ["@apollo/gateway", "virtual:8e391c35bf53192258b54b5e792ab3d7cd7db8dc0a02f87f331c6929b14a9c7a7ce72615dc438efc66db83e19e762f0cd9c55065f1c019def150716429b831e9#npm:0.29.1"],
+            ["@graphql-tools/merge", "virtual:8e391c35bf53192258b54b5e792ab3d7cd7db8dc0a02f87f331c6929b14a9c7a7ce72615dc438efc66db83e19e762f0cd9c55065f1c019def150716429b831e9#npm:6.2.14"],
+            ["@graphql-tools/schema", "virtual:8e391c35bf53192258b54b5e792ab3d7cd7db8dc0a02f87f331c6929b14a9c7a7ce72615dc438efc66db83e19e762f0cd9c55065f1c019def150716429b831e9#npm:7.1.5"],
+            ["@graphql-tools/utils", "virtual:8e391c35bf53192258b54b5e792ab3d7cd7db8dc0a02f87f331c6929b14a9c7a7ce72615dc438efc66db83e19e762f0cd9c55065f1c019def150716429b831e9#npm:7.10.0"],
+            ["@nestjs/common", "virtual:dbeec2a67cd5b7df21dbb482402706a67666b54395be929020ff14095c088b24e526a00156d6ec5c34cd13efb5308fdaa1b65b7daa3ae278555df7c6cc176b12#npm:8.0.6"],
+            ["@nestjs/core", "virtual:dbeec2a67cd5b7df21dbb482402706a67666b54395be929020ff14095c088b24e526a00156d6ec5c34cd13efb5308fdaa1b65b7daa3ae278555df7c6cc176b12#npm:8.0.6"],
+            ["@nestjs/mapped-types", "virtual:8e391c35bf53192258b54b5e792ab3d7cd7db8dc0a02f87f331c6929b14a9c7a7ce72615dc438efc66db83e19e762f0cd9c55065f1c019def150716429b831e9#npm:0.4.1"],
             ["@types/apollo-server-core", null],
             ["@types/graphql", null],
             ["@types/nestjs__common", null],
             ["@types/nestjs__core", null],
             ["@types/reflect-metadata", null],
             ["apollo-server-core", null],
-            ["apollo-server-testing", "virtual:f33e2a37be0495fbfb72425533b09a9bc55ada820eb8b9cb7e8e0ca7033e4cbefb6bb64ce6973c8971f4eef136c74ed61d5726fffc1be878fde9263f97d5f05b#npm:2.25.2"],
+            ["apollo-server-testing", "virtual:8e391c35bf53192258b54b5e792ab3d7cd7db8dc0a02f87f331c6929b14a9c7a7ce72615dc438efc66db83e19e762f0cd9c55065f1c019def150716429b831e9#npm:2.25.2"],
             ["chokidar", "npm:3.5.2"],
             ["fast-glob", "npm:3.2.5"],
             ["graphql", null],
@@ -5076,11 +4955,11 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],
           "linkType": "SOFT",
         }],
-        ["virtual:f33e2a37be0495fbfb72425533b09a9bc55ada820eb8b9cb7e8e0ca7033e4cbefb6bb64ce6973c8971f4eef136c74ed61d5726fffc1be878fde9263f97d5f05b#npm:0.4.1", {
-          "packageLocation": "./.yarn/__virtual__/@nestjs-mapped-types-virtual-95b3af851d/0/cache/@nestjs-mapped-types-npm-0.4.1-29e5471964-53b3834a4f.zip/node_modules/@nestjs/mapped-types/",
+        ["virtual:8e391c35bf53192258b54b5e792ab3d7cd7db8dc0a02f87f331c6929b14a9c7a7ce72615dc438efc66db83e19e762f0cd9c55065f1c019def150716429b831e9#npm:0.4.1", {
+          "packageLocation": "./.yarn/__virtual__/@nestjs-mapped-types-virtual-b43433379e/0/cache/@nestjs-mapped-types-npm-0.4.1-29e5471964-53b3834a4f.zip/node_modules/@nestjs/mapped-types/",
           "packageDependencies": [
-            ["@nestjs/mapped-types", "virtual:f33e2a37be0495fbfb72425533b09a9bc55ada820eb8b9cb7e8e0ca7033e4cbefb6bb64ce6973c8971f4eef136c74ed61d5726fffc1be878fde9263f97d5f05b#npm:0.4.1"],
-            ["@nestjs/common", "virtual:13b79bfc12f06d7a82c2d3a4180825b0c40a77e6246a694b73fadf296b555a22476f40568d9ce7d2cc5eead4d7e9262def7c089d33a706cbb959212abdf99804#npm:8.0.6"],
+            ["@nestjs/mapped-types", "virtual:8e391c35bf53192258b54b5e792ab3d7cd7db8dc0a02f87f331c6929b14a9c7a7ce72615dc438efc66db83e19e762f0cd9c55065f1c019def150716429b831e9#npm:0.4.1"],
+            ["@nestjs/common", "virtual:dbeec2a67cd5b7df21dbb482402706a67666b54395be929020ff14095c088b24e526a00156d6ec5c34cd13efb5308fdaa1b65b7daa3ae278555df7c6cc176b12#npm:8.0.6"],
             ["@types/class-transformer", null],
             ["@types/class-validator", null],
             ["@types/nestjs__common", null],
@@ -5723,28 +5602,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],
           "linkType": "HARD",
         }],
-        ["virtual:13b79bfc12f06d7a82c2d3a4180825b0c40a77e6246a694b73fadf296b555a22476f40568d9ce7d2cc5eead4d7e9262def7c089d33a706cbb959212abdf99804#npm:8.0.6", {
-          "packageLocation": "./.yarn/__virtual__/@nestjs-platform-express-virtual-138f45ee8d/0/cache/@nestjs-platform-express-npm-8.0.6-dd80e07a74-c1db29163a.zip/node_modules/@nestjs/platform-express/",
-          "packageDependencies": [
-            ["@nestjs/platform-express", "virtual:13b79bfc12f06d7a82c2d3a4180825b0c40a77e6246a694b73fadf296b555a22476f40568d9ce7d2cc5eead4d7e9262def7c089d33a706cbb959212abdf99804#npm:8.0.6"],
-            ["@nestjs/common", "virtual:13b79bfc12f06d7a82c2d3a4180825b0c40a77e6246a694b73fadf296b555a22476f40568d9ce7d2cc5eead4d7e9262def7c089d33a706cbb959212abdf99804#npm:8.0.6"],
-            ["@nestjs/core", "virtual:13b79bfc12f06d7a82c2d3a4180825b0c40a77e6246a694b73fadf296b555a22476f40568d9ce7d2cc5eead4d7e9262def7c089d33a706cbb959212abdf99804#npm:8.0.6"],
-            ["@types/nestjs__common", null],
-            ["@types/nestjs__core", null],
-            ["body-parser", "npm:1.19.0"],
-            ["cors", "npm:2.8.5"],
-            ["express", "npm:4.17.1"],
-            ["multer", "npm:1.4.2"],
-            ["tslib", "npm:2.3.0"]
-          ],
-          "packagePeers": [
-            "@nestjs/common",
-            "@nestjs/core",
-            "@types/nestjs__common",
-            "@types/nestjs__core"
-          ],
-          "linkType": "HARD",
-        }],
         ["virtual:17e24fae2e73065ea1940364fb95d1dd00b6ffb4bac3bb85a59be12d949b2f2aaba2f942d7f0b30b1aae563a59d982f6403920826cad400d54933c7fc204bf3d#npm:7.6.15", {
           "packageLocation": "./.yarn/__virtual__/@nestjs-platform-express-virtual-2ec7cba35f/0/cache/@nestjs-platform-express-npm-7.6.15-44f82e81dd-fb02e35c5a.zip/node_modules/@nestjs/platform-express/",
           "packageDependencies": [
@@ -5811,6 +5668,28 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],
           "linkType": "HARD",
         }],
+        ["virtual:3ebf7e44b09c5a4cd23545b1b8170f47deec95688ead6320582f445bde7da444ed89d085fbc203941952271449378b9d7d66d5a7a5a2afef26e3ef7b56bca604#npm:7.6.15", {
+          "packageLocation": "./.yarn/__virtual__/@nestjs-platform-express-virtual-20cae2290f/0/cache/@nestjs-platform-express-npm-7.6.15-44f82e81dd-fb02e35c5a.zip/node_modules/@nestjs/platform-express/",
+          "packageDependencies": [
+            ["@nestjs/platform-express", "virtual:3ebf7e44b09c5a4cd23545b1b8170f47deec95688ead6320582f445bde7da444ed89d085fbc203941952271449378b9d7d66d5a7a5a2afef26e3ef7b56bca604#npm:7.6.15"],
+            ["@nestjs/common", "virtual:dbeec2a67cd5b7df21dbb482402706a67666b54395be929020ff14095c088b24e526a00156d6ec5c34cd13efb5308fdaa1b65b7daa3ae278555df7c6cc176b12#npm:8.0.6"],
+            ["@nestjs/core", "virtual:dbeec2a67cd5b7df21dbb482402706a67666b54395be929020ff14095c088b24e526a00156d6ec5c34cd13efb5308fdaa1b65b7daa3ae278555df7c6cc176b12#npm:8.0.6"],
+            ["@types/nestjs__common", null],
+            ["@types/nestjs__core", null],
+            ["body-parser", "npm:1.19.0"],
+            ["cors", "npm:2.8.5"],
+            ["express", "npm:4.17.1"],
+            ["multer", "npm:1.4.2"],
+            ["tslib", "npm:2.1.0"]
+          ],
+          "packagePeers": [
+            "@nestjs/common",
+            "@nestjs/core",
+            "@types/nestjs__common",
+            "@types/nestjs__core"
+          ],
+          "linkType": "HARD",
+        }],
         ["virtual:61114c609da031bcaf9e01e4ed1187f1730e6ee337762a4ac38ab7f20a3d3410571bb9c3a645c3fe0569bde594a549acbfdf27d228033d057d788ab74c3df170#npm:7.6.15", {
           "packageLocation": "./.yarn/__virtual__/@nestjs-platform-express-virtual-161b492630/0/cache/@nestjs-platform-express-npm-7.6.15-44f82e81dd-fb02e35c5a.zip/node_modules/@nestjs/platform-express/",
           "packageDependencies": [
@@ -5839,28 +5718,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@nestjs/platform-express", "virtual:7ead5d29bed4aa706e856a1ff414bb3b074f5582bebecfdd7a74f08439552f87b396cd296ec5d82ca4e7a83e3ff18884c415dc988513488c53d5dfe27071889d#npm:7.6.15"],
             ["@nestjs/common", "virtual:77887786a24289fa840c9acd370d634accbe79bcf317ecf5401844ffff73b8a593879dd9cce463873637e6414a631dfdb1a2473704bf332d823bcfffac8c2469#npm:8.0.5"],
             ["@nestjs/core", "virtual:51dcb3fe3f47cfb6224dcab5ae8c7e50b5682560d9d6abdf449cb9fd665402b311244dcf35352838e6165320fb5bb25ae45a36f802c2a93ab14064614bee36b9#npm:8.0.5"],
-            ["@types/nestjs__common", null],
-            ["@types/nestjs__core", null],
-            ["body-parser", "npm:1.19.0"],
-            ["cors", "npm:2.8.5"],
-            ["express", "npm:4.17.1"],
-            ["multer", "npm:1.4.2"],
-            ["tslib", "npm:2.1.0"]
-          ],
-          "packagePeers": [
-            "@nestjs/common",
-            "@nestjs/core",
-            "@types/nestjs__common",
-            "@types/nestjs__core"
-          ],
-          "linkType": "HARD",
-        }],
-        ["virtual:8d0ab3bddf5a4289caec7ae39639c8e27494fe0a016755a960d68fcaa37a25240e7fe38a36b33972cfee84128e8294885c9d110c3ca575e1690aa6edf8cec09f#npm:7.6.15", {
-          "packageLocation": "./.yarn/__virtual__/@nestjs-platform-express-virtual-fec6370afd/0/cache/@nestjs-platform-express-npm-7.6.15-44f82e81dd-fb02e35c5a.zip/node_modules/@nestjs/platform-express/",
-          "packageDependencies": [
-            ["@nestjs/platform-express", "virtual:8d0ab3bddf5a4289caec7ae39639c8e27494fe0a016755a960d68fcaa37a25240e7fe38a36b33972cfee84128e8294885c9d110c3ca575e1690aa6edf8cec09f#npm:7.6.15"],
-            ["@nestjs/common", "virtual:13b79bfc12f06d7a82c2d3a4180825b0c40a77e6246a694b73fadf296b555a22476f40568d9ce7d2cc5eead4d7e9262def7c089d33a706cbb959212abdf99804#npm:8.0.6"],
-            ["@nestjs/core", "virtual:03b6af22cb80149b513f081c991b2ee015111d59bbeac45ddf1903895b7fd87d34f48a2f3c80a4ef3aface38a0df360e482b938a22fb0c3db73366f989167c03#npm:8.0.6"],
             ["@types/nestjs__common", null],
             ["@types/nestjs__core", null],
             ["body-parser", "npm:1.19.0"],
@@ -6046,33 +5903,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@nestjs/testing", "npm:8.0.6"]
           ],
           "linkType": "SOFT",
-        }],
-        ["virtual:13b79bfc12f06d7a82c2d3a4180825b0c40a77e6246a694b73fadf296b555a22476f40568d9ce7d2cc5eead4d7e9262def7c089d33a706cbb959212abdf99804#npm:8.0.6", {
-          "packageLocation": "./.yarn/__virtual__/@nestjs-testing-virtual-bc811224aa/0/cache/@nestjs-testing-npm-8.0.6-58d27977bf-e596b54e25.zip/node_modules/@nestjs/testing/",
-          "packageDependencies": [
-            ["@nestjs/testing", "virtual:13b79bfc12f06d7a82c2d3a4180825b0c40a77e6246a694b73fadf296b555a22476f40568d9ce7d2cc5eead4d7e9262def7c089d33a706cbb959212abdf99804#npm:8.0.6"],
-            ["@nestjs/common", "virtual:13b79bfc12f06d7a82c2d3a4180825b0c40a77e6246a694b73fadf296b555a22476f40568d9ce7d2cc5eead4d7e9262def7c089d33a706cbb959212abdf99804#npm:8.0.6"],
-            ["@nestjs/core", "virtual:13b79bfc12f06d7a82c2d3a4180825b0c40a77e6246a694b73fadf296b555a22476f40568d9ce7d2cc5eead4d7e9262def7c089d33a706cbb959212abdf99804#npm:8.0.6"],
-            ["@nestjs/microservices", null],
-            ["@nestjs/platform-express", "virtual:13b79bfc12f06d7a82c2d3a4180825b0c40a77e6246a694b73fadf296b555a22476f40568d9ce7d2cc5eead4d7e9262def7c089d33a706cbb959212abdf99804#npm:8.0.6"],
-            ["@types/nestjs__common", null],
-            ["@types/nestjs__core", null],
-            ["@types/nestjs__microservices", null],
-            ["@types/nestjs__platform-express", null],
-            ["optional", "npm:0.1.4"],
-            ["tslib", "npm:2.3.0"]
-          ],
-          "packagePeers": [
-            "@nestjs/common",
-            "@nestjs/core",
-            "@nestjs/microservices",
-            "@nestjs/platform-express",
-            "@types/nestjs__common",
-            "@types/nestjs__core",
-            "@types/nestjs__microservices",
-            "@types/nestjs__platform-express"
-          ],
-          "linkType": "HARD",
         }],
         ["virtual:16858278052b2a38cae130cf80186e9f5a5c65584c761d5652ad37b9aba77fbd5b49aea0aea7cf3631f29e400ca79a462e3d037c21eb1630b6cc5a6795d13aba#npm:8.0.5", {
           "packageLocation": "./.yarn/__virtual__/@nestjs-testing-virtual-0e78c7ddad/0/cache/@nestjs-testing-npm-8.0.5-609af03979-1e6c973e73.zip/node_modules/@nestjs/testing/",
@@ -6453,109 +6283,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD",
         }]
       ]],
-      ["@node-ts/bus-core", [
-        ["npm:0.5.9", {
-          "packageLocation": "./.yarn/cache/@node-ts-bus-core-npm-0.5.9-ce66cada8f-d2f6ff18b5.zip/node_modules/@node-ts/bus-core/",
-          "packageDependencies": [
-            ["@node-ts/bus-core", "npm:0.5.9"]
-          ],
-          "linkType": "SOFT",
-        }],
-        ["virtual:13b79bfc12f06d7a82c2d3a4180825b0c40a77e6246a694b73fadf296b555a22476f40568d9ce7d2cc5eead4d7e9262def7c089d33a706cbb959212abdf99804#npm:0.5.9", {
-          "packageLocation": "./.yarn/__virtual__/@node-ts-bus-core-virtual-0a5b735922/0/cache/@node-ts-bus-core-npm-0.5.9-ce66cada8f-d2f6ff18b5.zip/node_modules/@node-ts/bus-core/",
-          "packageDependencies": [
-            ["@node-ts/bus-core", "virtual:13b79bfc12f06d7a82c2d3a4180825b0c40a77e6246a694b73fadf296b555a22476f40568d9ce7d2cc5eead4d7e9262def7c089d33a706cbb959212abdf99804#npm:0.5.9"],
-            ["@node-ts/bus-messages", "npm:0.2.3"],
-            ["@node-ts/logger-core", "virtual:13b79bfc12f06d7a82c2d3a4180825b0c40a77e6246a694b73fadf296b555a22476f40568d9ce7d2cc5eead4d7e9262def7c089d33a706cbb959212abdf99804#npm:0.1.1"],
-            ["@types/inversify", null],
-            ["@types/node", "npm:14.14.37"],
-            ["@types/node-ts__logger-core", null],
-            ["autobind-decorator", "npm:2.4.0"],
-            ["class-transformer", "npm:0.2.3"],
-            ["inversify", "npm:5.1.1"],
-            ["reflect-metadata", "npm:0.1.13"],
-            ["serialize-error", "npm:4.1.0"],
-            ["tslib", "npm:1.14.1"]
-          ],
-          "packagePeers": [
-            "@node-ts/logger-core",
-            "@types/inversify",
-            "@types/node-ts__logger-core",
-            "inversify"
-          ],
-          "linkType": "HARD",
-        }]
-      ]],
-      ["@node-ts/bus-messages", [
-        ["npm:0.2.3", {
-          "packageLocation": "./.yarn/cache/@node-ts-bus-messages-npm-0.2.3-efac7b712a-9ed4ae50fb.zip/node_modules/@node-ts/bus-messages/",
-          "packageDependencies": [
-            ["@node-ts/bus-messages", "npm:0.2.3"],
-            ["tslib", "npm:1.14.1"]
-          ],
-          "linkType": "HARD",
-        }]
-      ]],
-      ["@node-ts/bus-rabbitmq", [
-        ["npm:0.5.8", {
-          "packageLocation": "./.yarn/cache/@node-ts-bus-rabbitmq-npm-0.5.8-a0d31bc6b5-2a97ef2b60.zip/node_modules/@node-ts/bus-rabbitmq/",
-          "packageDependencies": [
-            ["@node-ts/bus-rabbitmq", "npm:0.5.8"]
-          ],
-          "linkType": "SOFT",
-        }],
-        ["virtual:13b79bfc12f06d7a82c2d3a4180825b0c40a77e6246a694b73fadf296b555a22476f40568d9ce7d2cc5eead4d7e9262def7c089d33a706cbb959212abdf99804#npm:0.5.8", {
-          "packageLocation": "./.yarn/__virtual__/@node-ts-bus-rabbitmq-virtual-d82f07b17b/0/cache/@node-ts-bus-rabbitmq-npm-0.5.8-a0d31bc6b5-2a97ef2b60.zip/node_modules/@node-ts/bus-rabbitmq/",
-          "packageDependencies": [
-            ["@node-ts/bus-rabbitmq", "virtual:13b79bfc12f06d7a82c2d3a4180825b0c40a77e6246a694b73fadf296b555a22476f40568d9ce7d2cc5eead4d7e9262def7c089d33a706cbb959212abdf99804#npm:0.5.8"],
-            ["@node-ts/bus-core", "virtual:13b79bfc12f06d7a82c2d3a4180825b0c40a77e6246a694b73fadf296b555a22476f40568d9ce7d2cc5eead4d7e9262def7c089d33a706cbb959212abdf99804#npm:0.5.9"],
-            ["@node-ts/bus-messages", "npm:0.2.3"],
-            ["@node-ts/logger-core", "virtual:13b79bfc12f06d7a82c2d3a4180825b0c40a77e6246a694b73fadf296b555a22476f40568d9ce7d2cc5eead4d7e9262def7c089d33a706cbb959212abdf99804#npm:0.1.1"],
-            ["@types/inversify", null],
-            ["@types/node-ts__bus-core", null],
-            ["@types/node-ts__logger-core", null],
-            ["@types/reflect-metadata", null],
-            ["amqplib", "npm:0.5.6"],
-            ["inversify", "npm:5.1.1"],
-            ["reflect-metadata", "npm:0.1.13"],
-            ["tslib", "npm:1.14.1"],
-            ["uuid", "npm:3.4.0"]
-          ],
-          "packagePeers": [
-            "@node-ts/bus-core",
-            "@node-ts/logger-core",
-            "@types/inversify",
-            "@types/node-ts__bus-core",
-            "@types/node-ts__logger-core",
-            "@types/reflect-metadata",
-            "inversify",
-            "reflect-metadata"
-          ],
-          "linkType": "HARD",
-        }]
-      ]],
-      ["@node-ts/logger-core", [
-        ["npm:0.1.1", {
-          "packageLocation": "./.yarn/cache/@node-ts-logger-core-npm-0.1.1-224d1ad26b-c6d2f38e31.zip/node_modules/@node-ts/logger-core/",
-          "packageDependencies": [
-            ["@node-ts/logger-core", "npm:0.1.1"]
-          ],
-          "linkType": "SOFT",
-        }],
-        ["virtual:13b79bfc12f06d7a82c2d3a4180825b0c40a77e6246a694b73fadf296b555a22476f40568d9ce7d2cc5eead4d7e9262def7c089d33a706cbb959212abdf99804#npm:0.1.1", {
-          "packageLocation": "./.yarn/__virtual__/@node-ts-logger-core-virtual-847bd0cc67/0/cache/@node-ts-logger-core-npm-0.1.1-224d1ad26b-c6d2f38e31.zip/node_modules/@node-ts/logger-core/",
-          "packageDependencies": [
-            ["@node-ts/logger-core", "virtual:13b79bfc12f06d7a82c2d3a4180825b0c40a77e6246a694b73fadf296b555a22476f40568d9ce7d2cc5eead4d7e9262def7c089d33a706cbb959212abdf99804#npm:0.1.1"],
-            ["@types/inversify", null],
-            ["inversify", "npm:5.1.1"]
-          ],
-          "packagePeers": [
-            "@types/inversify",
-            "inversify"
-          ],
-          "linkType": "HARD",
-        }]
-      ]],
       ["@nodelib/fs.scandir", [
         ["npm:2.1.3", {
           "packageLocation": "./.yarn/cache/@nodelib-fs.scandir-npm-2.1.3-92e0b8f0d5-0054efbba1.zip/node_modules/@nodelib/fs.scandir/",
@@ -6876,42 +6603,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD",
         }]
       ]],
-      ["@tsconfig/node10", [
-        ["npm:1.0.8", {
-          "packageLocation": "./.yarn/cache/@tsconfig-node10-npm-1.0.8-90a8cce25d-b8d5fffbc6.zip/node_modules/@tsconfig/node10/",
-          "packageDependencies": [
-            ["@tsconfig/node10", "npm:1.0.8"]
-          ],
-          "linkType": "HARD",
-        }]
-      ]],
-      ["@tsconfig/node12", [
-        ["npm:1.0.9", {
-          "packageLocation": "./.yarn/cache/@tsconfig-node12-npm-1.0.9-780563856d-a01b2400ab.zip/node_modules/@tsconfig/node12/",
-          "packageDependencies": [
-            ["@tsconfig/node12", "npm:1.0.9"]
-          ],
-          "linkType": "HARD",
-        }]
-      ]],
-      ["@tsconfig/node14", [
-        ["npm:1.0.1", {
-          "packageLocation": "./.yarn/cache/@tsconfig-node14-npm-1.0.1-3ecac58e68-976345e896.zip/node_modules/@tsconfig/node14/",
-          "packageDependencies": [
-            ["@tsconfig/node14", "npm:1.0.1"]
-          ],
-          "linkType": "HARD",
-        }]
-      ]],
-      ["@tsconfig/node16", [
-        ["npm:1.0.2", {
-          "packageLocation": "./.yarn/cache/@tsconfig-node16-npm-1.0.2-1f43ab567a-ca94d36397.zip/node_modules/@tsconfig/node16/",
-          "packageDependencies": [
-            ["@tsconfig/node16", "npm:1.0.2"]
-          ],
-          "linkType": "HARD",
-        }]
-      ]],
       ["@types/accepts", [
         ["npm:1.3.5", {
           "packageLocation": "./.yarn/cache/@types-accepts-npm-1.3.5-1d59cd2a7a-590b758057.zip/node_modules/@types/accepts/",
@@ -7088,13 +6779,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/cors", "npm:2.8.10"]
           ],
           "linkType": "HARD",
-        }],
-        ["npm:2.8.12", {
-          "packageLocation": "./.yarn/cache/@types-cors-npm-2.8.12-ff52e8e514-8c45f112c7.zip/node_modules/@types/cors/",
-          "packageDependencies": [
-            ["@types/cors", "npm:2.8.12"]
-          ],
-          "linkType": "HARD",
         }]
       ]],
       ["@types/docker-modem", [
@@ -7164,17 +6848,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/@types-express-npm-4.17.13-0e12fe9c24-12a2a0e6c4.zip/node_modules/@types/express/",
           "packageDependencies": [
             ["@types/express", "npm:4.17.13"],
-            ["@types/body-parser", "npm:1.19.0"],
-            ["@types/express-serve-static-core", "npm:4.17.24"],
-            ["@types/qs", "npm:6.9.5"],
-            ["@types/serve-static", "npm:1.13.8"]
-          ],
-          "linkType": "HARD",
-        }],
-        ["npm:4.17.4", {
-          "packageLocation": "./.yarn/cache/@types-express-npm-4.17.4-bf3d903e18-085ef41b05.zip/node_modules/@types/express/",
-          "packageDependencies": [
-            ["@types/express", "npm:4.17.4"],
             ["@types/body-parser", "npm:1.19.0"],
             ["@types/express-serve-static-core", "npm:4.17.24"],
             ["@types/qs", "npm:6.9.5"],
@@ -7781,7 +7454,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["regexpp", "npm:3.1.0"],
             ["semver", "npm:7.3.5"],
             ["tsutils", "virtual:1a2b7d6f389c3938255311261db30158426235cff609e8206cd1e29eaaed124cbb4cc63c358340213aaab424df44dd940ec04f1bb3b45b2e97815780cd2d8174#npm:3.21.0"],
-            ["typescript", "patch:typescript@npm%3A4.3.5#~builtin<compat/typescript>::version=4.3.5&hash=d8b4e7"]
+            ["typescript", "patch:typescript@npm%3A4.3.5#~builtin<compat/typescript>::version=4.3.5&hash=32657b"]
           ],
           "packagePeers": [
             "@types/eslint",
@@ -7839,7 +7512,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@typescript-eslint/typescript-estree", "virtual:c0657cbba502455412816e4a1e9102de8ce487e8847499323077047aa89b1804ad54b58fd2379fd42ee4f6e942a190a3704f337ff927e0424f77c1f8b945c17e#npm:4.28.5"],
             ["debug", "virtual:c9bc8b4682dae1ac36fcb97c7fccfb86af01a1f6fc48eaf83d9bd00fb14f9e1f641a2409ef7e079b4e0ed4a16267412a60166cc456172f4a4f9469cc6ef7c07b#npm:4.3.2"],
             ["eslint", "npm:7.31.0"],
-            ["typescript", "patch:typescript@npm%3A4.3.5#~builtin<compat/typescript>::version=4.3.5&hash=d8b4e7"]
+            ["typescript", "patch:typescript@npm%3A4.3.5#~builtin<compat/typescript>::version=4.3.5&hash=32657b"]
           ],
           "packagePeers": [
             "@types/eslint",
@@ -7888,7 +7561,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["is-glob", "npm:4.0.1"],
             ["semver", "npm:7.3.5"],
             ["tsutils", "virtual:1a2b7d6f389c3938255311261db30158426235cff609e8206cd1e29eaaed124cbb4cc63c358340213aaab424df44dd940ec04f1bb3b45b2e97815780cd2d8174#npm:3.21.0"],
-            ["typescript", "patch:typescript@npm%3A4.3.5#~builtin<compat/typescript>::version=4.3.5&hash=d8b4e7"]
+            ["typescript", "patch:typescript@npm%3A4.3.5#~builtin<compat/typescript>::version=4.3.5&hash=32657b"]
           ],
           "packagePeers": [
             "typescript"
@@ -8919,13 +8592,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["acorn-walk", "npm:7.2.0"]
           ],
           "linkType": "HARD",
-        }],
-        ["npm:8.2.0", {
-          "packageLocation": "./.yarn/cache/acorn-walk-npm-8.2.0-2f2cac3177-1715e76c01.zip/node_modules/acorn-walk/",
-          "packageDependencies": [
-            ["acorn-walk", "npm:8.2.0"]
-          ],
-          "linkType": "HARD",
         }]
       ]],
       ["agent-base", [
@@ -9003,46 +8669,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packagePeers": [
             "@types/ajv",
             "ajv"
-          ],
-          "linkType": "HARD",
-        }]
-      ]],
-      ["amqp-connection-manager", [
-        ["npm:3.6.0", {
-          "packageLocation": "./.yarn/cache/amqp-connection-manager-npm-3.6.0-9c98109785-e83bf87a6e.zip/node_modules/amqp-connection-manager/",
-          "packageDependencies": [
-            ["amqp-connection-manager", "npm:3.6.0"]
-          ],
-          "linkType": "SOFT",
-        }],
-        ["virtual:13b79bfc12f06d7a82c2d3a4180825b0c40a77e6246a694b73fadf296b555a22476f40568d9ce7d2cc5eead4d7e9262def7c089d33a706cbb959212abdf99804#npm:3.6.0", {
-          "packageLocation": "./.yarn/__virtual__/amqp-connection-manager-virtual-43f224bf58/0/cache/amqp-connection-manager-npm-3.6.0-9c98109785-e83bf87a6e.zip/node_modules/amqp-connection-manager/",
-          "packageDependencies": [
-            ["amqp-connection-manager", "virtual:13b79bfc12f06d7a82c2d3a4180825b0c40a77e6246a694b73fadf296b555a22476f40568d9ce7d2cc5eead4d7e9262def7c089d33a706cbb959212abdf99804#npm:3.6.0"],
-            ["@types/amqplib", null],
-            ["amqplib", "npm:0.5.6"],
-            ["promise-breaker", "npm:5.0.0"],
-            ["ts-node", "virtual:43f224bf58a8dd0d46fbb6eb984524e8152d60ae5d34d82090b36a9b717bfd4d67b8dcc4bc265ee463f793500d973644848816db86205e51c48c8c2e191f3d47#npm:10.2.1"],
-            ["typescript", "patch:typescript@npm%3A4.3.5#~builtin<compat/typescript>::version=4.3.5&hash=d8b4e7"]
-          ],
-          "packagePeers": [
-            "@types/amqplib",
-            "amqplib"
-          ],
-          "linkType": "HARD",
-        }]
-      ]],
-      ["amqplib", [
-        ["npm:0.5.6", {
-          "packageLocation": "./.yarn/cache/amqplib-npm-0.5.6-8c7bc98f23-1184db7281.zip/node_modules/amqplib/",
-          "packageDependencies": [
-            ["amqplib", "npm:0.5.6"],
-            ["bitsyntax", "npm:0.1.0"],
-            ["bluebird", "npm:3.7.2"],
-            ["buffer-more-ints", "npm:1.0.0"],
-            ["readable-stream", "npm:1.1.14"],
-            ["safe-buffer", "npm:5.1.2"],
-            ["url-parse", "npm:1.4.7"]
           ],
           "linkType": "HARD",
         }]
@@ -9189,13 +8815,13 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],
           "linkType": "HARD",
         }],
-        ["virtual:9f28c49b2608fcfee1d35160027126b66ad864a0443b8f120d206857bfeae2ecaf0724f9edd3cff3dd5b5e9169f32b3c43098d021ceaeee9b1d61e636c128965#npm:0.14.0", {
-          "packageLocation": "./.yarn/__virtual__/apollo-cache-control-virtual-059919e30b/0/cache/apollo-cache-control-npm-0.14.0-ff9cf57f1e-c596639e8e.zip/node_modules/apollo-cache-control/",
+        ["virtual:6e3c4c8370cd2a3ba4c46c11f50ef0a3f087fe3a12a9f1ed7ece454af23281fe98cd5949ae7c3884f8ac760599c5e9bfd1cac3804787863f38a92d791e30a23e#npm:0.14.0", {
+          "packageLocation": "./.yarn/__virtual__/apollo-cache-control-virtual-900179387e/0/cache/apollo-cache-control-npm-0.14.0-ff9cf57f1e-c596639e8e.zip/node_modules/apollo-cache-control/",
           "packageDependencies": [
-            ["apollo-cache-control", "virtual:9f28c49b2608fcfee1d35160027126b66ad864a0443b8f120d206857bfeae2ecaf0724f9edd3cff3dd5b5e9169f32b3c43098d021ceaeee9b1d61e636c128965#npm:0.14.0"],
+            ["apollo-cache-control", "virtual:6e3c4c8370cd2a3ba4c46c11f50ef0a3f087fe3a12a9f1ed7ece454af23281fe98cd5949ae7c3884f8ac760599c5e9bfd1cac3804787863f38a92d791e30a23e#npm:0.14.0"],
             ["@types/graphql", null],
             ["apollo-server-env", "npm:3.1.0"],
-            ["apollo-server-plugin-base", "virtual:9f28c49b2608fcfee1d35160027126b66ad864a0443b8f120d206857bfeae2ecaf0724f9edd3cff3dd5b5e9169f32b3c43098d021ceaeee9b1d61e636c128965#npm:0.13.0"],
+            ["apollo-server-plugin-base", "virtual:6e3c4c8370cd2a3ba4c46c11f50ef0a3f087fe3a12a9f1ed7ece454af23281fe98cd5949ae7c3884f8ac760599c5e9bfd1cac3804787863f38a92d791e30a23e#npm:0.13.0"],
             ["graphql", null]
           ],
           "packagePeers": [
@@ -9225,16 +8851,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD",
         }]
       ]],
-      ["apollo-engine-reporting-protobuf", [
-        ["npm:0.5.2", {
-          "packageLocation": "./.yarn/cache/apollo-engine-reporting-protobuf-npm-0.5.2-15aa08f143-ab90f3d190.zip/node_modules/apollo-engine-reporting-protobuf/",
-          "packageDependencies": [
-            ["apollo-engine-reporting-protobuf", "npm:0.5.2"],
-            ["@apollo/protobufjs", "npm:1.2.2"]
-          ],
-          "linkType": "HARD",
-        }]
-      ]],
       ["apollo-env", [
         ["npm:0.10.0", {
           "packageLocation": "./.yarn/cache/apollo-env-npm-0.10.0-e8c0f34538-c319c31529.zip/node_modules/apollo-env/",
@@ -9256,13 +8872,13 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],
           "linkType": "SOFT",
         }],
-        ["virtual:0051fb3bd4cebdb836e20057c4d0ed562cdf795a76ff8379e7bd2f4633dd2680c7884e9df4b39d27ccbf59aa43e4a6b95b3b899bd1be87d7f4b787e495145d84#npm:0.9.3", {
-          "packageLocation": "./.yarn/__virtual__/apollo-graphql-virtual-ac0245a884/0/cache/apollo-graphql-npm-0.9.3-f6d6ee7758-a2789b55d3.zip/node_modules/apollo-graphql/",
+        ["virtual:54265bf0b7618fd72dbabb2ffaf729efbd1eb2573fe474f3dffdab599a28bb40690768b9de9da56c64f75a201062bced6bd95932aa627caf640d99ff89f9481c#npm:0.9.3", {
+          "packageLocation": "./.yarn/__virtual__/apollo-graphql-virtual-bacdaeba15/0/cache/apollo-graphql-npm-0.9.3-f6d6ee7758-a2789b55d3.zip/node_modules/apollo-graphql/",
           "packageDependencies": [
-            ["apollo-graphql", "virtual:0051fb3bd4cebdb836e20057c4d0ed562cdf795a76ff8379e7bd2f4633dd2680c7884e9df4b39d27ccbf59aa43e4a6b95b3b899bd1be87d7f4b787e495145d84#npm:0.9.3"],
+            ["apollo-graphql", "virtual:54265bf0b7618fd72dbabb2ffaf729efbd1eb2573fe474f3dffdab599a28bb40690768b9de9da56c64f75a201062bced6bd95932aa627caf640d99ff89f9481c#npm:0.9.3"],
             ["@types/graphql", null],
             ["core-js-pure", "npm:3.13.0"],
-            ["graphql", null],
+            ["graphql", "npm:15.5.0"],
             ["lodash.sortby", "npm:4.7.0"],
             ["sha.js", "npm:2.4.11"]
           ],
@@ -9272,13 +8888,13 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],
           "linkType": "HARD",
         }],
-        ["virtual:54265bf0b7618fd72dbabb2ffaf729efbd1eb2573fe474f3dffdab599a28bb40690768b9de9da56c64f75a201062bced6bd95932aa627caf640d99ff89f9481c#npm:0.9.3", {
-          "packageLocation": "./.yarn/__virtual__/apollo-graphql-virtual-bacdaeba15/0/cache/apollo-graphql-npm-0.9.3-f6d6ee7758-a2789b55d3.zip/node_modules/apollo-graphql/",
+        ["virtual:d51903b8b271260a2680151ebe0ef3d0fd85dedfe846cd9170fe9cd1c07992e68e0edbec14b3b9083f09bcca7afe7c5e1ad2f6aef694c5c2a9e3cec4dcaeeda2#npm:0.9.3", {
+          "packageLocation": "./.yarn/__virtual__/apollo-graphql-virtual-5801539e58/0/cache/apollo-graphql-npm-0.9.3-f6d6ee7758-a2789b55d3.zip/node_modules/apollo-graphql/",
           "packageDependencies": [
-            ["apollo-graphql", "virtual:54265bf0b7618fd72dbabb2ffaf729efbd1eb2573fe474f3dffdab599a28bb40690768b9de9da56c64f75a201062bced6bd95932aa627caf640d99ff89f9481c#npm:0.9.3"],
+            ["apollo-graphql", "virtual:d51903b8b271260a2680151ebe0ef3d0fd85dedfe846cd9170fe9cd1c07992e68e0edbec14b3b9083f09bcca7afe7c5e1ad2f6aef694c5c2a9e3cec4dcaeeda2#npm:0.9.3"],
             ["@types/graphql", null],
             ["core-js-pure", "npm:3.13.0"],
-            ["graphql", "npm:15.5.0"],
+            ["graphql", null],
             ["lodash.sortby", "npm:4.7.0"],
             ["sha.js", "npm:2.4.11"]
           ],
@@ -9297,12 +8913,12 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],
           "linkType": "SOFT",
         }],
-        ["virtual:c4958bf657a8fd4554129c3fcdccddcf7f5347b6fd36f7cfa6f92d56b0f3ea9b699954cd9925ae36ed4d884d755dbb5087ba4d916b9797684e1307acc78df874#npm:1.2.14", {
-          "packageLocation": "./.yarn/__virtual__/apollo-link-virtual-074346c98a/0/cache/apollo-link-npm-1.2.14-74f0ba01f9-ad8d051ffc.zip/node_modules/apollo-link/",
+        ["virtual:e6617dba39c69baa8ddbca8f65996e9cd8f6c61d6cec70b6a5a9ca088c2722f7d5e77fbd57e1b6703e42cb9123bd239c93ad1f91b05fa40b2b1e6ab3d5754f1d#npm:1.2.14", {
+          "packageLocation": "./.yarn/__virtual__/apollo-link-virtual-213cb394c4/0/cache/apollo-link-npm-1.2.14-74f0ba01f9-ad8d051ffc.zip/node_modules/apollo-link/",
           "packageDependencies": [
-            ["apollo-link", "virtual:c4958bf657a8fd4554129c3fcdccddcf7f5347b6fd36f7cfa6f92d56b0f3ea9b699954cd9925ae36ed4d884d755dbb5087ba4d916b9797684e1307acc78df874#npm:1.2.14"],
+            ["apollo-link", "virtual:e6617dba39c69baa8ddbca8f65996e9cd8f6c61d6cec70b6a5a9ca088c2722f7d5e77fbd57e1b6703e42cb9123bd239c93ad1f91b05fa40b2b1e6ab3d5754f1d#npm:1.2.14"],
             ["@types/graphql", null],
-            ["apollo-utilities", "virtual:c4958bf657a8fd4554129c3fcdccddcf7f5347b6fd36f7cfa6f92d56b0f3ea9b699954cd9925ae36ed4d884d755dbb5087ba4d916b9797684e1307acc78df874#npm:1.3.4"],
+            ["apollo-utilities", "virtual:e6617dba39c69baa8ddbca8f65996e9cd8f6c61d6cec70b6a5a9ca088c2722f7d5e77fbd57e1b6703e42cb9123bd239c93ad1f91b05fa40b2b1e6ab3d5754f1d#npm:1.3.4"],
             ["graphql", null],
             ["ts-invariant", "npm:0.4.4"],
             ["tslib", "npm:1.14.1"],
@@ -9351,14 +8967,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]
       ]],
       ["apollo-server-caching", [
-        ["npm:0.5.3", {
-          "packageLocation": "./.yarn/cache/apollo-server-caching-npm-0.5.3-b023b1e69c-e4261b91e9.zip/node_modules/apollo-server-caching/",
-          "packageDependencies": [
-            ["apollo-server-caching", "npm:0.5.3"],
-            ["lru-cache", "npm:6.0.0"]
-          ],
-          "linkType": "HARD",
-        }],
         ["npm:0.7.0", {
           "packageLocation": "./.yarn/cache/apollo-server-caching-npm-0.7.0-0cd30be7ad-53057326f5.zip/node_modules/apollo-server-caching/",
           "packageDependencies": [
@@ -9390,40 +8998,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["apollo-server-core", "npm:3.3.0"]
           ],
           "linkType": "SOFT",
-        }],
-        ["virtual:0051fb3bd4cebdb836e20057c4d0ed562cdf795a76ff8379e7bd2f4633dd2680c7884e9df4b39d27ccbf59aa43e4a6b95b3b899bd1be87d7f4b787e495145d84#npm:3.3.0", {
-          "packageLocation": "./.yarn/__virtual__/apollo-server-core-virtual-56c225a2aa/0/cache/apollo-server-core-npm-3.3.0-2a7ca73fc4-4b6f8a57c4.zip/node_modules/apollo-server-core/",
-          "packageDependencies": [
-            ["apollo-server-core", "virtual:0051fb3bd4cebdb836e20057c4d0ed562cdf795a76ff8379e7bd2f4633dd2680c7884e9df4b39d27ccbf59aa43e4a6b95b3b899bd1be87d7f4b787e495145d84#npm:3.3.0"],
-            ["@apollographql/apollo-tools", "virtual:56c225a2aa7350e390c00fb9c77149e7e488995402eb45185214e6da9d84f18bbeb115dd594bd1f88641a82293c8cb34ccabbb9d381657db5451016d06c6f460#npm:0.5.1"],
-            ["@apollographql/graphql-playground-html", "npm:1.6.29"],
-            ["@graphql-tools/mock", "virtual:56c225a2aa7350e390c00fb9c77149e7e488995402eb45185214e6da9d84f18bbeb115dd594bd1f88641a82293c8cb34ccabbb9d381657db5451016d06c6f460#npm:8.3.1"],
-            ["@graphql-tools/schema", "virtual:56c225a2aa7350e390c00fb9c77149e7e488995402eb45185214e6da9d84f18bbeb115dd594bd1f88641a82293c8cb34ccabbb9d381657db5451016d06c6f460#npm:8.2.0"],
-            ["@graphql-tools/utils", "virtual:56c225a2aa7350e390c00fb9c77149e7e488995402eb45185214e6da9d84f18bbeb115dd594bd1f88641a82293c8cb34ccabbb9d381657db5451016d06c6f460#npm:8.1.1"],
-            ["@josephg/resolvable", "npm:1.0.1"],
-            ["@types/graphql", null],
-            ["apollo-datasource", "npm:3.1.0"],
-            ["apollo-graphql", "virtual:0051fb3bd4cebdb836e20057c4d0ed562cdf795a76ff8379e7bd2f4633dd2680c7884e9df4b39d27ccbf59aa43e4a6b95b3b899bd1be87d7f4b787e495145d84#npm:0.9.3"],
-            ["apollo-reporting-protobuf", "npm:3.0.0"],
-            ["apollo-server-caching", "npm:3.1.0"],
-            ["apollo-server-env", "npm:4.0.3"],
-            ["apollo-server-errors", "virtual:0051fb3bd4cebdb836e20057c4d0ed562cdf795a76ff8379e7bd2f4633dd2680c7884e9df4b39d27ccbf59aa43e4a6b95b3b899bd1be87d7f4b787e495145d84#npm:3.1.0"],
-            ["apollo-server-plugin-base", "virtual:56c225a2aa7350e390c00fb9c77149e7e488995402eb45185214e6da9d84f18bbeb115dd594bd1f88641a82293c8cb34ccabbb9d381657db5451016d06c6f460#npm:3.2.0"],
-            ["apollo-server-types", "virtual:0051fb3bd4cebdb836e20057c4d0ed562cdf795a76ff8379e7bd2f4633dd2680c7884e9df4b39d27ccbf59aa43e4a6b95b3b899bd1be87d7f4b787e495145d84#npm:3.2.0"],
-            ["async-retry", "npm:1.3.1"],
-            ["fast-json-stable-stringify", "npm:2.1.0"],
-            ["graphql", null],
-            ["graphql-tag", "virtual:56c225a2aa7350e390c00fb9c77149e7e488995402eb45185214e6da9d84f18bbeb115dd594bd1f88641a82293c8cb34ccabbb9d381657db5451016d06c6f460#npm:2.12.4"],
-            ["loglevel", "npm:1.7.1"],
-            ["lru-cache", "npm:6.0.0"],
-            ["sha.js", "npm:2.4.11"],
-            ["uuid", "npm:8.3.2"]
-          ],
-          "packagePeers": [
-            "@types/graphql",
-            "graphql"
-          ],
-          "linkType": "HARD",
         }],
         ["virtual:6689dd49b44980aed1f02ad0ddc030afd4a851a5592478f5850820a21c6b5b254a915d40ee389e6c81f9d5e2272dde47b7aa931443d2a01e5b44acca01324a6e#npm:2.25.2", {
           "packageLocation": "./.yarn/__virtual__/apollo-server-core-virtual-54265bf0b7/0/cache/apollo-server-core-npm-2.25.2-17277a84d0-9470fd40eb.zip/node_modules/apollo-server-core/",
@@ -9463,36 +9037,70 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],
           "linkType": "HARD",
         }],
-        ["virtual:ecf7e8af12f639ad699c2fd15213fa21fbb92be708791549fa7ae86bca7fcafc1968d9e631951e93066f7164412e7c28a7615feea4586d71c24ceabfee935d24#npm:2.25.2", {
-          "packageLocation": "./.yarn/__virtual__/apollo-server-core-virtual-9f28c49b26/0/cache/apollo-server-core-npm-2.25.2-17277a84d0-9470fd40eb.zip/node_modules/apollo-server-core/",
+        ["virtual:6dc6dab44218479a515ac0e482994db435b859143bfb71701c9902e749f7a538a61ca2f91a5b185acd9fadd365ff8d49d6bc2a1d422e41dc1d0017805b64faa0#npm:2.25.2", {
+          "packageLocation": "./.yarn/__virtual__/apollo-server-core-virtual-6e3c4c8370/0/cache/apollo-server-core-npm-2.25.2-17277a84d0-9470fd40eb.zip/node_modules/apollo-server-core/",
           "packageDependencies": [
-            ["apollo-server-core", "virtual:ecf7e8af12f639ad699c2fd15213fa21fbb92be708791549fa7ae86bca7fcafc1968d9e631951e93066f7164412e7c28a7615feea4586d71c24ceabfee935d24#npm:2.25.2"],
-            ["@apollographql/apollo-tools", "virtual:9f28c49b2608fcfee1d35160027126b66ad864a0443b8f120d206857bfeae2ecaf0724f9edd3cff3dd5b5e9169f32b3c43098d021ceaeee9b1d61e636c128965#npm:0.5.0"],
+            ["apollo-server-core", "virtual:6dc6dab44218479a515ac0e482994db435b859143bfb71701c9902e749f7a538a61ca2f91a5b185acd9fadd365ff8d49d6bc2a1d422e41dc1d0017805b64faa0#npm:2.25.2"],
+            ["@apollographql/apollo-tools", "virtual:6e3c4c8370cd2a3ba4c46c11f50ef0a3f087fe3a12a9f1ed7ece454af23281fe98cd5949ae7c3884f8ac760599c5e9bfd1cac3804787863f38a92d791e30a23e#npm:0.5.0"],
             ["@apollographql/graphql-playground-html", "npm:1.6.27"],
-            ["@apollographql/graphql-upload-8-fork", "virtual:9f28c49b2608fcfee1d35160027126b66ad864a0443b8f120d206857bfeae2ecaf0724f9edd3cff3dd5b5e9169f32b3c43098d021ceaeee9b1d61e636c128965#npm:8.1.3"],
+            ["@apollographql/graphql-upload-8-fork", "virtual:6e3c4c8370cd2a3ba4c46c11f50ef0a3f087fe3a12a9f1ed7ece454af23281fe98cd5949ae7c3884f8ac760599c5e9bfd1cac3804787863f38a92d791e30a23e#npm:8.1.3"],
             ["@josephg/resolvable", "npm:1.0.1"],
             ["@types/graphql", null],
             ["@types/ws", "npm:7.4.4"],
-            ["apollo-cache-control", "virtual:9f28c49b2608fcfee1d35160027126b66ad864a0443b8f120d206857bfeae2ecaf0724f9edd3cff3dd5b5e9169f32b3c43098d021ceaeee9b1d61e636c128965#npm:0.14.0"],
+            ["apollo-cache-control", "virtual:6e3c4c8370cd2a3ba4c46c11f50ef0a3f087fe3a12a9f1ed7ece454af23281fe98cd5949ae7c3884f8ac760599c5e9bfd1cac3804787863f38a92d791e30a23e#npm:0.14.0"],
             ["apollo-datasource", "npm:0.9.0"],
-            ["apollo-graphql", "virtual:0051fb3bd4cebdb836e20057c4d0ed562cdf795a76ff8379e7bd2f4633dd2680c7884e9df4b39d27ccbf59aa43e4a6b95b3b899bd1be87d7f4b787e495145d84#npm:0.9.3"],
+            ["apollo-graphql", "virtual:d51903b8b271260a2680151ebe0ef3d0fd85dedfe846cd9170fe9cd1c07992e68e0edbec14b3b9083f09bcca7afe7c5e1ad2f6aef694c5c2a9e3cec4dcaeeda2#npm:0.9.3"],
             ["apollo-reporting-protobuf", "npm:0.8.0"],
             ["apollo-server-caching", "npm:0.7.0"],
             ["apollo-server-env", "npm:3.1.0"],
-            ["apollo-server-errors", "virtual:9f28c49b2608fcfee1d35160027126b66ad864a0443b8f120d206857bfeae2ecaf0724f9edd3cff3dd5b5e9169f32b3c43098d021ceaeee9b1d61e636c128965#npm:2.5.0"],
-            ["apollo-server-plugin-base", "virtual:9f28c49b2608fcfee1d35160027126b66ad864a0443b8f120d206857bfeae2ecaf0724f9edd3cff3dd5b5e9169f32b3c43098d021ceaeee9b1d61e636c128965#npm:0.13.0"],
-            ["apollo-server-types", "virtual:9f28c49b2608fcfee1d35160027126b66ad864a0443b8f120d206857bfeae2ecaf0724f9edd3cff3dd5b5e9169f32b3c43098d021ceaeee9b1d61e636c128965#npm:0.9.0"],
-            ["apollo-tracing", "virtual:9f28c49b2608fcfee1d35160027126b66ad864a0443b8f120d206857bfeae2ecaf0724f9edd3cff3dd5b5e9169f32b3c43098d021ceaeee9b1d61e636c128965#npm:0.15.0"],
+            ["apollo-server-errors", "virtual:6e3c4c8370cd2a3ba4c46c11f50ef0a3f087fe3a12a9f1ed7ece454af23281fe98cd5949ae7c3884f8ac760599c5e9bfd1cac3804787863f38a92d791e30a23e#npm:2.5.0"],
+            ["apollo-server-plugin-base", "virtual:6e3c4c8370cd2a3ba4c46c11f50ef0a3f087fe3a12a9f1ed7ece454af23281fe98cd5949ae7c3884f8ac760599c5e9bfd1cac3804787863f38a92d791e30a23e#npm:0.13.0"],
+            ["apollo-server-types", "virtual:6e3c4c8370cd2a3ba4c46c11f50ef0a3f087fe3a12a9f1ed7ece454af23281fe98cd5949ae7c3884f8ac760599c5e9bfd1cac3804787863f38a92d791e30a23e#npm:0.9.0"],
+            ["apollo-tracing", "virtual:6e3c4c8370cd2a3ba4c46c11f50ef0a3f087fe3a12a9f1ed7ece454af23281fe98cd5949ae7c3884f8ac760599c5e9bfd1cac3804787863f38a92d791e30a23e#npm:0.15.0"],
             ["async-retry", "npm:1.3.1"],
             ["fast-json-stable-stringify", "npm:2.1.0"],
             ["graphql", null],
-            ["graphql-extensions", "virtual:9f28c49b2608fcfee1d35160027126b66ad864a0443b8f120d206857bfeae2ecaf0724f9edd3cff3dd5b5e9169f32b3c43098d021ceaeee9b1d61e636c128965#npm:0.15.0"],
-            ["graphql-tag", "virtual:56c225a2aa7350e390c00fb9c77149e7e488995402eb45185214e6da9d84f18bbeb115dd594bd1f88641a82293c8cb34ccabbb9d381657db5451016d06c6f460#npm:2.12.4"],
-            ["graphql-tools", "virtual:9f28c49b2608fcfee1d35160027126b66ad864a0443b8f120d206857bfeae2ecaf0724f9edd3cff3dd5b5e9169f32b3c43098d021ceaeee9b1d61e636c128965#npm:4.0.8"],
+            ["graphql-extensions", "virtual:6e3c4c8370cd2a3ba4c46c11f50ef0a3f087fe3a12a9f1ed7ece454af23281fe98cd5949ae7c3884f8ac760599c5e9bfd1cac3804787863f38a92d791e30a23e#npm:0.15.0"],
+            ["graphql-tag", "virtual:0ce7a24d7625c6aa8f2153d4340a376f4feedaa5f857403d0efa501c97e26bd559001678bf7ebd05a85f8cb2f8476d6eceee8855fd67978d2447fca950e28793#npm:2.12.4"],
+            ["graphql-tools", "virtual:6e3c4c8370cd2a3ba4c46c11f50ef0a3f087fe3a12a9f1ed7ece454af23281fe98cd5949ae7c3884f8ac760599c5e9bfd1cac3804787863f38a92d791e30a23e#npm:4.0.8"],
             ["loglevel", "npm:1.7.1"],
             ["lru-cache", "npm:6.0.0"],
             ["sha.js", "npm:2.4.11"],
-            ["subscriptions-transport-ws", "virtual:9f28c49b2608fcfee1d35160027126b66ad864a0443b8f120d206857bfeae2ecaf0724f9edd3cff3dd5b5e9169f32b3c43098d021ceaeee9b1d61e636c128965#npm:0.9.19"],
+            ["subscriptions-transport-ws", "virtual:6e3c4c8370cd2a3ba4c46c11f50ef0a3f087fe3a12a9f1ed7ece454af23281fe98cd5949ae7c3884f8ac760599c5e9bfd1cac3804787863f38a92d791e30a23e#npm:0.9.19"],
+            ["uuid", "npm:8.3.2"]
+          ],
+          "packagePeers": [
+            "@types/graphql",
+            "graphql"
+          ],
+          "linkType": "HARD",
+        }],
+        ["virtual:d51903b8b271260a2680151ebe0ef3d0fd85dedfe846cd9170fe9cd1c07992e68e0edbec14b3b9083f09bcca7afe7c5e1ad2f6aef694c5c2a9e3cec4dcaeeda2#npm:3.3.0", {
+          "packageLocation": "./.yarn/__virtual__/apollo-server-core-virtual-0ce7a24d76/0/cache/apollo-server-core-npm-3.3.0-2a7ca73fc4-4b6f8a57c4.zip/node_modules/apollo-server-core/",
+          "packageDependencies": [
+            ["apollo-server-core", "virtual:d51903b8b271260a2680151ebe0ef3d0fd85dedfe846cd9170fe9cd1c07992e68e0edbec14b3b9083f09bcca7afe7c5e1ad2f6aef694c5c2a9e3cec4dcaeeda2#npm:3.3.0"],
+            ["@apollographql/apollo-tools", "virtual:0ce7a24d7625c6aa8f2153d4340a376f4feedaa5f857403d0efa501c97e26bd559001678bf7ebd05a85f8cb2f8476d6eceee8855fd67978d2447fca950e28793#npm:0.5.1"],
+            ["@apollographql/graphql-playground-html", "npm:1.6.29"],
+            ["@graphql-tools/mock", "virtual:0ce7a24d7625c6aa8f2153d4340a376f4feedaa5f857403d0efa501c97e26bd559001678bf7ebd05a85f8cb2f8476d6eceee8855fd67978d2447fca950e28793#npm:8.3.1"],
+            ["@graphql-tools/schema", "virtual:0ce7a24d7625c6aa8f2153d4340a376f4feedaa5f857403d0efa501c97e26bd559001678bf7ebd05a85f8cb2f8476d6eceee8855fd67978d2447fca950e28793#npm:8.2.0"],
+            ["@graphql-tools/utils", "virtual:0ce7a24d7625c6aa8f2153d4340a376f4feedaa5f857403d0efa501c97e26bd559001678bf7ebd05a85f8cb2f8476d6eceee8855fd67978d2447fca950e28793#npm:8.1.1"],
+            ["@josephg/resolvable", "npm:1.0.1"],
+            ["@types/graphql", null],
+            ["apollo-datasource", "npm:3.1.0"],
+            ["apollo-graphql", "virtual:d51903b8b271260a2680151ebe0ef3d0fd85dedfe846cd9170fe9cd1c07992e68e0edbec14b3b9083f09bcca7afe7c5e1ad2f6aef694c5c2a9e3cec4dcaeeda2#npm:0.9.3"],
+            ["apollo-reporting-protobuf", "npm:3.0.0"],
+            ["apollo-server-caching", "npm:3.1.0"],
+            ["apollo-server-env", "npm:4.0.3"],
+            ["apollo-server-errors", "virtual:d51903b8b271260a2680151ebe0ef3d0fd85dedfe846cd9170fe9cd1c07992e68e0edbec14b3b9083f09bcca7afe7c5e1ad2f6aef694c5c2a9e3cec4dcaeeda2#npm:3.1.0"],
+            ["apollo-server-plugin-base", "virtual:0ce7a24d7625c6aa8f2153d4340a376f4feedaa5f857403d0efa501c97e26bd559001678bf7ebd05a85f8cb2f8476d6eceee8855fd67978d2447fca950e28793#npm:3.2.0"],
+            ["apollo-server-types", "virtual:d51903b8b271260a2680151ebe0ef3d0fd85dedfe846cd9170fe9cd1c07992e68e0edbec14b3b9083f09bcca7afe7c5e1ad2f6aef694c5c2a9e3cec4dcaeeda2#npm:3.2.0"],
+            ["async-retry", "npm:1.3.1"],
+            ["fast-json-stable-stringify", "npm:2.1.0"],
+            ["graphql", null],
+            ["graphql-tag", "virtual:0ce7a24d7625c6aa8f2153d4340a376f4feedaa5f857403d0efa501c97e26bd559001678bf7ebd05a85f8cb2f8476d6eceee8855fd67978d2447fca950e28793#npm:2.12.4"],
+            ["loglevel", "npm:1.7.1"],
+            ["lru-cache", "npm:6.0.0"],
+            ["sha.js", "npm:2.4.11"],
             ["uuid", "npm:8.3.2"]
           ],
           "packagePeers": [
@@ -9503,15 +9111,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]
       ]],
       ["apollo-server-env", [
-        ["npm:2.4.5", {
-          "packageLocation": "./.yarn/cache/apollo-server-env-npm-2.4.5-51ace77c7b-74160c0863.zip/node_modules/apollo-server-env/",
-          "packageDependencies": [
-            ["apollo-server-env", "npm:2.4.5"],
-            ["node-fetch", "npm:2.6.2"],
-            ["util.promisify", "npm:1.1.1"]
-          ],
-          "linkType": "HARD",
-        }],
         ["npm:3.1.0", {
           "packageLocation": "./.yarn/cache/apollo-server-env-npm-3.1.0-8e58e9eaaf-35bb002bc0.zip/node_modules/apollo-server-env/",
           "packageDependencies": [
@@ -9554,19 +9153,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],
           "linkType": "SOFT",
         }],
-        ["virtual:0051fb3bd4cebdb836e20057c4d0ed562cdf795a76ff8379e7bd2f4633dd2680c7884e9df4b39d27ccbf59aa43e4a6b95b3b899bd1be87d7f4b787e495145d84#npm:3.1.0", {
-          "packageLocation": "./.yarn/__virtual__/apollo-server-errors-virtual-3fd77c0f14/0/cache/apollo-server-errors-npm-3.1.0-de20826788-3e017f8c78.zip/node_modules/apollo-server-errors/",
-          "packageDependencies": [
-            ["apollo-server-errors", "virtual:0051fb3bd4cebdb836e20057c4d0ed562cdf795a76ff8379e7bd2f4633dd2680c7884e9df4b39d27ccbf59aa43e4a6b95b3b899bd1be87d7f4b787e495145d84#npm:3.1.0"],
-            ["@types/graphql", null],
-            ["graphql", null]
-          ],
-          "packagePeers": [
-            "@types/graphql",
-            "graphql"
-          ],
-          "linkType": "HARD",
-        }],
         ["virtual:54265bf0b7618fd72dbabb2ffaf729efbd1eb2573fe474f3dffdab599a28bb40690768b9de9da56c64f75a201062bced6bd95932aa627caf640d99ff89f9481c#npm:2.5.0", {
           "packageLocation": "./.yarn/__virtual__/apollo-server-errors-virtual-6a9d7a2470/0/cache/apollo-server-errors-npm-2.5.0-3b059580ed-c93129f0b0.zip/node_modules/apollo-server-errors/",
           "packageDependencies": [
@@ -9580,10 +9166,23 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],
           "linkType": "HARD",
         }],
-        ["virtual:9f28c49b2608fcfee1d35160027126b66ad864a0443b8f120d206857bfeae2ecaf0724f9edd3cff3dd5b5e9169f32b3c43098d021ceaeee9b1d61e636c128965#npm:2.5.0", {
-          "packageLocation": "./.yarn/__virtual__/apollo-server-errors-virtual-683e20c32e/0/cache/apollo-server-errors-npm-2.5.0-3b059580ed-c93129f0b0.zip/node_modules/apollo-server-errors/",
+        ["virtual:6e3c4c8370cd2a3ba4c46c11f50ef0a3f087fe3a12a9f1ed7ece454af23281fe98cd5949ae7c3884f8ac760599c5e9bfd1cac3804787863f38a92d791e30a23e#npm:2.5.0", {
+          "packageLocation": "./.yarn/__virtual__/apollo-server-errors-virtual-4926de084e/0/cache/apollo-server-errors-npm-2.5.0-3b059580ed-c93129f0b0.zip/node_modules/apollo-server-errors/",
           "packageDependencies": [
-            ["apollo-server-errors", "virtual:9f28c49b2608fcfee1d35160027126b66ad864a0443b8f120d206857bfeae2ecaf0724f9edd3cff3dd5b5e9169f32b3c43098d021ceaeee9b1d61e636c128965#npm:2.5.0"],
+            ["apollo-server-errors", "virtual:6e3c4c8370cd2a3ba4c46c11f50ef0a3f087fe3a12a9f1ed7ece454af23281fe98cd5949ae7c3884f8ac760599c5e9bfd1cac3804787863f38a92d791e30a23e#npm:2.5.0"],
+            ["@types/graphql", null],
+            ["graphql", null]
+          ],
+          "packagePeers": [
+            "@types/graphql",
+            "graphql"
+          ],
+          "linkType": "HARD",
+        }],
+        ["virtual:d51903b8b271260a2680151ebe0ef3d0fd85dedfe846cd9170fe9cd1c07992e68e0edbec14b3b9083f09bcca7afe7c5e1ad2f6aef694c5c2a9e3cec4dcaeeda2#npm:3.1.0", {
+          "packageLocation": "./.yarn/__virtual__/apollo-server-errors-virtual-b71d3d29c5/0/cache/apollo-server-errors-npm-3.1.0-de20826788-3e017f8c78.zip/node_modules/apollo-server-errors/",
+          "packageDependencies": [
+            ["apollo-server-errors", "virtual:d51903b8b271260a2680151ebe0ef3d0fd85dedfe846cd9170fe9cd1c07992e68e0edbec14b3b9083f09bcca7afe7c5e1ad2f6aef694c5c2a9e3cec4dcaeeda2#npm:3.1.0"],
             ["@types/graphql", null],
             ["graphql", null]
           ],
@@ -9595,48 +9194,12 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]
       ]],
       ["apollo-server-express", [
-        ["npm:2.13.0", {
-          "packageLocation": "./.yarn/cache/apollo-server-express-npm-2.13.0-e4cbd8fedc-2588ff36a8.zip/node_modules/apollo-server-express/",
-          "packageDependencies": [
-            ["apollo-server-express", "npm:2.13.0"]
-          ],
-          "linkType": "SOFT",
-        }],
         ["npm:2.25.2", {
           "packageLocation": "./.yarn/cache/apollo-server-express-npm-2.25.2-f262658812-662eda0b12.zip/node_modules/apollo-server-express/",
           "packageDependencies": [
             ["apollo-server-express", "npm:2.25.2"]
           ],
           "linkType": "SOFT",
-        }],
-        ["virtual:03b6af22cb80149b513f081c991b2ee015111d59bbeac45ddf1903895b7fd87d34f48a2f3c80a4ef3aface38a0df360e482b938a22fb0c3db73366f989167c03#npm:2.13.0", {
-          "packageLocation": "./.yarn/__virtual__/apollo-server-express-virtual-5f82a368ba/0/cache/apollo-server-express-npm-2.13.0-e4cbd8fedc-2588ff36a8.zip/node_modules/apollo-server-express/",
-          "packageDependencies": [
-            ["apollo-server-express", "virtual:03b6af22cb80149b513f081c991b2ee015111d59bbeac45ddf1903895b7fd87d34f48a2f3c80a4ef3aface38a0df360e482b938a22fb0c3db73366f989167c03#npm:2.13.0"],
-            ["@apollographql/graphql-playground-html", "npm:1.6.24"],
-            ["@types/accepts", "npm:1.3.5"],
-            ["@types/body-parser", "npm:1.19.0"],
-            ["@types/cors", "npm:2.8.12"],
-            ["@types/express", "npm:4.17.4"],
-            ["@types/graphql", null],
-            ["accepts", "npm:1.3.7"],
-            ["apollo-server-core", "virtual:ecf7e8af12f639ad699c2fd15213fa21fbb92be708791549fa7ae86bca7fcafc1968d9e631951e93066f7164412e7c28a7615feea4586d71c24ceabfee935d24#npm:2.25.2"],
-            ["apollo-server-types", "virtual:5f82a368ba9082db09868c6b8c1a4af581f94fec2c9e17c333b9af02f653ed4c639c44701a72c51972419878c2a148d2f543a80ef9f7d5314a4ef5cf06a1701c#npm:0.4.0"],
-            ["body-parser", "npm:1.19.0"],
-            ["cors", "npm:2.8.5"],
-            ["express", "npm:4.17.1"],
-            ["graphql", null],
-            ["graphql-subscriptions", "virtual:5f82a368ba9082db09868c6b8c1a4af581f94fec2c9e17c333b9af02f653ed4c639c44701a72c51972419878c2a148d2f543a80ef9f7d5314a4ef5cf06a1701c#npm:1.2.1"],
-            ["graphql-tools", "virtual:9f28c49b2608fcfee1d35160027126b66ad864a0443b8f120d206857bfeae2ecaf0724f9edd3cff3dd5b5e9169f32b3c43098d021ceaeee9b1d61e636c128965#npm:4.0.8"],
-            ["parseurl", "npm:1.3.3"],
-            ["subscriptions-transport-ws", "virtual:9f28c49b2608fcfee1d35160027126b66ad864a0443b8f120d206857bfeae2ecaf0724f9edd3cff3dd5b5e9169f32b3c43098d021ceaeee9b1d61e636c128965#npm:0.9.19"],
-            ["type-is", "npm:1.6.18"]
-          ],
-          "packagePeers": [
-            "@types/graphql",
-            "graphql"
-          ],
-          "linkType": "HARD",
         }],
         ["virtual:7e92e9787114a7b5cad0a5f62eab65f5552eaa55e0bbf8c35384f1f5ddb8dc3522c69e8798fe152309c58a778d55f7af8a4bd45e696640c7f97f8bb04d05a712#npm:2.25.2", {
           "packageLocation": "./.yarn/__virtual__/apollo-server-express-virtual-6689dd49b4/0/cache/apollo-server-express-npm-2.25.2-f262658812-662eda0b12.zip/node_modules/apollo-server-express/",
@@ -9684,6 +9247,20 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],
           "linkType": "SOFT",
         }],
+        ["virtual:0ce7a24d7625c6aa8f2153d4340a376f4feedaa5f857403d0efa501c97e26bd559001678bf7ebd05a85f8cb2f8476d6eceee8855fd67978d2447fca950e28793#npm:3.2.0", {
+          "packageLocation": "./.yarn/__virtual__/apollo-server-plugin-base-virtual-0f6b514acb/0/cache/apollo-server-plugin-base-npm-3.2.0-bf2105fa55-4998ff0b1a.zip/node_modules/apollo-server-plugin-base/",
+          "packageDependencies": [
+            ["apollo-server-plugin-base", "virtual:0ce7a24d7625c6aa8f2153d4340a376f4feedaa5f857403d0efa501c97e26bd559001678bf7ebd05a85f8cb2f8476d6eceee8855fd67978d2447fca950e28793#npm:3.2.0"],
+            ["@types/graphql", null],
+            ["apollo-server-types", "virtual:d51903b8b271260a2680151ebe0ef3d0fd85dedfe846cd9170fe9cd1c07992e68e0edbec14b3b9083f09bcca7afe7c5e1ad2f6aef694c5c2a9e3cec4dcaeeda2#npm:3.2.0"],
+            ["graphql", null]
+          ],
+          "packagePeers": [
+            "@types/graphql",
+            "graphql"
+          ],
+          "linkType": "HARD",
+        }],
         ["virtual:54265bf0b7618fd72dbabb2ffaf729efbd1eb2573fe474f3dffdab599a28bb40690768b9de9da56c64f75a201062bced6bd95932aa627caf640d99ff89f9481c#npm:0.13.0", {
           "packageLocation": "./.yarn/__virtual__/apollo-server-plugin-base-virtual-ee01b8f0a6/0/cache/apollo-server-plugin-base-npm-0.13.0-a1eab881c2-9db78d0a1d.zip/node_modules/apollo-server-plugin-base/",
           "packageDependencies": [
@@ -9698,26 +9275,12 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],
           "linkType": "HARD",
         }],
-        ["virtual:56c225a2aa7350e390c00fb9c77149e7e488995402eb45185214e6da9d84f18bbeb115dd594bd1f88641a82293c8cb34ccabbb9d381657db5451016d06c6f460#npm:3.2.0", {
-          "packageLocation": "./.yarn/__virtual__/apollo-server-plugin-base-virtual-a9b9a27860/0/cache/apollo-server-plugin-base-npm-3.2.0-bf2105fa55-4998ff0b1a.zip/node_modules/apollo-server-plugin-base/",
+        ["virtual:6e3c4c8370cd2a3ba4c46c11f50ef0a3f087fe3a12a9f1ed7ece454af23281fe98cd5949ae7c3884f8ac760599c5e9bfd1cac3804787863f38a92d791e30a23e#npm:0.13.0", {
+          "packageLocation": "./.yarn/__virtual__/apollo-server-plugin-base-virtual-924bf05994/0/cache/apollo-server-plugin-base-npm-0.13.0-a1eab881c2-9db78d0a1d.zip/node_modules/apollo-server-plugin-base/",
           "packageDependencies": [
-            ["apollo-server-plugin-base", "virtual:56c225a2aa7350e390c00fb9c77149e7e488995402eb45185214e6da9d84f18bbeb115dd594bd1f88641a82293c8cb34ccabbb9d381657db5451016d06c6f460#npm:3.2.0"],
+            ["apollo-server-plugin-base", "virtual:6e3c4c8370cd2a3ba4c46c11f50ef0a3f087fe3a12a9f1ed7ece454af23281fe98cd5949ae7c3884f8ac760599c5e9bfd1cac3804787863f38a92d791e30a23e#npm:0.13.0"],
             ["@types/graphql", null],
-            ["apollo-server-types", "virtual:0051fb3bd4cebdb836e20057c4d0ed562cdf795a76ff8379e7bd2f4633dd2680c7884e9df4b39d27ccbf59aa43e4a6b95b3b899bd1be87d7f4b787e495145d84#npm:3.2.0"],
-            ["graphql", null]
-          ],
-          "packagePeers": [
-            "@types/graphql",
-            "graphql"
-          ],
-          "linkType": "HARD",
-        }],
-        ["virtual:9f28c49b2608fcfee1d35160027126b66ad864a0443b8f120d206857bfeae2ecaf0724f9edd3cff3dd5b5e9169f32b3c43098d021ceaeee9b1d61e636c128965#npm:0.13.0", {
-          "packageLocation": "./.yarn/__virtual__/apollo-server-plugin-base-virtual-7f33d83c82/0/cache/apollo-server-plugin-base-npm-0.13.0-a1eab881c2-9db78d0a1d.zip/node_modules/apollo-server-plugin-base/",
-          "packageDependencies": [
-            ["apollo-server-plugin-base", "virtual:9f28c49b2608fcfee1d35160027126b66ad864a0443b8f120d206857bfeae2ecaf0724f9edd3cff3dd5b5e9169f32b3c43098d021ceaeee9b1d61e636c128965#npm:0.13.0"],
-            ["@types/graphql", null],
-            ["apollo-server-types", "virtual:9f28c49b2608fcfee1d35160027126b66ad864a0443b8f120d206857bfeae2ecaf0724f9edd3cff3dd5b5e9169f32b3c43098d021ceaeee9b1d61e636c128965#npm:0.9.0"],
+            ["apollo-server-types", "virtual:6e3c4c8370cd2a3ba4c46c11f50ef0a3f087fe3a12a9f1ed7ece454af23281fe98cd5949ae7c3884f8ac760599c5e9bfd1cac3804787863f38a92d791e30a23e#npm:0.9.0"],
             ["graphql", null]
           ],
           "packagePeers": [
@@ -9735,12 +9298,12 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],
           "linkType": "SOFT",
         }],
-        ["virtual:f33e2a37be0495fbfb72425533b09a9bc55ada820eb8b9cb7e8e0ca7033e4cbefb6bb64ce6973c8971f4eef136c74ed61d5726fffc1be878fde9263f97d5f05b#npm:2.25.2", {
-          "packageLocation": "./.yarn/__virtual__/apollo-server-testing-virtual-ecf7e8af12/0/cache/apollo-server-testing-npm-2.25.2-85a171c5be-31033c3bf3.zip/node_modules/apollo-server-testing/",
+        ["virtual:8e391c35bf53192258b54b5e792ab3d7cd7db8dc0a02f87f331c6929b14a9c7a7ce72615dc438efc66db83e19e762f0cd9c55065f1c019def150716429b831e9#npm:2.25.2", {
+          "packageLocation": "./.yarn/__virtual__/apollo-server-testing-virtual-6dc6dab442/0/cache/apollo-server-testing-npm-2.25.2-85a171c5be-31033c3bf3.zip/node_modules/apollo-server-testing/",
           "packageDependencies": [
-            ["apollo-server-testing", "virtual:f33e2a37be0495fbfb72425533b09a9bc55ada820eb8b9cb7e8e0ca7033e4cbefb6bb64ce6973c8971f4eef136c74ed61d5726fffc1be878fde9263f97d5f05b#npm:2.25.2"],
+            ["apollo-server-testing", "virtual:8e391c35bf53192258b54b5e792ab3d7cd7db8dc0a02f87f331c6929b14a9c7a7ce72615dc438efc66db83e19e762f0cd9c55065f1c019def150716429b831e9#npm:2.25.2"],
             ["@types/graphql", null],
-            ["apollo-server-core", "virtual:ecf7e8af12f639ad699c2fd15213fa21fbb92be708791549fa7ae86bca7fcafc1968d9e631951e93066f7164412e7c28a7615feea4586d71c24ceabfee935d24#npm:2.25.2"],
+            ["apollo-server-core", "virtual:6dc6dab44218479a515ac0e482994db435b859143bfb71701c9902e749f7a538a61ca2f91a5b185acd9fadd365ff8d49d6bc2a1d422e41dc1d0017805b64faa0#npm:2.25.2"],
             ["graphql", null]
           ],
           "packagePeers": [
@@ -9751,13 +9314,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]
       ]],
       ["apollo-server-types", [
-        ["npm:0.4.0", {
-          "packageLocation": "./.yarn/cache/apollo-server-types-npm-0.4.0-58b28d3cb2-b117661f1d.zip/node_modules/apollo-server-types/",
-          "packageDependencies": [
-            ["apollo-server-types", "npm:0.4.0"]
-          ],
-          "linkType": "SOFT",
-        }],
         ["npm:0.9.0", {
           "packageLocation": "./.yarn/cache/apollo-server-types-npm-0.9.0-641c5e9514-367de9a67c.zip/node_modules/apollo-server-types/",
           "packageDependencies": [
@@ -9771,38 +9327,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["apollo-server-types", "npm:3.2.0"]
           ],
           "linkType": "SOFT",
-        }],
-        ["virtual:0051fb3bd4cebdb836e20057c4d0ed562cdf795a76ff8379e7bd2f4633dd2680c7884e9df4b39d27ccbf59aa43e4a6b95b3b899bd1be87d7f4b787e495145d84#npm:3.2.0", {
-          "packageLocation": "./.yarn/__virtual__/apollo-server-types-virtual-dc4d192bb8/0/cache/apollo-server-types-npm-3.2.0-93c567b65b-bda4be6d5c.zip/node_modules/apollo-server-types/",
-          "packageDependencies": [
-            ["apollo-server-types", "virtual:0051fb3bd4cebdb836e20057c4d0ed562cdf795a76ff8379e7bd2f4633dd2680c7884e9df4b39d27ccbf59aa43e4a6b95b3b899bd1be87d7f4b787e495145d84#npm:3.2.0"],
-            ["@types/graphql", null],
-            ["apollo-reporting-protobuf", "npm:3.0.0"],
-            ["apollo-server-caching", "npm:3.1.0"],
-            ["apollo-server-env", "npm:4.0.3"],
-            ["graphql", null]
-          ],
-          "packagePeers": [
-            "@types/graphql",
-            "graphql"
-          ],
-          "linkType": "HARD",
-        }],
-        ["virtual:5f82a368ba9082db09868c6b8c1a4af581f94fec2c9e17c333b9af02f653ed4c639c44701a72c51972419878c2a148d2f543a80ef9f7d5314a4ef5cf06a1701c#npm:0.4.0", {
-          "packageLocation": "./.yarn/__virtual__/apollo-server-types-virtual-3266a6edb8/0/cache/apollo-server-types-npm-0.4.0-58b28d3cb2-b117661f1d.zip/node_modules/apollo-server-types/",
-          "packageDependencies": [
-            ["apollo-server-types", "virtual:5f82a368ba9082db09868c6b8c1a4af581f94fec2c9e17c333b9af02f653ed4c639c44701a72c51972419878c2a148d2f543a80ef9f7d5314a4ef5cf06a1701c#npm:0.4.0"],
-            ["@types/graphql", null],
-            ["apollo-engine-reporting-protobuf", "npm:0.5.2"],
-            ["apollo-server-caching", "npm:0.5.3"],
-            ["apollo-server-env", "npm:2.4.5"],
-            ["graphql", null]
-          ],
-          "packagePeers": [
-            "@types/graphql",
-            "graphql"
-          ],
-          "linkType": "HARD",
         }],
         ["virtual:6689dd49b44980aed1f02ad0ddc030afd4a851a5592478f5850820a21c6b5b254a915d40ee389e6c81f9d5e2272dde47b7aa931443d2a01e5b44acca01324a6e#npm:0.9.0", {
           "packageLocation": "./.yarn/__virtual__/apollo-server-types-virtual-251546cea2/0/cache/apollo-server-types-npm-0.9.0-641c5e9514-367de9a67c.zip/node_modules/apollo-server-types/",
@@ -9820,14 +9344,30 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],
           "linkType": "HARD",
         }],
-        ["virtual:9f28c49b2608fcfee1d35160027126b66ad864a0443b8f120d206857bfeae2ecaf0724f9edd3cff3dd5b5e9169f32b3c43098d021ceaeee9b1d61e636c128965#npm:0.9.0", {
-          "packageLocation": "./.yarn/__virtual__/apollo-server-types-virtual-6081e39b09/0/cache/apollo-server-types-npm-0.9.0-641c5e9514-367de9a67c.zip/node_modules/apollo-server-types/",
+        ["virtual:6e3c4c8370cd2a3ba4c46c11f50ef0a3f087fe3a12a9f1ed7ece454af23281fe98cd5949ae7c3884f8ac760599c5e9bfd1cac3804787863f38a92d791e30a23e#npm:0.9.0", {
+          "packageLocation": "./.yarn/__virtual__/apollo-server-types-virtual-1578bf2192/0/cache/apollo-server-types-npm-0.9.0-641c5e9514-367de9a67c.zip/node_modules/apollo-server-types/",
           "packageDependencies": [
-            ["apollo-server-types", "virtual:9f28c49b2608fcfee1d35160027126b66ad864a0443b8f120d206857bfeae2ecaf0724f9edd3cff3dd5b5e9169f32b3c43098d021ceaeee9b1d61e636c128965#npm:0.9.0"],
+            ["apollo-server-types", "virtual:6e3c4c8370cd2a3ba4c46c11f50ef0a3f087fe3a12a9f1ed7ece454af23281fe98cd5949ae7c3884f8ac760599c5e9bfd1cac3804787863f38a92d791e30a23e#npm:0.9.0"],
             ["@types/graphql", null],
             ["apollo-reporting-protobuf", "npm:0.8.0"],
             ["apollo-server-caching", "npm:0.7.0"],
             ["apollo-server-env", "npm:3.1.0"],
+            ["graphql", null]
+          ],
+          "packagePeers": [
+            "@types/graphql",
+            "graphql"
+          ],
+          "linkType": "HARD",
+        }],
+        ["virtual:d51903b8b271260a2680151ebe0ef3d0fd85dedfe846cd9170fe9cd1c07992e68e0edbec14b3b9083f09bcca7afe7c5e1ad2f6aef694c5c2a9e3cec4dcaeeda2#npm:3.2.0", {
+          "packageLocation": "./.yarn/__virtual__/apollo-server-types-virtual-7c592be1cd/0/cache/apollo-server-types-npm-3.2.0-93c567b65b-bda4be6d5c.zip/node_modules/apollo-server-types/",
+          "packageDependencies": [
+            ["apollo-server-types", "virtual:d51903b8b271260a2680151ebe0ef3d0fd85dedfe846cd9170fe9cd1c07992e68e0edbec14b3b9083f09bcca7afe7c5e1ad2f6aef694c5c2a9e3cec4dcaeeda2#npm:3.2.0"],
+            ["@types/graphql", null],
+            ["apollo-reporting-protobuf", "npm:3.0.0"],
+            ["apollo-server-caching", "npm:3.1.0"],
+            ["apollo-server-env", "npm:4.0.3"],
             ["graphql", null]
           ],
           "packagePeers": [
@@ -9860,13 +9400,13 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],
           "linkType": "HARD",
         }],
-        ["virtual:9f28c49b2608fcfee1d35160027126b66ad864a0443b8f120d206857bfeae2ecaf0724f9edd3cff3dd5b5e9169f32b3c43098d021ceaeee9b1d61e636c128965#npm:0.15.0", {
-          "packageLocation": "./.yarn/__virtual__/apollo-tracing-virtual-2684552980/0/cache/apollo-tracing-npm-0.15.0-bc1a523970-f177bf823b.zip/node_modules/apollo-tracing/",
+        ["virtual:6e3c4c8370cd2a3ba4c46c11f50ef0a3f087fe3a12a9f1ed7ece454af23281fe98cd5949ae7c3884f8ac760599c5e9bfd1cac3804787863f38a92d791e30a23e#npm:0.15.0", {
+          "packageLocation": "./.yarn/__virtual__/apollo-tracing-virtual-5d14e33062/0/cache/apollo-tracing-npm-0.15.0-bc1a523970-f177bf823b.zip/node_modules/apollo-tracing/",
           "packageDependencies": [
-            ["apollo-tracing", "virtual:9f28c49b2608fcfee1d35160027126b66ad864a0443b8f120d206857bfeae2ecaf0724f9edd3cff3dd5b5e9169f32b3c43098d021ceaeee9b1d61e636c128965#npm:0.15.0"],
+            ["apollo-tracing", "virtual:6e3c4c8370cd2a3ba4c46c11f50ef0a3f087fe3a12a9f1ed7ece454af23281fe98cd5949ae7c3884f8ac760599c5e9bfd1cac3804787863f38a92d791e30a23e#npm:0.15.0"],
             ["@types/graphql", null],
             ["apollo-server-env", "npm:3.1.0"],
-            ["apollo-server-plugin-base", "virtual:9f28c49b2608fcfee1d35160027126b66ad864a0443b8f120d206857bfeae2ecaf0724f9edd3cff3dd5b5e9169f32b3c43098d021ceaeee9b1d61e636c128965#npm:0.13.0"],
+            ["apollo-server-plugin-base", "virtual:6e3c4c8370cd2a3ba4c46c11f50ef0a3f087fe3a12a9f1ed7ece454af23281fe98cd5949ae7c3884f8ac760599c5e9bfd1cac3804787863f38a92d791e30a23e#npm:0.13.0"],
             ["graphql", null]
           ],
           "packagePeers": [
@@ -9884,10 +9424,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],
           "linkType": "SOFT",
         }],
-        ["virtual:c4958bf657a8fd4554129c3fcdccddcf7f5347b6fd36f7cfa6f92d56b0f3ea9b699954cd9925ae36ed4d884d755dbb5087ba4d916b9797684e1307acc78df874#npm:1.3.4", {
-          "packageLocation": "./.yarn/__virtual__/apollo-utilities-virtual-9bae188a9e/0/cache/apollo-utilities-npm-1.3.4-2bafd621ff-6e0192a342.zip/node_modules/apollo-utilities/",
+        ["virtual:e6617dba39c69baa8ddbca8f65996e9cd8f6c61d6cec70b6a5a9ca088c2722f7d5e77fbd57e1b6703e42cb9123bd239c93ad1f91b05fa40b2b1e6ab3d5754f1d#npm:1.3.4", {
+          "packageLocation": "./.yarn/__virtual__/apollo-utilities-virtual-2923475063/0/cache/apollo-utilities-npm-1.3.4-2bafd621ff-6e0192a342.zip/node_modules/apollo-utilities/",
           "packageDependencies": [
-            ["apollo-utilities", "virtual:c4958bf657a8fd4554129c3fcdccddcf7f5347b6fd36f7cfa6f92d56b0f3ea9b699954cd9925ae36ed4d884d755dbb5087ba4d916b9797684e1307acc78df874#npm:1.3.4"],
+            ["apollo-utilities", "virtual:e6617dba39c69baa8ddbca8f65996e9cd8f6c61d6cec70b6a5a9ca088c2722f7d5e77fbd57e1b6703e42cb9123bd239c93ad1f91b05fa40b2b1e6ab3d5754f1d#npm:1.3.4"],
             ["@types/graphql", null],
             ["@wry/equality", "npm:0.1.11"],
             ["fast-json-stable-stringify", "npm:2.1.0"],
@@ -9988,15 +9528,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["are-we-there-yet", "npm:1.1.5"],
             ["delegates", "npm:1.0.0"],
             ["readable-stream", "npm:2.3.7"]
-          ],
-          "linkType": "HARD",
-        }]
-      ]],
-      ["arg", [
-        ["npm:4.1.3", {
-          "packageLocation": "./.yarn/cache/arg-npm-4.1.3-1748b966a8-544af8dd3f.zip/node_modules/arg/",
-          "packageDependencies": [
-            ["arg", "npm:4.1.3"]
           ],
           "linkType": "HARD",
         }]
@@ -10260,15 +9791,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/auto-bind-npm-4.0.0-1cda90694b-00cad71cce.zip/node_modules/auto-bind/",
           "packageDependencies": [
             ["auto-bind", "npm:4.0.0"]
-          ],
-          "linkType": "HARD",
-        }]
-      ]],
-      ["autobind-decorator", [
-        ["npm:2.4.0", {
-          "packageLocation": "./.yarn/cache/autobind-decorator-npm-2.4.0-07ffeb9afd-6fcc922580.zip/node_modules/autobind-decorator/",
-          "packageDependencies": [
-            ["autobind-decorator", "npm:2.4.0"]
           ],
           "linkType": "HARD",
         }]
@@ -10720,18 +10242,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD",
         }]
       ]],
-      ["bitsyntax", [
-        ["npm:0.1.0", {
-          "packageLocation": "./.yarn/cache/bitsyntax-npm-0.1.0-a6fca5dd72-b9f1548eee.zip/node_modules/bitsyntax/",
-          "packageDependencies": [
-            ["bitsyntax", "npm:0.1.0"],
-            ["buffer-more-ints", "npm:1.0.0"],
-            ["debug", "virtual:2bcc47d217f870e3d52f0e55493dc34fd3da852877f7db32fa2940cc320151746026495daf6a34a974488cf5a949d93be1e2dc1ffba036faf081a9b15fcd2252#npm:2.6.9"],
-            ["safe-buffer", "npm:5.1.2"]
-          ],
-          "linkType": "HARD",
-        }]
-      ]],
       ["bl", [
         ["npm:4.0.3", {
           "packageLocation": "./.yarn/cache/bl-npm-4.0.3-4670d76538-4e011e5985.zip/node_modules/bl/",
@@ -10925,15 +10435,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/buffer-json-npm-2.0.0-da08ae4b55-9b8601d25f.zip/node_modules/buffer-json/",
           "packageDependencies": [
             ["buffer-json", "npm:2.0.0"]
-          ],
-          "linkType": "HARD",
-        }]
-      ]],
-      ["buffer-more-ints", [
-        ["npm:1.0.0", {
-          "packageLocation": "./.yarn/cache/buffer-more-ints-npm-1.0.0-36b3be4e82-f6e88dade0.zip/node_modules/buffer-more-ints/",
-          "packageDependencies": [
-            ["buffer-more-ints", "npm:1.0.0"]
           ],
           "linkType": "HARD",
         }]
@@ -11324,13 +10825,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]
       ]],
       ["class-transformer", [
-        ["npm:0.2.3", {
-          "packageLocation": "./.yarn/cache/class-transformer-npm-0.2.3-1cd4963d82-7a18fda30b.zip/node_modules/class-transformer/",
-          "packageDependencies": [
-            ["class-transformer", "npm:0.2.3"]
-          ],
-          "linkType": "HARD",
-        }],
         ["npm:0.4.0", {
           "packageLocation": "./.yarn/cache/class-transformer-npm-0.4.0-7e25d375bc-4057346b51.zip/node_modules/class-transformer/",
           "packageDependencies": [
@@ -11978,15 +11472,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["crc32-stream", "npm:4.0.2"],
             ["crc-32", "npm:1.2.0"],
             ["readable-stream", "npm:3.6.0"]
-          ],
-          "linkType": "HARD",
-        }]
-      ]],
-      ["create-require", [
-        ["npm:1.1.1", {
-          "packageLocation": "./.yarn/cache/create-require-npm-1.1.1-839884ca2e-a9a1503d43.zip/node_modules/create-require/",
-          "packageDependencies": [
-            ["create-require", "npm:1.1.1"]
           ],
           "linkType": "HARD",
         }]
@@ -14741,14 +14226,14 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],
           "linkType": "HARD",
         }],
-        ["virtual:9f28c49b2608fcfee1d35160027126b66ad864a0443b8f120d206857bfeae2ecaf0724f9edd3cff3dd5b5e9169f32b3c43098d021ceaeee9b1d61e636c128965#npm:0.15.0", {
-          "packageLocation": "./.yarn/__virtual__/graphql-extensions-virtual-d5138a539c/0/cache/graphql-extensions-npm-0.15.0-4a2c82efd7-5e93ebf85c.zip/node_modules/graphql-extensions/",
+        ["virtual:6e3c4c8370cd2a3ba4c46c11f50ef0a3f087fe3a12a9f1ed7ece454af23281fe98cd5949ae7c3884f8ac760599c5e9bfd1cac3804787863f38a92d791e30a23e#npm:0.15.0", {
+          "packageLocation": "./.yarn/__virtual__/graphql-extensions-virtual-6e59ea3b52/0/cache/graphql-extensions-npm-0.15.0-4a2c82efd7-5e93ebf85c.zip/node_modules/graphql-extensions/",
           "packageDependencies": [
-            ["graphql-extensions", "virtual:9f28c49b2608fcfee1d35160027126b66ad864a0443b8f120d206857bfeae2ecaf0724f9edd3cff3dd5b5e9169f32b3c43098d021ceaeee9b1d61e636c128965#npm:0.15.0"],
-            ["@apollographql/apollo-tools", "virtual:9f28c49b2608fcfee1d35160027126b66ad864a0443b8f120d206857bfeae2ecaf0724f9edd3cff3dd5b5e9169f32b3c43098d021ceaeee9b1d61e636c128965#npm:0.5.0"],
+            ["graphql-extensions", "virtual:6e3c4c8370cd2a3ba4c46c11f50ef0a3f087fe3a12a9f1ed7ece454af23281fe98cd5949ae7c3884f8ac760599c5e9bfd1cac3804787863f38a92d791e30a23e#npm:0.15.0"],
+            ["@apollographql/apollo-tools", "virtual:6e3c4c8370cd2a3ba4c46c11f50ef0a3f087fe3a12a9f1ed7ece454af23281fe98cd5949ae7c3884f8ac760599c5e9bfd1cac3804787863f38a92d791e30a23e#npm:0.5.0"],
             ["@types/graphql", null],
             ["apollo-server-env", "npm:3.1.0"],
-            ["apollo-server-types", "virtual:9f28c49b2608fcfee1d35160027126b66ad864a0443b8f120d206857bfeae2ecaf0724f9edd3cff3dd5b5e9169f32b3c43098d021ceaeee9b1d61e636c128965#npm:0.9.0"],
+            ["apollo-server-types", "virtual:6e3c4c8370cd2a3ba4c46c11f50ef0a3f087fe3a12a9f1ed7ece454af23281fe98cd5949ae7c3884f8ac760599c5e9bfd1cac3804787863f38a92d791e30a23e#npm:0.9.0"],
             ["graphql", null]
           ],
           "packagePeers": [
@@ -14817,20 +14302,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],
           "linkType": "SOFT",
         }],
-        ["virtual:5f82a368ba9082db09868c6b8c1a4af581f94fec2c9e17c333b9af02f653ed4c639c44701a72c51972419878c2a148d2f543a80ef9f7d5314a4ef5cf06a1701c#npm:1.2.1", {
-          "packageLocation": "./.yarn/__virtual__/graphql-subscriptions-virtual-9c9f509df8/0/cache/graphql-subscriptions-npm-1.2.1-6f6629f38d-2b9533c677.zip/node_modules/graphql-subscriptions/",
-          "packageDependencies": [
-            ["graphql-subscriptions", "virtual:5f82a368ba9082db09868c6b8c1a4af581f94fec2c9e17c333b9af02f653ed4c639c44701a72c51972419878c2a148d2f543a80ef9f7d5314a4ef5cf06a1701c#npm:1.2.1"],
-            ["@types/graphql", null],
-            ["graphql", null],
-            ["iterall", "npm:1.3.0"]
-          ],
-          "packagePeers": [
-            "@types/graphql",
-            "graphql"
-          ],
-          "linkType": "HARD",
-        }],
         ["virtual:7e92e9787114a7b5cad0a5f62eab65f5552eaa55e0bbf8c35384f1f5ddb8dc3522c69e8798fe152309c58a778d55f7af8a4bd45e696640c7f97f8bb04d05a712#npm:1.2.1", {
           "packageLocation": "./.yarn/__virtual__/graphql-subscriptions-virtual-649d631548/0/cache/graphql-subscriptions-npm-1.2.1-6f6629f38d-2b9533c677.zip/node_modules/graphql-subscriptions/",
           "packageDependencies": [
@@ -14854,12 +14325,12 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],
           "linkType": "SOFT",
         }],
-        ["virtual:54265bf0b7618fd72dbabb2ffaf729efbd1eb2573fe474f3dffdab599a28bb40690768b9de9da56c64f75a201062bced6bd95932aa627caf640d99ff89f9481c#npm:2.12.4", {
-          "packageLocation": "./.yarn/__virtual__/graphql-tag-virtual-5a3a1f64df/0/cache/graphql-tag-npm-2.12.4-0af5217688-476783e258.zip/node_modules/graphql-tag/",
+        ["virtual:0ce7a24d7625c6aa8f2153d4340a376f4feedaa5f857403d0efa501c97e26bd559001678bf7ebd05a85f8cb2f8476d6eceee8855fd67978d2447fca950e28793#npm:2.12.4", {
+          "packageLocation": "./.yarn/__virtual__/graphql-tag-virtual-af23607c43/0/cache/graphql-tag-npm-2.12.4-0af5217688-476783e258.zip/node_modules/graphql-tag/",
           "packageDependencies": [
-            ["graphql-tag", "virtual:54265bf0b7618fd72dbabb2ffaf729efbd1eb2573fe474f3dffdab599a28bb40690768b9de9da56c64f75a201062bced6bd95932aa627caf640d99ff89f9481c#npm:2.12.4"],
+            ["graphql-tag", "virtual:0ce7a24d7625c6aa8f2153d4340a376f4feedaa5f857403d0efa501c97e26bd559001678bf7ebd05a85f8cb2f8476d6eceee8855fd67978d2447fca950e28793#npm:2.12.4"],
             ["@types/graphql", null],
-            ["graphql", "npm:15.5.0"],
+            ["graphql", null],
             ["tslib", "npm:2.3.1"]
           ],
           "packagePeers": [
@@ -14868,12 +14339,12 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],
           "linkType": "HARD",
         }],
-        ["virtual:56c225a2aa7350e390c00fb9c77149e7e488995402eb45185214e6da9d84f18bbeb115dd594bd1f88641a82293c8cb34ccabbb9d381657db5451016d06c6f460#npm:2.12.4", {
-          "packageLocation": "./.yarn/__virtual__/graphql-tag-virtual-fc362cd9a9/0/cache/graphql-tag-npm-2.12.4-0af5217688-476783e258.zip/node_modules/graphql-tag/",
+        ["virtual:54265bf0b7618fd72dbabb2ffaf729efbd1eb2573fe474f3dffdab599a28bb40690768b9de9da56c64f75a201062bced6bd95932aa627caf640d99ff89f9481c#npm:2.12.4", {
+          "packageLocation": "./.yarn/__virtual__/graphql-tag-virtual-5a3a1f64df/0/cache/graphql-tag-npm-2.12.4-0af5217688-476783e258.zip/node_modules/graphql-tag/",
           "packageDependencies": [
-            ["graphql-tag", "virtual:56c225a2aa7350e390c00fb9c77149e7e488995402eb45185214e6da9d84f18bbeb115dd594bd1f88641a82293c8cb34ccabbb9d381657db5451016d06c6f460#npm:2.12.4"],
+            ["graphql-tag", "virtual:54265bf0b7618fd72dbabb2ffaf729efbd1eb2573fe474f3dffdab599a28bb40690768b9de9da56c64f75a201062bced6bd95932aa627caf640d99ff89f9481c#npm:2.12.4"],
             ["@types/graphql", null],
-            ["graphql", null],
+            ["graphql", "npm:15.5.0"],
             ["tslib", "npm:2.3.1"]
           ],
           "packagePeers": [
@@ -14909,13 +14380,13 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],
           "linkType": "HARD",
         }],
-        ["virtual:9f28c49b2608fcfee1d35160027126b66ad864a0443b8f120d206857bfeae2ecaf0724f9edd3cff3dd5b5e9169f32b3c43098d021ceaeee9b1d61e636c128965#npm:4.0.8", {
-          "packageLocation": "./.yarn/__virtual__/graphql-tools-virtual-c4958bf657/0/cache/graphql-tools-npm-4.0.8-8345536f34-6a2dc7f158.zip/node_modules/graphql-tools/",
+        ["virtual:6e3c4c8370cd2a3ba4c46c11f50ef0a3f087fe3a12a9f1ed7ece454af23281fe98cd5949ae7c3884f8ac760599c5e9bfd1cac3804787863f38a92d791e30a23e#npm:4.0.8", {
+          "packageLocation": "./.yarn/__virtual__/graphql-tools-virtual-e6617dba39/0/cache/graphql-tools-npm-4.0.8-8345536f34-6a2dc7f158.zip/node_modules/graphql-tools/",
           "packageDependencies": [
-            ["graphql-tools", "virtual:9f28c49b2608fcfee1d35160027126b66ad864a0443b8f120d206857bfeae2ecaf0724f9edd3cff3dd5b5e9169f32b3c43098d021ceaeee9b1d61e636c128965#npm:4.0.8"],
+            ["graphql-tools", "virtual:6e3c4c8370cd2a3ba4c46c11f50ef0a3f087fe3a12a9f1ed7ece454af23281fe98cd5949ae7c3884f8ac760599c5e9bfd1cac3804787863f38a92d791e30a23e#npm:4.0.8"],
             ["@types/graphql", null],
-            ["apollo-link", "virtual:c4958bf657a8fd4554129c3fcdccddcf7f5347b6fd36f7cfa6f92d56b0f3ea9b699954cd9925ae36ed4d884d755dbb5087ba4d916b9797684e1307acc78df874#npm:1.2.14"],
-            ["apollo-utilities", "virtual:c4958bf657a8fd4554129c3fcdccddcf7f5347b6fd36f7cfa6f92d56b0f3ea9b699954cd9925ae36ed4d884d755dbb5087ba4d916b9797684e1307acc78df874#npm:1.3.4"],
+            ["apollo-link", "virtual:e6617dba39c69baa8ddbca8f65996e9cd8f6c61d6cec70b6a5a9ca088c2722f7d5e77fbd57e1b6703e42cb9123bd239c93ad1f91b05fa40b2b1e6ab3d5754f1d#npm:1.2.14"],
+            ["apollo-utilities", "virtual:e6617dba39c69baa8ddbca8f65996e9cd8f6c61d6cec70b6a5a9ca088c2722f7d5e77fbd57e1b6703e42cb9123bd239c93ad1f91b05fa40b2b1e6ab3d5754f1d#npm:1.3.4"],
             ["deprecated-decorator", "npm:0.1.6"],
             ["graphql", null],
             ["iterall", "npm:1.3.0"],
@@ -15495,7 +14966,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/import-sort-parser-typescript-npm-6.0.0-97a472ec0a-81c5dd0726.zip/node_modules/import-sort-parser-typescript/",
           "packageDependencies": [
             ["import-sort-parser-typescript", "npm:6.0.0"],
-            ["typescript", "patch:typescript@npm%3A3.9.10#~builtin<compat/typescript>::version=3.9.10&hash=d8b4e7"]
+            ["typescript", "patch:typescript@npm%3A3.9.10#~builtin<compat/typescript>::version=3.9.10&hash=32657b"]
           ],
           "linkType": "HARD",
         }]
@@ -15686,15 +15157,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageDependencies": [
             ["invariant", "npm:2.2.4"],
             ["loose-envify", "npm:1.4.0"]
-          ],
-          "linkType": "HARD",
-        }]
-      ]],
-      ["inversify", [
-        ["npm:5.1.1", {
-          "packageLocation": "./.yarn/cache/inversify-npm-5.1.1-b7efd1fd77-22d201647b.zip/node_modules/inversify/",
-          "packageDependencies": [
-            ["inversify", "npm:5.1.1"]
           ],
           "linkType": "HARD",
         }]
@@ -18420,7 +17882,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/jest", "npm:26.0.24"],
             ["@types/node", "npm:14.14.37"],
             ["husky", "npm:7.0.1"],
-            ["typescript", "patch:typescript@npm%3A4.3.5#~builtin<compat/typescript>::version=4.3.5&hash=d8b4e7"]
+            ["typescript", "patch:typescript@npm%3A4.3.5#~builtin<compat/typescript>::version=4.3.5&hash=32657b"]
           ],
           "linkType": "SOFT",
         }]
@@ -18460,13 +17922,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/node-fetch-npm-2.6.1-46c670dbc1-91075bedd5.zip/node_modules/node-fetch/",
           "packageDependencies": [
             ["node-fetch", "npm:2.6.1"]
-          ],
-          "linkType": "HARD",
-        }],
-        ["npm:2.6.2", {
-          "packageLocation": "./.yarn/cache/node-fetch-npm-2.6.2-2820154539-de367eae1d.zip/node_modules/node-fetch/",
-          "packageDependencies": [
-            ["node-fetch", "npm:2.6.2"]
           ],
           "linkType": "HARD",
         }]
@@ -19645,15 +19100,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD",
         }]
       ]],
-      ["promise-breaker", [
-        ["npm:5.0.0", {
-          "packageLocation": "./.yarn/cache/promise-breaker-npm-5.0.0-a3cb65d720-12943dbb2a.zip/node_modules/promise-breaker/",
-          "packageDependencies": [
-            ["promise-breaker", "npm:5.0.0"]
-          ],
-          "linkType": "HARD",
-        }]
-      ]],
       ["promise-deferred", [
         ["npm:2.0.3", {
           "packageLocation": "./.yarn/cache/promise-deferred-npm-2.0.3-0b6eb75898-2e640ddd1e.zip/node_modules/promise-deferred/",
@@ -19872,15 +19318,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/querystring-npm-0.2.0-421b870c92-8258d6734f.zip/node_modules/querystring/",
           "packageDependencies": [
             ["querystring", "npm:0.2.0"]
-          ],
-          "linkType": "HARD",
-        }]
-      ]],
-      ["querystringify", [
-        ["npm:2.2.0", {
-          "packageLocation": "./.yarn/cache/querystringify-npm-2.2.0-4e77c9f606-5641ea231b.zip/node_modules/querystringify/",
-          "packageDependencies": [
-            ["querystringify", "npm:2.2.0"]
           ],
           "linkType": "HARD",
         }]
@@ -20295,15 +19732,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/require-main-filename-npm-2.0.0-03eef65c84-e9e294695f.zip/node_modules/require-main-filename/",
           "packageDependencies": [
             ["require-main-filename", "npm:2.0.0"]
-          ],
-          "linkType": "HARD",
-        }]
-      ]],
-      ["requires-port", [
-        ["npm:1.0.0", {
-          "packageLocation": "./.yarn/cache/requires-port-npm-1.0.0-fd036b488a-eee0e303ad.zip/node_modules/requires-port/",
-          "packageDependencies": [
-            ["requires-port", "npm:1.0.0"]
           ],
           "linkType": "HARD",
         }]
@@ -20730,24 +20158,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["no-case", "npm:3.0.4"],
             ["tslib", "npm:2.3.1"],
             ["upper-case-first", "npm:2.0.2"]
-          ],
-          "linkType": "HARD",
-        }]
-      ]],
-      ["serialize-error", [
-        ["npm:4.1.0", {
-          "packageLocation": "./.yarn/cache/serialize-error-npm-4.1.0-052c367b20-fe06799de9.zip/node_modules/serialize-error/",
-          "packageDependencies": [
-            ["serialize-error", "npm:4.1.0"],
-            ["type-fest", "npm:0.3.1"]
-          ],
-          "linkType": "HARD",
-        }],
-        ["npm:8.1.0", {
-          "packageLocation": "./.yarn/cache/serialize-error-npm-8.1.0-a3c5bcc96c-2eef236d50.zip/node_modules/serialize-error/",
-          "packageDependencies": [
-            ["serialize-error", "npm:8.1.0"],
-            ["type-fest", "npm:0.20.2"]
           ],
           "linkType": "HARD",
         }]
@@ -21699,10 +21109,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],
           "linkType": "HARD",
         }],
-        ["virtual:9f28c49b2608fcfee1d35160027126b66ad864a0443b8f120d206857bfeae2ecaf0724f9edd3cff3dd5b5e9169f32b3c43098d021ceaeee9b1d61e636c128965#npm:0.9.19", {
-          "packageLocation": "./.yarn/__virtual__/subscriptions-transport-ws-virtual-69a3667252/0/cache/subscriptions-transport-ws-npm-0.9.19-5f31f99bef-6979b36e03.zip/node_modules/subscriptions-transport-ws/",
+        ["virtual:6e3c4c8370cd2a3ba4c46c11f50ef0a3f087fe3a12a9f1ed7ece454af23281fe98cd5949ae7c3884f8ac760599c5e9bfd1cac3804787863f38a92d791e30a23e#npm:0.9.19", {
+          "packageLocation": "./.yarn/__virtual__/subscriptions-transport-ws-virtual-b7489029b3/0/cache/subscriptions-transport-ws-npm-0.9.19-5f31f99bef-6979b36e03.zip/node_modules/subscriptions-transport-ws/",
           "packageDependencies": [
-            ["subscriptions-transport-ws", "virtual:9f28c49b2608fcfee1d35160027126b66ad864a0443b8f120d206857bfeae2ecaf0724f9edd3cff3dd5b5e9169f32b3c43098d021ceaeee9b1d61e636c128965#npm:0.9.19"],
+            ["subscriptions-transport-ws", "virtual:6e3c4c8370cd2a3ba4c46c11f50ef0a3f087fe3a12a9f1ed7ece454af23281fe98cd5949ae7c3884f8ac760599c5e9bfd1cac3804787863f38a92d791e30a23e#npm:0.9.19"],
             ["@types/graphql", null],
             ["backo2", "npm:1.0.2"],
             ["eventemitter3", "npm:3.1.2"],
@@ -22350,7 +21760,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["enhanced-resolve", "npm:5.8.2"],
             ["micromatch", "npm:4.0.4"],
             ["semver", "npm:7.3.5"],
-            ["typescript", "patch:typescript@npm%3A4.3.5#~builtin<compat/typescript>::version=4.3.5&hash=d8b4e7"],
+            ["typescript", "patch:typescript@npm%3A4.3.5#~builtin<compat/typescript>::version=4.3.5&hash=32657b"],
             ["webpack", "virtual:9af56f53a9b24e505c63143808fc62101c2361a93deb5b105e424b227e770b8576a82e9ae59ac2e25a7fd81884ab19dbc8d63f3d064236198aeac4cc1fb2f680#npm:5.47.1"]
           ],
           "packagePeers": [
@@ -22369,50 +21779,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["ts-morph", "npm:11.0.3"],
             ["@ts-morph/common", "npm:0.10.1"],
             ["code-block-writer", "npm:10.1.1"]
-          ],
-          "linkType": "HARD",
-        }]
-      ]],
-      ["ts-node", [
-        ["npm:10.2.1", {
-          "packageLocation": "./.yarn/cache/ts-node-npm-10.2.1-18dc22b42d-f37d2827a5.zip/node_modules/ts-node/",
-          "packageDependencies": [
-            ["ts-node", "npm:10.2.1"]
-          ],
-          "linkType": "SOFT",
-        }],
-        ["virtual:43f224bf58a8dd0d46fbb6eb984524e8152d60ae5d34d82090b36a9b717bfd4d67b8dcc4bc265ee463f793500d973644848816db86205e51c48c8c2e191f3d47#npm:10.2.1", {
-          "packageLocation": "./.yarn/__virtual__/ts-node-virtual-8bdfbc3508/0/cache/ts-node-npm-10.2.1-18dc22b42d-f37d2827a5.zip/node_modules/ts-node/",
-          "packageDependencies": [
-            ["ts-node", "virtual:43f224bf58a8dd0d46fbb6eb984524e8152d60ae5d34d82090b36a9b717bfd4d67b8dcc4bc265ee463f793500d973644848816db86205e51c48c8c2e191f3d47#npm:10.2.1"],
-            ["@cspotcode/source-map-support", "npm:0.6.1"],
-            ["@swc/core", null],
-            ["@swc/wasm", null],
-            ["@tsconfig/node10", "npm:1.0.8"],
-            ["@tsconfig/node12", "npm:1.0.9"],
-            ["@tsconfig/node14", "npm:1.0.1"],
-            ["@tsconfig/node16", "npm:1.0.2"],
-            ["@types/node", null],
-            ["@types/swc__core", null],
-            ["@types/swc__wasm", null],
-            ["@types/typescript", null],
-            ["acorn", "npm:8.4.1"],
-            ["acorn-walk", "npm:8.2.0"],
-            ["arg", "npm:4.1.3"],
-            ["create-require", "npm:1.1.1"],
-            ["diff", "npm:4.0.2"],
-            ["make-error", "npm:1.3.6"],
-            ["typescript", "patch:typescript@npm%3A4.3.5#~builtin<compat/typescript>::version=4.3.5&hash=d8b4e7"],
-            ["yn", "npm:3.1.1"]
-          ],
-          "packagePeers": [
-            "@swc/core",
-            "@swc/wasm",
-            "@types/node",
-            "@types/swc__core",
-            "@types/swc__wasm",
-            "@types/typescript",
-            "typescript"
           ],
           "linkType": "HARD",
         }]
@@ -22526,7 +21892,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["tsutils", "virtual:1a2b7d6f389c3938255311261db30158426235cff609e8206cd1e29eaaed124cbb4cc63c358340213aaab424df44dd940ec04f1bb3b45b2e97815780cd2d8174#npm:3.21.0"],
             ["@types/typescript", null],
             ["tslib", "npm:1.14.1"],
-            ["typescript", "patch:typescript@npm%3A4.3.5#~builtin<compat/typescript>::version=4.3.5&hash=d8b4e7"]
+            ["typescript", "patch:typescript@npm%3A4.3.5#~builtin<compat/typescript>::version=4.3.5&hash=32657b"]
           ],
           "packagePeers": [
             "@types/typescript",
@@ -22642,13 +22008,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],
           "linkType": "HARD",
         }],
-        ["npm:0.3.1", {
-          "packageLocation": "./.yarn/cache/type-fest-npm-0.3.1-542c938bf6-347ff46c22.zip/node_modules/type-fest/",
-          "packageDependencies": [
-            ["type-fest", "npm:0.3.1"]
-          ],
-          "linkType": "HARD",
-        }],
         ["npm:0.6.0", {
           "packageLocation": "./.yarn/cache/type-fest-npm-0.6.0-76b229965b-b2188e6e4b.zip/node_modules/type-fest/",
           "packageDependencies": [
@@ -22723,31 +22082,31 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]
       ]],
       ["typescript", [
-        ["patch:typescript@npm%3A3.9.10#~builtin<compat/typescript>::version=3.9.10&hash=d8b4e7", {
-          "packageLocation": "./.yarn/cache/typescript-patch-c1d4db350f-8dcd46a8a2.zip/node_modules/typescript/",
+        ["patch:typescript@npm%3A3.9.10#~builtin<compat/typescript>::version=3.9.10&hash=32657b", {
+          "packageLocation": "./.yarn/cache/typescript-patch-e55480cf5c-8dcd46a8a2.zip/node_modules/typescript/",
           "packageDependencies": [
-            ["typescript", "patch:typescript@npm%3A3.9.10#~builtin<compat/typescript>::version=3.9.10&hash=d8b4e7"]
+            ["typescript", "patch:typescript@npm%3A3.9.10#~builtin<compat/typescript>::version=3.9.10&hash=32657b"]
           ],
           "linkType": "HARD",
         }],
-        ["patch:typescript@npm%3A4.1.3#~builtin<compat/typescript>::version=4.1.3&hash=d8b4e7", {
-          "packageLocation": "./.yarn/cache/typescript-patch-8ac2c63ebe-f7de4f06a6.zip/node_modules/typescript/",
+        ["patch:typescript@npm%3A4.1.3#~builtin<compat/typescript>::version=4.1.3&hash=32657b", {
+          "packageLocation": "./.yarn/cache/typescript-patch-c7a31df124-f7de4f06a6.zip/node_modules/typescript/",
           "packageDependencies": [
-            ["typescript", "patch:typescript@npm%3A4.1.3#~builtin<compat/typescript>::version=4.1.3&hash=d8b4e7"]
+            ["typescript", "patch:typescript@npm%3A4.1.3#~builtin<compat/typescript>::version=4.1.3&hash=32657b"]
           ],
           "linkType": "HARD",
         }],
-        ["patch:typescript@npm%3A4.3.5#~builtin<compat/typescript>::version=4.3.5&hash=d8b4e7", {
-          "packageLocation": "./.yarn/cache/typescript-patch-bb3b548ba1-bc2c4fdf0f.zip/node_modules/typescript/",
+        ["patch:typescript@npm%3A4.3.5#~builtin<compat/typescript>::version=4.3.5&hash=32657b", {
+          "packageLocation": "./.yarn/cache/typescript-patch-6e3648db44-4e2edec3c9.zip/node_modules/typescript/",
           "packageDependencies": [
-            ["typescript", "patch:typescript@npm%3A4.3.5#~builtin<compat/typescript>::version=4.3.5&hash=d8b4e7"]
+            ["typescript", "patch:typescript@npm%3A4.3.5#~builtin<compat/typescript>::version=4.3.5&hash=32657b"]
           ],
           "linkType": "HARD",
         }],
-        ["patch:typescript@npm%3A4.4.3#~builtin<compat/typescript>::version=4.4.3&hash=d8b4e7", {
-          "packageLocation": "./.yarn/cache/typescript-patch-2e9f9a47cb-215a59742a.zip/node_modules/typescript/",
+        ["patch:typescript@npm%3A4.4.3#~builtin<compat/typescript>::version=4.4.3&hash=32657b", {
+          "packageLocation": "./.yarn/cache/typescript-patch-2d83eeb1af-28ab98313a.zip/node_modules/typescript/",
           "packageDependencies": [
-            ["typescript", "patch:typescript@npm%3A4.4.3#~builtin<compat/typescript>::version=4.4.3&hash=d8b4e7"]
+            ["typescript", "patch:typescript@npm%3A4.4.3#~builtin<compat/typescript>::version=4.4.3&hash=32657b"]
           ],
           "linkType": "HARD",
         }]
@@ -22923,17 +22282,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["url", "npm:0.10.3"],
             ["punycode", "npm:1.3.2"],
             ["querystring", "npm:0.2.0"]
-          ],
-          "linkType": "HARD",
-        }]
-      ]],
-      ["url-parse", [
-        ["npm:1.4.7", {
-          "packageLocation": "./.yarn/cache/url-parse-npm-1.4.7-5f04e49040-3ede937508.zip/node_modules/url-parse/",
-          "packageDependencies": [
-            ["url-parse", "npm:1.4.7"],
-            ["querystringify", "npm:2.2.0"],
-            ["requires-port", "npm:1.0.0"]
           ],
           "linkType": "HARD",
         }]
@@ -23701,15 +23049,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD",
         }]
       ]],
-      ["yn", [
-        ["npm:3.1.1", {
-          "packageLocation": "./.yarn/cache/yn-npm-3.1.1-8ad4259784-2c487b0e14.zip/node_modules/yn/",
-          "packageDependencies": [
-            ["yn", "npm:3.1.1"]
-          ],
-          "linkType": "HARD",
-        }]
-      ]],
       ["yocto-queue", [
         ["npm:0.1.0", {
           "packageLocation": "./.yarn/cache/yocto-queue-npm-0.1.0-c6c9a7db29-f77b3d8d00.zip/node_modules/yocto-queue/",
@@ -23802,6690 +23141,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
 })(global, function() {
 return /******/ (() => { // webpackBootstrap
 /******/ 	var __webpack_modules__ = ({
-
-/***/ 378:
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-
-// EXPORTS
-__webpack_require__.d(__webpack_exports__, {
-  "default": () => /* binding */ _entryPoint
-});
-
-// EXTERNAL MODULE: external "fs"
-var external_fs_ = __webpack_require__(747);
-var external_fs_default = /*#__PURE__*/__webpack_require__.n(external_fs_);
-
-// CONCATENATED MODULE: external "os"
-const external_os_namespaceObject = require("os");;
-var external_os_default = /*#__PURE__*/__webpack_require__.n(external_os_namespaceObject);
-
-// EXTERNAL MODULE: external "path"
-var external_path_ = __webpack_require__(622);
-var external_path_default = /*#__PURE__*/__webpack_require__.n(external_path_);
-
-// CONCATENATED MODULE: ../yarnpkg-fslib/sources/path.ts
-
-var PathType;
-
-(function (PathType) {
-  PathType[PathType["File"] = 0] = "File";
-  PathType[PathType["Portable"] = 1] = "Portable";
-  PathType[PathType["Native"] = 2] = "Native";
-})(PathType || (PathType = {}));
-
-const PortablePath = {
-  root: `/`,
-  dot: `.`
-};
-const Filename = {
-  nodeModules: `node_modules`,
-  manifest: `package.json`,
-  lockfile: `yarn.lock`,
-  virtual: `__virtual__`,
-
-  /**
-   * @deprecated
-   */
-  pnpJs: `.pnp.js`,
-  pnpCjs: `.pnp.cjs`,
-  rc: `.yarnrc.yml`
-};
-const npath = Object.create((external_path_default()));
-const ppath = Object.create((external_path_default()).posix);
-
-npath.cwd = () => process.cwd();
-
-ppath.cwd = () => toPortablePath(process.cwd());
-
-ppath.resolve = (...segments) => {
-  if (segments.length > 0 && ppath.isAbsolute(segments[0])) {
-    return external_path_default().posix.resolve(...segments);
-  } else {
-    return external_path_default().posix.resolve(ppath.cwd(), ...segments);
-  }
-};
-
-const contains = function (pathUtils, from, to) {
-  from = pathUtils.normalize(from);
-  to = pathUtils.normalize(to);
-  if (from === to) return `.`;
-  if (!from.endsWith(pathUtils.sep)) from = from + pathUtils.sep;
-
-  if (to.startsWith(from)) {
-    return to.slice(from.length);
-  } else {
-    return null;
-  }
-};
-
-npath.fromPortablePath = fromPortablePath;
-npath.toPortablePath = toPortablePath;
-
-npath.contains = (from, to) => contains(npath, from, to);
-
-ppath.contains = (from, to) => contains(ppath, from, to);
-
-const WINDOWS_PATH_REGEXP = /^([a-zA-Z]:.*)$/;
-const UNC_WINDOWS_PATH_REGEXP = /^\\\\(\.\\)?(.*)$/;
-const PORTABLE_PATH_REGEXP = /^\/([a-zA-Z]:.*)$/;
-const UNC_PORTABLE_PATH_REGEXP = /^\/unc\/(\.dot\/)?(.*)$/; // Path should look like "/N:/berry/scripts/plugin-pack.js"
-// And transform to "N:\berry\scripts\plugin-pack.js"
-
-function fromPortablePath(p) {
-  if (process.platform !== `win32`) return p;
-  if (p.match(PORTABLE_PATH_REGEXP)) p = p.replace(PORTABLE_PATH_REGEXP, `$1`);else if (p.match(UNC_PORTABLE_PATH_REGEXP)) p = p.replace(UNC_PORTABLE_PATH_REGEXP, (match, p1, p2) => `\\\\${p1 ? `.\\` : ``}${p2}`);else return p;
-  return p.replace(/\//g, `\\`);
-} // Path should look like "N:/berry/scripts/plugin-pack.js"
-// And transform to "/N:/berry/scripts/plugin-pack.js"
-
-
-function toPortablePath(p) {
-  if (process.platform !== `win32`) return p;
-  if (p.match(WINDOWS_PATH_REGEXP)) p = p.replace(WINDOWS_PATH_REGEXP, `/$1`);else if (p.match(UNC_WINDOWS_PATH_REGEXP)) p = p.replace(UNC_WINDOWS_PATH_REGEXP, (match, p1, p2) => `/unc/${p1 ? `.dot/` : ``}${p2}`);
-  return p.replace(/\\/g, `/`);
-}
-
-function convertPath(targetPathUtils, sourcePath) {
-  return targetPathUtils === npath ? fromPortablePath(sourcePath) : toPortablePath(sourcePath);
-}
-function toFilename(filename) {
-  if (npath.parse(filename).dir !== `` || ppath.parse(filename).dir !== ``) throw new Error(`Invalid filename: "${filename}"`);
-  return filename;
-}
-// CONCATENATED MODULE: ../yarnpkg-fslib/sources/algorithms/copyPromise.ts
-
- // 1980-01-01, like Fedora
-
-const defaultTime = new Date(315532800 * 1000);
-var LinkStrategy;
-
-(function (LinkStrategy) {
-  LinkStrategy["Allow"] = "allow";
-  LinkStrategy["ReadOnly"] = "readOnly";
-})(LinkStrategy || (LinkStrategy = {}));
-
-async function copyPromise(destinationFs, destination, sourceFs, source, opts) {
-  const normalizedDestination = destinationFs.pathUtils.normalize(destination);
-  const normalizedSource = sourceFs.pathUtils.normalize(source);
-  const prelayout = [];
-  const postlayout = [];
-  await destinationFs.mkdirPromise(destinationFs.pathUtils.dirname(destination), {
-    recursive: true
-  });
-  const updateTime = typeof destinationFs.lutimesPromise === `function` ? destinationFs.lutimesPromise.bind(destinationFs) : destinationFs.utimesPromise.bind(destinationFs);
-  await copyImpl(prelayout, postlayout, updateTime, destinationFs, normalizedDestination, sourceFs, normalizedSource, opts);
-
-  for (const operation of prelayout) await operation();
-
-  await Promise.all(postlayout.map(operation => {
-    return operation();
-  }));
-}
-
-async function copyImpl(prelayout, postlayout, updateTime, destinationFs, destination, sourceFs, source, opts) {
-  var _a, _b;
-
-  const destinationStat = await maybeLStat(destinationFs, destination);
-  const sourceStat = await sourceFs.lstatPromise(source);
-  const referenceTime = opts.stableTime ? {
-    mtime: defaultTime,
-    atime: defaultTime
-  } : sourceStat;
-  let updated;
-
-  switch (true) {
-    case sourceStat.isDirectory():
-      {
-        updated = await copyFolder(prelayout, postlayout, updateTime, destinationFs, destination, destinationStat, sourceFs, source, sourceStat, opts);
-      }
-      break;
-
-    case sourceStat.isFile():
-      {
-        updated = await copyFile(prelayout, postlayout, updateTime, destinationFs, destination, destinationStat, sourceFs, source, sourceStat, opts);
-      }
-      break;
-
-    case sourceStat.isSymbolicLink():
-      {
-        updated = await copySymlink(prelayout, postlayout, updateTime, destinationFs, destination, destinationStat, sourceFs, source, sourceStat, opts);
-      }
-      break;
-
-    default:
-      {
-        throw new Error(`Unsupported file type (${sourceStat.mode})`);
-      }
-      break;
-  }
-
-  if (updated || ((_a = destinationStat === null || destinationStat === void 0 ? void 0 : destinationStat.mtime) === null || _a === void 0 ? void 0 : _a.getTime()) !== referenceTime.mtime.getTime() || ((_b = destinationStat === null || destinationStat === void 0 ? void 0 : destinationStat.atime) === null || _b === void 0 ? void 0 : _b.getTime()) !== referenceTime.atime.getTime()) {
-    postlayout.push(() => updateTime(destination, referenceTime.atime, referenceTime.mtime));
-    updated = true;
-  }
-
-  if (destinationStat === null || (destinationStat.mode & 0o777) !== (sourceStat.mode & 0o777)) {
-    postlayout.push(() => destinationFs.chmodPromise(destination, sourceStat.mode & 0o777));
-    updated = true;
-  }
-
-  return updated;
-}
-
-async function maybeLStat(baseFs, p) {
-  try {
-    return await baseFs.lstatPromise(p);
-  } catch (e) {
-    return null;
-  }
-}
-
-async function copyFolder(prelayout, postlayout, updateTime, destinationFs, destination, destinationStat, sourceFs, source, sourceStat, opts) {
-  if (destinationStat !== null && !destinationStat.isDirectory()) {
-    if (opts.overwrite) {
-      prelayout.push(async () => destinationFs.removePromise(destination));
-      destinationStat = null;
-    } else {
-      return false;
-    }
-  }
-
-  let updated = false;
-
-  if (destinationStat === null) {
-    prelayout.push(async () => destinationFs.mkdirPromise(destination, {
-      mode: sourceStat.mode
-    }));
-    updated = true;
-  }
-
-  const entries = await sourceFs.readdirPromise(source);
-
-  if (opts.stableSort) {
-    for (const entry of entries.sort()) {
-      if (await copyImpl(prelayout, postlayout, updateTime, destinationFs, destinationFs.pathUtils.join(destination, entry), sourceFs, sourceFs.pathUtils.join(source, entry), opts)) {
-        updated = true;
-      }
-    }
-  } else {
-    const entriesUpdateStatus = await Promise.all(entries.map(async entry => {
-      await copyImpl(prelayout, postlayout, updateTime, destinationFs, destinationFs.pathUtils.join(destination, entry), sourceFs, sourceFs.pathUtils.join(source, entry), opts);
-    }));
-
-    if (entriesUpdateStatus.some(status => status)) {
-      updated = true;
-    }
-  }
-
-  return updated;
-}
-
-const isCloneSupportedCache = new WeakMap();
-
-function makeLinkOperation(opFs, destination, source, sourceStat, linkStrategy) {
-  return async () => {
-    await opFs.linkPromise(source, destination);
-
-    if (linkStrategy === LinkStrategy.ReadOnly) {
-      // We mutate the stat, otherwise it'll be reset by copyImpl
-      sourceStat.mode &= ~0o222;
-      await opFs.chmodPromise(destination, sourceStat.mode);
-    }
-  };
-}
-
-function makeCloneLinkOperation(opFs, destination, source, sourceStat, linkStrategy) {
-  const isCloneSupported = isCloneSupportedCache.get(opFs);
-
-  if (typeof isCloneSupported === `undefined`) {
-    return async () => {
-      try {
-        await opFs.copyFilePromise(source, destination, (external_fs_default()).constants.COPYFILE_FICLONE_FORCE);
-        isCloneSupportedCache.set(opFs, true);
-      } catch (err) {
-        if (err.code === `ENOSYS` || err.code === `ENOTSUP`) {
-          isCloneSupportedCache.set(opFs, false);
-          await makeLinkOperation(opFs, destination, source, sourceStat, linkStrategy)();
-        } else {
-          throw err;
-        }
-      }
-    };
-  } else {
-    if (isCloneSupported) {
-      return async () => opFs.copyFilePromise(source, destination, (external_fs_default()).constants.COPYFILE_FICLONE_FORCE);
-    } else {
-      return makeLinkOperation(opFs, destination, source, sourceStat, linkStrategy);
-    }
-  }
-}
-
-async function copyFile(prelayout, postlayout, updateTime, destinationFs, destination, destinationStat, sourceFs, source, sourceStat, opts) {
-  var _a;
-
-  if (destinationStat !== null) {
-    if (opts.overwrite) {
-      prelayout.push(async () => destinationFs.removePromise(destination));
-      destinationStat = null;
-    } else {
-      return false;
-    }
-  }
-
-  const linkStrategy = (_a = opts.linkStrategy) !== null && _a !== void 0 ? _a : null;
-  const op = destinationFs === sourceFs ? linkStrategy !== null ? makeCloneLinkOperation(destinationFs, destination, source, sourceStat, linkStrategy) : async () => destinationFs.copyFilePromise(source, destination, (external_fs_default()).constants.COPYFILE_FICLONE) : linkStrategy !== null ? makeLinkOperation(destinationFs, destination, source, sourceStat, linkStrategy) : async () => destinationFs.writeFilePromise(destination, await sourceFs.readFilePromise(source));
-  prelayout.push(async () => op());
-  return true;
-}
-
-async function copySymlink(prelayout, postlayout, updateTime, destinationFs, destination, destinationStat, sourceFs, source, sourceStat, opts) {
-  if (destinationStat !== null) {
-    if (opts.overwrite) {
-      prelayout.push(async () => destinationFs.removePromise(destination));
-      destinationStat = null;
-    } else {
-      return false;
-    }
-  }
-
-  prelayout.push(async () => {
-    await destinationFs.symlinkPromise(convertPath(destinationFs.pathUtils, await sourceFs.readlinkPromise(source)), destination);
-  });
-  return true;
-}
-// CONCATENATED MODULE: ../yarnpkg-fslib/sources/FakeFS.ts
-
-
-
-class FakeFS {
-  constructor(pathUtils) {
-    this.pathUtils = pathUtils;
-  }
-
-  async *genTraversePromise(init, {
-    stableSort = false
-  } = {}) {
-    const stack = [init];
-
-    while (stack.length > 0) {
-      const p = stack.shift();
-      const entry = await this.lstatPromise(p);
-
-      if (entry.isDirectory()) {
-        const entries = await this.readdirPromise(p);
-
-        if (stableSort) {
-          for (const entry of entries.sort()) {
-            stack.push(this.pathUtils.join(p, entry));
-          }
-        } else {
-          throw new Error(`Not supported`);
-        }
-      } else {
-        yield p;
-      }
-    }
-  }
-
-  async removePromise(p, {
-    recursive = true,
-    maxRetries = 5
-  } = {}) {
-    let stat;
-
-    try {
-      stat = await this.lstatPromise(p);
-    } catch (error) {
-      if (error.code === `ENOENT`) {
-        return;
-      } else {
-        throw error;
-      }
-    }
-
-    if (stat.isDirectory()) {
-      if (recursive) {
-        const entries = await this.readdirPromise(p);
-        await Promise.all(entries.map(entry => {
-          return this.removePromise(this.pathUtils.resolve(p, entry));
-        }));
-      } // 5 gives 1s worth of retries at worst
-
-
-      let t = 0;
-
-      do {
-        try {
-          await this.rmdirPromise(p);
-          break;
-        } catch (error) {
-          if (error.code === `EBUSY` || error.code === `ENOTEMPTY`) {
-            if (maxRetries === 0) {
-              break;
-            } else {
-              await new Promise(resolve => setTimeout(resolve, t * 100));
-              continue;
-            }
-          } else {
-            throw error;
-          }
-        }
-      } while (t++ < maxRetries);
-    } else {
-      await this.unlinkPromise(p);
-    }
-  }
-
-  removeSync(p, {
-    recursive = true
-  } = {}) {
-    let stat;
-
-    try {
-      stat = this.lstatSync(p);
-    } catch (error) {
-      if (error.code === `ENOENT`) {
-        return;
-      } else {
-        throw error;
-      }
-    }
-
-    if (stat.isDirectory()) {
-      if (recursive) for (const entry of this.readdirSync(p)) this.removeSync(this.pathUtils.resolve(p, entry));
-      this.rmdirSync(p);
-    } else {
-      this.unlinkSync(p);
-    }
-  }
-
-  async mkdirpPromise(p, {
-    chmod,
-    utimes
-  } = {}) {
-    p = this.resolve(p);
-    if (p === this.pathUtils.dirname(p)) return;
-    const parts = p.split(this.pathUtils.sep);
-
-    for (let u = 2; u <= parts.length; ++u) {
-      const subPath = parts.slice(0, u).join(this.pathUtils.sep);
-
-      if (!this.existsSync(subPath)) {
-        try {
-          await this.mkdirPromise(subPath);
-        } catch (error) {
-          if (error.code === `EEXIST`) {
-            continue;
-          } else {
-            throw error;
-          }
-        }
-
-        if (chmod != null) await this.chmodPromise(subPath, chmod);
-
-        if (utimes != null) {
-          await this.utimesPromise(subPath, utimes[0], utimes[1]);
-        } else {
-          const parentStat = await this.statPromise(this.pathUtils.dirname(subPath));
-          await this.utimesPromise(subPath, parentStat.atime, parentStat.mtime);
-        }
-      }
-    }
-  }
-
-  mkdirpSync(p, {
-    chmod,
-    utimes
-  } = {}) {
-    p = this.resolve(p);
-    if (p === this.pathUtils.dirname(p)) return;
-    const parts = p.split(this.pathUtils.sep);
-
-    for (let u = 2; u <= parts.length; ++u) {
-      const subPath = parts.slice(0, u).join(this.pathUtils.sep);
-
-      if (!this.existsSync(subPath)) {
-        try {
-          this.mkdirSync(subPath);
-        } catch (error) {
-          if (error.code === `EEXIST`) {
-            continue;
-          } else {
-            throw error;
-          }
-        }
-
-        if (chmod != null) this.chmodSync(subPath, chmod);
-
-        if (utimes != null) {
-          this.utimesSync(subPath, utimes[0], utimes[1]);
-        } else {
-          const parentStat = this.statSync(this.pathUtils.dirname(subPath));
-          this.utimesSync(subPath, parentStat.atime, parentStat.mtime);
-        }
-      }
-    }
-  }
-
-  async copyPromise(destination, source, {
-    baseFs = this,
-    overwrite = true,
-    stableSort = false,
-    stableTime = false,
-    linkStrategy = null
-  } = {}) {
-    return await copyPromise(this, destination, baseFs, source, {
-      overwrite,
-      stableSort,
-      stableTime,
-      linkStrategy
-    });
-  }
-
-  copySync(destination, source, {
-    baseFs = this,
-    overwrite = true
-  } = {}) {
-    const stat = baseFs.lstatSync(source);
-    const exists = this.existsSync(destination);
-
-    if (stat.isDirectory()) {
-      this.mkdirpSync(destination);
-      const directoryListing = baseFs.readdirSync(source);
-
-      for (const entry of directoryListing) {
-        this.copySync(this.pathUtils.join(destination, entry), baseFs.pathUtils.join(source, entry), {
-          baseFs,
-          overwrite
-        });
-      }
-    } else if (stat.isFile()) {
-      if (!exists || overwrite) {
-        if (exists) this.removeSync(destination);
-        const content = baseFs.readFileSync(source);
-        this.writeFileSync(destination, content);
-      }
-    } else if (stat.isSymbolicLink()) {
-      if (!exists || overwrite) {
-        if (exists) this.removeSync(destination);
-        const target = baseFs.readlinkSync(source);
-        this.symlinkSync(convertPath(this.pathUtils, target), destination);
-      }
-    } else {
-      throw new Error(`Unsupported file type (file: ${source}, mode: 0o${stat.mode.toString(8).padStart(6, `0`)})`);
-    }
-
-    const mode = stat.mode & 0o777;
-    this.chmodSync(destination, mode);
-  }
-
-  async changeFilePromise(p, content, opts = {}) {
-    if (Buffer.isBuffer(content)) {
-      return this.changeFileBufferPromise(p, content);
-    } else {
-      return this.changeFileTextPromise(p, content, opts);
-    }
-  }
-
-  async changeFileBufferPromise(p, content) {
-    let current = Buffer.alloc(0);
-
-    try {
-      current = await this.readFilePromise(p);
-    } catch (error) {// ignore errors, no big deal
-    }
-
-    if (Buffer.compare(current, content) === 0) return;
-    await this.writeFilePromise(p, content);
-  }
-
-  async changeFileTextPromise(p, content, {
-    automaticNewlines
-  } = {}) {
-    let current = ``;
-
-    try {
-      current = await this.readFilePromise(p, `utf8`);
-    } catch (error) {// ignore errors, no big deal
-    }
-
-    const normalizedContent = automaticNewlines ? normalizeLineEndings(current, content) : content;
-    if (current === normalizedContent) return;
-    await this.writeFilePromise(p, normalizedContent);
-  }
-
-  changeFileSync(p, content, opts = {}) {
-    if (Buffer.isBuffer(content)) {
-      return this.changeFileBufferSync(p, content);
-    } else {
-      return this.changeFileTextSync(p, content, opts);
-    }
-  }
-
-  changeFileBufferSync(p, content) {
-    let current = Buffer.alloc(0);
-
-    try {
-      current = this.readFileSync(p);
-    } catch (error) {// ignore errors, no big deal
-    }
-
-    if (Buffer.compare(current, content) === 0) return;
-    this.writeFileSync(p, content);
-  }
-
-  changeFileTextSync(p, content, {
-    automaticNewlines = false
-  } = {}) {
-    let current = ``;
-
-    try {
-      current = this.readFileSync(p, `utf8`);
-    } catch (error) {// ignore errors, no big deal
-    }
-
-    const normalizedContent = automaticNewlines ? normalizeLineEndings(current, content) : content;
-    if (current === normalizedContent) return;
-    this.writeFileSync(p, normalizedContent);
-  }
-
-  async movePromise(fromP, toP) {
-    try {
-      await this.renamePromise(fromP, toP);
-    } catch (error) {
-      if (error.code === `EXDEV`) {
-        await this.copyPromise(toP, fromP);
-        await this.removePromise(fromP);
-      } else {
-        throw error;
-      }
-    }
-  }
-
-  moveSync(fromP, toP) {
-    try {
-      this.renameSync(fromP, toP);
-    } catch (error) {
-      if (error.code === `EXDEV`) {
-        this.copySync(toP, fromP);
-        this.removeSync(fromP);
-      } else {
-        throw error;
-      }
-    }
-  }
-
-  async lockPromise(affectedPath, callback) {
-    const lockPath = `${affectedPath}.flock`;
-    const interval = 1000 / 60;
-    const startTime = Date.now();
-    let fd = null; // Even when we detect that a lock file exists, we still look inside to see
-    // whether the pid that created it is still alive. It's not foolproof
-    // (there are false positive), but there are no false negative and that's
-    // all that matters in 99% of the cases.
-
-    const isAlive = async () => {
-      let pid;
-
-      try {
-        [pid] = await this.readJsonPromise(lockPath);
-      } catch (error) {
-        // If we can't read the file repeatedly, we assume the process was
-        // aborted before even writing finishing writing the payload.
-        return Date.now() - startTime < 500;
-      }
-
-      try {
-        // "As a special case, a signal of 0 can be used to test for the
-        // existence of a process" - so we check whether it's alive.
-        process.kill(pid, 0);
-        return true;
-      } catch (error) {
-        return false;
-      }
-    };
-
-    while (fd === null) {
-      try {
-        fd = await this.openPromise(lockPath, `wx`);
-      } catch (error) {
-        if (error.code === `EEXIST`) {
-          if (!(await isAlive())) {
-            try {
-              await this.unlinkPromise(lockPath);
-              continue;
-            } catch (error) {// No big deal if we can't remove it. Just fallback to wait for
-              // it to be eventually released by its owner.
-            }
-          }
-
-          if (Date.now() - startTime < 60 * 1000) {
-            await new Promise(resolve => setTimeout(resolve, interval));
-          } else {
-            throw new Error(`Couldn't acquire a lock in a reasonable time (via ${lockPath})`);
-          }
-        } else {
-          throw error;
-        }
-      }
-    }
-
-    await this.writePromise(fd, JSON.stringify([process.pid]));
-
-    try {
-      return await callback();
-    } finally {
-      try {
-        // closePromise needs to come before unlinkPromise otherwise another process can attempt
-        // to get the file handle after the unlink but before close resuling in
-        // EPERM: operation not permitted, open
-        await this.closePromise(fd);
-        await this.unlinkPromise(lockPath);
-      } catch (error) {// noop
-      }
-    }
-  }
-
-  async readJsonPromise(p) {
-    const content = await this.readFilePromise(p, `utf8`);
-
-    try {
-      return JSON.parse(content);
-    } catch (error) {
-      error.message += ` (in ${p})`;
-      throw error;
-    }
-  }
-
-  readJsonSync(p) {
-    const content = this.readFileSync(p, `utf8`);
-
-    try {
-      return JSON.parse(content);
-    } catch (error) {
-      error.message += ` (in ${p})`;
-      throw error;
-    }
-  }
-
-  async writeJsonPromise(p, data) {
-    return await this.writeFilePromise(p, `${JSON.stringify(data, null, 2)}\n`);
-  }
-
-  writeJsonSync(p, data) {
-    return this.writeFileSync(p, `${JSON.stringify(data, null, 2)}\n`);
-  }
-
-  async preserveTimePromise(p, cb) {
-    const stat = await this.lstatPromise(p);
-    const result = await cb();
-    if (typeof result !== `undefined`) p = result;
-
-    if (this.lutimesPromise) {
-      await this.lutimesPromise(p, stat.atime, stat.mtime);
-    } else if (!stat.isSymbolicLink()) {
-      await this.utimesPromise(p, stat.atime, stat.mtime);
-    }
-  }
-
-  async preserveTimeSync(p, cb) {
-    const stat = this.lstatSync(p);
-    const result = cb();
-    if (typeof result !== `undefined`) p = result;
-
-    if (this.lutimesSync) {
-      this.lutimesSync(p, stat.atime, stat.mtime);
-    } else if (!stat.isSymbolicLink()) {
-      this.utimesSync(p, stat.atime, stat.mtime);
-    }
-  }
-
-}
-FakeFS.DEFAULT_TIME = 315532800;
-class BasePortableFakeFS extends FakeFS {
-  constructor() {
-    super(ppath);
-  }
-
-}
-
-function getEndOfLine(content) {
-  const matches = content.match(/\r?\n/g);
-  if (matches === null) return external_os_namespaceObject.EOL;
-  const crlf = matches.filter(nl => nl === `\r\n`).length;
-  const lf = matches.length - crlf;
-  return crlf > lf ? `\r\n` : `\n`;
-}
-
-function normalizeLineEndings(originalContent, newContent) {
-  return newContent.replace(/\r?\n/g, getEndOfLine(originalContent));
-}
-// CONCATENATED MODULE: ../yarnpkg-fslib/sources/errors.ts
-function makeError(code, message) {
-  return Object.assign(new Error(`${code}: ${message}`), {
-    code
-  });
-}
-
-function EBUSY(message) {
-  return makeError(`EBUSY`, message);
-}
-function ENOSYS(message, reason) {
-  return makeError(`ENOSYS`, `${message}, ${reason}`);
-}
-function EINVAL(reason) {
-  return makeError(`EINVAL`, `invalid argument, ${reason}`);
-}
-function EBADF(reason) {
-  return makeError(`EBADF`, `bad file descriptor, ${reason}`);
-}
-function ENOENT(reason) {
-  return makeError(`ENOENT`, `no such file or directory, ${reason}`);
-}
-function ENOTDIR(reason) {
-  return makeError(`ENOTDIR`, `not a directory, ${reason}`);
-}
-function EISDIR(reason) {
-  return makeError(`EISDIR`, `illegal operation on a directory, ${reason}`);
-}
-function EEXIST(reason) {
-  return makeError(`EEXIST`, `file already exists, ${reason}`);
-}
-function EROFS(reason) {
-  return makeError(`EROFS`, `read-only filesystem, ${reason}`);
-}
-function ENOTEMPTY(reason) {
-  return makeError(`ENOTEMPTY`, `directory not empty, ${reason}`);
-}
-function EOPNOTSUPP(reason) {
-  return makeError(`EOPNOTSUPP`, `operation not supported, ${reason}`);
-} // ------------------------------------------------------------------------
-
-function ERR_DIR_CLOSED() {
-  return makeError(`ERR_DIR_CLOSED`, `Directory handle was closed`);
-} // ------------------------------------------------------------------------
-
-class LibzipError extends Error {
-  constructor(message, code) {
-    super(message);
-    this.name = `Libzip Error`;
-    this.code = code;
-  }
-
-}
-// CONCATENATED MODULE: ../yarnpkg-fslib/sources/NodeFS.ts
-
-
-
-
-class NodeFS extends BasePortableFakeFS {
-  constructor(realFs = (external_fs_default())) {
-    super();
-    this.realFs = realFs; // @ts-expect-error
-
-    if (typeof this.realFs.lutimes !== `undefined`) {
-      this.lutimesPromise = this.lutimesPromiseImpl;
-      this.lutimesSync = this.lutimesSyncImpl;
-    }
-  }
-
-  getExtractHint() {
-    return false;
-  }
-
-  getRealPath() {
-    return PortablePath.root;
-  }
-
-  resolve(p) {
-    return ppath.resolve(p);
-  }
-
-  async openPromise(p, flags, mode) {
-    return await new Promise((resolve, reject) => {
-      this.realFs.open(npath.fromPortablePath(p), flags, mode, this.makeCallback(resolve, reject));
-    });
-  }
-
-  openSync(p, flags, mode) {
-    return this.realFs.openSync(npath.fromPortablePath(p), flags, mode);
-  }
-
-  async opendirPromise(p, opts) {
-    return await new Promise((resolve, reject) => {
-      if (typeof opts !== `undefined`) {
-        this.realFs.opendir(npath.fromPortablePath(p), opts, this.makeCallback(resolve, reject));
-      } else {
-        this.realFs.opendir(npath.fromPortablePath(p), this.makeCallback(resolve, reject));
-      }
-    }).then(dir => {
-      return Object.defineProperty(dir, `path`, {
-        value: p,
-        configurable: true,
-        writable: true
-      });
-    });
-  }
-
-  opendirSync(p, opts) {
-    const dir = typeof opts !== `undefined` ? this.realFs.opendirSync(npath.fromPortablePath(p), opts) : this.realFs.opendirSync(npath.fromPortablePath(p));
-    return Object.defineProperty(dir, `path`, {
-      value: p,
-      configurable: true,
-      writable: true
-    });
-  }
-
-  async readPromise(fd, buffer, offset = 0, length = 0, position = -1) {
-    return await new Promise((resolve, reject) => {
-      this.realFs.read(fd, buffer, offset, length, position, (error, bytesRead) => {
-        if (error) {
-          reject(error);
-        } else {
-          resolve(bytesRead);
-        }
-      });
-    });
-  }
-
-  readSync(fd, buffer, offset, length, position) {
-    return this.realFs.readSync(fd, buffer, offset, length, position);
-  }
-
-  async writePromise(fd, buffer, offset, length, position) {
-    return await new Promise((resolve, reject) => {
-      if (typeof buffer === `string`) {
-        return this.realFs.write(fd, buffer, offset, this.makeCallback(resolve, reject));
-      } else {
-        return this.realFs.write(fd, buffer, offset, length, position, this.makeCallback(resolve, reject));
-      }
-    });
-  }
-
-  writeSync(fd, buffer, offset, length, position) {
-    if (typeof buffer === `string`) {
-      return this.realFs.writeSync(fd, buffer, offset);
-    } else {
-      return this.realFs.writeSync(fd, buffer, offset, length, position);
-    }
-  }
-
-  async closePromise(fd) {
-    await new Promise((resolve, reject) => {
-      this.realFs.close(fd, this.makeCallback(resolve, reject));
-    });
-  }
-
-  closeSync(fd) {
-    this.realFs.closeSync(fd);
-  }
-
-  createReadStream(p, opts) {
-    const realPath = p !== null ? npath.fromPortablePath(p) : p;
-    return this.realFs.createReadStream(realPath, opts);
-  }
-
-  createWriteStream(p, opts) {
-    const realPath = p !== null ? npath.fromPortablePath(p) : p;
-    return this.realFs.createWriteStream(realPath, opts);
-  }
-
-  async realpathPromise(p) {
-    return await new Promise((resolve, reject) => {
-      this.realFs.realpath(npath.fromPortablePath(p), {}, this.makeCallback(resolve, reject));
-    }).then(path => {
-      return npath.toPortablePath(path);
-    });
-  }
-
-  realpathSync(p) {
-    return npath.toPortablePath(this.realFs.realpathSync(npath.fromPortablePath(p), {}));
-  }
-
-  async existsPromise(p) {
-    return await new Promise(resolve => {
-      this.realFs.exists(npath.fromPortablePath(p), resolve);
-    });
-  }
-
-  accessSync(p, mode) {
-    return this.realFs.accessSync(npath.fromPortablePath(p), mode);
-  }
-
-  async accessPromise(p, mode) {
-    return await new Promise((resolve, reject) => {
-      this.realFs.access(npath.fromPortablePath(p), mode, this.makeCallback(resolve, reject));
-    });
-  }
-
-  existsSync(p) {
-    return this.realFs.existsSync(npath.fromPortablePath(p));
-  }
-
-  async statPromise(p, opts) {
-    return await new Promise((resolve, reject) => {
-      if (opts) {
-        this.realFs.stat(npath.fromPortablePath(p), opts, this.makeCallback(resolve, reject));
-      } else {
-        this.realFs.stat(npath.fromPortablePath(p), this.makeCallback(resolve, reject));
-      }
-    });
-  }
-
-  statSync(p, opts) {
-    if (opts) {
-      return this.realFs.statSync(npath.fromPortablePath(p), opts);
-    } else {
-      return this.realFs.statSync(npath.fromPortablePath(p));
-    }
-  }
-
-  async fstatPromise(fd, opts) {
-    return await new Promise((resolve, reject) => {
-      if (opts) {
-        // @ts-expect-error - The node typings doesn't know about the options
-        this.realFs.fstat(fd, opts, this.makeCallback(resolve, reject));
-      } else {
-        this.realFs.fstat(fd, this.makeCallback(resolve, reject));
-      }
-    });
-  }
-
-  fstatSync(fd, opts) {
-    if (opts) {
-      // @ts-expect-error - The node typings doesn't know about the options
-      return this.realFs.fstatSync(fd, opts);
-    } else {
-      return this.realFs.fstatSync(fd);
-    }
-  }
-
-  async lstatPromise(p, opts) {
-    return await new Promise((resolve, reject) => {
-      if (opts) {
-        // @ts-expect-error - TS does not know this takes options
-        this.realFs.lstat(npath.fromPortablePath(p), opts, this.makeCallback(resolve, reject));
-      } else {
-        this.realFs.lstat(npath.fromPortablePath(p), this.makeCallback(resolve, reject));
-      }
-    });
-  }
-
-  lstatSync(p, opts) {
-    if (opts) {
-      // @ts-expect-error - TS does not know this takes options
-      return this.realFs.lstatSync(npath.fromPortablePath(p), opts);
-    } else {
-      return this.realFs.lstatSync(npath.fromPortablePath(p));
-    }
-  }
-
-  async chmodPromise(p, mask) {
-    return await new Promise((resolve, reject) => {
-      this.realFs.chmod(npath.fromPortablePath(p), mask, this.makeCallback(resolve, reject));
-    });
-  }
-
-  chmodSync(p, mask) {
-    return this.realFs.chmodSync(npath.fromPortablePath(p), mask);
-  }
-
-  async chownPromise(p, uid, gid) {
-    return await new Promise((resolve, reject) => {
-      this.realFs.chown(npath.fromPortablePath(p), uid, gid, this.makeCallback(resolve, reject));
-    });
-  }
-
-  chownSync(p, uid, gid) {
-    return this.realFs.chownSync(npath.fromPortablePath(p), uid, gid);
-  }
-
-  async renamePromise(oldP, newP) {
-    return await new Promise((resolve, reject) => {
-      this.realFs.rename(npath.fromPortablePath(oldP), npath.fromPortablePath(newP), this.makeCallback(resolve, reject));
-    });
-  }
-
-  renameSync(oldP, newP) {
-    return this.realFs.renameSync(npath.fromPortablePath(oldP), npath.fromPortablePath(newP));
-  }
-
-  async copyFilePromise(sourceP, destP, flags = 0) {
-    return await new Promise((resolve, reject) => {
-      this.realFs.copyFile(npath.fromPortablePath(sourceP), npath.fromPortablePath(destP), flags, this.makeCallback(resolve, reject));
-    });
-  }
-
-  copyFileSync(sourceP, destP, flags = 0) {
-    return this.realFs.copyFileSync(npath.fromPortablePath(sourceP), npath.fromPortablePath(destP), flags);
-  }
-
-  async appendFilePromise(p, content, opts) {
-    return await new Promise((resolve, reject) => {
-      const fsNativePath = typeof p === `string` ? npath.fromPortablePath(p) : p;
-
-      if (opts) {
-        this.realFs.appendFile(fsNativePath, content, opts, this.makeCallback(resolve, reject));
-      } else {
-        this.realFs.appendFile(fsNativePath, content, this.makeCallback(resolve, reject));
-      }
-    });
-  }
-
-  appendFileSync(p, content, opts) {
-    const fsNativePath = typeof p === `string` ? npath.fromPortablePath(p) : p;
-
-    if (opts) {
-      this.realFs.appendFileSync(fsNativePath, content, opts);
-    } else {
-      this.realFs.appendFileSync(fsNativePath, content);
-    }
-  }
-
-  async writeFilePromise(p, content, opts) {
-    return await new Promise((resolve, reject) => {
-      const fsNativePath = typeof p === `string` ? npath.fromPortablePath(p) : p;
-
-      if (opts) {
-        this.realFs.writeFile(fsNativePath, content, opts, this.makeCallback(resolve, reject));
-      } else {
-        this.realFs.writeFile(fsNativePath, content, this.makeCallback(resolve, reject));
-      }
-    });
-  }
-
-  writeFileSync(p, content, opts) {
-    const fsNativePath = typeof p === `string` ? npath.fromPortablePath(p) : p;
-
-    if (opts) {
-      this.realFs.writeFileSync(fsNativePath, content, opts);
-    } else {
-      this.realFs.writeFileSync(fsNativePath, content);
-    }
-  }
-
-  async unlinkPromise(p) {
-    return await new Promise((resolve, reject) => {
-      this.realFs.unlink(npath.fromPortablePath(p), this.makeCallback(resolve, reject));
-    });
-  }
-
-  unlinkSync(p) {
-    return this.realFs.unlinkSync(npath.fromPortablePath(p));
-  }
-
-  async utimesPromise(p, atime, mtime) {
-    return await new Promise((resolve, reject) => {
-      this.realFs.utimes(npath.fromPortablePath(p), atime, mtime, this.makeCallback(resolve, reject));
-    });
-  }
-
-  utimesSync(p, atime, mtime) {
-    this.realFs.utimesSync(npath.fromPortablePath(p), atime, mtime);
-  }
-
-  async lutimesPromiseImpl(p, atime, mtime) {
-    // @ts-expect-error: Not yet in DefinitelyTyped
-    const lutimes = this.realFs.lutimes;
-    if (typeof lutimes === `undefined`) throw ENOSYS(`unavailable Node binding`, `lutimes '${p}'`);
-    return await new Promise((resolve, reject) => {
-      lutimes.call(this.realFs, npath.fromPortablePath(p), atime, mtime, this.makeCallback(resolve, reject));
-    });
-  }
-
-  lutimesSyncImpl(p, atime, mtime) {
-    // @ts-expect-error: Not yet in DefinitelyTyped
-    const lutimesSync = this.realFs.lutimesSync;
-    if (typeof lutimesSync === `undefined`) throw ENOSYS(`unavailable Node binding`, `lutimes '${p}'`);
-    lutimesSync.call(this.realFs, npath.fromPortablePath(p), atime, mtime);
-  }
-
-  async mkdirPromise(p, opts) {
-    return await new Promise((resolve, reject) => {
-      this.realFs.mkdir(npath.fromPortablePath(p), opts, this.makeCallback(resolve, reject));
-    });
-  }
-
-  mkdirSync(p, opts) {
-    return this.realFs.mkdirSync(npath.fromPortablePath(p), opts);
-  }
-
-  async rmdirPromise(p, opts) {
-    return await new Promise((resolve, reject) => {
-      // TODO: always pass opts when min node version is 12.10+
-      if (opts) {
-        this.realFs.rmdir(npath.fromPortablePath(p), opts, this.makeCallback(resolve, reject));
-      } else {
-        this.realFs.rmdir(npath.fromPortablePath(p), this.makeCallback(resolve, reject));
-      }
-    });
-  }
-
-  rmdirSync(p, opts) {
-    return this.realFs.rmdirSync(npath.fromPortablePath(p), opts);
-  }
-
-  async linkPromise(existingP, newP) {
-    return await new Promise((resolve, reject) => {
-      this.realFs.link(npath.fromPortablePath(existingP), npath.fromPortablePath(newP), this.makeCallback(resolve, reject));
-    });
-  }
-
-  linkSync(existingP, newP) {
-    return this.realFs.linkSync(npath.fromPortablePath(existingP), npath.fromPortablePath(newP));
-  }
-
-  async symlinkPromise(target, p, type) {
-    return await new Promise((resolve, reject) => {
-      this.realFs.symlink(npath.fromPortablePath(target.replace(/\/+$/, ``)), npath.fromPortablePath(p), type, this.makeCallback(resolve, reject));
-    });
-  }
-
-  symlinkSync(target, p, type) {
-    return this.realFs.symlinkSync(npath.fromPortablePath(target.replace(/\/+$/, ``)), npath.fromPortablePath(p), type);
-  }
-
-  async readFilePromise(p, encoding) {
-    return await new Promise((resolve, reject) => {
-      const fsNativePath = typeof p === `string` ? npath.fromPortablePath(p) : p;
-      this.realFs.readFile(fsNativePath, encoding, this.makeCallback(resolve, reject));
-    });
-  }
-
-  readFileSync(p, encoding) {
-    const fsNativePath = typeof p === `string` ? npath.fromPortablePath(p) : p;
-    return this.realFs.readFileSync(fsNativePath, encoding);
-  }
-
-  async readdirPromise(p, {
-    withFileTypes
-  } = {}) {
-    return await new Promise((resolve, reject) => {
-      if (withFileTypes) {
-        this.realFs.readdir(npath.fromPortablePath(p), {
-          withFileTypes: true
-        }, this.makeCallback(resolve, reject));
-      } else {
-        this.realFs.readdir(npath.fromPortablePath(p), this.makeCallback(value => resolve(value), reject));
-      }
-    });
-  }
-
-  readdirSync(p, {
-    withFileTypes
-  } = {}) {
-    if (withFileTypes) {
-      return this.realFs.readdirSync(npath.fromPortablePath(p), {
-        withFileTypes: true
-      });
-    } else {
-      return this.realFs.readdirSync(npath.fromPortablePath(p));
-    }
-  }
-
-  async readlinkPromise(p) {
-    return await new Promise((resolve, reject) => {
-      this.realFs.readlink(npath.fromPortablePath(p), this.makeCallback(resolve, reject));
-    }).then(path => {
-      return npath.toPortablePath(path);
-    });
-  }
-
-  readlinkSync(p) {
-    return npath.toPortablePath(this.realFs.readlinkSync(npath.fromPortablePath(p)));
-  }
-
-  async truncatePromise(p, len) {
-    return await new Promise((resolve, reject) => {
-      this.realFs.truncate(npath.fromPortablePath(p), len, this.makeCallback(resolve, reject));
-    });
-  }
-
-  truncateSync(p, len) {
-    return this.realFs.truncateSync(npath.fromPortablePath(p), len);
-  }
-
-  watch(p, a, b) {
-    return this.realFs.watch(npath.fromPortablePath(p), // @ts-expect-error
-    a, b);
-  }
-
-  watchFile(p, a, b) {
-    return this.realFs.watchFile(npath.fromPortablePath(p), // @ts-expect-error
-    a, b);
-  }
-
-  unwatchFile(p, cb) {
-    return this.realFs.unwatchFile(npath.fromPortablePath(p), cb);
-  }
-
-  makeCallback(resolve, reject) {
-    return (err, result) => {
-      if (err) {
-        reject(err);
-      } else {
-        resolve(result);
-      }
-    };
-  }
-
-}
-// CONCATENATED MODULE: ../yarnpkg-fslib/sources/ProxiedFS.ts
-
-class ProxiedFS extends FakeFS {
-  getExtractHint(hints) {
-    return this.baseFs.getExtractHint(hints);
-  }
-
-  resolve(path) {
-    return this.mapFromBase(this.baseFs.resolve(this.mapToBase(path)));
-  }
-
-  getRealPath() {
-    return this.mapFromBase(this.baseFs.getRealPath());
-  }
-
-  async openPromise(p, flags, mode) {
-    return this.baseFs.openPromise(this.mapToBase(p), flags, mode);
-  }
-
-  openSync(p, flags, mode) {
-    return this.baseFs.openSync(this.mapToBase(p), flags, mode);
-  }
-
-  async opendirPromise(p, opts) {
-    return Object.assign(await this.baseFs.opendirPromise(this.mapToBase(p), opts), {
-      path: p
-    });
-  }
-
-  opendirSync(p, opts) {
-    return Object.assign(this.baseFs.opendirSync(this.mapToBase(p), opts), {
-      path: p
-    });
-  }
-
-  async readPromise(fd, buffer, offset, length, position) {
-    return await this.baseFs.readPromise(fd, buffer, offset, length, position);
-  }
-
-  readSync(fd, buffer, offset, length, position) {
-    return this.baseFs.readSync(fd, buffer, offset, length, position);
-  }
-
-  async writePromise(fd, buffer, offset, length, position) {
-    if (typeof buffer === `string`) {
-      return await this.baseFs.writePromise(fd, buffer, offset);
-    } else {
-      return await this.baseFs.writePromise(fd, buffer, offset, length, position);
-    }
-  }
-
-  writeSync(fd, buffer, offset, length, position) {
-    if (typeof buffer === `string`) {
-      return this.baseFs.writeSync(fd, buffer, offset);
-    } else {
-      return this.baseFs.writeSync(fd, buffer, offset, length, position);
-    }
-  }
-
-  async closePromise(fd) {
-    return this.baseFs.closePromise(fd);
-  }
-
-  closeSync(fd) {
-    this.baseFs.closeSync(fd);
-  }
-
-  createReadStream(p, opts) {
-    return this.baseFs.createReadStream(p !== null ? this.mapToBase(p) : p, opts);
-  }
-
-  createWriteStream(p, opts) {
-    return this.baseFs.createWriteStream(p !== null ? this.mapToBase(p) : p, opts);
-  }
-
-  async realpathPromise(p) {
-    return this.mapFromBase(await this.baseFs.realpathPromise(this.mapToBase(p)));
-  }
-
-  realpathSync(p) {
-    return this.mapFromBase(this.baseFs.realpathSync(this.mapToBase(p)));
-  }
-
-  async existsPromise(p) {
-    return this.baseFs.existsPromise(this.mapToBase(p));
-  }
-
-  existsSync(p) {
-    return this.baseFs.existsSync(this.mapToBase(p));
-  }
-
-  accessSync(p, mode) {
-    return this.baseFs.accessSync(this.mapToBase(p), mode);
-  }
-
-  async accessPromise(p, mode) {
-    return this.baseFs.accessPromise(this.mapToBase(p), mode);
-  }
-
-  async statPromise(p, opts) {
-    return this.baseFs.statPromise(this.mapToBase(p), opts);
-  }
-
-  statSync(p, opts) {
-    return this.baseFs.statSync(this.mapToBase(p), opts);
-  }
-
-  async fstatPromise(fd, opts) {
-    return this.baseFs.fstatPromise(fd, opts);
-  }
-
-  fstatSync(fd, opts) {
-    return this.baseFs.fstatSync(fd, opts);
-  }
-
-  async lstatPromise(p, opts) {
-    return this.baseFs.lstatPromise(this.mapToBase(p), opts);
-  }
-
-  lstatSync(p, opts) {
-    return this.baseFs.lstatSync(this.mapToBase(p), opts);
-  }
-
-  async chmodPromise(p, mask) {
-    return this.baseFs.chmodPromise(this.mapToBase(p), mask);
-  }
-
-  chmodSync(p, mask) {
-    return this.baseFs.chmodSync(this.mapToBase(p), mask);
-  }
-
-  async chownPromise(p, uid, gid) {
-    return this.baseFs.chownPromise(this.mapToBase(p), uid, gid);
-  }
-
-  chownSync(p, uid, gid) {
-    return this.baseFs.chownSync(this.mapToBase(p), uid, gid);
-  }
-
-  async renamePromise(oldP, newP) {
-    return this.baseFs.renamePromise(this.mapToBase(oldP), this.mapToBase(newP));
-  }
-
-  renameSync(oldP, newP) {
-    return this.baseFs.renameSync(this.mapToBase(oldP), this.mapToBase(newP));
-  }
-
-  async copyFilePromise(sourceP, destP, flags = 0) {
-    return this.baseFs.copyFilePromise(this.mapToBase(sourceP), this.mapToBase(destP), flags);
-  }
-
-  copyFileSync(sourceP, destP, flags = 0) {
-    return this.baseFs.copyFileSync(this.mapToBase(sourceP), this.mapToBase(destP), flags);
-  }
-
-  async appendFilePromise(p, content, opts) {
-    return this.baseFs.appendFilePromise(this.fsMapToBase(p), content, opts);
-  }
-
-  appendFileSync(p, content, opts) {
-    return this.baseFs.appendFileSync(this.fsMapToBase(p), content, opts);
-  }
-
-  async writeFilePromise(p, content, opts) {
-    return this.baseFs.writeFilePromise(this.fsMapToBase(p), content, opts);
-  }
-
-  writeFileSync(p, content, opts) {
-    return this.baseFs.writeFileSync(this.fsMapToBase(p), content, opts);
-  }
-
-  async unlinkPromise(p) {
-    return this.baseFs.unlinkPromise(this.mapToBase(p));
-  }
-
-  unlinkSync(p) {
-    return this.baseFs.unlinkSync(this.mapToBase(p));
-  }
-
-  async utimesPromise(p, atime, mtime) {
-    return this.baseFs.utimesPromise(this.mapToBase(p), atime, mtime);
-  }
-
-  utimesSync(p, atime, mtime) {
-    return this.baseFs.utimesSync(this.mapToBase(p), atime, mtime);
-  }
-
-  async mkdirPromise(p, opts) {
-    return this.baseFs.mkdirPromise(this.mapToBase(p), opts);
-  }
-
-  mkdirSync(p, opts) {
-    return this.baseFs.mkdirSync(this.mapToBase(p), opts);
-  }
-
-  async rmdirPromise(p, opts) {
-    return this.baseFs.rmdirPromise(this.mapToBase(p), opts);
-  }
-
-  rmdirSync(p, opts) {
-    return this.baseFs.rmdirSync(this.mapToBase(p), opts);
-  }
-
-  async linkPromise(existingP, newP) {
-    return this.baseFs.linkPromise(this.mapToBase(existingP), this.mapToBase(newP));
-  }
-
-  linkSync(existingP, newP) {
-    return this.baseFs.linkSync(this.mapToBase(existingP), this.mapToBase(newP));
-  }
-
-  async symlinkPromise(target, p, type) {
-    const mappedP = this.mapToBase(p);
-    if (this.pathUtils.isAbsolute(target)) return this.baseFs.symlinkPromise(this.mapToBase(target), mappedP, type);
-    const mappedAbsoluteTarget = this.mapToBase(this.pathUtils.join(this.pathUtils.dirname(p), target));
-    const mappedTarget = this.baseFs.pathUtils.relative(this.baseFs.pathUtils.dirname(mappedP), mappedAbsoluteTarget);
-    return this.baseFs.symlinkPromise(mappedTarget, mappedP, type);
-  }
-
-  symlinkSync(target, p, type) {
-    const mappedP = this.mapToBase(p);
-    if (this.pathUtils.isAbsolute(target)) return this.baseFs.symlinkSync(this.mapToBase(target), mappedP, type);
-    const mappedAbsoluteTarget = this.mapToBase(this.pathUtils.join(this.pathUtils.dirname(p), target));
-    const mappedTarget = this.baseFs.pathUtils.relative(this.baseFs.pathUtils.dirname(mappedP), mappedAbsoluteTarget);
-    return this.baseFs.symlinkSync(mappedTarget, mappedP, type);
-  }
-
-  async readFilePromise(p, encoding) {
-    // This weird condition is required to tell TypeScript that the signatures are proper (otherwise it thinks that only the generic one is covered)
-    if (encoding === `utf8`) {
-      return this.baseFs.readFilePromise(this.fsMapToBase(p), encoding);
-    } else {
-      return this.baseFs.readFilePromise(this.fsMapToBase(p), encoding);
-    }
-  }
-
-  readFileSync(p, encoding) {
-    // This weird condition is required to tell TypeScript that the signatures are proper (otherwise it thinks that only the generic one is covered)
-    if (encoding === `utf8`) {
-      return this.baseFs.readFileSync(this.fsMapToBase(p), encoding);
-    } else {
-      return this.baseFs.readFileSync(this.fsMapToBase(p), encoding);
-    }
-  }
-
-  async readdirPromise(p, {
-    withFileTypes
-  } = {}) {
-    return this.baseFs.readdirPromise(this.mapToBase(p), {
-      withFileTypes: withFileTypes
-    });
-  }
-
-  readdirSync(p, {
-    withFileTypes
-  } = {}) {
-    return this.baseFs.readdirSync(this.mapToBase(p), {
-      withFileTypes: withFileTypes
-    });
-  }
-
-  async readlinkPromise(p) {
-    return this.mapFromBase(await this.baseFs.readlinkPromise(this.mapToBase(p)));
-  }
-
-  readlinkSync(p) {
-    return this.mapFromBase(this.baseFs.readlinkSync(this.mapToBase(p)));
-  }
-
-  async truncatePromise(p, len) {
-    return this.baseFs.truncatePromise(this.mapToBase(p), len);
-  }
-
-  truncateSync(p, len) {
-    return this.baseFs.truncateSync(this.mapToBase(p), len);
-  }
-
-  watch(p, a, b) {
-    return this.baseFs.watch(this.mapToBase(p), // @ts-expect-error
-    a, b);
-  }
-
-  watchFile(p, a, b) {
-    return this.baseFs.watchFile(this.mapToBase(p), // @ts-expect-error
-    a, b);
-  }
-
-  unwatchFile(p, cb) {
-    return this.baseFs.unwatchFile(this.mapToBase(p), cb);
-  }
-
-  fsMapToBase(p) {
-    if (typeof p === `number`) {
-      return p;
-    } else {
-      return this.mapToBase(p);
-    }
-  }
-
-}
-// CONCATENATED MODULE: ../yarnpkg-fslib/sources/VirtualFS.ts
-
-
-
-const NUMBER_REGEXP = /^[0-9]+$/; // $0: full path
-// $1: virtual folder
-// $2: virtual segment
-// $3: hash
-// $4: depth
-// $5: subpath
-
-const VIRTUAL_REGEXP = /^(\/(?:[^/]+\/)*?(?:\$\$virtual|__virtual__))((?:\/((?:[^/]+-)?[a-f0-9]+)(?:\/([^/]+))?)?((?:\/.*)?))$/;
-const VALID_COMPONENT = /^([^/]+-)?[a-f0-9]+$/;
-class VirtualFS extends ProxiedFS {
-  constructor({
-    baseFs = new NodeFS()
-  } = {}) {
-    super(ppath);
-    this.baseFs = baseFs;
-  }
-
-  static makeVirtualPath(base, component, to) {
-    if (ppath.basename(base) !== `__virtual__`) throw new Error(`Assertion failed: Virtual folders must be named "__virtual__"`);
-    if (!ppath.basename(component).match(VALID_COMPONENT)) throw new Error(`Assertion failed: Virtual components must be ended by an hexadecimal hash`); // Obtains the relative distance between the virtual path and its actual target
-
-    const target = ppath.relative(ppath.dirname(base), to);
-    const segments = target.split(`/`); // Counts how many levels we need to go back to start applying the rest of the path
-
-    let depth = 0;
-
-    while (depth < segments.length && segments[depth] === `..`) depth += 1;
-
-    const finalSegments = segments.slice(depth);
-    const fullVirtualPath = ppath.join(base, component, String(depth), ...finalSegments);
-    return fullVirtualPath;
-  }
-
-  static resolveVirtual(p) {
-    const match = p.match(VIRTUAL_REGEXP);
-    if (!match || !match[3] && match[5]) return p;
-    const target = ppath.dirname(match[1]);
-    if (!match[3] || !match[4]) return target;
-    const isnum = NUMBER_REGEXP.test(match[4]);
-    if (!isnum) return p;
-    const depth = Number(match[4]);
-    const backstep = `../`.repeat(depth);
-    const subpath = match[5] || `.`;
-    return VirtualFS.resolveVirtual(ppath.join(target, backstep, subpath));
-  }
-
-  getExtractHint(hints) {
-    return this.baseFs.getExtractHint(hints);
-  }
-
-  getRealPath() {
-    return this.baseFs.getRealPath();
-  }
-
-  realpathSync(p) {
-    const match = p.match(VIRTUAL_REGEXP);
-    if (!match) return this.baseFs.realpathSync(p);
-    if (!match[5]) return p;
-    const realpath = this.baseFs.realpathSync(this.mapToBase(p));
-    return VirtualFS.makeVirtualPath(match[1], match[3], realpath);
-  }
-
-  async realpathPromise(p) {
-    const match = p.match(VIRTUAL_REGEXP);
-    if (!match) return await this.baseFs.realpathPromise(p);
-    if (!match[5]) return p;
-    const realpath = await this.baseFs.realpathPromise(this.mapToBase(p));
-    return VirtualFS.makeVirtualPath(match[1], match[3], realpath);
-  }
-
-  mapToBase(p) {
-    if (this.pathUtils.isAbsolute(p)) return VirtualFS.resolveVirtual(p);
-    const resolvedRoot = VirtualFS.resolveVirtual(this.baseFs.resolve(PortablePath.dot));
-    const resolvedP = VirtualFS.resolveVirtual(this.baseFs.resolve(p));
-    return ppath.relative(resolvedRoot, resolvedP);
-  }
-
-  mapFromBase(p) {
-    return p;
-  }
-
-}
-// CONCATENATED MODULE: external "stream"
-const external_stream_namespaceObject = require("stream");;
-// CONCATENATED MODULE: external "util"
-const external_util_namespaceObject = require("util");;
-// CONCATENATED MODULE: external "zlib"
-const external_zlib_namespaceObject = require("zlib");;
-var external_zlib_default = /*#__PURE__*/__webpack_require__.n(external_zlib_namespaceObject);
-
-// CONCATENATED MODULE: ../yarnpkg-fslib/sources/algorithms/opendir.ts
-
-class CustomDir {
-  constructor(path, nextDirent, opts = {}) {
-    this.path = path;
-    this.nextDirent = nextDirent;
-    this.opts = opts;
-    this.closed = false;
-  }
-
-  throwIfClosed() {
-    if (this.closed) {
-      throw ERR_DIR_CLOSED();
-    }
-  }
-
-  async *[Symbol.asyncIterator]() {
-    try {
-      let dirent; // eslint-disable-next-line no-cond-assign
-
-      while ((dirent = await this.read()) !== null) {
-        yield dirent;
-      }
-    } finally {
-      await this.close();
-    }
-  }
-
-  read(cb) {
-    const dirent = this.readSync();
-    if (typeof cb !== `undefined`) return cb(null, dirent);
-    return Promise.resolve(dirent);
-  }
-
-  readSync() {
-    this.throwIfClosed();
-    return this.nextDirent();
-  }
-
-  close(cb) {
-    this.closeSync();
-    if (typeof cb !== `undefined`) return cb(null);
-    return Promise.resolve();
-  }
-
-  closeSync() {
-    var _a, _b;
-
-    this.throwIfClosed();
-    (_b = (_a = this.opts).onClose) === null || _b === void 0 ? void 0 : _b.call(_a);
-    this.closed = true;
-  }
-
-}
-function opendir(fakeFs, path, entries, opts) {
-  const nextDirent = () => {
-    const filename = entries.shift();
-    if (typeof filename === `undefined`) return null;
-    return Object.assign(fakeFs.statSync(fakeFs.pathUtils.join(path, filename)), {
-      name: filename
-    });
-  };
-
-  return new CustomDir(path, nextDirent, opts);
-}
-// CONCATENATED MODULE: external "events"
-const external_events_namespaceObject = require("events");;
-// CONCATENATED MODULE: ../yarnpkg-fslib/sources/constants.ts
-const constants_S_IFMT = 0o170000;
-const constants_S_IFDIR = 0o040000;
-const constants_S_IFREG = 0o100000;
-const constants_S_IFLNK = 0o120000;
-// CONCATENATED MODULE: ../yarnpkg-fslib/sources/statUtils.ts
-
-
-class DirEntry {
-  constructor() {
-    this.name = ``;
-    this.mode = 0;
-  }
-
-  isBlockDevice() {
-    return false;
-  }
-
-  isCharacterDevice() {
-    return false;
-  }
-
-  isDirectory() {
-    return (this.mode & S_IFMT) === S_IFDIR;
-  }
-
-  isFIFO() {
-    return false;
-  }
-
-  isFile() {
-    return (this.mode & S_IFMT) === S_IFREG;
-  }
-
-  isSocket() {
-    return false;
-  }
-
-  isSymbolicLink() {
-    return (this.mode & S_IFMT) === S_IFLNK;
-  }
-
-}
-class StatEntry {
-  constructor() {
-    this.uid = 0;
-    this.gid = 0;
-    this.size = 0;
-    this.blksize = 0;
-    this.atimeMs = 0;
-    this.mtimeMs = 0;
-    this.ctimeMs = 0;
-    this.birthtimeMs = 0;
-    this.atime = new Date(0);
-    this.mtime = new Date(0);
-    this.ctime = new Date(0);
-    this.birthtime = new Date(0);
-    this.dev = 0;
-    this.ino = 0;
-    this.mode = constants_S_IFREG | 0o644;
-    this.nlink = 1;
-    this.rdev = 0;
-    this.blocks = 1;
-  }
-
-  isBlockDevice() {
-    return false;
-  }
-
-  isCharacterDevice() {
-    return false;
-  }
-
-  isDirectory() {
-    return (this.mode & constants_S_IFMT) === constants_S_IFDIR;
-  }
-
-  isFIFO() {
-    return false;
-  }
-
-  isFile() {
-    return (this.mode & constants_S_IFMT) === constants_S_IFREG;
-  }
-
-  isSocket() {
-    return false;
-  }
-
-  isSymbolicLink() {
-    return (this.mode & constants_S_IFMT) === constants_S_IFLNK;
-  }
-
-}
-class BigIntStatsEntry {
-  constructor() {
-    this.uid = BigInt(0);
-    this.gid = BigInt(0);
-    this.size = BigInt(0);
-    this.blksize = BigInt(0);
-    this.atimeMs = BigInt(0);
-    this.mtimeMs = BigInt(0);
-    this.ctimeMs = BigInt(0);
-    this.birthtimeMs = BigInt(0);
-    this.atimeNs = BigInt(0);
-    this.mtimeNs = BigInt(0);
-    this.ctimeNs = BigInt(0);
-    this.birthtimeNs = BigInt(0);
-    this.atime = new Date(0);
-    this.mtime = new Date(0);
-    this.ctime = new Date(0);
-    this.birthtime = new Date(0);
-    this.dev = BigInt(0);
-    this.ino = BigInt(0);
-    this.mode = BigInt(constants_S_IFREG | 0o644);
-    this.nlink = BigInt(1);
-    this.rdev = BigInt(0);
-    this.blocks = BigInt(1);
-  }
-
-  isBlockDevice() {
-    return false;
-  }
-
-  isCharacterDevice() {
-    return false;
-  }
-
-  isDirectory() {
-    return (this.mode & BigInt(constants_S_IFMT)) === BigInt(constants_S_IFDIR);
-  }
-
-  isFIFO() {
-    return false;
-  }
-
-  isFile() {
-    return (this.mode & BigInt(constants_S_IFMT)) === BigInt(constants_S_IFREG);
-  }
-
-  isSocket() {
-    return false;
-  }
-
-  isSymbolicLink() {
-    return (this.mode & BigInt(constants_S_IFMT)) === BigInt(constants_S_IFLNK);
-  }
-
-}
-function makeDefaultStats() {
-  return new StatEntry();
-}
-function makeEmptyStats() {
-  return clearStats(makeDefaultStats());
-}
-/**
- * Mutates the provided stats object to zero it out then returns it for convenience
- */
-
-function clearStats(stats) {
-  for (const key in stats) {
-    if (Object.prototype.hasOwnProperty.call(stats, key)) {
-      const element = stats[key];
-
-      if (typeof element === `number`) {
-        // @ts-expect-error Typescript can't tell that stats[key] is a number
-        stats[key] = 0;
-      } else if (typeof element === `bigint`) {
-        // @ts-expect-error Typescript can't tell that stats[key] is a bigint
-        stats[key] = BigInt(0);
-      } else if (external_util_namespaceObject.types.isDate(element)) {
-        // @ts-expect-error Typescript can't tell that stats[key] is a bigint
-        stats[key] = new Date(0);
-      }
-    }
-  }
-
-  return stats;
-}
-function convertToBigIntStats(stats) {
-  const bigintStats = new BigIntStatsEntry();
-
-  for (const key in stats) {
-    if (Object.prototype.hasOwnProperty.call(stats, key)) {
-      const element = stats[key];
-
-      if (typeof element === `number`) {
-        // @ts-expect-error Typescript isn't able to tell this is valid
-        bigintStats[key] = BigInt(element);
-      } else if (external_util_namespaceObject.types.isDate(element)) {
-        // @ts-expect-error Typescript isn't able to tell this is valid
-        bigintStats[key] = new Date(element);
-      }
-    }
-  }
-
-  bigintStats.atimeNs = bigintStats.atimeMs * BigInt(1e6);
-  bigintStats.mtimeNs = bigintStats.mtimeMs * BigInt(1e6);
-  bigintStats.ctimeNs = bigintStats.ctimeMs * BigInt(1e6);
-  bigintStats.birthtimeNs = bigintStats.birthtimeMs * BigInt(1e6);
-  return bigintStats;
-}
-function areStatsEqual(a, b) {
-  if (a.atimeMs !== b.atimeMs) return false;
-  if (a.birthtimeMs !== b.birthtimeMs) return false;
-  if (a.blksize !== b.blksize) return false;
-  if (a.blocks !== b.blocks) return false;
-  if (a.ctimeMs !== b.ctimeMs) return false;
-  if (a.dev !== b.dev) return false;
-  if (a.gid !== b.gid) return false;
-  if (a.ino !== b.ino) return false;
-  if (a.isBlockDevice() !== b.isBlockDevice()) return false;
-  if (a.isCharacterDevice() !== b.isCharacterDevice()) return false;
-  if (a.isDirectory() !== b.isDirectory()) return false;
-  if (a.isFIFO() !== b.isFIFO()) return false;
-  if (a.isFile() !== b.isFile()) return false;
-  if (a.isSocket() !== b.isSocket()) return false;
-  if (a.isSymbolicLink() !== b.isSymbolicLink()) return false;
-  if (a.mode !== b.mode) return false;
-  if (a.mtimeMs !== b.mtimeMs) return false;
-  if (a.nlink !== b.nlink) return false;
-  if (a.rdev !== b.rdev) return false;
-  if (a.size !== b.size) return false;
-  if (a.uid !== b.uid) return false;
-  const aN = a;
-  const bN = b;
-  if (aN.atimeNs !== bN.atimeNs) return false;
-  if (aN.mtimeNs !== bN.mtimeNs) return false;
-  if (aN.ctimeNs !== bN.ctimeNs) return false;
-  if (aN.birthtimeNs !== bN.birthtimeNs) return false;
-  return true;
-}
-// CONCATENATED MODULE: ../yarnpkg-fslib/sources/algorithms/watchFile/CustomStatWatcher.ts
-
-
-var Event;
-
-(function (Event) {
-  Event["Change"] = "change";
-  Event["Stop"] = "stop";
-})(Event || (Event = {}));
-
-var Status;
-
-(function (Status) {
-  Status["Ready"] = "ready";
-  Status["Running"] = "running";
-  Status["Stopped"] = "stopped";
-})(Status || (Status = {}));
-
-function assertStatus(current, expected) {
-  if (current !== expected) {
-    throw new Error(`Invalid StatWatcher status: expected '${expected}', got '${current}'`);
-  }
-}
-class CustomStatWatcher extends external_events_namespaceObject.EventEmitter {
-  constructor(fakeFs, path, {
-    bigint = false
-  } = {}) {
-    super();
-    this.status = Status.Ready;
-    this.changeListeners = new Map();
-    this.startTimeout = null;
-    this.fakeFs = fakeFs;
-    this.path = path;
-    this.bigint = bigint;
-    this.lastStats = this.stat();
-  }
-
-  static create(fakeFs, path, opts) {
-    const statWatcher = new CustomStatWatcher(fakeFs, path, opts);
-    statWatcher.start();
-    return statWatcher;
-  }
-
-  start() {
-    assertStatus(this.status, Status.Ready);
-    this.status = Status.Running; // Node allows other listeners to be registered up to 3 milliseconds
-    // after the watcher has been started, so that's what we're doing too
-
-    this.startTimeout = setTimeout(() => {
-      this.startTimeout = null; // Per the Node FS docs:
-      // "When an fs.watchFile operation results in an ENOENT error,
-      // it will invoke the listener once, with all the fields zeroed
-      // (or, for dates, the Unix Epoch)."
-
-      if (!this.fakeFs.existsSync(this.path)) {
-        this.emit(Event.Change, this.lastStats, this.lastStats);
-      }
-    }, 3);
-  }
-
-  stop() {
-    assertStatus(this.status, Status.Running);
-    this.status = Status.Stopped;
-
-    if (this.startTimeout !== null) {
-      clearTimeout(this.startTimeout);
-      this.startTimeout = null;
-    }
-
-    this.emit(Event.Stop);
-  }
-
-  stat() {
-    try {
-      return this.fakeFs.statSync(this.path, {
-        bigint: this.bigint
-      });
-    } catch (error) {
-      if (error.code === `ENOENT`) {
-        const statInstance = this.bigint ? new BigIntStatsEntry() : new StatEntry();
-        return clearStats(statInstance);
-      } else {
-        throw error;
-      }
-    }
-  }
-  /**
-   * Creates an interval whose callback compares the current stats with the previous stats and notifies all listeners in case of changes.
-   *
-   * @param opts.persistent Decides whether the interval should be immediately unref-ed.
-   */
-
-
-  makeInterval(opts) {
-    const interval = setInterval(() => {
-      const currentStats = this.stat();
-      const previousStats = this.lastStats;
-      if (areStatsEqual(currentStats, previousStats)) return;
-      this.lastStats = currentStats;
-      this.emit(Event.Change, currentStats, previousStats);
-    }, opts.interval);
-    return opts.persistent ? interval : interval.unref();
-  }
-  /**
-   * Registers a listener and assigns it an interval.
-   */
-
-
-  registerChangeListener(listener, opts) {
-    this.addListener(Event.Change, listener);
-    this.changeListeners.set(listener, this.makeInterval(opts));
-  }
-  /**
-   * Unregisters the listener and clears the assigned interval.
-   */
-
-
-  unregisterChangeListener(listener) {
-    this.removeListener(Event.Change, listener);
-    const interval = this.changeListeners.get(listener);
-    if (typeof interval !== `undefined`) clearInterval(interval);
-    this.changeListeners.delete(listener);
-  }
-  /**
-   * Unregisters all listeners and clears all assigned intervals.
-   */
-
-
-  unregisterAllChangeListeners() {
-    for (const listener of this.changeListeners.keys()) {
-      this.unregisterChangeListener(listener);
-    }
-  }
-
-  hasChangeListeners() {
-    return this.changeListeners.size > 0;
-  }
-  /**
-   * Refs all stored intervals.
-   */
-
-
-  ref() {
-    for (const interval of this.changeListeners.values()) interval.ref();
-
-    return this;
-  }
-  /**
-   * Unrefs all stored intervals.
-   */
-
-
-  unref() {
-    for (const interval of this.changeListeners.values()) interval.unref();
-
-    return this;
-  }
-
-}
-// CONCATENATED MODULE: ../yarnpkg-fslib/sources/algorithms/watchFile.ts
-
-const statWatchersByFakeFS = new WeakMap();
-function watchFile(fakeFs, path, a, b) {
-  let bigint;
-  let persistent;
-  let interval;
-  let listener;
-
-  switch (typeof a) {
-    case `function`:
-      {
-        bigint = false;
-        persistent = true;
-        interval = 5007;
-        listener = a;
-      }
-      break;
-
-    default:
-      {
-        ({
-          bigint = false,
-          persistent = true,
-          interval = 5007
-        } = a);
-        listener = b;
-      }
-      break;
-  }
-
-  let statWatchers = statWatchersByFakeFS.get(fakeFs);
-  if (typeof statWatchers === `undefined`) statWatchersByFakeFS.set(fakeFs, statWatchers = new Map());
-  let statWatcher = statWatchers.get(path);
-
-  if (typeof statWatcher === `undefined`) {
-    statWatcher = CustomStatWatcher.create(fakeFs, path, {
-      bigint
-    });
-    statWatchers.set(path, statWatcher);
-  }
-
-  statWatcher.registerChangeListener(listener, {
-    persistent,
-    interval
-  });
-  return statWatcher;
-}
-function unwatchFile(fakeFs, path, cb) {
-  const statWatchers = statWatchersByFakeFS.get(fakeFs);
-  if (typeof statWatchers === `undefined`) return;
-  const statWatcher = statWatchers.get(path);
-  if (typeof statWatcher === `undefined`) return;
-  if (typeof cb === `undefined`) statWatcher.unregisterAllChangeListeners();else statWatcher.unregisterChangeListener(cb);
-
-  if (!statWatcher.hasChangeListeners()) {
-    statWatcher.stop();
-    statWatchers.delete(path);
-  }
-}
-function unwatchAllFiles(fakeFs) {
-  const statWatchers = statWatchersByFakeFS.get(fakeFs);
-  if (typeof statWatchers === `undefined`) return;
-
-  for (const path of statWatchers.keys()) {
-    unwatchFile(fakeFs, path);
-  }
-}
-// CONCATENATED MODULE: ../yarnpkg-fslib/sources/ZipFS.ts
-
-
-
-
-
-
-
-
-
-
-
-
-const DEFAULT_COMPRESSION_LEVEL = `mixed`;
-
-function toUnixTimestamp(time) {
-  if (typeof time === `string` && String(+time) === time) return +time;
-
-  if (Number.isFinite(time)) {
-    if (time < 0) {
-      return Date.now() / 1000;
-    } else {
-      return time;
-    }
-  } // convert to 123.456 UNIX timestamp
-
-
-  if ((0,external_util_namespaceObject.isDate)(time)) return time.getTime() / 1000;
-  throw new Error(`Invalid time`);
-}
-
-class ZipFS extends BasePortableFakeFS {
-  constructor(source, opts) {
-    super();
-    this.lzSource = null;
-    this.listings = new Map();
-    this.entries = new Map();
-    /**
-     * A cache of indices mapped to file sources.
-     * Populated by `setFileSource` calls.
-     * Required for supporting read after write.
-     */
-
-    this.fileSources = new Map();
-    this.fds = new Map();
-    this.nextFd = 0;
-    this.ready = false;
-    this.readOnly = false;
-    this.libzip = opts.libzip;
-    const pathOptions = opts;
-    this.level = typeof pathOptions.level !== `undefined` ? pathOptions.level : DEFAULT_COMPRESSION_LEVEL;
-
-    if (source === null) {
-      source = Buffer.from([0x50, 0x4B, 0x05, 0x06, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00]);
-    }
-
-    if (typeof source === `string`) {
-      const {
-        baseFs = new NodeFS()
-      } = pathOptions;
-      this.baseFs = baseFs;
-      this.path = source;
-    } else {
-      this.path = null;
-      this.baseFs = null;
-    }
-
-    if (opts.stats) {
-      this.stats = opts.stats;
-    } else {
-      if (typeof source === `string`) {
-        try {
-          this.stats = this.baseFs.statSync(source);
-        } catch (error) {
-          if (error.code === `ENOENT` && pathOptions.create) {
-            this.stats = makeDefaultStats();
-          } else {
-            throw error;
-          }
-        }
-      } else {
-        this.stats = makeDefaultStats();
-      }
-    }
-
-    const errPtr = this.libzip.malloc(4);
-
-    try {
-      let flags = 0;
-      if (typeof source === `string` && pathOptions.create) flags |= this.libzip.ZIP_CREATE | this.libzip.ZIP_TRUNCATE;
-
-      if (opts.readOnly) {
-        flags |= this.libzip.ZIP_RDONLY;
-        this.readOnly = true;
-      }
-
-      if (typeof source === `string`) {
-        this.zip = this.libzip.open(npath.fromPortablePath(source), flags, errPtr);
-      } else {
-        const lzSource = this.allocateUnattachedSource(source);
-
-        try {
-          this.zip = this.libzip.openFromSource(lzSource, flags, errPtr);
-          this.lzSource = lzSource;
-        } catch (error) {
-          this.libzip.source.free(lzSource);
-          throw error;
-        }
-      }
-
-      if (this.zip === 0) {
-        const error = this.libzip.struct.errorS();
-        this.libzip.error.initWithCode(error, this.libzip.getValue(errPtr, `i32`));
-        throw this.makeLibzipError(error);
-      }
-    } finally {
-      this.libzip.free(errPtr);
-    }
-
-    this.listings.set(PortablePath.root, new Set());
-    const entryCount = this.libzip.getNumEntries(this.zip, 0);
-
-    for (let t = 0; t < entryCount; ++t) {
-      const raw = this.libzip.getName(this.zip, t, 0);
-      if (ppath.isAbsolute(raw)) continue;
-      const p = ppath.resolve(PortablePath.root, raw);
-      this.registerEntry(p, t); // If the raw path is a directory, register it
-      // to prevent empty folder being skipped
-
-      if (raw.endsWith(`/`)) {
-        this.registerListing(p);
-      }
-    }
-
-    this.symlinkCount = this.libzip.ext.countSymlinks(this.zip);
-    if (this.symlinkCount === -1) throw this.makeLibzipError(this.libzip.getError(this.zip));
-    this.ready = true;
-  }
-
-  makeLibzipError(error) {
-    const errorCode = this.libzip.struct.errorCodeZip(error);
-    const strerror = this.libzip.error.strerror(error);
-    const libzipError = new LibzipError(strerror, this.libzip.errors[errorCode]); // This error should never come up because of the file source cache
-
-    if (errorCode === this.libzip.errors.ZIP_ER_CHANGED) throw new Error(`Assertion failed: Unexpected libzip error: ${libzipError.message}`);
-    return libzipError;
-  }
-
-  getExtractHint(hints) {
-    for (const fileName of this.entries.keys()) {
-      const ext = this.pathUtils.extname(fileName);
-
-      if (hints.relevantExtensions.has(ext)) {
-        return true;
-      }
-    }
-
-    return false;
-  }
-
-  getAllFiles() {
-    return Array.from(this.entries.keys());
-  }
-
-  getRealPath() {
-    if (!this.path) throw new Error(`ZipFS don't have real paths when loaded from a buffer`);
-    return this.path;
-  }
-
-  getBufferAndClose() {
-    this.prepareClose();
-    if (!this.lzSource) throw new Error(`ZipFS was not created from a Buffer`);
-
-    try {
-      // Prevent close from cleaning up the source
-      this.libzip.source.keep(this.lzSource); // Close the zip archive
-
-      if (this.libzip.close(this.zip) === -1) throw this.makeLibzipError(this.libzip.getError(this.zip)); // Open the source for reading
-
-      if (this.libzip.source.open(this.lzSource) === -1) throw this.makeLibzipError(this.libzip.source.error(this.lzSource)); // Move to the end of source
-
-      if (this.libzip.source.seek(this.lzSource, 0, 0, this.libzip.SEEK_END) === -1) throw this.makeLibzipError(this.libzip.source.error(this.lzSource)); // Get the size of source
-
-      const size = this.libzip.source.tell(this.lzSource);
-      if (size === -1) throw this.makeLibzipError(this.libzip.source.error(this.lzSource)); // Move to the start of source
-
-      if (this.libzip.source.seek(this.lzSource, 0, 0, this.libzip.SEEK_SET) === -1) throw this.makeLibzipError(this.libzip.source.error(this.lzSource));
-      const buffer = this.libzip.malloc(size);
-      if (!buffer) throw new Error(`Couldn't allocate enough memory`);
-
-      try {
-        const rc = this.libzip.source.read(this.lzSource, buffer, size);
-        if (rc === -1) throw this.makeLibzipError(this.libzip.source.error(this.lzSource));else if (rc < size) throw new Error(`Incomplete read`);else if (rc > size) throw new Error(`Overread`);
-        const memory = this.libzip.HEAPU8.subarray(buffer, buffer + size);
-        return Buffer.from(memory);
-      } finally {
-        this.libzip.free(buffer);
-      }
-    } finally {
-      this.libzip.source.close(this.lzSource);
-      this.libzip.source.free(this.lzSource);
-      this.ready = false;
-    }
-  }
-
-  prepareClose() {
-    if (!this.ready) throw EBUSY(`archive closed, close`);
-    unwatchAllFiles(this);
-  }
-
-  saveAndClose() {
-    if (!this.path || !this.baseFs) throw new Error(`ZipFS cannot be saved and must be discarded when loaded from a buffer`);
-    this.prepareClose();
-
-    if (this.readOnly) {
-      this.discardAndClose();
-      return;
-    }
-
-    const previousMod = this.baseFs.existsSync(this.path) ? this.baseFs.statSync(this.path).mode & 0o777 : null;
-    const rc = this.libzip.close(this.zip);
-    if (rc === -1) throw this.makeLibzipError(this.libzip.getError(this.zip)); // this.libzip overrides the chmod when writing the archive, which is a weird
-    // behavior I don't totally understand (plus the umask seems bogus in some
-    // weird cases - maybe related to emscripten?)
-    //
-    // See also https://github.com/nih-at/libzip/issues/77
-
-    if (previousMod === null) this.baseFs.chmodSync(this.path, this.stats.mode);else if (previousMod !== (this.baseFs.statSync(this.path).mode & 0o777)) this.baseFs.chmodSync(this.path, previousMod);
-    this.ready = false;
-  }
-
-  discardAndClose() {
-    this.prepareClose();
-    this.libzip.discard(this.zip);
-    this.ready = false;
-  }
-
-  resolve(p) {
-    return ppath.resolve(PortablePath.root, p);
-  }
-
-  async openPromise(p, flags, mode) {
-    return this.openSync(p, flags, mode);
-  }
-
-  openSync(p, flags, mode) {
-    const fd = this.nextFd++;
-    this.fds.set(fd, {
-      cursor: 0,
-      p
-    });
-    return fd;
-  }
-
-  hasOpenFileHandles() {
-    return !!this.fds.size;
-  }
-
-  async opendirPromise(p, opts) {
-    return this.opendirSync(p, opts);
-  }
-
-  opendirSync(p, opts = {}) {
-    const resolvedP = this.resolveFilename(`opendir '${p}'`, p);
-    if (!this.entries.has(resolvedP) && !this.listings.has(resolvedP)) throw ENOENT(`opendir '${p}'`);
-    const directoryListing = this.listings.get(resolvedP);
-    if (!directoryListing) throw ENOTDIR(`opendir '${p}'`);
-    const entries = [...directoryListing];
-    const fd = this.openSync(resolvedP, `r`);
-
-    const onClose = () => {
-      this.closeSync(fd);
-    };
-
-    return opendir(this, resolvedP, entries, {
-      onClose
-    });
-  }
-
-  async readPromise(fd, buffer, offset, length, position) {
-    return this.readSync(fd, buffer, offset, length, position);
-  }
-
-  readSync(fd, buffer, offset = 0, length = 0, position = -1) {
-    const entry = this.fds.get(fd);
-    if (typeof entry === `undefined`) throw EBADF(`read`);
-    let realPosition;
-    if (position === -1 || position === null) realPosition = entry.cursor;else realPosition = position;
-    const source = this.readFileSync(entry.p);
-    source.copy(buffer, offset, realPosition, realPosition + length);
-    const bytesRead = Math.max(0, Math.min(source.length - realPosition, length));
-    if (position === -1 || position === null) entry.cursor += bytesRead;
-    return bytesRead;
-  }
-
-  async writePromise(fd, buffer, offset, length, position) {
-    if (typeof buffer === `string`) {
-      return this.writeSync(fd, buffer, position);
-    } else {
-      return this.writeSync(fd, buffer, offset, length, position);
-    }
-  }
-
-  writeSync(fd, buffer, offset, length, position) {
-    const entry = this.fds.get(fd);
-    if (typeof entry === `undefined`) throw EBADF(`read`);
-    throw new Error(`Unimplemented`);
-  }
-
-  async closePromise(fd) {
-    return this.closeSync(fd);
-  }
-
-  closeSync(fd) {
-    const entry = this.fds.get(fd);
-    if (typeof entry === `undefined`) throw EBADF(`read`);
-    this.fds.delete(fd);
-  }
-
-  createReadStream(p, {
-    encoding
-  } = {}) {
-    if (p === null) throw new Error(`Unimplemented`);
-    const fd = this.openSync(p, `r`);
-    const stream = Object.assign(new external_stream_namespaceObject.PassThrough({
-      emitClose: true,
-      autoDestroy: true,
-      destroy: (error, callback) => {
-        clearImmediate(immediate);
-        this.closeSync(fd);
-        callback(error);
-      }
-    }), {
-      close() {
-        stream.destroy();
-      },
-
-      bytesRead: 0,
-      path: p
-    });
-    const immediate = setImmediate(async () => {
-      try {
-        const data = await this.readFilePromise(p, encoding);
-        stream.bytesRead = data.length;
-        stream.end(data);
-      } catch (error) {
-        stream.destroy(error);
-      }
-    });
-    return stream;
-  }
-
-  createWriteStream(p, {
-    encoding
-  } = {}) {
-    if (this.readOnly) throw EROFS(`open '${p}'`);
-    if (p === null) throw new Error(`Unimplemented`);
-    const chunks = [];
-    const fd = this.openSync(p, `w`);
-    const stream = Object.assign(new external_stream_namespaceObject.PassThrough({
-      autoDestroy: true,
-      emitClose: true,
-      destroy: (error, callback) => {
-        try {
-          if (error) {
-            callback(error);
-          } else {
-            this.writeFileSync(p, Buffer.concat(chunks), encoding);
-            callback(null);
-          }
-        } catch (err) {
-          callback(err);
-        } finally {
-          this.closeSync(fd);
-        }
-      }
-    }), {
-      bytesWritten: 0,
-      path: p,
-
-      close() {
-        stream.destroy();
-      }
-
-    });
-    stream.on(`data`, chunk => {
-      const chunkBuffer = Buffer.from(chunk);
-      stream.bytesWritten += chunkBuffer.length;
-      chunks.push(chunkBuffer);
-    });
-    return stream;
-  }
-
-  async realpathPromise(p) {
-    return this.realpathSync(p);
-  }
-
-  realpathSync(p) {
-    const resolvedP = this.resolveFilename(`lstat '${p}'`, p);
-    if (!this.entries.has(resolvedP) && !this.listings.has(resolvedP)) throw ENOENT(`lstat '${p}'`);
-    return resolvedP;
-  }
-
-  async existsPromise(p) {
-    return this.existsSync(p);
-  }
-
-  existsSync(p) {
-    if (!this.ready) throw EBUSY(`archive closed, existsSync '${p}'`);
-
-    if (this.symlinkCount === 0) {
-      const resolvedP = ppath.resolve(PortablePath.root, p);
-      return this.entries.has(resolvedP) || this.listings.has(resolvedP);
-    }
-
-    let resolvedP;
-
-    try {
-      resolvedP = this.resolveFilename(`stat '${p}'`, p);
-    } catch (error) {
-      return false;
-    }
-
-    return this.entries.has(resolvedP) || this.listings.has(resolvedP);
-  }
-
-  async accessPromise(p, mode) {
-    return this.accessSync(p, mode);
-  }
-
-  accessSync(p, mode = external_fs_.constants.F_OK) {
-    const resolvedP = this.resolveFilename(`access '${p}'`, p);
-    if (!this.entries.has(resolvedP) && !this.listings.has(resolvedP)) throw ENOENT(`access '${p}'`);
-
-    if (this.readOnly && mode & external_fs_.constants.W_OK) {
-      throw EROFS(`access '${p}'`);
-    }
-  }
-
-  async statPromise(p, opts) {
-    return this.statSync(p, opts);
-  }
-
-  statSync(p, opts) {
-    const resolvedP = this.resolveFilename(`stat '${p}'`, p);
-    if (!this.entries.has(resolvedP) && !this.listings.has(resolvedP)) throw ENOENT(`stat '${p}'`);
-    if (p[p.length - 1] === `/` && !this.listings.has(resolvedP)) throw ENOTDIR(`stat '${p}'`);
-    return this.statImpl(`stat '${p}'`, resolvedP, opts);
-  }
-
-  async fstatPromise(fd, opts) {
-    return this.fstatSync(fd, opts);
-  }
-
-  fstatSync(fd, opts) {
-    const entry = this.fds.get(fd);
-    if (typeof entry === `undefined`) throw EBADF(`fstatSync`);
-    const {
-      p
-    } = entry;
-    const resolvedP = this.resolveFilename(`stat '${p}'`, p);
-    if (!this.entries.has(resolvedP) && !this.listings.has(resolvedP)) throw ENOENT(`stat '${p}'`);
-    if (p[p.length - 1] === `/` && !this.listings.has(resolvedP)) throw ENOTDIR(`stat '${p}'`);
-    return this.statImpl(`fstat '${p}'`, resolvedP, opts);
-  }
-
-  async lstatPromise(p, opts) {
-    return this.lstatSync(p, opts);
-  }
-
-  lstatSync(p, opts) {
-    const resolvedP = this.resolveFilename(`lstat '${p}'`, p, false);
-    if (!this.entries.has(resolvedP) && !this.listings.has(resolvedP)) throw ENOENT(`lstat '${p}'`);
-    if (p[p.length - 1] === `/` && !this.listings.has(resolvedP)) throw ENOTDIR(`lstat '${p}'`);
-    return this.statImpl(`lstat '${p}'`, resolvedP, opts);
-  }
-
-  statImpl(reason, p, opts = {}) {
-    const entry = this.entries.get(p); // File, or explicit directory
-
-    if (typeof entry !== `undefined`) {
-      const stat = this.libzip.struct.statS();
-      const rc = this.libzip.statIndex(this.zip, entry, 0, 0, stat);
-      if (rc === -1) throw this.makeLibzipError(this.libzip.getError(this.zip));
-      const uid = this.stats.uid;
-      const gid = this.stats.gid;
-      const size = this.libzip.struct.statSize(stat) >>> 0;
-      const blksize = 512;
-      const blocks = Math.ceil(size / blksize);
-      const mtimeMs = (this.libzip.struct.statMtime(stat) >>> 0) * 1000;
-      const atimeMs = mtimeMs;
-      const birthtimeMs = mtimeMs;
-      const ctimeMs = mtimeMs;
-      const atime = new Date(atimeMs);
-      const birthtime = new Date(birthtimeMs);
-      const ctime = new Date(ctimeMs);
-      const mtime = new Date(mtimeMs);
-      const type = this.listings.has(p) ? constants_S_IFDIR : this.isSymbolicLink(entry) ? constants_S_IFLNK : constants_S_IFREG;
-      const defaultMode = type === constants_S_IFDIR ? 0o755 : 0o644;
-      const mode = type | this.getUnixMode(entry, defaultMode) & 0o777;
-      const crc = this.libzip.struct.statCrc(stat);
-      const statInstance = Object.assign(new StatEntry(), {
-        uid,
-        gid,
-        size,
-        blksize,
-        blocks,
-        atime,
-        birthtime,
-        ctime,
-        mtime,
-        atimeMs,
-        birthtimeMs,
-        ctimeMs,
-        mtimeMs,
-        mode,
-        crc
-      });
-      return opts.bigint === true ? convertToBigIntStats(statInstance) : statInstance;
-    } // Implicit directory
-
-
-    if (this.listings.has(p)) {
-      const uid = this.stats.uid;
-      const gid = this.stats.gid;
-      const size = 0;
-      const blksize = 512;
-      const blocks = 0;
-      const atimeMs = this.stats.mtimeMs;
-      const birthtimeMs = this.stats.mtimeMs;
-      const ctimeMs = this.stats.mtimeMs;
-      const mtimeMs = this.stats.mtimeMs;
-      const atime = new Date(atimeMs);
-      const birthtime = new Date(birthtimeMs);
-      const ctime = new Date(ctimeMs);
-      const mtime = new Date(mtimeMs);
-      const mode = constants_S_IFDIR | 0o755;
-      const crc = 0;
-      const statInstance = Object.assign(new StatEntry(), {
-        uid,
-        gid,
-        size,
-        blksize,
-        blocks,
-        atime,
-        birthtime,
-        ctime,
-        mtime,
-        atimeMs,
-        birthtimeMs,
-        ctimeMs,
-        mtimeMs,
-        mode,
-        crc
-      });
-      return opts.bigint === true ? convertToBigIntStats(statInstance) : statInstance;
-    }
-
-    throw new Error(`Unreachable`);
-  }
-
-  getUnixMode(index, defaultMode) {
-    const rc = this.libzip.file.getExternalAttributes(this.zip, index, 0, 0, this.libzip.uint08S, this.libzip.uint32S);
-    if (rc === -1) throw this.makeLibzipError(this.libzip.getError(this.zip));
-    const opsys = this.libzip.getValue(this.libzip.uint08S, `i8`) >>> 0;
-    if (opsys !== this.libzip.ZIP_OPSYS_UNIX) return defaultMode;
-    return this.libzip.getValue(this.libzip.uint32S, `i32`) >>> 16;
-  }
-
-  registerListing(p) {
-    let listing = this.listings.get(p);
-    if (listing) return listing;
-    const parentListing = this.registerListing(ppath.dirname(p));
-    listing = new Set();
-    parentListing.add(ppath.basename(p));
-    this.listings.set(p, listing);
-    return listing;
-  }
-
-  registerEntry(p, index) {
-    const parentListing = this.registerListing(ppath.dirname(p));
-    parentListing.add(ppath.basename(p));
-    this.entries.set(p, index);
-  }
-
-  unregisterListing(p) {
-    this.listings.delete(p);
-    const parentListing = this.listings.get(ppath.dirname(p));
-    parentListing === null || parentListing === void 0 ? void 0 : parentListing.delete(ppath.basename(p));
-  }
-
-  unregisterEntry(p) {
-    this.unregisterListing(p);
-    const entry = this.entries.get(p);
-    this.entries.delete(p);
-    if (typeof entry === `undefined`) return;
-    this.fileSources.delete(entry);
-
-    if (this.isSymbolicLink(entry)) {
-      this.symlinkCount--;
-    }
-  }
-
-  deleteEntry(p, index) {
-    this.unregisterEntry(p);
-    const rc = this.libzip.delete(this.zip, index);
-
-    if (rc === -1) {
-      throw this.makeLibzipError(this.libzip.getError(this.zip));
-    }
-  }
-
-  resolveFilename(reason, p, resolveLastComponent = true) {
-    if (!this.ready) throw EBUSY(`archive closed, ${reason}`);
-    let resolvedP = ppath.resolve(PortablePath.root, p);
-    if (resolvedP === `/`) return PortablePath.root;
-    const fileIndex = this.entries.get(resolvedP);
-
-    if (resolveLastComponent && fileIndex !== undefined) {
-      if (this.symlinkCount !== 0 && this.isSymbolicLink(fileIndex)) {
-        const target = this.getFileSource(fileIndex).toString();
-        return this.resolveFilename(reason, ppath.resolve(ppath.dirname(resolvedP), target), true);
-      } else {
-        return resolvedP;
-      }
-    }
-
-    while (true) {
-      const parentP = this.resolveFilename(reason, ppath.dirname(resolvedP), true);
-      const isDir = this.listings.has(parentP);
-      const doesExist = this.entries.has(parentP);
-      if (!isDir && !doesExist) throw ENOENT(reason);
-      if (!isDir) throw ENOTDIR(reason);
-      resolvedP = ppath.resolve(parentP, ppath.basename(resolvedP));
-      if (!resolveLastComponent || this.symlinkCount === 0) break;
-      const index = this.libzip.name.locate(this.zip, resolvedP.slice(1));
-      if (index === -1) break;
-
-      if (this.isSymbolicLink(index)) {
-        const target = this.getFileSource(index).toString();
-        resolvedP = ppath.resolve(ppath.dirname(resolvedP), target);
-      } else {
-        break;
-      }
-    }
-
-    return resolvedP;
-  }
-
-  allocateBuffer(content) {
-    if (!Buffer.isBuffer(content)) content = Buffer.from(content);
-    const buffer = this.libzip.malloc(content.byteLength);
-    if (!buffer) throw new Error(`Couldn't allocate enough memory`); // Copy the file into the Emscripten heap
-
-    const heap = new Uint8Array(this.libzip.HEAPU8.buffer, buffer, content.byteLength);
-    heap.set(content);
-    return {
-      buffer,
-      byteLength: content.byteLength
-    };
-  }
-
-  allocateUnattachedSource(content) {
-    const error = this.libzip.struct.errorS();
-    const {
-      buffer,
-      byteLength
-    } = this.allocateBuffer(content);
-    const source = this.libzip.source.fromUnattachedBuffer(buffer, byteLength, 0, true, error);
-
-    if (source === 0) {
-      this.libzip.free(error);
-      throw this.makeLibzipError(error);
-    }
-
-    return source;
-  }
-
-  allocateSource(content) {
-    const {
-      buffer,
-      byteLength
-    } = this.allocateBuffer(content);
-    const source = this.libzip.source.fromBuffer(this.zip, buffer, byteLength, 0, true);
-
-    if (source === 0) {
-      this.libzip.free(buffer);
-      throw this.makeLibzipError(this.libzip.getError(this.zip));
-    }
-
-    return source;
-  }
-
-  setFileSource(p, content) {
-    const buffer = Buffer.isBuffer(content) ? content : Buffer.from(content);
-    const target = ppath.relative(PortablePath.root, p);
-    const lzSource = this.allocateSource(content);
-
-    try {
-      const newIndex = this.libzip.file.add(this.zip, target, lzSource, this.libzip.ZIP_FL_OVERWRITE);
-      if (newIndex === -1) throw this.makeLibzipError(this.libzip.getError(this.zip));
-
-      if (this.level !== `mixed`) {
-        // Use store for level 0, and deflate for 1..9
-        let method;
-        if (this.level === 0) method = this.libzip.ZIP_CM_STORE;else method = this.libzip.ZIP_CM_DEFLATE;
-        const rc = this.libzip.file.setCompression(this.zip, newIndex, 0, method, this.level);
-
-        if (rc === -1) {
-          throw this.makeLibzipError(this.libzip.getError(this.zip));
-        }
-      }
-
-      this.fileSources.set(newIndex, buffer);
-      return newIndex;
-    } catch (error) {
-      this.libzip.source.free(lzSource);
-      throw error;
-    }
-  }
-
-  isSymbolicLink(index) {
-    if (this.symlinkCount === 0) return false;
-    const attrs = this.libzip.file.getExternalAttributes(this.zip, index, 0, 0, this.libzip.uint08S, this.libzip.uint32S);
-    if (attrs === -1) throw this.makeLibzipError(this.libzip.getError(this.zip));
-    const opsys = this.libzip.getValue(this.libzip.uint08S, `i8`) >>> 0;
-    if (opsys !== this.libzip.ZIP_OPSYS_UNIX) return false;
-    const attributes = this.libzip.getValue(this.libzip.uint32S, `i32`) >>> 16;
-    return (attributes & constants_S_IFMT) === constants_S_IFLNK;
-  }
-
-  getFileSource(index, opts = {
-    asyncDecompress: false
-  }) {
-    const cachedFileSource = this.fileSources.get(index);
-    if (typeof cachedFileSource !== `undefined`) return cachedFileSource;
-    const stat = this.libzip.struct.statS();
-    const rc = this.libzip.statIndex(this.zip, index, 0, 0, stat);
-    if (rc === -1) throw this.makeLibzipError(this.libzip.getError(this.zip));
-    const size = this.libzip.struct.statCompSize(stat);
-    const compressionMethod = this.libzip.struct.statCompMethod(stat);
-    const buffer = this.libzip.malloc(size);
-
-    try {
-      const file = this.libzip.fopenIndex(this.zip, index, 0, this.libzip.ZIP_FL_COMPRESSED);
-      if (file === 0) throw this.makeLibzipError(this.libzip.getError(this.zip));
-
-      try {
-        const rc = this.libzip.fread(file, buffer, size, 0);
-        if (rc === -1) throw this.makeLibzipError(this.libzip.file.getError(file));else if (rc < size) throw new Error(`Incomplete read`);else if (rc > size) throw new Error(`Overread`);
-        const memory = this.libzip.HEAPU8.subarray(buffer, buffer + size);
-        const data = Buffer.from(memory);
-
-        if (compressionMethod === 0) {
-          this.fileSources.set(index, data);
-          return data;
-        } else if (opts.asyncDecompress) {
-          return new Promise((resolve, reject) => {
-            external_zlib_default().inflateRaw(data, (error, result) => {
-              if (error) {
-                reject(error);
-              } else {
-                this.fileSources.set(index, result);
-                resolve(result);
-              }
-            });
-          });
-        } else {
-          const decompressedData = external_zlib_default().inflateRawSync(data);
-          this.fileSources.set(index, decompressedData);
-          return decompressedData;
-        }
-      } finally {
-        this.libzip.fclose(file);
-      }
-    } finally {
-      this.libzip.free(buffer);
-    }
-  }
-
-  async chmodPromise(p, mask) {
-    return this.chmodSync(p, mask);
-  }
-
-  chmodSync(p, mask) {
-    if (this.readOnly) throw EROFS(`chmod '${p}'`); // We don't allow to make the extracted entries group-writable
-
-    mask &= 0o755;
-    const resolvedP = this.resolveFilename(`chmod '${p}'`, p, false);
-    const entry = this.entries.get(resolvedP);
-    if (typeof entry === `undefined`) throw new Error(`Assertion failed: The entry should have been registered (${resolvedP})`);
-    const oldMod = this.getUnixMode(entry, constants_S_IFREG | 0o000);
-    const newMod = oldMod & ~0o777 | mask;
-    const rc = this.libzip.file.setExternalAttributes(this.zip, entry, 0, 0, this.libzip.ZIP_OPSYS_UNIX, newMod << 16);
-
-    if (rc === -1) {
-      throw this.makeLibzipError(this.libzip.getError(this.zip));
-    }
-  }
-
-  async chownPromise(p, uid, gid) {
-    return this.chownSync(p, uid, gid);
-  }
-
-  chownSync(p, uid, gid) {
-    throw new Error(`Unimplemented`);
-  }
-
-  async renamePromise(oldP, newP) {
-    return this.renameSync(oldP, newP);
-  }
-
-  renameSync(oldP, newP) {
-    throw new Error(`Unimplemented`);
-  }
-
-  async copyFilePromise(sourceP, destP, flags) {
-    const {
-      indexSource,
-      indexDest,
-      resolvedDestP
-    } = this.prepareCopyFile(sourceP, destP, flags);
-    const source = await this.getFileSource(indexSource, {
-      asyncDecompress: true
-    });
-    const newIndex = this.setFileSource(resolvedDestP, source);
-
-    if (newIndex !== indexDest) {
-      this.registerEntry(resolvedDestP, newIndex);
-    }
-  }
-
-  copyFileSync(sourceP, destP, flags = 0) {
-    const {
-      indexSource,
-      indexDest,
-      resolvedDestP
-    } = this.prepareCopyFile(sourceP, destP, flags);
-    const source = this.getFileSource(indexSource);
-    const newIndex = this.setFileSource(resolvedDestP, source);
-
-    if (newIndex !== indexDest) {
-      this.registerEntry(resolvedDestP, newIndex);
-    }
-  }
-
-  prepareCopyFile(sourceP, destP, flags = 0) {
-    if (this.readOnly) throw EROFS(`copyfile '${sourceP} -> '${destP}'`);
-    if ((flags & external_fs_.constants.COPYFILE_FICLONE_FORCE) !== 0) throw ENOSYS(`unsupported clone operation`, `copyfile '${sourceP}' -> ${destP}'`);
-    const resolvedSourceP = this.resolveFilename(`copyfile '${sourceP} -> ${destP}'`, sourceP);
-    const indexSource = this.entries.get(resolvedSourceP);
-    if (typeof indexSource === `undefined`) throw EINVAL(`copyfile '${sourceP}' -> '${destP}'`);
-    const resolvedDestP = this.resolveFilename(`copyfile '${sourceP}' -> ${destP}'`, destP);
-    const indexDest = this.entries.get(resolvedDestP);
-    if ((flags & (external_fs_.constants.COPYFILE_EXCL | external_fs_.constants.COPYFILE_FICLONE_FORCE)) !== 0 && typeof indexDest !== `undefined`) throw EEXIST(`copyfile '${sourceP}' -> '${destP}'`);
-    return {
-      indexSource,
-      resolvedDestP,
-      indexDest
-    };
-  }
-
-  async appendFilePromise(p, content, opts) {
-    if (this.readOnly) throw EROFS(`open '${p}'`);
-    if (typeof opts === `undefined`) opts = {
-      flag: `a`
-    };else if (typeof opts === `string`) opts = {
-      flag: `a`,
-      encoding: opts
-    };else if (typeof opts.flag === `undefined`) opts = {
-      flag: `a`,
-      ...opts
-    };
-    return this.writeFilePromise(p, content, opts);
-  }
-
-  appendFileSync(p, content, opts = {}) {
-    if (this.readOnly) throw EROFS(`open '${p}'`);
-    if (typeof opts === `undefined`) opts = {
-      flag: `a`
-    };else if (typeof opts === `string`) opts = {
-      flag: `a`,
-      encoding: opts
-    };else if (typeof opts.flag === `undefined`) opts = {
-      flag: `a`,
-      ...opts
-    };
-    return this.writeFileSync(p, content, opts);
-  }
-
-  async writeFilePromise(p, content, opts) {
-    const {
-      encoding,
-      index,
-      resolvedP
-    } = this.prepareWriteFile(p, opts);
-    if (index !== undefined && typeof opts === `object` && opts.flag && opts.flag.includes(`a`)) content = Buffer.concat([await this.getFileSource(index, {
-      asyncDecompress: true
-    }), Buffer.from(content)]);
-    if (encoding !== null) content = content.toString(encoding);
-    const newIndex = this.setFileSource(resolvedP, content);
-
-    if (newIndex !== index) {
-      this.registerEntry(resolvedP, newIndex);
-    }
-  }
-
-  writeFileSync(p, content, opts) {
-    const {
-      encoding,
-      index,
-      resolvedP
-    } = this.prepareWriteFile(p, opts);
-    if (index !== undefined && typeof opts === `object` && opts.flag && opts.flag.includes(`a`)) content = Buffer.concat([this.getFileSource(index), Buffer.from(content)]);
-    if (encoding !== null) content = content.toString(encoding);
-    const newIndex = this.setFileSource(resolvedP, content);
-
-    if (newIndex !== index) {
-      this.registerEntry(resolvedP, newIndex);
-    }
-  }
-
-  prepareWriteFile(p, opts) {
-    if (typeof p !== `string`) throw EBADF(`read`);
-    if (this.readOnly) throw EROFS(`open '${p}'`);
-    const resolvedP = this.resolveFilename(`open '${p}'`, p);
-    if (this.listings.has(resolvedP)) throw EISDIR(`open '${p}'`);
-    let encoding = null;
-    if (typeof opts === `string`) encoding = opts;else if (typeof opts === `object` && opts.encoding) encoding = opts.encoding;
-    const index = this.entries.get(resolvedP);
-    return {
-      encoding,
-      resolvedP,
-      index
-    };
-  }
-
-  async unlinkPromise(p) {
-    return this.unlinkSync(p);
-  }
-
-  unlinkSync(p) {
-    if (this.readOnly) throw EROFS(`unlink '${p}'`);
-    const resolvedP = this.resolveFilename(`unlink '${p}'`, p);
-    if (this.listings.has(resolvedP)) throw EISDIR(`unlink '${p}'`);
-    const index = this.entries.get(resolvedP);
-    if (typeof index === `undefined`) throw EINVAL(`unlink '${p}'`);
-    this.deleteEntry(resolvedP, index);
-  }
-
-  async utimesPromise(p, atime, mtime) {
-    return this.utimesSync(p, atime, mtime);
-  }
-
-  utimesSync(p, atime, mtime) {
-    if (this.readOnly) throw EROFS(`utimes '${p}'`);
-    const resolvedP = this.resolveFilename(`utimes '${p}'`, p);
-    this.utimesImpl(resolvedP, mtime);
-  }
-
-  async lutimesPromise(p, atime, mtime) {
-    return this.lutimesSync(p, atime, mtime);
-  }
-
-  lutimesSync(p, atime, mtime) {
-    if (this.readOnly) throw EROFS(`lutimes '${p}'`);
-    const resolvedP = this.resolveFilename(`utimes '${p}'`, p, false);
-    this.utimesImpl(resolvedP, mtime);
-  }
-
-  utimesImpl(resolvedP, mtime) {
-    if (this.listings.has(resolvedP)) if (!this.entries.has(resolvedP)) this.hydrateDirectory(resolvedP);
-    const entry = this.entries.get(resolvedP);
-    if (entry === undefined) throw new Error(`Unreachable`);
-    const rc = this.libzip.file.setMtime(this.zip, entry, 0, toUnixTimestamp(mtime), 0);
-
-    if (rc === -1) {
-      throw this.makeLibzipError(this.libzip.getError(this.zip));
-    }
-  }
-
-  async mkdirPromise(p, opts) {
-    return this.mkdirSync(p, opts);
-  }
-
-  mkdirSync(p, {
-    mode = 0o755,
-    recursive = false
-  } = {}) {
-    if (recursive) {
-      this.mkdirpSync(p, {
-        chmod: mode
-      });
-      return;
-    }
-
-    if (this.readOnly) throw EROFS(`mkdir '${p}'`);
-    const resolvedP = this.resolveFilename(`mkdir '${p}'`, p);
-    if (this.entries.has(resolvedP) || this.listings.has(resolvedP)) throw EEXIST(`mkdir '${p}'`);
-    this.hydrateDirectory(resolvedP);
-    this.chmodSync(resolvedP, mode);
-  }
-
-  async rmdirPromise(p, opts) {
-    return this.rmdirSync(p, opts);
-  }
-
-  rmdirSync(p, {
-    recursive = false
-  } = {}) {
-    if (this.readOnly) throw EROFS(`rmdir '${p}'`);
-
-    if (recursive) {
-      this.removeSync(p);
-      return;
-    }
-
-    const resolvedP = this.resolveFilename(`rmdir '${p}'`, p);
-    const directoryListing = this.listings.get(resolvedP);
-    if (!directoryListing) throw ENOTDIR(`rmdir '${p}'`);
-    if (directoryListing.size > 0) throw ENOTEMPTY(`rmdir '${p}'`);
-    const index = this.entries.get(resolvedP);
-    if (typeof index === `undefined`) throw EINVAL(`rmdir '${p}'`);
-    this.deleteEntry(p, index);
-  }
-
-  hydrateDirectory(resolvedP) {
-    const index = this.libzip.dir.add(this.zip, ppath.relative(PortablePath.root, resolvedP));
-    if (index === -1) throw this.makeLibzipError(this.libzip.getError(this.zip));
-    this.registerListing(resolvedP);
-    this.registerEntry(resolvedP, index);
-    return index;
-  }
-
-  async linkPromise(existingP, newP) {
-    return this.linkSync(existingP, newP);
-  }
-
-  linkSync(existingP, newP) {
-    // Zip archives don't support hard links:
-    // https://stackoverflow.com/questions/8859616/are-hard-links-possible-within-a-zip-archive
-    throw EOPNOTSUPP(`link '${existingP}' -> '${newP}'`);
-  }
-
-  async symlinkPromise(target, p) {
-    return this.symlinkSync(target, p);
-  }
-
-  symlinkSync(target, p) {
-    if (this.readOnly) throw EROFS(`symlink '${target}' -> '${p}'`);
-    const resolvedP = this.resolveFilename(`symlink '${target}' -> '${p}'`, p);
-    if (this.listings.has(resolvedP)) throw EISDIR(`symlink '${target}' -> '${p}'`);
-    if (this.entries.has(resolvedP)) throw EEXIST(`symlink '${target}' -> '${p}'`);
-    const index = this.setFileSource(resolvedP, target);
-    this.registerEntry(resolvedP, index);
-    const rc = this.libzip.file.setExternalAttributes(this.zip, index, 0, 0, this.libzip.ZIP_OPSYS_UNIX, (constants_S_IFLNK | 0o777) << 16);
-    if (rc === -1) throw this.makeLibzipError(this.libzip.getError(this.zip));
-    this.symlinkCount += 1;
-  }
-
-  async readFilePromise(p, encoding) {
-    // This is messed up regarding the TS signatures
-    if (typeof encoding === `object`) // @ts-expect-error
-      encoding = encoding ? encoding.encoding : undefined;
-    const data = await this.readFileBuffer(p, {
-      asyncDecompress: true
-    });
-    return encoding ? data.toString(encoding) : data;
-  }
-
-  readFileSync(p, encoding) {
-    // This is messed up regarding the TS signatures
-    if (typeof encoding === `object`) // @ts-expect-error
-      encoding = encoding ? encoding.encoding : undefined;
-    const data = this.readFileBuffer(p);
-    return encoding ? data.toString(encoding) : data;
-  }
-
-  readFileBuffer(p, opts = {
-    asyncDecompress: false
-  }) {
-    const resolvedP = this.resolveFilename(`open '${p}'`, p);
-    if (!this.entries.has(resolvedP) && !this.listings.has(resolvedP)) throw ENOENT(`open '${p}'`); // Ensures that the last component is a directory, if the user said so (even if it is we'll throw right after with EISDIR anyway)
-
-    if (p[p.length - 1] === `/` && !this.listings.has(resolvedP)) throw ENOTDIR(`open '${p}'`);
-    if (this.listings.has(resolvedP)) throw EISDIR(`read`);
-    const entry = this.entries.get(resolvedP);
-    if (entry === undefined) throw new Error(`Unreachable`);
-    return this.getFileSource(entry, opts);
-  }
-
-  async readdirPromise(p, {
-    withFileTypes
-  } = {}) {
-    return this.readdirSync(p, {
-      withFileTypes: withFileTypes
-    });
-  }
-
-  readdirSync(p, {
-    withFileTypes
-  } = {}) {
-    const resolvedP = this.resolveFilename(`scandir '${p}'`, p);
-    if (!this.entries.has(resolvedP) && !this.listings.has(resolvedP)) throw ENOENT(`scandir '${p}'`);
-    const directoryListing = this.listings.get(resolvedP);
-    if (!directoryListing) throw ENOTDIR(`scandir '${p}'`);
-    const entries = [...directoryListing];
-    if (!withFileTypes) return entries;
-    return entries.map(name => {
-      return Object.assign(this.statImpl(`lstat`, ppath.join(p, name)), {
-        name
-      });
-    });
-  }
-
-  async readlinkPromise(p) {
-    const entry = this.prepareReadlink(p);
-    return (await this.getFileSource(entry, {
-      asyncDecompress: true
-    })).toString();
-  }
-
-  readlinkSync(p) {
-    const entry = this.prepareReadlink(p);
-    return this.getFileSource(entry).toString();
-  }
-
-  prepareReadlink(p) {
-    const resolvedP = this.resolveFilename(`readlink '${p}'`, p, false);
-    if (!this.entries.has(resolvedP) && !this.listings.has(resolvedP)) throw ENOENT(`readlink '${p}'`); // Ensure that the last component is a directory (if it is we'll throw right after with EISDIR anyway)
-
-    if (p[p.length - 1] === `/` && !this.listings.has(resolvedP)) throw ENOTDIR(`open '${p}'`);
-    if (this.listings.has(resolvedP)) throw EINVAL(`readlink '${p}'`);
-    const entry = this.entries.get(resolvedP);
-    if (entry === undefined) throw new Error(`Unreachable`);
-    if (!this.isSymbolicLink(entry)) throw EINVAL(`readlink '${p}'`);
-    return entry;
-  }
-
-  async truncatePromise(p, len = 0) {
-    const resolvedP = this.resolveFilename(`open '${p}'`, p);
-    const index = this.entries.get(resolvedP);
-    if (typeof index === `undefined`) throw EINVAL(`open '${p}'`);
-    const source = await this.getFileSource(index, {
-      asyncDecompress: true
-    });
-    const truncated = Buffer.alloc(len, 0x00);
-    source.copy(truncated);
-    return await this.writeFilePromise(p, truncated);
-  }
-
-  truncateSync(p, len = 0) {
-    const resolvedP = this.resolveFilename(`open '${p}'`, p);
-    const index = this.entries.get(resolvedP);
-    if (typeof index === `undefined`) throw EINVAL(`open '${p}'`);
-    const source = this.getFileSource(index);
-    const truncated = Buffer.alloc(len, 0x00);
-    source.copy(truncated);
-    return this.writeFileSync(p, truncated);
-  }
-
-  watch(p, a, b) {
-    let persistent;
-
-    switch (typeof a) {
-      case `function`:
-      case `string`:
-      case `undefined`:
-        {
-          persistent = true;
-        }
-        break;
-
-      default:
-        {
-          ({
-            persistent = true
-          } = a);
-        }
-        break;
-    }
-
-    if (!persistent) return {
-      on: () => {},
-      close: () => {}
-    };
-    const interval = setInterval(() => {}, 24 * 60 * 60 * 1000);
-    return {
-      on: () => {},
-      close: () => {
-        clearInterval(interval);
-      }
-    };
-  }
-
-  watchFile(p, a, b) {
-    const resolvedP = this.resolveFilename(`open '${p}'`, p);
-    return watchFile(this, resolvedP, a, b);
-  }
-
-  unwatchFile(p, cb) {
-    const resolvedP = this.resolveFilename(`open '${p}'`, p);
-    return unwatchFile(this, resolvedP, cb);
-  }
-
-}
-// CONCATENATED MODULE: ../yarnpkg-fslib/sources/ZipOpenFS.ts
-
-
-
-
-
-
-
-const ZIP_FD = 0x80000000;
-const DOT_ZIP = `.zip`;
-/**
- * Extracts the archive part (ending in the first `.zip`) from a path.
- *
- * The indexOf-based implementation is ~3.7x faster than a RegExp-based implementation.
- */
-
-const getArchivePart = path => {
-  const idx = path.indexOf(DOT_ZIP);
-  if (idx <= 0) return null; // Disallow files named ".zip"
-
-  if (path[idx - 1] === ppath.sep) return null;
-  const nextCharIdx = idx + DOT_ZIP.length; // The path either has to end in ".zip" or contain an archive subpath (".zip/...")
-
-  if (path.length > nextCharIdx && path[nextCharIdx] !== ppath.sep) return null;
-  return path.slice(0, nextCharIdx);
-};
-class ZipOpenFS extends BasePortableFakeFS {
-  constructor({
-    libzip,
-    baseFs = new NodeFS(),
-    filter = null,
-    maxOpenFiles = Infinity,
-    readOnlyArchives = false,
-    useCache = true,
-    maxAge = 5000
-  }) {
-    super();
-    this.fdMap = new Map();
-    this.nextFd = 3;
-    this.isZip = new Set();
-    this.notZip = new Set();
-    this.realPaths = new Map();
-    this.limitOpenFilesTimeout = null;
-    this.libzipFactory = typeof libzip !== `function` ? () => libzip : libzip;
-    this.baseFs = baseFs;
-    this.zipInstances = useCache ? new Map() : null;
-    this.filter = filter;
-    this.maxOpenFiles = maxOpenFiles;
-    this.readOnlyArchives = readOnlyArchives;
-    this.maxAge = maxAge;
-  }
-
-  static async openPromise(fn, opts) {
-    const zipOpenFs = new ZipOpenFS(opts);
-
-    try {
-      return await fn(zipOpenFs);
-    } finally {
-      zipOpenFs.saveAndClose();
-    }
-  }
-
-  get libzip() {
-    if (typeof this.libzipInstance === `undefined`) this.libzipInstance = this.libzipFactory();
-    return this.libzipInstance;
-  }
-
-  getExtractHint(hints) {
-    return this.baseFs.getExtractHint(hints);
-  }
-
-  getRealPath() {
-    return this.baseFs.getRealPath();
-  }
-
-  saveAndClose() {
-    unwatchAllFiles(this);
-
-    if (this.zipInstances) {
-      for (const [path, {
-        zipFs
-      }] of this.zipInstances.entries()) {
-        zipFs.saveAndClose();
-        this.zipInstances.delete(path);
-      }
-    }
-  }
-
-  discardAndClose() {
-    unwatchAllFiles(this);
-
-    if (this.zipInstances) {
-      for (const [path, {
-        zipFs
-      }] of this.zipInstances.entries()) {
-        zipFs.discardAndClose();
-        this.zipInstances.delete(path);
-      }
-    }
-  }
-
-  resolve(p) {
-    return this.baseFs.resolve(p);
-  }
-
-  remapFd(zipFs, fd) {
-    const remappedFd = this.nextFd++ | ZIP_FD;
-    this.fdMap.set(remappedFd, [zipFs, fd]);
-    return remappedFd;
-  }
-
-  async openPromise(p, flags, mode) {
-    return await this.makeCallPromise(p, async () => {
-      return await this.baseFs.openPromise(p, flags, mode);
-    }, async (zipFs, {
-      subPath
-    }) => {
-      return this.remapFd(zipFs, await zipFs.openPromise(subPath, flags, mode));
-    });
-  }
-
-  openSync(p, flags, mode) {
-    return this.makeCallSync(p, () => {
-      return this.baseFs.openSync(p, flags, mode);
-    }, (zipFs, {
-      subPath
-    }) => {
-      return this.remapFd(zipFs, zipFs.openSync(subPath, flags, mode));
-    });
-  }
-
-  async opendirPromise(p, opts) {
-    return await this.makeCallPromise(p, async () => {
-      return await this.baseFs.opendirPromise(p, opts);
-    }, async (zipFs, {
-      subPath
-    }) => {
-      return await zipFs.opendirPromise(subPath, opts);
-    }, {
-      requireSubpath: false
-    });
-  }
-
-  opendirSync(p, opts) {
-    return this.makeCallSync(p, () => {
-      return this.baseFs.opendirSync(p, opts);
-    }, (zipFs, {
-      subPath
-    }) => {
-      return zipFs.opendirSync(subPath, opts);
-    }, {
-      requireSubpath: false
-    });
-  }
-
-  async readPromise(fd, buffer, offset, length, position) {
-    if ((fd & ZIP_FD) === 0) return await this.baseFs.readPromise(fd, buffer, offset, length, position);
-    const entry = this.fdMap.get(fd);
-    if (typeof entry === `undefined`) throw EBADF(`read`);
-    const [zipFs, realFd] = entry;
-    return await zipFs.readPromise(realFd, buffer, offset, length, position);
-  }
-
-  readSync(fd, buffer, offset, length, position) {
-    if ((fd & ZIP_FD) === 0) return this.baseFs.readSync(fd, buffer, offset, length, position);
-    const entry = this.fdMap.get(fd);
-    if (typeof entry === `undefined`) throw EBADF(`readSync`);
-    const [zipFs, realFd] = entry;
-    return zipFs.readSync(realFd, buffer, offset, length, position);
-  }
-
-  async writePromise(fd, buffer, offset, length, position) {
-    if ((fd & ZIP_FD) === 0) {
-      if (typeof buffer === `string`) {
-        return await this.baseFs.writePromise(fd, buffer, offset);
-      } else {
-        return await this.baseFs.writePromise(fd, buffer, offset, length, position);
-      }
-    }
-
-    const entry = this.fdMap.get(fd);
-    if (typeof entry === `undefined`) throw EBADF(`write`);
-    const [zipFs, realFd] = entry;
-
-    if (typeof buffer === `string`) {
-      return await zipFs.writePromise(realFd, buffer, offset);
-    } else {
-      return await zipFs.writePromise(realFd, buffer, offset, length, position);
-    }
-  }
-
-  writeSync(fd, buffer, offset, length, position) {
-    if ((fd & ZIP_FD) === 0) {
-      if (typeof buffer === `string`) {
-        return this.baseFs.writeSync(fd, buffer, offset);
-      } else {
-        return this.baseFs.writeSync(fd, buffer, offset, length, position);
-      }
-    }
-
-    const entry = this.fdMap.get(fd);
-    if (typeof entry === `undefined`) throw EBADF(`writeSync`);
-    const [zipFs, realFd] = entry;
-
-    if (typeof buffer === `string`) {
-      return zipFs.writeSync(realFd, buffer, offset);
-    } else {
-      return zipFs.writeSync(realFd, buffer, offset, length, position);
-    }
-  }
-
-  async closePromise(fd) {
-    if ((fd & ZIP_FD) === 0) return await this.baseFs.closePromise(fd);
-    const entry = this.fdMap.get(fd);
-    if (typeof entry === `undefined`) throw EBADF(`close`);
-    this.fdMap.delete(fd);
-    const [zipFs, realFd] = entry;
-    return await zipFs.closePromise(realFd);
-  }
-
-  closeSync(fd) {
-    if ((fd & ZIP_FD) === 0) return this.baseFs.closeSync(fd);
-    const entry = this.fdMap.get(fd);
-    if (typeof entry === `undefined`) throw EBADF(`closeSync`);
-    this.fdMap.delete(fd);
-    const [zipFs, realFd] = entry;
-    return zipFs.closeSync(realFd);
-  }
-
-  createReadStream(p, opts) {
-    if (p === null) return this.baseFs.createReadStream(p, opts);
-    return this.makeCallSync(p, () => {
-      return this.baseFs.createReadStream(p, opts);
-    }, (zipFs, {
-      subPath
-    }) => {
-      return zipFs.createReadStream(subPath, opts);
-    });
-  }
-
-  createWriteStream(p, opts) {
-    if (p === null) return this.baseFs.createWriteStream(p, opts);
-    return this.makeCallSync(p, () => {
-      return this.baseFs.createWriteStream(p, opts);
-    }, (zipFs, {
-      subPath
-    }) => {
-      return zipFs.createWriteStream(subPath, opts);
-    });
-  }
-
-  async realpathPromise(p) {
-    return await this.makeCallPromise(p, async () => {
-      return await this.baseFs.realpathPromise(p);
-    }, async (zipFs, {
-      archivePath,
-      subPath
-    }) => {
-      let realArchivePath = this.realPaths.get(archivePath);
-
-      if (typeof realArchivePath === `undefined`) {
-        realArchivePath = await this.baseFs.realpathPromise(archivePath);
-        this.realPaths.set(archivePath, realArchivePath);
-      }
-
-      return this.pathUtils.join(realArchivePath, this.pathUtils.relative(PortablePath.root, await zipFs.realpathPromise(subPath)));
-    });
-  }
-
-  realpathSync(p) {
-    return this.makeCallSync(p, () => {
-      return this.baseFs.realpathSync(p);
-    }, (zipFs, {
-      archivePath,
-      subPath
-    }) => {
-      let realArchivePath = this.realPaths.get(archivePath);
-
-      if (typeof realArchivePath === `undefined`) {
-        realArchivePath = this.baseFs.realpathSync(archivePath);
-        this.realPaths.set(archivePath, realArchivePath);
-      }
-
-      return this.pathUtils.join(realArchivePath, this.pathUtils.relative(PortablePath.root, zipFs.realpathSync(subPath)));
-    });
-  }
-
-  async existsPromise(p) {
-    return await this.makeCallPromise(p, async () => {
-      return await this.baseFs.existsPromise(p);
-    }, async (zipFs, {
-      subPath
-    }) => {
-      return await zipFs.existsPromise(subPath);
-    });
-  }
-
-  existsSync(p) {
-    return this.makeCallSync(p, () => {
-      return this.baseFs.existsSync(p);
-    }, (zipFs, {
-      subPath
-    }) => {
-      return zipFs.existsSync(subPath);
-    });
-  }
-
-  async accessPromise(p, mode) {
-    return await this.makeCallPromise(p, async () => {
-      return await this.baseFs.accessPromise(p, mode);
-    }, async (zipFs, {
-      subPath
-    }) => {
-      return await zipFs.accessPromise(subPath, mode);
-    });
-  }
-
-  accessSync(p, mode) {
-    return this.makeCallSync(p, () => {
-      return this.baseFs.accessSync(p, mode);
-    }, (zipFs, {
-      subPath
-    }) => {
-      return zipFs.accessSync(subPath, mode);
-    });
-  }
-
-  async statPromise(p, opts) {
-    return await this.makeCallPromise(p, async () => {
-      return await this.baseFs.statPromise(p, opts);
-    }, async (zipFs, {
-      subPath
-    }) => {
-      return await zipFs.statPromise(subPath, opts);
-    });
-  }
-
-  statSync(p, opts) {
-    return this.makeCallSync(p, () => {
-      return this.baseFs.statSync(p, opts);
-    }, (zipFs, {
-      subPath
-    }) => {
-      return zipFs.statSync(subPath, opts);
-    });
-  }
-
-  async fstatPromise(fd, opts) {
-    if ((fd & ZIP_FD) === 0) return this.baseFs.fstatPromise(fd, opts);
-    const entry = this.fdMap.get(fd);
-    if (typeof entry === `undefined`) throw EBADF(`fstat`);
-    const [zipFs, realFd] = entry;
-    return zipFs.fstatPromise(realFd, opts);
-  }
-
-  fstatSync(fd, opts) {
-    if ((fd & ZIP_FD) === 0) return this.baseFs.fstatSync(fd, opts);
-    const entry = this.fdMap.get(fd);
-    if (typeof entry === `undefined`) throw EBADF(`fstatSync`);
-    const [zipFs, realFd] = entry;
-    return zipFs.fstatSync(realFd, opts);
-  }
-
-  async lstatPromise(p, opts) {
-    return await this.makeCallPromise(p, async () => {
-      return await this.baseFs.lstatPromise(p, opts);
-    }, async (zipFs, {
-      subPath
-    }) => {
-      return await zipFs.lstatPromise(subPath, opts);
-    });
-  }
-
-  lstatSync(p, opts) {
-    return this.makeCallSync(p, () => {
-      return this.baseFs.lstatSync(p, opts);
-    }, (zipFs, {
-      subPath
-    }) => {
-      return zipFs.lstatSync(subPath, opts);
-    });
-  }
-
-  async chmodPromise(p, mask) {
-    return await this.makeCallPromise(p, async () => {
-      return await this.baseFs.chmodPromise(p, mask);
-    }, async (zipFs, {
-      subPath
-    }) => {
-      return await zipFs.chmodPromise(subPath, mask);
-    });
-  }
-
-  chmodSync(p, mask) {
-    return this.makeCallSync(p, () => {
-      return this.baseFs.chmodSync(p, mask);
-    }, (zipFs, {
-      subPath
-    }) => {
-      return zipFs.chmodSync(subPath, mask);
-    });
-  }
-
-  async chownPromise(p, uid, gid) {
-    return await this.makeCallPromise(p, async () => {
-      return await this.baseFs.chownPromise(p, uid, gid);
-    }, async (zipFs, {
-      subPath
-    }) => {
-      return await zipFs.chownPromise(subPath, uid, gid);
-    });
-  }
-
-  chownSync(p, uid, gid) {
-    return this.makeCallSync(p, () => {
-      return this.baseFs.chownSync(p, uid, gid);
-    }, (zipFs, {
-      subPath
-    }) => {
-      return zipFs.chownSync(subPath, uid, gid);
-    });
-  }
-
-  async renamePromise(oldP, newP) {
-    return await this.makeCallPromise(oldP, async () => {
-      return await this.makeCallPromise(newP, async () => {
-        return await this.baseFs.renamePromise(oldP, newP);
-      }, async () => {
-        throw Object.assign(new Error(`EEXDEV: cross-device link not permitted`), {
-          code: `EEXDEV`
-        });
-      });
-    }, async (zipFsO, {
-      subPath: subPathO
-    }) => {
-      return await this.makeCallPromise(newP, async () => {
-        throw Object.assign(new Error(`EEXDEV: cross-device link not permitted`), {
-          code: `EEXDEV`
-        });
-      }, async (zipFsN, {
-        subPath: subPathN
-      }) => {
-        if (zipFsO !== zipFsN) {
-          throw Object.assign(new Error(`EEXDEV: cross-device link not permitted`), {
-            code: `EEXDEV`
-          });
-        } else {
-          return await zipFsO.renamePromise(subPathO, subPathN);
-        }
-      });
-    });
-  }
-
-  renameSync(oldP, newP) {
-    return this.makeCallSync(oldP, () => {
-      return this.makeCallSync(newP, () => {
-        return this.baseFs.renameSync(oldP, newP);
-      }, async () => {
-        throw Object.assign(new Error(`EEXDEV: cross-device link not permitted`), {
-          code: `EEXDEV`
-        });
-      });
-    }, (zipFsO, {
-      subPath: subPathO
-    }) => {
-      return this.makeCallSync(newP, () => {
-        throw Object.assign(new Error(`EEXDEV: cross-device link not permitted`), {
-          code: `EEXDEV`
-        });
-      }, (zipFsN, {
-        subPath: subPathN
-      }) => {
-        if (zipFsO !== zipFsN) {
-          throw Object.assign(new Error(`EEXDEV: cross-device link not permitted`), {
-            code: `EEXDEV`
-          });
-        } else {
-          return zipFsO.renameSync(subPathO, subPathN);
-        }
-      });
-    });
-  }
-
-  async copyFilePromise(sourceP, destP, flags = 0) {
-    const fallback = async (sourceFs, sourceP, destFs, destP) => {
-      if ((flags & external_fs_.constants.COPYFILE_FICLONE_FORCE) !== 0) throw Object.assign(new Error(`EXDEV: cross-device clone not permitted, copyfile '${sourceP}' -> ${destP}'`), {
-        code: `EXDEV`
-      });
-      if (flags & external_fs_.constants.COPYFILE_EXCL && (await this.existsPromise(sourceP))) throw Object.assign(new Error(`EEXIST: file already exists, copyfile '${sourceP}' -> '${destP}'`), {
-        code: `EEXIST`
-      });
-      let content;
-
-      try {
-        content = await sourceFs.readFilePromise(sourceP);
-      } catch (error) {
-        throw Object.assign(new Error(`EINVAL: invalid argument, copyfile '${sourceP}' -> '${destP}'`), {
-          code: `EINVAL`
-        });
-      }
-
-      await destFs.writeFilePromise(destP, content);
-    };
-
-    return await this.makeCallPromise(sourceP, async () => {
-      return await this.makeCallPromise(destP, async () => {
-        return await this.baseFs.copyFilePromise(sourceP, destP, flags);
-      }, async (zipFsD, {
-        subPath: subPathD
-      }) => {
-        return await fallback(this.baseFs, sourceP, zipFsD, subPathD);
-      });
-    }, async (zipFsS, {
-      subPath: subPathS
-    }) => {
-      return await this.makeCallPromise(destP, async () => {
-        return await fallback(zipFsS, subPathS, this.baseFs, destP);
-      }, async (zipFsD, {
-        subPath: subPathD
-      }) => {
-        if (zipFsS !== zipFsD) {
-          return await fallback(zipFsS, subPathS, zipFsD, subPathD);
-        } else {
-          return await zipFsS.copyFilePromise(subPathS, subPathD, flags);
-        }
-      });
-    });
-  }
-
-  copyFileSync(sourceP, destP, flags = 0) {
-    const fallback = (sourceFs, sourceP, destFs, destP) => {
-      if ((flags & external_fs_.constants.COPYFILE_FICLONE_FORCE) !== 0) throw Object.assign(new Error(`EXDEV: cross-device clone not permitted, copyfile '${sourceP}' -> ${destP}'`), {
-        code: `EXDEV`
-      });
-      if (flags & external_fs_.constants.COPYFILE_EXCL && this.existsSync(sourceP)) throw Object.assign(new Error(`EEXIST: file already exists, copyfile '${sourceP}' -> '${destP}'`), {
-        code: `EEXIST`
-      });
-      let content;
-
-      try {
-        content = sourceFs.readFileSync(sourceP);
-      } catch (error) {
-        throw Object.assign(new Error(`EINVAL: invalid argument, copyfile '${sourceP}' -> '${destP}'`), {
-          code: `EINVAL`
-        });
-      }
-
-      destFs.writeFileSync(destP, content);
-    };
-
-    return this.makeCallSync(sourceP, () => {
-      return this.makeCallSync(destP, () => {
-        return this.baseFs.copyFileSync(sourceP, destP, flags);
-      }, (zipFsD, {
-        subPath: subPathD
-      }) => {
-        return fallback(this.baseFs, sourceP, zipFsD, subPathD);
-      });
-    }, (zipFsS, {
-      subPath: subPathS
-    }) => {
-      return this.makeCallSync(destP, () => {
-        return fallback(zipFsS, subPathS, this.baseFs, destP);
-      }, (zipFsD, {
-        subPath: subPathD
-      }) => {
-        if (zipFsS !== zipFsD) {
-          return fallback(zipFsS, subPathS, zipFsD, subPathD);
-        } else {
-          return zipFsS.copyFileSync(subPathS, subPathD, flags);
-        }
-      });
-    });
-  }
-
-  async appendFilePromise(p, content, opts) {
-    return await this.makeCallPromise(p, async () => {
-      return await this.baseFs.appendFilePromise(p, content, opts);
-    }, async (zipFs, {
-      subPath
-    }) => {
-      return await zipFs.appendFilePromise(subPath, content, opts);
-    });
-  }
-
-  appendFileSync(p, content, opts) {
-    return this.makeCallSync(p, () => {
-      return this.baseFs.appendFileSync(p, content, opts);
-    }, (zipFs, {
-      subPath
-    }) => {
-      return zipFs.appendFileSync(subPath, content, opts);
-    });
-  }
-
-  async writeFilePromise(p, content, opts) {
-    return await this.makeCallPromise(p, async () => {
-      return await this.baseFs.writeFilePromise(p, content, opts);
-    }, async (zipFs, {
-      subPath
-    }) => {
-      return await zipFs.writeFilePromise(subPath, content, opts);
-    });
-  }
-
-  writeFileSync(p, content, opts) {
-    return this.makeCallSync(p, () => {
-      return this.baseFs.writeFileSync(p, content, opts);
-    }, (zipFs, {
-      subPath
-    }) => {
-      return zipFs.writeFileSync(subPath, content, opts);
-    });
-  }
-
-  async unlinkPromise(p) {
-    return await this.makeCallPromise(p, async () => {
-      return await this.baseFs.unlinkPromise(p);
-    }, async (zipFs, {
-      subPath
-    }) => {
-      return await zipFs.unlinkPromise(subPath);
-    });
-  }
-
-  unlinkSync(p) {
-    return this.makeCallSync(p, () => {
-      return this.baseFs.unlinkSync(p);
-    }, (zipFs, {
-      subPath
-    }) => {
-      return zipFs.unlinkSync(subPath);
-    });
-  }
-
-  async utimesPromise(p, atime, mtime) {
-    return await this.makeCallPromise(p, async () => {
-      return await this.baseFs.utimesPromise(p, atime, mtime);
-    }, async (zipFs, {
-      subPath
-    }) => {
-      return await zipFs.utimesPromise(subPath, atime, mtime);
-    });
-  }
-
-  utimesSync(p, atime, mtime) {
-    return this.makeCallSync(p, () => {
-      return this.baseFs.utimesSync(p, atime, mtime);
-    }, (zipFs, {
-      subPath
-    }) => {
-      return zipFs.utimesSync(subPath, atime, mtime);
-    });
-  }
-
-  async mkdirPromise(p, opts) {
-    return await this.makeCallPromise(p, async () => {
-      return await this.baseFs.mkdirPromise(p, opts);
-    }, async (zipFs, {
-      subPath
-    }) => {
-      return await zipFs.mkdirPromise(subPath, opts);
-    });
-  }
-
-  mkdirSync(p, opts) {
-    return this.makeCallSync(p, () => {
-      return this.baseFs.mkdirSync(p, opts);
-    }, (zipFs, {
-      subPath
-    }) => {
-      return zipFs.mkdirSync(subPath, opts);
-    });
-  }
-
-  async rmdirPromise(p, opts) {
-    return await this.makeCallPromise(p, async () => {
-      return await this.baseFs.rmdirPromise(p, opts);
-    }, async (zipFs, {
-      subPath
-    }) => {
-      return await zipFs.rmdirPromise(subPath, opts);
-    });
-  }
-
-  rmdirSync(p, opts) {
-    return this.makeCallSync(p, () => {
-      return this.baseFs.rmdirSync(p, opts);
-    }, (zipFs, {
-      subPath
-    }) => {
-      return zipFs.rmdirSync(subPath, opts);
-    });
-  }
-
-  async linkPromise(existingP, newP) {
-    return await this.makeCallPromise(newP, async () => {
-      return await this.baseFs.linkPromise(existingP, newP);
-    }, async (zipFs, {
-      subPath
-    }) => {
-      return await zipFs.linkPromise(existingP, subPath);
-    });
-  }
-
-  linkSync(existingP, newP) {
-    return this.makeCallSync(newP, () => {
-      return this.baseFs.linkSync(existingP, newP);
-    }, (zipFs, {
-      subPath
-    }) => {
-      return zipFs.linkSync(existingP, subPath);
-    });
-  }
-
-  async symlinkPromise(target, p, type) {
-    return await this.makeCallPromise(p, async () => {
-      return await this.baseFs.symlinkPromise(target, p, type);
-    }, async (zipFs, {
-      subPath
-    }) => {
-      return await zipFs.symlinkPromise(target, subPath);
-    });
-  }
-
-  symlinkSync(target, p, type) {
-    return this.makeCallSync(p, () => {
-      return this.baseFs.symlinkSync(target, p, type);
-    }, (zipFs, {
-      subPath
-    }) => {
-      return zipFs.symlinkSync(target, subPath);
-    });
-  }
-
-  async readFilePromise(p, encoding) {
-    return this.makeCallPromise(p, async () => {
-      // This weird switch is required to tell TypeScript that the signatures are proper (otherwise it thinks that only the generic one is covered)
-      switch (encoding) {
-        case `utf8`:
-          return await this.baseFs.readFilePromise(p, encoding);
-
-        default:
-          return await this.baseFs.readFilePromise(p, encoding);
-      }
-    }, async (zipFs, {
-      subPath
-    }) => {
-      return await zipFs.readFilePromise(subPath, encoding);
-    });
-  }
-
-  readFileSync(p, encoding) {
-    return this.makeCallSync(p, () => {
-      // This weird switch is required to tell TypeScript that the signatures are proper (otherwise it thinks that only the generic one is covered)
-      switch (encoding) {
-        case `utf8`:
-          return this.baseFs.readFileSync(p, encoding);
-
-        default:
-          return this.baseFs.readFileSync(p, encoding);
-      }
-    }, (zipFs, {
-      subPath
-    }) => {
-      return zipFs.readFileSync(subPath, encoding);
-    });
-  }
-
-  async readdirPromise(p, {
-    withFileTypes
-  } = {}) {
-    return await this.makeCallPromise(p, async () => {
-      return await this.baseFs.readdirPromise(p, {
-        withFileTypes: withFileTypes
-      });
-    }, async (zipFs, {
-      subPath
-    }) => {
-      return await zipFs.readdirPromise(subPath, {
-        withFileTypes: withFileTypes
-      });
-    }, {
-      requireSubpath: false
-    });
-  }
-
-  readdirSync(p, {
-    withFileTypes
-  } = {}) {
-    return this.makeCallSync(p, () => {
-      return this.baseFs.readdirSync(p, {
-        withFileTypes: withFileTypes
-      });
-    }, (zipFs, {
-      subPath
-    }) => {
-      return zipFs.readdirSync(subPath, {
-        withFileTypes: withFileTypes
-      });
-    }, {
-      requireSubpath: false
-    });
-  }
-
-  async readlinkPromise(p) {
-    return await this.makeCallPromise(p, async () => {
-      return await this.baseFs.readlinkPromise(p);
-    }, async (zipFs, {
-      subPath
-    }) => {
-      return await zipFs.readlinkPromise(subPath);
-    });
-  }
-
-  readlinkSync(p) {
-    return this.makeCallSync(p, () => {
-      return this.baseFs.readlinkSync(p);
-    }, (zipFs, {
-      subPath
-    }) => {
-      return zipFs.readlinkSync(subPath);
-    });
-  }
-
-  async truncatePromise(p, len) {
-    return await this.makeCallPromise(p, async () => {
-      return await this.baseFs.truncatePromise(p, len);
-    }, async (zipFs, {
-      subPath
-    }) => {
-      return await zipFs.truncatePromise(subPath, len);
-    });
-  }
-
-  truncateSync(p, len) {
-    return this.makeCallSync(p, () => {
-      return this.baseFs.truncateSync(p, len);
-    }, (zipFs, {
-      subPath
-    }) => {
-      return zipFs.truncateSync(subPath, len);
-    });
-  }
-
-  watch(p, a, b) {
-    return this.makeCallSync(p, () => {
-      return this.baseFs.watch(p, // @ts-expect-error
-      a, b);
-    }, (zipFs, {
-      subPath
-    }) => {
-      return zipFs.watch(subPath, // @ts-expect-error
-      a, b);
-    });
-  }
-
-  watchFile(p, a, b) {
-    return this.makeCallSync(p, () => {
-      return this.baseFs.watchFile(p, // @ts-expect-error
-      a, b);
-    }, () => {
-      return watchFile(this, p, a, b);
-    });
-  }
-
-  unwatchFile(p, cb) {
-    return this.makeCallSync(p, () => {
-      return this.baseFs.unwatchFile(p, cb);
-    }, () => {
-      return unwatchFile(this, p, cb);
-    });
-  }
-
-  async makeCallPromise(p, discard, accept, {
-    requireSubpath = true
-  } = {}) {
-    if (typeof p !== `string`) return await discard();
-    const normalizedP = this.resolve(p);
-    const zipInfo = this.findZip(normalizedP);
-    if (!zipInfo) return await discard();
-    if (requireSubpath && zipInfo.subPath === `/`) return await discard();
-    return await this.getZipPromise(zipInfo.archivePath, async zipFs => await accept(zipFs, zipInfo));
-  }
-
-  makeCallSync(p, discard, accept, {
-    requireSubpath = true
-  } = {}) {
-    if (typeof p !== `string`) return discard();
-    const normalizedP = this.resolve(p);
-    const zipInfo = this.findZip(normalizedP);
-    if (!zipInfo) return discard();
-    if (requireSubpath && zipInfo.subPath === `/`) return discard();
-    return this.getZipSync(zipInfo.archivePath, zipFs => accept(zipFs, zipInfo));
-  }
-
-  findZip(p) {
-    if (this.filter && !this.filter.test(p)) return null;
-    let filePath = ``;
-
-    while (true) {
-      const archivePart = getArchivePart(p.substr(filePath.length));
-      if (!archivePart) return null;
-      filePath = this.pathUtils.join(filePath, archivePart);
-
-      if (this.isZip.has(filePath) === false) {
-        if (this.notZip.has(filePath)) continue;
-
-        try {
-          if (!this.baseFs.lstatSync(filePath).isFile()) {
-            this.notZip.add(filePath);
-            continue;
-          }
-        } catch (_a) {
-          return null;
-        }
-
-        this.isZip.add(filePath);
-      }
-
-      return {
-        archivePath: filePath,
-        subPath: this.pathUtils.join(PortablePath.root, p.substr(filePath.length))
-      };
-    }
-  }
-
-  limitOpenFiles(max) {
-    if (this.zipInstances === null) return;
-    const now = Date.now();
-    let nextExpiresAt = now + this.maxAge;
-    let closeCount = max === null ? 0 : this.zipInstances.size - max;
-
-    for (const [path, {
-      zipFs,
-      expiresAt,
-      refCount
-    }] of this.zipInstances.entries()) {
-      if (refCount !== 0 || zipFs.hasOpenFileHandles()) {
-        continue;
-      } else if (now >= expiresAt) {
-        zipFs.saveAndClose();
-        this.zipInstances.delete(path);
-        closeCount -= 1;
-        continue;
-      } else if (max === null || closeCount <= 0) {
-        nextExpiresAt = expiresAt;
-        break;
-      }
-
-      zipFs.saveAndClose();
-      this.zipInstances.delete(path);
-      closeCount -= 1;
-    }
-
-    if (this.limitOpenFilesTimeout === null && (max === null && this.zipInstances.size > 0 || max !== null)) {
-      this.limitOpenFilesTimeout = setTimeout(() => {
-        this.limitOpenFilesTimeout = null;
-        this.limitOpenFiles(null);
-      }, nextExpiresAt - now).unref();
-    }
-  }
-
-  async getZipPromise(p, accept) {
-    const getZipOptions = async () => ({
-      baseFs: this.baseFs,
-      libzip: this.libzip,
-      readOnly: this.readOnlyArchives,
-      stats: await this.baseFs.statPromise(p)
-    });
-
-    if (this.zipInstances) {
-      let cachedZipFs = this.zipInstances.get(p);
-
-      if (!cachedZipFs) {
-        const zipOptions = await getZipOptions(); // We need to recheck because concurrent getZipPromise calls may
-        // have instantiated the zip archive while we were waiting
-
-        cachedZipFs = this.zipInstances.get(p);
-
-        if (!cachedZipFs) {
-          cachedZipFs = {
-            zipFs: new ZipFS(p, zipOptions),
-            expiresAt: 0,
-            refCount: 0
-          };
-        }
-      } // Removing then re-adding the field allows us to easily implement
-      // a basic LRU garbage collection strategy
-
-
-      this.zipInstances.delete(p);
-      this.limitOpenFiles(this.maxOpenFiles - 1);
-      this.zipInstances.set(p, cachedZipFs);
-      cachedZipFs.expiresAt = Date.now() + this.maxAge;
-      cachedZipFs.refCount += 1;
-
-      try {
-        return await accept(cachedZipFs.zipFs);
-      } finally {
-        cachedZipFs.refCount -= 1;
-      }
-    } else {
-      const zipFs = new ZipFS(p, await getZipOptions());
-
-      try {
-        return await accept(zipFs);
-      } finally {
-        zipFs.saveAndClose();
-      }
-    }
-  }
-
-  getZipSync(p, accept) {
-    const getZipOptions = () => ({
-      baseFs: this.baseFs,
-      libzip: this.libzip,
-      readOnly: this.readOnlyArchives,
-      stats: this.baseFs.statSync(p)
-    });
-
-    if (this.zipInstances) {
-      let cachedZipFs = this.zipInstances.get(p);
-
-      if (!cachedZipFs) {
-        cachedZipFs = {
-          zipFs: new ZipFS(p, getZipOptions()),
-          expiresAt: 0,
-          refCount: 0
-        };
-      } // Removing then re-adding the field allows us to easily implement
-      // a basic LRU garbage collection strategy
-
-
-      this.zipInstances.delete(p);
-      this.limitOpenFiles(this.maxOpenFiles - 1);
-      this.zipInstances.set(p, cachedZipFs);
-      cachedZipFs.expiresAt = Date.now() + this.maxAge;
-      return accept(cachedZipFs.zipFs);
-    } else {
-      const zipFs = new ZipFS(p, getZipOptions());
-
-      try {
-        return accept(zipFs);
-      } finally {
-        zipFs.saveAndClose();
-      }
-    }
-  }
-
-}
-// CONCATENATED MODULE: ../yarnpkg-libzip/sources/makeInterface.ts
-const number64 = [`number`, `number` // high
-];
-var Errors;
-
-(function (Errors) {
-  Errors[Errors["ZIP_ER_OK"] = 0] = "ZIP_ER_OK";
-  Errors[Errors["ZIP_ER_MULTIDISK"] = 1] = "ZIP_ER_MULTIDISK";
-  Errors[Errors["ZIP_ER_RENAME"] = 2] = "ZIP_ER_RENAME";
-  Errors[Errors["ZIP_ER_CLOSE"] = 3] = "ZIP_ER_CLOSE";
-  Errors[Errors["ZIP_ER_SEEK"] = 4] = "ZIP_ER_SEEK";
-  Errors[Errors["ZIP_ER_READ"] = 5] = "ZIP_ER_READ";
-  Errors[Errors["ZIP_ER_WRITE"] = 6] = "ZIP_ER_WRITE";
-  Errors[Errors["ZIP_ER_CRC"] = 7] = "ZIP_ER_CRC";
-  Errors[Errors["ZIP_ER_ZIPCLOSED"] = 8] = "ZIP_ER_ZIPCLOSED";
-  Errors[Errors["ZIP_ER_NOENT"] = 9] = "ZIP_ER_NOENT";
-  Errors[Errors["ZIP_ER_EXISTS"] = 10] = "ZIP_ER_EXISTS";
-  Errors[Errors["ZIP_ER_OPEN"] = 11] = "ZIP_ER_OPEN";
-  Errors[Errors["ZIP_ER_TMPOPEN"] = 12] = "ZIP_ER_TMPOPEN";
-  Errors[Errors["ZIP_ER_ZLIB"] = 13] = "ZIP_ER_ZLIB";
-  Errors[Errors["ZIP_ER_MEMORY"] = 14] = "ZIP_ER_MEMORY";
-  Errors[Errors["ZIP_ER_CHANGED"] = 15] = "ZIP_ER_CHANGED";
-  Errors[Errors["ZIP_ER_COMPNOTSUPP"] = 16] = "ZIP_ER_COMPNOTSUPP";
-  Errors[Errors["ZIP_ER_EOF"] = 17] = "ZIP_ER_EOF";
-  Errors[Errors["ZIP_ER_INVAL"] = 18] = "ZIP_ER_INVAL";
-  Errors[Errors["ZIP_ER_NOZIP"] = 19] = "ZIP_ER_NOZIP";
-  Errors[Errors["ZIP_ER_INTERNAL"] = 20] = "ZIP_ER_INTERNAL";
-  Errors[Errors["ZIP_ER_INCONS"] = 21] = "ZIP_ER_INCONS";
-  Errors[Errors["ZIP_ER_REMOVE"] = 22] = "ZIP_ER_REMOVE";
-  Errors[Errors["ZIP_ER_DELETED"] = 23] = "ZIP_ER_DELETED";
-  Errors[Errors["ZIP_ER_ENCRNOTSUPP"] = 24] = "ZIP_ER_ENCRNOTSUPP";
-  Errors[Errors["ZIP_ER_RDONLY"] = 25] = "ZIP_ER_RDONLY";
-  Errors[Errors["ZIP_ER_NOPASSWD"] = 26] = "ZIP_ER_NOPASSWD";
-  Errors[Errors["ZIP_ER_WRONGPASSWD"] = 27] = "ZIP_ER_WRONGPASSWD";
-  Errors[Errors["ZIP_ER_OPNOTSUPP"] = 28] = "ZIP_ER_OPNOTSUPP";
-  Errors[Errors["ZIP_ER_INUSE"] = 29] = "ZIP_ER_INUSE";
-  Errors[Errors["ZIP_ER_TELL"] = 30] = "ZIP_ER_TELL";
-  Errors[Errors["ZIP_ER_COMPRESSED_DATA"] = 31] = "ZIP_ER_COMPRESSED_DATA";
-})(Errors || (Errors = {}));
-
-const makeInterface = libzip => ({
-  // Those are getters because they can change after memory growth
-  get HEAP8() {
-    return libzip.HEAP8;
-  },
-
-  get HEAPU8() {
-    return libzip.HEAPU8;
-  },
-
-  errors: Errors,
-  SEEK_SET: 0,
-  SEEK_CUR: 1,
-  SEEK_END: 2,
-  ZIP_CHECKCONS: 4,
-  ZIP_CREATE: 1,
-  ZIP_EXCL: 2,
-  ZIP_TRUNCATE: 8,
-  ZIP_RDONLY: 16,
-  ZIP_FL_OVERWRITE: 8192,
-  ZIP_FL_COMPRESSED: 4,
-  ZIP_OPSYS_DOS: 0x00,
-  ZIP_OPSYS_AMIGA: 0x01,
-  ZIP_OPSYS_OPENVMS: 0x02,
-  ZIP_OPSYS_UNIX: 0x03,
-  ZIP_OPSYS_VM_CMS: 0x04,
-  ZIP_OPSYS_ATARI_ST: 0x05,
-  ZIP_OPSYS_OS_2: 0x06,
-  ZIP_OPSYS_MACINTOSH: 0x07,
-  ZIP_OPSYS_Z_SYSTEM: 0x08,
-  ZIP_OPSYS_CPM: 0x09,
-  ZIP_OPSYS_WINDOWS_NTFS: 0x0a,
-  ZIP_OPSYS_MVS: 0x0b,
-  ZIP_OPSYS_VSE: 0x0c,
-  ZIP_OPSYS_ACORN_RISC: 0x0d,
-  ZIP_OPSYS_VFAT: 0x0e,
-  ZIP_OPSYS_ALTERNATE_MVS: 0x0f,
-  ZIP_OPSYS_BEOS: 0x10,
-  ZIP_OPSYS_TANDEM: 0x11,
-  ZIP_OPSYS_OS_400: 0x12,
-  ZIP_OPSYS_OS_X: 0x13,
-  ZIP_CM_DEFAULT: -1,
-  ZIP_CM_STORE: 0,
-  ZIP_CM_DEFLATE: 8,
-  uint08S: libzip._malloc(1),
-  uint16S: libzip._malloc(2),
-  uint32S: libzip._malloc(4),
-  uint64S: libzip._malloc(8),
-  malloc: libzip._malloc,
-  free: libzip._free,
-  getValue: libzip.getValue,
-  open: libzip.cwrap(`zip_open`, `number`, [`string`, `number`, `number`]),
-  openFromSource: libzip.cwrap(`zip_open_from_source`, `number`, [`number`, `number`, `number`]),
-  close: libzip.cwrap(`zip_close`, `number`, [`number`]),
-  discard: libzip.cwrap(`zip_discard`, null, [`number`]),
-  getError: libzip.cwrap(`zip_get_error`, `number`, [`number`]),
-  getName: libzip.cwrap(`zip_get_name`, `string`, [`number`, `number`, `number`]),
-  getNumEntries: libzip.cwrap(`zip_get_num_entries`, `number`, [`number`, `number`]),
-  delete: libzip.cwrap(`zip_delete`, `number`, [`number`, `number`]),
-  stat: libzip.cwrap(`zip_stat`, `number`, [`number`, `string`, `number`, `number`]),
-  statIndex: libzip.cwrap(`zip_stat_index`, `number`, [`number`, ...number64, `number`, `number`]),
-  fopen: libzip.cwrap(`zip_fopen`, `number`, [`number`, `string`, `number`]),
-  fopenIndex: libzip.cwrap(`zip_fopen_index`, `number`, [`number`, ...number64, `number`]),
-  fread: libzip.cwrap(`zip_fread`, `number`, [`number`, `number`, `number`, `number`]),
-  fclose: libzip.cwrap(`zip_fclose`, `number`, [`number`]),
-  dir: {
-    add: libzip.cwrap(`zip_dir_add`, `number`, [`number`, `string`])
-  },
-  file: {
-    add: libzip.cwrap(`zip_file_add`, `number`, [`number`, `string`, `number`, `number`]),
-    getError: libzip.cwrap(`zip_file_get_error`, `number`, [`number`]),
-    getExternalAttributes: libzip.cwrap(`zip_file_get_external_attributes`, `number`, [`number`, ...number64, `number`, `number`, `number`]),
-    setExternalAttributes: libzip.cwrap(`zip_file_set_external_attributes`, `number`, [`number`, ...number64, `number`, `number`, `number`]),
-    setMtime: libzip.cwrap(`zip_file_set_mtime`, `number`, [`number`, ...number64, `number`, `number`]),
-    setCompression: libzip.cwrap(`zip_set_file_compression`, `number`, [`number`, ...number64, `number`, `number`])
-  },
-  ext: {
-    countSymlinks: libzip.cwrap(`zip_ext_count_symlinks`, `number`, [`number`])
-  },
-  error: {
-    initWithCode: libzip.cwrap(`zip_error_init_with_code`, null, [`number`, `number`]),
-    strerror: libzip.cwrap(`zip_error_strerror`, `string`, [`number`])
-  },
-  name: {
-    locate: libzip.cwrap(`zip_name_locate`, `number`, [`number`, `string`, `number`])
-  },
-  source: {
-    fromUnattachedBuffer: libzip.cwrap(`zip_source_buffer_create`, `number`, [`number`, `number`, `number`, `number`]),
-    fromBuffer: libzip.cwrap(`zip_source_buffer`, `number`, [`number`, `number`, ...number64, `number`]),
-    free: libzip.cwrap(`zip_source_free`, null, [`number`]),
-    keep: libzip.cwrap(`zip_source_keep`, null, [`number`]),
-    open: libzip.cwrap(`zip_source_open`, `number`, [`number`]),
-    close: libzip.cwrap(`zip_source_close`, `number`, [`number`]),
-    seek: libzip.cwrap(`zip_source_seek`, `number`, [`number`, ...number64, `number`]),
-    tell: libzip.cwrap(`zip_source_tell`, `number`, [`number`]),
-    read: libzip.cwrap(`zip_source_read`, `number`, [`number`, `number`, `number`]),
-    error: libzip.cwrap(`zip_source_error`, `number`, [`number`]),
-    setMtime: libzip.cwrap(`zip_source_set_mtime`, `number`, [`number`, `number`])
-  },
-  struct: {
-    stat: libzip.cwrap(`zipstruct_stat`, `number`, []),
-    statS: libzip.cwrap(`zipstruct_statS`, `number`, []),
-    statName: libzip.cwrap(`zipstruct_stat_name`, `string`, [`number`]),
-    statIndex: libzip.cwrap(`zipstruct_stat_index`, `number`, [`number`]),
-    statSize: libzip.cwrap(`zipstruct_stat_size`, `number`, [`number`]),
-    statCompSize: libzip.cwrap(`zipstruct_stat_comp_size`, `number`, [`number`]),
-    statCompMethod: libzip.cwrap(`zipstruct_stat_comp_method`, `number`, [`number`]),
-    statMtime: libzip.cwrap(`zipstruct_stat_mtime`, `number`, [`number`]),
-    statCrc: libzip.cwrap(`zipstruct_stat_crc`, `number`, [`number`]),
-    error: libzip.cwrap(`zipstruct_error`, `number`, []),
-    errorS: libzip.cwrap(`zipstruct_errorS`, `number`, []),
-    errorCodeZip: libzip.cwrap(`zipstruct_error_code_zip`, `number`, [`number`])
-  }
-});
-// CONCATENATED MODULE: ../yarnpkg-libzip/sources/sync.ts
-
-let mod = null;
-function getLibzipSync() {
-  if (mod === null) mod = makeInterface(__webpack_require__(368));
-  return mod;
-}
-async function getLibzipPromise() {
-  return getLibzipSync();
-}
-// EXTERNAL MODULE: external "module"
-var external_module_ = __webpack_require__(282);
-var external_module_default = /*#__PURE__*/__webpack_require__.n(external_module_);
-
-// CONCATENATED MODULE: external "string_decoder"
-const external_string_decoder_namespaceObject = require("string_decoder");;
-var external_string_decoder_default = /*#__PURE__*/__webpack_require__.n(external_string_decoder_namespaceObject);
-
-// CONCATENATED MODULE: external "url"
-const external_url_namespaceObject = require("url");;
-// CONCATENATED MODULE: ../yarnpkg-fslib/sources/URLFS.ts
-
-
-
-/**
- * Adds support for file URLs to the wrapped `baseFs`, but *not* inside the typings.
- *
- * Only exists for compatibility with Node's behavior.
- *
- * Automatically wraps all FS instances passed to `patchFs` & `extendFs`.
- *
- * Don't use it!
- */
-
-class URLFS extends ProxiedFS {
-  constructor(baseFs) {
-    super(npath);
-    this.baseFs = baseFs;
-  }
-
-  mapFromBase(path) {
-    return path;
-  }
-
-  mapToBase(path) {
-    if (path instanceof external_url_namespaceObject.URL) return (0,external_url_namespaceObject.fileURLToPath)(path);
-    return path;
-  }
-
-}
-// CONCATENATED MODULE: ../yarnpkg-fslib/sources/patchFs.ts
-
-
-const SYNC_IMPLEMENTATIONS = new Set([`accessSync`, `appendFileSync`, `createReadStream`, `chmodSync`, `chownSync`, `closeSync`, `copyFileSync`, `linkSync`, `lstatSync`, `fstatSync`, `lutimesSync`, `mkdirSync`, `openSync`, `opendirSync`, `readSync`, `readlinkSync`, `readFileSync`, `readdirSync`, `readlinkSync`, `realpathSync`, `renameSync`, `rmdirSync`, `statSync`, `symlinkSync`, `truncateSync`, `unlinkSync`, `unwatchFile`, `utimesSync`, `watch`, `watchFile`, `writeFileSync`, `writeSync`]);
-const ASYNC_IMPLEMENTATIONS = new Set([`accessPromise`, `appendFilePromise`, `chmodPromise`, `chownPromise`, `closePromise`, `copyFilePromise`, `linkPromise`, `fstatPromise`, `lstatPromise`, `lutimesPromise`, `mkdirPromise`, `openPromise`, `opendirPromise`, `readdirPromise`, `realpathPromise`, `readFilePromise`, `readdirPromise`, `readlinkPromise`, `renamePromise`, `rmdirPromise`, `statPromise`, `symlinkPromise`, `truncatePromise`, `unlinkPromise`, `utimesPromise`, `writeFilePromise`, `writeSync`]);
-const FILEHANDLE_IMPLEMENTATIONS = new Set([`appendFilePromise`, `chmodPromise`, `chownPromise`, `closePromise`, `readPromise`, `readFilePromise`, `statPromise`, `truncatePromise`, `utimesPromise`, `writePromise`, `writeFilePromise`]);
-function patchFs(patchedFs, fakeFs) {
-  // We wrap the `fakeFs` with a `URLFS` to add support for URL instances
-  fakeFs = new URLFS(fakeFs);
-
-  const setupFn = (target, name, replacement) => {
-    const orig = target[name];
-    target[name] = replacement; // Preserve any util.promisify implementations
-
-    if (typeof (orig === null || orig === void 0 ? void 0 : orig[external_util_namespaceObject.promisify.custom]) !== `undefined`) {
-      replacement[external_util_namespaceObject.promisify.custom] = orig[external_util_namespaceObject.promisify.custom];
-    }
-  };
-  /** Callback implementations */
-
-
-  {
-    setupFn(patchedFs, `exists`, (p, ...args) => {
-      const hasCallback = typeof args[args.length - 1] === `function`;
-      const callback = hasCallback ? args.pop() : () => {};
-      process.nextTick(() => {
-        fakeFs.existsPromise(p).then(exists => {
-          callback(exists);
-        }, () => {
-          callback(false);
-        });
-      });
-    });
-    setupFn(patchedFs, `read`, (p, buffer, ...args) => {
-      const hasCallback = typeof args[args.length - 1] === `function`;
-      const callback = hasCallback ? args.pop() : () => {};
-      process.nextTick(() => {
-        fakeFs.readPromise(p, buffer, ...args).then(bytesRead => {
-          callback(null, bytesRead, buffer);
-        }, error => {
-          callback(error);
-        });
-      });
-    });
-
-    for (const fnName of ASYNC_IMPLEMENTATIONS) {
-      const origName = fnName.replace(/Promise$/, ``);
-      if (typeof patchedFs[origName] === `undefined`) continue;
-      const fakeImpl = fakeFs[fnName];
-      if (typeof fakeImpl === `undefined`) continue;
-
-      const wrapper = (...args) => {
-        const hasCallback = typeof args[args.length - 1] === `function`;
-        const callback = hasCallback ? args.pop() : () => {};
-        process.nextTick(() => {
-          fakeImpl.apply(fakeFs, args).then(result => {
-            callback(null, result);
-          }, error => {
-            callback(error);
-          });
-        });
-      };
-
-      setupFn(patchedFs, origName, wrapper);
-    }
-
-    patchedFs.realpath.native = patchedFs.realpath;
-  }
-  /** Sync implementations */
-
-  {
-    setupFn(patchedFs, `existsSync`, p => {
-      try {
-        return fakeFs.existsSync(p);
-      } catch (error) {
-        return false;
-      }
-    });
-
-    for (const fnName of SYNC_IMPLEMENTATIONS) {
-      const origName = fnName;
-      if (typeof patchedFs[origName] === `undefined`) continue;
-      const fakeImpl = fakeFs[fnName];
-      if (typeof fakeImpl === `undefined`) continue;
-      setupFn(patchedFs, origName, fakeImpl.bind(fakeFs));
-    }
-
-    patchedFs.realpathSync.native = patchedFs.realpathSync;
-  }
-  /** Promise implementations */
-
-  {
-    // `fs.promises` is a getter that returns a reference to require(`fs/promises`),
-    // so we can just patch `fs.promises` and both will be updated
-    const origEmitWarning = process.emitWarning;
-
-    process.emitWarning = () => {};
-
-    let patchedFsPromises;
-
-    try {
-      patchedFsPromises = patchedFs.promises;
-    } finally {
-      process.emitWarning = origEmitWarning;
-    }
-
-    if (typeof patchedFsPromises !== `undefined`) {
-      // `fs.promises.exists` doesn't exist
-      for (const fnName of ASYNC_IMPLEMENTATIONS) {
-        const origName = fnName.replace(/Promise$/, ``);
-        if (typeof patchedFsPromises[origName] === `undefined`) continue;
-        const fakeImpl = fakeFs[fnName];
-        if (typeof fakeImpl === `undefined`) continue; // Open is a bit particular with fs.promises: it returns a file handle
-        // instance instead of the traditional file descriptor number
-
-        if (fnName === `open`) continue;
-        setupFn(patchedFsPromises, origName, fakeImpl.bind(fakeFs));
-      }
-
-      class FileHandle {
-        constructor(fd) {
-          this.fd = fd;
-        }
-
-      }
-
-      for (const fnName of FILEHANDLE_IMPLEMENTATIONS) {
-        const origName = fnName.replace(/Promise$/, ``);
-        const fakeImpl = fakeFs[fnName];
-        if (typeof fakeImpl === `undefined`) continue;
-        setupFn(FileHandle.prototype, origName, function (...args) {
-          return fakeImpl.call(fakeFs, this.fd, ...args);
-        });
-      }
-
-      setupFn(patchedFsPromises, `open`, async (...args) => {
-        // @ts-expect-error
-        const fd = await fakeFs.openPromise(...args);
-        return new FileHandle(fd);
-      }); // `fs.promises.realpath` doesn't have a `native` property
-    }
-  }
-  /** util.promisify implementations */
-
-  {
-    // Override the promisified version of `fs.read` to return an object as per
-    // https://github.com/nodejs/node/blob/dc79f3f37caf6f25b8efee4623bec31e2c20f595/lib/fs.js#L559-L560
-    // and
-    // https://github.com/nodejs/node/blob/ba684805b6c0eded76e5cd89ee00328ac7a59365/lib/internal/util.js#L293
-    // @ts-expect-error
-    patchedFs.read[external_util_namespaceObject.promisify.custom] = async (p, buffer, ...args) => {
-      const res = fakeFs.readPromise(p, buffer, ...args);
-      return {
-        bytesRead: await res,
-        buffer
-      };
-    };
-  }
-}
-function extendFs(realFs, fakeFs) {
-  const patchedFs = Object.create(realFs);
-  patchFs(patchedFs, fakeFs);
-  return patchedFs;
-}
-// CONCATENATED MODULE: ../yarnpkg-fslib/sources/PosixFS.ts
-
-
-class PosixFS extends ProxiedFS {
-  constructor(baseFs) {
-    super(npath);
-    this.baseFs = baseFs;
-  }
-
-  mapFromBase(path) {
-    return npath.fromPortablePath(path);
-  }
-
-  mapToBase(path) {
-    return npath.toPortablePath(path);
-  }
-
-}
-// CONCATENATED MODULE: ./sources/loader/internalTools.ts
-
-var ErrorCode;
-
-(function (ErrorCode) {
-  ErrorCode["API_ERROR"] = "API_ERROR";
-  ErrorCode["BUILTIN_NODE_RESOLUTION_FAILED"] = "BUILTIN_NODE_RESOLUTION_FAILED";
-  ErrorCode["MISSING_DEPENDENCY"] = "MISSING_DEPENDENCY";
-  ErrorCode["MISSING_PEER_DEPENDENCY"] = "MISSING_PEER_DEPENDENCY";
-  ErrorCode["QUALIFIED_PATH_RESOLUTION_FAILED"] = "QUALIFIED_PATH_RESOLUTION_FAILED";
-  ErrorCode["INTERNAL"] = "INTERNAL";
-  ErrorCode["UNDECLARED_DEPENDENCY"] = "UNDECLARED_DEPENDENCY";
-  ErrorCode["UNSUPPORTED"] = "UNSUPPORTED";
-})(ErrorCode || (ErrorCode = {})); // Some errors are exposed as MODULE_NOT_FOUND for compatibility with packages
-// that expect this umbrella error when the resolution fails
-
-
-const MODULE_NOT_FOUND_ERRORS = new Set([ErrorCode.BUILTIN_NODE_RESOLUTION_FAILED, ErrorCode.MISSING_DEPENDENCY, ErrorCode.MISSING_PEER_DEPENDENCY, ErrorCode.QUALIFIED_PATH_RESOLUTION_FAILED, ErrorCode.UNDECLARED_DEPENDENCY]);
-/**
- * Simple helper function that assign an error code to an error, so that it can more easily be caught and used
- * by third-parties.
- */
-
-function internalTools_makeError(pnpCode, message, data = {}) {
-  const code = MODULE_NOT_FOUND_ERRORS.has(pnpCode) ? `MODULE_NOT_FOUND` : pnpCode;
-  const propertySpec = {
-    configurable: true,
-    writable: true,
-    enumerable: false
-  };
-  return Object.defineProperties(new Error(message), {
-    code: { ...propertySpec,
-      value: code
-    },
-    pnpCode: { ...propertySpec,
-      value: pnpCode
-    },
-    data: { ...propertySpec,
-      value: data
-    }
-  });
-}
-/**
- * Returns the module that should be used to resolve require calls. It's usually the direct parent, except if we're
- * inside an eval expression.
- */
-
-function getIssuerModule(parent) {
-  let issuer = parent;
-
-  while (issuer && (issuer.id === `[eval]` || issuer.id === `<repl>` || !issuer.filename)) issuer = issuer.parent;
-
-  return issuer || null;
-}
-function getPathForDisplay(p) {
-  return npath.normalize(npath.fromPortablePath(p));
-}
-// CONCATENATED MODULE: ./sources/loader/applyPatch.ts
-
-
-
-
-
-function applyPatch(pnpapi, opts) {
-  // @ts-expect-error
-  const builtinModules = new Set(external_module_.Module.builtinModules || Object.keys(process.binding(`natives`)));
-
-  const isBuiltinModule = request => builtinModules.has(request) || request.startsWith(`node:`);
-  /**
-   * The cache that will be used for all accesses occurring outside of a PnP context.
-   */
-
-
-  const defaultCache = {};
-  /**
-   * Used to disable the resolution hooks (for when we want to fallback to the previous resolution - we then need
-   * a way to "reset" the environment temporarily)
-   */
-
-  let enableNativeHooks = true; // @ts-expect-error
-
-  process.versions.pnp = String(pnpapi.VERSIONS.std);
-
-  const moduleExports = __webpack_require__(282);
-
-  moduleExports.findPnpApi = lookupSource => {
-    const lookupPath = lookupSource instanceof external_url_namespaceObject.URL ? (0,external_url_namespaceObject.fileURLToPath)(lookupSource) : lookupSource;
-    const apiPath = opts.manager.findApiPathFor(lookupPath);
-    if (apiPath === null) return null;
-    const apiEntry = opts.manager.getApiEntry(apiPath, true); // Check if the path is ignored
-
-    return apiEntry.instance.findPackageLocator(lookupPath) ? apiEntry.instance : null;
-  };
-
-  function getRequireStack(parent) {
-    const requireStack = [];
-
-    for (let cursor = parent; cursor; cursor = cursor.parent) requireStack.push(cursor.filename || cursor.id);
-
-    return requireStack;
-  } // A small note: we don't replace the cache here (and instead use the native one). This is an effort to not
-  // break code similar to "delete require.cache[require.resolve(FOO)]", where FOO is a package located outside
-  // of the Yarn dependency tree. In this case, we defer the load to the native loader. If we were to replace the
-  // cache by our own, the native loader would populate its own cache, which wouldn't be exposed anymore, so the
-  // delete call would be broken.
-
-
-  const originalModuleLoad = external_module_.Module._load;
-
-  external_module_.Module._load = function (request, parent, isMain) {
-    if (!enableNativeHooks) return originalModuleLoad.call(external_module_.Module, request, parent, isMain); // Builtins are managed by the regular Node loader
-
-    if (isBuiltinModule(request)) {
-      try {
-        enableNativeHooks = false;
-        return originalModuleLoad.call(external_module_.Module, request, parent, isMain);
-      } finally {
-        enableNativeHooks = true;
-      }
-    }
-
-    const parentApiPath = opts.manager.getApiPathFromParent(parent);
-    const parentApi = parentApiPath !== null ? opts.manager.getApiEntry(parentApiPath, true).instance : null; // Requests that aren't covered by the PnP runtime goes through the
-    // parent `_load` implementation. This is required for VSCode, for example,
-    // which override `_load` to provide additional builtins to its extensions.
-
-    if (parentApi === null) return originalModuleLoad(request, parent, isMain); // The 'pnpapi' name is reserved to return the PnP api currently in use
-    // by the program
-
-    if (request === `pnpapi`) return parentApi; // Request `Module._resolveFilename` (ie. `resolveRequest`) to tell us
-    // which file we should load
-
-    const modulePath = external_module_.Module._resolveFilename(request, parent, isMain); // We check whether the module is owned by the dependency tree of the
-    // module that required it. If it isn't, then we need to create a new
-    // store and possibly load its sandboxed PnP runtime.
-
-
-    const isOwnedByRuntime = parentApi !== null ? parentApi.findPackageLocator(modulePath) !== null : false;
-    const moduleApiPath = isOwnedByRuntime ? parentApiPath : opts.manager.findApiPathFor(npath.dirname(modulePath));
-    const entry = moduleApiPath !== null ? opts.manager.getApiEntry(moduleApiPath) : {
-      instance: null,
-      cache: defaultCache
-    }; // Check if the module has already been created for the given file
-
-    const cacheEntry = entry.cache[modulePath];
-    if (cacheEntry) return cacheEntry.exports; // Create a new module and store it into the cache
-    // @ts-expect-error
-
-    const module = new external_module_.Module(modulePath, parent); // @ts-expect-error
-
-    module.pnpApiPath = moduleApiPath;
-    entry.cache[modulePath] = module; // The main module is exposed as global variable
-
-    if (isMain) {
-      process.mainModule = module;
-      module.id = `.`;
-    } // Try to load the module, and remove it from the cache if it fails
-
-
-    let hasThrown = true;
-
-    try {
-      // @ts-expect-error
-      module.load(modulePath);
-      hasThrown = false;
-    } finally {
-      if (hasThrown) {
-        delete external_module_.Module._cache[modulePath];
-      }
-    }
-
-    return module.exports;
-  };
-
-  function getIssuerSpecsFromPaths(paths) {
-    return paths.map(path => ({
-      apiPath: opts.manager.findApiPathFor(path),
-      path,
-      module: null
-    }));
-  }
-
-  function getIssuerSpecsFromModule(module) {
-    var _a;
-
-    if (module && module.id !== `<repl>` && module.id !== `internal/preload` && !module.parent && !module.filename && module.paths.length > 0) {
-      return [{
-        apiPath: opts.manager.findApiPathFor(module.paths[0]),
-        path: module.paths[0],
-        module
-      }];
-    }
-
-    const issuer = getIssuerModule(module);
-
-    if (issuer !== null) {
-      const path = npath.dirname(issuer.filename);
-      const apiPath = opts.manager.getApiPathFromParent(issuer);
-      return [{
-        apiPath,
-        path,
-        module
-      }];
-    } else {
-      const path = process.cwd();
-      const apiPath = (_a = opts.manager.findApiPathFor(npath.join(path, `[file]`))) !== null && _a !== void 0 ? _a : opts.manager.getApiPathFromParent(null);
-      return [{
-        apiPath,
-        path,
-        module
-      }];
-    }
-  }
-
-  function makeFakeParent(path) {
-    const fakeParent = new external_module_.Module(``);
-    const fakeFilePath = npath.join(path, `[file]`);
-    fakeParent.paths = external_module_.Module._nodeModulePaths(fakeFilePath);
-    return fakeParent;
-  } // Splits a require request into its components, or return null if the request is a file path
-
-
-  const pathRegExp = /^(?![a-zA-Z]:[\\/]|\\\\|\.{0,2}(?:\/|$))((?:@[^/]+\/)?[^/]+)\/*(.*|)$/;
-  const originalModuleResolveFilename = external_module_.Module._resolveFilename;
-
-  external_module_.Module._resolveFilename = function (request, parent, isMain, options) {
-    if (isBuiltinModule(request)) return request;
-    if (!enableNativeHooks) return originalModuleResolveFilename.call(external_module_.Module, request, parent, isMain, options);
-
-    if (options && options.plugnplay === false) {
-      const {
-        plugnplay,
-        ...rest
-      } = options; // Workaround a bug present in some version of Node (now fixed)
-      // https://github.com/nodejs/node/pull/28078
-
-      const forwardedOptions = Object.keys(rest).length > 0 ? rest : undefined;
-
-      try {
-        enableNativeHooks = false;
-        return originalModuleResolveFilename.call(external_module_.Module, request, parent, isMain, forwardedOptions);
-      } finally {
-        enableNativeHooks = true;
-      }
-    } // We check that all the options present here are supported; better
-    // to fail fast than to introduce subtle bugs in the runtime.
-
-
-    if (options) {
-      const optionNames = new Set(Object.keys(options));
-      optionNames.delete(`paths`);
-      optionNames.delete(`plugnplay`);
-
-      if (optionNames.size > 0) {
-        throw internalTools_makeError(ErrorCode.UNSUPPORTED, `Some options passed to require() aren't supported by PnP yet (${Array.from(optionNames).join(`, `)})`);
-      }
-    }
-
-    const issuerSpecs = options && options.paths ? getIssuerSpecsFromPaths(options.paths) : getIssuerSpecsFromModule(parent);
-
-    if (request.match(pathRegExp) === null) {
-      const parentDirectory = (parent === null || parent === void 0 ? void 0 : parent.filename) != null ? npath.dirname(parent.filename) : null;
-      const absoluteRequest = npath.isAbsolute(request) ? request : parentDirectory !== null ? npath.resolve(parentDirectory, request) : null;
-
-      if (absoluteRequest !== null) {
-        const apiPath = parentDirectory === npath.dirname(absoluteRequest) && (parent === null || parent === void 0 ? void 0 : parent.pnpApiPath) ? parent.pnpApiPath : opts.manager.findApiPathFor(absoluteRequest);
-
-        if (apiPath !== null) {
-          issuerSpecs.unshift({
-            apiPath,
-            path: parentDirectory,
-            module: null
-          });
-        }
-      }
-    }
-
-    let firstError;
-
-    for (const {
-      apiPath,
-      path,
-      module
-    } of issuerSpecs) {
-      let resolution;
-      const issuerApi = apiPath !== null ? opts.manager.getApiEntry(apiPath, true).instance : null;
-
-      try {
-        if (issuerApi !== null) {
-          resolution = issuerApi.resolveRequest(request, path !== null ? `${path}/` : null);
-        } else {
-          if (path === null) throw new Error(`Assertion failed: Expected the path to be set`);
-          resolution = originalModuleResolveFilename.call(external_module_.Module, request, module || makeFakeParent(path), isMain);
-        }
-      } catch (error) {
-        firstError = firstError || error;
-        continue;
-      }
-
-      if (resolution !== null) {
-        return resolution;
-      }
-    }
-
-    const requireStack = getRequireStack(parent);
-    Object.defineProperty(firstError, `requireStack`, {
-      configurable: true,
-      writable: true,
-      enumerable: false,
-      value: requireStack
-    });
-    if (requireStack.length > 0) firstError.message += `\nRequire stack:\n- ${requireStack.join(`\n- `)}`;
-    if (typeof firstError.pnpCode === `string`) Error.captureStackTrace(firstError);
-    throw firstError;
-  };
-
-  const originalFindPath = external_module_.Module._findPath;
-
-  external_module_.Module._findPath = function (request, paths, isMain) {
-    if (request === `pnpapi`) return false; // Node sometimes call this function with an absolute path and a `null` set
-    // of paths. This would cause the resolution to fail. To avoid that, we
-    // fallback on the regular resolution. We only do this when `isMain` is
-    // true because the Node default resolution doesn't handle well in-zip
-    // paths, even absolute, so we try to use it as little as possible.
-
-    if (!enableNativeHooks || isMain && npath.isAbsolute(request)) return originalFindPath.call(external_module_.Module, request, paths, isMain);
-
-    for (const path of paths || []) {
-      let resolution;
-
-      try {
-        const pnpApiPath = opts.manager.findApiPathFor(path);
-
-        if (pnpApiPath !== null) {
-          const api = opts.manager.getApiEntry(pnpApiPath, true).instance;
-          resolution = api.resolveRequest(request, path) || false;
-        } else {
-          resolution = originalFindPath.call(external_module_.Module, request, [path], isMain);
-        }
-      } catch (error) {
-        continue;
-      }
-
-      if (resolution) {
-        return resolution;
-      }
-    }
-
-    return false;
-  };
-
-  patchFs((external_fs_default()), new PosixFS(opts.fakeFs));
-}
-// CONCATENATED MODULE: ./sources/loader/hydrateRuntimeState.ts
-
-function hydrateRuntimeState(data, {
-  basePath
-}) {
-  const portablePath = npath.toPortablePath(basePath);
-  const absolutePortablePath = ppath.resolve(portablePath);
-  const ignorePattern = data.ignorePatternData !== null ? new RegExp(data.ignorePatternData) : null;
-  const packageLocatorsByLocations = new Map();
-  const packageRegistry = new Map(data.packageRegistryData.map(([packageName, packageStoreData]) => {
-    return [packageName, new Map(packageStoreData.map(([packageReference, packageInformationData]) => {
-      var _a;
-
-      if (packageName === null !== (packageReference === null)) throw new Error(`Assertion failed: The name and reference should be null, or neither should`);
-      const discardFromLookup = (_a = packageInformationData.discardFromLookup) !== null && _a !== void 0 ? _a : false; // @ts-expect-error: TypeScript isn't smart enough to understand the type assertion
-
-      const packageLocator = {
-        name: packageName,
-        reference: packageReference
-      };
-      const entry = packageLocatorsByLocations.get(packageInformationData.packageLocation);
-
-      if (!entry) {
-        packageLocatorsByLocations.set(packageInformationData.packageLocation, {
-          locator: packageLocator,
-          discardFromLookup
-        });
-      } else {
-        entry.discardFromLookup = entry.discardFromLookup && discardFromLookup;
-
-        if (!discardFromLookup) {
-          entry.locator = packageLocator;
-        }
-      }
-
-      let resolvedPackageLocation = null;
-      return [packageReference, {
-        packageDependencies: new Map(packageInformationData.packageDependencies),
-        packagePeers: new Set(packageInformationData.packagePeers),
-        linkType: packageInformationData.linkType,
-        discardFromLookup,
-
-        // we only need this for packages that are used by the currently running script
-        // this is a lazy getter because `ppath.join` has some overhead
-        get packageLocation() {
-          // We use ppath.join instead of ppath.resolve because:
-          // 1) packageInformationData.packageLocation is a relative path when part of the SerializedState
-          // 2) ppath.join preserves trailing slashes
-          return resolvedPackageLocation || (resolvedPackageLocation = ppath.join(absolutePortablePath, packageInformationData.packageLocation));
-        }
-
-      }];
-    }))];
-  }));
-  const fallbackExclusionList = new Map(data.fallbackExclusionList.map(([packageName, packageReferences]) => {
-    return [packageName, new Set(packageReferences)];
-  }));
-  const fallbackPool = new Map(data.fallbackPool);
-  const dependencyTreeRoots = data.dependencyTreeRoots;
-  const enableTopLevelFallback = data.enableTopLevelFallback;
-  return {
-    basePath: portablePath,
-    dependencyTreeRoots,
-    enableTopLevelFallback,
-    fallbackExclusionList,
-    fallbackPool,
-    ignorePattern,
-    packageLocatorsByLocations,
-    packageRegistry
-  };
-}
-// CONCATENATED MODULE: ../../.yarn/cache/resolve.exports-npm-1.0.2-bbb8d62ef6-1de1e50dc6.zip/node_modules/resolve.exports/dist/index.mjs
-/**
- * @param {object} exports
- * @param {Set<string>} keys
- */
-function loop(exports, keys) {
-	if (typeof exports === 'string') {
-		return exports;
-	}
-
-	if (exports) {
-		let idx, tmp;
-		if (Array.isArray(exports)) {
-			for (idx=0; idx < exports.length; idx++) {
-				if (tmp = loop(exports[idx], keys)) return tmp;
-			}
-		} else {
-			for (idx in exports) {
-				if (keys.has(idx)) {
-					return loop(exports[idx], keys);
-				}
-			}
-		}
-	}
-}
-
-/**
- * @param {string} name The package name
- * @param {string} entry The target entry, eg "."
- * @param {number} [condition] Unmatched condition?
- */
-function bail(name, entry, condition) {
-	throw new Error(
-		condition
-		? `No known conditions for "${entry}" entry in "${name}" package`
-		: `Missing "${entry}" export in "${name}" package`
-	);
-}
-
-/**
- * @param {string} name the package name
- * @param {string} entry the target path/import
- */
-function toName(name, entry) {
-	return entry === name ? '.'
-		: entry[0] === '.' ? entry
-		: entry.replace(new RegExp('^' + name + '\/'), './');
-}
-
-/**
- * @param {object} pkg package.json contents
- * @param {string} [entry] entry name or import path
- * @param {object} [options]
- * @param {boolean} [options.browser]
- * @param {boolean} [options.require]
- * @param {string[]} [options.conditions]
- */
-function resolve(pkg, entry='.', options={}) {
-	let { name, exports } = pkg;
-
-	if (exports) {
-		let { browser, require, conditions=[] } = options;
-
-		let target = toName(name, entry);
-		if (target[0] !== '.') target = './' + target;
-
-		if (typeof exports === 'string') {
-			return target === '.' ? exports : bail(name, target);
-		}
-
-		let allows = new Set(['default', ...conditions]);
-		allows.add(require ? 'require' : 'import');
-		allows.add(browser ? 'browser' : 'node');
-
-		let key, tmp, isSingle=false;
-
-		for (key in exports) {
-			isSingle = key[0] !== '.';
-			break;
-		}
-
-		if (isSingle) {
-			return target === '.'
-				? loop(exports, allows) || bail(name, target, 1)
-				: bail(name, target);
-		}
-
-		if (tmp = exports[target]) {
-			return loop(tmp, allows) || bail(name, target, 1);
-		}
-
-		for (key in exports) {
-			tmp = key[key.length - 1];
-			if (tmp === '/' && target.startsWith(key)) {
-				return (tmp = loop(exports[key], allows))
-					? (tmp + target.substring(key.length))
-					: bail(name, target, 1);
-			}
-			if (tmp === '*' && target.startsWith(key.slice(0, -1))) {
-				// do not trigger if no *content* to inject
-				if (target.substring(key.length - 1).length > 0) {
-					return (tmp = loop(exports[key], allows))
-						? tmp.replace('*', target.substring(key.length - 1))
-						: bail(name, target, 1);
-				}
-			}
-		}
-
-		return bail(name, target);
-	}
-}
-
-/**
- * @param {object} pkg
- * @param {object} [options]
- * @param {string|boolean} [options.browser]
- * @param {string[]} [options.fields]
- */
-function legacy(pkg, options={}) {
-	let i=0, value,
-		browser = options.browser,
-		fields = options.fields || ['module', 'main'];
-
-	if (browser && !fields.includes('browser')) {
-		fields.unshift('browser');
-	}
-
-	for (; i < fields.length; i++) {
-		if (value = pkg[fields[i]]) {
-			if (typeof value == 'string') {
-				//
-			} else if (typeof value == 'object' && fields[i] == 'browser') {
-				if (typeof browser == 'string') {
-					value = value[browser=toName(pkg.name, browser)];
-					if (value == null) return browser;
-				}
-			} else {
-				continue;
-			}
-
-			return typeof value == 'string'
-				? ('./' + value.replace(/^\.?\//, ''))
-				: value;
-		}
-	}
-}
-
-// CONCATENATED MODULE: ./sources/loader/makeApi.ts
-
-
-
-
-
-
-function makeApi(runtimeState, opts) {
-  const alwaysWarnOnFallback = Number(process.env.PNP_ALWAYS_WARN_ON_FALLBACK) > 0;
-  const debugLevel = Number(process.env.PNP_DEBUG_LEVEL); // @ts-expect-error
-
-  const builtinModules = new Set(external_module_.Module.builtinModules || Object.keys(process.binding(`natives`)));
-
-  const isBuiltinModule = request => builtinModules.has(request) || request.startsWith(`node:`); // Splits a require request into its components, or return null if the request is a file path
-
-
-  const pathRegExp = /^(?![a-zA-Z]:[\\/]|\\\\|\.{0,2}(?:\/|$))((?:node:)?(?:@[^/]+\/)?[^/]+)\/*(.*|)$/; // Matches if the path starts with a valid path qualifier (./, ../, /)
-  // eslint-disable-next-line no-unused-vars
-
-  const isStrictRegExp = /^(\/|\.{1,2}(\/|$))/; // Matches if the path must point to a directory (ie ends with /)
-
-  const isDirRegExp = /\/$/; // Matches if the path starts with a relative path qualifier (./, ../)
-
-  const isRelativeRegexp = /^\.{0,2}\//; // We only instantiate one of those so that we can use strict-equal comparisons
-
-  const topLevelLocator = {
-    name: null,
-    reference: null
-  }; // Used for compatibility purposes - cf setupCompatibilityLayer
-
-  const fallbackLocators = []; // To avoid emitting the same warning multiple times
-
-  const emittedWarnings = new Set();
-  if (runtimeState.enableTopLevelFallback === true) fallbackLocators.push(topLevelLocator);
-
-  if (opts.compatibilityMode !== false) {
-    // ESLint currently doesn't have any portable way for shared configs to
-    // specify their own plugins that should be used (cf issue #10125). This
-    // will likely get fixed at some point but it'll take time, so in the
-    // meantime we'll just add additional fallback entries for common shared
-    // configs.
-    // Similarly, Gatsby generates files within the `public` folder located
-    // within the project, but doesn't pre-resolve the `require` calls to use
-    // its own dependencies. Meaning that when PnP see a file from the `public`
-    // folder making a require, it thinks that your project forgot to list one
-    // of your dependencies.
-    for (const name of [`react-scripts`, `gatsby`]) {
-      const packageStore = runtimeState.packageRegistry.get(name);
-
-      if (packageStore) {
-        for (const reference of packageStore.keys()) {
-          if (reference === null) {
-            throw new Error(`Assertion failed: This reference shouldn't be null`);
-          } else {
-            fallbackLocators.push({
-              name,
-              reference
-            });
-          }
-        }
-      }
-    }
-  }
-  /**
-   * The setup code will be injected here. The tables listed below are guaranteed to be filled after the call to
-   * the $$DYNAMICALLY_GENERATED_CODE function.
-   */
-
-
-  const {
-    ignorePattern,
-    packageRegistry,
-    packageLocatorsByLocations
-  } = runtimeState;
-  /**
-   * Allows to print useful logs just be setting a value in the environment
-   */
-
-  function makeLogEntry(name, args) {
-    return {
-      fn: name,
-      args,
-      error: null,
-      result: null
-    };
-  }
-
-  function trace(entry) {
-    var _a, _b, _c, _d, _e, _f;
-
-    const colors = (_c = (_b = (_a = process.stderr) === null || _a === void 0 ? void 0 : _a.hasColors) === null || _b === void 0 ? void 0 : _b.call(_a)) !== null && _c !== void 0 ? _c : process.stdout.isTTY;
-
-    const c = (n, str) => `\u001b[${n}m${str}\u001b[0m`;
-
-    const error = entry.error;
-    if (error) console.error(c(`31;1`, `✖ ${(_d = entry.error) === null || _d === void 0 ? void 0 : _d.message.replace(/\n.*/s, ``)}`));else console.error(c(`33;1`, `‼ Resolution`));
-    if (entry.args.length > 0) console.error();
-
-    for (const arg of entry.args) console.error(`  ${c(`37;1`, `In ←`)} ${(0,external_util_namespaceObject.inspect)(arg, {
-      colors,
-      compact: true
-    })}`);
-
-    if (entry.result) {
-      console.error();
-      console.error(`  ${c(`37;1`, `Out →`)} ${(0,external_util_namespaceObject.inspect)(entry.result, {
-        colors,
-        compact: true
-      })}`);
-    }
-
-    const stack = (_f = (_e = new Error().stack.match(/(?<=^ +)at.*/gm)) === null || _e === void 0 ? void 0 : _e.slice(2)) !== null && _f !== void 0 ? _f : [];
-
-    if (stack.length > 0) {
-      console.error();
-
-      for (const line of stack) {
-        console.error(`  ${c(`38;5;244`, line)}`);
-      }
-    }
-
-    console.error();
-  }
-
-  function maybeLog(name, fn) {
-    if (opts.allowDebug === false) return fn;
-
-    if (Number.isFinite(debugLevel)) {
-      if (debugLevel >= 2) {
-        return (...args) => {
-          const logEntry = makeLogEntry(name, args);
-
-          try {
-            return logEntry.result = fn(...args);
-          } catch (error) {
-            throw logEntry.error = error;
-          } finally {
-            trace(logEntry);
-          }
-        };
-      } else if (debugLevel >= 1) {
-        return (...args) => {
-          try {
-            return fn(...args);
-          } catch (error) {
-            const logEntry = makeLogEntry(name, args);
-            logEntry.error = error;
-            trace(logEntry);
-            throw error;
-          }
-        };
-      }
-    }
-
-    return fn;
-  }
-  /**
-   * Returns information about a package in a safe way (will throw if they cannot be retrieved)
-   */
-
-
-  function getPackageInformationSafe(packageLocator) {
-    const packageInformation = getPackageInformation(packageLocator);
-
-    if (!packageInformation) {
-      throw internalTools_makeError(ErrorCode.INTERNAL, `Couldn't find a matching entry in the dependency tree for the specified parent (this is probably an internal error)`);
-    }
-
-    return packageInformation;
-  }
-  /**
-   * Returns whether the specified locator is a dependency tree root (in which case it's part of the project) or not
-   */
-
-
-  function isDependencyTreeRoot(packageLocator) {
-    if (packageLocator.name === null) return true;
-
-    for (const dependencyTreeRoot of runtimeState.dependencyTreeRoots) if (dependencyTreeRoot.name === packageLocator.name && dependencyTreeRoot.reference === packageLocator.reference) return true;
-
-    return false;
-  }
-  /**
-   * Implements the node resolution for the "exports" field
-   *
-   * @returns The remapped path or `null` if the package doesn't have a package.json or an "exports" field
-   */
-
-
-  function applyNodeExportsResolution(unqualifiedPath) {
-    const locator = findPackageLocator(ppath.join(unqualifiedPath, `internal.js`), {
-      resolveIgnored: true,
-      includeDiscardFromLookup: true
-    });
-
-    if (locator === null) {
-      throw internalTools_makeError(ErrorCode.INTERNAL, `The locator that owns the "${unqualifiedPath}" path can't be found inside the dependency tree (this is probably an internal error)`);
-    }
-
-    const {
-      packageLocation
-    } = getPackageInformationSafe(locator);
-    const manifestPath = ppath.join(packageLocation, Filename.manifest);
-    if (!opts.fakeFs.existsSync(manifestPath)) return null;
-    const pkgJson = JSON.parse(opts.fakeFs.readFileSync(manifestPath, `utf8`));
-    let subpath = ppath.contains(packageLocation, unqualifiedPath);
-
-    if (subpath === null) {
-      throw internalTools_makeError(ErrorCode.INTERNAL, `unqualifiedPath doesn't contain the packageLocation (this is probably an internal error)`);
-    }
-
-    if (!isRelativeRegexp.test(subpath)) subpath = `./${subpath}`;
-    const resolvedExport = resolve(pkgJson, ppath.normalize(subpath), {
-      browser: false,
-      require: true,
-      // TODO: implement support for the --conditions flag
-      // Waiting on https://github.com/nodejs/node/issues/36935
-      conditions: []
-    });
-    if (typeof resolvedExport === `string`) return ppath.join(packageLocation, resolvedExport);
-    return null;
-  }
-  /**
-   * Implements the node resolution for folder access and extension selection
-   */
-
-
-  function applyNodeExtensionResolution(unqualifiedPath, candidates, {
-    extensions
-  }) {
-    let stat;
-
-    try {
-      candidates.push(unqualifiedPath);
-      stat = opts.fakeFs.statSync(unqualifiedPath);
-    } catch (error) {} // If the file exists and is a file, we can stop right there
-
-
-    if (stat && !stat.isDirectory()) return opts.fakeFs.realpathSync(unqualifiedPath); // If the file is a directory, we must check if it contains a package.json with a "main" entry
-
-    if (stat && stat.isDirectory()) {
-      let pkgJson;
-
-      try {
-        pkgJson = JSON.parse(opts.fakeFs.readFileSync(ppath.join(unqualifiedPath, Filename.manifest), `utf8`));
-      } catch (error) {}
-
-      let nextUnqualifiedPath;
-      if (pkgJson && pkgJson.main) nextUnqualifiedPath = ppath.resolve(unqualifiedPath, pkgJson.main); // If the "main" field changed the path, we start again from this new location
-
-      if (nextUnqualifiedPath && nextUnqualifiedPath !== unqualifiedPath) {
-        const resolution = applyNodeExtensionResolution(nextUnqualifiedPath, candidates, {
-          extensions
-        });
-
-        if (resolution !== null) {
-          return resolution;
-        }
-      }
-    } // Otherwise we check if we find a file that match one of the supported extensions
-
-
-    for (let i = 0, length = extensions.length; i < length; i++) {
-      const candidateFile = `${unqualifiedPath}${extensions[i]}`;
-      candidates.push(candidateFile);
-
-      if (opts.fakeFs.existsSync(candidateFile)) {
-        return candidateFile;
-      }
-    } // Otherwise, we check if the path is a folder - in such a case, we try to use its index
-
-
-    if (stat && stat.isDirectory()) {
-      for (let i = 0, length = extensions.length; i < length; i++) {
-        const candidateFile = ppath.format({
-          dir: unqualifiedPath,
-          name: `index`,
-          ext: extensions[i]
-        });
-        candidates.push(candidateFile);
-
-        if (opts.fakeFs.existsSync(candidateFile)) {
-          return candidateFile;
-        }
-      }
-    } // Otherwise there's nothing else we can do :(
-
-
-    return null;
-  }
-  /**
-   * This function creates fake modules that can be used with the _resolveFilename function.
-   * Ideally it would be nice to be able to avoid this, since it causes useless allocations
-   * and cannot be cached efficiently (we recompute the nodeModulePaths every time).
-   *
-   * Fortunately, this should only affect the fallback, and there hopefully shouldn't have a
-   * lot of them.
-   */
-
-
-  function makeFakeModule(path) {
-    // @ts-expect-error
-    const fakeModule = new external_module_.Module(path, null);
-    fakeModule.filename = path;
-    fakeModule.paths = external_module_.Module._nodeModulePaths(path);
-    return fakeModule;
-  }
-  /**
-   * Forward the resolution to the next resolver (usually the native one)
-   */
-
-
-  function callNativeResolution(request, issuer) {
-    if (issuer.endsWith(`/`)) issuer = ppath.join(issuer, `internal.js`); // Since we would need to create a fake module anyway (to call _resolveLookupPath that
-    // would give us the paths to give to _resolveFilename), we can as well not use
-    // the {paths} option at all, since it internally makes _resolveFilename create another
-    // fake module anyway.
-
-    return external_module_.Module._resolveFilename(npath.fromPortablePath(request), makeFakeModule(npath.fromPortablePath(issuer)), false, {
-      plugnplay: false
-    });
-  }
-  /**
-   *
-   */
-
-
-  function isPathIgnored(path) {
-    if (ignorePattern === null) return false;
-    const subPath = ppath.contains(runtimeState.basePath, path);
-    if (subPath === null) return false;
-
-    if (ignorePattern.test(subPath.replace(/\/$/, ``))) {
-      return true;
-    } else {
-      return false;
-    }
-  }
-  /**
-   * This key indicates which version of the standard is implemented by this resolver. The `std` key is the
-   * Plug'n'Play standard, and any other key are third-party extensions. Third-party extensions are not allowed
-   * to override the standard, and can only offer new methods.
-   *
-   * If a new version of the Plug'n'Play standard is released and some extensions conflict with newly added
-   * functions, they'll just have to fix the conflicts and bump their own version number.
-   */
-
-
-  const VERSIONS = {
-    std: 3,
-    resolveVirtual: 1,
-    getAllLocators: 1
-  };
-  /**
-   * We export a special symbol for easy access to the top level locator.
-   */
-
-  const topLevel = topLevelLocator;
-  /**
-   * Gets the package information for a given locator. Returns null if they cannot be retrieved.
-   */
-
-  function getPackageInformation({
-    name,
-    reference
-  }) {
-    const packageInformationStore = packageRegistry.get(name);
-    if (!packageInformationStore) return null;
-    const packageInformation = packageInformationStore.get(reference);
-    if (!packageInformation) return null;
-    return packageInformation;
-  }
-  /**
-   * Find all packages that depend on the specified one.
-   *
-   * Note: This is a private function; we expect consumers to implement it
-   * themselves. We keep it that way because this implementation isn't
-   * optimized at all, since we only need it when printing errors.
-   */
-
-
-  function findPackageDependents({
-    name,
-    reference
-  }) {
-    const dependents = [];
-
-    for (const [dependentName, packageInformationStore] of packageRegistry) {
-      if (dependentName === null) continue;
-
-      for (const [dependentReference, packageInformation] of packageInformationStore) {
-        if (dependentReference === null) continue;
-        const dependencyReference = packageInformation.packageDependencies.get(name);
-        if (dependencyReference !== reference) continue; // Don't forget that all packages depend on themselves
-
-        if (dependentName === name && dependentReference === reference) continue;
-        dependents.push({
-          name: dependentName,
-          reference: dependentReference
-        });
-      }
-    }
-
-    return dependents;
-  }
-  /**
-   * Find all packages that broke the peer dependency on X, starting from Y.
-   *
-   * Note: This is a private function; we expect consumers to implement it
-   * themselves. We keep it that way because this implementation isn't
-   * optimized at all, since we only need it when printing errors.
-   */
-
-
-  function findBrokenPeerDependencies(dependency, initialPackage) {
-    const brokenPackages = new Map();
-    const alreadyVisited = new Set();
-
-    const traversal = currentPackage => {
-      const identifier = JSON.stringify(currentPackage.name);
-      if (alreadyVisited.has(identifier)) return;
-      alreadyVisited.add(identifier);
-      const dependents = findPackageDependents(currentPackage);
-
-      for (const dependent of dependents) {
-        const dependentInformation = getPackageInformationSafe(dependent);
-
-        if (dependentInformation.packagePeers.has(dependency)) {
-          traversal(dependent);
-        } else {
-          let brokenSet = brokenPackages.get(dependent.name);
-          if (typeof brokenSet === `undefined`) brokenPackages.set(dependent.name, brokenSet = new Set());
-          brokenSet.add(dependent.reference);
-        }
-      }
-    };
-
-    traversal(initialPackage);
-    const brokenList = [];
-
-    for (const name of [...brokenPackages.keys()].sort()) for (const reference of [...brokenPackages.get(name)].sort()) brokenList.push({
-      name,
-      reference
-    });
-
-    return brokenList;
-  }
-  /**
-   * Finds the package locator that owns the specified path. If none is found, returns null instead.
-   */
-
-
-  function findPackageLocator(location, {
-    resolveIgnored = false,
-    includeDiscardFromLookup = false
-  } = {}) {
-    if (isPathIgnored(location) && !resolveIgnored) return null;
-    let relativeLocation = ppath.relative(runtimeState.basePath, location);
-    if (!relativeLocation.match(isStrictRegExp)) relativeLocation = `./${relativeLocation}`;
-    if (!relativeLocation.endsWith(`/`)) relativeLocation = `${relativeLocation}/`;
-
-    do {
-      const entry = packageLocatorsByLocations.get(relativeLocation);
-
-      if (typeof entry === `undefined` || entry.discardFromLookup && !includeDiscardFromLookup) {
-        relativeLocation = relativeLocation.substring(0, relativeLocation.lastIndexOf(`/`, relativeLocation.length - 2) + 1);
-        continue;
-      }
-
-      return entry.locator;
-    } while (relativeLocation !== ``);
-
-    return null;
-  }
-  /**
-   * Transforms a request (what's typically passed as argument to the require function) into an unqualified path.
-   * This path is called "unqualified" because it only changes the package name to the package location on the disk,
-   * which means that the end result still cannot be directly accessed (for example, it doesn't try to resolve the
-   * file extension, or to resolve directories to their "index.js" content). Use the "resolveUnqualified" function
-   * to convert them to fully-qualified paths, or just use "resolveRequest" that do both operations in one go.
-   *
-   * Note that it is extremely important that the `issuer` path ends with a forward slash if the issuer is to be
-   * treated as a folder (ie. "/tmp/foo/" rather than "/tmp/foo" if "foo" is a directory). Otherwise relative
-   * imports won't be computed correctly (they'll get resolved relative to "/tmp/" instead of "/tmp/foo/").
-   */
-
-
-  function resolveToUnqualified(request, issuer, {
-    considerBuiltins = true
-  } = {}) {
-    // The 'pnpapi' request is reserved and will always return the path to the PnP file, from everywhere
-    if (request === `pnpapi`) return npath.toPortablePath(opts.pnpapiResolution); // Bailout if the request is a native module
-
-    if (considerBuiltins && isBuiltinModule(request)) return null;
-    const requestForDisplay = getPathForDisplay(request);
-    const issuerForDisplay = issuer && getPathForDisplay(issuer); // We allow disabling the pnp resolution for some subpaths.
-    // This is because some projects, often legacy, contain multiple
-    // levels of dependencies (ie. a yarn.lock inside a subfolder of
-    // a yarn.lock). This is typically solved using workspaces, but
-    // not all of them have been converted already.
-
-    if (issuer && isPathIgnored(issuer)) {
-      // Absolute paths that seem to belong to a PnP tree are still
-      // handled by our runtime even if the issuer isn't. This is
-      // because the native Node resolution uses a special version
-      // of the `stat` syscall which would otherwise bypass the
-      // filesystem layer we require to access the files.
-      if (!ppath.isAbsolute(request) || findPackageLocator(request) === null) {
-        const result = callNativeResolution(request, issuer);
-
-        if (result === false) {
-          throw internalTools_makeError(ErrorCode.BUILTIN_NODE_RESOLUTION_FAILED, `The builtin node resolution algorithm was unable to resolve the requested module (it didn't go through the pnp resolver because the issuer was explicitely ignored by the regexp)\n\nRequire request: "${requestForDisplay}"\nRequired by: ${issuerForDisplay}\n`, {
-            request: requestForDisplay,
-            issuer: issuerForDisplay
-          });
-        }
-
-        return npath.toPortablePath(result);
-      }
-    }
-
-    let unqualifiedPath; // If the request is a relative or absolute path, we just return it normalized
-
-    const dependencyNameMatch = request.match(pathRegExp);
-
-    if (!dependencyNameMatch) {
-      if (ppath.isAbsolute(request)) {
-        unqualifiedPath = ppath.normalize(request);
-      } else {
-        if (!issuer) {
-          throw internalTools_makeError(ErrorCode.API_ERROR, `The resolveToUnqualified function must be called with a valid issuer when the path isn't a builtin nor absolute`, {
-            request: requestForDisplay,
-            issuer: issuerForDisplay
-          });
-        } // We use ppath.join instead of ppath.resolve because:
-        // 1) The request is a relative path in this branch
-        // 2) ppath.join preserves trailing slashes
-
-
-        const absoluteIssuer = ppath.resolve(issuer);
-
-        if (issuer.match(isDirRegExp)) {
-          unqualifiedPath = ppath.normalize(ppath.join(absoluteIssuer, request));
-        } else {
-          unqualifiedPath = ppath.normalize(ppath.join(ppath.dirname(absoluteIssuer), request));
-        }
-      }
-    } else {
-      // Things are more hairy if it's a package require - we then need to figure out which package is needed, and in
-      // particular the exact version for the given location on the dependency tree
-      if (!issuer) {
-        throw internalTools_makeError(ErrorCode.API_ERROR, `The resolveToUnqualified function must be called with a valid issuer when the path isn't a builtin nor absolute`, {
-          request: requestForDisplay,
-          issuer: issuerForDisplay
-        });
-      }
-
-      const [, dependencyName, subPath] = dependencyNameMatch;
-      const issuerLocator = findPackageLocator(issuer); // If the issuer file doesn't seem to be owned by a package managed through pnp, then we resort to using the next
-      // resolution algorithm in the chain, usually the native Node resolution one
-
-      if (!issuerLocator) {
-        const result = callNativeResolution(request, issuer);
-
-        if (result === false) {
-          throw internalTools_makeError(ErrorCode.BUILTIN_NODE_RESOLUTION_FAILED, `The builtin node resolution algorithm was unable to resolve the requested module (it didn't go through the pnp resolver because the issuer doesn't seem to be part of the Yarn-managed dependency tree).\n\nRequire path: "${requestForDisplay}"\nRequired by: ${issuerForDisplay}\n`, {
-            request: requestForDisplay,
-            issuer: issuerForDisplay
-          });
-        }
-
-        return npath.toPortablePath(result);
-      }
-
-      const issuerInformation = getPackageInformationSafe(issuerLocator); // We obtain the dependency reference in regard to the package that request it
-
-      let dependencyReference = issuerInformation.packageDependencies.get(dependencyName);
-      let fallbackReference = null; // If we can't find it, we check if we can potentially load it from the packages that have been defined as potential fallbacks.
-      // It's a bit of a hack, but it improves compatibility with the existing Node ecosystem. Hopefully we should eventually be able
-      // to kill this logic and become stricter once pnp gets enough traction and the affected packages fix themselves.
-
-      if (dependencyReference == null) {
-        if (issuerLocator.name !== null) {
-          // To allow programs to become gradually stricter, starting from the v2 we enforce that workspaces cannot depend on fallbacks.
-          // This works by having a list containing all their locators, and checking when a fallback is required whether it's one of them.
-          const exclusionEntry = runtimeState.fallbackExclusionList.get(issuerLocator.name);
-          const canUseFallbacks = !exclusionEntry || !exclusionEntry.has(issuerLocator.reference);
-
-          if (canUseFallbacks) {
-            for (let t = 0, T = fallbackLocators.length; t < T; ++t) {
-              const fallbackInformation = getPackageInformationSafe(fallbackLocators[t]);
-              const reference = fallbackInformation.packageDependencies.get(dependencyName);
-              if (reference == null) continue;
-              if (alwaysWarnOnFallback) fallbackReference = reference;else dependencyReference = reference;
-              break;
-            }
-
-            if (runtimeState.enableTopLevelFallback) {
-              if (dependencyReference == null && fallbackReference === null) {
-                const reference = runtimeState.fallbackPool.get(dependencyName);
-
-                if (reference != null) {
-                  fallbackReference = reference;
-                }
-              }
-            }
-          }
-        }
-      } // If we can't find the path, and if the package making the request is the top-level, we can offer nicer error messages
-
-
-      let error = null;
-
-      if (dependencyReference === null) {
-        if (isDependencyTreeRoot(issuerLocator)) {
-          error = internalTools_makeError(ErrorCode.MISSING_PEER_DEPENDENCY, `Your application tried to access ${dependencyName} (a peer dependency); this isn't allowed as there is no ancestor to satisfy the requirement. Use a devDependency if needed.\n\nRequired package: ${dependencyName}${dependencyName !== requestForDisplay ? ` (via "${requestForDisplay}")` : ``}\nRequired by: ${issuerForDisplay}\n`, {
-            request: requestForDisplay,
-            issuer: issuerForDisplay,
-            dependencyName
-          });
-        } else {
-          const brokenAncestors = findBrokenPeerDependencies(dependencyName, issuerLocator);
-
-          if (brokenAncestors.every(ancestor => isDependencyTreeRoot(ancestor))) {
-            error = internalTools_makeError(ErrorCode.MISSING_PEER_DEPENDENCY, `${issuerLocator.name} tried to access ${dependencyName} (a peer dependency) but it isn't provided by your application; this makes the require call ambiguous and unsound.\n\nRequired package: ${dependencyName}${dependencyName !== requestForDisplay ? ` (via "${requestForDisplay}")` : ``}\nRequired by: ${issuerLocator.name}@${issuerLocator.reference} (via ${issuerForDisplay})\n${brokenAncestors.map(ancestorLocator => `Ancestor breaking the chain: ${ancestorLocator.name}@${ancestorLocator.reference}\n`).join(``)}\n`, {
-              request: requestForDisplay,
-              issuer: issuerForDisplay,
-              issuerLocator: Object.assign({}, issuerLocator),
-              dependencyName,
-              brokenAncestors
-            });
-          } else {
-            error = internalTools_makeError(ErrorCode.MISSING_PEER_DEPENDENCY, `${issuerLocator.name} tried to access ${dependencyName} (a peer dependency) but it isn't provided by its ancestors; this makes the require call ambiguous and unsound.\n\nRequired package: ${dependencyName}${dependencyName !== requestForDisplay ? ` (via "${requestForDisplay}")` : ``}\nRequired by: ${issuerLocator.name}@${issuerLocator.reference} (via ${issuerForDisplay})\n\n${brokenAncestors.map(ancestorLocator => `Ancestor breaking the chain: ${ancestorLocator.name}@${ancestorLocator.reference}\n`).join(``)}\n`, {
-              request: requestForDisplay,
-              issuer: issuerForDisplay,
-              issuerLocator: Object.assign({}, issuerLocator),
-              dependencyName,
-              brokenAncestors
-            });
-          }
-        }
-      } else if (dependencyReference === undefined) {
-        if (!considerBuiltins && isBuiltinModule(request)) {
-          if (isDependencyTreeRoot(issuerLocator)) {
-            error = internalTools_makeError(ErrorCode.UNDECLARED_DEPENDENCY, `Your application tried to access ${dependencyName}. While this module is usually interpreted as a Node builtin, your resolver is running inside a non-Node resolution context where such builtins are ignored. Since ${dependencyName} isn't otherwise declared in your dependencies, this makes the require call ambiguous and unsound.\n\nRequired package: ${dependencyName}${dependencyName !== requestForDisplay ? ` (via "${requestForDisplay}")` : ``}\nRequired by: ${issuerForDisplay}\n`, {
-              request: requestForDisplay,
-              issuer: issuerForDisplay,
-              dependencyName
-            });
-          } else {
-            error = internalTools_makeError(ErrorCode.UNDECLARED_DEPENDENCY, `${issuerLocator.name} tried to access ${dependencyName}. While this module is usually interpreted as a Node builtin, your resolver is running inside a non-Node resolution context where such builtins are ignored. Since ${dependencyName} isn't otherwise declared in ${issuerLocator.name}'s dependencies, this makes the require call ambiguous and unsound.\n\nRequired package: ${dependencyName}${dependencyName !== requestForDisplay ? ` (via "${requestForDisplay}")` : ``}\nRequired by: ${issuerForDisplay}\n`, {
-              request: requestForDisplay,
-              issuer: issuerForDisplay,
-              issuerLocator: Object.assign({}, issuerLocator),
-              dependencyName
-            });
-          }
-        } else {
-          if (isDependencyTreeRoot(issuerLocator)) {
-            error = internalTools_makeError(ErrorCode.UNDECLARED_DEPENDENCY, `Your application tried to access ${dependencyName}, but it isn't declared in your dependencies; this makes the require call ambiguous and unsound.\n\nRequired package: ${dependencyName}${dependencyName !== requestForDisplay ? ` (via "${requestForDisplay}")` : ``}\nRequired by: ${issuerForDisplay}\n`, {
-              request: requestForDisplay,
-              issuer: issuerForDisplay,
-              dependencyName
-            });
-          } else {
-            error = internalTools_makeError(ErrorCode.UNDECLARED_DEPENDENCY, `${issuerLocator.name} tried to access ${dependencyName}, but it isn't declared in its dependencies; this makes the require call ambiguous and unsound.\n\nRequired package: ${dependencyName}${dependencyName !== requestForDisplay ? ` (via "${requestForDisplay}")` : ``}\nRequired by: ${issuerLocator.name}@${issuerLocator.reference} (via ${issuerForDisplay})\n`, {
-              request: requestForDisplay,
-              issuer: issuerForDisplay,
-              issuerLocator: Object.assign({}, issuerLocator),
-              dependencyName
-            });
-          }
-        }
-      }
-
-      if (dependencyReference == null) {
-        if (fallbackReference === null || error === null) throw error || new Error(`Assertion failed: Expected an error to have been set`);
-        dependencyReference = fallbackReference;
-        const message = error.message.replace(/\n.*/g, ``);
-        error.message = message;
-
-        if (!emittedWarnings.has(message) && debugLevel !== 0) {
-          emittedWarnings.add(message);
-          process.emitWarning(error);
-        }
-      } // We need to check that the package exists on the filesystem, because it might not have been installed
-
-
-      const dependencyLocator = Array.isArray(dependencyReference) ? {
-        name: dependencyReference[0],
-        reference: dependencyReference[1]
-      } : {
-        name: dependencyName,
-        reference: dependencyReference
-      };
-      const dependencyInformation = getPackageInformationSafe(dependencyLocator);
-
-      if (!dependencyInformation.packageLocation) {
-        throw internalTools_makeError(ErrorCode.MISSING_DEPENDENCY, `A dependency seems valid but didn't get installed for some reason. This might be caused by a partial install, such as dev vs prod.\n\nRequired package: ${dependencyLocator.name}@${dependencyLocator.reference}${dependencyLocator.name !== requestForDisplay ? ` (via "${requestForDisplay}")` : ``}\nRequired by: ${issuerLocator.name}@${issuerLocator.reference} (via ${issuerForDisplay})\n`, {
-          request: requestForDisplay,
-          issuer: issuerForDisplay,
-          dependencyLocator: Object.assign({}, dependencyLocator)
-        });
-      } // Now that we know which package we should resolve to, we only have to find out the file location
-      // packageLocation is always absolute as it's returned by getPackageInformationSafe
-
-
-      const dependencyLocation = dependencyInformation.packageLocation;
-
-      if (subPath) {
-        // We use ppath.join instead of ppath.resolve because:
-        // 1) subPath is always a relative path
-        // 2) ppath.join preserves trailing slashes
-        unqualifiedPath = ppath.join(dependencyLocation, subPath);
-      } else {
-        unqualifiedPath = dependencyLocation;
-      }
-    }
-
-    return ppath.normalize(unqualifiedPath);
-  }
-
-  function resolveUnqualifiedExport(request, unqualifiedPath) {
-    // "exports" only apply when requiring a package, not when requiring via an absolute / relative path
-    if (isStrictRegExp.test(request)) return unqualifiedPath;
-    const unqualifiedExportPath = applyNodeExportsResolution(unqualifiedPath);
-
-    if (unqualifiedExportPath) {
-      return ppath.normalize(unqualifiedExportPath);
-    } else {
-      return unqualifiedPath;
-    }
-  }
-  /**
-   * Transforms an unqualified path into a qualified path by using the Node resolution algorithm (which automatically
-   * appends ".js" / ".json", and transforms directory accesses into "index.js").
-   */
-
-
-  function resolveUnqualified(unqualifiedPath, {
-    extensions = Object.keys(external_module_.Module._extensions)
-  } = {}) {
-    const candidates = [];
-    const qualifiedPath = applyNodeExtensionResolution(unqualifiedPath, candidates, {
-      extensions
-    });
-
-    if (qualifiedPath) {
-      return ppath.normalize(qualifiedPath);
-    } else {
-      const unqualifiedPathForDisplay = getPathForDisplay(unqualifiedPath);
-      throw internalTools_makeError(ErrorCode.QUALIFIED_PATH_RESOLUTION_FAILED, `Qualified path resolution failed - none of those files can be found on the disk.\n\nSource path: ${unqualifiedPathForDisplay}\n${candidates.map(candidate => `Not found: ${getPathForDisplay(candidate)}\n`).join(``)}`, {
-        unqualifiedPath: unqualifiedPathForDisplay
-      });
-    }
-  }
-  /**
-   * Transforms a request into a fully qualified path.
-   *
-   * Note that it is extremely important that the `issuer` path ends with a forward slash if the issuer is to be
-   * treated as a folder (ie. "/tmp/foo/" rather than "/tmp/foo" if "foo" is a directory). Otherwise relative
-   * imports won't be computed correctly (they'll get resolved relative to "/tmp/" instead of "/tmp/foo/").
-   */
-
-
-  function resolveRequest(request, issuer, {
-    considerBuiltins,
-    extensions
-  } = {}) {
-    const unqualifiedPath = resolveToUnqualified(request, issuer, {
-      considerBuiltins
-    });
-    if (unqualifiedPath === null) return null;
-
-    const isIssuerIgnored = () => issuer !== null ? isPathIgnored(issuer) : false;
-
-    const remappedPath = (!considerBuiltins || !isBuiltinModule(request)) && !isIssuerIgnored() ? resolveUnqualifiedExport(request, unqualifiedPath) : unqualifiedPath;
-
-    try {
-      return resolveUnqualified(remappedPath, {
-        extensions
-      });
-    } catch (resolutionError) {
-      if (resolutionError.pnpCode === `QUALIFIED_PATH_RESOLUTION_FAILED`) Object.assign(resolutionError.data, {
-        request: getPathForDisplay(request),
-        issuer: issuer && getPathForDisplay(issuer)
-      });
-      throw resolutionError;
-    }
-  }
-
-  function resolveVirtual(request) {
-    const normalized = ppath.normalize(request);
-    const resolved = VirtualFS.resolveVirtual(normalized);
-    return resolved !== normalized ? resolved : null;
-  }
-
-  return {
-    VERSIONS,
-    topLevel,
-    getLocator: (name, referencish) => {
-      if (Array.isArray(referencish)) {
-        return {
-          name: referencish[0],
-          reference: referencish[1]
-        };
-      } else {
-        return {
-          name,
-          reference: referencish
-        };
-      }
-    },
-    getDependencyTreeRoots: () => {
-      return [...runtimeState.dependencyTreeRoots];
-    },
-
-    getAllLocators() {
-      const locators = [];
-
-      for (const [name, entry] of packageRegistry) for (const reference of entry.keys()) if (name !== null && reference !== null) locators.push({
-        name,
-        reference
-      });
-
-      return locators;
-    },
-
-    getPackageInformation: locator => {
-      const info = getPackageInformation(locator);
-      if (info === null) return null;
-      const packageLocation = npath.fromPortablePath(info.packageLocation);
-      const nativeInfo = { ...info,
-        packageLocation
-      };
-      return nativeInfo;
-    },
-    findPackageLocator: path => {
-      return findPackageLocator(npath.toPortablePath(path));
-    },
-    resolveToUnqualified: maybeLog(`resolveToUnqualified`, (request, issuer, opts) => {
-      const portableIssuer = issuer !== null ? npath.toPortablePath(issuer) : null;
-      const resolution = resolveToUnqualified(npath.toPortablePath(request), portableIssuer, opts);
-      if (resolution === null) return null;
-      return npath.fromPortablePath(resolution);
-    }),
-    resolveUnqualified: maybeLog(`resolveUnqualified`, (unqualifiedPath, opts) => {
-      return npath.fromPortablePath(resolveUnqualified(npath.toPortablePath(unqualifiedPath), opts));
-    }),
-    resolveRequest: maybeLog(`resolveRequest`, (request, issuer, opts) => {
-      const portableIssuer = issuer !== null ? npath.toPortablePath(issuer) : null;
-      const resolution = resolveRequest(npath.toPortablePath(request), portableIssuer, opts);
-      if (resolution === null) return null;
-      return npath.fromPortablePath(resolution);
-    }),
-    resolveVirtual: maybeLog(`resolveVirtual`, path => {
-      const result = resolveVirtual(npath.toPortablePath(path));
-
-      if (result !== null) {
-        return npath.fromPortablePath(result);
-      } else {
-        return null;
-      }
-    })
-  };
-}
-// CONCATENATED MODULE: ../yarnpkg-fslib/sources/xfs.ts
-
-
-
-
-function getTempName(prefix) {
-  const tmpdir = npath.toPortablePath(external_os_default().tmpdir());
-  const hash = Math.ceil(Math.random() * 0x100000000).toString(16).padStart(8, `0`);
-  return ppath.join(tmpdir, `${prefix}${hash}`);
-}
-
-const tmpdirs = new Set();
-let cleanExitRegistered = false;
-
-function registerCleanExit() {
-  if (cleanExitRegistered) return;
-  cleanExitRegistered = true;
-  process.once(`exit`, () => {
-    xfs.rmtempSync();
-  });
-}
-
-const xfs = Object.assign(new NodeFS(), {
-  detachTemp(p) {
-    tmpdirs.delete(p);
-  },
-
-  mktempSync(cb) {
-    registerCleanExit();
-
-    while (true) {
-      const p = getTempName(`xfs-`);
-
-      try {
-        this.mkdirSync(p);
-      } catch (error) {
-        if (error.code === `EEXIST`) {
-          continue;
-        } else {
-          throw error;
-        }
-      }
-
-      const realP = this.realpathSync(p);
-      tmpdirs.add(realP);
-
-      if (typeof cb !== `undefined`) {
-        try {
-          return cb(realP);
-        } finally {
-          if (tmpdirs.has(realP)) {
-            tmpdirs.delete(realP);
-
-            try {
-              this.removeSync(realP);
-            } catch (_a) {// Too bad if there's an error
-            }
-          }
-        }
-      } else {
-        return realP;
-      }
-    }
-  },
-
-  async mktempPromise(cb) {
-    registerCleanExit();
-
-    while (true) {
-      const p = getTempName(`xfs-`);
-
-      try {
-        await this.mkdirPromise(p);
-      } catch (error) {
-        if (error.code === `EEXIST`) {
-          continue;
-        } else {
-          throw error;
-        }
-      }
-
-      const realP = await this.realpathPromise(p);
-      tmpdirs.add(realP);
-
-      if (typeof cb !== `undefined`) {
-        try {
-          return await cb(realP);
-        } finally {
-          if (tmpdirs.has(realP)) {
-            tmpdirs.delete(realP);
-
-            try {
-              await this.removePromise(realP);
-            } catch (_a) {// Too bad if there's an error
-            }
-          }
-        }
-      } else {
-        return realP;
-      }
-    }
-  },
-
-  async rmtempPromise() {
-    await Promise.all(Array.from(tmpdirs.values()).map(async p => {
-      try {
-        await xfs.removePromise(p, {
-          maxRetries: 0
-        });
-        tmpdirs.delete(p);
-      } catch (_a) {// Too bad if there's an error
-      }
-    }));
-  },
-
-  rmtempSync() {
-    for (const p of tmpdirs) {
-      try {
-        xfs.removeSync(p);
-        tmpdirs.delete(p);
-      } catch (_a) {// Too bad if there's an error
-      }
-    }
-  }
-
-});
-// CONCATENATED MODULE: ./sources/loader/makeManager.ts
-
-
-function makeManager(pnpapi, opts) {
-  const initialApiPath = npath.toPortablePath(pnpapi.resolveToUnqualified(`pnpapi`, null));
-  const initialApiStats = opts.fakeFs.statSync(npath.toPortablePath(initialApiPath));
-  const apiMetadata = new Map([[initialApiPath, {
-    cache: external_module_.Module._cache,
-    instance: pnpapi,
-    stats: initialApiStats,
-    lastRefreshCheck: Date.now()
-  }]]);
-
-  function loadApiInstance(pnpApiPath) {
-    const nativePath = npath.fromPortablePath(pnpApiPath); // @ts-expect-error
-
-    const module = new external_module_.Module(nativePath, null); // @ts-expect-error
-
-    module.load(nativePath);
-    return module.exports;
-  }
-
-  function refreshApiEntry(pnpApiPath, apiEntry) {
-    const timeNow = Date.now();
-    if (timeNow - apiEntry.lastRefreshCheck < 500) return;
-    apiEntry.lastRefreshCheck = timeNow;
-    const stats = opts.fakeFs.statSync(pnpApiPath);
-
-    if (stats.mtime > apiEntry.stats.mtime) {
-      process.emitWarning(`[Warning] The runtime detected new informations in a PnP file; reloading the API instance (${npath.fromPortablePath(pnpApiPath)})`);
-      apiEntry.stats = stats;
-      apiEntry.instance = loadApiInstance(pnpApiPath);
-    }
-  }
-
-  function getApiEntry(pnpApiPath, refresh = false) {
-    let apiEntry = apiMetadata.get(pnpApiPath);
-
-    if (typeof apiEntry !== `undefined`) {
-      if (refresh) {
-        refreshApiEntry(pnpApiPath, apiEntry);
-      }
-    } else {
-      apiMetadata.set(pnpApiPath, apiEntry = {
-        cache: {},
-        instance: loadApiInstance(pnpApiPath),
-        stats: opts.fakeFs.statSync(pnpApiPath),
-        lastRefreshCheck: Date.now()
-      });
-    }
-
-    return apiEntry;
-  }
-
-  const findApiPathCache = new Map();
-
-  function addToCacheAndReturn(start, end, target) {
-    if (target !== null) target = VirtualFS.resolveVirtual(target);
-    let curr;
-    let next = start;
-
-    do {
-      curr = next;
-      findApiPathCache.set(curr, target);
-      next = ppath.dirname(curr);
-    } while (curr !== end);
-
-    return target;
-  }
-
-  function findApiPathFor(modulePath) {
-    const controlledBy = [];
-
-    for (const [apiPath, apiEntry] of apiMetadata) {
-      const locator = apiEntry.instance.findPackageLocator(modulePath);
-
-      if (locator) {
-        if (apiMetadata.size === 1) {
-          return apiPath;
-        } else {
-          controlledBy.push(apiPath);
-        }
-      }
-    }
-
-    if (controlledBy.length !== 0) {
-      if (controlledBy.length === 1) return controlledBy[0];
-      throw new Error(`Unable to locate pnpapi, the module '${modulePath}' is controlled by multiple pnpapi instances.\nThis is usually caused by using the global cache (enableGlobalCache: true)\n\nControlled by:\n${controlledBy.map(pnpPath => `  ${npath.fromPortablePath(pnpPath)}`).join(`\n`)}`);
-    }
-
-    const start = ppath.resolve(npath.toPortablePath(modulePath));
-    let curr;
-    let next = start;
-
-    do {
-      curr = next;
-      const cached = findApiPathCache.get(curr);
-      if (cached !== undefined) return addToCacheAndReturn(start, curr, cached);
-      const cjsCandidate = ppath.join(curr, Filename.pnpCjs);
-      if (xfs.existsSync(cjsCandidate) && xfs.statSync(cjsCandidate).isFile()) return addToCacheAndReturn(start, curr, cjsCandidate); // We still support .pnp.js files to improve multi-project compatibility.
-      // TODO: Remove support for .pnp.js files after they stop being used.
-
-      const legacyCjsCandidate = ppath.join(curr, Filename.pnpJs);
-      if (xfs.existsSync(legacyCjsCandidate) && xfs.statSync(legacyCjsCandidate).isFile()) return addToCacheAndReturn(start, curr, legacyCjsCandidate);
-      next = ppath.dirname(curr);
-    } while (curr !== PortablePath.root);
-
-    return addToCacheAndReturn(start, curr, null);
-  }
-
-  function getApiPathFromParent(parent) {
-    if (parent == null) return initialApiPath;
-
-    if (typeof parent.pnpApiPath === `undefined`) {
-      if (parent.filename !== null) {
-        return parent.pnpApiPath = findApiPathFor(parent.filename);
-      } else {
-        return initialApiPath;
-      }
-    }
-
-    if (parent.pnpApiPath !== null) return parent.pnpApiPath;
-    return null;
-  }
-
-  return {
-    getApiPathFromParent,
-    findApiPathFor,
-    getApiEntry
-  };
-}
-// CONCATENATED MODULE: ./sources/loader/_entryPoint.ts
-
-
-
-
-
-
-
-
- // We must copy the fs into a local, because otherwise
-// 1. we would make the NodeFS instance use the function that we patched (infinite loop)
-// 2. Object.create(fs) isn't enough, since it won't prevent the proto from being modified
-
-const localFs = { ...(external_fs_default())
-};
-const nodeFs = new NodeFS(localFs);
-const defaultRuntimeState = $$SETUP_STATE(hydrateRuntimeState);
-const defaultPnpapiResolution = __filename; // We create a virtual filesystem that will do three things:
-// 1. all requests inside a folder named "__virtual___" will be remapped according the virtual folder rules
-// 2. all requests going inside a Zip archive will be handled by the Zip fs implementation
-// 3. any remaining request will be forwarded to Node as-is
-
-const defaultFsLayer = new VirtualFS({
-  baseFs: new ZipOpenFS({
-    baseFs: nodeFs,
-    libzip: () => getLibzipSync(),
-    maxOpenFiles: 80,
-    readOnlyArchives: true
-  })
-});
-let manager;
-const defaultApi = Object.assign(makeApi(defaultRuntimeState, {
-  fakeFs: defaultFsLayer,
-  pnpapiResolution: defaultPnpapiResolution
-}), {
-  /**
-   * Can be used to generate a different API than the default one (for example
-   * to map it on `/` rather than the local directory path, or to use a
-   * different FS layer than the default one).
-   */
-  makeApi: ({
-    basePath = undefined,
-    fakeFs = defaultFsLayer,
-    pnpapiResolution = defaultPnpapiResolution,
-    ...rest
-  }) => {
-    const apiRuntimeState = typeof basePath !== `undefined` ? $$SETUP_STATE(hydrateRuntimeState, basePath) : defaultRuntimeState;
-    return makeApi(apiRuntimeState, {
-      fakeFs,
-      pnpapiResolution,
-      ...rest
-    });
-  },
-
-  /**
-   * Will inject the specified API into the environment, monkey-patching FS. Is
-   * automatically called when the hook is loaded through `--require`.
-   */
-  setup: api => {
-    applyPatch(api || defaultApi, {
-      fakeFs: defaultFsLayer,
-      manager
-    });
-  }
-});
-manager = makeManager(defaultApi, {
-  fakeFs: defaultFsLayer
-}); // eslint-disable-next-line arca/no-default-export
-
-/* harmony default export */ const _entryPoint = (defaultApi);
-
-if (__non_webpack_module__.parent && __non_webpack_module__.parent.id === `internal/preload`) {
-  defaultApi.setup();
-
-  if (__non_webpack_module__.filename) {
-    // We delete it from the cache in order to support the case where the CLI resolver is invoked from "yarn run"
-    // It's annoying because it might cause some issues when the file is multiple times in NODE_OPTIONS, but it shouldn't happen anyway.
-    delete (external_module_default())._cache[__non_webpack_module__.filename];
-  }
-}
-
-if (process.mainModule === __non_webpack_module__) {
-  const reportError = (code, message, data) => {
-    process.stdout.write(`${JSON.stringify([{
-      code,
-      message,
-      data
-    }, null])}\n`);
-  };
-
-  const reportSuccess = resolution => {
-    process.stdout.write(`${JSON.stringify([null, resolution])}\n`);
-  };
-
-  const processResolution = (request, issuer) => {
-    try {
-      reportSuccess(defaultApi.resolveRequest(request, issuer));
-    } catch (error) {
-      reportError(error.code, error.message, error.data);
-    }
-  };
-
-  const processRequest = data => {
-    try {
-      const [request, issuer] = JSON.parse(data);
-      processResolution(request, issuer);
-    } catch (error) {
-      reportError(`INVALID_JSON`, error.message, error.data);
-    }
-  };
-
-  if (process.argv.length > 2) {
-    if (process.argv.length !== 4) {
-      process.stderr.write(`Usage: ${process.argv[0]} ${process.argv[1]} <request> <issuer>\n`);
-      process.exitCode = 64;
-      /* EX_USAGE */
-    } else {
-      processResolution(process.argv[2], process.argv[3]);
-    }
-  } else {
-    let buffer = ``;
-    const decoder = new (external_string_decoder_default()).StringDecoder();
-    process.stdin.on(`data`, chunk => {
-      buffer += decoder.write(chunk);
-
-      do {
-        const index = buffer.indexOf(`\n`);
-        if (index === -1) break;
-        const line = buffer.slice(0, index);
-        buffer = buffer.slice(index + 1);
-        processRequest(line);
-      } while (true);
-    });
-  }
-}
-
-/***/ }),
 
 /***/ 368:
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
@@ -34783,8 +27438,9 @@ module.exports = require("path");;
 /******/ 	// The require function
 /******/ 	function __webpack_require__(moduleId) {
 /******/ 		// Check if module is in cache
-/******/ 		if(__webpack_module_cache__[moduleId]) {
-/******/ 			return __webpack_module_cache__[moduleId].exports;
+/******/ 		var cachedModule = __webpack_module_cache__[moduleId];
+/******/ 		if (cachedModule !== undefined) {
+/******/ 			return cachedModule.exports;
 /******/ 		}
 /******/ 		// Create a new module (and put it into the cache)
 /******/ 		var module = __webpack_module_cache__[moduleId] = {
@@ -34806,8 +27462,8 @@ module.exports = require("path");;
 /******/ 		// getDefaultExport function for compatibility with non-harmony modules
 /******/ 		__webpack_require__.n = (module) => {
 /******/ 			var getter = module && module.__esModule ?
-/******/ 				() => module['default'] :
-/******/ 				() => module;
+/******/ 				() => (module['default']) :
+/******/ 				() => (module);
 /******/ 			__webpack_require__.d(getter, { a: getter });
 /******/ 			return getter;
 /******/ 		};
@@ -34827,14 +27483,6588 @@ module.exports = require("path");;
 /******/ 	
 /******/ 	/* webpack/runtime/hasOwnProperty shorthand */
 /******/ 	(() => {
-/******/ 		__webpack_require__.o = (obj, prop) => Object.prototype.hasOwnProperty.call(obj, prop)
+/******/ 		__webpack_require__.o = (obj, prop) => (Object.prototype.hasOwnProperty.call(obj, prop))
 /******/ 	})();
 /******/ 	
 /************************************************************************/
-/******/ 	// module exports must be returned from runtime so entry inlining is disabled
-/******/ 	// startup
-/******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(378);
+var __webpack_exports__ = {};
+// This entry need to be wrapped in an IIFE because it need to be in strict mode.
+(() => {
+"use strict";
+
+// EXPORTS
+__webpack_require__.d(__webpack_exports__, {
+  "default": () => (/* binding */ _entryPoint)
+});
+
+// EXTERNAL MODULE: external "fs"
+var external_fs_ = __webpack_require__(747);
+var external_fs_default = /*#__PURE__*/__webpack_require__.n(external_fs_);
+;// CONCATENATED MODULE: external "os"
+const external_os_namespaceObject = require("os");;
+// EXTERNAL MODULE: external "path"
+var external_path_ = __webpack_require__(622);
+var external_path_default = /*#__PURE__*/__webpack_require__.n(external_path_);
+;// CONCATENATED MODULE: ../yarnpkg-fslib/sources/path.ts
+
+var PathType;
+
+(function (PathType) {
+  PathType[PathType["File"] = 0] = "File";
+  PathType[PathType["Portable"] = 1] = "Portable";
+  PathType[PathType["Native"] = 2] = "Native";
+})(PathType || (PathType = {}));
+
+const PortablePath = {
+  root: `/`,
+  dot: `.`
+};
+const Filename = {
+  nodeModules: `node_modules`,
+  manifest: `package.json`,
+  lockfile: `yarn.lock`,
+  virtual: `__virtual__`,
+
+  /**
+   * @deprecated
+   */
+  pnpJs: `.pnp.js`,
+  pnpCjs: `.pnp.cjs`,
+  rc: `.yarnrc.yml`
+};
+const npath = Object.create((external_path_default()));
+const ppath = Object.create((external_path_default()).posix);
+
+npath.cwd = () => process.cwd();
+
+ppath.cwd = () => toPortablePath(process.cwd());
+
+ppath.resolve = (...segments) => {
+  if (segments.length > 0 && ppath.isAbsolute(segments[0])) {
+    return external_path_default().posix.resolve(...segments);
+  } else {
+    return external_path_default().posix.resolve(ppath.cwd(), ...segments);
+  }
+};
+
+const contains = function (pathUtils, from, to) {
+  from = pathUtils.normalize(from);
+  to = pathUtils.normalize(to);
+  if (from === to) return `.`;
+  if (!from.endsWith(pathUtils.sep)) from = from + pathUtils.sep;
+
+  if (to.startsWith(from)) {
+    return to.slice(from.length);
+  } else {
+    return null;
+  }
+};
+
+npath.fromPortablePath = fromPortablePath;
+npath.toPortablePath = toPortablePath;
+
+npath.contains = (from, to) => contains(npath, from, to);
+
+ppath.contains = (from, to) => contains(ppath, from, to);
+
+const WINDOWS_PATH_REGEXP = /^([a-zA-Z]:.*)$/;
+const UNC_WINDOWS_PATH_REGEXP = /^\\\\(\.\\)?(.*)$/;
+const PORTABLE_PATH_REGEXP = /^\/([a-zA-Z]:.*)$/;
+const UNC_PORTABLE_PATH_REGEXP = /^\/unc\/(\.dot\/)?(.*)$/; // Path should look like "/N:/berry/scripts/plugin-pack.js"
+// And transform to "N:\berry\scripts\plugin-pack.js"
+
+function fromPortablePath(p) {
+  if (process.platform !== `win32`) return p;
+  if (p.match(PORTABLE_PATH_REGEXP)) p = p.replace(PORTABLE_PATH_REGEXP, `$1`);else if (p.match(UNC_PORTABLE_PATH_REGEXP)) p = p.replace(UNC_PORTABLE_PATH_REGEXP, (match, p1, p2) => `\\\\${p1 ? `.\\` : ``}${p2}`);else return p;
+  return p.replace(/\//g, `\\`);
+} // Path should look like "N:/berry/scripts/plugin-pack.js"
+// And transform to "/N:/berry/scripts/plugin-pack.js"
+
+
+function toPortablePath(p) {
+  if (process.platform !== `win32`) return p;
+  if (p.match(WINDOWS_PATH_REGEXP)) p = p.replace(WINDOWS_PATH_REGEXP, `/$1`);else if (p.match(UNC_WINDOWS_PATH_REGEXP)) p = p.replace(UNC_WINDOWS_PATH_REGEXP, (match, p1, p2) => `/unc/${p1 ? `.dot/` : ``}${p2}`);
+  return p.replace(/\\/g, `/`);
+}
+
+function convertPath(targetPathUtils, sourcePath) {
+  return targetPathUtils === npath ? fromPortablePath(sourcePath) : toPortablePath(sourcePath);
+}
+function toFilename(filename) {
+  if (npath.parse(filename).dir !== `` || ppath.parse(filename).dir !== ``) throw new Error(`Invalid filename: "${filename}"`);
+  return filename;
+}
+;// CONCATENATED MODULE: ../yarnpkg-fslib/sources/algorithms/copyPromise.ts
+
+ // 1980-01-01, like Fedora
+
+const defaultTime = new Date(315532800 * 1000);
+var LinkStrategy;
+
+(function (LinkStrategy) {
+  LinkStrategy["Allow"] = "allow";
+  LinkStrategy["ReadOnly"] = "readOnly";
+})(LinkStrategy || (LinkStrategy = {}));
+
+async function copyPromise(destinationFs, destination, sourceFs, source, opts) {
+  const normalizedDestination = destinationFs.pathUtils.normalize(destination);
+  const normalizedSource = sourceFs.pathUtils.normalize(source);
+  const prelayout = [];
+  const postlayout = [];
+  await destinationFs.mkdirPromise(destinationFs.pathUtils.dirname(destination), {
+    recursive: true
+  });
+  const updateTime = typeof destinationFs.lutimesPromise === `function` ? destinationFs.lutimesPromise.bind(destinationFs) : destinationFs.utimesPromise.bind(destinationFs);
+  await copyImpl(prelayout, postlayout, updateTime, destinationFs, normalizedDestination, sourceFs, normalizedSource, opts);
+
+  for (const operation of prelayout) await operation();
+
+  await Promise.all(postlayout.map(operation => {
+    return operation();
+  }));
+}
+
+async function copyImpl(prelayout, postlayout, updateTime, destinationFs, destination, sourceFs, source, opts) {
+  var _a, _b;
+
+  const destinationStat = await maybeLStat(destinationFs, destination);
+  const sourceStat = await sourceFs.lstatPromise(source);
+  const referenceTime = opts.stableTime ? {
+    mtime: defaultTime,
+    atime: defaultTime
+  } : sourceStat;
+  let updated;
+
+  switch (true) {
+    case sourceStat.isDirectory():
+      {
+        updated = await copyFolder(prelayout, postlayout, updateTime, destinationFs, destination, destinationStat, sourceFs, source, sourceStat, opts);
+      }
+      break;
+
+    case sourceStat.isFile():
+      {
+        updated = await copyFile(prelayout, postlayout, updateTime, destinationFs, destination, destinationStat, sourceFs, source, sourceStat, opts);
+      }
+      break;
+
+    case sourceStat.isSymbolicLink():
+      {
+        updated = await copySymlink(prelayout, postlayout, updateTime, destinationFs, destination, destinationStat, sourceFs, source, sourceStat, opts);
+      }
+      break;
+
+    default:
+      {
+        throw new Error(`Unsupported file type (${sourceStat.mode})`);
+      }
+      break;
+  }
+
+  if (updated || ((_a = destinationStat === null || destinationStat === void 0 ? void 0 : destinationStat.mtime) === null || _a === void 0 ? void 0 : _a.getTime()) !== referenceTime.mtime.getTime() || ((_b = destinationStat === null || destinationStat === void 0 ? void 0 : destinationStat.atime) === null || _b === void 0 ? void 0 : _b.getTime()) !== referenceTime.atime.getTime()) {
+    postlayout.push(() => updateTime(destination, referenceTime.atime, referenceTime.mtime));
+    updated = true;
+  }
+
+  if (destinationStat === null || (destinationStat.mode & 0o777) !== (sourceStat.mode & 0o777)) {
+    postlayout.push(() => destinationFs.chmodPromise(destination, sourceStat.mode & 0o777));
+    updated = true;
+  }
+
+  return updated;
+}
+
+async function maybeLStat(baseFs, p) {
+  try {
+    return await baseFs.lstatPromise(p);
+  } catch (e) {
+    return null;
+  }
+}
+
+async function copyFolder(prelayout, postlayout, updateTime, destinationFs, destination, destinationStat, sourceFs, source, sourceStat, opts) {
+  if (destinationStat !== null && !destinationStat.isDirectory()) {
+    if (opts.overwrite) {
+      prelayout.push(async () => destinationFs.removePromise(destination));
+      destinationStat = null;
+    } else {
+      return false;
+    }
+  }
+
+  let updated = false;
+
+  if (destinationStat === null) {
+    prelayout.push(async () => destinationFs.mkdirPromise(destination, {
+      mode: sourceStat.mode
+    }));
+    updated = true;
+  }
+
+  const entries = await sourceFs.readdirPromise(source);
+
+  if (opts.stableSort) {
+    for (const entry of entries.sort()) {
+      if (await copyImpl(prelayout, postlayout, updateTime, destinationFs, destinationFs.pathUtils.join(destination, entry), sourceFs, sourceFs.pathUtils.join(source, entry), opts)) {
+        updated = true;
+      }
+    }
+  } else {
+    const entriesUpdateStatus = await Promise.all(entries.map(async entry => {
+      await copyImpl(prelayout, postlayout, updateTime, destinationFs, destinationFs.pathUtils.join(destination, entry), sourceFs, sourceFs.pathUtils.join(source, entry), opts);
+    }));
+
+    if (entriesUpdateStatus.some(status => status)) {
+      updated = true;
+    }
+  }
+
+  return updated;
+}
+
+const isCloneSupportedCache = new WeakMap();
+
+function makeLinkOperation(opFs, destination, source, sourceStat, linkStrategy) {
+  return async () => {
+    await opFs.linkPromise(source, destination);
+
+    if (linkStrategy === LinkStrategy.ReadOnly) {
+      // We mutate the stat, otherwise it'll be reset by copyImpl
+      sourceStat.mode &= ~0o222;
+      await opFs.chmodPromise(destination, sourceStat.mode);
+    }
+  };
+}
+
+function makeCloneLinkOperation(opFs, destination, source, sourceStat, linkStrategy) {
+  const isCloneSupported = isCloneSupportedCache.get(opFs);
+
+  if (typeof isCloneSupported === `undefined`) {
+    return async () => {
+      try {
+        await opFs.copyFilePromise(source, destination, (external_fs_default()).constants.COPYFILE_FICLONE_FORCE);
+        isCloneSupportedCache.set(opFs, true);
+      } catch (err) {
+        if (err.code === `ENOSYS` || err.code === `ENOTSUP`) {
+          isCloneSupportedCache.set(opFs, false);
+          await makeLinkOperation(opFs, destination, source, sourceStat, linkStrategy)();
+        } else {
+          throw err;
+        }
+      }
+    };
+  } else {
+    if (isCloneSupported) {
+      return async () => opFs.copyFilePromise(source, destination, (external_fs_default()).constants.COPYFILE_FICLONE_FORCE);
+    } else {
+      return makeLinkOperation(opFs, destination, source, sourceStat, linkStrategy);
+    }
+  }
+}
+
+async function copyFile(prelayout, postlayout, updateTime, destinationFs, destination, destinationStat, sourceFs, source, sourceStat, opts) {
+  var _a;
+
+  if (destinationStat !== null) {
+    if (opts.overwrite) {
+      prelayout.push(async () => destinationFs.removePromise(destination));
+      destinationStat = null;
+    } else {
+      return false;
+    }
+  }
+
+  const linkStrategy = (_a = opts.linkStrategy) !== null && _a !== void 0 ? _a : null;
+  const op = destinationFs === sourceFs ? linkStrategy !== null ? makeCloneLinkOperation(destinationFs, destination, source, sourceStat, linkStrategy) : async () => destinationFs.copyFilePromise(source, destination, (external_fs_default()).constants.COPYFILE_FICLONE) : linkStrategy !== null ? makeLinkOperation(destinationFs, destination, source, sourceStat, linkStrategy) : async () => destinationFs.writeFilePromise(destination, await sourceFs.readFilePromise(source));
+  prelayout.push(async () => op());
+  return true;
+}
+
+async function copySymlink(prelayout, postlayout, updateTime, destinationFs, destination, destinationStat, sourceFs, source, sourceStat, opts) {
+  if (destinationStat !== null) {
+    if (opts.overwrite) {
+      prelayout.push(async () => destinationFs.removePromise(destination));
+      destinationStat = null;
+    } else {
+      return false;
+    }
+  }
+
+  prelayout.push(async () => {
+    await destinationFs.symlinkPromise(convertPath(destinationFs.pathUtils, await sourceFs.readlinkPromise(source)), destination);
+  });
+  return true;
+}
+;// CONCATENATED MODULE: ../yarnpkg-fslib/sources/FakeFS.ts
+
+
+
+class FakeFS {
+  constructor(pathUtils) {
+    this.pathUtils = pathUtils;
+  }
+
+  async *genTraversePromise(init, {
+    stableSort = false
+  } = {}) {
+    const stack = [init];
+
+    while (stack.length > 0) {
+      const p = stack.shift();
+      const entry = await this.lstatPromise(p);
+
+      if (entry.isDirectory()) {
+        const entries = await this.readdirPromise(p);
+
+        if (stableSort) {
+          for (const entry of entries.sort()) {
+            stack.push(this.pathUtils.join(p, entry));
+          }
+        } else {
+          throw new Error(`Not supported`);
+        }
+      } else {
+        yield p;
+      }
+    }
+  }
+
+  async removePromise(p, {
+    recursive = true,
+    maxRetries = 5
+  } = {}) {
+    let stat;
+
+    try {
+      stat = await this.lstatPromise(p);
+    } catch (error) {
+      if (error.code === `ENOENT`) {
+        return;
+      } else {
+        throw error;
+      }
+    }
+
+    if (stat.isDirectory()) {
+      if (recursive) {
+        const entries = await this.readdirPromise(p);
+        await Promise.all(entries.map(entry => {
+          return this.removePromise(this.pathUtils.resolve(p, entry));
+        }));
+      } // 5 gives 1s worth of retries at worst
+
+
+      let t = 0;
+
+      do {
+        try {
+          await this.rmdirPromise(p);
+          break;
+        } catch (error) {
+          if (error.code === `EBUSY` || error.code === `ENOTEMPTY`) {
+            if (maxRetries === 0) {
+              break;
+            } else {
+              await new Promise(resolve => setTimeout(resolve, t * 100));
+              continue;
+            }
+          } else {
+            throw error;
+          }
+        }
+      } while (t++ < maxRetries);
+    } else {
+      await this.unlinkPromise(p);
+    }
+  }
+
+  removeSync(p, {
+    recursive = true
+  } = {}) {
+    let stat;
+
+    try {
+      stat = this.lstatSync(p);
+    } catch (error) {
+      if (error.code === `ENOENT`) {
+        return;
+      } else {
+        throw error;
+      }
+    }
+
+    if (stat.isDirectory()) {
+      if (recursive) for (const entry of this.readdirSync(p)) this.removeSync(this.pathUtils.resolve(p, entry));
+      this.rmdirSync(p);
+    } else {
+      this.unlinkSync(p);
+    }
+  }
+
+  async mkdirpPromise(p, {
+    chmod,
+    utimes
+  } = {}) {
+    p = this.resolve(p);
+    if (p === this.pathUtils.dirname(p)) return;
+    const parts = p.split(this.pathUtils.sep);
+
+    for (let u = 2; u <= parts.length; ++u) {
+      const subPath = parts.slice(0, u).join(this.pathUtils.sep);
+
+      if (!this.existsSync(subPath)) {
+        try {
+          await this.mkdirPromise(subPath);
+        } catch (error) {
+          if (error.code === `EEXIST`) {
+            continue;
+          } else {
+            throw error;
+          }
+        }
+
+        if (chmod != null) await this.chmodPromise(subPath, chmod);
+
+        if (utimes != null) {
+          await this.utimesPromise(subPath, utimes[0], utimes[1]);
+        } else {
+          const parentStat = await this.statPromise(this.pathUtils.dirname(subPath));
+          await this.utimesPromise(subPath, parentStat.atime, parentStat.mtime);
+        }
+      }
+    }
+  }
+
+  mkdirpSync(p, {
+    chmod,
+    utimes
+  } = {}) {
+    p = this.resolve(p);
+    if (p === this.pathUtils.dirname(p)) return;
+    const parts = p.split(this.pathUtils.sep);
+
+    for (let u = 2; u <= parts.length; ++u) {
+      const subPath = parts.slice(0, u).join(this.pathUtils.sep);
+
+      if (!this.existsSync(subPath)) {
+        try {
+          this.mkdirSync(subPath);
+        } catch (error) {
+          if (error.code === `EEXIST`) {
+            continue;
+          } else {
+            throw error;
+          }
+        }
+
+        if (chmod != null) this.chmodSync(subPath, chmod);
+
+        if (utimes != null) {
+          this.utimesSync(subPath, utimes[0], utimes[1]);
+        } else {
+          const parentStat = this.statSync(this.pathUtils.dirname(subPath));
+          this.utimesSync(subPath, parentStat.atime, parentStat.mtime);
+        }
+      }
+    }
+  }
+
+  async copyPromise(destination, source, {
+    baseFs = this,
+    overwrite = true,
+    stableSort = false,
+    stableTime = false,
+    linkStrategy = null
+  } = {}) {
+    return await copyPromise(this, destination, baseFs, source, {
+      overwrite,
+      stableSort,
+      stableTime,
+      linkStrategy
+    });
+  }
+
+  copySync(destination, source, {
+    baseFs = this,
+    overwrite = true
+  } = {}) {
+    const stat = baseFs.lstatSync(source);
+    const exists = this.existsSync(destination);
+
+    if (stat.isDirectory()) {
+      this.mkdirpSync(destination);
+      const directoryListing = baseFs.readdirSync(source);
+
+      for (const entry of directoryListing) {
+        this.copySync(this.pathUtils.join(destination, entry), baseFs.pathUtils.join(source, entry), {
+          baseFs,
+          overwrite
+        });
+      }
+    } else if (stat.isFile()) {
+      if (!exists || overwrite) {
+        if (exists) this.removeSync(destination);
+        const content = baseFs.readFileSync(source);
+        this.writeFileSync(destination, content);
+      }
+    } else if (stat.isSymbolicLink()) {
+      if (!exists || overwrite) {
+        if (exists) this.removeSync(destination);
+        const target = baseFs.readlinkSync(source);
+        this.symlinkSync(convertPath(this.pathUtils, target), destination);
+      }
+    } else {
+      throw new Error(`Unsupported file type (file: ${source}, mode: 0o${stat.mode.toString(8).padStart(6, `0`)})`);
+    }
+
+    const mode = stat.mode & 0o777;
+    this.chmodSync(destination, mode);
+  }
+
+  async changeFilePromise(p, content, opts = {}) {
+    if (Buffer.isBuffer(content)) {
+      return this.changeFileBufferPromise(p, content);
+    } else {
+      return this.changeFileTextPromise(p, content, opts);
+    }
+  }
+
+  async changeFileBufferPromise(p, content) {
+    let current = Buffer.alloc(0);
+
+    try {
+      current = await this.readFilePromise(p);
+    } catch (error) {// ignore errors, no big deal
+    }
+
+    if (Buffer.compare(current, content) === 0) return;
+    await this.writeFilePromise(p, content);
+  }
+
+  async changeFileTextPromise(p, content, {
+    automaticNewlines
+  } = {}) {
+    let current = ``;
+
+    try {
+      current = await this.readFilePromise(p, `utf8`);
+    } catch (error) {// ignore errors, no big deal
+    }
+
+    const normalizedContent = automaticNewlines ? normalizeLineEndings(current, content) : content;
+    if (current === normalizedContent) return;
+    await this.writeFilePromise(p, normalizedContent);
+  }
+
+  changeFileSync(p, content, opts = {}) {
+    if (Buffer.isBuffer(content)) {
+      return this.changeFileBufferSync(p, content);
+    } else {
+      return this.changeFileTextSync(p, content, opts);
+    }
+  }
+
+  changeFileBufferSync(p, content) {
+    let current = Buffer.alloc(0);
+
+    try {
+      current = this.readFileSync(p);
+    } catch (error) {// ignore errors, no big deal
+    }
+
+    if (Buffer.compare(current, content) === 0) return;
+    this.writeFileSync(p, content);
+  }
+
+  changeFileTextSync(p, content, {
+    automaticNewlines = false
+  } = {}) {
+    let current = ``;
+
+    try {
+      current = this.readFileSync(p, `utf8`);
+    } catch (error) {// ignore errors, no big deal
+    }
+
+    const normalizedContent = automaticNewlines ? normalizeLineEndings(current, content) : content;
+    if (current === normalizedContent) return;
+    this.writeFileSync(p, normalizedContent);
+  }
+
+  async movePromise(fromP, toP) {
+    try {
+      await this.renamePromise(fromP, toP);
+    } catch (error) {
+      if (error.code === `EXDEV`) {
+        await this.copyPromise(toP, fromP);
+        await this.removePromise(fromP);
+      } else {
+        throw error;
+      }
+    }
+  }
+
+  moveSync(fromP, toP) {
+    try {
+      this.renameSync(fromP, toP);
+    } catch (error) {
+      if (error.code === `EXDEV`) {
+        this.copySync(toP, fromP);
+        this.removeSync(fromP);
+      } else {
+        throw error;
+      }
+    }
+  }
+
+  async lockPromise(affectedPath, callback) {
+    const lockPath = `${affectedPath}.flock`;
+    const interval = 1000 / 60;
+    const startTime = Date.now();
+    let fd = null; // Even when we detect that a lock file exists, we still look inside to see
+    // whether the pid that created it is still alive. It's not foolproof
+    // (there are false positive), but there are no false negative and that's
+    // all that matters in 99% of the cases.
+
+    const isAlive = async () => {
+      let pid;
+
+      try {
+        [pid] = await this.readJsonPromise(lockPath);
+      } catch (error) {
+        // If we can't read the file repeatedly, we assume the process was
+        // aborted before even writing finishing writing the payload.
+        return Date.now() - startTime < 500;
+      }
+
+      try {
+        // "As a special case, a signal of 0 can be used to test for the
+        // existence of a process" - so we check whether it's alive.
+        process.kill(pid, 0);
+        return true;
+      } catch (error) {
+        return false;
+      }
+    };
+
+    while (fd === null) {
+      try {
+        fd = await this.openPromise(lockPath, `wx`);
+      } catch (error) {
+        if (error.code === `EEXIST`) {
+          if (!(await isAlive())) {
+            try {
+              await this.unlinkPromise(lockPath);
+              continue;
+            } catch (error) {// No big deal if we can't remove it. Just fallback to wait for
+              // it to be eventually released by its owner.
+            }
+          }
+
+          if (Date.now() - startTime < 60 * 1000) {
+            await new Promise(resolve => setTimeout(resolve, interval));
+          } else {
+            throw new Error(`Couldn't acquire a lock in a reasonable time (via ${lockPath})`);
+          }
+        } else {
+          throw error;
+        }
+      }
+    }
+
+    await this.writePromise(fd, JSON.stringify([process.pid]));
+
+    try {
+      return await callback();
+    } finally {
+      try {
+        // closePromise needs to come before unlinkPromise otherwise another process can attempt
+        // to get the file handle after the unlink but before close resuling in
+        // EPERM: operation not permitted, open
+        await this.closePromise(fd);
+        await this.unlinkPromise(lockPath);
+      } catch (error) {// noop
+      }
+    }
+  }
+
+  async readJsonPromise(p) {
+    const content = await this.readFilePromise(p, `utf8`);
+
+    try {
+      return JSON.parse(content);
+    } catch (error) {
+      error.message += ` (in ${p})`;
+      throw error;
+    }
+  }
+
+  readJsonSync(p) {
+    const content = this.readFileSync(p, `utf8`);
+
+    try {
+      return JSON.parse(content);
+    } catch (error) {
+      error.message += ` (in ${p})`;
+      throw error;
+    }
+  }
+
+  async writeJsonPromise(p, data) {
+    return await this.writeFilePromise(p, `${JSON.stringify(data, null, 2)}\n`);
+  }
+
+  writeJsonSync(p, data) {
+    return this.writeFileSync(p, `${JSON.stringify(data, null, 2)}\n`);
+  }
+
+  async preserveTimePromise(p, cb) {
+    const stat = await this.lstatPromise(p);
+    const result = await cb();
+    if (typeof result !== `undefined`) p = result;
+
+    if (this.lutimesPromise) {
+      await this.lutimesPromise(p, stat.atime, stat.mtime);
+    } else if (!stat.isSymbolicLink()) {
+      await this.utimesPromise(p, stat.atime, stat.mtime);
+    }
+  }
+
+  async preserveTimeSync(p, cb) {
+    const stat = this.lstatSync(p);
+    const result = cb();
+    if (typeof result !== `undefined`) p = result;
+
+    if (this.lutimesSync) {
+      this.lutimesSync(p, stat.atime, stat.mtime);
+    } else if (!stat.isSymbolicLink()) {
+      this.utimesSync(p, stat.atime, stat.mtime);
+    }
+  }
+
+}
+FakeFS.DEFAULT_TIME = 315532800;
+class BasePortableFakeFS extends FakeFS {
+  constructor() {
+    super(ppath);
+  }
+
+}
+
+function getEndOfLine(content) {
+  const matches = content.match(/\r?\n/g);
+  if (matches === null) return external_os_namespaceObject.EOL;
+  const crlf = matches.filter(nl => nl === `\r\n`).length;
+  const lf = matches.length - crlf;
+  return crlf > lf ? `\r\n` : `\n`;
+}
+
+function normalizeLineEndings(originalContent, newContent) {
+  return newContent.replace(/\r?\n/g, getEndOfLine(originalContent));
+}
+;// CONCATENATED MODULE: ../yarnpkg-fslib/sources/errors.ts
+function makeError(code, message) {
+  return Object.assign(new Error(`${code}: ${message}`), {
+    code
+  });
+}
+
+function EBUSY(message) {
+  return makeError(`EBUSY`, message);
+}
+function ENOSYS(message, reason) {
+  return makeError(`ENOSYS`, `${message}, ${reason}`);
+}
+function EINVAL(reason) {
+  return makeError(`EINVAL`, `invalid argument, ${reason}`);
+}
+function EBADF(reason) {
+  return makeError(`EBADF`, `bad file descriptor, ${reason}`);
+}
+function ENOENT(reason) {
+  return makeError(`ENOENT`, `no such file or directory, ${reason}`);
+}
+function ENOTDIR(reason) {
+  return makeError(`ENOTDIR`, `not a directory, ${reason}`);
+}
+function EISDIR(reason) {
+  return makeError(`EISDIR`, `illegal operation on a directory, ${reason}`);
+}
+function EEXIST(reason) {
+  return makeError(`EEXIST`, `file already exists, ${reason}`);
+}
+function EROFS(reason) {
+  return makeError(`EROFS`, `read-only filesystem, ${reason}`);
+}
+function ENOTEMPTY(reason) {
+  return makeError(`ENOTEMPTY`, `directory not empty, ${reason}`);
+}
+function EOPNOTSUPP(reason) {
+  return makeError(`EOPNOTSUPP`, `operation not supported, ${reason}`);
+} // ------------------------------------------------------------------------
+
+function ERR_DIR_CLOSED() {
+  return makeError(`ERR_DIR_CLOSED`, `Directory handle was closed`);
+} // ------------------------------------------------------------------------
+
+class LibzipError extends Error {
+  constructor(message, code) {
+    super(message);
+    this.name = `Libzip Error`;
+    this.code = code;
+  }
+
+}
+;// CONCATENATED MODULE: ../yarnpkg-fslib/sources/NodeFS.ts
+
+
+
+
+class NodeFS extends BasePortableFakeFS {
+  constructor(realFs = (external_fs_default())) {
+    super();
+    this.realFs = realFs; // @ts-expect-error
+
+    if (typeof this.realFs.lutimes !== `undefined`) {
+      this.lutimesPromise = this.lutimesPromiseImpl;
+      this.lutimesSync = this.lutimesSyncImpl;
+    }
+  }
+
+  getExtractHint() {
+    return false;
+  }
+
+  getRealPath() {
+    return PortablePath.root;
+  }
+
+  resolve(p) {
+    return ppath.resolve(p);
+  }
+
+  async openPromise(p, flags, mode) {
+    return await new Promise((resolve, reject) => {
+      this.realFs.open(npath.fromPortablePath(p), flags, mode, this.makeCallback(resolve, reject));
+    });
+  }
+
+  openSync(p, flags, mode) {
+    return this.realFs.openSync(npath.fromPortablePath(p), flags, mode);
+  }
+
+  async opendirPromise(p, opts) {
+    return await new Promise((resolve, reject) => {
+      if (typeof opts !== `undefined`) {
+        this.realFs.opendir(npath.fromPortablePath(p), opts, this.makeCallback(resolve, reject));
+      } else {
+        this.realFs.opendir(npath.fromPortablePath(p), this.makeCallback(resolve, reject));
+      }
+    }).then(dir => {
+      return Object.defineProperty(dir, `path`, {
+        value: p,
+        configurable: true,
+        writable: true
+      });
+    });
+  }
+
+  opendirSync(p, opts) {
+    const dir = typeof opts !== `undefined` ? this.realFs.opendirSync(npath.fromPortablePath(p), opts) : this.realFs.opendirSync(npath.fromPortablePath(p));
+    return Object.defineProperty(dir, `path`, {
+      value: p,
+      configurable: true,
+      writable: true
+    });
+  }
+
+  async readPromise(fd, buffer, offset = 0, length = 0, position = -1) {
+    return await new Promise((resolve, reject) => {
+      this.realFs.read(fd, buffer, offset, length, position, (error, bytesRead) => {
+        if (error) {
+          reject(error);
+        } else {
+          resolve(bytesRead);
+        }
+      });
+    });
+  }
+
+  readSync(fd, buffer, offset, length, position) {
+    return this.realFs.readSync(fd, buffer, offset, length, position);
+  }
+
+  async writePromise(fd, buffer, offset, length, position) {
+    return await new Promise((resolve, reject) => {
+      if (typeof buffer === `string`) {
+        return this.realFs.write(fd, buffer, offset, this.makeCallback(resolve, reject));
+      } else {
+        return this.realFs.write(fd, buffer, offset, length, position, this.makeCallback(resolve, reject));
+      }
+    });
+  }
+
+  writeSync(fd, buffer, offset, length, position) {
+    if (typeof buffer === `string`) {
+      return this.realFs.writeSync(fd, buffer, offset);
+    } else {
+      return this.realFs.writeSync(fd, buffer, offset, length, position);
+    }
+  }
+
+  async closePromise(fd) {
+    await new Promise((resolve, reject) => {
+      this.realFs.close(fd, this.makeCallback(resolve, reject));
+    });
+  }
+
+  closeSync(fd) {
+    this.realFs.closeSync(fd);
+  }
+
+  createReadStream(p, opts) {
+    const realPath = p !== null ? npath.fromPortablePath(p) : p;
+    return this.realFs.createReadStream(realPath, opts);
+  }
+
+  createWriteStream(p, opts) {
+    const realPath = p !== null ? npath.fromPortablePath(p) : p;
+    return this.realFs.createWriteStream(realPath, opts);
+  }
+
+  async realpathPromise(p) {
+    return await new Promise((resolve, reject) => {
+      this.realFs.realpath(npath.fromPortablePath(p), {}, this.makeCallback(resolve, reject));
+    }).then(path => {
+      return npath.toPortablePath(path);
+    });
+  }
+
+  realpathSync(p) {
+    return npath.toPortablePath(this.realFs.realpathSync(npath.fromPortablePath(p), {}));
+  }
+
+  async existsPromise(p) {
+    return await new Promise(resolve => {
+      this.realFs.exists(npath.fromPortablePath(p), resolve);
+    });
+  }
+
+  accessSync(p, mode) {
+    return this.realFs.accessSync(npath.fromPortablePath(p), mode);
+  }
+
+  async accessPromise(p, mode) {
+    return await new Promise((resolve, reject) => {
+      this.realFs.access(npath.fromPortablePath(p), mode, this.makeCallback(resolve, reject));
+    });
+  }
+
+  existsSync(p) {
+    return this.realFs.existsSync(npath.fromPortablePath(p));
+  }
+
+  async statPromise(p, opts) {
+    return await new Promise((resolve, reject) => {
+      if (opts) {
+        this.realFs.stat(npath.fromPortablePath(p), opts, this.makeCallback(resolve, reject));
+      } else {
+        this.realFs.stat(npath.fromPortablePath(p), this.makeCallback(resolve, reject));
+      }
+    });
+  }
+
+  statSync(p, opts) {
+    if (opts) {
+      return this.realFs.statSync(npath.fromPortablePath(p), opts);
+    } else {
+      return this.realFs.statSync(npath.fromPortablePath(p));
+    }
+  }
+
+  async fstatPromise(fd, opts) {
+    return await new Promise((resolve, reject) => {
+      if (opts) {
+        // @ts-expect-error - The node typings doesn't know about the options
+        this.realFs.fstat(fd, opts, this.makeCallback(resolve, reject));
+      } else {
+        this.realFs.fstat(fd, this.makeCallback(resolve, reject));
+      }
+    });
+  }
+
+  fstatSync(fd, opts) {
+    if (opts) {
+      // @ts-expect-error - The node typings doesn't know about the options
+      return this.realFs.fstatSync(fd, opts);
+    } else {
+      return this.realFs.fstatSync(fd);
+    }
+  }
+
+  async lstatPromise(p, opts) {
+    return await new Promise((resolve, reject) => {
+      if (opts) {
+        // @ts-expect-error - TS does not know this takes options
+        this.realFs.lstat(npath.fromPortablePath(p), opts, this.makeCallback(resolve, reject));
+      } else {
+        this.realFs.lstat(npath.fromPortablePath(p), this.makeCallback(resolve, reject));
+      }
+    });
+  }
+
+  lstatSync(p, opts) {
+    if (opts) {
+      // @ts-expect-error - TS does not know this takes options
+      return this.realFs.lstatSync(npath.fromPortablePath(p), opts);
+    } else {
+      return this.realFs.lstatSync(npath.fromPortablePath(p));
+    }
+  }
+
+  async chmodPromise(p, mask) {
+    return await new Promise((resolve, reject) => {
+      this.realFs.chmod(npath.fromPortablePath(p), mask, this.makeCallback(resolve, reject));
+    });
+  }
+
+  chmodSync(p, mask) {
+    return this.realFs.chmodSync(npath.fromPortablePath(p), mask);
+  }
+
+  async chownPromise(p, uid, gid) {
+    return await new Promise((resolve, reject) => {
+      this.realFs.chown(npath.fromPortablePath(p), uid, gid, this.makeCallback(resolve, reject));
+    });
+  }
+
+  chownSync(p, uid, gid) {
+    return this.realFs.chownSync(npath.fromPortablePath(p), uid, gid);
+  }
+
+  async renamePromise(oldP, newP) {
+    return await new Promise((resolve, reject) => {
+      this.realFs.rename(npath.fromPortablePath(oldP), npath.fromPortablePath(newP), this.makeCallback(resolve, reject));
+    });
+  }
+
+  renameSync(oldP, newP) {
+    return this.realFs.renameSync(npath.fromPortablePath(oldP), npath.fromPortablePath(newP));
+  }
+
+  async copyFilePromise(sourceP, destP, flags = 0) {
+    return await new Promise((resolve, reject) => {
+      this.realFs.copyFile(npath.fromPortablePath(sourceP), npath.fromPortablePath(destP), flags, this.makeCallback(resolve, reject));
+    });
+  }
+
+  copyFileSync(sourceP, destP, flags = 0) {
+    return this.realFs.copyFileSync(npath.fromPortablePath(sourceP), npath.fromPortablePath(destP), flags);
+  }
+
+  async appendFilePromise(p, content, opts) {
+    return await new Promise((resolve, reject) => {
+      const fsNativePath = typeof p === `string` ? npath.fromPortablePath(p) : p;
+
+      if (opts) {
+        this.realFs.appendFile(fsNativePath, content, opts, this.makeCallback(resolve, reject));
+      } else {
+        this.realFs.appendFile(fsNativePath, content, this.makeCallback(resolve, reject));
+      }
+    });
+  }
+
+  appendFileSync(p, content, opts) {
+    const fsNativePath = typeof p === `string` ? npath.fromPortablePath(p) : p;
+
+    if (opts) {
+      this.realFs.appendFileSync(fsNativePath, content, opts);
+    } else {
+      this.realFs.appendFileSync(fsNativePath, content);
+    }
+  }
+
+  async writeFilePromise(p, content, opts) {
+    return await new Promise((resolve, reject) => {
+      const fsNativePath = typeof p === `string` ? npath.fromPortablePath(p) : p;
+
+      if (opts) {
+        this.realFs.writeFile(fsNativePath, content, opts, this.makeCallback(resolve, reject));
+      } else {
+        this.realFs.writeFile(fsNativePath, content, this.makeCallback(resolve, reject));
+      }
+    });
+  }
+
+  writeFileSync(p, content, opts) {
+    const fsNativePath = typeof p === `string` ? npath.fromPortablePath(p) : p;
+
+    if (opts) {
+      this.realFs.writeFileSync(fsNativePath, content, opts);
+    } else {
+      this.realFs.writeFileSync(fsNativePath, content);
+    }
+  }
+
+  async unlinkPromise(p) {
+    return await new Promise((resolve, reject) => {
+      this.realFs.unlink(npath.fromPortablePath(p), this.makeCallback(resolve, reject));
+    });
+  }
+
+  unlinkSync(p) {
+    return this.realFs.unlinkSync(npath.fromPortablePath(p));
+  }
+
+  async utimesPromise(p, atime, mtime) {
+    return await new Promise((resolve, reject) => {
+      this.realFs.utimes(npath.fromPortablePath(p), atime, mtime, this.makeCallback(resolve, reject));
+    });
+  }
+
+  utimesSync(p, atime, mtime) {
+    this.realFs.utimesSync(npath.fromPortablePath(p), atime, mtime);
+  }
+
+  async lutimesPromiseImpl(p, atime, mtime) {
+    // @ts-expect-error: Not yet in DefinitelyTyped
+    const lutimes = this.realFs.lutimes;
+    if (typeof lutimes === `undefined`) throw ENOSYS(`unavailable Node binding`, `lutimes '${p}'`);
+    return await new Promise((resolve, reject) => {
+      lutimes.call(this.realFs, npath.fromPortablePath(p), atime, mtime, this.makeCallback(resolve, reject));
+    });
+  }
+
+  lutimesSyncImpl(p, atime, mtime) {
+    // @ts-expect-error: Not yet in DefinitelyTyped
+    const lutimesSync = this.realFs.lutimesSync;
+    if (typeof lutimesSync === `undefined`) throw ENOSYS(`unavailable Node binding`, `lutimes '${p}'`);
+    lutimesSync.call(this.realFs, npath.fromPortablePath(p), atime, mtime);
+  }
+
+  async mkdirPromise(p, opts) {
+    return await new Promise((resolve, reject) => {
+      this.realFs.mkdir(npath.fromPortablePath(p), opts, this.makeCallback(resolve, reject));
+    });
+  }
+
+  mkdirSync(p, opts) {
+    return this.realFs.mkdirSync(npath.fromPortablePath(p), opts);
+  }
+
+  async rmdirPromise(p, opts) {
+    return await new Promise((resolve, reject) => {
+      // TODO: always pass opts when min node version is 12.10+
+      if (opts) {
+        this.realFs.rmdir(npath.fromPortablePath(p), opts, this.makeCallback(resolve, reject));
+      } else {
+        this.realFs.rmdir(npath.fromPortablePath(p), this.makeCallback(resolve, reject));
+      }
+    });
+  }
+
+  rmdirSync(p, opts) {
+    return this.realFs.rmdirSync(npath.fromPortablePath(p), opts);
+  }
+
+  async linkPromise(existingP, newP) {
+    return await new Promise((resolve, reject) => {
+      this.realFs.link(npath.fromPortablePath(existingP), npath.fromPortablePath(newP), this.makeCallback(resolve, reject));
+    });
+  }
+
+  linkSync(existingP, newP) {
+    return this.realFs.linkSync(npath.fromPortablePath(existingP), npath.fromPortablePath(newP));
+  }
+
+  async symlinkPromise(target, p, type) {
+    return await new Promise((resolve, reject) => {
+      this.realFs.symlink(npath.fromPortablePath(target.replace(/\/+$/, ``)), npath.fromPortablePath(p), type, this.makeCallback(resolve, reject));
+    });
+  }
+
+  symlinkSync(target, p, type) {
+    return this.realFs.symlinkSync(npath.fromPortablePath(target.replace(/\/+$/, ``)), npath.fromPortablePath(p), type);
+  }
+
+  async readFilePromise(p, encoding) {
+    return await new Promise((resolve, reject) => {
+      const fsNativePath = typeof p === `string` ? npath.fromPortablePath(p) : p;
+      this.realFs.readFile(fsNativePath, encoding, this.makeCallback(resolve, reject));
+    });
+  }
+
+  readFileSync(p, encoding) {
+    const fsNativePath = typeof p === `string` ? npath.fromPortablePath(p) : p;
+    return this.realFs.readFileSync(fsNativePath, encoding);
+  }
+
+  async readdirPromise(p, opts) {
+    return await new Promise((resolve, reject) => {
+      if (opts === null || opts === void 0 ? void 0 : opts.withFileTypes) {
+        this.realFs.readdir(npath.fromPortablePath(p), {
+          withFileTypes: true
+        }, this.makeCallback(resolve, reject));
+      } else {
+        this.realFs.readdir(npath.fromPortablePath(p), this.makeCallback(value => resolve(value), reject));
+      }
+    });
+  }
+
+  readdirSync(p, opts) {
+    if (opts === null || opts === void 0 ? void 0 : opts.withFileTypes) {
+      return this.realFs.readdirSync(npath.fromPortablePath(p), {
+        withFileTypes: true
+      });
+    } else {
+      return this.realFs.readdirSync(npath.fromPortablePath(p));
+    }
+  }
+
+  async readlinkPromise(p) {
+    return await new Promise((resolve, reject) => {
+      this.realFs.readlink(npath.fromPortablePath(p), this.makeCallback(resolve, reject));
+    }).then(path => {
+      return npath.toPortablePath(path);
+    });
+  }
+
+  readlinkSync(p) {
+    return npath.toPortablePath(this.realFs.readlinkSync(npath.fromPortablePath(p)));
+  }
+
+  async truncatePromise(p, len) {
+    return await new Promise((resolve, reject) => {
+      this.realFs.truncate(npath.fromPortablePath(p), len, this.makeCallback(resolve, reject));
+    });
+  }
+
+  truncateSync(p, len) {
+    return this.realFs.truncateSync(npath.fromPortablePath(p), len);
+  }
+
+  watch(p, a, b) {
+    return this.realFs.watch(npath.fromPortablePath(p), // @ts-expect-error
+    a, b);
+  }
+
+  watchFile(p, a, b) {
+    return this.realFs.watchFile(npath.fromPortablePath(p), // @ts-expect-error
+    a, b);
+  }
+
+  unwatchFile(p, cb) {
+    return this.realFs.unwatchFile(npath.fromPortablePath(p), cb);
+  }
+
+  makeCallback(resolve, reject) {
+    return (err, result) => {
+      if (err) {
+        reject(err);
+      } else {
+        resolve(result);
+      }
+    };
+  }
+
+}
+;// CONCATENATED MODULE: ../yarnpkg-fslib/sources/ProxiedFS.ts
+
+class ProxiedFS extends FakeFS {
+  getExtractHint(hints) {
+    return this.baseFs.getExtractHint(hints);
+  }
+
+  resolve(path) {
+    return this.mapFromBase(this.baseFs.resolve(this.mapToBase(path)));
+  }
+
+  getRealPath() {
+    return this.mapFromBase(this.baseFs.getRealPath());
+  }
+
+  async openPromise(p, flags, mode) {
+    return this.baseFs.openPromise(this.mapToBase(p), flags, mode);
+  }
+
+  openSync(p, flags, mode) {
+    return this.baseFs.openSync(this.mapToBase(p), flags, mode);
+  }
+
+  async opendirPromise(p, opts) {
+    return Object.assign(await this.baseFs.opendirPromise(this.mapToBase(p), opts), {
+      path: p
+    });
+  }
+
+  opendirSync(p, opts) {
+    return Object.assign(this.baseFs.opendirSync(this.mapToBase(p), opts), {
+      path: p
+    });
+  }
+
+  async readPromise(fd, buffer, offset, length, position) {
+    return await this.baseFs.readPromise(fd, buffer, offset, length, position);
+  }
+
+  readSync(fd, buffer, offset, length, position) {
+    return this.baseFs.readSync(fd, buffer, offset, length, position);
+  }
+
+  async writePromise(fd, buffer, offset, length, position) {
+    if (typeof buffer === `string`) {
+      return await this.baseFs.writePromise(fd, buffer, offset);
+    } else {
+      return await this.baseFs.writePromise(fd, buffer, offset, length, position);
+    }
+  }
+
+  writeSync(fd, buffer, offset, length, position) {
+    if (typeof buffer === `string`) {
+      return this.baseFs.writeSync(fd, buffer, offset);
+    } else {
+      return this.baseFs.writeSync(fd, buffer, offset, length, position);
+    }
+  }
+
+  async closePromise(fd) {
+    return this.baseFs.closePromise(fd);
+  }
+
+  closeSync(fd) {
+    this.baseFs.closeSync(fd);
+  }
+
+  createReadStream(p, opts) {
+    return this.baseFs.createReadStream(p !== null ? this.mapToBase(p) : p, opts);
+  }
+
+  createWriteStream(p, opts) {
+    return this.baseFs.createWriteStream(p !== null ? this.mapToBase(p) : p, opts);
+  }
+
+  async realpathPromise(p) {
+    return this.mapFromBase(await this.baseFs.realpathPromise(this.mapToBase(p)));
+  }
+
+  realpathSync(p) {
+    return this.mapFromBase(this.baseFs.realpathSync(this.mapToBase(p)));
+  }
+
+  async existsPromise(p) {
+    return this.baseFs.existsPromise(this.mapToBase(p));
+  }
+
+  existsSync(p) {
+    return this.baseFs.existsSync(this.mapToBase(p));
+  }
+
+  accessSync(p, mode) {
+    return this.baseFs.accessSync(this.mapToBase(p), mode);
+  }
+
+  async accessPromise(p, mode) {
+    return this.baseFs.accessPromise(this.mapToBase(p), mode);
+  }
+
+  async statPromise(p, opts) {
+    return this.baseFs.statPromise(this.mapToBase(p), opts);
+  }
+
+  statSync(p, opts) {
+    return this.baseFs.statSync(this.mapToBase(p), opts);
+  }
+
+  async fstatPromise(fd, opts) {
+    return this.baseFs.fstatPromise(fd, opts);
+  }
+
+  fstatSync(fd, opts) {
+    return this.baseFs.fstatSync(fd, opts);
+  }
+
+  async lstatPromise(p, opts) {
+    return this.baseFs.lstatPromise(this.mapToBase(p), opts);
+  }
+
+  lstatSync(p, opts) {
+    return this.baseFs.lstatSync(this.mapToBase(p), opts);
+  }
+
+  async chmodPromise(p, mask) {
+    return this.baseFs.chmodPromise(this.mapToBase(p), mask);
+  }
+
+  chmodSync(p, mask) {
+    return this.baseFs.chmodSync(this.mapToBase(p), mask);
+  }
+
+  async chownPromise(p, uid, gid) {
+    return this.baseFs.chownPromise(this.mapToBase(p), uid, gid);
+  }
+
+  chownSync(p, uid, gid) {
+    return this.baseFs.chownSync(this.mapToBase(p), uid, gid);
+  }
+
+  async renamePromise(oldP, newP) {
+    return this.baseFs.renamePromise(this.mapToBase(oldP), this.mapToBase(newP));
+  }
+
+  renameSync(oldP, newP) {
+    return this.baseFs.renameSync(this.mapToBase(oldP), this.mapToBase(newP));
+  }
+
+  async copyFilePromise(sourceP, destP, flags = 0) {
+    return this.baseFs.copyFilePromise(this.mapToBase(sourceP), this.mapToBase(destP), flags);
+  }
+
+  copyFileSync(sourceP, destP, flags = 0) {
+    return this.baseFs.copyFileSync(this.mapToBase(sourceP), this.mapToBase(destP), flags);
+  }
+
+  async appendFilePromise(p, content, opts) {
+    return this.baseFs.appendFilePromise(this.fsMapToBase(p), content, opts);
+  }
+
+  appendFileSync(p, content, opts) {
+    return this.baseFs.appendFileSync(this.fsMapToBase(p), content, opts);
+  }
+
+  async writeFilePromise(p, content, opts) {
+    return this.baseFs.writeFilePromise(this.fsMapToBase(p), content, opts);
+  }
+
+  writeFileSync(p, content, opts) {
+    return this.baseFs.writeFileSync(this.fsMapToBase(p), content, opts);
+  }
+
+  async unlinkPromise(p) {
+    return this.baseFs.unlinkPromise(this.mapToBase(p));
+  }
+
+  unlinkSync(p) {
+    return this.baseFs.unlinkSync(this.mapToBase(p));
+  }
+
+  async utimesPromise(p, atime, mtime) {
+    return this.baseFs.utimesPromise(this.mapToBase(p), atime, mtime);
+  }
+
+  utimesSync(p, atime, mtime) {
+    return this.baseFs.utimesSync(this.mapToBase(p), atime, mtime);
+  }
+
+  async mkdirPromise(p, opts) {
+    return this.baseFs.mkdirPromise(this.mapToBase(p), opts);
+  }
+
+  mkdirSync(p, opts) {
+    return this.baseFs.mkdirSync(this.mapToBase(p), opts);
+  }
+
+  async rmdirPromise(p, opts) {
+    return this.baseFs.rmdirPromise(this.mapToBase(p), opts);
+  }
+
+  rmdirSync(p, opts) {
+    return this.baseFs.rmdirSync(this.mapToBase(p), opts);
+  }
+
+  async linkPromise(existingP, newP) {
+    return this.baseFs.linkPromise(this.mapToBase(existingP), this.mapToBase(newP));
+  }
+
+  linkSync(existingP, newP) {
+    return this.baseFs.linkSync(this.mapToBase(existingP), this.mapToBase(newP));
+  }
+
+  async symlinkPromise(target, p, type) {
+    const mappedP = this.mapToBase(p);
+    if (this.pathUtils.isAbsolute(target)) return this.baseFs.symlinkPromise(this.mapToBase(target), mappedP, type);
+    const mappedAbsoluteTarget = this.mapToBase(this.pathUtils.join(this.pathUtils.dirname(p), target));
+    const mappedTarget = this.baseFs.pathUtils.relative(this.baseFs.pathUtils.dirname(mappedP), mappedAbsoluteTarget);
+    return this.baseFs.symlinkPromise(mappedTarget, mappedP, type);
+  }
+
+  symlinkSync(target, p, type) {
+    const mappedP = this.mapToBase(p);
+    if (this.pathUtils.isAbsolute(target)) return this.baseFs.symlinkSync(this.mapToBase(target), mappedP, type);
+    const mappedAbsoluteTarget = this.mapToBase(this.pathUtils.join(this.pathUtils.dirname(p), target));
+    const mappedTarget = this.baseFs.pathUtils.relative(this.baseFs.pathUtils.dirname(mappedP), mappedAbsoluteTarget);
+    return this.baseFs.symlinkSync(mappedTarget, mappedP, type);
+  }
+
+  async readFilePromise(p, encoding) {
+    // This weird condition is required to tell TypeScript that the signatures are proper (otherwise it thinks that only the generic one is covered)
+    if (encoding === `utf8`) {
+      return this.baseFs.readFilePromise(this.fsMapToBase(p), encoding);
+    } else {
+      return this.baseFs.readFilePromise(this.fsMapToBase(p), encoding);
+    }
+  }
+
+  readFileSync(p, encoding) {
+    // This weird condition is required to tell TypeScript that the signatures are proper (otherwise it thinks that only the generic one is covered)
+    if (encoding === `utf8`) {
+      return this.baseFs.readFileSync(this.fsMapToBase(p), encoding);
+    } else {
+      return this.baseFs.readFileSync(this.fsMapToBase(p), encoding);
+    }
+  }
+
+  async readdirPromise(p, opts) {
+    return this.baseFs.readdirPromise(this.mapToBase(p), opts);
+  }
+
+  readdirSync(p, opts) {
+    return this.baseFs.readdirSync(this.mapToBase(p), opts);
+  }
+
+  async readlinkPromise(p) {
+    return this.mapFromBase(await this.baseFs.readlinkPromise(this.mapToBase(p)));
+  }
+
+  readlinkSync(p) {
+    return this.mapFromBase(this.baseFs.readlinkSync(this.mapToBase(p)));
+  }
+
+  async truncatePromise(p, len) {
+    return this.baseFs.truncatePromise(this.mapToBase(p), len);
+  }
+
+  truncateSync(p, len) {
+    return this.baseFs.truncateSync(this.mapToBase(p), len);
+  }
+
+  watch(p, a, b) {
+    return this.baseFs.watch(this.mapToBase(p), // @ts-expect-error
+    a, b);
+  }
+
+  watchFile(p, a, b) {
+    return this.baseFs.watchFile(this.mapToBase(p), // @ts-expect-error
+    a, b);
+  }
+
+  unwatchFile(p, cb) {
+    return this.baseFs.unwatchFile(this.mapToBase(p), cb);
+  }
+
+  fsMapToBase(p) {
+    if (typeof p === `number`) {
+      return p;
+    } else {
+      return this.mapToBase(p);
+    }
+  }
+
+}
+;// CONCATENATED MODULE: ../yarnpkg-fslib/sources/VirtualFS.ts
+
+
+
+const NUMBER_REGEXP = /^[0-9]+$/; // $0: full path
+// $1: virtual folder
+// $2: virtual segment
+// $3: hash
+// $4: depth
+// $5: subpath
+
+const VIRTUAL_REGEXP = /^(\/(?:[^/]+\/)*?(?:\$\$virtual|__virtual__))((?:\/((?:[^/]+-)?[a-f0-9]+)(?:\/([^/]+))?)?((?:\/.*)?))$/;
+const VALID_COMPONENT = /^([^/]+-)?[a-f0-9]+$/;
+class VirtualFS extends ProxiedFS {
+  constructor({
+    baseFs = new NodeFS()
+  } = {}) {
+    super(ppath);
+    this.baseFs = baseFs;
+  }
+
+  static makeVirtualPath(base, component, to) {
+    if (ppath.basename(base) !== `__virtual__`) throw new Error(`Assertion failed: Virtual folders must be named "__virtual__"`);
+    if (!ppath.basename(component).match(VALID_COMPONENT)) throw new Error(`Assertion failed: Virtual components must be ended by an hexadecimal hash`); // Obtains the relative distance between the virtual path and its actual target
+
+    const target = ppath.relative(ppath.dirname(base), to);
+    const segments = target.split(`/`); // Counts how many levels we need to go back to start applying the rest of the path
+
+    let depth = 0;
+
+    while (depth < segments.length && segments[depth] === `..`) depth += 1;
+
+    const finalSegments = segments.slice(depth);
+    const fullVirtualPath = ppath.join(base, component, String(depth), ...finalSegments);
+    return fullVirtualPath;
+  }
+
+  static resolveVirtual(p) {
+    const match = p.match(VIRTUAL_REGEXP);
+    if (!match || !match[3] && match[5]) return p;
+    const target = ppath.dirname(match[1]);
+    if (!match[3] || !match[4]) return target;
+    const isnum = NUMBER_REGEXP.test(match[4]);
+    if (!isnum) return p;
+    const depth = Number(match[4]);
+    const backstep = `../`.repeat(depth);
+    const subpath = match[5] || `.`;
+    return VirtualFS.resolveVirtual(ppath.join(target, backstep, subpath));
+  }
+
+  getExtractHint(hints) {
+    return this.baseFs.getExtractHint(hints);
+  }
+
+  getRealPath() {
+    return this.baseFs.getRealPath();
+  }
+
+  realpathSync(p) {
+    const match = p.match(VIRTUAL_REGEXP);
+    if (!match) return this.baseFs.realpathSync(p);
+    if (!match[5]) return p;
+    const realpath = this.baseFs.realpathSync(this.mapToBase(p));
+    return VirtualFS.makeVirtualPath(match[1], match[3], realpath);
+  }
+
+  async realpathPromise(p) {
+    const match = p.match(VIRTUAL_REGEXP);
+    if (!match) return await this.baseFs.realpathPromise(p);
+    if (!match[5]) return p;
+    const realpath = await this.baseFs.realpathPromise(this.mapToBase(p));
+    return VirtualFS.makeVirtualPath(match[1], match[3], realpath);
+  }
+
+  mapToBase(p) {
+    if (this.pathUtils.isAbsolute(p)) return VirtualFS.resolveVirtual(p);
+    const resolvedRoot = VirtualFS.resolveVirtual(this.baseFs.resolve(PortablePath.dot));
+    const resolvedP = VirtualFS.resolveVirtual(this.baseFs.resolve(p));
+    return ppath.relative(resolvedRoot, resolvedP) || PortablePath.dot;
+  }
+
+  mapFromBase(p) {
+    return p;
+  }
+
+}
+;// CONCATENATED MODULE: external "stream"
+const external_stream_namespaceObject = require("stream");;
+;// CONCATENATED MODULE: external "util"
+const external_util_namespaceObject = require("util");;
+;// CONCATENATED MODULE: external "zlib"
+const external_zlib_namespaceObject = require("zlib");;
+var external_zlib_default = /*#__PURE__*/__webpack_require__.n(external_zlib_namespaceObject);
+;// CONCATENATED MODULE: ../yarnpkg-fslib/sources/algorithms/opendir.ts
+
+class CustomDir {
+  constructor(path, nextDirent, opts = {}) {
+    this.path = path;
+    this.nextDirent = nextDirent;
+    this.opts = opts;
+    this.closed = false;
+  }
+
+  throwIfClosed() {
+    if (this.closed) {
+      throw ERR_DIR_CLOSED();
+    }
+  }
+
+  async *[Symbol.asyncIterator]() {
+    try {
+      let dirent; // eslint-disable-next-line no-cond-assign
+
+      while ((dirent = await this.read()) !== null) {
+        yield dirent;
+      }
+    } finally {
+      await this.close();
+    }
+  }
+
+  read(cb) {
+    const dirent = this.readSync();
+    if (typeof cb !== `undefined`) return cb(null, dirent);
+    return Promise.resolve(dirent);
+  }
+
+  readSync() {
+    this.throwIfClosed();
+    return this.nextDirent();
+  }
+
+  close(cb) {
+    this.closeSync();
+    if (typeof cb !== `undefined`) return cb(null);
+    return Promise.resolve();
+  }
+
+  closeSync() {
+    var _a, _b;
+
+    this.throwIfClosed();
+    (_b = (_a = this.opts).onClose) === null || _b === void 0 ? void 0 : _b.call(_a);
+    this.closed = true;
+  }
+
+}
+function opendir(fakeFs, path, entries, opts) {
+  const nextDirent = () => {
+    const filename = entries.shift();
+    if (typeof filename === `undefined`) return null;
+    return Object.assign(fakeFs.statSync(fakeFs.pathUtils.join(path, filename)), {
+      name: filename
+    });
+  };
+
+  return new CustomDir(path, nextDirent, opts);
+}
+;// CONCATENATED MODULE: external "events"
+const external_events_namespaceObject = require("events");;
+;// CONCATENATED MODULE: ../yarnpkg-fslib/sources/constants.ts
+const constants_S_IFMT = 0o170000;
+const constants_S_IFDIR = 0o040000;
+const constants_S_IFREG = 0o100000;
+const constants_S_IFLNK = 0o120000;
+;// CONCATENATED MODULE: ../yarnpkg-fslib/sources/statUtils.ts
+
+
+class DirEntry {
+  constructor() {
+    this.name = ``;
+    this.mode = 0;
+  }
+
+  isBlockDevice() {
+    return false;
+  }
+
+  isCharacterDevice() {
+    return false;
+  }
+
+  isDirectory() {
+    return (this.mode & S_IFMT) === S_IFDIR;
+  }
+
+  isFIFO() {
+    return false;
+  }
+
+  isFile() {
+    return (this.mode & S_IFMT) === S_IFREG;
+  }
+
+  isSocket() {
+    return false;
+  }
+
+  isSymbolicLink() {
+    return (this.mode & S_IFMT) === S_IFLNK;
+  }
+
+}
+class StatEntry {
+  constructor() {
+    this.uid = 0;
+    this.gid = 0;
+    this.size = 0;
+    this.blksize = 0;
+    this.atimeMs = 0;
+    this.mtimeMs = 0;
+    this.ctimeMs = 0;
+    this.birthtimeMs = 0;
+    this.atime = new Date(0);
+    this.mtime = new Date(0);
+    this.ctime = new Date(0);
+    this.birthtime = new Date(0);
+    this.dev = 0;
+    this.ino = 0;
+    this.mode = constants_S_IFREG | 0o644;
+    this.nlink = 1;
+    this.rdev = 0;
+    this.blocks = 1;
+  }
+
+  isBlockDevice() {
+    return false;
+  }
+
+  isCharacterDevice() {
+    return false;
+  }
+
+  isDirectory() {
+    return (this.mode & constants_S_IFMT) === constants_S_IFDIR;
+  }
+
+  isFIFO() {
+    return false;
+  }
+
+  isFile() {
+    return (this.mode & constants_S_IFMT) === constants_S_IFREG;
+  }
+
+  isSocket() {
+    return false;
+  }
+
+  isSymbolicLink() {
+    return (this.mode & constants_S_IFMT) === constants_S_IFLNK;
+  }
+
+}
+class BigIntStatsEntry {
+  constructor() {
+    this.uid = BigInt(0);
+    this.gid = BigInt(0);
+    this.size = BigInt(0);
+    this.blksize = BigInt(0);
+    this.atimeMs = BigInt(0);
+    this.mtimeMs = BigInt(0);
+    this.ctimeMs = BigInt(0);
+    this.birthtimeMs = BigInt(0);
+    this.atimeNs = BigInt(0);
+    this.mtimeNs = BigInt(0);
+    this.ctimeNs = BigInt(0);
+    this.birthtimeNs = BigInt(0);
+    this.atime = new Date(0);
+    this.mtime = new Date(0);
+    this.ctime = new Date(0);
+    this.birthtime = new Date(0);
+    this.dev = BigInt(0);
+    this.ino = BigInt(0);
+    this.mode = BigInt(constants_S_IFREG | 0o644);
+    this.nlink = BigInt(1);
+    this.rdev = BigInt(0);
+    this.blocks = BigInt(1);
+  }
+
+  isBlockDevice() {
+    return false;
+  }
+
+  isCharacterDevice() {
+    return false;
+  }
+
+  isDirectory() {
+    return (this.mode & BigInt(constants_S_IFMT)) === BigInt(constants_S_IFDIR);
+  }
+
+  isFIFO() {
+    return false;
+  }
+
+  isFile() {
+    return (this.mode & BigInt(constants_S_IFMT)) === BigInt(constants_S_IFREG);
+  }
+
+  isSocket() {
+    return false;
+  }
+
+  isSymbolicLink() {
+    return (this.mode & BigInt(constants_S_IFMT)) === BigInt(constants_S_IFLNK);
+  }
+
+}
+function makeDefaultStats() {
+  return new StatEntry();
+}
+function makeEmptyStats() {
+  return clearStats(makeDefaultStats());
+}
+/**
+ * Mutates the provided stats object to zero it out then returns it for convenience
+ */
+
+function clearStats(stats) {
+  for (const key in stats) {
+    if (Object.prototype.hasOwnProperty.call(stats, key)) {
+      const element = stats[key];
+
+      if (typeof element === `number`) {
+        // @ts-expect-error Typescript can't tell that stats[key] is a number
+        stats[key] = 0;
+      } else if (typeof element === `bigint`) {
+        // @ts-expect-error Typescript can't tell that stats[key] is a bigint
+        stats[key] = BigInt(0);
+      } else if (external_util_namespaceObject.types.isDate(element)) {
+        // @ts-expect-error Typescript can't tell that stats[key] is a bigint
+        stats[key] = new Date(0);
+      }
+    }
+  }
+
+  return stats;
+}
+function convertToBigIntStats(stats) {
+  const bigintStats = new BigIntStatsEntry();
+
+  for (const key in stats) {
+    if (Object.prototype.hasOwnProperty.call(stats, key)) {
+      const element = stats[key];
+
+      if (typeof element === `number`) {
+        // @ts-expect-error Typescript isn't able to tell this is valid
+        bigintStats[key] = BigInt(element);
+      } else if (external_util_namespaceObject.types.isDate(element)) {
+        // @ts-expect-error Typescript isn't able to tell this is valid
+        bigintStats[key] = new Date(element);
+      }
+    }
+  }
+
+  bigintStats.atimeNs = bigintStats.atimeMs * BigInt(1e6);
+  bigintStats.mtimeNs = bigintStats.mtimeMs * BigInt(1e6);
+  bigintStats.ctimeNs = bigintStats.ctimeMs * BigInt(1e6);
+  bigintStats.birthtimeNs = bigintStats.birthtimeMs * BigInt(1e6);
+  return bigintStats;
+}
+function areStatsEqual(a, b) {
+  if (a.atimeMs !== b.atimeMs) return false;
+  if (a.birthtimeMs !== b.birthtimeMs) return false;
+  if (a.blksize !== b.blksize) return false;
+  if (a.blocks !== b.blocks) return false;
+  if (a.ctimeMs !== b.ctimeMs) return false;
+  if (a.dev !== b.dev) return false;
+  if (a.gid !== b.gid) return false;
+  if (a.ino !== b.ino) return false;
+  if (a.isBlockDevice() !== b.isBlockDevice()) return false;
+  if (a.isCharacterDevice() !== b.isCharacterDevice()) return false;
+  if (a.isDirectory() !== b.isDirectory()) return false;
+  if (a.isFIFO() !== b.isFIFO()) return false;
+  if (a.isFile() !== b.isFile()) return false;
+  if (a.isSocket() !== b.isSocket()) return false;
+  if (a.isSymbolicLink() !== b.isSymbolicLink()) return false;
+  if (a.mode !== b.mode) return false;
+  if (a.mtimeMs !== b.mtimeMs) return false;
+  if (a.nlink !== b.nlink) return false;
+  if (a.rdev !== b.rdev) return false;
+  if (a.size !== b.size) return false;
+  if (a.uid !== b.uid) return false;
+  const aN = a;
+  const bN = b;
+  if (aN.atimeNs !== bN.atimeNs) return false;
+  if (aN.mtimeNs !== bN.mtimeNs) return false;
+  if (aN.ctimeNs !== bN.ctimeNs) return false;
+  if (aN.birthtimeNs !== bN.birthtimeNs) return false;
+  return true;
+}
+;// CONCATENATED MODULE: ../yarnpkg-fslib/sources/algorithms/watchFile/CustomStatWatcher.ts
+
+
+var Event;
+
+(function (Event) {
+  Event["Change"] = "change";
+  Event["Stop"] = "stop";
+})(Event || (Event = {}));
+
+var Status;
+
+(function (Status) {
+  Status["Ready"] = "ready";
+  Status["Running"] = "running";
+  Status["Stopped"] = "stopped";
+})(Status || (Status = {}));
+
+function assertStatus(current, expected) {
+  if (current !== expected) {
+    throw new Error(`Invalid StatWatcher status: expected '${expected}', got '${current}'`);
+  }
+}
+class CustomStatWatcher extends external_events_namespaceObject.EventEmitter {
+  constructor(fakeFs, path, {
+    bigint = false
+  } = {}) {
+    super();
+    this.status = Status.Ready;
+    this.changeListeners = new Map();
+    this.startTimeout = null;
+    this.fakeFs = fakeFs;
+    this.path = path;
+    this.bigint = bigint;
+    this.lastStats = this.stat();
+  }
+
+  static create(fakeFs, path, opts) {
+    const statWatcher = new CustomStatWatcher(fakeFs, path, opts);
+    statWatcher.start();
+    return statWatcher;
+  }
+
+  start() {
+    assertStatus(this.status, Status.Ready);
+    this.status = Status.Running; // Node allows other listeners to be registered up to 3 milliseconds
+    // after the watcher has been started, so that's what we're doing too
+
+    this.startTimeout = setTimeout(() => {
+      this.startTimeout = null; // Per the Node FS docs:
+      // "When an fs.watchFile operation results in an ENOENT error,
+      // it will invoke the listener once, with all the fields zeroed
+      // (or, for dates, the Unix Epoch)."
+
+      if (!this.fakeFs.existsSync(this.path)) {
+        this.emit(Event.Change, this.lastStats, this.lastStats);
+      }
+    }, 3);
+  }
+
+  stop() {
+    assertStatus(this.status, Status.Running);
+    this.status = Status.Stopped;
+
+    if (this.startTimeout !== null) {
+      clearTimeout(this.startTimeout);
+      this.startTimeout = null;
+    }
+
+    this.emit(Event.Stop);
+  }
+
+  stat() {
+    try {
+      return this.fakeFs.statSync(this.path, {
+        bigint: this.bigint
+      });
+    } catch (error) {
+      if (error.code === `ENOENT`) {
+        const statInstance = this.bigint ? new BigIntStatsEntry() : new StatEntry();
+        return clearStats(statInstance);
+      } else {
+        throw error;
+      }
+    }
+  }
+  /**
+   * Creates an interval whose callback compares the current stats with the previous stats and notifies all listeners in case of changes.
+   *
+   * @param opts.persistent Decides whether the interval should be immediately unref-ed.
+   */
+
+
+  makeInterval(opts) {
+    const interval = setInterval(() => {
+      const currentStats = this.stat();
+      const previousStats = this.lastStats;
+      if (areStatsEqual(currentStats, previousStats)) return;
+      this.lastStats = currentStats;
+      this.emit(Event.Change, currentStats, previousStats);
+    }, opts.interval);
+    return opts.persistent ? interval : interval.unref();
+  }
+  /**
+   * Registers a listener and assigns it an interval.
+   */
+
+
+  registerChangeListener(listener, opts) {
+    this.addListener(Event.Change, listener);
+    this.changeListeners.set(listener, this.makeInterval(opts));
+  }
+  /**
+   * Unregisters the listener and clears the assigned interval.
+   */
+
+
+  unregisterChangeListener(listener) {
+    this.removeListener(Event.Change, listener);
+    const interval = this.changeListeners.get(listener);
+    if (typeof interval !== `undefined`) clearInterval(interval);
+    this.changeListeners.delete(listener);
+  }
+  /**
+   * Unregisters all listeners and clears all assigned intervals.
+   */
+
+
+  unregisterAllChangeListeners() {
+    for (const listener of this.changeListeners.keys()) {
+      this.unregisterChangeListener(listener);
+    }
+  }
+
+  hasChangeListeners() {
+    return this.changeListeners.size > 0;
+  }
+  /**
+   * Refs all stored intervals.
+   */
+
+
+  ref() {
+    for (const interval of this.changeListeners.values()) interval.ref();
+
+    return this;
+  }
+  /**
+   * Unrefs all stored intervals.
+   */
+
+
+  unref() {
+    for (const interval of this.changeListeners.values()) interval.unref();
+
+    return this;
+  }
+
+}
+;// CONCATENATED MODULE: ../yarnpkg-fslib/sources/algorithms/watchFile.ts
+
+const statWatchersByFakeFS = new WeakMap();
+function watchFile(fakeFs, path, a, b) {
+  let bigint;
+  let persistent;
+  let interval;
+  let listener;
+
+  switch (typeof a) {
+    case `function`:
+      {
+        bigint = false;
+        persistent = true;
+        interval = 5007;
+        listener = a;
+      }
+      break;
+
+    default:
+      {
+        ({
+          bigint = false,
+          persistent = true,
+          interval = 5007
+        } = a);
+        listener = b;
+      }
+      break;
+  }
+
+  let statWatchers = statWatchersByFakeFS.get(fakeFs);
+  if (typeof statWatchers === `undefined`) statWatchersByFakeFS.set(fakeFs, statWatchers = new Map());
+  let statWatcher = statWatchers.get(path);
+
+  if (typeof statWatcher === `undefined`) {
+    statWatcher = CustomStatWatcher.create(fakeFs, path, {
+      bigint
+    });
+    statWatchers.set(path, statWatcher);
+  }
+
+  statWatcher.registerChangeListener(listener, {
+    persistent,
+    interval
+  });
+  return statWatcher;
+}
+function unwatchFile(fakeFs, path, cb) {
+  const statWatchers = statWatchersByFakeFS.get(fakeFs);
+  if (typeof statWatchers === `undefined`) return;
+  const statWatcher = statWatchers.get(path);
+  if (typeof statWatcher === `undefined`) return;
+  if (typeof cb === `undefined`) statWatcher.unregisterAllChangeListeners();else statWatcher.unregisterChangeListener(cb);
+
+  if (!statWatcher.hasChangeListeners()) {
+    statWatcher.stop();
+    statWatchers.delete(path);
+  }
+}
+function unwatchAllFiles(fakeFs) {
+  const statWatchers = statWatchersByFakeFS.get(fakeFs);
+  if (typeof statWatchers === `undefined`) return;
+
+  for (const path of statWatchers.keys()) {
+    unwatchFile(fakeFs, path);
+  }
+}
+;// CONCATENATED MODULE: ../yarnpkg-fslib/sources/ZipFS.ts
+
+
+
+
+
+
+
+
+
+
+
+
+const DEFAULT_COMPRESSION_LEVEL = `mixed`;
+
+function toUnixTimestamp(time) {
+  if (typeof time === `string` && String(+time) === time) return +time;
+
+  if (Number.isFinite(time)) {
+    if (time < 0) {
+      return Date.now() / 1000;
+    } else {
+      return time;
+    }
+  } // convert to 123.456 UNIX timestamp
+
+
+  if ((0,external_util_namespaceObject.isDate)(time)) return time.getTime() / 1000;
+  throw new Error(`Invalid time`);
+}
+
+class ZipFS extends BasePortableFakeFS {
+  constructor(source, opts) {
+    super();
+    this.lzSource = null;
+    this.listings = new Map();
+    this.entries = new Map();
+    /**
+     * A cache of indices mapped to file sources.
+     * Populated by `setFileSource` calls.
+     * Required for supporting read after write.
+     */
+
+    this.fileSources = new Map();
+    this.fds = new Map();
+    this.nextFd = 0;
+    this.ready = false;
+    this.readOnly = false;
+    this.libzip = opts.libzip;
+    const pathOptions = opts;
+    this.level = typeof pathOptions.level !== `undefined` ? pathOptions.level : DEFAULT_COMPRESSION_LEVEL;
+
+    if (source === null) {
+      source = Buffer.from([0x50, 0x4B, 0x05, 0x06, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00]);
+    }
+
+    if (typeof source === `string`) {
+      const {
+        baseFs = new NodeFS()
+      } = pathOptions;
+      this.baseFs = baseFs;
+      this.path = source;
+    } else {
+      this.path = null;
+      this.baseFs = null;
+    }
+
+    if (opts.stats) {
+      this.stats = opts.stats;
+    } else {
+      if (typeof source === `string`) {
+        try {
+          this.stats = this.baseFs.statSync(source);
+        } catch (error) {
+          if (error.code === `ENOENT` && pathOptions.create) {
+            this.stats = makeDefaultStats();
+          } else {
+            throw error;
+          }
+        }
+      } else {
+        this.stats = makeDefaultStats();
+      }
+    }
+
+    const errPtr = this.libzip.malloc(4);
+
+    try {
+      let flags = 0;
+      if (typeof source === `string` && pathOptions.create) flags |= this.libzip.ZIP_CREATE | this.libzip.ZIP_TRUNCATE;
+
+      if (opts.readOnly) {
+        flags |= this.libzip.ZIP_RDONLY;
+        this.readOnly = true;
+      }
+
+      if (typeof source === `string`) {
+        this.zip = this.libzip.open(npath.fromPortablePath(source), flags, errPtr);
+      } else {
+        const lzSource = this.allocateUnattachedSource(source);
+
+        try {
+          this.zip = this.libzip.openFromSource(lzSource, flags, errPtr);
+          this.lzSource = lzSource;
+        } catch (error) {
+          this.libzip.source.free(lzSource);
+          throw error;
+        }
+      }
+
+      if (this.zip === 0) {
+        const error = this.libzip.struct.errorS();
+        this.libzip.error.initWithCode(error, this.libzip.getValue(errPtr, `i32`));
+        throw this.makeLibzipError(error);
+      }
+    } finally {
+      this.libzip.free(errPtr);
+    }
+
+    this.listings.set(PortablePath.root, new Set());
+    const entryCount = this.libzip.getNumEntries(this.zip, 0);
+
+    for (let t = 0; t < entryCount; ++t) {
+      const raw = this.libzip.getName(this.zip, t, 0);
+      if (ppath.isAbsolute(raw)) continue;
+      const p = ppath.resolve(PortablePath.root, raw);
+      this.registerEntry(p, t); // If the raw path is a directory, register it
+      // to prevent empty folder being skipped
+
+      if (raw.endsWith(`/`)) {
+        this.registerListing(p);
+      }
+    }
+
+    this.symlinkCount = this.libzip.ext.countSymlinks(this.zip);
+    if (this.symlinkCount === -1) throw this.makeLibzipError(this.libzip.getError(this.zip));
+    this.ready = true;
+  }
+
+  makeLibzipError(error) {
+    const errorCode = this.libzip.struct.errorCodeZip(error);
+    const strerror = this.libzip.error.strerror(error);
+    const libzipError = new LibzipError(strerror, this.libzip.errors[errorCode]); // This error should never come up because of the file source cache
+
+    if (errorCode === this.libzip.errors.ZIP_ER_CHANGED) throw new Error(`Assertion failed: Unexpected libzip error: ${libzipError.message}`);
+    return libzipError;
+  }
+
+  getExtractHint(hints) {
+    for (const fileName of this.entries.keys()) {
+      const ext = this.pathUtils.extname(fileName);
+
+      if (hints.relevantExtensions.has(ext)) {
+        return true;
+      }
+    }
+
+    return false;
+  }
+
+  getAllFiles() {
+    return Array.from(this.entries.keys());
+  }
+
+  getRealPath() {
+    if (!this.path) throw new Error(`ZipFS don't have real paths when loaded from a buffer`);
+    return this.path;
+  }
+
+  getBufferAndClose() {
+    this.prepareClose();
+    if (!this.lzSource) throw new Error(`ZipFS was not created from a Buffer`);
+
+    try {
+      // Prevent close from cleaning up the source
+      this.libzip.source.keep(this.lzSource); // Close the zip archive
+
+      if (this.libzip.close(this.zip) === -1) throw this.makeLibzipError(this.libzip.getError(this.zip)); // Open the source for reading
+
+      if (this.libzip.source.open(this.lzSource) === -1) throw this.makeLibzipError(this.libzip.source.error(this.lzSource)); // Move to the end of source
+
+      if (this.libzip.source.seek(this.lzSource, 0, 0, this.libzip.SEEK_END) === -1) throw this.makeLibzipError(this.libzip.source.error(this.lzSource)); // Get the size of source
+
+      const size = this.libzip.source.tell(this.lzSource);
+      if (size === -1) throw this.makeLibzipError(this.libzip.source.error(this.lzSource)); // Move to the start of source
+
+      if (this.libzip.source.seek(this.lzSource, 0, 0, this.libzip.SEEK_SET) === -1) throw this.makeLibzipError(this.libzip.source.error(this.lzSource));
+      const buffer = this.libzip.malloc(size);
+      if (!buffer) throw new Error(`Couldn't allocate enough memory`);
+
+      try {
+        const rc = this.libzip.source.read(this.lzSource, buffer, size);
+        if (rc === -1) throw this.makeLibzipError(this.libzip.source.error(this.lzSource));else if (rc < size) throw new Error(`Incomplete read`);else if (rc > size) throw new Error(`Overread`);
+        const memory = this.libzip.HEAPU8.subarray(buffer, buffer + size);
+        return Buffer.from(memory);
+      } finally {
+        this.libzip.free(buffer);
+      }
+    } finally {
+      this.libzip.source.close(this.lzSource);
+      this.libzip.source.free(this.lzSource);
+      this.ready = false;
+    }
+  }
+
+  prepareClose() {
+    if (!this.ready) throw EBUSY(`archive closed, close`);
+    unwatchAllFiles(this);
+  }
+
+  saveAndClose() {
+    if (!this.path || !this.baseFs) throw new Error(`ZipFS cannot be saved and must be discarded when loaded from a buffer`);
+    this.prepareClose();
+
+    if (this.readOnly) {
+      this.discardAndClose();
+      return;
+    }
+
+    const previousMod = this.baseFs.existsSync(this.path) ? this.baseFs.statSync(this.path).mode & 0o777 : null;
+    const rc = this.libzip.close(this.zip);
+    if (rc === -1) throw this.makeLibzipError(this.libzip.getError(this.zip)); // this.libzip overrides the chmod when writing the archive, which is a weird
+    // behavior I don't totally understand (plus the umask seems bogus in some
+    // weird cases - maybe related to emscripten?)
+    //
+    // See also https://github.com/nih-at/libzip/issues/77
+
+    if (previousMod === null) this.baseFs.chmodSync(this.path, this.stats.mode);else if (previousMod !== (this.baseFs.statSync(this.path).mode & 0o777)) this.baseFs.chmodSync(this.path, previousMod);
+    this.ready = false;
+  }
+
+  discardAndClose() {
+    this.prepareClose();
+    this.libzip.discard(this.zip);
+    this.ready = false;
+  }
+
+  resolve(p) {
+    return ppath.resolve(PortablePath.root, p);
+  }
+
+  async openPromise(p, flags, mode) {
+    return this.openSync(p, flags, mode);
+  }
+
+  openSync(p, flags, mode) {
+    const fd = this.nextFd++;
+    this.fds.set(fd, {
+      cursor: 0,
+      p
+    });
+    return fd;
+  }
+
+  hasOpenFileHandles() {
+    return !!this.fds.size;
+  }
+
+  async opendirPromise(p, opts) {
+    return this.opendirSync(p, opts);
+  }
+
+  opendirSync(p, opts = {}) {
+    const resolvedP = this.resolveFilename(`opendir '${p}'`, p);
+    if (!this.entries.has(resolvedP) && !this.listings.has(resolvedP)) throw ENOENT(`opendir '${p}'`);
+    const directoryListing = this.listings.get(resolvedP);
+    if (!directoryListing) throw ENOTDIR(`opendir '${p}'`);
+    const entries = [...directoryListing];
+    const fd = this.openSync(resolvedP, `r`);
+
+    const onClose = () => {
+      this.closeSync(fd);
+    };
+
+    return opendir(this, resolvedP, entries, {
+      onClose
+    });
+  }
+
+  async readPromise(fd, buffer, offset, length, position) {
+    return this.readSync(fd, buffer, offset, length, position);
+  }
+
+  readSync(fd, buffer, offset = 0, length = 0, position = -1) {
+    const entry = this.fds.get(fd);
+    if (typeof entry === `undefined`) throw EBADF(`read`);
+    let realPosition;
+    if (position === -1 || position === null) realPosition = entry.cursor;else realPosition = position;
+    const source = this.readFileSync(entry.p);
+    source.copy(buffer, offset, realPosition, realPosition + length);
+    const bytesRead = Math.max(0, Math.min(source.length - realPosition, length));
+    if (position === -1 || position === null) entry.cursor += bytesRead;
+    return bytesRead;
+  }
+
+  async writePromise(fd, buffer, offset, length, position) {
+    if (typeof buffer === `string`) {
+      return this.writeSync(fd, buffer, position);
+    } else {
+      return this.writeSync(fd, buffer, offset, length, position);
+    }
+  }
+
+  writeSync(fd, buffer, offset, length, position) {
+    const entry = this.fds.get(fd);
+    if (typeof entry === `undefined`) throw EBADF(`read`);
+    throw new Error(`Unimplemented`);
+  }
+
+  async closePromise(fd) {
+    return this.closeSync(fd);
+  }
+
+  closeSync(fd) {
+    const entry = this.fds.get(fd);
+    if (typeof entry === `undefined`) throw EBADF(`read`);
+    this.fds.delete(fd);
+  }
+
+  createReadStream(p, {
+    encoding
+  } = {}) {
+    if (p === null) throw new Error(`Unimplemented`);
+    const fd = this.openSync(p, `r`);
+    const stream = Object.assign(new external_stream_namespaceObject.PassThrough({
+      emitClose: true,
+      autoDestroy: true,
+      destroy: (error, callback) => {
+        clearImmediate(immediate);
+        this.closeSync(fd);
+        callback(error);
+      }
+    }), {
+      close() {
+        stream.destroy();
+      },
+
+      bytesRead: 0,
+      path: p
+    });
+    const immediate = setImmediate(async () => {
+      try {
+        const data = await this.readFilePromise(p, encoding);
+        stream.bytesRead = data.length;
+        stream.end(data);
+      } catch (error) {
+        stream.destroy(error);
+      }
+    });
+    return stream;
+  }
+
+  createWriteStream(p, {
+    encoding
+  } = {}) {
+    if (this.readOnly) throw EROFS(`open '${p}'`);
+    if (p === null) throw new Error(`Unimplemented`);
+    const chunks = [];
+    const fd = this.openSync(p, `w`);
+    const stream = Object.assign(new external_stream_namespaceObject.PassThrough({
+      autoDestroy: true,
+      emitClose: true,
+      destroy: (error, callback) => {
+        try {
+          if (error) {
+            callback(error);
+          } else {
+            this.writeFileSync(p, Buffer.concat(chunks), encoding);
+            callback(null);
+          }
+        } catch (err) {
+          callback(err);
+        } finally {
+          this.closeSync(fd);
+        }
+      }
+    }), {
+      bytesWritten: 0,
+      path: p,
+
+      close() {
+        stream.destroy();
+      }
+
+    });
+    stream.on(`data`, chunk => {
+      const chunkBuffer = Buffer.from(chunk);
+      stream.bytesWritten += chunkBuffer.length;
+      chunks.push(chunkBuffer);
+    });
+    return stream;
+  }
+
+  async realpathPromise(p) {
+    return this.realpathSync(p);
+  }
+
+  realpathSync(p) {
+    const resolvedP = this.resolveFilename(`lstat '${p}'`, p);
+    if (!this.entries.has(resolvedP) && !this.listings.has(resolvedP)) throw ENOENT(`lstat '${p}'`);
+    return resolvedP;
+  }
+
+  async existsPromise(p) {
+    return this.existsSync(p);
+  }
+
+  existsSync(p) {
+    if (!this.ready) throw EBUSY(`archive closed, existsSync '${p}'`);
+
+    if (this.symlinkCount === 0) {
+      const resolvedP = ppath.resolve(PortablePath.root, p);
+      return this.entries.has(resolvedP) || this.listings.has(resolvedP);
+    }
+
+    let resolvedP;
+
+    try {
+      resolvedP = this.resolveFilename(`stat '${p}'`, p);
+    } catch (error) {
+      return false;
+    }
+
+    return this.entries.has(resolvedP) || this.listings.has(resolvedP);
+  }
+
+  async accessPromise(p, mode) {
+    return this.accessSync(p, mode);
+  }
+
+  accessSync(p, mode = external_fs_.constants.F_OK) {
+    const resolvedP = this.resolveFilename(`access '${p}'`, p);
+    if (!this.entries.has(resolvedP) && !this.listings.has(resolvedP)) throw ENOENT(`access '${p}'`);
+
+    if (this.readOnly && mode & external_fs_.constants.W_OK) {
+      throw EROFS(`access '${p}'`);
+    }
+  }
+
+  async statPromise(p, opts) {
+    return this.statSync(p, opts);
+  }
+
+  statSync(p, opts) {
+    const resolvedP = this.resolveFilename(`stat '${p}'`, p);
+    if (!this.entries.has(resolvedP) && !this.listings.has(resolvedP)) throw ENOENT(`stat '${p}'`);
+    if (p[p.length - 1] === `/` && !this.listings.has(resolvedP)) throw ENOTDIR(`stat '${p}'`);
+    return this.statImpl(`stat '${p}'`, resolvedP, opts);
+  }
+
+  async fstatPromise(fd, opts) {
+    return this.fstatSync(fd, opts);
+  }
+
+  fstatSync(fd, opts) {
+    const entry = this.fds.get(fd);
+    if (typeof entry === `undefined`) throw EBADF(`fstatSync`);
+    const {
+      p
+    } = entry;
+    const resolvedP = this.resolveFilename(`stat '${p}'`, p);
+    if (!this.entries.has(resolvedP) && !this.listings.has(resolvedP)) throw ENOENT(`stat '${p}'`);
+    if (p[p.length - 1] === `/` && !this.listings.has(resolvedP)) throw ENOTDIR(`stat '${p}'`);
+    return this.statImpl(`fstat '${p}'`, resolvedP, opts);
+  }
+
+  async lstatPromise(p, opts) {
+    return this.lstatSync(p, opts);
+  }
+
+  lstatSync(p, opts) {
+    const resolvedP = this.resolveFilename(`lstat '${p}'`, p, false);
+    if (!this.entries.has(resolvedP) && !this.listings.has(resolvedP)) throw ENOENT(`lstat '${p}'`);
+    if (p[p.length - 1] === `/` && !this.listings.has(resolvedP)) throw ENOTDIR(`lstat '${p}'`);
+    return this.statImpl(`lstat '${p}'`, resolvedP, opts);
+  }
+
+  statImpl(reason, p, opts = {}) {
+    const entry = this.entries.get(p); // File, or explicit directory
+
+    if (typeof entry !== `undefined`) {
+      const stat = this.libzip.struct.statS();
+      const rc = this.libzip.statIndex(this.zip, entry, 0, 0, stat);
+      if (rc === -1) throw this.makeLibzipError(this.libzip.getError(this.zip));
+      const uid = this.stats.uid;
+      const gid = this.stats.gid;
+      const size = this.libzip.struct.statSize(stat) >>> 0;
+      const blksize = 512;
+      const blocks = Math.ceil(size / blksize);
+      const mtimeMs = (this.libzip.struct.statMtime(stat) >>> 0) * 1000;
+      const atimeMs = mtimeMs;
+      const birthtimeMs = mtimeMs;
+      const ctimeMs = mtimeMs;
+      const atime = new Date(atimeMs);
+      const birthtime = new Date(birthtimeMs);
+      const ctime = new Date(ctimeMs);
+      const mtime = new Date(mtimeMs);
+      const type = this.listings.has(p) ? constants_S_IFDIR : this.isSymbolicLink(entry) ? constants_S_IFLNK : constants_S_IFREG;
+      const defaultMode = type === constants_S_IFDIR ? 0o755 : 0o644;
+      const mode = type | this.getUnixMode(entry, defaultMode) & 0o777;
+      const crc = this.libzip.struct.statCrc(stat);
+      const statInstance = Object.assign(new StatEntry(), {
+        uid,
+        gid,
+        size,
+        blksize,
+        blocks,
+        atime,
+        birthtime,
+        ctime,
+        mtime,
+        atimeMs,
+        birthtimeMs,
+        ctimeMs,
+        mtimeMs,
+        mode,
+        crc
+      });
+      return opts.bigint === true ? convertToBigIntStats(statInstance) : statInstance;
+    } // Implicit directory
+
+
+    if (this.listings.has(p)) {
+      const uid = this.stats.uid;
+      const gid = this.stats.gid;
+      const size = 0;
+      const blksize = 512;
+      const blocks = 0;
+      const atimeMs = this.stats.mtimeMs;
+      const birthtimeMs = this.stats.mtimeMs;
+      const ctimeMs = this.stats.mtimeMs;
+      const mtimeMs = this.stats.mtimeMs;
+      const atime = new Date(atimeMs);
+      const birthtime = new Date(birthtimeMs);
+      const ctime = new Date(ctimeMs);
+      const mtime = new Date(mtimeMs);
+      const mode = constants_S_IFDIR | 0o755;
+      const crc = 0;
+      const statInstance = Object.assign(new StatEntry(), {
+        uid,
+        gid,
+        size,
+        blksize,
+        blocks,
+        atime,
+        birthtime,
+        ctime,
+        mtime,
+        atimeMs,
+        birthtimeMs,
+        ctimeMs,
+        mtimeMs,
+        mode,
+        crc
+      });
+      return opts.bigint === true ? convertToBigIntStats(statInstance) : statInstance;
+    }
+
+    throw new Error(`Unreachable`);
+  }
+
+  getUnixMode(index, defaultMode) {
+    const rc = this.libzip.file.getExternalAttributes(this.zip, index, 0, 0, this.libzip.uint08S, this.libzip.uint32S);
+    if (rc === -1) throw this.makeLibzipError(this.libzip.getError(this.zip));
+    const opsys = this.libzip.getValue(this.libzip.uint08S, `i8`) >>> 0;
+    if (opsys !== this.libzip.ZIP_OPSYS_UNIX) return defaultMode;
+    return this.libzip.getValue(this.libzip.uint32S, `i32`) >>> 16;
+  }
+
+  registerListing(p) {
+    let listing = this.listings.get(p);
+    if (listing) return listing;
+    const parentListing = this.registerListing(ppath.dirname(p));
+    listing = new Set();
+    parentListing.add(ppath.basename(p));
+    this.listings.set(p, listing);
+    return listing;
+  }
+
+  registerEntry(p, index) {
+    const parentListing = this.registerListing(ppath.dirname(p));
+    parentListing.add(ppath.basename(p));
+    this.entries.set(p, index);
+  }
+
+  unregisterListing(p) {
+    this.listings.delete(p);
+    const parentListing = this.listings.get(ppath.dirname(p));
+    parentListing === null || parentListing === void 0 ? void 0 : parentListing.delete(ppath.basename(p));
+  }
+
+  unregisterEntry(p) {
+    this.unregisterListing(p);
+    const entry = this.entries.get(p);
+    this.entries.delete(p);
+    if (typeof entry === `undefined`) return;
+    this.fileSources.delete(entry);
+
+    if (this.isSymbolicLink(entry)) {
+      this.symlinkCount--;
+    }
+  }
+
+  deleteEntry(p, index) {
+    this.unregisterEntry(p);
+    const rc = this.libzip.delete(this.zip, index);
+
+    if (rc === -1) {
+      throw this.makeLibzipError(this.libzip.getError(this.zip));
+    }
+  }
+
+  resolveFilename(reason, p, resolveLastComponent = true) {
+    if (!this.ready) throw EBUSY(`archive closed, ${reason}`);
+    let resolvedP = ppath.resolve(PortablePath.root, p);
+    if (resolvedP === `/`) return PortablePath.root;
+    const fileIndex = this.entries.get(resolvedP);
+
+    if (resolveLastComponent && fileIndex !== undefined) {
+      if (this.symlinkCount !== 0 && this.isSymbolicLink(fileIndex)) {
+        const target = this.getFileSource(fileIndex).toString();
+        return this.resolveFilename(reason, ppath.resolve(ppath.dirname(resolvedP), target), true);
+      } else {
+        return resolvedP;
+      }
+    }
+
+    while (true) {
+      const parentP = this.resolveFilename(reason, ppath.dirname(resolvedP), true);
+      const isDir = this.listings.has(parentP);
+      const doesExist = this.entries.has(parentP);
+      if (!isDir && !doesExist) throw ENOENT(reason);
+      if (!isDir) throw ENOTDIR(reason);
+      resolvedP = ppath.resolve(parentP, ppath.basename(resolvedP));
+      if (!resolveLastComponent || this.symlinkCount === 0) break;
+      const index = this.libzip.name.locate(this.zip, resolvedP.slice(1));
+      if (index === -1) break;
+
+      if (this.isSymbolicLink(index)) {
+        const target = this.getFileSource(index).toString();
+        resolvedP = ppath.resolve(ppath.dirname(resolvedP), target);
+      } else {
+        break;
+      }
+    }
+
+    return resolvedP;
+  }
+
+  allocateBuffer(content) {
+    if (!Buffer.isBuffer(content)) content = Buffer.from(content);
+    const buffer = this.libzip.malloc(content.byteLength);
+    if (!buffer) throw new Error(`Couldn't allocate enough memory`); // Copy the file into the Emscripten heap
+
+    const heap = new Uint8Array(this.libzip.HEAPU8.buffer, buffer, content.byteLength);
+    heap.set(content);
+    return {
+      buffer,
+      byteLength: content.byteLength
+    };
+  }
+
+  allocateUnattachedSource(content) {
+    const error = this.libzip.struct.errorS();
+    const {
+      buffer,
+      byteLength
+    } = this.allocateBuffer(content);
+    const source = this.libzip.source.fromUnattachedBuffer(buffer, byteLength, 0, true, error);
+
+    if (source === 0) {
+      this.libzip.free(error);
+      throw this.makeLibzipError(error);
+    }
+
+    return source;
+  }
+
+  allocateSource(content) {
+    const {
+      buffer,
+      byteLength
+    } = this.allocateBuffer(content);
+    const source = this.libzip.source.fromBuffer(this.zip, buffer, byteLength, 0, true);
+
+    if (source === 0) {
+      this.libzip.free(buffer);
+      throw this.makeLibzipError(this.libzip.getError(this.zip));
+    }
+
+    return source;
+  }
+
+  setFileSource(p, content) {
+    const buffer = Buffer.isBuffer(content) ? content : Buffer.from(content);
+    const target = ppath.relative(PortablePath.root, p);
+    const lzSource = this.allocateSource(content);
+
+    try {
+      const newIndex = this.libzip.file.add(this.zip, target, lzSource, this.libzip.ZIP_FL_OVERWRITE);
+      if (newIndex === -1) throw this.makeLibzipError(this.libzip.getError(this.zip));
+
+      if (this.level !== `mixed`) {
+        // Use store for level 0, and deflate for 1..9
+        let method;
+        if (this.level === 0) method = this.libzip.ZIP_CM_STORE;else method = this.libzip.ZIP_CM_DEFLATE;
+        const rc = this.libzip.file.setCompression(this.zip, newIndex, 0, method, this.level);
+
+        if (rc === -1) {
+          throw this.makeLibzipError(this.libzip.getError(this.zip));
+        }
+      }
+
+      this.fileSources.set(newIndex, buffer);
+      return newIndex;
+    } catch (error) {
+      this.libzip.source.free(lzSource);
+      throw error;
+    }
+  }
+
+  isSymbolicLink(index) {
+    if (this.symlinkCount === 0) return false;
+    const attrs = this.libzip.file.getExternalAttributes(this.zip, index, 0, 0, this.libzip.uint08S, this.libzip.uint32S);
+    if (attrs === -1) throw this.makeLibzipError(this.libzip.getError(this.zip));
+    const opsys = this.libzip.getValue(this.libzip.uint08S, `i8`) >>> 0;
+    if (opsys !== this.libzip.ZIP_OPSYS_UNIX) return false;
+    const attributes = this.libzip.getValue(this.libzip.uint32S, `i32`) >>> 16;
+    return (attributes & constants_S_IFMT) === constants_S_IFLNK;
+  }
+
+  getFileSource(index, opts = {
+    asyncDecompress: false
+  }) {
+    const cachedFileSource = this.fileSources.get(index);
+    if (typeof cachedFileSource !== `undefined`) return cachedFileSource;
+    const stat = this.libzip.struct.statS();
+    const rc = this.libzip.statIndex(this.zip, index, 0, 0, stat);
+    if (rc === -1) throw this.makeLibzipError(this.libzip.getError(this.zip));
+    const size = this.libzip.struct.statCompSize(stat);
+    const compressionMethod = this.libzip.struct.statCompMethod(stat);
+    const buffer = this.libzip.malloc(size);
+
+    try {
+      const file = this.libzip.fopenIndex(this.zip, index, 0, this.libzip.ZIP_FL_COMPRESSED);
+      if (file === 0) throw this.makeLibzipError(this.libzip.getError(this.zip));
+
+      try {
+        const rc = this.libzip.fread(file, buffer, size, 0);
+        if (rc === -1) throw this.makeLibzipError(this.libzip.file.getError(file));else if (rc < size) throw new Error(`Incomplete read`);else if (rc > size) throw new Error(`Overread`);
+        const memory = this.libzip.HEAPU8.subarray(buffer, buffer + size);
+        const data = Buffer.from(memory);
+
+        if (compressionMethod === 0) {
+          this.fileSources.set(index, data);
+          return data;
+        } else if (opts.asyncDecompress) {
+          return new Promise((resolve, reject) => {
+            external_zlib_default().inflateRaw(data, (error, result) => {
+              if (error) {
+                reject(error);
+              } else {
+                this.fileSources.set(index, result);
+                resolve(result);
+              }
+            });
+          });
+        } else {
+          const decompressedData = external_zlib_default().inflateRawSync(data);
+          this.fileSources.set(index, decompressedData);
+          return decompressedData;
+        }
+      } finally {
+        this.libzip.fclose(file);
+      }
+    } finally {
+      this.libzip.free(buffer);
+    }
+  }
+
+  async chmodPromise(p, mask) {
+    return this.chmodSync(p, mask);
+  }
+
+  chmodSync(p, mask) {
+    if (this.readOnly) throw EROFS(`chmod '${p}'`); // We don't allow to make the extracted entries group-writable
+
+    mask &= 0o755;
+    const resolvedP = this.resolveFilename(`chmod '${p}'`, p, false);
+    const entry = this.entries.get(resolvedP);
+    if (typeof entry === `undefined`) throw new Error(`Assertion failed: The entry should have been registered (${resolvedP})`);
+    const oldMod = this.getUnixMode(entry, constants_S_IFREG | 0o000);
+    const newMod = oldMod & ~0o777 | mask;
+    const rc = this.libzip.file.setExternalAttributes(this.zip, entry, 0, 0, this.libzip.ZIP_OPSYS_UNIX, newMod << 16);
+
+    if (rc === -1) {
+      throw this.makeLibzipError(this.libzip.getError(this.zip));
+    }
+  }
+
+  async chownPromise(p, uid, gid) {
+    return this.chownSync(p, uid, gid);
+  }
+
+  chownSync(p, uid, gid) {
+    throw new Error(`Unimplemented`);
+  }
+
+  async renamePromise(oldP, newP) {
+    return this.renameSync(oldP, newP);
+  }
+
+  renameSync(oldP, newP) {
+    throw new Error(`Unimplemented`);
+  }
+
+  async copyFilePromise(sourceP, destP, flags) {
+    const {
+      indexSource,
+      indexDest,
+      resolvedDestP
+    } = this.prepareCopyFile(sourceP, destP, flags);
+    const source = await this.getFileSource(indexSource, {
+      asyncDecompress: true
+    });
+    const newIndex = this.setFileSource(resolvedDestP, source);
+
+    if (newIndex !== indexDest) {
+      this.registerEntry(resolvedDestP, newIndex);
+    }
+  }
+
+  copyFileSync(sourceP, destP, flags = 0) {
+    const {
+      indexSource,
+      indexDest,
+      resolvedDestP
+    } = this.prepareCopyFile(sourceP, destP, flags);
+    const source = this.getFileSource(indexSource);
+    const newIndex = this.setFileSource(resolvedDestP, source);
+
+    if (newIndex !== indexDest) {
+      this.registerEntry(resolvedDestP, newIndex);
+    }
+  }
+
+  prepareCopyFile(sourceP, destP, flags = 0) {
+    if (this.readOnly) throw EROFS(`copyfile '${sourceP} -> '${destP}'`);
+    if ((flags & external_fs_.constants.COPYFILE_FICLONE_FORCE) !== 0) throw ENOSYS(`unsupported clone operation`, `copyfile '${sourceP}' -> ${destP}'`);
+    const resolvedSourceP = this.resolveFilename(`copyfile '${sourceP} -> ${destP}'`, sourceP);
+    const indexSource = this.entries.get(resolvedSourceP);
+    if (typeof indexSource === `undefined`) throw EINVAL(`copyfile '${sourceP}' -> '${destP}'`);
+    const resolvedDestP = this.resolveFilename(`copyfile '${sourceP}' -> ${destP}'`, destP);
+    const indexDest = this.entries.get(resolvedDestP);
+    if ((flags & (external_fs_.constants.COPYFILE_EXCL | external_fs_.constants.COPYFILE_FICLONE_FORCE)) !== 0 && typeof indexDest !== `undefined`) throw EEXIST(`copyfile '${sourceP}' -> '${destP}'`);
+    return {
+      indexSource,
+      resolvedDestP,
+      indexDest
+    };
+  }
+
+  async appendFilePromise(p, content, opts) {
+    if (this.readOnly) throw EROFS(`open '${p}'`);
+    if (typeof opts === `undefined`) opts = {
+      flag: `a`
+    };else if (typeof opts === `string`) opts = {
+      flag: `a`,
+      encoding: opts
+    };else if (typeof opts.flag === `undefined`) opts = {
+      flag: `a`,
+      ...opts
+    };
+    return this.writeFilePromise(p, content, opts);
+  }
+
+  appendFileSync(p, content, opts = {}) {
+    if (this.readOnly) throw EROFS(`open '${p}'`);
+    if (typeof opts === `undefined`) opts = {
+      flag: `a`
+    };else if (typeof opts === `string`) opts = {
+      flag: `a`,
+      encoding: opts
+    };else if (typeof opts.flag === `undefined`) opts = {
+      flag: `a`,
+      ...opts
+    };
+    return this.writeFileSync(p, content, opts);
+  }
+
+  async writeFilePromise(p, content, opts) {
+    const {
+      encoding,
+      index,
+      resolvedP
+    } = this.prepareWriteFile(p, opts);
+    if (index !== undefined && typeof opts === `object` && opts.flag && opts.flag.includes(`a`)) content = Buffer.concat([await this.getFileSource(index, {
+      asyncDecompress: true
+    }), Buffer.from(content)]);
+    if (encoding !== null) content = content.toString(encoding);
+    const newIndex = this.setFileSource(resolvedP, content);
+
+    if (newIndex !== index) {
+      this.registerEntry(resolvedP, newIndex);
+    }
+  }
+
+  writeFileSync(p, content, opts) {
+    const {
+      encoding,
+      index,
+      resolvedP
+    } = this.prepareWriteFile(p, opts);
+    if (index !== undefined && typeof opts === `object` && opts.flag && opts.flag.includes(`a`)) content = Buffer.concat([this.getFileSource(index), Buffer.from(content)]);
+    if (encoding !== null) content = content.toString(encoding);
+    const newIndex = this.setFileSource(resolvedP, content);
+
+    if (newIndex !== index) {
+      this.registerEntry(resolvedP, newIndex);
+    }
+  }
+
+  prepareWriteFile(p, opts) {
+    if (typeof p !== `string`) throw EBADF(`read`);
+    if (this.readOnly) throw EROFS(`open '${p}'`);
+    const resolvedP = this.resolveFilename(`open '${p}'`, p);
+    if (this.listings.has(resolvedP)) throw EISDIR(`open '${p}'`);
+    let encoding = null;
+    if (typeof opts === `string`) encoding = opts;else if (typeof opts === `object` && opts.encoding) encoding = opts.encoding;
+    const index = this.entries.get(resolvedP);
+    return {
+      encoding,
+      resolvedP,
+      index
+    };
+  }
+
+  async unlinkPromise(p) {
+    return this.unlinkSync(p);
+  }
+
+  unlinkSync(p) {
+    if (this.readOnly) throw EROFS(`unlink '${p}'`);
+    const resolvedP = this.resolveFilename(`unlink '${p}'`, p);
+    if (this.listings.has(resolvedP)) throw EISDIR(`unlink '${p}'`);
+    const index = this.entries.get(resolvedP);
+    if (typeof index === `undefined`) throw EINVAL(`unlink '${p}'`);
+    this.deleteEntry(resolvedP, index);
+  }
+
+  async utimesPromise(p, atime, mtime) {
+    return this.utimesSync(p, atime, mtime);
+  }
+
+  utimesSync(p, atime, mtime) {
+    if (this.readOnly) throw EROFS(`utimes '${p}'`);
+    const resolvedP = this.resolveFilename(`utimes '${p}'`, p);
+    this.utimesImpl(resolvedP, mtime);
+  }
+
+  async lutimesPromise(p, atime, mtime) {
+    return this.lutimesSync(p, atime, mtime);
+  }
+
+  lutimesSync(p, atime, mtime) {
+    if (this.readOnly) throw EROFS(`lutimes '${p}'`);
+    const resolvedP = this.resolveFilename(`utimes '${p}'`, p, false);
+    this.utimesImpl(resolvedP, mtime);
+  }
+
+  utimesImpl(resolvedP, mtime) {
+    if (this.listings.has(resolvedP)) if (!this.entries.has(resolvedP)) this.hydrateDirectory(resolvedP);
+    const entry = this.entries.get(resolvedP);
+    if (entry === undefined) throw new Error(`Unreachable`);
+    const rc = this.libzip.file.setMtime(this.zip, entry, 0, toUnixTimestamp(mtime), 0);
+
+    if (rc === -1) {
+      throw this.makeLibzipError(this.libzip.getError(this.zip));
+    }
+  }
+
+  async mkdirPromise(p, opts) {
+    return this.mkdirSync(p, opts);
+  }
+
+  mkdirSync(p, {
+    mode = 0o755,
+    recursive = false
+  } = {}) {
+    if (recursive) {
+      this.mkdirpSync(p, {
+        chmod: mode
+      });
+      return;
+    }
+
+    if (this.readOnly) throw EROFS(`mkdir '${p}'`);
+    const resolvedP = this.resolveFilename(`mkdir '${p}'`, p);
+    if (this.entries.has(resolvedP) || this.listings.has(resolvedP)) throw EEXIST(`mkdir '${p}'`);
+    this.hydrateDirectory(resolvedP);
+    this.chmodSync(resolvedP, mode);
+  }
+
+  async rmdirPromise(p, opts) {
+    return this.rmdirSync(p, opts);
+  }
+
+  rmdirSync(p, {
+    recursive = false
+  } = {}) {
+    if (this.readOnly) throw EROFS(`rmdir '${p}'`);
+
+    if (recursive) {
+      this.removeSync(p);
+      return;
+    }
+
+    const resolvedP = this.resolveFilename(`rmdir '${p}'`, p);
+    const directoryListing = this.listings.get(resolvedP);
+    if (!directoryListing) throw ENOTDIR(`rmdir '${p}'`);
+    if (directoryListing.size > 0) throw ENOTEMPTY(`rmdir '${p}'`);
+    const index = this.entries.get(resolvedP);
+    if (typeof index === `undefined`) throw EINVAL(`rmdir '${p}'`);
+    this.deleteEntry(p, index);
+  }
+
+  hydrateDirectory(resolvedP) {
+    const index = this.libzip.dir.add(this.zip, ppath.relative(PortablePath.root, resolvedP));
+    if (index === -1) throw this.makeLibzipError(this.libzip.getError(this.zip));
+    this.registerListing(resolvedP);
+    this.registerEntry(resolvedP, index);
+    return index;
+  }
+
+  async linkPromise(existingP, newP) {
+    return this.linkSync(existingP, newP);
+  }
+
+  linkSync(existingP, newP) {
+    // Zip archives don't support hard links:
+    // https://stackoverflow.com/questions/8859616/are-hard-links-possible-within-a-zip-archive
+    throw EOPNOTSUPP(`link '${existingP}' -> '${newP}'`);
+  }
+
+  async symlinkPromise(target, p) {
+    return this.symlinkSync(target, p);
+  }
+
+  symlinkSync(target, p) {
+    if (this.readOnly) throw EROFS(`symlink '${target}' -> '${p}'`);
+    const resolvedP = this.resolveFilename(`symlink '${target}' -> '${p}'`, p);
+    if (this.listings.has(resolvedP)) throw EISDIR(`symlink '${target}' -> '${p}'`);
+    if (this.entries.has(resolvedP)) throw EEXIST(`symlink '${target}' -> '${p}'`);
+    const index = this.setFileSource(resolvedP, target);
+    this.registerEntry(resolvedP, index);
+    const rc = this.libzip.file.setExternalAttributes(this.zip, index, 0, 0, this.libzip.ZIP_OPSYS_UNIX, (constants_S_IFLNK | 0o777) << 16);
+    if (rc === -1) throw this.makeLibzipError(this.libzip.getError(this.zip));
+    this.symlinkCount += 1;
+  }
+
+  async readFilePromise(p, encoding) {
+    // This is messed up regarding the TS signatures
+    if (typeof encoding === `object`) // @ts-expect-error
+      encoding = encoding ? encoding.encoding : undefined;
+    const data = await this.readFileBuffer(p, {
+      asyncDecompress: true
+    });
+    return encoding ? data.toString(encoding) : data;
+  }
+
+  readFileSync(p, encoding) {
+    // This is messed up regarding the TS signatures
+    if (typeof encoding === `object`) // @ts-expect-error
+      encoding = encoding ? encoding.encoding : undefined;
+    const data = this.readFileBuffer(p);
+    return encoding ? data.toString(encoding) : data;
+  }
+
+  readFileBuffer(p, opts = {
+    asyncDecompress: false
+  }) {
+    const resolvedP = this.resolveFilename(`open '${p}'`, p);
+    if (!this.entries.has(resolvedP) && !this.listings.has(resolvedP)) throw ENOENT(`open '${p}'`); // Ensures that the last component is a directory, if the user said so (even if it is we'll throw right after with EISDIR anyway)
+
+    if (p[p.length - 1] === `/` && !this.listings.has(resolvedP)) throw ENOTDIR(`open '${p}'`);
+    if (this.listings.has(resolvedP)) throw EISDIR(`read`);
+    const entry = this.entries.get(resolvedP);
+    if (entry === undefined) throw new Error(`Unreachable`);
+    return this.getFileSource(entry, opts);
+  }
+
+  async readdirPromise(p, opts) {
+    return this.readdirSync(p, opts);
+  }
+
+  readdirSync(p, opts) {
+    const resolvedP = this.resolveFilename(`scandir '${p}'`, p);
+    if (!this.entries.has(resolvedP) && !this.listings.has(resolvedP)) throw ENOENT(`scandir '${p}'`);
+    const directoryListing = this.listings.get(resolvedP);
+    if (!directoryListing) throw ENOTDIR(`scandir '${p}'`);
+    const entries = [...directoryListing];
+    if (!(opts === null || opts === void 0 ? void 0 : opts.withFileTypes)) return entries;
+    return entries.map(name => {
+      return Object.assign(this.statImpl(`lstat`, ppath.join(p, name)), {
+        name
+      });
+    });
+  }
+
+  async readlinkPromise(p) {
+    const entry = this.prepareReadlink(p);
+    return (await this.getFileSource(entry, {
+      asyncDecompress: true
+    })).toString();
+  }
+
+  readlinkSync(p) {
+    const entry = this.prepareReadlink(p);
+    return this.getFileSource(entry).toString();
+  }
+
+  prepareReadlink(p) {
+    const resolvedP = this.resolveFilename(`readlink '${p}'`, p, false);
+    if (!this.entries.has(resolvedP) && !this.listings.has(resolvedP)) throw ENOENT(`readlink '${p}'`); // Ensure that the last component is a directory (if it is we'll throw right after with EISDIR anyway)
+
+    if (p[p.length - 1] === `/` && !this.listings.has(resolvedP)) throw ENOTDIR(`open '${p}'`);
+    if (this.listings.has(resolvedP)) throw EINVAL(`readlink '${p}'`);
+    const entry = this.entries.get(resolvedP);
+    if (entry === undefined) throw new Error(`Unreachable`);
+    if (!this.isSymbolicLink(entry)) throw EINVAL(`readlink '${p}'`);
+    return entry;
+  }
+
+  async truncatePromise(p, len = 0) {
+    const resolvedP = this.resolveFilename(`open '${p}'`, p);
+    const index = this.entries.get(resolvedP);
+    if (typeof index === `undefined`) throw EINVAL(`open '${p}'`);
+    const source = await this.getFileSource(index, {
+      asyncDecompress: true
+    });
+    const truncated = Buffer.alloc(len, 0x00);
+    source.copy(truncated);
+    return await this.writeFilePromise(p, truncated);
+  }
+
+  truncateSync(p, len = 0) {
+    const resolvedP = this.resolveFilename(`open '${p}'`, p);
+    const index = this.entries.get(resolvedP);
+    if (typeof index === `undefined`) throw EINVAL(`open '${p}'`);
+    const source = this.getFileSource(index);
+    const truncated = Buffer.alloc(len, 0x00);
+    source.copy(truncated);
+    return this.writeFileSync(p, truncated);
+  }
+
+  watch(p, a, b) {
+    let persistent;
+
+    switch (typeof a) {
+      case `function`:
+      case `string`:
+      case `undefined`:
+        {
+          persistent = true;
+        }
+        break;
+
+      default:
+        {
+          ({
+            persistent = true
+          } = a);
+        }
+        break;
+    }
+
+    if (!persistent) return {
+      on: () => {},
+      close: () => {}
+    };
+    const interval = setInterval(() => {}, 24 * 60 * 60 * 1000);
+    return {
+      on: () => {},
+      close: () => {
+        clearInterval(interval);
+      }
+    };
+  }
+
+  watchFile(p, a, b) {
+    const resolvedP = this.resolveFilename(`open '${p}'`, p);
+    return watchFile(this, resolvedP, a, b);
+  }
+
+  unwatchFile(p, cb) {
+    const resolvedP = this.resolveFilename(`open '${p}'`, p);
+    return unwatchFile(this, resolvedP, cb);
+  }
+
+}
+;// CONCATENATED MODULE: ../yarnpkg-fslib/sources/ZipOpenFS.ts
+
+
+
+
+
+
+
+const ZIP_FD = 0x80000000;
+const DOT_ZIP = `.zip`;
+/**
+ * Extracts the archive part (ending in the first `.zip`) from a path.
+ *
+ * The indexOf-based implementation is ~3.7x faster than a RegExp-based implementation.
+ */
+
+const getArchivePart = path => {
+  let idx = path.indexOf(DOT_ZIP);
+  if (idx <= 0) return null;
+  let nextCharIdx = idx;
+
+  while (idx >= 0) {
+    nextCharIdx = idx + DOT_ZIP.length;
+    if (path[nextCharIdx] === ppath.sep) break; // Disallow files named ".zip"
+
+    if (path[idx - 1] === ppath.sep) return null;
+    idx = path.indexOf(DOT_ZIP, nextCharIdx);
+  } // The path either has to end in ".zip" or contain an archive subpath (".zip/...")
+
+
+  if (path.length > nextCharIdx && path[nextCharIdx] !== ppath.sep) return null;
+  return path.slice(0, nextCharIdx);
+};
+class ZipOpenFS extends BasePortableFakeFS {
+  constructor({
+    libzip,
+    baseFs = new NodeFS(),
+    filter = null,
+    maxOpenFiles = Infinity,
+    readOnlyArchives = false,
+    useCache = true,
+    maxAge = 5000
+  }) {
+    super();
+    this.fdMap = new Map();
+    this.nextFd = 3;
+    this.isZip = new Set();
+    this.notZip = new Set();
+    this.realPaths = new Map();
+    this.limitOpenFilesTimeout = null;
+    this.libzipFactory = typeof libzip !== `function` ? () => libzip : libzip;
+    this.baseFs = baseFs;
+    this.zipInstances = useCache ? new Map() : null;
+    this.filter = filter;
+    this.maxOpenFiles = maxOpenFiles;
+    this.readOnlyArchives = readOnlyArchives;
+    this.maxAge = maxAge;
+  }
+
+  static async openPromise(fn, opts) {
+    const zipOpenFs = new ZipOpenFS(opts);
+
+    try {
+      return await fn(zipOpenFs);
+    } finally {
+      zipOpenFs.saveAndClose();
+    }
+  }
+
+  get libzip() {
+    if (typeof this.libzipInstance === `undefined`) this.libzipInstance = this.libzipFactory();
+    return this.libzipInstance;
+  }
+
+  getExtractHint(hints) {
+    return this.baseFs.getExtractHint(hints);
+  }
+
+  getRealPath() {
+    return this.baseFs.getRealPath();
+  }
+
+  saveAndClose() {
+    unwatchAllFiles(this);
+
+    if (this.zipInstances) {
+      for (const [path, {
+        zipFs
+      }] of this.zipInstances.entries()) {
+        zipFs.saveAndClose();
+        this.zipInstances.delete(path);
+      }
+    }
+  }
+
+  discardAndClose() {
+    unwatchAllFiles(this);
+
+    if (this.zipInstances) {
+      for (const [path, {
+        zipFs
+      }] of this.zipInstances.entries()) {
+        zipFs.discardAndClose();
+        this.zipInstances.delete(path);
+      }
+    }
+  }
+
+  resolve(p) {
+    return this.baseFs.resolve(p);
+  }
+
+  remapFd(zipFs, fd) {
+    const remappedFd = this.nextFd++ | ZIP_FD;
+    this.fdMap.set(remappedFd, [zipFs, fd]);
+    return remappedFd;
+  }
+
+  async openPromise(p, flags, mode) {
+    return await this.makeCallPromise(p, async () => {
+      return await this.baseFs.openPromise(p, flags, mode);
+    }, async (zipFs, {
+      subPath
+    }) => {
+      return this.remapFd(zipFs, await zipFs.openPromise(subPath, flags, mode));
+    });
+  }
+
+  openSync(p, flags, mode) {
+    return this.makeCallSync(p, () => {
+      return this.baseFs.openSync(p, flags, mode);
+    }, (zipFs, {
+      subPath
+    }) => {
+      return this.remapFd(zipFs, zipFs.openSync(subPath, flags, mode));
+    });
+  }
+
+  async opendirPromise(p, opts) {
+    return await this.makeCallPromise(p, async () => {
+      return await this.baseFs.opendirPromise(p, opts);
+    }, async (zipFs, {
+      subPath
+    }) => {
+      return await zipFs.opendirPromise(subPath, opts);
+    }, {
+      requireSubpath: false
+    });
+  }
+
+  opendirSync(p, opts) {
+    return this.makeCallSync(p, () => {
+      return this.baseFs.opendirSync(p, opts);
+    }, (zipFs, {
+      subPath
+    }) => {
+      return zipFs.opendirSync(subPath, opts);
+    }, {
+      requireSubpath: false
+    });
+  }
+
+  async readPromise(fd, buffer, offset, length, position) {
+    if ((fd & ZIP_FD) === 0) return await this.baseFs.readPromise(fd, buffer, offset, length, position);
+    const entry = this.fdMap.get(fd);
+    if (typeof entry === `undefined`) throw EBADF(`read`);
+    const [zipFs, realFd] = entry;
+    return await zipFs.readPromise(realFd, buffer, offset, length, position);
+  }
+
+  readSync(fd, buffer, offset, length, position) {
+    if ((fd & ZIP_FD) === 0) return this.baseFs.readSync(fd, buffer, offset, length, position);
+    const entry = this.fdMap.get(fd);
+    if (typeof entry === `undefined`) throw EBADF(`readSync`);
+    const [zipFs, realFd] = entry;
+    return zipFs.readSync(realFd, buffer, offset, length, position);
+  }
+
+  async writePromise(fd, buffer, offset, length, position) {
+    if ((fd & ZIP_FD) === 0) {
+      if (typeof buffer === `string`) {
+        return await this.baseFs.writePromise(fd, buffer, offset);
+      } else {
+        return await this.baseFs.writePromise(fd, buffer, offset, length, position);
+      }
+    }
+
+    const entry = this.fdMap.get(fd);
+    if (typeof entry === `undefined`) throw EBADF(`write`);
+    const [zipFs, realFd] = entry;
+
+    if (typeof buffer === `string`) {
+      return await zipFs.writePromise(realFd, buffer, offset);
+    } else {
+      return await zipFs.writePromise(realFd, buffer, offset, length, position);
+    }
+  }
+
+  writeSync(fd, buffer, offset, length, position) {
+    if ((fd & ZIP_FD) === 0) {
+      if (typeof buffer === `string`) {
+        return this.baseFs.writeSync(fd, buffer, offset);
+      } else {
+        return this.baseFs.writeSync(fd, buffer, offset, length, position);
+      }
+    }
+
+    const entry = this.fdMap.get(fd);
+    if (typeof entry === `undefined`) throw EBADF(`writeSync`);
+    const [zipFs, realFd] = entry;
+
+    if (typeof buffer === `string`) {
+      return zipFs.writeSync(realFd, buffer, offset);
+    } else {
+      return zipFs.writeSync(realFd, buffer, offset, length, position);
+    }
+  }
+
+  async closePromise(fd) {
+    if ((fd & ZIP_FD) === 0) return await this.baseFs.closePromise(fd);
+    const entry = this.fdMap.get(fd);
+    if (typeof entry === `undefined`) throw EBADF(`close`);
+    this.fdMap.delete(fd);
+    const [zipFs, realFd] = entry;
+    return await zipFs.closePromise(realFd);
+  }
+
+  closeSync(fd) {
+    if ((fd & ZIP_FD) === 0) return this.baseFs.closeSync(fd);
+    const entry = this.fdMap.get(fd);
+    if (typeof entry === `undefined`) throw EBADF(`closeSync`);
+    this.fdMap.delete(fd);
+    const [zipFs, realFd] = entry;
+    return zipFs.closeSync(realFd);
+  }
+
+  createReadStream(p, opts) {
+    if (p === null) return this.baseFs.createReadStream(p, opts);
+    return this.makeCallSync(p, () => {
+      return this.baseFs.createReadStream(p, opts);
+    }, (zipFs, {
+      subPath
+    }) => {
+      return zipFs.createReadStream(subPath, opts);
+    });
+  }
+
+  createWriteStream(p, opts) {
+    if (p === null) return this.baseFs.createWriteStream(p, opts);
+    return this.makeCallSync(p, () => {
+      return this.baseFs.createWriteStream(p, opts);
+    }, (zipFs, {
+      subPath
+    }) => {
+      return zipFs.createWriteStream(subPath, opts);
+    });
+  }
+
+  async realpathPromise(p) {
+    return await this.makeCallPromise(p, async () => {
+      return await this.baseFs.realpathPromise(p);
+    }, async (zipFs, {
+      archivePath,
+      subPath
+    }) => {
+      let realArchivePath = this.realPaths.get(archivePath);
+
+      if (typeof realArchivePath === `undefined`) {
+        realArchivePath = await this.baseFs.realpathPromise(archivePath);
+        this.realPaths.set(archivePath, realArchivePath);
+      }
+
+      return this.pathUtils.join(realArchivePath, this.pathUtils.relative(PortablePath.root, await zipFs.realpathPromise(subPath)));
+    });
+  }
+
+  realpathSync(p) {
+    return this.makeCallSync(p, () => {
+      return this.baseFs.realpathSync(p);
+    }, (zipFs, {
+      archivePath,
+      subPath
+    }) => {
+      let realArchivePath = this.realPaths.get(archivePath);
+
+      if (typeof realArchivePath === `undefined`) {
+        realArchivePath = this.baseFs.realpathSync(archivePath);
+        this.realPaths.set(archivePath, realArchivePath);
+      }
+
+      return this.pathUtils.join(realArchivePath, this.pathUtils.relative(PortablePath.root, zipFs.realpathSync(subPath)));
+    });
+  }
+
+  async existsPromise(p) {
+    return await this.makeCallPromise(p, async () => {
+      return await this.baseFs.existsPromise(p);
+    }, async (zipFs, {
+      subPath
+    }) => {
+      return await zipFs.existsPromise(subPath);
+    });
+  }
+
+  existsSync(p) {
+    return this.makeCallSync(p, () => {
+      return this.baseFs.existsSync(p);
+    }, (zipFs, {
+      subPath
+    }) => {
+      return zipFs.existsSync(subPath);
+    });
+  }
+
+  async accessPromise(p, mode) {
+    return await this.makeCallPromise(p, async () => {
+      return await this.baseFs.accessPromise(p, mode);
+    }, async (zipFs, {
+      subPath
+    }) => {
+      return await zipFs.accessPromise(subPath, mode);
+    });
+  }
+
+  accessSync(p, mode) {
+    return this.makeCallSync(p, () => {
+      return this.baseFs.accessSync(p, mode);
+    }, (zipFs, {
+      subPath
+    }) => {
+      return zipFs.accessSync(subPath, mode);
+    });
+  }
+
+  async statPromise(p, opts) {
+    return await this.makeCallPromise(p, async () => {
+      return await this.baseFs.statPromise(p, opts);
+    }, async (zipFs, {
+      subPath
+    }) => {
+      return await zipFs.statPromise(subPath, opts);
+    });
+  }
+
+  statSync(p, opts) {
+    return this.makeCallSync(p, () => {
+      return this.baseFs.statSync(p, opts);
+    }, (zipFs, {
+      subPath
+    }) => {
+      return zipFs.statSync(subPath, opts);
+    });
+  }
+
+  async fstatPromise(fd, opts) {
+    if ((fd & ZIP_FD) === 0) return this.baseFs.fstatPromise(fd, opts);
+    const entry = this.fdMap.get(fd);
+    if (typeof entry === `undefined`) throw EBADF(`fstat`);
+    const [zipFs, realFd] = entry;
+    return zipFs.fstatPromise(realFd, opts);
+  }
+
+  fstatSync(fd, opts) {
+    if ((fd & ZIP_FD) === 0) return this.baseFs.fstatSync(fd, opts);
+    const entry = this.fdMap.get(fd);
+    if (typeof entry === `undefined`) throw EBADF(`fstatSync`);
+    const [zipFs, realFd] = entry;
+    return zipFs.fstatSync(realFd, opts);
+  }
+
+  async lstatPromise(p, opts) {
+    return await this.makeCallPromise(p, async () => {
+      return await this.baseFs.lstatPromise(p, opts);
+    }, async (zipFs, {
+      subPath
+    }) => {
+      return await zipFs.lstatPromise(subPath, opts);
+    });
+  }
+
+  lstatSync(p, opts) {
+    return this.makeCallSync(p, () => {
+      return this.baseFs.lstatSync(p, opts);
+    }, (zipFs, {
+      subPath
+    }) => {
+      return zipFs.lstatSync(subPath, opts);
+    });
+  }
+
+  async chmodPromise(p, mask) {
+    return await this.makeCallPromise(p, async () => {
+      return await this.baseFs.chmodPromise(p, mask);
+    }, async (zipFs, {
+      subPath
+    }) => {
+      return await zipFs.chmodPromise(subPath, mask);
+    });
+  }
+
+  chmodSync(p, mask) {
+    return this.makeCallSync(p, () => {
+      return this.baseFs.chmodSync(p, mask);
+    }, (zipFs, {
+      subPath
+    }) => {
+      return zipFs.chmodSync(subPath, mask);
+    });
+  }
+
+  async chownPromise(p, uid, gid) {
+    return await this.makeCallPromise(p, async () => {
+      return await this.baseFs.chownPromise(p, uid, gid);
+    }, async (zipFs, {
+      subPath
+    }) => {
+      return await zipFs.chownPromise(subPath, uid, gid);
+    });
+  }
+
+  chownSync(p, uid, gid) {
+    return this.makeCallSync(p, () => {
+      return this.baseFs.chownSync(p, uid, gid);
+    }, (zipFs, {
+      subPath
+    }) => {
+      return zipFs.chownSync(subPath, uid, gid);
+    });
+  }
+
+  async renamePromise(oldP, newP) {
+    return await this.makeCallPromise(oldP, async () => {
+      return await this.makeCallPromise(newP, async () => {
+        return await this.baseFs.renamePromise(oldP, newP);
+      }, async () => {
+        throw Object.assign(new Error(`EEXDEV: cross-device link not permitted`), {
+          code: `EEXDEV`
+        });
+      });
+    }, async (zipFsO, {
+      subPath: subPathO
+    }) => {
+      return await this.makeCallPromise(newP, async () => {
+        throw Object.assign(new Error(`EEXDEV: cross-device link not permitted`), {
+          code: `EEXDEV`
+        });
+      }, async (zipFsN, {
+        subPath: subPathN
+      }) => {
+        if (zipFsO !== zipFsN) {
+          throw Object.assign(new Error(`EEXDEV: cross-device link not permitted`), {
+            code: `EEXDEV`
+          });
+        } else {
+          return await zipFsO.renamePromise(subPathO, subPathN);
+        }
+      });
+    });
+  }
+
+  renameSync(oldP, newP) {
+    return this.makeCallSync(oldP, () => {
+      return this.makeCallSync(newP, () => {
+        return this.baseFs.renameSync(oldP, newP);
+      }, async () => {
+        throw Object.assign(new Error(`EEXDEV: cross-device link not permitted`), {
+          code: `EEXDEV`
+        });
+      });
+    }, (zipFsO, {
+      subPath: subPathO
+    }) => {
+      return this.makeCallSync(newP, () => {
+        throw Object.assign(new Error(`EEXDEV: cross-device link not permitted`), {
+          code: `EEXDEV`
+        });
+      }, (zipFsN, {
+        subPath: subPathN
+      }) => {
+        if (zipFsO !== zipFsN) {
+          throw Object.assign(new Error(`EEXDEV: cross-device link not permitted`), {
+            code: `EEXDEV`
+          });
+        } else {
+          return zipFsO.renameSync(subPathO, subPathN);
+        }
+      });
+    });
+  }
+
+  async copyFilePromise(sourceP, destP, flags = 0) {
+    const fallback = async (sourceFs, sourceP, destFs, destP) => {
+      if ((flags & external_fs_.constants.COPYFILE_FICLONE_FORCE) !== 0) throw Object.assign(new Error(`EXDEV: cross-device clone not permitted, copyfile '${sourceP}' -> ${destP}'`), {
+        code: `EXDEV`
+      });
+      if (flags & external_fs_.constants.COPYFILE_EXCL && (await this.existsPromise(sourceP))) throw Object.assign(new Error(`EEXIST: file already exists, copyfile '${sourceP}' -> '${destP}'`), {
+        code: `EEXIST`
+      });
+      let content;
+
+      try {
+        content = await sourceFs.readFilePromise(sourceP);
+      } catch (error) {
+        throw Object.assign(new Error(`EINVAL: invalid argument, copyfile '${sourceP}' -> '${destP}'`), {
+          code: `EINVAL`
+        });
+      }
+
+      await destFs.writeFilePromise(destP, content);
+    };
+
+    return await this.makeCallPromise(sourceP, async () => {
+      return await this.makeCallPromise(destP, async () => {
+        return await this.baseFs.copyFilePromise(sourceP, destP, flags);
+      }, async (zipFsD, {
+        subPath: subPathD
+      }) => {
+        return await fallback(this.baseFs, sourceP, zipFsD, subPathD);
+      });
+    }, async (zipFsS, {
+      subPath: subPathS
+    }) => {
+      return await this.makeCallPromise(destP, async () => {
+        return await fallback(zipFsS, subPathS, this.baseFs, destP);
+      }, async (zipFsD, {
+        subPath: subPathD
+      }) => {
+        if (zipFsS !== zipFsD) {
+          return await fallback(zipFsS, subPathS, zipFsD, subPathD);
+        } else {
+          return await zipFsS.copyFilePromise(subPathS, subPathD, flags);
+        }
+      });
+    });
+  }
+
+  copyFileSync(sourceP, destP, flags = 0) {
+    const fallback = (sourceFs, sourceP, destFs, destP) => {
+      if ((flags & external_fs_.constants.COPYFILE_FICLONE_FORCE) !== 0) throw Object.assign(new Error(`EXDEV: cross-device clone not permitted, copyfile '${sourceP}' -> ${destP}'`), {
+        code: `EXDEV`
+      });
+      if (flags & external_fs_.constants.COPYFILE_EXCL && this.existsSync(sourceP)) throw Object.assign(new Error(`EEXIST: file already exists, copyfile '${sourceP}' -> '${destP}'`), {
+        code: `EEXIST`
+      });
+      let content;
+
+      try {
+        content = sourceFs.readFileSync(sourceP);
+      } catch (error) {
+        throw Object.assign(new Error(`EINVAL: invalid argument, copyfile '${sourceP}' -> '${destP}'`), {
+          code: `EINVAL`
+        });
+      }
+
+      destFs.writeFileSync(destP, content);
+    };
+
+    return this.makeCallSync(sourceP, () => {
+      return this.makeCallSync(destP, () => {
+        return this.baseFs.copyFileSync(sourceP, destP, flags);
+      }, (zipFsD, {
+        subPath: subPathD
+      }) => {
+        return fallback(this.baseFs, sourceP, zipFsD, subPathD);
+      });
+    }, (zipFsS, {
+      subPath: subPathS
+    }) => {
+      return this.makeCallSync(destP, () => {
+        return fallback(zipFsS, subPathS, this.baseFs, destP);
+      }, (zipFsD, {
+        subPath: subPathD
+      }) => {
+        if (zipFsS !== zipFsD) {
+          return fallback(zipFsS, subPathS, zipFsD, subPathD);
+        } else {
+          return zipFsS.copyFileSync(subPathS, subPathD, flags);
+        }
+      });
+    });
+  }
+
+  async appendFilePromise(p, content, opts) {
+    return await this.makeCallPromise(p, async () => {
+      return await this.baseFs.appendFilePromise(p, content, opts);
+    }, async (zipFs, {
+      subPath
+    }) => {
+      return await zipFs.appendFilePromise(subPath, content, opts);
+    });
+  }
+
+  appendFileSync(p, content, opts) {
+    return this.makeCallSync(p, () => {
+      return this.baseFs.appendFileSync(p, content, opts);
+    }, (zipFs, {
+      subPath
+    }) => {
+      return zipFs.appendFileSync(subPath, content, opts);
+    });
+  }
+
+  async writeFilePromise(p, content, opts) {
+    return await this.makeCallPromise(p, async () => {
+      return await this.baseFs.writeFilePromise(p, content, opts);
+    }, async (zipFs, {
+      subPath
+    }) => {
+      return await zipFs.writeFilePromise(subPath, content, opts);
+    });
+  }
+
+  writeFileSync(p, content, opts) {
+    return this.makeCallSync(p, () => {
+      return this.baseFs.writeFileSync(p, content, opts);
+    }, (zipFs, {
+      subPath
+    }) => {
+      return zipFs.writeFileSync(subPath, content, opts);
+    });
+  }
+
+  async unlinkPromise(p) {
+    return await this.makeCallPromise(p, async () => {
+      return await this.baseFs.unlinkPromise(p);
+    }, async (zipFs, {
+      subPath
+    }) => {
+      return await zipFs.unlinkPromise(subPath);
+    });
+  }
+
+  unlinkSync(p) {
+    return this.makeCallSync(p, () => {
+      return this.baseFs.unlinkSync(p);
+    }, (zipFs, {
+      subPath
+    }) => {
+      return zipFs.unlinkSync(subPath);
+    });
+  }
+
+  async utimesPromise(p, atime, mtime) {
+    return await this.makeCallPromise(p, async () => {
+      return await this.baseFs.utimesPromise(p, atime, mtime);
+    }, async (zipFs, {
+      subPath
+    }) => {
+      return await zipFs.utimesPromise(subPath, atime, mtime);
+    });
+  }
+
+  utimesSync(p, atime, mtime) {
+    return this.makeCallSync(p, () => {
+      return this.baseFs.utimesSync(p, atime, mtime);
+    }, (zipFs, {
+      subPath
+    }) => {
+      return zipFs.utimesSync(subPath, atime, mtime);
+    });
+  }
+
+  async mkdirPromise(p, opts) {
+    return await this.makeCallPromise(p, async () => {
+      return await this.baseFs.mkdirPromise(p, opts);
+    }, async (zipFs, {
+      subPath
+    }) => {
+      return await zipFs.mkdirPromise(subPath, opts);
+    });
+  }
+
+  mkdirSync(p, opts) {
+    return this.makeCallSync(p, () => {
+      return this.baseFs.mkdirSync(p, opts);
+    }, (zipFs, {
+      subPath
+    }) => {
+      return zipFs.mkdirSync(subPath, opts);
+    });
+  }
+
+  async rmdirPromise(p, opts) {
+    return await this.makeCallPromise(p, async () => {
+      return await this.baseFs.rmdirPromise(p, opts);
+    }, async (zipFs, {
+      subPath
+    }) => {
+      return await zipFs.rmdirPromise(subPath, opts);
+    });
+  }
+
+  rmdirSync(p, opts) {
+    return this.makeCallSync(p, () => {
+      return this.baseFs.rmdirSync(p, opts);
+    }, (zipFs, {
+      subPath
+    }) => {
+      return zipFs.rmdirSync(subPath, opts);
+    });
+  }
+
+  async linkPromise(existingP, newP) {
+    return await this.makeCallPromise(newP, async () => {
+      return await this.baseFs.linkPromise(existingP, newP);
+    }, async (zipFs, {
+      subPath
+    }) => {
+      return await zipFs.linkPromise(existingP, subPath);
+    });
+  }
+
+  linkSync(existingP, newP) {
+    return this.makeCallSync(newP, () => {
+      return this.baseFs.linkSync(existingP, newP);
+    }, (zipFs, {
+      subPath
+    }) => {
+      return zipFs.linkSync(existingP, subPath);
+    });
+  }
+
+  async symlinkPromise(target, p, type) {
+    return await this.makeCallPromise(p, async () => {
+      return await this.baseFs.symlinkPromise(target, p, type);
+    }, async (zipFs, {
+      subPath
+    }) => {
+      return await zipFs.symlinkPromise(target, subPath);
+    });
+  }
+
+  symlinkSync(target, p, type) {
+    return this.makeCallSync(p, () => {
+      return this.baseFs.symlinkSync(target, p, type);
+    }, (zipFs, {
+      subPath
+    }) => {
+      return zipFs.symlinkSync(target, subPath);
+    });
+  }
+
+  async readFilePromise(p, encoding) {
+    return this.makeCallPromise(p, async () => {
+      // This weird switch is required to tell TypeScript that the signatures are proper (otherwise it thinks that only the generic one is covered)
+      switch (encoding) {
+        case `utf8`:
+          return await this.baseFs.readFilePromise(p, encoding);
+
+        default:
+          return await this.baseFs.readFilePromise(p, encoding);
+      }
+    }, async (zipFs, {
+      subPath
+    }) => {
+      return await zipFs.readFilePromise(subPath, encoding);
+    });
+  }
+
+  readFileSync(p, encoding) {
+    return this.makeCallSync(p, () => {
+      // This weird switch is required to tell TypeScript that the signatures are proper (otherwise it thinks that only the generic one is covered)
+      switch (encoding) {
+        case `utf8`:
+          return this.baseFs.readFileSync(p, encoding);
+
+        default:
+          return this.baseFs.readFileSync(p, encoding);
+      }
+    }, (zipFs, {
+      subPath
+    }) => {
+      return zipFs.readFileSync(subPath, encoding);
+    });
+  }
+
+  async readdirPromise(p, opts) {
+    return await this.makeCallPromise(p, async () => {
+      return await this.baseFs.readdirPromise(p, opts);
+    }, async (zipFs, {
+      subPath
+    }) => {
+      return await zipFs.readdirPromise(subPath, opts);
+    }, {
+      requireSubpath: false
+    });
+  }
+
+  readdirSync(p, opts) {
+    return this.makeCallSync(p, () => {
+      return this.baseFs.readdirSync(p, opts);
+    }, (zipFs, {
+      subPath
+    }) => {
+      return zipFs.readdirSync(subPath, opts);
+    }, {
+      requireSubpath: false
+    });
+  }
+
+  async readlinkPromise(p) {
+    return await this.makeCallPromise(p, async () => {
+      return await this.baseFs.readlinkPromise(p);
+    }, async (zipFs, {
+      subPath
+    }) => {
+      return await zipFs.readlinkPromise(subPath);
+    });
+  }
+
+  readlinkSync(p) {
+    return this.makeCallSync(p, () => {
+      return this.baseFs.readlinkSync(p);
+    }, (zipFs, {
+      subPath
+    }) => {
+      return zipFs.readlinkSync(subPath);
+    });
+  }
+
+  async truncatePromise(p, len) {
+    return await this.makeCallPromise(p, async () => {
+      return await this.baseFs.truncatePromise(p, len);
+    }, async (zipFs, {
+      subPath
+    }) => {
+      return await zipFs.truncatePromise(subPath, len);
+    });
+  }
+
+  truncateSync(p, len) {
+    return this.makeCallSync(p, () => {
+      return this.baseFs.truncateSync(p, len);
+    }, (zipFs, {
+      subPath
+    }) => {
+      return zipFs.truncateSync(subPath, len);
+    });
+  }
+
+  watch(p, a, b) {
+    return this.makeCallSync(p, () => {
+      return this.baseFs.watch(p, // @ts-expect-error
+      a, b);
+    }, (zipFs, {
+      subPath
+    }) => {
+      return zipFs.watch(subPath, // @ts-expect-error
+      a, b);
+    });
+  }
+
+  watchFile(p, a, b) {
+    return this.makeCallSync(p, () => {
+      return this.baseFs.watchFile(p, // @ts-expect-error
+      a, b);
+    }, () => {
+      return watchFile(this, p, a, b);
+    });
+  }
+
+  unwatchFile(p, cb) {
+    return this.makeCallSync(p, () => {
+      return this.baseFs.unwatchFile(p, cb);
+    }, () => {
+      return unwatchFile(this, p, cb);
+    });
+  }
+
+  async makeCallPromise(p, discard, accept, {
+    requireSubpath = true
+  } = {}) {
+    if (typeof p !== `string`) return await discard();
+    const normalizedP = this.resolve(p);
+    const zipInfo = this.findZip(normalizedP);
+    if (!zipInfo) return await discard();
+    if (requireSubpath && zipInfo.subPath === `/`) return await discard();
+    return await this.getZipPromise(zipInfo.archivePath, async zipFs => await accept(zipFs, zipInfo));
+  }
+
+  makeCallSync(p, discard, accept, {
+    requireSubpath = true
+  } = {}) {
+    if (typeof p !== `string`) return discard();
+    const normalizedP = this.resolve(p);
+    const zipInfo = this.findZip(normalizedP);
+    if (!zipInfo) return discard();
+    if (requireSubpath && zipInfo.subPath === `/`) return discard();
+    return this.getZipSync(zipInfo.archivePath, zipFs => accept(zipFs, zipInfo));
+  }
+
+  findZip(p) {
+    if (this.filter && !this.filter.test(p)) return null;
+    let filePath = ``;
+
+    while (true) {
+      const archivePart = getArchivePart(p.substr(filePath.length));
+      if (!archivePart) return null;
+      filePath = this.pathUtils.join(filePath, archivePart);
+
+      if (this.isZip.has(filePath) === false) {
+        if (this.notZip.has(filePath)) continue;
+
+        try {
+          if (!this.baseFs.lstatSync(filePath).isFile()) {
+            this.notZip.add(filePath);
+            continue;
+          }
+        } catch (_a) {
+          return null;
+        }
+
+        this.isZip.add(filePath);
+      }
+
+      return {
+        archivePath: filePath,
+        subPath: this.pathUtils.join(PortablePath.root, p.substr(filePath.length))
+      };
+    }
+  }
+
+  limitOpenFiles(max) {
+    if (this.zipInstances === null) return;
+    const now = Date.now();
+    let nextExpiresAt = now + this.maxAge;
+    let closeCount = max === null ? 0 : this.zipInstances.size - max;
+
+    for (const [path, {
+      zipFs,
+      expiresAt,
+      refCount
+    }] of this.zipInstances.entries()) {
+      if (refCount !== 0 || zipFs.hasOpenFileHandles()) {
+        continue;
+      } else if (now >= expiresAt) {
+        zipFs.saveAndClose();
+        this.zipInstances.delete(path);
+        closeCount -= 1;
+        continue;
+      } else if (max === null || closeCount <= 0) {
+        nextExpiresAt = expiresAt;
+        break;
+      }
+
+      zipFs.saveAndClose();
+      this.zipInstances.delete(path);
+      closeCount -= 1;
+    }
+
+    if (this.limitOpenFilesTimeout === null && (max === null && this.zipInstances.size > 0 || max !== null)) {
+      this.limitOpenFilesTimeout = setTimeout(() => {
+        this.limitOpenFilesTimeout = null;
+        this.limitOpenFiles(null);
+      }, nextExpiresAt - now).unref();
+    }
+  }
+
+  async getZipPromise(p, accept) {
+    const getZipOptions = async () => ({
+      baseFs: this.baseFs,
+      libzip: this.libzip,
+      readOnly: this.readOnlyArchives,
+      stats: await this.baseFs.statPromise(p)
+    });
+
+    if (this.zipInstances) {
+      let cachedZipFs = this.zipInstances.get(p);
+
+      if (!cachedZipFs) {
+        const zipOptions = await getZipOptions(); // We need to recheck because concurrent getZipPromise calls may
+        // have instantiated the zip archive while we were waiting
+
+        cachedZipFs = this.zipInstances.get(p);
+
+        if (!cachedZipFs) {
+          cachedZipFs = {
+            zipFs: new ZipFS(p, zipOptions),
+            expiresAt: 0,
+            refCount: 0
+          };
+        }
+      } // Removing then re-adding the field allows us to easily implement
+      // a basic LRU garbage collection strategy
+
+
+      this.zipInstances.delete(p);
+      this.limitOpenFiles(this.maxOpenFiles - 1);
+      this.zipInstances.set(p, cachedZipFs);
+      cachedZipFs.expiresAt = Date.now() + this.maxAge;
+      cachedZipFs.refCount += 1;
+
+      try {
+        return await accept(cachedZipFs.zipFs);
+      } finally {
+        cachedZipFs.refCount -= 1;
+      }
+    } else {
+      const zipFs = new ZipFS(p, await getZipOptions());
+
+      try {
+        return await accept(zipFs);
+      } finally {
+        zipFs.saveAndClose();
+      }
+    }
+  }
+
+  getZipSync(p, accept) {
+    const getZipOptions = () => ({
+      baseFs: this.baseFs,
+      libzip: this.libzip,
+      readOnly: this.readOnlyArchives,
+      stats: this.baseFs.statSync(p)
+    });
+
+    if (this.zipInstances) {
+      let cachedZipFs = this.zipInstances.get(p);
+
+      if (!cachedZipFs) {
+        cachedZipFs = {
+          zipFs: new ZipFS(p, getZipOptions()),
+          expiresAt: 0,
+          refCount: 0
+        };
+      } // Removing then re-adding the field allows us to easily implement
+      // a basic LRU garbage collection strategy
+
+
+      this.zipInstances.delete(p);
+      this.limitOpenFiles(this.maxOpenFiles - 1);
+      this.zipInstances.set(p, cachedZipFs);
+      cachedZipFs.expiresAt = Date.now() + this.maxAge;
+      return accept(cachedZipFs.zipFs);
+    } else {
+      const zipFs = new ZipFS(p, getZipOptions());
+
+      try {
+        return accept(zipFs);
+      } finally {
+        zipFs.saveAndClose();
+      }
+    }
+  }
+
+}
+;// CONCATENATED MODULE: ../yarnpkg-libzip/sources/makeInterface.ts
+const number64 = [`number`, `number` // high
+];
+var Errors;
+
+(function (Errors) {
+  Errors[Errors["ZIP_ER_OK"] = 0] = "ZIP_ER_OK";
+  Errors[Errors["ZIP_ER_MULTIDISK"] = 1] = "ZIP_ER_MULTIDISK";
+  Errors[Errors["ZIP_ER_RENAME"] = 2] = "ZIP_ER_RENAME";
+  Errors[Errors["ZIP_ER_CLOSE"] = 3] = "ZIP_ER_CLOSE";
+  Errors[Errors["ZIP_ER_SEEK"] = 4] = "ZIP_ER_SEEK";
+  Errors[Errors["ZIP_ER_READ"] = 5] = "ZIP_ER_READ";
+  Errors[Errors["ZIP_ER_WRITE"] = 6] = "ZIP_ER_WRITE";
+  Errors[Errors["ZIP_ER_CRC"] = 7] = "ZIP_ER_CRC";
+  Errors[Errors["ZIP_ER_ZIPCLOSED"] = 8] = "ZIP_ER_ZIPCLOSED";
+  Errors[Errors["ZIP_ER_NOENT"] = 9] = "ZIP_ER_NOENT";
+  Errors[Errors["ZIP_ER_EXISTS"] = 10] = "ZIP_ER_EXISTS";
+  Errors[Errors["ZIP_ER_OPEN"] = 11] = "ZIP_ER_OPEN";
+  Errors[Errors["ZIP_ER_TMPOPEN"] = 12] = "ZIP_ER_TMPOPEN";
+  Errors[Errors["ZIP_ER_ZLIB"] = 13] = "ZIP_ER_ZLIB";
+  Errors[Errors["ZIP_ER_MEMORY"] = 14] = "ZIP_ER_MEMORY";
+  Errors[Errors["ZIP_ER_CHANGED"] = 15] = "ZIP_ER_CHANGED";
+  Errors[Errors["ZIP_ER_COMPNOTSUPP"] = 16] = "ZIP_ER_COMPNOTSUPP";
+  Errors[Errors["ZIP_ER_EOF"] = 17] = "ZIP_ER_EOF";
+  Errors[Errors["ZIP_ER_INVAL"] = 18] = "ZIP_ER_INVAL";
+  Errors[Errors["ZIP_ER_NOZIP"] = 19] = "ZIP_ER_NOZIP";
+  Errors[Errors["ZIP_ER_INTERNAL"] = 20] = "ZIP_ER_INTERNAL";
+  Errors[Errors["ZIP_ER_INCONS"] = 21] = "ZIP_ER_INCONS";
+  Errors[Errors["ZIP_ER_REMOVE"] = 22] = "ZIP_ER_REMOVE";
+  Errors[Errors["ZIP_ER_DELETED"] = 23] = "ZIP_ER_DELETED";
+  Errors[Errors["ZIP_ER_ENCRNOTSUPP"] = 24] = "ZIP_ER_ENCRNOTSUPP";
+  Errors[Errors["ZIP_ER_RDONLY"] = 25] = "ZIP_ER_RDONLY";
+  Errors[Errors["ZIP_ER_NOPASSWD"] = 26] = "ZIP_ER_NOPASSWD";
+  Errors[Errors["ZIP_ER_WRONGPASSWD"] = 27] = "ZIP_ER_WRONGPASSWD";
+  Errors[Errors["ZIP_ER_OPNOTSUPP"] = 28] = "ZIP_ER_OPNOTSUPP";
+  Errors[Errors["ZIP_ER_INUSE"] = 29] = "ZIP_ER_INUSE";
+  Errors[Errors["ZIP_ER_TELL"] = 30] = "ZIP_ER_TELL";
+  Errors[Errors["ZIP_ER_COMPRESSED_DATA"] = 31] = "ZIP_ER_COMPRESSED_DATA";
+})(Errors || (Errors = {}));
+
+const makeInterface = libzip => ({
+  // Those are getters because they can change after memory growth
+  get HEAP8() {
+    return libzip.HEAP8;
+  },
+
+  get HEAPU8() {
+    return libzip.HEAPU8;
+  },
+
+  errors: Errors,
+  SEEK_SET: 0,
+  SEEK_CUR: 1,
+  SEEK_END: 2,
+  ZIP_CHECKCONS: 4,
+  ZIP_CREATE: 1,
+  ZIP_EXCL: 2,
+  ZIP_TRUNCATE: 8,
+  ZIP_RDONLY: 16,
+  ZIP_FL_OVERWRITE: 8192,
+  ZIP_FL_COMPRESSED: 4,
+  ZIP_OPSYS_DOS: 0x00,
+  ZIP_OPSYS_AMIGA: 0x01,
+  ZIP_OPSYS_OPENVMS: 0x02,
+  ZIP_OPSYS_UNIX: 0x03,
+  ZIP_OPSYS_VM_CMS: 0x04,
+  ZIP_OPSYS_ATARI_ST: 0x05,
+  ZIP_OPSYS_OS_2: 0x06,
+  ZIP_OPSYS_MACINTOSH: 0x07,
+  ZIP_OPSYS_Z_SYSTEM: 0x08,
+  ZIP_OPSYS_CPM: 0x09,
+  ZIP_OPSYS_WINDOWS_NTFS: 0x0a,
+  ZIP_OPSYS_MVS: 0x0b,
+  ZIP_OPSYS_VSE: 0x0c,
+  ZIP_OPSYS_ACORN_RISC: 0x0d,
+  ZIP_OPSYS_VFAT: 0x0e,
+  ZIP_OPSYS_ALTERNATE_MVS: 0x0f,
+  ZIP_OPSYS_BEOS: 0x10,
+  ZIP_OPSYS_TANDEM: 0x11,
+  ZIP_OPSYS_OS_400: 0x12,
+  ZIP_OPSYS_OS_X: 0x13,
+  ZIP_CM_DEFAULT: -1,
+  ZIP_CM_STORE: 0,
+  ZIP_CM_DEFLATE: 8,
+  uint08S: libzip._malloc(1),
+  uint16S: libzip._malloc(2),
+  uint32S: libzip._malloc(4),
+  uint64S: libzip._malloc(8),
+  malloc: libzip._malloc,
+  free: libzip._free,
+  getValue: libzip.getValue,
+  open: libzip.cwrap(`zip_open`, `number`, [`string`, `number`, `number`]),
+  openFromSource: libzip.cwrap(`zip_open_from_source`, `number`, [`number`, `number`, `number`]),
+  close: libzip.cwrap(`zip_close`, `number`, [`number`]),
+  discard: libzip.cwrap(`zip_discard`, null, [`number`]),
+  getError: libzip.cwrap(`zip_get_error`, `number`, [`number`]),
+  getName: libzip.cwrap(`zip_get_name`, `string`, [`number`, `number`, `number`]),
+  getNumEntries: libzip.cwrap(`zip_get_num_entries`, `number`, [`number`, `number`]),
+  delete: libzip.cwrap(`zip_delete`, `number`, [`number`, `number`]),
+  stat: libzip.cwrap(`zip_stat`, `number`, [`number`, `string`, `number`, `number`]),
+  statIndex: libzip.cwrap(`zip_stat_index`, `number`, [`number`, ...number64, `number`, `number`]),
+  fopen: libzip.cwrap(`zip_fopen`, `number`, [`number`, `string`, `number`]),
+  fopenIndex: libzip.cwrap(`zip_fopen_index`, `number`, [`number`, ...number64, `number`]),
+  fread: libzip.cwrap(`zip_fread`, `number`, [`number`, `number`, `number`, `number`]),
+  fclose: libzip.cwrap(`zip_fclose`, `number`, [`number`]),
+  dir: {
+    add: libzip.cwrap(`zip_dir_add`, `number`, [`number`, `string`])
+  },
+  file: {
+    add: libzip.cwrap(`zip_file_add`, `number`, [`number`, `string`, `number`, `number`]),
+    getError: libzip.cwrap(`zip_file_get_error`, `number`, [`number`]),
+    getExternalAttributes: libzip.cwrap(`zip_file_get_external_attributes`, `number`, [`number`, ...number64, `number`, `number`, `number`]),
+    setExternalAttributes: libzip.cwrap(`zip_file_set_external_attributes`, `number`, [`number`, ...number64, `number`, `number`, `number`]),
+    setMtime: libzip.cwrap(`zip_file_set_mtime`, `number`, [`number`, ...number64, `number`, `number`]),
+    setCompression: libzip.cwrap(`zip_set_file_compression`, `number`, [`number`, ...number64, `number`, `number`])
+  },
+  ext: {
+    countSymlinks: libzip.cwrap(`zip_ext_count_symlinks`, `number`, [`number`])
+  },
+  error: {
+    initWithCode: libzip.cwrap(`zip_error_init_with_code`, null, [`number`, `number`]),
+    strerror: libzip.cwrap(`zip_error_strerror`, `string`, [`number`])
+  },
+  name: {
+    locate: libzip.cwrap(`zip_name_locate`, `number`, [`number`, `string`, `number`])
+  },
+  source: {
+    fromUnattachedBuffer: libzip.cwrap(`zip_source_buffer_create`, `number`, [`number`, `number`, `number`, `number`]),
+    fromBuffer: libzip.cwrap(`zip_source_buffer`, `number`, [`number`, `number`, ...number64, `number`]),
+    free: libzip.cwrap(`zip_source_free`, null, [`number`]),
+    keep: libzip.cwrap(`zip_source_keep`, null, [`number`]),
+    open: libzip.cwrap(`zip_source_open`, `number`, [`number`]),
+    close: libzip.cwrap(`zip_source_close`, `number`, [`number`]),
+    seek: libzip.cwrap(`zip_source_seek`, `number`, [`number`, ...number64, `number`]),
+    tell: libzip.cwrap(`zip_source_tell`, `number`, [`number`]),
+    read: libzip.cwrap(`zip_source_read`, `number`, [`number`, `number`, `number`]),
+    error: libzip.cwrap(`zip_source_error`, `number`, [`number`]),
+    setMtime: libzip.cwrap(`zip_source_set_mtime`, `number`, [`number`, `number`])
+  },
+  struct: {
+    stat: libzip.cwrap(`zipstruct_stat`, `number`, []),
+    statS: libzip.cwrap(`zipstruct_statS`, `number`, []),
+    statName: libzip.cwrap(`zipstruct_stat_name`, `string`, [`number`]),
+    statIndex: libzip.cwrap(`zipstruct_stat_index`, `number`, [`number`]),
+    statSize: libzip.cwrap(`zipstruct_stat_size`, `number`, [`number`]),
+    statCompSize: libzip.cwrap(`zipstruct_stat_comp_size`, `number`, [`number`]),
+    statCompMethod: libzip.cwrap(`zipstruct_stat_comp_method`, `number`, [`number`]),
+    statMtime: libzip.cwrap(`zipstruct_stat_mtime`, `number`, [`number`]),
+    statCrc: libzip.cwrap(`zipstruct_stat_crc`, `number`, [`number`]),
+    error: libzip.cwrap(`zipstruct_error`, `number`, []),
+    errorS: libzip.cwrap(`zipstruct_errorS`, `number`, []),
+    errorCodeZip: libzip.cwrap(`zipstruct_error_code_zip`, `number`, [`number`])
+  }
+});
+;// CONCATENATED MODULE: ../yarnpkg-libzip/sources/sync.ts
+
+let mod = null;
+function getLibzipSync() {
+  if (mod === null) mod = makeInterface(__webpack_require__(368));
+  return mod;
+}
+async function getLibzipPromise() {
+  return getLibzipSync();
+}
+// EXTERNAL MODULE: external "module"
+var external_module_ = __webpack_require__(282);
+var external_module_default = /*#__PURE__*/__webpack_require__.n(external_module_);
+;// CONCATENATED MODULE: external "string_decoder"
+const external_string_decoder_namespaceObject = require("string_decoder");;
+var external_string_decoder_default = /*#__PURE__*/__webpack_require__.n(external_string_decoder_namespaceObject);
+;// CONCATENATED MODULE: external "url"
+const external_url_namespaceObject = require("url");;
+;// CONCATENATED MODULE: ../yarnpkg-fslib/sources/URLFS.ts
+
+
+
+/**
+ * Adds support for file URLs to the wrapped `baseFs`, but *not* inside the typings.
+ *
+ * Only exists for compatibility with Node's behavior.
+ *
+ * Automatically wraps all FS instances passed to `patchFs` & `extendFs`.
+ *
+ * Don't use it!
+ */
+
+class URLFS extends ProxiedFS {
+  constructor(baseFs) {
+    super(npath);
+    this.baseFs = baseFs;
+  }
+
+  mapFromBase(path) {
+    return path;
+  }
+
+  mapToBase(path) {
+    if (path instanceof external_url_namespaceObject.URL) return (0,external_url_namespaceObject.fileURLToPath)(path);
+    return path;
+  }
+
+}
+;// CONCATENATED MODULE: ../yarnpkg-fslib/sources/patchFs.ts
+
+
+const SYNC_IMPLEMENTATIONS = new Set([`accessSync`, `appendFileSync`, `createReadStream`, `chmodSync`, `chownSync`, `closeSync`, `copyFileSync`, `linkSync`, `lstatSync`, `fstatSync`, `lutimesSync`, `mkdirSync`, `openSync`, `opendirSync`, `readSync`, `readlinkSync`, `readFileSync`, `readdirSync`, `readlinkSync`, `realpathSync`, `renameSync`, `rmdirSync`, `statSync`, `symlinkSync`, `truncateSync`, `unlinkSync`, `unwatchFile`, `utimesSync`, `watch`, `watchFile`, `writeFileSync`, `writeSync`]);
+const ASYNC_IMPLEMENTATIONS = new Set([`accessPromise`, `appendFilePromise`, `chmodPromise`, `chownPromise`, `closePromise`, `copyFilePromise`, `linkPromise`, `fstatPromise`, `lstatPromise`, `lutimesPromise`, `mkdirPromise`, `openPromise`, `opendirPromise`, `readdirPromise`, `realpathPromise`, `readFilePromise`, `readdirPromise`, `readlinkPromise`, `renamePromise`, `rmdirPromise`, `statPromise`, `symlinkPromise`, `truncatePromise`, `unlinkPromise`, `utimesPromise`, `writeFilePromise`, `writeSync`]);
+const FILEHANDLE_IMPLEMENTATIONS = new Set([`appendFilePromise`, `chmodPromise`, `chownPromise`, `closePromise`, `readPromise`, `readFilePromise`, `statPromise`, `truncatePromise`, `utimesPromise`, `writePromise`, `writeFilePromise`]);
+function patchFs(patchedFs, fakeFs) {
+  // We wrap the `fakeFs` with a `URLFS` to add support for URL instances
+  fakeFs = new URLFS(fakeFs);
+
+  const setupFn = (target, name, replacement) => {
+    const orig = target[name];
+    target[name] = replacement; // Preserve any util.promisify implementations
+
+    if (typeof (orig === null || orig === void 0 ? void 0 : orig[external_util_namespaceObject.promisify.custom]) !== `undefined`) {
+      replacement[external_util_namespaceObject.promisify.custom] = orig[external_util_namespaceObject.promisify.custom];
+    }
+  };
+  /** Callback implementations */
+
+
+  {
+    setupFn(patchedFs, `exists`, (p, ...args) => {
+      const hasCallback = typeof args[args.length - 1] === `function`;
+      const callback = hasCallback ? args.pop() : () => {};
+      process.nextTick(() => {
+        fakeFs.existsPromise(p).then(exists => {
+          callback(exists);
+        }, () => {
+          callback(false);
+        });
+      });
+    });
+    setupFn(patchedFs, `read`, (p, buffer, ...args) => {
+      const hasCallback = typeof args[args.length - 1] === `function`;
+      const callback = hasCallback ? args.pop() : () => {};
+      process.nextTick(() => {
+        fakeFs.readPromise(p, buffer, ...args).then(bytesRead => {
+          callback(null, bytesRead, buffer);
+        }, error => {
+          // https://github.com/nodejs/node/blob/1317252dfe8824fd9cfee125d2aaa94004db2f3b/lib/fs.js#L655-L658
+          // Known issue: bytesRead could theoretically be > than 0, but we currently always return 0
+          callback(error, 0, buffer);
+        });
+      });
+    });
+
+    for (const fnName of ASYNC_IMPLEMENTATIONS) {
+      const origName = fnName.replace(/Promise$/, ``);
+      if (typeof patchedFs[origName] === `undefined`) continue;
+      const fakeImpl = fakeFs[fnName];
+      if (typeof fakeImpl === `undefined`) continue;
+
+      const wrapper = (...args) => {
+        const hasCallback = typeof args[args.length - 1] === `function`;
+        const callback = hasCallback ? args.pop() : () => {};
+        process.nextTick(() => {
+          fakeImpl.apply(fakeFs, args).then(result => {
+            callback(null, result);
+          }, error => {
+            callback(error);
+          });
+        });
+      };
+
+      setupFn(patchedFs, origName, wrapper);
+    }
+
+    patchedFs.realpath.native = patchedFs.realpath;
+  }
+  /** Sync implementations */
+
+  {
+    setupFn(patchedFs, `existsSync`, p => {
+      try {
+        return fakeFs.existsSync(p);
+      } catch (error) {
+        return false;
+      }
+    });
+
+    for (const fnName of SYNC_IMPLEMENTATIONS) {
+      const origName = fnName;
+      if (typeof patchedFs[origName] === `undefined`) continue;
+      const fakeImpl = fakeFs[fnName];
+      if (typeof fakeImpl === `undefined`) continue;
+      setupFn(patchedFs, origName, fakeImpl.bind(fakeFs));
+    }
+
+    patchedFs.realpathSync.native = patchedFs.realpathSync;
+  }
+  /** Promise implementations */
+
+  {
+    // `fs.promises` is a getter that returns a reference to require(`fs/promises`),
+    // so we can just patch `fs.promises` and both will be updated
+    const origEmitWarning = process.emitWarning;
+
+    process.emitWarning = () => {};
+
+    let patchedFsPromises;
+
+    try {
+      patchedFsPromises = patchedFs.promises;
+    } finally {
+      process.emitWarning = origEmitWarning;
+    }
+
+    if (typeof patchedFsPromises !== `undefined`) {
+      // `fs.promises.exists` doesn't exist
+      for (const fnName of ASYNC_IMPLEMENTATIONS) {
+        const origName = fnName.replace(/Promise$/, ``);
+        if (typeof patchedFsPromises[origName] === `undefined`) continue;
+        const fakeImpl = fakeFs[fnName];
+        if (typeof fakeImpl === `undefined`) continue; // Open is a bit particular with fs.promises: it returns a file handle
+        // instance instead of the traditional file descriptor number
+
+        if (fnName === `open`) continue;
+        setupFn(patchedFsPromises, origName, fakeImpl.bind(fakeFs));
+      }
+
+      class FileHandle {
+        constructor(fd) {
+          this.fd = fd;
+        }
+
+      }
+
+      for (const fnName of FILEHANDLE_IMPLEMENTATIONS) {
+        const origName = fnName.replace(/Promise$/, ``);
+        const fakeImpl = fakeFs[fnName];
+        if (typeof fakeImpl === `undefined`) continue;
+        setupFn(FileHandle.prototype, origName, function (...args) {
+          return fakeImpl.call(fakeFs, this.fd, ...args);
+        });
+      }
+
+      setupFn(patchedFsPromises, `open`, async (...args) => {
+        // @ts-expect-error
+        const fd = await fakeFs.openPromise(...args);
+        return new FileHandle(fd);
+      }); // `fs.promises.realpath` doesn't have a `native` property
+    }
+  }
+  /** util.promisify implementations */
+
+  {
+    // Override the promisified version of `fs.read` to return an object as per
+    // https://github.com/nodejs/node/blob/dc79f3f37caf6f25b8efee4623bec31e2c20f595/lib/fs.js#L559-L560
+    // and
+    // https://github.com/nodejs/node/blob/ba684805b6c0eded76e5cd89ee00328ac7a59365/lib/internal/util.js#L293
+    // @ts-expect-error
+    patchedFs.read[external_util_namespaceObject.promisify.custom] = async (p, buffer, ...args) => {
+      const res = fakeFs.readPromise(p, buffer, ...args);
+      return {
+        bytesRead: await res,
+        buffer
+      };
+    };
+  }
+}
+function extendFs(realFs, fakeFs) {
+  const patchedFs = Object.create(realFs);
+  patchFs(patchedFs, fakeFs);
+  return patchedFs;
+}
+;// CONCATENATED MODULE: ../yarnpkg-fslib/sources/PosixFS.ts
+
+
+class PosixFS extends ProxiedFS {
+  constructor(baseFs) {
+    super(npath);
+    this.baseFs = baseFs;
+  }
+
+  mapFromBase(path) {
+    return npath.fromPortablePath(path);
+  }
+
+  mapToBase(path) {
+    return npath.toPortablePath(path);
+  }
+
+}
+;// CONCATENATED MODULE: ./sources/loader/internalTools.ts
+
+var ErrorCode;
+
+(function (ErrorCode) {
+  ErrorCode["API_ERROR"] = "API_ERROR";
+  ErrorCode["BUILTIN_NODE_RESOLUTION_FAILED"] = "BUILTIN_NODE_RESOLUTION_FAILED";
+  ErrorCode["MISSING_DEPENDENCY"] = "MISSING_DEPENDENCY";
+  ErrorCode["MISSING_PEER_DEPENDENCY"] = "MISSING_PEER_DEPENDENCY";
+  ErrorCode["QUALIFIED_PATH_RESOLUTION_FAILED"] = "QUALIFIED_PATH_RESOLUTION_FAILED";
+  ErrorCode["INTERNAL"] = "INTERNAL";
+  ErrorCode["UNDECLARED_DEPENDENCY"] = "UNDECLARED_DEPENDENCY";
+  ErrorCode["UNSUPPORTED"] = "UNSUPPORTED";
+})(ErrorCode || (ErrorCode = {})); // Some errors are exposed as MODULE_NOT_FOUND for compatibility with packages
+// that expect this umbrella error when the resolution fails
+
+
+const MODULE_NOT_FOUND_ERRORS = new Set([ErrorCode.BUILTIN_NODE_RESOLUTION_FAILED, ErrorCode.MISSING_DEPENDENCY, ErrorCode.MISSING_PEER_DEPENDENCY, ErrorCode.QUALIFIED_PATH_RESOLUTION_FAILED, ErrorCode.UNDECLARED_DEPENDENCY]);
+/**
+ * Simple helper function that assign an error code to an error, so that it can more easily be caught and used
+ * by third-parties.
+ */
+
+function internalTools_makeError(pnpCode, message, data = {}) {
+  const code = MODULE_NOT_FOUND_ERRORS.has(pnpCode) ? `MODULE_NOT_FOUND` : pnpCode;
+  const propertySpec = {
+    configurable: true,
+    writable: true,
+    enumerable: false
+  };
+  return Object.defineProperties(new Error(message), {
+    code: { ...propertySpec,
+      value: code
+    },
+    pnpCode: { ...propertySpec,
+      value: pnpCode
+    },
+    data: { ...propertySpec,
+      value: data
+    }
+  });
+}
+/**
+ * Returns the module that should be used to resolve require calls. It's usually the direct parent, except if we're
+ * inside an eval expression.
+ */
+
+function getIssuerModule(parent) {
+  let issuer = parent;
+
+  while (issuer && (issuer.id === `[eval]` || issuer.id === `<repl>` || !issuer.filename)) issuer = issuer.parent;
+
+  return issuer || null;
+}
+function getPathForDisplay(p) {
+  return npath.normalize(npath.fromPortablePath(p));
+}
+;// CONCATENATED MODULE: ./sources/loader/applyPatch.ts
+
+
+
+
+
+function applyPatch(pnpapi, opts) {
+  // @ts-expect-error
+  const builtinModules = new Set(external_module_.Module.builtinModules || Object.keys(process.binding(`natives`)));
+
+  const isBuiltinModule = request => builtinModules.has(request) || request.startsWith(`node:`);
+  /**
+   * The cache that will be used for all accesses occurring outside of a PnP context.
+   */
+
+
+  const defaultCache = {};
+  /**
+   * Used to disable the resolution hooks (for when we want to fallback to the previous resolution - we then need
+   * a way to "reset" the environment temporarily)
+   */
+
+  let enableNativeHooks = true; // @ts-expect-error
+
+  process.versions.pnp = String(pnpapi.VERSIONS.std);
+
+  const moduleExports = __webpack_require__(282);
+
+  moduleExports.findPnpApi = lookupSource => {
+    const lookupPath = lookupSource instanceof external_url_namespaceObject.URL ? (0,external_url_namespaceObject.fileURLToPath)(lookupSource) : lookupSource;
+    const apiPath = opts.manager.findApiPathFor(lookupPath);
+    if (apiPath === null) return null;
+    const apiEntry = opts.manager.getApiEntry(apiPath, true); // Check if the path is ignored
+
+    return apiEntry.instance.findPackageLocator(lookupPath) ? apiEntry.instance : null;
+  };
+
+  function getRequireStack(parent) {
+    const requireStack = [];
+
+    for (let cursor = parent; cursor; cursor = cursor.parent) requireStack.push(cursor.filename || cursor.id);
+
+    return requireStack;
+  } // A small note: we don't replace the cache here (and instead use the native one). This is an effort to not
+  // break code similar to "delete require.cache[require.resolve(FOO)]", where FOO is a package located outside
+  // of the Yarn dependency tree. In this case, we defer the load to the native loader. If we were to replace the
+  // cache by our own, the native loader would populate its own cache, which wouldn't be exposed anymore, so the
+  // delete call would be broken.
+
+
+  const originalModuleLoad = external_module_.Module._load;
+
+  external_module_.Module._load = function (request, parent, isMain) {
+    if (!enableNativeHooks) return originalModuleLoad.call(external_module_.Module, request, parent, isMain); // Builtins are managed by the regular Node loader
+
+    if (isBuiltinModule(request)) {
+      try {
+        enableNativeHooks = false;
+        return originalModuleLoad.call(external_module_.Module, request, parent, isMain);
+      } finally {
+        enableNativeHooks = true;
+      }
+    }
+
+    const parentApiPath = opts.manager.getApiPathFromParent(parent);
+    const parentApi = parentApiPath !== null ? opts.manager.getApiEntry(parentApiPath, true).instance : null; // Requests that aren't covered by the PnP runtime goes through the
+    // parent `_load` implementation. This is required for VSCode, for example,
+    // which override `_load` to provide additional builtins to its extensions.
+
+    if (parentApi === null) return originalModuleLoad(request, parent, isMain); // The 'pnpapi' name is reserved to return the PnP api currently in use
+    // by the program
+
+    if (request === `pnpapi`) return parentApi; // Request `Module._resolveFilename` (ie. `resolveRequest`) to tell us
+    // which file we should load
+
+    const modulePath = external_module_.Module._resolveFilename(request, parent, isMain); // We check whether the module is owned by the dependency tree of the
+    // module that required it. If it isn't, then we need to create a new
+    // store and possibly load its sandboxed PnP runtime.
+
+
+    const isOwnedByRuntime = parentApi !== null ? parentApi.findPackageLocator(modulePath) !== null : false;
+    const moduleApiPath = isOwnedByRuntime ? parentApiPath : opts.manager.findApiPathFor(npath.dirname(modulePath));
+    const entry = moduleApiPath !== null ? opts.manager.getApiEntry(moduleApiPath) : {
+      instance: null,
+      cache: defaultCache
+    }; // Check if the module has already been created for the given file
+
+    const cacheEntry = entry.cache[modulePath];
+
+    if (cacheEntry) {
+      // When a dynamic import is used in CJS files Node adds the module
+      // to the cache but doesn't load it so we do it here.
+      //
+      // Keep track of and check if the module is already loading to
+      // handle circular requires.
+      //
+      // The explicit checks are required since `@babel/register` et al.
+      // create modules without the `loaded` and `load` properties
+      if (cacheEntry.loaded === false && cacheEntry.isLoading !== true) {
+        try {
+          cacheEntry.isLoading = true;
+          cacheEntry.load(modulePath);
+        } finally {
+          cacheEntry.isLoading = false;
+        }
+      }
+
+      return cacheEntry.exports;
+    } // Create a new module and store it into the cache
+
+
+    const module = new external_module_.Module(modulePath, parent !== null && parent !== void 0 ? parent : undefined);
+    module.pnpApiPath = moduleApiPath;
+    entry.cache[modulePath] = module; // The main module is exposed as global variable
+
+    if (isMain) {
+      process.mainModule = module;
+      module.id = `.`;
+    } // Try to load the module, and remove it from the cache if it fails
+
+
+    let hasThrown = true;
+
+    try {
+      module.isLoading = true;
+      module.load(modulePath);
+      hasThrown = false;
+    } finally {
+      module.isLoading = false;
+
+      if (hasThrown) {
+        delete external_module_.Module._cache[modulePath];
+      }
+    }
+
+    return module.exports;
+  };
+
+  function getIssuerSpecsFromPaths(paths) {
+    return paths.map(path => ({
+      apiPath: opts.manager.findApiPathFor(path),
+      path,
+      module: null
+    }));
+  }
+
+  function getIssuerSpecsFromModule(module) {
+    var _a;
+
+    if (module && module.id !== `<repl>` && module.id !== `internal/preload` && !module.parent && !module.filename && module.paths.length > 0) {
+      return [{
+        apiPath: opts.manager.findApiPathFor(module.paths[0]),
+        path: module.paths[0],
+        module
+      }];
+    }
+
+    const issuer = getIssuerModule(module);
+
+    if (issuer !== null) {
+      const path = npath.dirname(issuer.filename);
+      const apiPath = opts.manager.getApiPathFromParent(issuer);
+      return [{
+        apiPath,
+        path,
+        module
+      }];
+    } else {
+      const path = process.cwd();
+      const apiPath = (_a = opts.manager.findApiPathFor(npath.join(path, `[file]`))) !== null && _a !== void 0 ? _a : opts.manager.getApiPathFromParent(null);
+      return [{
+        apiPath,
+        path,
+        module
+      }];
+    }
+  }
+
+  function makeFakeParent(path) {
+    const fakeParent = new external_module_.Module(``);
+    const fakeFilePath = npath.join(path, `[file]`);
+    fakeParent.paths = external_module_.Module._nodeModulePaths(fakeFilePath);
+    return fakeParent;
+  } // Splits a require request into its components, or return null if the request is a file path
+
+
+  const pathRegExp = /^(?![a-zA-Z]:[\\/]|\\\\|\.{0,2}(?:\/|$))((?:@[^/]+\/)?[^/]+)\/*(.*|)$/;
+  const originalModuleResolveFilename = external_module_.Module._resolveFilename;
+
+  external_module_.Module._resolveFilename = function (request, parent, isMain, options) {
+    if (isBuiltinModule(request)) return request;
+    if (!enableNativeHooks) return originalModuleResolveFilename.call(external_module_.Module, request, parent, isMain, options);
+
+    if (options && options.plugnplay === false) {
+      const {
+        plugnplay,
+        ...rest
+      } = options; // Workaround a bug present in some version of Node (now fixed)
+      // https://github.com/nodejs/node/pull/28078
+
+      const forwardedOptions = Object.keys(rest).length > 0 ? rest : undefined;
+
+      try {
+        enableNativeHooks = false;
+        return originalModuleResolveFilename.call(external_module_.Module, request, parent, isMain, forwardedOptions);
+      } finally {
+        enableNativeHooks = true;
+      }
+    } // We check that all the options present here are supported; better
+    // to fail fast than to introduce subtle bugs in the runtime.
+
+
+    if (options) {
+      const optionNames = new Set(Object.keys(options));
+      optionNames.delete(`paths`);
+      optionNames.delete(`plugnplay`);
+
+      if (optionNames.size > 0) {
+        throw internalTools_makeError(ErrorCode.UNSUPPORTED, `Some options passed to require() aren't supported by PnP yet (${Array.from(optionNames).join(`, `)})`);
+      }
+    }
+
+    const issuerSpecs = options && options.paths ? getIssuerSpecsFromPaths(options.paths) : getIssuerSpecsFromModule(parent);
+
+    if (request.match(pathRegExp) === null) {
+      const parentDirectory = (parent === null || parent === void 0 ? void 0 : parent.filename) != null ? npath.dirname(parent.filename) : null;
+      const absoluteRequest = npath.isAbsolute(request) ? request : parentDirectory !== null ? npath.resolve(parentDirectory, request) : null;
+
+      if (absoluteRequest !== null) {
+        const apiPath = parentDirectory === npath.dirname(absoluteRequest) && (parent === null || parent === void 0 ? void 0 : parent.pnpApiPath) ? parent.pnpApiPath : opts.manager.findApiPathFor(absoluteRequest);
+
+        if (apiPath !== null) {
+          issuerSpecs.unshift({
+            apiPath,
+            path: parentDirectory,
+            module: null
+          });
+        }
+      }
+    }
+
+    let firstError;
+
+    for (const {
+      apiPath,
+      path,
+      module
+    } of issuerSpecs) {
+      let resolution;
+      const issuerApi = apiPath !== null ? opts.manager.getApiEntry(apiPath, true).instance : null;
+
+      try {
+        if (issuerApi !== null) {
+          resolution = issuerApi.resolveRequest(request, path !== null ? `${path}/` : null);
+        } else {
+          if (path === null) throw new Error(`Assertion failed: Expected the path to be set`);
+          resolution = originalModuleResolveFilename.call(external_module_.Module, request, module || makeFakeParent(path), isMain);
+        }
+      } catch (error) {
+        firstError = firstError || error;
+        continue;
+      }
+
+      if (resolution !== null) {
+        return resolution;
+      }
+    }
+
+    const requireStack = getRequireStack(parent);
+    Object.defineProperty(firstError, `requireStack`, {
+      configurable: true,
+      writable: true,
+      enumerable: false,
+      value: requireStack
+    });
+    if (requireStack.length > 0) firstError.message += `\nRequire stack:\n- ${requireStack.join(`\n- `)}`;
+    if (typeof firstError.pnpCode === `string`) Error.captureStackTrace(firstError);
+    throw firstError;
+  };
+
+  const originalFindPath = external_module_.Module._findPath;
+
+  external_module_.Module._findPath = function (request, paths, isMain) {
+    if (request === `pnpapi`) return false; // Node sometimes call this function with an absolute path and a `null` set
+    // of paths. This would cause the resolution to fail. To avoid that, we
+    // fallback on the regular resolution. We only do this when `isMain` is
+    // true because the Node default resolution doesn't handle well in-zip
+    // paths, even absolute, so we try to use it as little as possible.
+
+    if (!enableNativeHooks || isMain && npath.isAbsolute(request)) return originalFindPath.call(external_module_.Module, request, paths, isMain);
+
+    for (const path of paths || []) {
+      let resolution;
+
+      try {
+        const pnpApiPath = opts.manager.findApiPathFor(path);
+
+        if (pnpApiPath !== null) {
+          const api = opts.manager.getApiEntry(pnpApiPath, true).instance;
+          resolution = api.resolveRequest(request, path) || false;
+        } else {
+          resolution = originalFindPath.call(external_module_.Module, request, [path], isMain);
+        }
+      } catch (error) {
+        continue;
+      }
+
+      if (resolution) {
+        return resolution;
+      }
+    }
+
+    return false;
+  };
+
+  patchFs((external_fs_default()), new PosixFS(opts.fakeFs));
+}
+;// CONCATENATED MODULE: ./sources/loader/hydrateRuntimeState.ts
+
+function hydrateRuntimeState(data, {
+  basePath
+}) {
+  const portablePath = npath.toPortablePath(basePath);
+  const absolutePortablePath = ppath.resolve(portablePath);
+  const ignorePattern = data.ignorePatternData !== null ? new RegExp(data.ignorePatternData) : null;
+  const packageLocatorsByLocations = new Map();
+  const packageRegistry = new Map(data.packageRegistryData.map(([packageName, packageStoreData]) => {
+    return [packageName, new Map(packageStoreData.map(([packageReference, packageInformationData]) => {
+      var _a;
+
+      if (packageName === null !== (packageReference === null)) throw new Error(`Assertion failed: The name and reference should be null, or neither should`);
+      const discardFromLookup = (_a = packageInformationData.discardFromLookup) !== null && _a !== void 0 ? _a : false; // @ts-expect-error: TypeScript isn't smart enough to understand the type assertion
+
+      const packageLocator = {
+        name: packageName,
+        reference: packageReference
+      };
+      const entry = packageLocatorsByLocations.get(packageInformationData.packageLocation);
+
+      if (!entry) {
+        packageLocatorsByLocations.set(packageInformationData.packageLocation, {
+          locator: packageLocator,
+          discardFromLookup
+        });
+      } else {
+        entry.discardFromLookup = entry.discardFromLookup && discardFromLookup;
+
+        if (!discardFromLookup) {
+          entry.locator = packageLocator;
+        }
+      }
+
+      let resolvedPackageLocation = null;
+      return [packageReference, {
+        packageDependencies: new Map(packageInformationData.packageDependencies),
+        packagePeers: new Set(packageInformationData.packagePeers),
+        linkType: packageInformationData.linkType,
+        discardFromLookup,
+
+        // we only need this for packages that are used by the currently running script
+        // this is a lazy getter because `ppath.join` has some overhead
+        get packageLocation() {
+          // We use ppath.join instead of ppath.resolve because:
+          // 1) packageInformationData.packageLocation is a relative path when part of the SerializedState
+          // 2) ppath.join preserves trailing slashes
+          return resolvedPackageLocation || (resolvedPackageLocation = ppath.join(absolutePortablePath, packageInformationData.packageLocation));
+        }
+
+      }];
+    }))];
+  }));
+  const fallbackExclusionList = new Map(data.fallbackExclusionList.map(([packageName, packageReferences]) => {
+    return [packageName, new Set(packageReferences)];
+  }));
+  const fallbackPool = new Map(data.fallbackPool);
+  const dependencyTreeRoots = data.dependencyTreeRoots;
+  const enableTopLevelFallback = data.enableTopLevelFallback;
+  return {
+    basePath: portablePath,
+    dependencyTreeRoots,
+    enableTopLevelFallback,
+    fallbackExclusionList,
+    fallbackPool,
+    ignorePattern,
+    packageLocatorsByLocations,
+    packageRegistry
+  };
+}
+;// CONCATENATED MODULE: ../../.yarn/cache/resolve.exports-npm-1.0.2-bbb8d62ef6-1de1e50dc6.zip/node_modules/resolve.exports/dist/index.mjs
+/**
+ * @param {object} exports
+ * @param {Set<string>} keys
+ */
+function loop(exports, keys) {
+	if (typeof exports === 'string') {
+		return exports;
+	}
+
+	if (exports) {
+		let idx, tmp;
+		if (Array.isArray(exports)) {
+			for (idx=0; idx < exports.length; idx++) {
+				if (tmp = loop(exports[idx], keys)) return tmp;
+			}
+		} else {
+			for (idx in exports) {
+				if (keys.has(idx)) {
+					return loop(exports[idx], keys);
+				}
+			}
+		}
+	}
+}
+
+/**
+ * @param {string} name The package name
+ * @param {string} entry The target entry, eg "."
+ * @param {number} [condition] Unmatched condition?
+ */
+function bail(name, entry, condition) {
+	throw new Error(
+		condition
+		? `No known conditions for "${entry}" entry in "${name}" package`
+		: `Missing "${entry}" export in "${name}" package`
+	);
+}
+
+/**
+ * @param {string} name the package name
+ * @param {string} entry the target path/import
+ */
+function toName(name, entry) {
+	return entry === name ? '.'
+		: entry[0] === '.' ? entry
+		: entry.replace(new RegExp('^' + name + '\/'), './');
+}
+
+/**
+ * @param {object} pkg package.json contents
+ * @param {string} [entry] entry name or import path
+ * @param {object} [options]
+ * @param {boolean} [options.browser]
+ * @param {boolean} [options.require]
+ * @param {string[]} [options.conditions]
+ */
+function resolve(pkg, entry='.', options={}) {
+	let { name, exports } = pkg;
+
+	if (exports) {
+		let { browser, require, conditions=[] } = options;
+
+		let target = toName(name, entry);
+		if (target[0] !== '.') target = './' + target;
+
+		if (typeof exports === 'string') {
+			return target === '.' ? exports : bail(name, target);
+		}
+
+		let allows = new Set(['default', ...conditions]);
+		allows.add(require ? 'require' : 'import');
+		allows.add(browser ? 'browser' : 'node');
+
+		let key, tmp, isSingle=false;
+
+		for (key in exports) {
+			isSingle = key[0] !== '.';
+			break;
+		}
+
+		if (isSingle) {
+			return target === '.'
+				? loop(exports, allows) || bail(name, target, 1)
+				: bail(name, target);
+		}
+
+		if (tmp = exports[target]) {
+			return loop(tmp, allows) || bail(name, target, 1);
+		}
+
+		for (key in exports) {
+			tmp = key[key.length - 1];
+			if (tmp === '/' && target.startsWith(key)) {
+				return (tmp = loop(exports[key], allows))
+					? (tmp + target.substring(key.length))
+					: bail(name, target, 1);
+			}
+			if (tmp === '*' && target.startsWith(key.slice(0, -1))) {
+				// do not trigger if no *content* to inject
+				if (target.substring(key.length - 1).length > 0) {
+					return (tmp = loop(exports[key], allows))
+						? tmp.replace('*', target.substring(key.length - 1))
+						: bail(name, target, 1);
+				}
+			}
+		}
+
+		return bail(name, target);
+	}
+}
+
+/**
+ * @param {object} pkg
+ * @param {object} [options]
+ * @param {string|boolean} [options.browser]
+ * @param {string[]} [options.fields]
+ */
+function legacy(pkg, options={}) {
+	let i=0, value,
+		browser = options.browser,
+		fields = options.fields || ['module', 'main'];
+
+	if (browser && !fields.includes('browser')) {
+		fields.unshift('browser');
+	}
+
+	for (; i < fields.length; i++) {
+		if (value = pkg[fields[i]]) {
+			if (typeof value == 'string') {
+				//
+			} else if (typeof value == 'object' && fields[i] == 'browser') {
+				if (typeof browser == 'string') {
+					value = value[browser=toName(pkg.name, browser)];
+					if (value == null) return browser;
+				}
+			} else {
+				continue;
+			}
+
+			return typeof value == 'string'
+				? ('./' + value.replace(/^\.?\//, ''))
+				: value;
+		}
+	}
+}
+
+;// CONCATENATED MODULE: ./sources/loader/makeApi.ts
+
+
+
+
+
+
+function makeApi(runtimeState, opts) {
+  const alwaysWarnOnFallback = Number(process.env.PNP_ALWAYS_WARN_ON_FALLBACK) > 0;
+  const debugLevel = Number(process.env.PNP_DEBUG_LEVEL); // @ts-expect-error
+
+  const builtinModules = new Set(external_module_.Module.builtinModules || Object.keys(process.binding(`natives`)));
+
+  const isBuiltinModule = request => builtinModules.has(request) || request.startsWith(`node:`); // Splits a require request into its components, or return null if the request is a file path
+
+
+  const pathRegExp = /^(?![a-zA-Z]:[\\/]|\\\\|\.{0,2}(?:\/|$))((?:node:)?(?:@[^/]+\/)?[^/]+)\/*(.*|)$/; // Matches if the path starts with a valid path qualifier (./, ../, /)
+  // eslint-disable-next-line no-unused-vars
+
+  const isStrictRegExp = /^(\/|\.{1,2}(\/|$))/; // Matches if the path must point to a directory (ie ends with /)
+
+  const isDirRegExp = /\/$/; // Matches if the path starts with a relative path qualifier (./, ../)
+
+  const isRelativeRegexp = /^\.{0,2}\//; // We only instantiate one of those so that we can use strict-equal comparisons
+
+  const topLevelLocator = {
+    name: null,
+    reference: null
+  }; // Used for compatibility purposes - cf setupCompatibilityLayer
+
+  const fallbackLocators = []; // To avoid emitting the same warning multiple times
+
+  const emittedWarnings = new Set();
+  if (runtimeState.enableTopLevelFallback === true) fallbackLocators.push(topLevelLocator);
+
+  if (opts.compatibilityMode !== false) {
+    // ESLint currently doesn't have any portable way for shared configs to
+    // specify their own plugins that should be used (cf issue #10125). This
+    // will likely get fixed at some point but it'll take time, so in the
+    // meantime we'll just add additional fallback entries for common shared
+    // configs.
+    // Similarly, Gatsby generates files within the `public` folder located
+    // within the project, but doesn't pre-resolve the `require` calls to use
+    // its own dependencies. Meaning that when PnP see a file from the `public`
+    // folder making a require, it thinks that your project forgot to list one
+    // of your dependencies.
+    for (const name of [`react-scripts`, `gatsby`]) {
+      const packageStore = runtimeState.packageRegistry.get(name);
+
+      if (packageStore) {
+        for (const reference of packageStore.keys()) {
+          if (reference === null) {
+            throw new Error(`Assertion failed: This reference shouldn't be null`);
+          } else {
+            fallbackLocators.push({
+              name,
+              reference
+            });
+          }
+        }
+      }
+    }
+  }
+  /**
+   * The setup code will be injected here. The tables listed below are guaranteed to be filled after the call to
+   * the $$DYNAMICALLY_GENERATED_CODE function.
+   */
+
+
+  const {
+    ignorePattern,
+    packageRegistry,
+    packageLocatorsByLocations
+  } = runtimeState;
+  /**
+   * Allows to print useful logs just be setting a value in the environment
+   */
+
+  function makeLogEntry(name, args) {
+    return {
+      fn: name,
+      args,
+      error: null,
+      result: null
+    };
+  }
+
+  function trace(entry) {
+    var _a, _b, _c, _d, _e, _f;
+
+    const colors = (_c = (_b = (_a = process.stderr) === null || _a === void 0 ? void 0 : _a.hasColors) === null || _b === void 0 ? void 0 : _b.call(_a)) !== null && _c !== void 0 ? _c : process.stdout.isTTY;
+
+    const c = (n, str) => `\u001b[${n}m${str}\u001b[0m`;
+
+    const error = entry.error;
+    if (error) console.error(c(`31;1`, `✖ ${(_d = entry.error) === null || _d === void 0 ? void 0 : _d.message.replace(/\n.*/s, ``)}`));else console.error(c(`33;1`, `‼ Resolution`));
+    if (entry.args.length > 0) console.error();
+
+    for (const arg of entry.args) console.error(`  ${c(`37;1`, `In ←`)} ${(0,external_util_namespaceObject.inspect)(arg, {
+      colors,
+      compact: true
+    })}`);
+
+    if (entry.result) {
+      console.error();
+      console.error(`  ${c(`37;1`, `Out →`)} ${(0,external_util_namespaceObject.inspect)(entry.result, {
+        colors,
+        compact: true
+      })}`);
+    }
+
+    const stack = (_f = (_e = new Error().stack.match(/(?<=^ +)at.*/gm)) === null || _e === void 0 ? void 0 : _e.slice(2)) !== null && _f !== void 0 ? _f : [];
+
+    if (stack.length > 0) {
+      console.error();
+
+      for (const line of stack) {
+        console.error(`  ${c(`38;5;244`, line)}`);
+      }
+    }
+
+    console.error();
+  }
+
+  function maybeLog(name, fn) {
+    if (opts.allowDebug === false) return fn;
+
+    if (Number.isFinite(debugLevel)) {
+      if (debugLevel >= 2) {
+        return (...args) => {
+          const logEntry = makeLogEntry(name, args);
+
+          try {
+            return logEntry.result = fn(...args);
+          } catch (error) {
+            throw logEntry.error = error;
+          } finally {
+            trace(logEntry);
+          }
+        };
+      } else if (debugLevel >= 1) {
+        return (...args) => {
+          try {
+            return fn(...args);
+          } catch (error) {
+            const logEntry = makeLogEntry(name, args);
+            logEntry.error = error;
+            trace(logEntry);
+            throw error;
+          }
+        };
+      }
+    }
+
+    return fn;
+  }
+  /**
+   * Returns information about a package in a safe way (will throw if they cannot be retrieved)
+   */
+
+
+  function getPackageInformationSafe(packageLocator) {
+    const packageInformation = getPackageInformation(packageLocator);
+
+    if (!packageInformation) {
+      throw internalTools_makeError(ErrorCode.INTERNAL, `Couldn't find a matching entry in the dependency tree for the specified parent (this is probably an internal error)`);
+    }
+
+    return packageInformation;
+  }
+  /**
+   * Returns whether the specified locator is a dependency tree root (in which case it's part of the project) or not
+   */
+
+
+  function isDependencyTreeRoot(packageLocator) {
+    if (packageLocator.name === null) return true;
+
+    for (const dependencyTreeRoot of runtimeState.dependencyTreeRoots) if (dependencyTreeRoot.name === packageLocator.name && dependencyTreeRoot.reference === packageLocator.reference) return true;
+
+    return false;
+  }
+  /**
+   * Implements the node resolution for the "exports" field
+   *
+   * @returns The remapped path or `null` if the package doesn't have a package.json or an "exports" field
+   */
+
+
+  function applyNodeExportsResolution(unqualifiedPath) {
+    const locator = findPackageLocator(ppath.join(unqualifiedPath, `internal.js`), {
+      resolveIgnored: true,
+      includeDiscardFromLookup: true
+    });
+
+    if (locator === null) {
+      throw internalTools_makeError(ErrorCode.INTERNAL, `The locator that owns the "${unqualifiedPath}" path can't be found inside the dependency tree (this is probably an internal error)`);
+    }
+
+    const {
+      packageLocation
+    } = getPackageInformationSafe(locator);
+    const manifestPath = ppath.join(packageLocation, Filename.manifest);
+    if (!opts.fakeFs.existsSync(manifestPath)) return null;
+    const pkgJson = JSON.parse(opts.fakeFs.readFileSync(manifestPath, `utf8`));
+    let subpath = ppath.contains(packageLocation, unqualifiedPath);
+
+    if (subpath === null) {
+      throw internalTools_makeError(ErrorCode.INTERNAL, `unqualifiedPath doesn't contain the packageLocation (this is probably an internal error)`);
+    }
+
+    if (!isRelativeRegexp.test(subpath)) subpath = `./${subpath}`;
+    const resolvedExport = resolve(pkgJson, ppath.normalize(subpath), {
+      browser: false,
+      require: true,
+      // TODO: implement support for the --conditions flag
+      // Waiting on https://github.com/nodejs/node/issues/36935
+      conditions: []
+    });
+    if (typeof resolvedExport === `string`) return ppath.join(packageLocation, resolvedExport);
+    return null;
+  }
+  /**
+   * Implements the node resolution for folder access and extension selection
+   */
+
+
+  function applyNodeExtensionResolution(unqualifiedPath, candidates, {
+    extensions
+  }) {
+    let stat;
+
+    try {
+      candidates.push(unqualifiedPath);
+      stat = opts.fakeFs.statSync(unqualifiedPath);
+    } catch (error) {} // If the file exists and is a file, we can stop right there
+
+
+    if (stat && !stat.isDirectory()) return opts.fakeFs.realpathSync(unqualifiedPath); // If the file is a directory, we must check if it contains a package.json with a "main" entry
+
+    if (stat && stat.isDirectory()) {
+      let pkgJson;
+
+      try {
+        pkgJson = JSON.parse(opts.fakeFs.readFileSync(ppath.join(unqualifiedPath, Filename.manifest), `utf8`));
+      } catch (error) {}
+
+      let nextUnqualifiedPath;
+      if (pkgJson && pkgJson.main) nextUnqualifiedPath = ppath.resolve(unqualifiedPath, pkgJson.main); // If the "main" field changed the path, we start again from this new location
+
+      if (nextUnqualifiedPath && nextUnqualifiedPath !== unqualifiedPath) {
+        const resolution = applyNodeExtensionResolution(nextUnqualifiedPath, candidates, {
+          extensions
+        });
+
+        if (resolution !== null) {
+          return resolution;
+        }
+      }
+    } // Otherwise we check if we find a file that match one of the supported extensions
+
+
+    for (let i = 0, length = extensions.length; i < length; i++) {
+      const candidateFile = `${unqualifiedPath}${extensions[i]}`;
+      candidates.push(candidateFile);
+
+      if (opts.fakeFs.existsSync(candidateFile)) {
+        return candidateFile;
+      }
+    } // Otherwise, we check if the path is a folder - in such a case, we try to use its index
+
+
+    if (stat && stat.isDirectory()) {
+      for (let i = 0, length = extensions.length; i < length; i++) {
+        const candidateFile = ppath.format({
+          dir: unqualifiedPath,
+          name: `index`,
+          ext: extensions[i]
+        });
+        candidates.push(candidateFile);
+
+        if (opts.fakeFs.existsSync(candidateFile)) {
+          return candidateFile;
+        }
+      }
+    } // Otherwise there's nothing else we can do :(
+
+
+    return null;
+  }
+  /**
+   * This function creates fake modules that can be used with the _resolveFilename function.
+   * Ideally it would be nice to be able to avoid this, since it causes useless allocations
+   * and cannot be cached efficiently (we recompute the nodeModulePaths every time).
+   *
+   * Fortunately, this should only affect the fallback, and there hopefully shouldn't have a
+   * lot of them.
+   */
+
+
+  function makeFakeModule(path) {
+    // @ts-expect-error
+    const fakeModule = new external_module_.Module(path, null);
+    fakeModule.filename = path;
+    fakeModule.paths = external_module_.Module._nodeModulePaths(path);
+    return fakeModule;
+  }
+  /**
+   * Forward the resolution to the next resolver (usually the native one)
+   */
+
+
+  function callNativeResolution(request, issuer) {
+    if (issuer.endsWith(`/`)) issuer = ppath.join(issuer, `internal.js`); // Since we would need to create a fake module anyway (to call _resolveLookupPath that
+    // would give us the paths to give to _resolveFilename), we can as well not use
+    // the {paths} option at all, since it internally makes _resolveFilename create another
+    // fake module anyway.
+
+    return external_module_.Module._resolveFilename(npath.fromPortablePath(request), makeFakeModule(npath.fromPortablePath(issuer)), false, {
+      plugnplay: false
+    });
+  }
+  /**
+   *
+   */
+
+
+  function isPathIgnored(path) {
+    if (ignorePattern === null) return false;
+    const subPath = ppath.contains(runtimeState.basePath, path);
+    if (subPath === null) return false;
+
+    if (ignorePattern.test(subPath.replace(/\/$/, ``))) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+  /**
+   * This key indicates which version of the standard is implemented by this resolver. The `std` key is the
+   * Plug'n'Play standard, and any other key are third-party extensions. Third-party extensions are not allowed
+   * to override the standard, and can only offer new methods.
+   *
+   * If a new version of the Plug'n'Play standard is released and some extensions conflict with newly added
+   * functions, they'll just have to fix the conflicts and bump their own version number.
+   */
+
+
+  const VERSIONS = {
+    std: 3,
+    resolveVirtual: 1,
+    getAllLocators: 1
+  };
+  /**
+   * We export a special symbol for easy access to the top level locator.
+   */
+
+  const topLevel = topLevelLocator;
+  /**
+   * Gets the package information for a given locator. Returns null if they cannot be retrieved.
+   */
+
+  function getPackageInformation({
+    name,
+    reference
+  }) {
+    const packageInformationStore = packageRegistry.get(name);
+    if (!packageInformationStore) return null;
+    const packageInformation = packageInformationStore.get(reference);
+    if (!packageInformation) return null;
+    return packageInformation;
+  }
+  /**
+   * Find all packages that depend on the specified one.
+   *
+   * Note: This is a private function; we expect consumers to implement it
+   * themselves. We keep it that way because this implementation isn't
+   * optimized at all, since we only need it when printing errors.
+   */
+
+
+  function findPackageDependents({
+    name,
+    reference
+  }) {
+    const dependents = [];
+
+    for (const [dependentName, packageInformationStore] of packageRegistry) {
+      if (dependentName === null) continue;
+
+      for (const [dependentReference, packageInformation] of packageInformationStore) {
+        if (dependentReference === null) continue;
+        const dependencyReference = packageInformation.packageDependencies.get(name);
+        if (dependencyReference !== reference) continue; // Don't forget that all packages depend on themselves
+
+        if (dependentName === name && dependentReference === reference) continue;
+        dependents.push({
+          name: dependentName,
+          reference: dependentReference
+        });
+      }
+    }
+
+    return dependents;
+  }
+  /**
+   * Find all packages that broke the peer dependency on X, starting from Y.
+   *
+   * Note: This is a private function; we expect consumers to implement it
+   * themselves. We keep it that way because this implementation isn't
+   * optimized at all, since we only need it when printing errors.
+   */
+
+
+  function findBrokenPeerDependencies(dependency, initialPackage) {
+    const brokenPackages = new Map();
+    const alreadyVisited = new Set();
+
+    const traversal = currentPackage => {
+      const identifier = JSON.stringify(currentPackage.name);
+      if (alreadyVisited.has(identifier)) return;
+      alreadyVisited.add(identifier);
+      const dependents = findPackageDependents(currentPackage);
+
+      for (const dependent of dependents) {
+        const dependentInformation = getPackageInformationSafe(dependent);
+
+        if (dependentInformation.packagePeers.has(dependency)) {
+          traversal(dependent);
+        } else {
+          let brokenSet = brokenPackages.get(dependent.name);
+          if (typeof brokenSet === `undefined`) brokenPackages.set(dependent.name, brokenSet = new Set());
+          brokenSet.add(dependent.reference);
+        }
+      }
+    };
+
+    traversal(initialPackage);
+    const brokenList = [];
+
+    for (const name of [...brokenPackages.keys()].sort()) for (const reference of [...brokenPackages.get(name)].sort()) brokenList.push({
+      name,
+      reference
+    });
+
+    return brokenList;
+  }
+  /**
+   * Finds the package locator that owns the specified path. If none is found, returns null instead.
+   */
+
+
+  function findPackageLocator(location, {
+    resolveIgnored = false,
+    includeDiscardFromLookup = false
+  } = {}) {
+    if (isPathIgnored(location) && !resolveIgnored) return null;
+    let relativeLocation = ppath.relative(runtimeState.basePath, location);
+    if (!relativeLocation.match(isStrictRegExp)) relativeLocation = `./${relativeLocation}`;
+    if (!relativeLocation.endsWith(`/`)) relativeLocation = `${relativeLocation}/`;
+
+    do {
+      const entry = packageLocatorsByLocations.get(relativeLocation);
+
+      if (typeof entry === `undefined` || entry.discardFromLookup && !includeDiscardFromLookup) {
+        relativeLocation = relativeLocation.substring(0, relativeLocation.lastIndexOf(`/`, relativeLocation.length - 2) + 1);
+        continue;
+      }
+
+      return entry.locator;
+    } while (relativeLocation !== ``);
+
+    return null;
+  }
+  /**
+   * Transforms a request (what's typically passed as argument to the require function) into an unqualified path.
+   * This path is called "unqualified" because it only changes the package name to the package location on the disk,
+   * which means that the end result still cannot be directly accessed (for example, it doesn't try to resolve the
+   * file extension, or to resolve directories to their "index.js" content). Use the "resolveUnqualified" function
+   * to convert them to fully-qualified paths, or just use "resolveRequest" that do both operations in one go.
+   *
+   * Note that it is extremely important that the `issuer` path ends with a forward slash if the issuer is to be
+   * treated as a folder (ie. "/tmp/foo/" rather than "/tmp/foo" if "foo" is a directory). Otherwise relative
+   * imports won't be computed correctly (they'll get resolved relative to "/tmp/" instead of "/tmp/foo/").
+   */
+
+
+  function resolveToUnqualified(request, issuer, {
+    considerBuiltins = true
+  } = {}) {
+    // The 'pnpapi' request is reserved and will always return the path to the PnP file, from everywhere
+    if (request === `pnpapi`) return npath.toPortablePath(opts.pnpapiResolution); // Bailout if the request is a native module
+
+    if (considerBuiltins && isBuiltinModule(request)) return null;
+    const requestForDisplay = getPathForDisplay(request);
+    const issuerForDisplay = issuer && getPathForDisplay(issuer); // We allow disabling the pnp resolution for some subpaths.
+    // This is because some projects, often legacy, contain multiple
+    // levels of dependencies (ie. a yarn.lock inside a subfolder of
+    // a yarn.lock). This is typically solved using workspaces, but
+    // not all of them have been converted already.
+
+    if (issuer && isPathIgnored(issuer)) {
+      // Absolute paths that seem to belong to a PnP tree are still
+      // handled by our runtime even if the issuer isn't. This is
+      // because the native Node resolution uses a special version
+      // of the `stat` syscall which would otherwise bypass the
+      // filesystem layer we require to access the files.
+      if (!ppath.isAbsolute(request) || findPackageLocator(request) === null) {
+        const result = callNativeResolution(request, issuer);
+
+        if (result === false) {
+          throw internalTools_makeError(ErrorCode.BUILTIN_NODE_RESOLUTION_FAILED, `The builtin node resolution algorithm was unable to resolve the requested module (it didn't go through the pnp resolver because the issuer was explicitely ignored by the regexp)\n\nRequire request: "${requestForDisplay}"\nRequired by: ${issuerForDisplay}\n`, {
+            request: requestForDisplay,
+            issuer: issuerForDisplay
+          });
+        }
+
+        return npath.toPortablePath(result);
+      }
+    }
+
+    let unqualifiedPath; // If the request is a relative or absolute path, we just return it normalized
+
+    const dependencyNameMatch = request.match(pathRegExp);
+
+    if (!dependencyNameMatch) {
+      if (ppath.isAbsolute(request)) {
+        unqualifiedPath = ppath.normalize(request);
+      } else {
+        if (!issuer) {
+          throw internalTools_makeError(ErrorCode.API_ERROR, `The resolveToUnqualified function must be called with a valid issuer when the path isn't a builtin nor absolute`, {
+            request: requestForDisplay,
+            issuer: issuerForDisplay
+          });
+        } // We use ppath.join instead of ppath.resolve because:
+        // 1) The request is a relative path in this branch
+        // 2) ppath.join preserves trailing slashes
+
+
+        const absoluteIssuer = ppath.resolve(issuer);
+
+        if (issuer.match(isDirRegExp)) {
+          unqualifiedPath = ppath.normalize(ppath.join(absoluteIssuer, request));
+        } else {
+          unqualifiedPath = ppath.normalize(ppath.join(ppath.dirname(absoluteIssuer), request));
+        }
+      }
+    } else {
+      // Things are more hairy if it's a package require - we then need to figure out which package is needed, and in
+      // particular the exact version for the given location on the dependency tree
+      if (!issuer) {
+        throw internalTools_makeError(ErrorCode.API_ERROR, `The resolveToUnqualified function must be called with a valid issuer when the path isn't a builtin nor absolute`, {
+          request: requestForDisplay,
+          issuer: issuerForDisplay
+        });
+      }
+
+      const [, dependencyName, subPath] = dependencyNameMatch;
+      const issuerLocator = findPackageLocator(issuer); // If the issuer file doesn't seem to be owned by a package managed through pnp, then we resort to using the next
+      // resolution algorithm in the chain, usually the native Node resolution one
+
+      if (!issuerLocator) {
+        const result = callNativeResolution(request, issuer);
+
+        if (result === false) {
+          throw internalTools_makeError(ErrorCode.BUILTIN_NODE_RESOLUTION_FAILED, `The builtin node resolution algorithm was unable to resolve the requested module (it didn't go through the pnp resolver because the issuer doesn't seem to be part of the Yarn-managed dependency tree).\n\nRequire path: "${requestForDisplay}"\nRequired by: ${issuerForDisplay}\n`, {
+            request: requestForDisplay,
+            issuer: issuerForDisplay
+          });
+        }
+
+        return npath.toPortablePath(result);
+      }
+
+      const issuerInformation = getPackageInformationSafe(issuerLocator); // We obtain the dependency reference in regard to the package that request it
+
+      let dependencyReference = issuerInformation.packageDependencies.get(dependencyName);
+      let fallbackReference = null; // If we can't find it, we check if we can potentially load it from the packages that have been defined as potential fallbacks.
+      // It's a bit of a hack, but it improves compatibility with the existing Node ecosystem. Hopefully we should eventually be able
+      // to kill this logic and become stricter once pnp gets enough traction and the affected packages fix themselves.
+
+      if (dependencyReference == null) {
+        if (issuerLocator.name !== null) {
+          // To allow programs to become gradually stricter, starting from the v2 we enforce that workspaces cannot depend on fallbacks.
+          // This works by having a list containing all their locators, and checking when a fallback is required whether it's one of them.
+          const exclusionEntry = runtimeState.fallbackExclusionList.get(issuerLocator.name);
+          const canUseFallbacks = !exclusionEntry || !exclusionEntry.has(issuerLocator.reference);
+
+          if (canUseFallbacks) {
+            for (let t = 0, T = fallbackLocators.length; t < T; ++t) {
+              const fallbackInformation = getPackageInformationSafe(fallbackLocators[t]);
+              const reference = fallbackInformation.packageDependencies.get(dependencyName);
+              if (reference == null) continue;
+              if (alwaysWarnOnFallback) fallbackReference = reference;else dependencyReference = reference;
+              break;
+            }
+
+            if (runtimeState.enableTopLevelFallback) {
+              if (dependencyReference == null && fallbackReference === null) {
+                const reference = runtimeState.fallbackPool.get(dependencyName);
+
+                if (reference != null) {
+                  fallbackReference = reference;
+                }
+              }
+            }
+          }
+        }
+      } // If we can't find the path, and if the package making the request is the top-level, we can offer nicer error messages
+
+
+      let error = null;
+
+      if (dependencyReference === null) {
+        if (isDependencyTreeRoot(issuerLocator)) {
+          error = internalTools_makeError(ErrorCode.MISSING_PEER_DEPENDENCY, `Your application tried to access ${dependencyName} (a peer dependency); this isn't allowed as there is no ancestor to satisfy the requirement. Use a devDependency if needed.\n\nRequired package: ${dependencyName}${dependencyName !== requestForDisplay ? ` (via "${requestForDisplay}")` : ``}\nRequired by: ${issuerForDisplay}\n`, {
+            request: requestForDisplay,
+            issuer: issuerForDisplay,
+            dependencyName
+          });
+        } else {
+          const brokenAncestors = findBrokenPeerDependencies(dependencyName, issuerLocator);
+
+          if (brokenAncestors.every(ancestor => isDependencyTreeRoot(ancestor))) {
+            error = internalTools_makeError(ErrorCode.MISSING_PEER_DEPENDENCY, `${issuerLocator.name} tried to access ${dependencyName} (a peer dependency) but it isn't provided by your application; this makes the require call ambiguous and unsound.\n\nRequired package: ${dependencyName}${dependencyName !== requestForDisplay ? ` (via "${requestForDisplay}")` : ``}\nRequired by: ${issuerLocator.name}@${issuerLocator.reference} (via ${issuerForDisplay})\n${brokenAncestors.map(ancestorLocator => `Ancestor breaking the chain: ${ancestorLocator.name}@${ancestorLocator.reference}\n`).join(``)}\n`, {
+              request: requestForDisplay,
+              issuer: issuerForDisplay,
+              issuerLocator: Object.assign({}, issuerLocator),
+              dependencyName,
+              brokenAncestors
+            });
+          } else {
+            error = internalTools_makeError(ErrorCode.MISSING_PEER_DEPENDENCY, `${issuerLocator.name} tried to access ${dependencyName} (a peer dependency) but it isn't provided by its ancestors; this makes the require call ambiguous and unsound.\n\nRequired package: ${dependencyName}${dependencyName !== requestForDisplay ? ` (via "${requestForDisplay}")` : ``}\nRequired by: ${issuerLocator.name}@${issuerLocator.reference} (via ${issuerForDisplay})\n\n${brokenAncestors.map(ancestorLocator => `Ancestor breaking the chain: ${ancestorLocator.name}@${ancestorLocator.reference}\n`).join(``)}\n`, {
+              request: requestForDisplay,
+              issuer: issuerForDisplay,
+              issuerLocator: Object.assign({}, issuerLocator),
+              dependencyName,
+              brokenAncestors
+            });
+          }
+        }
+      } else if (dependencyReference === undefined) {
+        if (!considerBuiltins && isBuiltinModule(request)) {
+          if (isDependencyTreeRoot(issuerLocator)) {
+            error = internalTools_makeError(ErrorCode.UNDECLARED_DEPENDENCY, `Your application tried to access ${dependencyName}. While this module is usually interpreted as a Node builtin, your resolver is running inside a non-Node resolution context where such builtins are ignored. Since ${dependencyName} isn't otherwise declared in your dependencies, this makes the require call ambiguous and unsound.\n\nRequired package: ${dependencyName}${dependencyName !== requestForDisplay ? ` (via "${requestForDisplay}")` : ``}\nRequired by: ${issuerForDisplay}\n`, {
+              request: requestForDisplay,
+              issuer: issuerForDisplay,
+              dependencyName
+            });
+          } else {
+            error = internalTools_makeError(ErrorCode.UNDECLARED_DEPENDENCY, `${issuerLocator.name} tried to access ${dependencyName}. While this module is usually interpreted as a Node builtin, your resolver is running inside a non-Node resolution context where such builtins are ignored. Since ${dependencyName} isn't otherwise declared in ${issuerLocator.name}'s dependencies, this makes the require call ambiguous and unsound.\n\nRequired package: ${dependencyName}${dependencyName !== requestForDisplay ? ` (via "${requestForDisplay}")` : ``}\nRequired by: ${issuerForDisplay}\n`, {
+              request: requestForDisplay,
+              issuer: issuerForDisplay,
+              issuerLocator: Object.assign({}, issuerLocator),
+              dependencyName
+            });
+          }
+        } else {
+          if (isDependencyTreeRoot(issuerLocator)) {
+            error = internalTools_makeError(ErrorCode.UNDECLARED_DEPENDENCY, `Your application tried to access ${dependencyName}, but it isn't declared in your dependencies; this makes the require call ambiguous and unsound.\n\nRequired package: ${dependencyName}${dependencyName !== requestForDisplay ? ` (via "${requestForDisplay}")` : ``}\nRequired by: ${issuerForDisplay}\n`, {
+              request: requestForDisplay,
+              issuer: issuerForDisplay,
+              dependencyName
+            });
+          } else {
+            error = internalTools_makeError(ErrorCode.UNDECLARED_DEPENDENCY, `${issuerLocator.name} tried to access ${dependencyName}, but it isn't declared in its dependencies; this makes the require call ambiguous and unsound.\n\nRequired package: ${dependencyName}${dependencyName !== requestForDisplay ? ` (via "${requestForDisplay}")` : ``}\nRequired by: ${issuerLocator.name}@${issuerLocator.reference} (via ${issuerForDisplay})\n`, {
+              request: requestForDisplay,
+              issuer: issuerForDisplay,
+              issuerLocator: Object.assign({}, issuerLocator),
+              dependencyName
+            });
+          }
+        }
+      }
+
+      if (dependencyReference == null) {
+        if (fallbackReference === null || error === null) throw error || new Error(`Assertion failed: Expected an error to have been set`);
+        dependencyReference = fallbackReference;
+        const message = error.message.replace(/\n.*/g, ``);
+        error.message = message;
+
+        if (!emittedWarnings.has(message) && debugLevel !== 0) {
+          emittedWarnings.add(message);
+          process.emitWarning(error);
+        }
+      } // We need to check that the package exists on the filesystem, because it might not have been installed
+
+
+      const dependencyLocator = Array.isArray(dependencyReference) ? {
+        name: dependencyReference[0],
+        reference: dependencyReference[1]
+      } : {
+        name: dependencyName,
+        reference: dependencyReference
+      };
+      const dependencyInformation = getPackageInformationSafe(dependencyLocator);
+
+      if (!dependencyInformation.packageLocation) {
+        throw internalTools_makeError(ErrorCode.MISSING_DEPENDENCY, `A dependency seems valid but didn't get installed for some reason. This might be caused by a partial install, such as dev vs prod.\n\nRequired package: ${dependencyLocator.name}@${dependencyLocator.reference}${dependencyLocator.name !== requestForDisplay ? ` (via "${requestForDisplay}")` : ``}\nRequired by: ${issuerLocator.name}@${issuerLocator.reference} (via ${issuerForDisplay})\n`, {
+          request: requestForDisplay,
+          issuer: issuerForDisplay,
+          dependencyLocator: Object.assign({}, dependencyLocator)
+        });
+      } // Now that we know which package we should resolve to, we only have to find out the file location
+      // packageLocation is always absolute as it's returned by getPackageInformationSafe
+
+
+      const dependencyLocation = dependencyInformation.packageLocation;
+
+      if (subPath) {
+        // We use ppath.join instead of ppath.resolve because:
+        // 1) subPath is always a relative path
+        // 2) ppath.join preserves trailing slashes
+        unqualifiedPath = ppath.join(dependencyLocation, subPath);
+      } else {
+        unqualifiedPath = dependencyLocation;
+      }
+    }
+
+    return ppath.normalize(unqualifiedPath);
+  }
+
+  function resolveUnqualifiedExport(request, unqualifiedPath) {
+    // "exports" only apply when requiring a package, not when requiring via an absolute / relative path
+    if (isStrictRegExp.test(request)) return unqualifiedPath;
+    const unqualifiedExportPath = applyNodeExportsResolution(unqualifiedPath);
+
+    if (unqualifiedExportPath) {
+      return ppath.normalize(unqualifiedExportPath);
+    } else {
+      return unqualifiedPath;
+    }
+  }
+  /**
+   * Transforms an unqualified path into a qualified path by using the Node resolution algorithm (which automatically
+   * appends ".js" / ".json", and transforms directory accesses into "index.js").
+   */
+
+
+  function resolveUnqualified(unqualifiedPath, {
+    extensions = Object.keys(external_module_.Module._extensions)
+  } = {}) {
+    const candidates = [];
+    const qualifiedPath = applyNodeExtensionResolution(unqualifiedPath, candidates, {
+      extensions
+    });
+
+    if (qualifiedPath) {
+      return ppath.normalize(qualifiedPath);
+    } else {
+      const unqualifiedPathForDisplay = getPathForDisplay(unqualifiedPath);
+      const containingPackage = findPackageLocator(unqualifiedPath);
+
+      if (containingPackage) {
+        const {
+          packageLocation
+        } = getPackageInformationSafe(containingPackage);
+
+        if (!opts.fakeFs.existsSync(packageLocation)) {
+          const errorMessage = packageLocation.includes(`/unplugged/`) ? `Required unplugged package missing from disk. This may happen when switching branches without running installs (unplugged packages must be fully materialized on disk to work).` : `Required package missing from disk. If you keep your packages inside your repository then restarting the Node process may be enough. Otherwise, try to run an install first.`;
+          throw internalTools_makeError(ErrorCode.QUALIFIED_PATH_RESOLUTION_FAILED, `${errorMessage}\n\nMissing package: ${containingPackage.name}@${containingPackage.reference}\nExpected package location: ${getPathForDisplay(packageLocation)}\n`, {
+            unqualifiedPath: unqualifiedPathForDisplay
+          });
+        }
+      }
+
+      throw internalTools_makeError(ErrorCode.QUALIFIED_PATH_RESOLUTION_FAILED, `Qualified path resolution failed - none of those files can be found on the disk.\n\nSource path: ${unqualifiedPathForDisplay}\n${candidates.map(candidate => `Not found: ${getPathForDisplay(candidate)}\n`).join(``)}`, {
+        unqualifiedPath: unqualifiedPathForDisplay
+      });
+    }
+  }
+  /**
+   * Transforms a request into a fully qualified path.
+   *
+   * Note that it is extremely important that the `issuer` path ends with a forward slash if the issuer is to be
+   * treated as a folder (ie. "/tmp/foo/" rather than "/tmp/foo" if "foo" is a directory). Otherwise relative
+   * imports won't be computed correctly (they'll get resolved relative to "/tmp/" instead of "/tmp/foo/").
+   */
+
+
+  function resolveRequest(request, issuer, {
+    considerBuiltins,
+    extensions
+  } = {}) {
+    const unqualifiedPath = resolveToUnqualified(request, issuer, {
+      considerBuiltins
+    });
+    if (unqualifiedPath === null) return null;
+
+    const isIssuerIgnored = () => issuer !== null ? isPathIgnored(issuer) : false;
+
+    const remappedPath = (!considerBuiltins || !isBuiltinModule(request)) && !isIssuerIgnored() ? resolveUnqualifiedExport(request, unqualifiedPath) : unqualifiedPath;
+
+    try {
+      return resolveUnqualified(remappedPath, {
+        extensions
+      });
+    } catch (resolutionError) {
+      if (resolutionError.pnpCode === `QUALIFIED_PATH_RESOLUTION_FAILED`) Object.assign(resolutionError.data, {
+        request: getPathForDisplay(request),
+        issuer: issuer && getPathForDisplay(issuer)
+      });
+      throw resolutionError;
+    }
+  }
+
+  function resolveVirtual(request) {
+    const normalized = ppath.normalize(request);
+    const resolved = VirtualFS.resolveVirtual(normalized);
+    return resolved !== normalized ? resolved : null;
+  }
+
+  return {
+    VERSIONS,
+    topLevel,
+    getLocator: (name, referencish) => {
+      if (Array.isArray(referencish)) {
+        return {
+          name: referencish[0],
+          reference: referencish[1]
+        };
+      } else {
+        return {
+          name,
+          reference: referencish
+        };
+      }
+    },
+    getDependencyTreeRoots: () => {
+      return [...runtimeState.dependencyTreeRoots];
+    },
+
+    getAllLocators() {
+      const locators = [];
+
+      for (const [name, entry] of packageRegistry) for (const reference of entry.keys()) if (name !== null && reference !== null) locators.push({
+        name,
+        reference
+      });
+
+      return locators;
+    },
+
+    getPackageInformation: locator => {
+      const info = getPackageInformation(locator);
+      if (info === null) return null;
+      const packageLocation = npath.fromPortablePath(info.packageLocation);
+      const nativeInfo = { ...info,
+        packageLocation
+      };
+      return nativeInfo;
+    },
+    findPackageLocator: path => {
+      return findPackageLocator(npath.toPortablePath(path));
+    },
+    resolveToUnqualified: maybeLog(`resolveToUnqualified`, (request, issuer, opts) => {
+      const portableIssuer = issuer !== null ? npath.toPortablePath(issuer) : null;
+      const resolution = resolveToUnqualified(npath.toPortablePath(request), portableIssuer, opts);
+      if (resolution === null) return null;
+      return npath.fromPortablePath(resolution);
+    }),
+    resolveUnqualified: maybeLog(`resolveUnqualified`, (unqualifiedPath, opts) => {
+      return npath.fromPortablePath(resolveUnqualified(npath.toPortablePath(unqualifiedPath), opts));
+    }),
+    resolveRequest: maybeLog(`resolveRequest`, (request, issuer, opts) => {
+      const portableIssuer = issuer !== null ? npath.toPortablePath(issuer) : null;
+      const resolution = resolveRequest(npath.toPortablePath(request), portableIssuer, opts);
+      if (resolution === null) return null;
+      return npath.fromPortablePath(resolution);
+    }),
+    resolveVirtual: maybeLog(`resolveVirtual`, path => {
+      const result = resolveVirtual(npath.toPortablePath(path));
+
+      if (result !== null) {
+        return npath.fromPortablePath(result);
+      } else {
+        return null;
+      }
+    })
+  };
+}
+;// CONCATENATED MODULE: ./sources/loader/makeManager.ts
+
+
+function makeManager(pnpapi, opts) {
+  const initialApiPath = npath.toPortablePath(pnpapi.resolveToUnqualified(`pnpapi`, null));
+  const initialApiStats = opts.fakeFs.statSync(npath.toPortablePath(initialApiPath));
+  const apiMetadata = new Map([[initialApiPath, {
+    cache: external_module_.Module._cache,
+    instance: pnpapi,
+    stats: initialApiStats,
+    lastRefreshCheck: Date.now()
+  }]]);
+
+  function loadApiInstance(pnpApiPath) {
+    const nativePath = npath.fromPortablePath(pnpApiPath); // @ts-expect-error
+
+    const module = new external_module_.Module(nativePath, null); // @ts-expect-error
+
+    module.load(nativePath);
+    return module.exports;
+  }
+
+  function refreshApiEntry(pnpApiPath, apiEntry) {
+    const timeNow = Date.now();
+    if (timeNow - apiEntry.lastRefreshCheck < 500) return;
+    apiEntry.lastRefreshCheck = timeNow;
+    const stats = opts.fakeFs.statSync(pnpApiPath);
+
+    if (stats.mtime > apiEntry.stats.mtime) {
+      process.emitWarning(`[Warning] The runtime detected new informations in a PnP file; reloading the API instance (${npath.fromPortablePath(pnpApiPath)})`);
+      apiEntry.stats = stats;
+      apiEntry.instance = loadApiInstance(pnpApiPath);
+    }
+  }
+
+  function getApiEntry(pnpApiPath, refresh = false) {
+    let apiEntry = apiMetadata.get(pnpApiPath);
+
+    if (typeof apiEntry !== `undefined`) {
+      if (refresh) {
+        refreshApiEntry(pnpApiPath, apiEntry);
+      }
+    } else {
+      apiMetadata.set(pnpApiPath, apiEntry = {
+        cache: {},
+        instance: loadApiInstance(pnpApiPath),
+        stats: opts.fakeFs.statSync(pnpApiPath),
+        lastRefreshCheck: Date.now()
+      });
+    }
+
+    return apiEntry;
+  }
+
+  const findApiPathCache = new Map();
+
+  function addToCacheAndReturn(start, end, target) {
+    if (target !== null) target = VirtualFS.resolveVirtual(target);
+    let curr;
+    let next = start;
+
+    do {
+      curr = next;
+      findApiPathCache.set(curr, target);
+      next = ppath.dirname(curr);
+    } while (curr !== end);
+
+    return target;
+  }
+
+  function findApiPathFor(modulePath) {
+    let bestCandidate = null;
+
+    for (const [apiPath, apiEntry] of apiMetadata) {
+      const locator = apiEntry.instance.findPackageLocator(modulePath);
+      if (!locator) continue; // No need to go the slow way when there's a single API
+
+      if (apiMetadata.size === 1) return apiPath;
+      const packageInformation = apiEntry.instance.getPackageInformation(locator);
+      if (!packageInformation) throw new Error(`Assertion failed: Couldn't get package information for '${modulePath}'`);
+      if (!bestCandidate) bestCandidate = {
+        packageLocation: packageInformation.packageLocation,
+        apiPaths: []
+      };
+
+      if (packageInformation.packageLocation === bestCandidate.packageLocation) {
+        bestCandidate.apiPaths.push(apiPath);
+      } else if (packageInformation.packageLocation.length > bestCandidate.packageLocation.length) {
+        bestCandidate = {
+          packageLocation: packageInformation.packageLocation,
+          apiPaths: [apiPath]
+        };
+      }
+    }
+
+    if (bestCandidate) {
+      if (bestCandidate.apiPaths.length === 1) return bestCandidate.apiPaths[0];
+      const controlSegment = bestCandidate.apiPaths.map(apiPath => `  ${npath.fromPortablePath(apiPath)}`).join(`\n`);
+      throw new Error(`Unable to locate pnpapi, the module '${modulePath}' is controlled by multiple pnpapi instances.\nThis is usually caused by using the global cache (enableGlobalCache: true)\n\nControlled by:\n${controlSegment}\n`);
+    }
+
+    const start = ppath.resolve(npath.toPortablePath(modulePath));
+    let curr;
+    let next = start;
+
+    do {
+      curr = next;
+      const cached = findApiPathCache.get(curr);
+      if (cached !== undefined) return addToCacheAndReturn(start, curr, cached);
+      const cjsCandidate = ppath.join(curr, Filename.pnpCjs);
+      if (opts.fakeFs.existsSync(cjsCandidate) && opts.fakeFs.statSync(cjsCandidate).isFile()) return addToCacheAndReturn(start, curr, cjsCandidate); // We still support .pnp.js files to improve multi-project compatibility.
+      // TODO: Remove support for .pnp.js files after they stop being used.
+
+      const legacyCjsCandidate = ppath.join(curr, Filename.pnpJs);
+      if (opts.fakeFs.existsSync(legacyCjsCandidate) && opts.fakeFs.statSync(legacyCjsCandidate).isFile()) return addToCacheAndReturn(start, curr, legacyCjsCandidate);
+      next = ppath.dirname(curr);
+    } while (curr !== PortablePath.root);
+
+    return addToCacheAndReturn(start, curr, null);
+  }
+
+  function getApiPathFromParent(parent) {
+    if (parent == null) return initialApiPath;
+
+    if (typeof parent.pnpApiPath === `undefined`) {
+      if (parent.filename !== null) {
+        return parent.pnpApiPath = findApiPathFor(parent.filename);
+      } else {
+        return initialApiPath;
+      }
+    }
+
+    if (parent.pnpApiPath !== null) return parent.pnpApiPath;
+    return null;
+  }
+
+  return {
+    getApiPathFromParent,
+    findApiPathFor,
+    getApiEntry
+  };
+}
+;// CONCATENATED MODULE: ./sources/loader/_entryPoint.ts
+
+
+
+
+
+
+
+
+ // We must copy the fs into a local, because otherwise
+// 1. we would make the NodeFS instance use the function that we patched (infinite loop)
+// 2. Object.create(fs) isn't enough, since it won't prevent the proto from being modified
+
+const localFs = { ...(external_fs_default())
+};
+const nodeFs = new NodeFS(localFs);
+const defaultRuntimeState = $$SETUP_STATE(hydrateRuntimeState);
+const defaultPnpapiResolution = __filename; // We create a virtual filesystem that will do three things:
+// 1. all requests inside a folder named "__virtual___" will be remapped according the virtual folder rules
+// 2. all requests going inside a Zip archive will be handled by the Zip fs implementation
+// 3. any remaining request will be forwarded to Node as-is
+
+const defaultFsLayer = new VirtualFS({
+  baseFs: new ZipOpenFS({
+    baseFs: nodeFs,
+    libzip: () => getLibzipSync(),
+    maxOpenFiles: 80,
+    readOnlyArchives: true
+  })
+});
+let manager;
+const defaultApi = Object.assign(makeApi(defaultRuntimeState, {
+  fakeFs: defaultFsLayer,
+  pnpapiResolution: defaultPnpapiResolution
+}), {
+  /**
+   * Can be used to generate a different API than the default one (for example
+   * to map it on `/` rather than the local directory path, or to use a
+   * different FS layer than the default one).
+   */
+  makeApi: ({
+    basePath = undefined,
+    fakeFs = defaultFsLayer,
+    pnpapiResolution = defaultPnpapiResolution,
+    ...rest
+  }) => {
+    const apiRuntimeState = typeof basePath !== `undefined` ? $$SETUP_STATE(hydrateRuntimeState, basePath) : defaultRuntimeState;
+    return makeApi(apiRuntimeState, {
+      fakeFs,
+      pnpapiResolution,
+      ...rest
+    });
+  },
+
+  /**
+   * Will inject the specified API into the environment, monkey-patching FS. Is
+   * automatically called when the hook is loaded through `--require`.
+   */
+  setup: api => {
+    applyPatch(api || defaultApi, {
+      fakeFs: defaultFsLayer,
+      manager
+    });
+  }
+});
+manager = makeManager(defaultApi, {
+  fakeFs: defaultFsLayer
+}); // eslint-disable-next-line arca/no-default-export
+
+/* harmony default export */ const _entryPoint = (defaultApi);
+
+if (__non_webpack_module__.parent && __non_webpack_module__.parent.id === `internal/preload`) {
+  defaultApi.setup();
+
+  if (__non_webpack_module__.filename) {
+    // We delete it from the cache in order to support the case where the CLI resolver is invoked from "yarn run"
+    // It's annoying because it might cause some issues when the file is multiple times in NODE_OPTIONS, but it shouldn't happen anyway.
+    delete (external_module_default())._cache[__non_webpack_module__.filename];
+  }
+}
+
+if (process.mainModule === __non_webpack_module__) {
+  const reportError = (code, message, data) => {
+    process.stdout.write(`${JSON.stringify([{
+      code,
+      message,
+      data
+    }, null])}\n`);
+  };
+
+  const reportSuccess = resolution => {
+    process.stdout.write(`${JSON.stringify([null, resolution])}\n`);
+  };
+
+  const processResolution = (request, issuer) => {
+    try {
+      reportSuccess(defaultApi.resolveRequest(request, issuer));
+    } catch (error) {
+      reportError(error.code, error.message, error.data);
+    }
+  };
+
+  const processRequest = data => {
+    try {
+      const [request, issuer] = JSON.parse(data);
+      processResolution(request, issuer);
+    } catch (error) {
+      reportError(`INVALID_JSON`, error.message, error.data);
+    }
+  };
+
+  if (process.argv.length > 2) {
+    if (process.argv.length !== 4) {
+      process.stderr.write(`Usage: ${process.argv[0]} ${process.argv[1]} <request> <issuer>\n`);
+      process.exitCode = 64;
+      /* EX_USAGE */
+    } else {
+      processResolution(process.argv[2], process.argv[3]);
+    }
+  } else {
+    let buffer = ``;
+    const decoder = new (external_string_decoder_default()).StringDecoder();
+    process.stdin.on(`data`, chunk => {
+      buffer += decoder.write(chunk);
+
+      do {
+        const index = buffer.indexOf(`\n`);
+        if (index === -1) break;
+        const line = buffer.slice(0, index);
+        buffer = buffer.slice(index + 1);
+        processRequest(line);
+      } while (true);
+    });
+  }
+}
+})();
+
+__webpack_exports__ = __webpack_exports__.default;
+/******/ 	return __webpack_exports__;
 /******/ })()
-.default;
+;
 });
