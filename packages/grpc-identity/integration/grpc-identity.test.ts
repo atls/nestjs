@@ -89,7 +89,7 @@ describe('grpc identity', () => {
 
       await client.test({ id: 'test' }, metadata).toPromise()
     } catch (error) {
-      expect(error.code).toBe(status.UNAUTHENTICATED)
+      expect((error as any).code).toBe(status.UNAUTHENTICATED)
     }
   })
 })

@@ -23,7 +23,7 @@ export class TypesenseCollectionsCreator implements OnModuleInit {
         // eslint-disable-next-line no-await-in-loop
         await this.typesense.collections(schema!.name).retrieve()
       } catch (error) {
-        if (error.httpStatus === 404) {
+        if ((error as any).httpStatus === 404) {
           // eslint-disable-next-line no-await-in-loop
           await this.typesense.collections().create(schema)
         }
