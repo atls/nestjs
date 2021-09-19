@@ -36,7 +36,7 @@ export class GrpcHttpProxyController {
 
       res.send(BJSON.stringify(data))
     } catch (error) {
-      res.send(BJSON.stringify(ErrorStatus.fromServiceError(error).toObject()))
+      res.send(BJSON.stringify(ErrorStatus.fromServiceError(error as any).toObject()))
     }
   }
 }
