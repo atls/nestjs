@@ -1,3 +1,5 @@
+/* eslint-disable no-restricted-syntax */
+
 import { jsonFlatStringify }              from '@graphql-mesh/utils'
 import { ClientReadableStream }           from '@grpc/grpc-js'
 import { ClientUnaryCall }                from '@grpc/grpc-js'
@@ -29,13 +31,14 @@ export function getTypeName(
     if (schemaComposer.isEnumType(baseTypeName)) {
       return baseTypeName
     }
-    return isInput ? baseTypeName + '_Input' : baseTypeName
+    return isInput ? `${baseTypeName}_Input` : baseTypeName
   }
   return 'Void'
 }
 
 export function addIncludePathResolver(root: Root, includePaths: string[]): void {
   const originalResolvePath = root.resolvePath
+  // eslint-disable-next-line no-param-reassign
   root.resolvePath = (origin: string, target: string) => {
     if (isAbsolute(target)) {
       return target
@@ -48,6 +51,7 @@ export function addIncludePathResolver(root: Root, includePaths: string[]): void
     }
     const path = originalResolvePath(origin, target)
     if (path === null) {
+      // eslint-disable-next-line no-console
       console.warn(`${target} not found in any of the include paths ${includePaths}`)
     }
     return path
