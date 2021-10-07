@@ -69,7 +69,7 @@ describe('grpc error', () => {
     try {
       await testClient.testValidation({ id: 'test', child: { id: 'test' } }).toPromise()
     } catch (error) {
-      expect(ErrorStatus.fromServiceError(error).toObject()).toEqual(
+      expect(ErrorStatus.fromServiceError(error as any).toObject()).toEqual(
         expect.objectContaining({
           details: expect.arrayContaining([
             expect.objectContaining({
