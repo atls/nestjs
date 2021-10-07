@@ -26,7 +26,6 @@ import { IParseOptions }                                   from 'protobufjs'
 import { Message }                                         from 'protobufjs'
 import { RootConstructor }                                 from 'protobufjs'
 import protobufjs                                          from 'protobufjs'
-import grpcReflection                                      from 'grpc-reflection-js'
 import { IFileDescriptorSet }                              from 'protobufjs/ext/descriptor'
 import descriptor                                          from 'protobufjs/ext/descriptor/index.js'
 import { GraphQLEnumTypeConfig }                           from 'graphql'
@@ -96,21 +95,6 @@ module.exports = {
             }
           }
         }
-      }
-      if (this.config.useReflection) {
-        const grpcReflectionServer = this.config.endpoint
-        const reflectionClient = new grpcReflection.Client(grpcReflectionServer, creds)
-        await reflectionClient.listServices().then((services) =>
-          Promise.all(
-            services.map(async (service: string | void) => {
-              if (service && !service.startsWith('grpc.')) {
-                const serviceRoot = await reflectionClient.fileContainingSymbol(service)
-                appendRoot(serviceRoot)
-              }
-              return null
-            })
-          )
-        )
       }
       if (this.config.descriptorSetFilePath) {
         let fileName: string

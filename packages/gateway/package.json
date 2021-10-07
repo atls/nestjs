@@ -40,7 +40,6 @@
     "graphql-scalars": "^1.10.0",
     "graphql-subscriptions": "^1.2.1",
     "graphql-ws": "^5.3.0",
-    "grpc-reflection-js": "0.1.2",
     "lodash": "^4.17.21",
     "long": "^4.0.0",
     "protobufjs": "^6.11.2"

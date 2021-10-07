@@ -545,7 +545,6 @@ __metadata:
     graphql-scalars: ^1.10.0
     graphql-subscriptions: ^1.2.1
     graphql-ws: ^5.3.0
-    grpc-reflection-js: 0.1.2
     lodash: ^4.17.21
     long: ^4.0.0
     protobufjs: ^6.11.2
@@ -3391,13 +3390,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/google-protobuf@npm:^3.7.2":
-  version: 3.7.4
-  resolution: "@types/google-protobuf@npm:3.7.4"
-  checksum: 88689fd6bb31ab1e84ec62a50e44a50138c231d63aa07b1e01060a11173fa9240b0ee0b85d4cb6328348fc5308fe0b9842408e5dce79d4fdd0432255ee828189
-  languageName: node
-  linkType: hard
-
 "@types/graceful-fs@npm:^4.1.2":
   version: 4.1.4
   resolution: "@types/graceful-fs@npm:4.1.4"
@@ -3540,15 +3532,6 @@ __metadata:
   dependencies:
     "@types/lodash": "*"
   checksum: 1f0f11a3fde2b7347482550cff4d1ba4d109c53e3f374dbe8a243f01b50e50446dd6b4d4bc897890caea50eac1157cdd0d627fb7390202b1aa5376cc27c077e6
-  languageName: node
-  linkType: hard
-
-"@types/lodash.set@npm:^4.3.6":
-  version: 4.3.6
-  resolution: "@types/lodash.set@npm:4.3.6"
-  dependencies:
-    "@types/lodash": "*"
-  checksum: 29782fe99b1170658999094c856a263cad33b52e89dc63e95f928fbcdb89ed24b6ce90872b3a1e5c4f92e781f1eec55b050c581518b26351aa878fe811cbe95b
   languageName: node
   linkType: hard
 
@@ -9080,7 +9063,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"google-protobuf@npm:^3.12.2, google-protobuf@npm:^3.17.3":
+"google-protobuf@npm:^3.17.3":
   version: 3.17.3
   resolution: "google-protobuf@npm:3.17.3"
   checksum: efe264f3cf854a78f7197c4d8c84eabd1ce8c4ef2806cb3e0bb7f2b5e18f559739ab31adfefbd99e81312c3683f482400fa370896a8b0cc66adfedb114256420
@@ -9246,21 +9229,6 @@ __metadata:
   version: 1.3.0
   resolution: "growly@npm:1.3.0"
   checksum: 53cdecd4c16d7d9154a9061a9ccb87d602e957502ca69b529d7d1b2436c2c0b700ec544fc6b3e4cd115d59b81e62e44ce86bd0521403b579d3a2a97d7ce72a44
-  languageName: node
-  linkType: hard
-
-"grpc-reflection-js@npm:0.1.2":
-  version: 0.1.2
-  resolution: "grpc-reflection-js@npm:0.1.2"
-  dependencies:
-    "@types/google-protobuf": ^3.7.2
-    "@types/lodash.set": ^4.3.6
-    google-protobuf: ^3.12.2
-    lodash.set: ^4.3.2
-    protobufjs: ^6.9.0
-  peerDependencies:
-    "@grpc/grpc-js": ^1.0.0
-  checksum: cff63603365f54c3359e02a14b3bbfc56286972e34f0865662e4c3e0b0857823a799bdb20ec0d251405ff9b4b90809b3f0f669fc5958865ce1a5377933672e8b
   languageName: node
   linkType: hard
 
@@ -11587,13 +11555,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"lodash.set@npm:^4.3.2":
-  version: 4.3.2
-  resolution: "lodash.set@npm:4.3.2"
-  checksum: a9122f49eef9f2d0fc9061a33d87f8e5b8c6b23d46e8b9e9ce1529d3588d79741bd1145a3abdfa3b13082703e65af27ff18d8a07bfc22b9be32f3fc36f763f70
-  languageName: node
-  linkType: hard
-
 "lodash.sortby@npm:^4.7.0":
   version: 4.7.0
   resolution: "lodash.sortby@npm:4.7.0"
@@ -12298,9 +12259,6 @@ __metadata:
     "@types/node": ^14.17.1
     husky: 7.0.1
     typescript: 4.3.5
-  dependenciesMeta:
-    grpc-reflection-js@0.1.2:
-      unplugged: true
   languageName: unknown
   linkType: soft
 
@@ -13458,7 +13416,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"protobufjs@npm:^6.10.0, protobufjs@npm:^6.11.2, protobufjs@npm:^6.8.8, protobufjs@npm:^6.9.0":
+"protobufjs@npm:^6.10.0, protobufjs@npm:^6.11.2, protobufjs@npm:^6.8.8":
   version: 6.11.2
   resolution: "protobufjs@npm:6.11.2"
   dependencies:
