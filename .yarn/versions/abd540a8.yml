@@ -1,9 +1,0 @@
-releases:
-  "@atls/nestjs-gateway": patch
-  "@atls/nestjs-grpc-errors": patch
-  "@atls/nestjs-grpc-http-proxy": patch
-  "@atls/nestjs-grpc-identity": patch
-  "@atls/nestjs-grpc-playground": patch
-  "@atls/nestjs-keto": patch
-  "@atls/nestjs-typesense": patch
-  "@atls/nestjs-typesense-typeorm": patch
