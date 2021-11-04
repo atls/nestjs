@@ -1419,7 +1419,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./packages/typeorm-seeding/",
           "packageDependencies": [
             ["@atls/nestjs-typeorm-seeding", "workspace:packages/typeorm-seeding"],
-            ["@atls/typeorm-seeding", "npm:0.0.1"],
+            ["@atls/typeorm-seeding", "npm:0.0.2"],
             ["@nestjs/common", "virtual:77887786a24289fa840c9acd370d634accbe79bcf317ecf5401844ffff73b8a593879dd9cce463873637e6414a631dfdb1a2473704bf332d823bcfffac8c2469#npm:8.0.5"],
             ["@nestjs/core", "virtual:3da99a4dd1a45fbb12f3936831275fe6ef127b2869363613ce7e5fc10bfba69fce118823d76d677d80a9d976776b1a4cb7b1bb4ee5c5a306e3ceed973bf055a2#npm:8.0.5"],
             ["@nestjs/testing", "virtual:3da99a4dd1a45fbb12f3936831275fe6ef127b2869363613ce7e5fc10bfba69fce118823d76d677d80a9d976776b1a4cb7b1bb4ee5c5a306e3ceed973bf055a2#npm:8.0.5"],
@@ -1570,10 +1570,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]
       ]],
       ["@atls/typeorm-seeding", [
-        ["npm:0.0.1", {
-          "packageLocation": "./.yarn/cache/@atls-typeorm-seeding-npm-0.0.1-dfa8de9a95-07f070618f.zip/node_modules/@atls/typeorm-seeding/",
+        ["npm:0.0.2", {
+          "packageLocation": "./.yarn/cache/@atls-typeorm-seeding-npm-0.0.2-5ff31572d8-f031d69551.zip/node_modules/@atls/typeorm-seeding/",
           "packageDependencies": [
-            ["@atls/typeorm-seeding", "npm:0.0.1"],
+            ["@atls/typeorm-seeding", "npm:0.0.2"],
             ["faker", "npm:5.5.3"],
             ["typeorm", "npm:0.2.34"]
           ],
