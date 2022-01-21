@@ -1,0 +1,5 @@
+releases:
+  "@atls/nestjs-gateway": patch
+  "@atls/nestjs-grpc-identity": patch
+  "@atls/nestjs-grpc-playground": patch
+  "@atls/nestjs-typeorm-seeding": patch
