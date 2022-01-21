@@ -1,6 +1,6 @@
 {
   "name": "@atls/nestjs-typeorm-seeding",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "license": "BSD-3-Clause",
   "main": "src/index.ts",
   "files": [
@@ -12,7 +12,7 @@
     "prepack": "yarn run build"
   },
   "dependencies": {
-    "@atls/typeorm-seeding": "^0.0.1",
+    "@atls/typeorm-seeding": "^0.0.2",
     "typeorm": "^0.2"
   },
   "devDependencies": {
