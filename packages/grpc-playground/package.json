@@ -35,6 +35,6 @@
   "dependencies": {
     "@atls/nestjs-grpc-http-proxy": "workspace:0.0.3",
     "@atls/nestjs-grpc-reflection": "workspace:0.0.2",
-    "node-fetch": "^2.6.1"
+    "node-fetch": "^3.1.1"
   }
 }
