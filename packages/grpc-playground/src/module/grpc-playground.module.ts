@@ -1,6 +1,5 @@
 import { DynamicModule }                  from '@nestjs/common'
-
-import { Module }          from '@nestjs/common'
+import { Module }                         from '@nestjs/common'
 
 import { GrpcHttpProxyModule }            from '@atls/nestjs-grpc-http-proxy'
 import { GrpcReflectionModule }           from '@atls/nestjs-grpc-reflection'

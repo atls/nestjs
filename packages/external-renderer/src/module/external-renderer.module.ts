@@ -1,8 +1,6 @@
 import { DynamicModule }                         from '@nestjs/common'
-
-import { Module }                 from '@nestjs/common'
-
-import { Provider }       from '@nestjs/common'
+import { Module }                                from '@nestjs/common'
+import { Provider }                              from '@nestjs/common'
 
 import { ExternalRendererModuleAsyncOptions }    from './external-renderer-module-options.interface'
 import { ExternalRendererModuleOptions }         from './external-renderer-module-options.interface'

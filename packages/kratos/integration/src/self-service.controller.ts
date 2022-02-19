@@ -1,11 +1,12 @@
-import { Controller }    from '@nestjs/common'
-import { Get }           from '@nestjs/common'
-import { HttpCode } from '@nestjs/common'
-import { Query }         from '@nestjs/common'
+/* eslint-disable @typescript-eslint/no-empty-function */
 
-import { Res }    from '@nestjs/common'
+import { Controller } from '@nestjs/common'
+import { Get }        from '@nestjs/common'
+import { HttpCode }   from '@nestjs/common'
+import { Query }      from '@nestjs/common'
+import { Res }        from '@nestjs/common'
 
-import { Response }      from 'express'
+import { Response }   from 'express'
 
 @Controller()
 export class SelfServiceController {

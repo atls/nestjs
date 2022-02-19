@@ -1,16 +1,14 @@
-import { DynamicModule }                   from '@nestjs/common'
+import { DynamicModule }               from '@nestjs/common'
+import { Module }                      from '@nestjs/common'
+import { Provider }                    from '@nestjs/common'
 
-import { Module }           from '@nestjs/common'
-
-import { Provider } from '@nestjs/common'
-
-import { KratosModuleAsyncOptions }        from './kratos-module-options.interface'
-import { KratosModuleOptions }             from './kratos-module-options.interface'
-import { KratosOptionsFactory }            from './kratos-module-options.interface'
-import { KRATOS_MODULE_OPTIONS }           from './kratos.constants'
-import { createKratosExportsProvider }     from './kratos.providers'
-import { createKratosProvider }            from './kratos.providers'
-import { createKratosOptionsProvider }     from './kratos.providers'
+import { KratosModuleAsyncOptions }    from './kratos-module-options.interface'
+import { KratosModuleOptions }         from './kratos-module-options.interface'
+import { KratosOptionsFactory }        from './kratos-module-options.interface'
+import { KRATOS_MODULE_OPTIONS }       from './kratos.constants'
+import { createKratosExportsProvider } from './kratos.providers'
+import { createKratosProvider }        from './kratos.providers'
+import { createKratosOptionsProvider } from './kratos.providers'
 
 @Module({})
 export class KratosModule {

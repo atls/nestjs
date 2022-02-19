@@ -2,7 +2,7 @@ import { GrpcObject }                     from '@grpc/grpc-js'
 import { Client }                         from '@grpc/grpc-js'
 import { OnApplicationBootstrap }         from '@nestjs/common'
 import { Inject }                         from '@nestjs/common'
-import { Injectable }             from '@nestjs/common'
+import { Injectable }                     from '@nestjs/common'
 import { loadPackageDefinition }          from '@grpc/grpc-js'
 import { load }                           from '@grpc/proto-loader'
 

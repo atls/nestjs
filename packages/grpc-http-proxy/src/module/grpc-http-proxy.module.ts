@@ -1,8 +1,6 @@
 import { DynamicModule }                      from '@nestjs/common'
-
-import { Module }              from '@nestjs/common'
-
-import { Provider }    from '@nestjs/common'
+import { Module }                             from '@nestjs/common'
+import { Provider }                           from '@nestjs/common'
 
 import { GrpcHttpProxyController }            from '../controllers'
 import { GrpcHttpProxyModuleAsyncOptions }    from './grpc-http-proxy-module-options.interface'

@@ -1,20 +1,18 @@
-import { ClientReadableStream }           from '@grpc/grpc-js'
-import { ClientUnaryCall }                from '@grpc/grpc-js'
-import { Metadata }                       from '@grpc/grpc-js'
-import { MetadataValue }                  from '@grpc/grpc-js'
-import { jsonFlatStringify }              from '@graphql-mesh/utils'
+import { ClientReadableStream } from '@grpc/grpc-js'
+import { ClientUnaryCall }      from '@grpc/grpc-js'
+import { Metadata }             from '@grpc/grpc-js'
+import { MetadataValue }        from '@grpc/grpc-js'
+import { jsonFlatStringify }    from '@graphql-mesh/utils'
 
-import _                                  from 'lodash'
-import { SchemaComposer }                 from 'graphql-compose'
-import { Root }                           from 'protobufjs'
-import { existsSync }                     from 'fs'
-import { isAbsolute }                     from 'path'
+import _                        from 'lodash'
+import { SchemaComposer }       from 'graphql-compose'
+import { Root }                 from 'protobufjs'
+import { existsSync }           from 'fs'
+import { isAbsolute }           from 'path'
+import { join }                 from 'path'
 
-import { join }               from 'path'
-
-import { getGraphQLScalar }               from './scalars'
-
-import { isScalarType } from './scalars'
+import { getGraphQLScalar }     from './scalars'
+import { isScalarType }         from './scalars'
 
 export type ClientMethod = (
   input: unknown,

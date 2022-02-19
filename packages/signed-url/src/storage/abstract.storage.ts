@@ -1,6 +1,5 @@
-import { SignUrlOptions }            from './storage.interfaces'
-
-import { SignedUrl } from './storage.interfaces'
+import { SignUrlOptions } from './storage.interfaces'
+import { SignedUrl }      from './storage.interfaces'
 
 export abstract class AbstractStorage {
   abstract generateWriteUrl(

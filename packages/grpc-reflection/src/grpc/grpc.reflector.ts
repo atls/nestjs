@@ -1,6 +1,6 @@
 import { ServiceDefinition }              from '@grpc/proto-loader'
 import { Injectable }                     from '@nestjs/common'
-import { OnModuleInit }       from '@nestjs/common'
+import { OnModuleInit }                   from '@nestjs/common'
 import { Inject }                         from '@nestjs/common'
 import { ServerGrpc }                     from '@nestjs/microservices'
 import { loadPackageDefinition }          from '@grpc/grpc-js'
@@ -49,7 +49,6 @@ export class GrpcReflector implements OnModuleInit {
   public lookupPackage(root: any, packageName: string) {
     let pkg = root
 
-    // eslint-disable-next-line no-restricted-syntax
     for (const name of packageName.split(/\./)) {
       if (pkg[name]) {
         pkg = pkg[name]
