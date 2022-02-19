@@ -8,7 +8,6 @@
     "forceConsistentCasingInFileNames": true,
     "importHelpers": false,
     "isolatedModules": false,
-    "module": "esnext",
     "moduleResolution": "node",
     "noFallthroughCasesInSwitch": true,
     "noImplicitAny": false,
@@ -20,9 +19,12 @@
     "removeComments": true,
     "resolveJsonModule": true,
     "strict": true,
+    "strictPropertyInitialization": false,
     "sourceMap": false,
-    "target": "es2017",
-    "jsx": "react"
+    "module": "esnext",
+    "target": "es2021",
+    "jsx": "react",
+    "outDir": "./dist"
   },
-  "include": ["packages/**/*"]
+  "include": ["packages/**/*", "examples/**/*"]
 }

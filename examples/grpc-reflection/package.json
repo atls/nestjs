@@ -4,9 +4,9 @@
   "license": "BSD 3-Clause",
   "private": true,
   "scripts": {
-    "proto:generate": "buf generate",
+    "dev": "yarn service dev",
     "proto:lint": "buf lint",
-    "dev": "yarn app service dev"
+    "proto:generate": "buf generate"
   },
   "dependencies": {
     "@atls/nestjs-grpc-reflection": "workspace:0.0.2",
@@ -21,7 +21,7 @@
     "long": "^4.0.0",
     "protobufjs": "^6.11.2",
     "reflect-metadata": "0.1.13",
-    "rxjs": "7.2.0"
+    "rxjs": "7.5.4"
   },
   "externalDependencies": {
     "@nestjs/common/utils/load-package.util": "*"
