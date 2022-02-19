@@ -1,4 +1,3 @@
-// eslint-disable-next-line
 /// <reference path='./proto.d.ts'/>
 
 import { Transport }   from '@nestjs/microservices'
