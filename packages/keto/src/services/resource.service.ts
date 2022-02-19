@@ -1,4 +1,6 @@
-import { Inject, Injectable } from '@nestjs/common'
+import { Inject }             from '@nestjs/common'
+
+import { Injectable } from '@nestjs/common'
 
 import { RESOURCES_SCOPE }    from '../constants'
 

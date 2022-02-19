@@ -1,5 +1,10 @@
-import { Controller, Get } from '@nestjs/common'
-import { Whoami, Session } from '../../src'
+import { Controller }      from '@nestjs/common'
+
+import { Get } from '@nestjs/common'
+
+import { Session }         from '../../src'
+
+import { Whoami } from '../../src'
 
 @Controller()
 export class SessionController {

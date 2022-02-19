@@ -1,5 +1,6 @@
-import { Injectable }          from '@nestjs/common'
 import { ServiceDefinition }   from '@grpc/proto-loader'
+import { Injectable }          from '@nestjs/common'
+
 import { FileDescriptorProto } from 'google-protobuf/google/protobuf/descriptor_pb'
 
 @Injectable()
@@ -30,24 +31,24 @@ export class GrpcServicesRegistry {
         return fileDescriptorProto
       }
 
-      return Object.values(service).reduce<FileDescriptorProto | undefined>(
-        (descriptor, method) => {
-          if (descriptor) {
-            return descriptor
-          }
+      return Object.values(service).reduce<FileDescriptorProto | undefined>((
+        descriptor,
+        method
+      ) => {
+        if (descriptor) {
+          return descriptor
+        }
 
-          if (method.path.includes(fileContainingSymbol)) {
-            return method.requestType.fileDescriptorProtos.find((fdp) => {
-              const fileDescriptor = FileDescriptorProto.deserializeBinary(fdp)
+        if (method.path.includes(fileContainingSymbol)) {
+          return method.requestType.fileDescriptorProtos.find((fdp) => {
+            const fileDescriptor = FileDescriptorProto.deserializeBinary(fdp)
 
-              return fileContainingSymbol.includes(fileDescriptor.getPackage())
-            })
-          }
+            return fileContainingSymbol.includes(fileDescriptor.getPackage())
+          })
+        }
 
-          return undefined
-        },
-        undefined
-      )
+        return undefined
+      }, undefined)
     }, undefined)
   }
 }

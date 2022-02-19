@@ -1,7 +1,7 @@
 import { Provider }             from '@nestjs/common'
+
 import { Configuration }        from '../client'
 import { HydraAdminApi }        from '../client'
-
 import { HydraModuleOptions }   from './hydra-module-options.interface'
 import { HYDRA_MODULE_OPTIONS } from './hydra.constants'
 

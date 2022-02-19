@@ -11,6 +11,10 @@
     "prepack": "yarn run build",
     "postpack": "rm -rf dist"
   },
+  "dependencies": {
+    "@atls/logger": "^0.0.1",
+    "decamelize": "^5.0.0"
+  },
   "devDependencies": {
     "@nestjs/common": "^8.0.5",
     "@nestjs/core": "^8.0.5",
@@ -30,9 +34,5 @@
   "publishConfig": {
     "main": "dist/index.js",
     "typings": "dist/index.d.ts"
-  },
-  "dependencies": {
-    "@atls/logger": "^0.0.1",
-    "decamelize": "^5.0.0"
   }
 }

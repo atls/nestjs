@@ -2,11 +2,12 @@
  * @jest-environment node
  */
 
-import getPort                            from 'get-port'
-import request                            from 'supertest'
 import { INestApplication }               from '@nestjs/common'
 import { INestMicroservice }              from '@nestjs/common'
 import { Test }                           from '@nestjs/testing'
+
+import getPort                            from 'get-port'
+import request                            from 'supertest'
 
 import { GRPC_HTTP_PROXY_MODULE_OPTIONS } from '../../src'
 import { GrpcHttpProxyIntegrationModule } from '../src'

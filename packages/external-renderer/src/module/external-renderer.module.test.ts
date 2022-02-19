@@ -3,9 +3,9 @@
 import { Module }                           from '@nestjs/common'
 import { Test }                             from '@nestjs/testing'
 
+import { ExternalRendererModuleOptions }    from './external-renderer-module-options.interface'
 import { EXTERNAL_RENDERER_MODULE_OPTIONS } from './external-renderer.constants'
 import { ExternalRendererModule }           from './external-renderer.module'
-import { ExternalRendererModuleOptions }    from './external-renderer-module-options.interface'
 
 describe('external-renderer', () => {
   describe('module', () => {

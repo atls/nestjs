@@ -1,6 +1,6 @@
-import { createParamDecorator } from '@nestjs/common'
-import { ExecutionContext }     from '@nestjs/common'
 import { Metadata }             from '@grpc/grpc-js'
+import { ExecutionContext }     from '@nestjs/common'
+import { createParamDecorator } from '@nestjs/common'
 
 export const Subject = createParamDecorator((data: unknown, context: ExecutionContext) => {
   if (context.getType() === 'rpc') {

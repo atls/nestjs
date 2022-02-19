@@ -2,12 +2,13 @@
  * @jest-environment node
  */
 
-import getPort                         from 'get-port'
+import { ErrorStatus }                 from '@atls/grpc-error-status'
+import { INestMicroservice }           from '@nestjs/common'
 import { ClientsModule }               from '@nestjs/microservices'
 import { Transport }                   from '@nestjs/microservices'
-import { INestMicroservice }           from '@nestjs/common'
 import { Test }                        from '@nestjs/testing'
-import { ErrorStatus }                 from '@atls/grpc-error-status'
+
+import getPort                         from 'get-port'
 import { join }                        from 'path'
 
 import { GrpcErrorsIntegrationModule } from '../src'

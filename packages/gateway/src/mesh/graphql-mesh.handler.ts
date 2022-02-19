@@ -3,9 +3,10 @@ import { OnModuleInit }           from '@nestjs/common'
 import { OnModuleDestroy }        from '@nestjs/common'
 import { Injectable }             from '@nestjs/common'
 import { HttpAdapterHost }        from '@nestjs/core'
+
 import { ApolloServer }           from 'apollo-server-express'
-import { useServer }              from 'graphql-ws/lib/use/ws'
 import { Server }                 from 'ws'
+import { useServer }              from 'graphql-ws/lib/use/ws'
 
 import { GATEWAY_MODULE_OPTIONS } from '../module'
 import { GatewayModuleOptions }   from '../module'
@@ -64,7 +65,6 @@ export class GraphQLMeshHandler implements OnModuleInit, OnModuleDestroy {
             subscribe: (args) =>
               subscribe(args.document, args.variableValues, args.contextValue, args.rootValue),
             context: async ({ connectionParams = {}, extra: { request } }) => {
-              // eslint-disable-next-line no-restricted-syntax
               for (const [key, value] of Object.entries(
                 (connectionParams.headers ?? {}) as { [s: string]: unknown }
               )) {
@@ -95,7 +95,6 @@ export class GraphQLMeshHandler implements OnModuleInit, OnModuleDestroy {
     await this.apolloServer?.stop()
 
     if (this.wss) {
-      // eslint-disable-next-line no-restricted-syntax
       for (const client of this.wss.clients) {
         client.close(1001, 'Going away')
       }
