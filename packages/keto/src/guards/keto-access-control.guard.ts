@@ -1,4 +1,6 @@
-import { CanActivate, ExecutionContext, Injectable } from '@nestjs/common'
+import { CanActivate }                               from '@nestjs/common'
+import { ExecutionContext }             from '@nestjs/common'
+import { Injectable } from '@nestjs/common'
 import { Reflector }                                 from '@nestjs/core'
 import { GqlExecutionContext }                       from '@nestjs/graphql'
 import { EnginesApi }                                from '@oryd/keto-client'
@@ -47,7 +49,6 @@ export class KetoAccessControlGuard implements CanActivate {
 
       return body.allowed
     } catch (error) {
-      // eslint-disable-line
       return false
     }
   }

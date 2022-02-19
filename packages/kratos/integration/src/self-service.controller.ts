@@ -1,6 +1,10 @@
 import { Controller }    from '@nestjs/common'
-import { Get, HttpCode } from '@nestjs/common'
-import { Query, Res }    from '@nestjs/common'
+import { Get }           from '@nestjs/common'
+import { HttpCode } from '@nestjs/common'
+import { Query }         from '@nestjs/common'
+
+import { Res }    from '@nestjs/common'
+
 import { Response }      from 'express'
 
 @Controller()

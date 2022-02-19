@@ -128,7 +128,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@jest/core", "virtual:fc7b8926661eeaf9e564244dba54083984d8aea376544479856bfcce570921b61e4862eda2d6b02486fd374cfd6d625a1535f4d43380795901fe402f530d3f0d#npm:27.5.1"],\
             ["@types/eslint", "npm:8.4.1"],\
             ["@types/jest", "npm:27.4.0"],\
-            ["@types/node", "npm:14.14.37"],\
+            ["@types/node", "npm:17.0.18"],\
             ["eslint", "npm:8.9.0"],\
             ["husky", "npm:7.0.4"],\
             ["typescript", "patch:typescript@npm%3A4.5.5#~builtin<compat/typescript>::version=4.5.5&hash=142761"]\
@@ -263,7 +263,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@protobufjs/pool", "npm:1.1.0"],\
             ["@protobufjs/utf8", "npm:1.1.0"],\
             ["@types/long", "npm:4.0.1"],\
-            ["@types/node", "npm:14.14.37"],\
+            ["@types/node", "npm:10.17.60"],\
             ["long", "npm:4.0.0"]\
           ],\
           "linkType": "HARD"\
@@ -447,7 +447,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@nestjs/common", "virtual:dbeec2a67cd5b7df21dbb482402706a67666b54395be929020ff14095c088b24e526a00156d6ec5c34cd13efb5308fdaa1b65b7daa3ae278555df7c6cc176b12#npm:8.0.6"],\
             ["@nestjs/core", "virtual:dbeec2a67cd5b7df21dbb482402706a67666b54395be929020ff14095c088b24e526a00156d6ec5c34cd13efb5308fdaa1b65b7daa3ae278555df7c6cc176b12#npm:8.0.6"],\
             ["@nestjs/testing", "virtual:24d6edb51dd7c48a91903ce08eae93303ffdf43623b1ec0dd7ef866de2a2121e0e1c9967d639267ee0db80cfdb7ea05c0880e3d5dffa84ab9bb6eb142bdeba2d#npm:8.0.6"],\
-            ["@types/node", "npm:14.14.37"],\
+            ["@types/node", "npm:17.0.18"],\
             ["reflect-metadata", "npm:0.1.13"],\
             ["rxjs", "npm:7.5.4"],\
             ["typescript", "patch:typescript@npm%3A4.1.3#~builtin<compat/typescript>::version=4.1.3&hash=142761"]\
@@ -507,7 +507,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@nestjs/common", "virtual:77887786a24289fa840c9acd370d634accbe79bcf317ecf5401844ffff73b8a593879dd9cce463873637e6414a631dfdb1a2473704bf332d823bcfffac8c2469#npm:8.0.5"],\
             ["@nestjs/core", "virtual:3da99a4dd1a45fbb12f3936831275fe6ef127b2869363613ce7e5fc10bfba69fce118823d76d677d80a9d976776b1a4cb7b1bb4ee5c5a306e3ceed973bf055a2#npm:8.0.5"],\
             ["@nestjs/testing", "virtual:3da99a4dd1a45fbb12f3936831275fe6ef127b2869363613ce7e5fc10bfba69fce118823d76d677d80a9d976776b1a4cb7b1bb4ee5c5a306e3ceed973bf055a2#npm:8.0.5"],\
-            ["@types/node", "npm:14.14.37"],\
+            ["@types/node", "npm:17.0.18"],\
             ["get-port", "npm:5.1.1"],\
             ["node-fetch", "virtual:8dae1ab32ef17d2c369c7996158b5d7575eb4f7425582d621cb0d2b399089e06336cea656274a2168d214b85f6d187f9d204da9a9a940dc18b1ef5ba21692251#npm:2.6.7"],\
             ["reflect-metadata", "npm:0.1.13"],\
@@ -549,7 +549,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@nestjs/testing", "virtual:7e92e9787114a7b5cad0a5f62eab65f5552eaa55e0bbf8c35384f1f5ddb8dc3522c69e8798fe152309c58a778d55f7af8a4bd45e696640c7f97f8bb04d05a712#npm:8.0.5"],\
             ["@types/lodash", "npm:4.14.178"],\
             ["@types/long", "npm:4.0.1"],\
-            ["@types/node", "npm:14.14.37"],\
+            ["@types/node", "npm:17.0.18"],\
             ["apollo-server-express", "virtual:7e92e9787114a7b5cad0a5f62eab65f5552eaa55e0bbf8c35384f1f5ddb8dc3522c69e8798fe152309c58a778d55f7af8a4bd45e696640c7f97f8bb04d05a712#npm:2.25.2"],\
             ["get-port", "npm:5.1.1"],\
             ["globby", "npm:11.0.4"],\
@@ -1040,7 +1040,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@nestjs/testing", "virtual:3da99a4dd1a45fbb12f3936831275fe6ef127b2869363613ce7e5fc10bfba69fce118823d76d677d80a9d976776b1a4cb7b1bb4ee5c5a306e3ceed973bf055a2#npm:8.0.5"],\
             ["@ory/hydra-client", "npm:1.9.2"],\
             ["@types/express", "npm:4.17.13"],\
-            ["@types/node", "npm:14.14.37"],\
+            ["@types/node", "npm:17.0.18"],\
             ["express", "npm:4.17.3"],\
             ["get-port", "npm:5.1.1"],\
             ["reflect-metadata", "npm:0.1.13"],\
@@ -1059,7 +1059,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@nestjs/core", "virtual:dbeec2a67cd5b7df21dbb482402706a67666b54395be929020ff14095c088b24e526a00156d6ec5c34cd13efb5308fdaa1b65b7daa3ae278555df7c6cc176b12#npm:8.0.6"],\
             ["@nestjs/graphql", "virtual:dbeec2a67cd5b7df21dbb482402706a67666b54395be929020ff14095c088b24e526a00156d6ec5c34cd13efb5308fdaa1b65b7daa3ae278555df7c6cc176b12#npm:7.11.0"],\
             ["@oryd/keto-client", "npm:0.5.6-alpha.1"],\
-            ["@types/node", "npm:14.14.37"],\
+            ["@types/node", "npm:17.0.18"],\
             ["apollo-server-core", "virtual:dbeec2a67cd5b7df21dbb482402706a67666b54395be929020ff14095c088b24e526a00156d6ec5c34cd13efb5308fdaa1b65b7daa3ae278555df7c6cc176b12#npm:3.3.0"],\
             ["graphql", "npm:15.5.3"],\
             ["reflect-metadata", "npm:0.1.13"],\
@@ -1080,7 +1080,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@nestjs/testing", "virtual:3da99a4dd1a45fbb12f3936831275fe6ef127b2869363613ce7e5fc10bfba69fce118823d76d677d80a9d976776b1a4cb7b1bb4ee5c5a306e3ceed973bf055a2#npm:8.0.5"],\
             ["@ory/kratos-client", "npm:0.5.5-alpha.4"],\
             ["@types/express", "npm:4.17.13"],\
-            ["@types/node", "npm:14.14.37"],\
+            ["@types/node", "npm:17.0.18"],\
             ["express", "npm:4.17.3"],\
             ["get-port", "npm:5.1.1"],\
             ["reflect-metadata", "npm:0.1.13"],\
@@ -1099,7 +1099,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@nestjs/common", "virtual:77887786a24289fa840c9acd370d634accbe79bcf317ecf5401844ffff73b8a593879dd9cce463873637e6414a631dfdb1a2473704bf332d823bcfffac8c2469#npm:8.0.5"],\
             ["@nestjs/core", "virtual:3da99a4dd1a45fbb12f3936831275fe6ef127b2869363613ce7e5fc10bfba69fce118823d76d677d80a9d976776b1a4cb7b1bb4ee5c5a306e3ceed973bf055a2#npm:8.0.5"],\
             ["@nestjs/testing", "virtual:3da99a4dd1a45fbb12f3936831275fe6ef127b2869363613ce7e5fc10bfba69fce118823d76d677d80a9d976776b1a4cb7b1bb4ee5c5a306e3ceed973bf055a2#npm:8.0.5"],\
-            ["@types/node", "npm:14.14.37"],\
+            ["@types/node", "npm:17.0.18"],\
             ["get-port", "npm:5.1.1"],\
             ["reflect-metadata", "npm:0.1.13"],\
             ["rxjs", "npm:7.5.4"],\
@@ -1119,7 +1119,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@nestjs/core", "virtual:3da99a4dd1a45fbb12f3936831275fe6ef127b2869363613ce7e5fc10bfba69fce118823d76d677d80a9d976776b1a4cb7b1bb4ee5c5a306e3ceed973bf055a2#npm:8.0.5"],\
             ["@nestjs/testing", "virtual:3da99a4dd1a45fbb12f3936831275fe6ef127b2869363613ce7e5fc10bfba69fce118823d76d677d80a9d976776b1a4cb7b1bb4ee5c5a306e3ceed973bf055a2#npm:8.0.5"],\
             ["@nestjs/typeorm", "virtual:4c56eae0b7a5725dbb9f69b78e0ed76ca95742c7eb30048ba6c17be62575746d6e9bf03d3ed47ccc343b55d85ae415c29dc5042cc525b899cd5a0d43af680804#npm:8.0.1"],\
-            ["@types/node", "npm:14.14.37"],\
+            ["@types/node", "npm:17.0.18"],\
             ["@types/sql.js", "npm:1.4.3"],\
             ["reflect-metadata", "npm:0.1.13"],\
             ["rxjs", "npm:7.5.4"],\
@@ -3697,7 +3697,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/@grpc-grpc-js-npm-1.3.7-7d78cd9616-8d02972968.zip/node_modules/@grpc/grpc-js/",\
           "packageDependencies": [\
             ["@grpc/grpc-js", "npm:1.3.7"],\
-            ["@types/node", "npm:14.14.37"]\
+            ["@types/node", "npm:17.0.18"]\
           ],\
           "linkType": "HARD"\
         }]\
@@ -3766,7 +3766,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageDependencies": [\
             ["@jest/console", "npm:27.5.1"],\
             ["@jest/types", "npm:27.5.1"],\
-            ["@types/node", "npm:14.14.37"],\
+            ["@types/node", "npm:17.0.18"],\
             ["chalk", "npm:4.1.2"],\
             ["jest-message-util", "npm:27.5.1"],\
             ["jest-util", "npm:27.5.1"],\
@@ -3792,7 +3792,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@jest/test-result", "npm:27.5.1"],\
             ["@jest/transform", "npm:27.5.1"],\
             ["@jest/types", "npm:27.5.1"],\
-            ["@types/node", "npm:14.14.37"],\
+            ["@types/node", "npm:17.0.18"],\
             ["@types/node-notifier", null],\
             ["ansi-escapes", "npm:4.3.2"],\
             ["chalk", "npm:4.1.2"],\
@@ -3832,7 +3832,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@jest/environment", "npm:27.5.1"],\
             ["@jest/fake-timers", "npm:27.5.1"],\
             ["@jest/types", "npm:27.5.1"],\
-            ["@types/node", "npm:14.14.37"],\
+            ["@types/node", "npm:17.0.18"],\
             ["jest-mock", "npm:27.5.1"]\
           ],\
           "linkType": "HARD"\
@@ -3845,7 +3845,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@jest/fake-timers", "npm:27.5.1"],\
             ["@jest/types", "npm:27.5.1"],\
             ["@sinonjs/fake-timers", "npm:8.1.0"],\
-            ["@types/node", "npm:14.14.37"],\
+            ["@types/node", "npm:17.0.18"],\
             ["jest-message-util", "npm:27.5.1"],\
             ["jest-mock", "npm:27.5.1"],\
             ["jest-util", "npm:27.5.1"]\
@@ -3882,7 +3882,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@jest/test-result", "npm:27.5.1"],\
             ["@jest/transform", "npm:27.5.1"],\
             ["@jest/types", "npm:27.5.1"],\
-            ["@types/node", "npm:14.14.37"],\
+            ["@types/node", "npm:17.0.18"],\
             ["@types/node-notifier", null],\
             ["chalk", "npm:4.1.2"],\
             ["collect-v8-coverage", "npm:1.0.1"],\
@@ -3981,7 +3981,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@jest/types", "npm:26.6.2"],\
             ["@types/istanbul-lib-coverage", "npm:2.0.3"],\
             ["@types/istanbul-reports", "npm:3.0.0"],\
-            ["@types/node", "npm:14.14.37"],\
+            ["@types/node", "npm:17.0.18"],\
             ["@types/yargs", "npm:15.0.10"],\
             ["chalk", "npm:4.1.2"]\
           ],\
@@ -3993,7 +3993,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@jest/types", "npm:27.5.1"],\
             ["@types/istanbul-lib-coverage", "npm:2.0.3"],\
             ["@types/istanbul-reports", "npm:3.0.0"],\
-            ["@types/node", "npm:14.14.37"],\
+            ["@types/node", "npm:17.0.18"],\
             ["@types/yargs", "npm:16.0.4"],\
             ["chalk", "npm:4.1.2"]\
           ],\
@@ -6261,7 +6261,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/@types-accepts-npm-1.3.5-1d59cd2a7a-590b758057.zip/node_modules/@types/accepts/",\
           "packageDependencies": [\
             ["@types/accepts", "npm:1.3.5"],\
-            ["@types/node", "npm:14.14.37"]\
+            ["@types/node", "npm:17.0.18"]\
           ],\
           "linkType": "HARD"\
         }]\
@@ -6348,7 +6348,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageDependencies": [\
             ["@types/body-parser", "npm:1.19.0"],\
             ["@types/connect", "npm:3.4.33"],\
-            ["@types/node", "npm:14.14.37"]\
+            ["@types/node", "npm:17.0.18"]\
           ],\
           "linkType": "HARD"\
         }]\
@@ -6367,7 +6367,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/@types-connect-npm-3.4.33-959638d9c6-1220403e0c.zip/node_modules/@types/connect/",\
           "packageDependencies": [\
             ["@types/connect", "npm:3.4.33"],\
-            ["@types/node", "npm:14.14.37"]\
+            ["@types/node", "npm:17.0.18"]\
           ],\
           "linkType": "HARD"\
         }]\
@@ -6398,7 +6398,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/connect", "npm:3.4.33"],\
             ["@types/express", "npm:4.17.13"],\
             ["@types/keygrip", "npm:1.0.2"],\
-            ["@types/node", "npm:14.14.37"]\
+            ["@types/node", "npm:17.0.18"]\
           ],\
           "linkType": "HARD"\
         }]\
@@ -6417,7 +6417,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/@types-docker-modem-npm-3.0.1-688d140209-8798a09ecb.zip/node_modules/@types/docker-modem/",\
           "packageDependencies": [\
             ["@types/docker-modem", "npm:3.0.1"],\
-            ["@types/node", "npm:14.14.37"],\
+            ["@types/node", "npm:17.0.18"],\
             ["@types/ssh2", "npm:0.5.47"]\
           ],\
           "linkType": "HARD"\
@@ -6429,7 +6429,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageDependencies": [\
             ["@types/dockerode", "npm:3.2.7"],\
             ["@types/docker-modem", "npm:3.0.1"],\
-            ["@types/node", "npm:14.14.37"]\
+            ["@types/node", "npm:17.0.18"]\
           ],\
           "linkType": "HARD"\
         }]\
@@ -6492,7 +6492,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/@types-express-serve-static-core-npm-4.17.24-cd6b9fd3ba-2f0b471126.zip/node_modules/@types/express-serve-static-core/",\
           "packageDependencies": [\
             ["@types/express-serve-static-core", "npm:4.17.24"],\
-            ["@types/node", "npm:14.14.37"],\
+            ["@types/node", "npm:17.0.18"],\
             ["@types/qs", "npm:6.9.5"],\
             ["@types/range-parser", "npm:1.2.3"]\
           ],\
@@ -6514,7 +6514,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/@types-fs-capacitor-npm-2.0.0-4f20eba973-367079834d.zip/node_modules/@types/fs-capacitor/",\
           "packageDependencies": [\
             ["@types/fs-capacitor", "npm:2.0.0"],\
-            ["@types/node", "npm:14.14.37"]\
+            ["@types/node", "npm:17.0.18"]\
           ],\
           "linkType": "HARD"\
         }]\
@@ -6525,7 +6525,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageDependencies": [\
             ["@types/glob", "npm:7.1.4"],\
             ["@types/minimatch", "npm:3.0.5"],\
-            ["@types/node", "npm:14.14.37"]\
+            ["@types/node", "npm:17.0.18"]\
           ],\
           "linkType": "HARD"\
         }]\
@@ -6535,7 +6535,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/@types-graceful-fs-npm-4.1.4-6e2b33ed9f-d13028412f.zip/node_modules/@types/graceful-fs/",\
           "packageDependencies": [\
             ["@types/graceful-fs", "npm:4.1.4"],\
-            ["@types/node", "npm:14.14.37"]\
+            ["@types/node", "npm:17.0.18"]\
           ],\
           "linkType": "HARD"\
         }]\
@@ -6612,7 +6612,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/@types-jsonwebtoken-npm-8.5.8-798e14708c-56738a918c.zip/node_modules/@types/jsonwebtoken/",\
           "packageDependencies": [\
             ["@types/jsonwebtoken", "npm:8.5.8"],\
-            ["@types/node", "npm:14.14.37"]\
+            ["@types/node", "npm:17.0.18"]\
           ],\
           "linkType": "HARD"\
         }]\
@@ -6647,7 +6647,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/http-errors", "npm:1.8.0"],\
             ["@types/keygrip", "npm:1.0.2"],\
             ["@types/koa-compose", "npm:3.2.5"],\
-            ["@types/node", "npm:14.14.37"]\
+            ["@types/node", "npm:17.0.18"]\
           ],\
           "linkType": "HARD"\
         }]\
@@ -6716,10 +6716,17 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]\
       ]],\
       ["@types/node", [\
-        ["npm:14.14.37", {\
-          "packageLocation": "./.yarn/cache/@types-node-npm-14.14.37-6783f920bd-647e671ac3.zip/node_modules/@types/node/",\
+        ["npm:10.17.60", {\
+          "packageLocation": "./.yarn/cache/@types-node-npm-10.17.60-63ac1f669f-2cdb3a77d0.zip/node_modules/@types/node/",\
           "packageDependencies": [\
-            ["@types/node", "npm:14.14.37"]\
+            ["@types/node", "npm:10.17.60"]\
+          ],\
+          "linkType": "HARD"\
+        }],\
+        ["npm:17.0.18", {\
+          "packageLocation": "./.yarn/cache/@types-node-npm-17.0.18-a816928b08-6c4edfc2b3.zip/node_modules/@types/node/",\
+          "packageDependencies": [\
+            ["@types/node", "npm:17.0.18"]\
           ],\
           "linkType": "HARD"\
         }]\
@@ -6729,7 +6736,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/@types-node-fetch-npm-2.5.10-86e5199acc-504d383408.zip/node_modules/@types/node-fetch/",\
           "packageDependencies": [\
             ["@types/node-fetch", "npm:2.5.10"],\
-            ["@types/node", "npm:14.14.37"],\
+            ["@types/node", "npm:17.0.18"],\
             ["form-data", "npm:3.0.0"]\
           ],\
           "linkType": "HARD"\
@@ -6802,7 +6809,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageDependencies": [\
             ["@types/request", "npm:2.48.7"],\
             ["@types/caseless", "npm:0.12.2"],\
-            ["@types/node", "npm:14.14.37"],\
+            ["@types/node", "npm:17.0.18"],\
             ["@types/tough-cookie", "npm:4.0.1"],\
             ["form-data", "npm:2.5.1"]\
           ],\
@@ -6815,7 +6822,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageDependencies": [\
             ["@types/serve-static", "npm:1.13.8"],\
             ["@types/mime", "npm:2.0.3"],\
-            ["@types/node", "npm:14.14.37"]\
+            ["@types/node", "npm:17.0.18"]\
           ],\
           "linkType": "HARD"\
         }]\
@@ -6826,7 +6833,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageDependencies": [\
             ["@types/sql.js", "npm:1.4.3"],\
             ["@types/emscripten", "npm:1.39.4"],\
-            ["@types/node", "npm:14.14.37"]\
+            ["@types/node", "npm:17.0.18"]\
           ],\
           "linkType": "HARD"\
         }]\
@@ -6836,7 +6843,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/@types-ssh2-npm-0.5.47-f74274ad26-c21ccde5dd.zip/node_modules/@types/ssh2/",\
           "packageDependencies": [\
             ["@types/ssh2", "npm:0.5.47"],\
-            ["@types/node", "npm:14.14.37"],\
+            ["@types/node", "npm:17.0.18"],\
             ["@types/ssh2-streams", "npm:0.1.9"]\
           ],\
           "linkType": "HARD"\
@@ -6847,7 +6854,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/@types-ssh2-streams-npm-0.1.9-171d709544-190f3c235b.zip/node_modules/@types/ssh2-streams/",\
           "packageDependencies": [\
             ["@types/ssh2-streams", "npm:0.1.9"],\
-            ["@types/node", "npm:14.14.37"]\
+            ["@types/node", "npm:17.0.18"]\
           ],\
           "linkType": "HARD"\
         }]\
@@ -6884,7 +6891,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/@types-ws-npm-7.4.4-63bcbe5794-b5365dff8f.zip/node_modules/@types/ws/",\
           "packageDependencies": [\
             ["@types/ws", "npm:7.4.4"],\
-            ["@types/node", "npm:14.14.37"]\
+            ["@types/node", "npm:17.0.18"]\
           ],\
           "linkType": "HARD"\
         }]\
@@ -12538,7 +12545,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@jest/environment", "npm:27.5.1"],\
             ["@jest/test-result", "npm:27.5.1"],\
             ["@jest/types", "npm:27.5.1"],\
-            ["@types/node", "npm:14.14.37"],\
+            ["@types/node", "npm:17.0.18"],\
             ["chalk", "npm:4.1.2"],\
             ["co", "npm:4.6.0"],\
             ["dedent", "npm:0.7.0"],\
@@ -12649,7 +12656,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@jest/environment", "npm:27.5.1"],\
             ["@jest/fake-timers", "npm:27.5.1"],\
             ["@jest/types", "npm:27.5.1"],\
-            ["@types/node", "npm:14.14.37"],\
+            ["@types/node", "npm:17.0.18"],\
             ["jest-mock", "npm:27.5.1"],\
             ["jest-util", "npm:27.5.1"],\
             ["jsdom", "virtual:de33b7f3967bc3d4e1b65a36474e1f3fe3baee525bcc768364cb7d2a670e909d0520585e1e3eefbe6e1e8973b0a9471bddf92500148da425f9a867a5090771fb#npm:16.7.0"]\
@@ -12665,7 +12672,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@jest/environment", "npm:27.5.1"],\
             ["@jest/fake-timers", "npm:27.5.1"],\
             ["@jest/types", "npm:27.5.1"],\
-            ["@types/node", "npm:14.14.37"],\
+            ["@types/node", "npm:17.0.18"],\
             ["jest-mock", "npm:27.5.1"],\
             ["jest-util", "npm:27.5.1"]\
           ],\
@@ -12688,7 +12695,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["jest-haste-map", "npm:27.5.1"],\
             ["@jest/types", "npm:27.5.1"],\
             ["@types/graceful-fs", "npm:4.1.4"],\
-            ["@types/node", "npm:14.14.37"],\
+            ["@types/node", "npm:17.0.18"],\
             ["anymatch", "npm:3.1.1"],\
             ["fb-watchman", "npm:2.0.1"],\
             ["fsevents", "patch:fsevents@npm%3A2.3.2#~builtin<compat/fsevents>::version=2.3.2&hash=18f3a7"],\
@@ -12712,7 +12719,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@jest/source-map", "npm:27.5.1"],\
             ["@jest/test-result", "npm:27.5.1"],\
             ["@jest/types", "npm:27.5.1"],\
-            ["@types/node", "npm:14.14.37"],\
+            ["@types/node", "npm:17.0.18"],\
             ["chalk", "npm:4.1.2"],\
             ["co", "npm:4.6.0"],\
             ["expect", "npm:27.5.1"],\
@@ -12777,7 +12784,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageDependencies": [\
             ["jest-mock", "npm:27.5.1"],\
             ["@jest/types", "npm:27.5.1"],\
-            ["@types/node", "npm:14.14.37"]\
+            ["@types/node", "npm:17.0.18"]\
           ],\
           "linkType": "HARD"\
         }]\
@@ -12854,7 +12861,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@jest/test-result", "npm:27.5.1"],\
             ["@jest/transform", "npm:27.5.1"],\
             ["@jest/types", "npm:27.5.1"],\
-            ["@types/node", "npm:14.14.37"],\
+            ["@types/node", "npm:17.0.18"],\
             ["chalk", "npm:4.1.2"],\
             ["emittery", "npm:0.8.1"],\
             ["graceful-fs", "npm:4.2.9"],\
@@ -12910,7 +12917,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/jest-serializer-npm-27.5.1-7cec732598-803e03a552.zip/node_modules/jest-serializer/",\
           "packageDependencies": [\
             ["jest-serializer", "npm:27.5.1"],\
-            ["@types/node", "npm:14.14.37"],\
+            ["@types/node", "npm:17.0.18"],\
             ["graceful-fs", "npm:4.2.9"]\
           ],\
           "linkType": "HARD"\
@@ -12962,7 +12969,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageDependencies": [\
             ["jest-util", "npm:27.5.1"],\
             ["@jest/types", "npm:27.5.1"],\
-            ["@types/node", "npm:14.14.37"],\
+            ["@types/node", "npm:17.0.18"],\
             ["chalk", "npm:4.1.2"],\
             ["ci-info", "npm:3.3.0"],\
             ["graceful-fs", "npm:4.2.9"],\
@@ -12993,7 +13000,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["jest-watcher", "npm:27.5.1"],\
             ["@jest/test-result", "npm:27.5.1"],\
             ["@jest/types", "npm:27.5.1"],\
-            ["@types/node", "npm:14.14.37"],\
+            ["@types/node", "npm:17.0.18"],\
             ["ansi-escapes", "npm:4.3.2"],\
             ["chalk", "npm:4.1.2"],\
             ["jest-util", "npm:27.5.1"],\
@@ -13007,7 +13014,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/jest-worker-npm-27.5.1-1c110b5894-98cd68b696.zip/node_modules/jest-worker/",\
           "packageDependencies": [\
             ["jest-worker", "npm:27.5.1"],\
-            ["@types/node", "npm:14.14.37"],\
+            ["@types/node", "npm:17.0.18"],\
             ["merge-stream", "npm:2.0.0"],\
             ["supports-color", "npm:8.1.1"]\
           ],\
@@ -14117,7 +14124,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@jest/core", "virtual:fc7b8926661eeaf9e564244dba54083984d8aea376544479856bfcce570921b61e4862eda2d6b02486fd374cfd6d625a1535f4d43380795901fe402f530d3f0d#npm:27.5.1"],\
             ["@types/eslint", "npm:8.4.1"],\
             ["@types/jest", "npm:27.4.0"],\
-            ["@types/node", "npm:14.14.37"],\
+            ["@types/node", "npm:17.0.18"],\
             ["eslint", "npm:8.9.0"],\
             ["husky", "npm:7.0.4"],\
             ["typescript", "patch:typescript@npm%3A4.5.5#~builtin<compat/typescript>::version=4.5.5&hash=142761"]\
@@ -15013,7 +15020,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@protobufjs/pool", "npm:1.1.0"],\
             ["@protobufjs/utf8", "npm:1.1.0"],\
             ["@types/long", "npm:4.0.1"],\
-            ["@types/node", "npm:14.14.37"],\
+            ["@types/node", "npm:17.0.18"],\
             ["long", "npm:4.0.0"]\
           ],\
           "linkType": "HARD"\

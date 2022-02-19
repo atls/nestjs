@@ -11,6 +11,11 @@
     "prepack": "yarn run build",
     "postpack": "rm -rf dist"
   },
+  "dependencies": {
+    "@atls/nestjs-grpc-http-proxy": "workspace:0.0.3",
+    "@atls/nestjs-grpc-reflection": "workspace:0.0.2",
+    "node-fetch": "^2.6.7"
+  },
   "devDependencies": {
     "@nestjs/common": "^8.0.5",
     "@nestjs/core": "^8.0.5",
@@ -31,10 +36,5 @@
   "publishConfig": {
     "main": "dist/index.js",
     "typings": "dist/index.d.ts"
-  },
-  "dependencies": {
-    "@atls/nestjs-grpc-http-proxy": "workspace:0.0.3",
-    "@atls/nestjs-grpc-reflection": "workspace:0.0.2",
-    "node-fetch": "^2.6.7"
   }
 }

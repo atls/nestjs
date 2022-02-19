@@ -1,4 +1,5 @@
-import { DynamicModule, Module } from '@nestjs/common'
+import { DynamicModule }         from '@nestjs/common'
+import { Module } from '@nestjs/common'
 import { EnginesApi }            from '@oryd/keto-client'
 
 import { RESOURCES_SCOPE }       from './constants'

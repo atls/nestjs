@@ -1,5 +1,6 @@
 import { Injectable }            from '@nestjs/common'
 import { Inject }                from '@nestjs/common'
+
 import path                      from 'path'
 
 import { KratosModuleOptions }   from '../module'

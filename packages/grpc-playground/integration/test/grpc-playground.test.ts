@@ -2,10 +2,11 @@
  * @jest-environment node
  */
 
-import getPort                             from 'get-port'
-import request                             from 'supertest'
 import { INestApplication }                from '@nestjs/common'
 import { Test }                            from '@nestjs/testing'
+
+import getPort                             from 'get-port'
+import request                             from 'supertest'
 
 import { GrpcPlaygroundIntegrationModule } from '../src'
 

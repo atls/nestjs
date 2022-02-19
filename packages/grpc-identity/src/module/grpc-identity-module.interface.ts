@@ -1,4 +1,7 @@
-import { ModuleMetadata, Type }   from '@nestjs/common/interfaces'
+import { ModuleMetadata }         from '@nestjs/common/interfaces'
+
+import { Type }   from '@nestjs/common/interfaces'
+
 import { Options as JwksOptions } from 'jwks-rsa'
 
 export interface GrpcIdentityModuleOptions {

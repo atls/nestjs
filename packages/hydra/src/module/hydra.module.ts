@@ -1,4 +1,8 @@
-import { DynamicModule, Module, Provider } from '@nestjs/common'
+import { DynamicModule }                   from '@nestjs/common'
+
+import { Module }           from '@nestjs/common'
+
+import { Provider } from '@nestjs/common'
 
 import { HydraModuleAsyncOptions }         from './hydra-module-options.interface'
 import { HydraModuleOptions }              from './hydra-module-options.interface'

@@ -1,12 +1,12 @@
 {
   "name": "@examples/grpc-http-proxy",
   "version": "0.0.1",
-  "license": "BSD 3-Clause",
   "private": true,
+  "license": "BSD 3-Clause",
   "scripts": {
     "dev": "yarn service dev",
-    "proto:lint": "buf lint",
-    "proto:generate": "buf generate"
+    "proto:generate": "buf generate",
+    "proto:lint": "buf lint"
   },
   "dependencies": {
     "@atls/nestjs-grpc-http-proxy": "workspace:0.0.3",
