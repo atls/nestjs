@@ -1,13 +1,11 @@
-import { ArgumentsHost }                         from '@nestjs/common'
+import { ArgumentsHost }                   from '@nestjs/common'
+import { Catch }                           from '@nestjs/common'
+import { ExceptionFilter }                 from '@nestjs/common'
 
-import { Catch }                  from '@nestjs/common'
+import { join }                            from 'path'
 
-import { ExceptionFilter } from '@nestjs/common'
-
-import { join }                                  from 'path'
-
-import { KratosRedirectRequiredException }       from '../exceptions'
-import { KratosBrowserUrls }                     from '../urls'
+import { KratosRedirectRequiredException } from '../exceptions'
+import { KratosBrowserUrls }               from '../urls'
 
 @Catch(KratosRedirectRequiredException)
 export class KratosExceptionFilter implements ExceptionFilter {

@@ -1,8 +1,6 @@
 import { DynamicModule }                     from '@nestjs/common'
-
-import { Module }             from '@nestjs/common'
-
-import { Provider }   from '@nestjs/common'
+import { Module }                            from '@nestjs/common'
+import { Provider }                          from '@nestjs/common'
 
 import { GrpcIdentityModuleAsyncOptions }    from './grpc-identity-module.interface'
 import { GrpcIdentityModuleOptions }         from './grpc-identity-module.interface'

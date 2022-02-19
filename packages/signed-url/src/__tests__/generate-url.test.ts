@@ -1,11 +1,9 @@
-import { Test }                           from '@nestjs/testing'
+import { Test }             from '@nestjs/testing'
 
-import { SignedUrlService }               from '../index'
-import { GcsStorage }                     from '../storage'
-
-import { STORAGE }            from '../storage'
-
-import { SignedUrl } from '../storage'
+import { SignedUrlService } from '../index'
+import { GcsStorage }       from '../storage'
+import { STORAGE }          from '../storage'
+import { SignedUrl }        from '../storage'
 
 describe('SignedUrlService', () => {
   let signedUrlService: SignedUrlService

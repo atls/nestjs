@@ -1,16 +1,14 @@
-import { DynamicModule }                   from '@nestjs/common'
+import { DynamicModule }              from '@nestjs/common'
+import { Module }                     from '@nestjs/common'
+import { Provider }                   from '@nestjs/common'
 
-import { Module }           from '@nestjs/common'
-
-import { Provider } from '@nestjs/common'
-
-import { HydraModuleAsyncOptions }         from './hydra-module-options.interface'
-import { HydraModuleOptions }              from './hydra-module-options.interface'
-import { HydraOptionsFactory }             from './hydra-module-options.interface'
-import { HYDRA_MODULE_OPTIONS }            from './hydra.constants'
-import { createHydraExportsProvider }      from './hydra.providers'
-import { createHydraProvider }             from './hydra.providers'
-import { createHydraOptionsProvider }      from './hydra.providers'
+import { HydraModuleAsyncOptions }    from './hydra-module-options.interface'
+import { HydraModuleOptions }         from './hydra-module-options.interface'
+import { HydraOptionsFactory }        from './hydra-module-options.interface'
+import { HYDRA_MODULE_OPTIONS }       from './hydra.constants'
+import { createHydraExportsProvider } from './hydra.providers'
+import { createHydraProvider }        from './hydra.providers'
+import { createHydraOptionsProvider } from './hydra.providers'
 
 @Module({})
 export class HydraModule {

@@ -1,12 +1,9 @@
-import { Inject }                             from '@nestjs/common'
+import { Inject }         from '@nestjs/common'
+import { Injectable }     from '@nestjs/common'
 
-import { Injectable }                 from '@nestjs/common'
-
-import { STORAGE }                            from '../storage'
-
-import { SignUrlOptions }            from '../storage'
-
-import { SignedUrl } from '../storage'
+import { STORAGE }        from '../storage'
+import { SignUrlOptions } from '../storage'
+import { SignedUrl }      from '../storage'
 
 @Injectable()
 export class SignedUrlService {

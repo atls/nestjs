@@ -1,6 +1,6 @@
 import { Logger }                    from '@atls/logger'
 import { Injectable }                from '@nestjs/common'
-import { OnModuleInit }  from '@nestjs/common'
+import { OnModuleInit }              from '@nestjs/common'
 import { DiscoveryService }          from '@nestjs/core'
 import { InstanceWrapper }           from '@nestjs/core/injector/instance-wrapper'
 

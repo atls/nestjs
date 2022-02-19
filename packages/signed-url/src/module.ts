@@ -1,11 +1,9 @@
-import { DynamicModule }         from '@nestjs/common'
+import { DynamicModule }    from '@nestjs/common'
+import { Module }           from '@nestjs/common'
 
-import { Module } from '@nestjs/common'
-
-import { SignedUrlService }      from './services'
-import { GcsStorage }            from './storage'
-
-import { STORAGE }   from './storage'
+import { SignedUrlService } from './services'
+import { GcsStorage }       from './storage'
+import { STORAGE }          from './storage'
 
 @Module({})
 export class SignedUrlModule {
