@@ -349,7 +349,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@atls/nestjs-grpc-http-proxy@workspace:0.0.3, @atls/nestjs-grpc-http-proxy@workspace:packages/grpc-http-proxy":
+"@atls/nestjs-grpc-http-proxy@workspace:0.0.4, @atls/nestjs-grpc-http-proxy@workspace:packages/grpc-http-proxy":
   version: 0.0.0-use.local
   resolution: "@atls/nestjs-grpc-http-proxy@workspace:packages/grpc-http-proxy"
   dependencies:
@@ -413,12 +413,12 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@atls/nestjs-grpc-playground@workspace:0.0.5, @atls/nestjs-grpc-playground@workspace:packages/grpc-playground":
+"@atls/nestjs-grpc-playground@workspace:0.0.6, @atls/nestjs-grpc-playground@workspace:packages/grpc-playground":
   version: 0.0.0-use.local
   resolution: "@atls/nestjs-grpc-playground@workspace:packages/grpc-playground"
   dependencies:
-    "@atls/nestjs-grpc-http-proxy": "workspace:0.0.3"
-    "@atls/nestjs-grpc-reflection": "workspace:0.0.2"
+    "@atls/nestjs-grpc-http-proxy": "workspace:0.0.4"
+    "@atls/nestjs-grpc-reflection": "workspace:0.0.3"
     "@nestjs/common": ^8.0.5
     "@nestjs/core": ^8.0.5
     "@nestjs/microservices": ^8.0.5
@@ -437,7 +437,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@atls/nestjs-grpc-reflection@workspace:0.0.2, @atls/nestjs-grpc-reflection@workspace:packages/grpc-reflection":
+"@atls/nestjs-grpc-reflection@workspace:0.0.3, @atls/nestjs-grpc-reflection@workspace:packages/grpc-reflection":
   version: 0.0.0-use.local
   resolution: "@atls/nestjs-grpc-reflection@workspace:packages/grpc-reflection"
   dependencies:
@@ -585,7 +585,7 @@ __metadata:
   resolution: "@atls/nestjs-typesense-typeorm@workspace:packages/typesense-typeorm"
   dependencies:
     "@atls/logger": ^0.0.1
-    "@atls/nestjs-typesense": "workspace:0.0.3"
+    "@atls/nestjs-typesense": "workspace:0.0.4"
     "@nestjs/common": ^8.0.5
     "@nestjs/core": ^8.0.5
     "@nestjs/testing": ^8.0.5
@@ -607,7 +607,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@atls/nestjs-typesense@workspace:0.0.3, @atls/nestjs-typesense@workspace:packages/typesense":
+"@atls/nestjs-typesense@workspace:0.0.4, @atls/nestjs-typesense@workspace:packages/typesense":
   version: 0.0.0-use.local
   resolution: "@atls/nestjs-typesense@workspace:packages/typesense"
   dependencies:
@@ -1374,8 +1374,8 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@examples/grpc-http-proxy@workspace:examples/grpc-http-proxy"
   dependencies:
-    "@atls/nestjs-grpc-http-proxy": "workspace:0.0.3"
-    "@atls/nestjs-grpc-reflection": "workspace:0.0.2"
+    "@atls/nestjs-grpc-http-proxy": "workspace:0.0.4"
+    "@atls/nestjs-grpc-reflection": "workspace:0.0.3"
     "@grpc/grpc-js": ^1.3.7
     "@grpc/proto-loader": ^0.6.4
     "@nestjs/common": ^8.0.5
@@ -1395,8 +1395,8 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@examples/grpc-playground@workspace:examples/grpc-playground"
   dependencies:
-    "@atls/nestjs-grpc-playground": "workspace:0.0.5"
-    "@atls/nestjs-grpc-reflection": "workspace:0.0.2"
+    "@atls/nestjs-grpc-playground": "workspace:0.0.6"
+    "@atls/nestjs-grpc-reflection": "workspace:0.0.3"
     "@grpc/grpc-js": ^1.3.7
     "@grpc/proto-loader": ^0.6.4
     "@nestjs/common": ^8.0.5
@@ -1416,7 +1416,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@examples/grpc-reflection@workspace:examples/grpc-reflection"
   dependencies:
-    "@atls/nestjs-grpc-reflection": "workspace:0.0.2"
+    "@atls/nestjs-grpc-reflection": "workspace:0.0.3"
     "@grpc/grpc-js": ^1.3.7
     "@grpc/proto-loader": ^0.6.4
     "@nestjs/common": ^8.0.5
