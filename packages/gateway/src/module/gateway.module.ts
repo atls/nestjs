@@ -1,13 +1,15 @@
-import { DynamicModule, Module, Provider } from '@nestjs/common'
-import { DiscoveryModule }                 from '@nestjs/core'
+import { DynamicModule }                from '@nestjs/common'
+import { Module }                       from '@nestjs/common'
+import { Provider }                     from '@nestjs/common'
+import { DiscoveryModule }              from '@nestjs/core'
 
-import { GatewayModuleAsyncOptions }       from './gateway-module-options.interface'
-import { GatewayModuleOptions }            from './gateway-module-options.interface'
-import { GatewayOptionsFactory }           from './gateway-module-options.interface'
-import { GATEWAY_MODULE_OPTIONS }          from './gateway.constants'
-import { createGatewayExportsProvider }    from './gateway.providers'
-import { createGatewayProvider }           from './gateway.providers'
-import { createGatewayOptionsProvider }    from './gateway.providers'
+import { GatewayModuleAsyncOptions }    from './gateway-module-options.interface'
+import { GatewayModuleOptions }         from './gateway-module-options.interface'
+import { GatewayOptionsFactory }        from './gateway-module-options.interface'
+import { GATEWAY_MODULE_OPTIONS }       from './gateway.constants'
+import { createGatewayExportsProvider } from './gateway.providers'
+import { createGatewayProvider }        from './gateway.providers'
+import { createGatewayOptionsProvider } from './gateway.providers'
 
 @Module({
   imports: [DiscoveryModule],

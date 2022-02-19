@@ -1,9 +1,9 @@
-import { sign }           from 'jsonwebtoken'
-import { promises as fs } from 'fs'
+import cookie             from 'cookie'
 import { Request }        from 'express'
 import { Response }       from 'express'
+import { promises as fs } from 'fs'
+import { sign }           from 'jsonwebtoken'
 import { v4 as uuid }     from 'uuid'
-import cookie             from 'cookie'
 
 import { Authenticator }  from './authenticator.interface'
 

@@ -3,8 +3,8 @@
 import { Module }                   from '@nestjs/common'
 import { Test }                     from '@nestjs/testing'
 
-import { TYPESENSE_MODULE_OPTIONS } from './typesense.constants'
 import { TypesenseModuleOptions }   from './typesense-module.interface'
+import { TYPESENSE_MODULE_OPTIONS } from './typesense.constants'
 import { TypesenseModule }          from './typesense.module'
 
 describe('typesense', () => {

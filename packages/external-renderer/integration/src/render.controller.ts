@@ -1,5 +1,6 @@
-import { Controller, Post } from '@nestjs/common'
-import { Body }             from '@nestjs/common'
+import { Controller } from '@nestjs/common'
+import { Body }       from '@nestjs/common'
+import { Post }       from '@nestjs/common'
 
 @Controller('render')
 export class RenderController {

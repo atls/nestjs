@@ -1,12 +1,14 @@
 import { INestApplication }                  from '@nestjs/common'
 import { Test }                              from '@nestjs/testing'
+import { getRepositoryToken }                from '@nestjs/typeorm'
+
 import { GenericContainer }                  from 'testcontainers'
 import { StartedTestContainer }              from 'testcontainers'
 import { Wait }                              from 'testcontainers'
-import { getRepositoryToken }                from '@nestjs/typeorm'
-import { TYPESENSE_MODULE_OPTIONS }          from '@atls/nestjs-typesense'
-import { Client }                            from 'typesense'
 import { Repository }                        from 'typeorm'
+import { Client }                            from 'typesense'
+
+import { TYPESENSE_MODULE_OPTIONS }          from '@atls/nestjs-typesense'
 
 import { TypesenseTypeOrmIntegrationModule } from './src'
 import { TestEntity }                        from './src/test.entity'

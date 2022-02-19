@@ -1,5 +1,5 @@
-import { Logger as MeshLogger } from '@graphql-mesh/types'
 import { Logger }               from '@atls/logger'
+import { Logger as MeshLogger } from '@graphql-mesh/types'
 
 export class GraphQLMeshLogger implements MeshLogger {
   private logger: Logger

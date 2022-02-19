@@ -2,16 +2,17 @@
  * @jest-environment node
  */
 
-import getPort                           from 'get-port'
+import { Metadata }                      from '@grpc/grpc-js'
 import { INestMicroservice }             from '@nestjs/common'
 import { ClientsModule }                 from '@nestjs/microservices'
 import { Transport }                     from '@nestjs/microservices'
 import { Test }                          from '@nestjs/testing'
-import { sign }                          from 'jsonwebtoken'
-import { Metadata }                      from '@grpc/grpc-js'
 import { status }                        from '@grpc/grpc-js'
-import { join }                          from 'path'
+
+import getPort                           from 'get-port'
 import { readFileSync }                  from 'fs'
+import { sign }                          from 'jsonwebtoken'
+import { join }                          from 'path'
 
 import { GrpcIdentityIntegrationModule } from './src'
 import { serverOptions }                 from './src'

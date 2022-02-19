@@ -1,9 +1,12 @@
-/* eslint-disable import/no-extraneous-dependencies */
 /* eslint-disable no-else-return */
 
-import { CallHandler, ExecutionContext }   from '@nestjs/common'
-import { Injectable, NestInterceptor }     from '@nestjs/common'
-import { Observable, throwError }          from 'rxjs'
+import { CallHandler }                     from '@nestjs/common'
+import { ExecutionContext }                from '@nestjs/common'
+import { Injectable }                      from '@nestjs/common'
+import { NestInterceptor }                 from '@nestjs/common'
+
+import { Observable }                      from 'rxjs'
+import { throwError }                      from 'rxjs'
 import { catchError }                      from 'rxjs/operators'
 
 import { KratosRedirectRequiredException } from '../exceptions'

@@ -1,5 +1,6 @@
 import { SetMetadata }     from '@nestjs/common'
 import { applyDecorators } from '@nestjs/common'
+
 import decamelize          from 'decamelize'
 
 export interface SchemaMetadata {
@@ -17,5 +18,4 @@ export const Schema = (options: SchemaMetadata = {}): ClassDecorator =>
         options.name ||
         decamelize((target as any).name, { separator: '-', preserveConsecutiveUppercase: false }),
       defaultSortingField: options.defaultSortingField,
-    })(target, key, descriptor)
-  )
+    })(target, key, descriptor))

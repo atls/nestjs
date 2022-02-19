@@ -1,8 +1,8 @@
 /* eslint-disable max-classes-per-file */
 
-import { Schema }         from './schema.decorator'
 import { Field }          from './field.decorator'
 import { FIELD_METADATA } from './field.decorator'
+import { Schema }         from './schema.decorator'
 
 describe('typesense', () => {
   describe('decorators', () => {

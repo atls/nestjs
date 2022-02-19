@@ -3,9 +3,9 @@
 import { Module }                from '@nestjs/common'
 import { Test }                  from '@nestjs/testing'
 
+import { KratosModuleOptions }   from './kratos-module-options.interface'
 import { KRATOS_MODULE_OPTIONS } from './kratos.constants'
 import { KratosModule }          from './kratos.module'
-import { KratosModuleOptions }   from './kratos-module-options.interface'
 
 describe('kratos', () => {
   describe('module', () => {

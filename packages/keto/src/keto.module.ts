@@ -1,8 +1,9 @@
-import { DynamicModule, Module } from '@nestjs/common'
-import { EnginesApi }            from '@oryd/keto-client'
+import { DynamicModule }   from '@nestjs/common'
+import { Module }          from '@nestjs/common'
+import { EnginesApi }      from '@oryd/keto-client'
 
-import { RESOURCES_SCOPE }       from './constants'
-import { ResourceService }       from './services'
+import { RESOURCES_SCOPE } from './constants'
+import { ResourceService } from './services'
 
 @Module({})
 export class KetoModule {
