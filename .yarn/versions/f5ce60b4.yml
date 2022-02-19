@@ -1,0 +1,16 @@
+releases:
+  "@atlantis-lab/nestjs-signed-url": patch
+  "@atls/nestjs-external-renderer": patch
+  "@atls/nestjs-gateway": patch
+  "@atls/nestjs-grpc-errors": patch
+  "@atls/nestjs-grpc-http-proxy": patch
+  "@atls/nestjs-grpc-identity": patch
+  "@atls/nestjs-grpc-playground": patch
+  "@atls/nestjs-grpc-reflection": patch
+  "@atls/nestjs-hydra": patch
+  "@atls/nestjs-keto": patch
+  "@atls/nestjs-kratos": patch
+  "@atls/nestjs-logger": patch
+  "@atls/nestjs-typeorm-seeding": patch
+  "@atls/nestjs-typesense": patch
+  "@atls/nestjs-typesense-typeorm": patch
