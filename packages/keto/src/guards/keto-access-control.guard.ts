@@ -1,10 +1,12 @@
-import { CanActivate, ExecutionContext, Injectable } from '@nestjs/common'
-import { Reflector }                                 from '@nestjs/core'
-import { GqlExecutionContext }                       from '@nestjs/graphql'
-import { EnginesApi }                                from '@oryd/keto-client'
+import { CanActivate }            from '@nestjs/common'
+import { ExecutionContext }       from '@nestjs/common'
+import { Injectable }             from '@nestjs/common'
+import { Reflector }              from '@nestjs/core'
+import { GqlExecutionContext }    from '@nestjs/graphql'
+import { EnginesApi }             from '@oryd/keto-client'
 
-import { ACCESS_POLICY_METADATA }                    from '../constants'
-import { ResourceService }                           from '../services'
+import { ACCESS_POLICY_METADATA } from '../constants'
+import { ResourceService }        from '../services'
 
 @Injectable()
 export class KetoAccessControlGuard implements CanActivate {
@@ -47,7 +49,6 @@ export class KetoAccessControlGuard implements CanActivate {
 
       return body.allowed
     } catch (error) {
-      // eslint-disable-line
       return false
     }
   }

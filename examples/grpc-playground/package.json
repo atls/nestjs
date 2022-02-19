@@ -1,12 +1,12 @@
 {
   "name": "@examples/grpc-playground",
-  "version": "0.0.0",
-  "license": "BSD 3-Clause",
+  "version": "0.0.1",
   "private": true,
+  "license": "BSD 3-Clause",
   "scripts": {
+    "dev": "yarn service dev",
     "proto:generate": "buf generate",
-    "proto:lint": "buf lint",
-    "dev": "yarn app service dev"
+    "proto:lint": "buf lint"
   },
   "dependencies": {
     "@atls/nestjs-grpc-playground": "workspace:0.0.5",
@@ -22,7 +22,7 @@
     "long": "^4.0.0",
     "protobufjs": "^6.11.2",
     "reflect-metadata": "0.1.13",
-    "rxjs": "7.2.0"
+    "rxjs": "7.5.4"
   },
   "externalDependencies": {
     "@nestjs/common/utils/load-package.util": "*"

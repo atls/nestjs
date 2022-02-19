@@ -1,7 +1,7 @@
+import { ErrorStatus }  from '@atls/grpc-error-status'
 import { Controller }   from '@nestjs/common'
 import { GrpcMethod }   from '@nestjs/microservices'
 import { RpcException } from '@nestjs/microservices'
-import { ErrorStatus }  from '@atls/grpc-error-status'
 
 @Controller()
 export class MoviesController {

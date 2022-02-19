@@ -1,5 +1,6 @@
 import { CallHandler }                     from '@nestjs/common'
 import { ExecutionContextHost }            from '@nestjs/core/helpers/execution-context-host'
+
 import { throwError }                      from 'rxjs'
 
 import { KratosRedirectRequiredException } from '../exceptions'

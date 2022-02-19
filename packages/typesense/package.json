@@ -7,9 +7,13 @@
     "dist"
   ],
   "scripts": {
-    "build": "yarn app library build",
-    "postpack": "rm -rf dist",
-    "prepack": "yarn run build"
+    "build": "yarn library build",
+    "prepack": "yarn run build",
+    "postpack": "rm -rf dist"
+  },
+  "dependencies": {
+    "@atls/logger": "^0.0.1",
+    "decamelize": "^5.0.0"
   },
   "devDependencies": {
     "@nestjs/common": "^8.0.5",
@@ -17,7 +21,7 @@
     "@nestjs/testing": "^8.0.5",
     "get-port": "^5.1.1",
     "reflect-metadata": "0.1.13",
-    "rxjs": "7.2.0",
+    "rxjs": "7.5.4",
     "typesense": "^0.14.0"
   },
   "peerDependencies": {
@@ -30,9 +34,5 @@
   "publishConfig": {
     "main": "dist/index.js",
     "typings": "dist/index.d.ts"
-  },
-  "dependencies": {
-    "@atls/logger": "^0.0.1",
-    "decamelize": "^5.0.0"
   }
 }

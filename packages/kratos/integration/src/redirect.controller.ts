@@ -1,4 +1,7 @@
-import { Controller, Get }           from '@nestjs/common'
+/* eslint-disable @typescript-eslint/no-empty-function */
+
+import { Controller }                from '@nestjs/common'
+import { Get }                       from '@nestjs/common'
 import { UseInterceptors }           from '@nestjs/common'
 
 import { KratosRedirectInterceptor } from '../../src'

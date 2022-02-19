@@ -1,19 +1,26 @@
 /* eslint-disable */
 
 import './patch-long-js'
+
+import { StoreProxy }                                      from '@graphql-mesh/store'
 import { GetMeshSourceOptions }                            from '@graphql-mesh/types'
 import { MeshHandler }                                     from '@graphql-mesh/types'
 import { YamlConfig }                                      from '@graphql-mesh/types'
-import { withCancel }                                      from '@graphql-mesh/utils'
-import { StoreProxy }                                      from '@graphql-mesh/store'
 import { ChannelCredentials }                              from '@grpc/grpc-js'
 import { ClientReadableStream }                            from '@grpc/grpc-js'
 import { ClientUnaryCall }                                 from '@grpc/grpc-js'
 import { Metadata }                                        from '@grpc/grpc-js'
+import { ConnectivityState }                               from '@grpc/grpc-js/build/src/connectivity-state'
+import { withCancel }                                      from '@graphql-mesh/utils'
 import { credentials }                                     from '@grpc/grpc-js'
 import { loadPackageDefinition }                           from '@grpc/grpc-js'
-import { ConnectivityState }                               from '@grpc/grpc-js/build/src/channel.js'
 import { loadFileDescriptorSetFromObject }                 from '@grpc/proto-loader'
+
+import _                                                   from 'lodash'
+import globby                                              from 'globby'
+import protobufjs                                          from 'protobufjs'
+import descriptor                                          from 'protobufjs/ext/descriptor/index.js'
+import { GraphQLEnumTypeConfig }                           from 'graphql'
 import { ObjectTypeComposerFieldConfigAsObjectDefinition } from 'graphql-compose'
 import { SchemaComposer }                                  from 'graphql-compose'
 import { GraphQLBigInt }                                   from 'graphql-scalars'
@@ -25,16 +32,12 @@ import { AnyNestedObject }                                 from 'protobufjs'
 import { IParseOptions }                                   from 'protobufjs'
 import { Message }                                         from 'protobufjs'
 import { RootConstructor }                                 from 'protobufjs'
-import protobufjs                                          from 'protobufjs'
 import { IFileDescriptorSet }                              from 'protobufjs/ext/descriptor'
-import descriptor                                          from 'protobufjs/ext/descriptor/index.js'
-import { GraphQLEnumTypeConfig }                           from 'graphql'
-import { specifiedDirectives }                             from 'graphql'
-import { promisify }                                       from 'util'
-import { join, isAbsolute }                                from 'path'
 import { promises as fsPromises }                          from 'fs'
-import globby                                              from 'globby'
-import _                                                   from 'lodash'
+import { specifiedDirectives }                             from 'graphql'
+import { isAbsolute }                                      from 'path'
+import { join }                                            from 'path'
+import { promisify }                                       from 'util'
 
 import { ClientMethod }                                    from './utils'
 import { addIncludePathResolver }                          from './utils'
@@ -105,8 +108,7 @@ module.exports = {
             ...this.config.descriptorSetFilePath.load,
             // @ts-ignore
             includeDirs: this.config.descriptorSetFilePath.load.includeDirs?.map((includeDir) =>
-              isAbsolute(includeDir) ? includeDir : join(this.baseDir, includeDir)
-            ),
+              isAbsolute(includeDir) ? includeDir : join(this.baseDir, includeDir)),
           }
           if (options.includeDirs) {
             if (!Array.isArray(options.includeDirs)) {
@@ -144,8 +146,7 @@ module.exports = {
             ...this.config.protoFilePath.load,
             // @ts-ignore
             includeDirs: this.config.protoFilePath.load.includeDirs?.map((includeDir) =>
-              isAbsolute(includeDir) ? includeDir : join(this.baseDir, includeDir)
-            ),
+              isAbsolute(includeDir) ? includeDir : join(this.baseDir, includeDir)),
           }
           if (options.includeDirs) {
             if (!Array.isArray(options.includeDirs)) {
@@ -162,8 +163,7 @@ module.exports = {
         })
         protoRoot = await protoRoot.load(
           fileNames.map((filePath) =>
-            isAbsolute(filePath) ? filePath : join(this.baseDir, filePath)
-          ),
+            isAbsolute(filePath) ? filePath : join(this.baseDir, filePath)),
           options
         )
         appendRoot(protoRoot)

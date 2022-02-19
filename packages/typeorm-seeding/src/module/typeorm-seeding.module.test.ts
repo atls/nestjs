@@ -1,5 +1,5 @@
-import { Test }                 from '@nestjs/testing'
 import { SeederFactory }        from '@atls/typeorm-seeding'
+import { Test }                 from '@nestjs/testing'
 import { TypeOrmModule }        from '@nestjs/typeorm'
 
 import { TypeOrmSeedingModule } from './typeorm-seeding.module'

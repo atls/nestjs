@@ -1,7 +1,9 @@
-import { Injectable, OnModuleInit }  from '@nestjs/common'
+import { Injectable }      from '@nestjs/common'
+import { OnModuleInit }    from '@nestjs/common'
 
-import { AbstractStorage }           from './abstract.storage'
-import { SignUrlOptions, SignedUrl } from './storage.interfaces'
+import { AbstractStorage } from './abstract.storage'
+import { SignUrlOptions }  from './storage.interfaces'
+import { SignedUrl }       from './storage.interfaces'
 
 @Injectable()
 export class GcsStorage extends AbstractStorage implements OnModuleInit {
@@ -10,7 +12,7 @@ export class GcsStorage extends AbstractStorage implements OnModuleInit {
   bucket: string
 
   onModuleInit() {
-    const { Storage } = require('@google-cloud/storage') // eslint-disable-line global-require
+    const { Storage } = require('@google-cloud/storage')
 
     this.storage = new Storage()
   }

@@ -1,7 +1,7 @@
-import { ValidationError } from '@nestjs/common'
-import { RpcException }    from '@nestjs/microservices'
 import { BadRequest }      from '@atls/grpc-error-status'
 import { ErrorStatus }     from '@atls/grpc-error-status'
+import { ValidationError } from '@nestjs/common'
+import { RpcException }    from '@nestjs/microservices'
 import { status }          from '@grpc/grpc-js'
 
 const traverseErrors = (

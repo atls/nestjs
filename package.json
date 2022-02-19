@@ -2,26 +2,47 @@
   "name": "nestjs",
   "private": true,
   "license": "BSD-3 Clause",
-  "devDependencies": {
-    "@atls/actl-cli": "^0.4.48",
-    "@types/jest": "^26.0.24",
-    "@types/node": "^14.17.1",
-    "husky": "7.0.1",
-    "typescript": "4.3.5"
-  },
   "workspaces": [
     "packages/*",
     "examples/*"
   ],
   "resolutions": {
-    "@types/node": "^14.14.37",
-    "typescript": "4.3.5",
+    "@grpc/grpc-js": "1.5.5",
     "@octokit/app": "11.2.0",
-    "@octokit/webhooks": "^8.12.0",
-    "@octokit/request-error": "^2.0.5",
-    "@octokit/graphql": "^4.6.1",
     "@octokit/core": "^3.3.2",
+    "@octokit/graphql": "^4.6.1",
+    "@octokit/request": "^5.4.14",
+    "@octokit/request-error": "^2.0.5",
     "@octokit/types": "^6.13.0",
-    "@octokit/request": "^5.4.14"
+    "@octokit/webhooks": "^8.12.0",
+    "@types/ssh2": "0.5.51"
+  },
+  "devDependencies": {
+    "@atls/config-jest": "^0.0.3",
+    "@atls/schematics": "^0.0.9",
+    "@jest/core": "^27.4.7",
+    "@types/eslint": "^8.4.1",
+    "@types/jest": "^27.4.0",
+    "@types/node": "16",
+    "eslint": "^8.7.0",
+    "husky": "7.0.4",
+    "typescript": "4.5.5"
+  },
+  "dependenciesMeta": {
+    "@grpc/grpc-js@1.5.5": {
+      "unplugged": true
+    },
+    "ts-proto@1.82.0": {
+      "unplugged": true
+    }
+  },
+  "packageManager": "yarn@3.0.2",
+  "tools": {
+    "schematic": {
+      "collection": "@atls/schematics",
+      "schematic": "project",
+      "type": "libraries",
+      "migration": "1645279706757"
+    }
   }
 }

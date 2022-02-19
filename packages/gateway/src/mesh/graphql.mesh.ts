@@ -1,6 +1,6 @@
+import { MeshInstance }      from '@graphql-mesh/runtime'
 import { Injectable }        from '@nestjs/common'
 import { getMesh }           from '@graphql-mesh/runtime'
-import { MeshInstance }      from '@graphql-mesh/runtime'
 
 import { GraphQLMeshConfig } from './graphql-mesh.config'
 

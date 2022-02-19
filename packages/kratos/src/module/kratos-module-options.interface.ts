@@ -1,4 +1,5 @@
-import { ModuleMetadata, Type } from '@nestjs/common/interfaces'
+import { ModuleMetadata } from '@nestjs/common/interfaces'
+import { Type }           from '@nestjs/common/interfaces'
 
 export interface KratosModuleOptions {
   public: string

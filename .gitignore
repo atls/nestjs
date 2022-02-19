@@ -43,3 +43,6 @@ node_modules
 .idea/vcs.xml
 .idea/workspace.xml
 dist
+
+# next.js output
+.next

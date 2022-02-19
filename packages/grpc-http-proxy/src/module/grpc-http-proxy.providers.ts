@@ -1,9 +1,9 @@
 import { Provider }                       from '@nestjs/common'
 
-import { GrpcHttpProxyModuleOptions }     from './grpc-http-proxy-module-options.interface'
-import { GRPC_HTTP_PROXY_MODULE_OPTIONS } from './grpc-http-proxy.constants'
 import { AuthenticationService }          from '../authenticators'
 import { ProtoRegistry }                  from '../proto'
+import { GrpcHttpProxyModuleOptions }     from './grpc-http-proxy-module-options.interface'
+import { GRPC_HTTP_PROXY_MODULE_OPTIONS } from './grpc-http-proxy.constants'
 
 export const createGrpcHttpProxyOptionsProvider = (
   options: GrpcHttpProxyModuleOptions

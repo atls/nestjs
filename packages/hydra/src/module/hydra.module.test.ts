@@ -3,9 +3,9 @@
 import { Module }               from '@nestjs/common'
 import { Test }                 from '@nestjs/testing'
 
+import { HydraModuleOptions }   from './hydra-module-options.interface'
 import { HYDRA_MODULE_OPTIONS } from './hydra.constants'
 import { HydraModule }          from './hydra.module'
-import { HydraModuleOptions }   from './hydra-module-options.interface'
 
 describe('hydra', () => {
   describe('module', () => {

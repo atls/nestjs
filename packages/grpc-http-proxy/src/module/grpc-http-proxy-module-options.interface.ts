@@ -1,7 +1,8 @@
-import { ModuleMetadata, Type } from '@nestjs/common/interfaces'
-import { GrpcOptions }          from '@nestjs/microservices'
+import { ModuleMetadata } from '@nestjs/common/interfaces'
+import { Type }           from '@nestjs/common/interfaces'
+import { GrpcOptions }    from '@nestjs/microservices'
 
-import { Authenticator }        from '../authenticators'
+import { Authenticator }  from '../authenticators'
 
 export interface GrpcHttpProxyModuleOptions {
   options: GrpcOptions['options']

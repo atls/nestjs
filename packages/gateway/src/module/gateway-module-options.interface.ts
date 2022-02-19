@@ -1,11 +1,13 @@
-import { ModuleMetadata, Type } from '@nestjs/common/interfaces'
-import { PlaygroundConfig }     from 'apollo-server-express'
-import { MeshPubSub }           from '@graphql-mesh/types'
-import { KeyValueCache }        from '@graphql-mesh/types'
-import { MeshMerger }           from '@graphql-mesh/types'
-import { YamlConfig }           from '@graphql-mesh/types'
+import { MeshPubSub }        from '@graphql-mesh/types'
+import { KeyValueCache }     from '@graphql-mesh/types'
+import { MeshMerger }        from '@graphql-mesh/types'
+import { YamlConfig }        from '@graphql-mesh/types'
+import { ModuleMetadata }    from '@nestjs/common/interfaces'
+import { Type }              from '@nestjs/common/interfaces'
 
-import { GatewaySourceType }    from '../enums'
+import { PlaygroundConfig }  from 'apollo-server-express'
+
+import { GatewaySourceType } from '../enums'
 
 export interface SourceTransformsOptions {
   rename?: YamlConfig.Transform['rename']

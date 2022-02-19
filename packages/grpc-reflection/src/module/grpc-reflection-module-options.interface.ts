@@ -1,5 +1,6 @@
-import { ModuleMetadata, Type } from '@nestjs/common/interfaces'
-import { GrpcOptions }          from '@nestjs/microservices'
+import { ModuleMetadata } from '@nestjs/common/interfaces'
+import { Type }           from '@nestjs/common/interfaces'
+import { GrpcOptions }    from '@nestjs/microservices'
 
 export type GrpcReflectionModuleOptions = GrpcOptions['options']
 
