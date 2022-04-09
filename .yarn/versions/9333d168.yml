@@ -1,0 +1,3 @@
+releases:
+  "@atls/nestjs-grpc-http-proxy": patch
+  "@atls/nestjs-grpc-playground": patch
