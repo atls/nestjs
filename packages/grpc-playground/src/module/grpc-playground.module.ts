@@ -25,7 +25,7 @@ export class GrpcPlaygroundModule {
           provide: GRPC_PLAYGROUND_MODULE_OPTIONS,
           useValue: {
             ...options,
-            version: options.version || '0.0.3',
+            version: options.version || '0.0.7',
           },
         },
       ],
