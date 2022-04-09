@@ -9,7 +9,7 @@
     "proto:lint": "buf lint"
   },
   "dependencies": {
-    "@atls/nestjs-grpc-playground": "workspace:0.0.7",
+    "@atls/nestjs-grpc-playground": "workspace:0.0.8",
     "@atls/nestjs-grpc-reflection": "workspace:0.0.3",
     "@grpc/grpc-js": "^1.3.7",
     "@grpc/proto-loader": "^0.6.4",

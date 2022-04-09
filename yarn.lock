@@ -413,7 +413,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@atls/nestjs-grpc-playground@workspace:0.0.7, @atls/nestjs-grpc-playground@workspace:packages/grpc-playground":
+"@atls/nestjs-grpc-playground@workspace:0.0.8, @atls/nestjs-grpc-playground@workspace:packages/grpc-playground":
   version: 0.0.0-use.local
   resolution: "@atls/nestjs-grpc-playground@workspace:packages/grpc-playground"
   dependencies:
@@ -1395,7 +1395,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@examples/grpc-playground@workspace:examples/grpc-playground"
   dependencies:
-    "@atls/nestjs-grpc-playground": "workspace:0.0.7"
+    "@atls/nestjs-grpc-playground": "workspace:0.0.8"
     "@atls/nestjs-grpc-reflection": "workspace:0.0.3"
     "@grpc/grpc-js": ^1.3.7
     "@grpc/proto-loader": ^0.6.4
