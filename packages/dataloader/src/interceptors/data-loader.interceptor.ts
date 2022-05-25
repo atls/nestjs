@@ -1,16 +1,16 @@
-import {
-  CallHandler,
-  ExecutionContext,
-  Injectable,
-  InternalServerErrorException,
-  NestInterceptor,
-} from '@nestjs/common'
-import { ModuleRef }                                    from '@nestjs/core'
-import { GqlExecutionContext, GraphQLExecutionContext } from '@nestjs/graphql'
-import { Observable }                                   from 'rxjs'
+import { CallHandler }                  from '@nestjs/common'
+import { ExecutionContext }             from '@nestjs/common'
+import { Injectable }                   from '@nestjs/common'
+import { InternalServerErrorException } from '@nestjs/common'
+import { NestInterceptor }              from '@nestjs/common'
+import { ModuleRef }                    from '@nestjs/core'
+import { GqlExecutionContext }          from '@nestjs/graphql'
+import { GraphQLExecutionContext }      from '@nestjs/graphql'
 
-import { GET_LOADER_CONTEXT_KEY }                       from '../constants'
-import { NestDataLoader }                               from '../interfaces/NestDataLoader'
+import { Observable }                   from 'rxjs'
+
+import { GET_LOADER_CONTEXT_KEY }       from '../constants'
+import { NestDataLoader }               from '../interfaces/nest-dataloader.interfaces'
 
 @Injectable()
 export class DataLoaderInterceptor implements NestInterceptor {

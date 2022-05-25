@@ -1,39 +1,45 @@
 {
   "name": "@atls/nestjs-dataloader",
-  "repository": "git@github.com:atls/nestjs.git",
   "version": "0.0.3",
-  "license": "BSD-3 Clause",
-  "main": "dist/index.js",
-  "source": "src/index.ts",
-  "typings": "dist/types/index.d.ts",
+  "license": "BSD-3-Clause",
+  "main": "src/index.ts",
   "files": [
     "dist"
   ],
-  "publishConfig": {
-    "access": "public"
-  },
   "scripts": {
-    "build": "yarn app library build",
-    "postpack": "rm -rf dist",
-    "prepack": "yarn run build"
+    "build": "yarn library build",
+    "prepack": "yarn run build",
+    "postpack": "rm -rf dist"
   },
-  "peerDependencies": {
-    "@nestjs/common": "^8.0.4",
-    "@nestjs/core": "^8.0.4",
-    "@nestjs/graphql": "^7.0.0",
-    "dataloader": "^2.0.0",
-    "rxjs": "^7.2.0"
+  "dependencies": {
+    "dataloader": "^2.1.0"
   },
   "devDependencies": {
-    "@nestjs/common": "^8.0.4",
-    "@nestjs/core": "^8.0.4",
-    "@nestjs/graphql": "^7.0.0",
-    "@types/node": "13.13.4",
-    "apollo-server-express": "2.13.0",
-    "dataloader": "^2.0.0",
+    "@nestjs/common": "^8.0.5",
+    "@nestjs/core": "^8.0.5",
+    "@nestjs/graphql": "^10.0.9",
+    "@nestjs/microservices": "^8.0.5",
+    "@nestjs/testing": "^8.0.5",
+    "@types/lodash": "^4.14.178",
+    "@types/node": "^17.0.10",
+    "get-port": "^5.1.1",
+    "graphql": "^15.5.0",
     "reflect-metadata": "0.1.13",
-    "rimraf": "3.0.2",
-    "rxjs": "^7.2.0",
-    "typescript": "^3.3.4000"
+    "rxjs": "7.5.2",
+    "supertest": "^6.2.2",
+    "ts-morph": "^14.0.0",
+    "ws": "^8.4.2"
+  },
+  "peerDependencies": {
+    "@nestjs/common": "^8.0.0",
+    "@nestjs/core": "^8.0.0",
+    "@nestjs/graphql": "^10.0.0",
+    "graphql": "^15.5.0",
+    "reflect-metadata": "^0.1.12",
+    "rxjs": "^6.3.3"
+  },
+  "publishConfig": {
+    "main": "dist/index.js",
+    "typings": "dist/index.d.ts"
   }
 }

@@ -1,2 +1,2 @@
-export * from './OrderResultByKey'
-export * from './Loader'
+export * from './order-result-by-key.decorator'
+export * from './loader.decorator'

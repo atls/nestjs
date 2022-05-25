@@ -1,1 +1,1 @@
-export * from './DataLoaderInterceptor'
+export * from './data-loader.interceptor'
