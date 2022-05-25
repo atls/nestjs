@@ -1,0 +1,39 @@
+{
+  "name": "@atls/nestjs-dataloader",
+  "repository": "git@github.com:atls/nestjs.git",
+  "version": "0.0.3",
+  "license": "BSD-3 Clause",
+  "main": "dist/index.js",
+  "source": "src/index.ts",
+  "typings": "dist/types/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "build": "yarn app library build",
+    "postpack": "rm -rf dist",
+    "prepack": "yarn run build"
+  },
+  "peerDependencies": {
+    "@nestjs/common": "^8.0.4",
+    "@nestjs/core": "^8.0.4",
+    "@nestjs/graphql": "^7.0.0",
+    "dataloader": "^2.0.0",
+    "rxjs": "^7.2.0"
+  },
+  "devDependencies": {
+    "@nestjs/common": "^8.0.4",
+    "@nestjs/core": "^8.0.4",
+    "@nestjs/graphql": "^7.0.0",
+    "@types/node": "13.13.4",
+    "apollo-server-express": "2.13.0",
+    "dataloader": "^2.0.0",
+    "reflect-metadata": "0.1.13",
+    "rimraf": "3.0.2",
+    "rxjs": "^7.2.0",
+    "typescript": "^3.3.4000"
+  }
+}
