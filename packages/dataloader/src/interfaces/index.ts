@@ -1,1 +1,1 @@
-export * from './NestDataLoader'
+export * from './nest-dataloader.interfaces'
