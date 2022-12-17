@@ -10,6 +10,7 @@ import { ChannelCredentials }                              from '@grpc/grpc-js'
 import { ClientReadableStream }                            from '@grpc/grpc-js'
 import { ClientUnaryCall }                                 from '@grpc/grpc-js'
 import { Metadata }                                        from '@grpc/grpc-js'
+import { ChannelOptions }                                  from '@grpc/grpc-js'
 import { ConnectivityState }                               from '@grpc/grpc-js/build/src/connectivity-state'
 import { withCancel }                                      from '@graphql-mesh/utils'
 import { credentials }                                     from '@grpc/grpc-js'
@@ -59,18 +60,22 @@ type RootJsonAndDecodedDescriptorSet = {
   decodedDescriptorSet: DecodedDescriptorSet
 }
 
+interface GrpcHandlerOptions extends GetMeshSourceOptions<YamlConfig.GrpcHandler> {
+  channelOptions?: Partial<ChannelOptions>
+}
+
 export default class GrpcHandler implements MeshHandler {
   private config: YamlConfig.GrpcHandler
   private baseDir: string
   private rootJsonAndDecodedDescriptorSet: StoreProxy<RootJsonAndDecodedDescriptorSet>
 
-  constructor({ config, baseDir, store }: GetMeshSourceOptions<YamlConfig.GrpcHandler>) {
-    if (!config) {
+  constructor(private readonly options: GrpcHandlerOptions) {
+    if (!options.config) {
       throw new Error('Config not specified!')
     }
-    this.config = config
-    this.baseDir = baseDir
-    this.rootJsonAndDecodedDescriptorSet = store.proxy('descriptorSet.proto', {
+    this.config = options.config
+    this.baseDir = options.baseDir
+    this.rootJsonAndDecodedDescriptorSet = options.store.proxy('descriptorSet.proto', {
       codify: ({ rootJson, decodedDescriptorSet }) =>
         `
 const { FileDescriptorSet } = require('protobufjs/ext/descriptor/index.js');
@@ -338,7 +343,7 @@ module.exports = {
         if (typeof ServiceClient !== 'function') {
           throw new Error(`Object at path ${objPath} is not a Service constructor`)
         }
-        const client = new ServiceClient(this.config.endpoint, creds)
+        const client = new ServiceClient(this.config.endpoint, creds, this.options.channelOptions)
         const methods = nested.methods
         await Promise.all(
           Object.entries(methods).map(async ([methodName, method]) => {

@@ -47,8 +47,8 @@ export class GraphQLMeshHandler implements OnModuleInit, OnModuleDestroy {
         path,
         cors,
         bodyParserConfig: {
-          limit: this.options.limit || undefined
-        }
+          limit: this.options.limit || undefined,
+        },
       })
 
       this.apolloServer = apolloServer
