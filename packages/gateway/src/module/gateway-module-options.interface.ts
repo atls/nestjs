@@ -39,6 +39,7 @@ export interface GatewayModuleOptions {
   sources?: SourceOptions[]
   transforms?: SourceTransformsOptions
   additionalTypeDefs?: any
+  limit?: number | string
   additionalResolvers?: (
     | string
     | YamlConfig.AdditionalStitchingResolverObject
