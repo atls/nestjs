@@ -117,6 +117,7 @@ export class GraphQLMeshConfig {
         logger: this.logger,
         // @ts-ignore
         importFn: null,
+        channelOptions: this.options.grpcChannelOptions,
       })
     } else {
       throw new Error(`Unknown source type: ${source.type}`)
