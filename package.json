@@ -16,7 +16,9 @@
     "@octokit/types": "^6.13.0",
     "@octokit/webhooks": "^8.12.0",
     "@types/ssh2": "0.5.51",
-    "rxjs": "7.5.4"
+    "rxjs": "7.5.4",
+    "typescript": "4.4.4",
+    "typeorm": "0.2.45"
   },
   "devDependencies": {
     "@atls/config-jest": "^0.0.3",
@@ -37,7 +39,7 @@
       "unplugged": true
     }
   },
-  "packageManager": "yarn@3.2.0",
+  "packageManager": "yarn@3.3.0",
   "tools": {
     "schematic": {
       "collection": "@atls/schematics",

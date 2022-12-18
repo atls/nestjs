@@ -2,6 +2,7 @@ import { MeshPubSub }        from '@graphql-mesh/types'
 import { KeyValueCache }     from '@graphql-mesh/types'
 import { MeshMerger }        from '@graphql-mesh/types'
 import { YamlConfig }        from '@graphql-mesh/types'
+import { ChannelOptions }    from '@grpc/grpc-js'
 import { ModuleMetadata }    from '@nestjs/common/interfaces'
 import { Type }              from '@nestjs/common/interfaces'
 
@@ -40,6 +41,7 @@ export interface GatewayModuleOptions {
   transforms?: SourceTransformsOptions
   additionalTypeDefs?: any
   limit?: number | string
+  grpcChannelOptions?: Partial<ChannelOptions>
   additionalResolvers?: (
     | string
     | YamlConfig.AdditionalStitchingResolverObject
