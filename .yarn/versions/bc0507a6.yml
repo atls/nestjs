@@ -1,4 +1,0 @@
-releases:
-  "@atls/nestjs-gateway": patch
-  "@atls/nestjs-typesense": patch
-  "@atls/nestjs-typesense-typeorm": patch
