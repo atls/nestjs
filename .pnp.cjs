@@ -1133,7 +1133,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["reflect-metadata", "npm:0.1.13"],\
             ["rxjs", "npm:7.5.4"],\
             ["supertest", "npm:6.2.2"],\
-            ["typeorm", "npm:0.2.34"]\
+            ["typeorm", "virtual:2be7684f2ba6382db35d73aed842104189f9b09e1687c98a05e572834f9a945a2a972003e8bb0d7615b796a2608474f1b5fb5865d711f44884baeb7e2ffd9e61#npm:0.2.45"]\
           ],\
           "linkType": "SOFT"\
         }]\
@@ -1153,7 +1153,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["reflect-metadata", "npm:0.1.13"],\
             ["rxjs", "npm:7.5.4"],\
             ["sql.js", "npm:1.6.2"],\
-            ["typeorm", "npm:0.2.34"]\
+            ["typeorm", "virtual:4c56eae0b7a5725dbb9f69b78e0ed76ca95742c7eb30048ba6c17be62575746d6e9bf03d3ed47ccc343b55d85ae415c29dc5042cc525b899cd5a0d43af680804#npm:0.2.45"]\
           ],\
           "linkType": "SOFT"\
         }]\
@@ -1219,12 +1219,12 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@nestjs/common", "virtual:77887786a24289fa840c9acd370d634accbe79bcf317ecf5401844ffff73b8a593879dd9cce463873637e6414a631dfdb1a2473704bf332d823bcfffac8c2469#npm:8.0.5"],\
             ["@nestjs/core", "virtual:3da99a4dd1a45fbb12f3936831275fe6ef127b2869363613ce7e5fc10bfba69fce118823d76d677d80a9d976776b1a4cb7b1bb4ee5c5a306e3ceed973bf055a2#npm:8.0.5"],\
             ["@nestjs/testing", "virtual:3da99a4dd1a45fbb12f3936831275fe6ef127b2869363613ce7e5fc10bfba69fce118823d76d677d80a9d976776b1a4cb7b1bb4ee5c5a306e3ceed973bf055a2#npm:8.0.5"],\
-            ["@nestjs/typeorm", "virtual:4c56eae0b7a5725dbb9f69b78e0ed76ca95742c7eb30048ba6c17be62575746d6e9bf03d3ed47ccc343b55d85ae415c29dc5042cc525b899cd5a0d43af680804#npm:8.0.1"],\
+            ["@nestjs/typeorm", "virtual:9690aa269ed7f0963f88f2f41cdbe29b7fe04ce225fdbc61cb0a364b09b929d1c2eaed05330c6dc7cecdadc37f50c68f1353b049eb428ace77331e8d82f98f3e#npm:8.0.1"],\
             ["get-port", "npm:5.1.1"],\
             ["reflect-metadata", "npm:0.1.13"],\
             ["rxjs", "npm:7.5.4"],\
             ["testcontainers", "npm:7.18.1"],\
-            ["typeorm", "npm:0.2.34"],\
+            ["typeorm", "virtual:2be7684f2ba6382db35d73aed842104189f9b09e1687c98a05e572834f9a945a2a972003e8bb0d7615b796a2608474f1b5fb5865d711f44884baeb7e2ffd9e61#npm:0.2.45"],\
             ["typesense", "virtual:3ed64c94e7cae24ec86cfec8a414cbc264cf8f1086c8c04285262e36e99f19bb4dcd46ccc2f85b5aae6d501c2102e881b1a9ae5e9291ca11b83a33ce0e208976#npm:0.14.0"]\
           ],\
           "linkType": "SOFT"\
@@ -1263,7 +1263,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageDependencies": [\
             ["@atls/typeorm-seeding", "npm:0.0.2"],\
             ["faker", "npm:5.5.3"],\
-            ["typeorm", "npm:0.2.34"]\
+            ["typeorm", "virtual:2be7684f2ba6382db35d73aed842104189f9b09e1687c98a05e572834f9a945a2a972003e8bb0d7615b796a2608474f1b5fb5865d711f44884baeb7e2ffd9e61#npm:0.2.45"]\
           ],\
           "linkType": "HARD"\
         }]\
@@ -6286,7 +6286,37 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/typeorm", null],\
             ["reflect-metadata", "npm:0.1.13"],\
             ["rxjs", "npm:7.5.4"],\
-            ["typeorm", "npm:0.2.34"],\
+            ["typeorm", "virtual:4c56eae0b7a5725dbb9f69b78e0ed76ca95742c7eb30048ba6c17be62575746d6e9bf03d3ed47ccc343b55d85ae415c29dc5042cc525b899cd5a0d43af680804#npm:0.2.45"],\
+            ["uuid", "npm:8.3.2"]\
+          ],\
+          "packagePeers": [\
+            "@nestjs/common",\
+            "@nestjs/core",\
+            "@types/nestjs__common",\
+            "@types/nestjs__core",\
+            "@types/reflect-metadata",\
+            "@types/rxjs",\
+            "@types/typeorm",\
+            "reflect-metadata",\
+            "rxjs",\
+            "typeorm"\
+          ],\
+          "linkType": "HARD"\
+        }],\
+        ["virtual:9690aa269ed7f0963f88f2f41cdbe29b7fe04ce225fdbc61cb0a364b09b929d1c2eaed05330c6dc7cecdadc37f50c68f1353b049eb428ace77331e8d82f98f3e#npm:8.0.1", {\
+          "packageLocation": "./.yarn/__virtual__/@nestjs-typeorm-virtual-f62cdbe9cb/0/cache/@nestjs-typeorm-npm-8.0.1-4d7ce08e8f-7616adde92.zip/node_modules/@nestjs/typeorm/",\
+          "packageDependencies": [\
+            ["@nestjs/typeorm", "virtual:9690aa269ed7f0963f88f2f41cdbe29b7fe04ce225fdbc61cb0a364b09b929d1c2eaed05330c6dc7cecdadc37f50c68f1353b049eb428ace77331e8d82f98f3e#npm:8.0.1"],\
+            ["@nestjs/common", "virtual:77887786a24289fa840c9acd370d634accbe79bcf317ecf5401844ffff73b8a593879dd9cce463873637e6414a631dfdb1a2473704bf332d823bcfffac8c2469#npm:8.0.5"],\
+            ["@nestjs/core", "virtual:3da99a4dd1a45fbb12f3936831275fe6ef127b2869363613ce7e5fc10bfba69fce118823d76d677d80a9d976776b1a4cb7b1bb4ee5c5a306e3ceed973bf055a2#npm:8.0.5"],\
+            ["@types/nestjs__common", null],\
+            ["@types/nestjs__core", null],\
+            ["@types/reflect-metadata", null],\
+            ["@types/rxjs", null],\
+            ["@types/typeorm", null],\
+            ["reflect-metadata", "npm:0.1.13"],\
+            ["rxjs", "npm:7.5.4"],\
+            ["typeorm", "virtual:2be7684f2ba6382db35d73aed842104189f9b09e1687c98a05e572834f9a945a2a972003e8bb0d7615b796a2608474f1b5fb5865d711f44884baeb7e2ffd9e61#npm:0.2.45"],\
             ["uuid", "npm:8.3.2"]\
           ],\
           "packagePeers": [\
@@ -9394,6 +9424,16 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["wrap-ansi", "npm:7.0.0"]\
           ],\
           "linkType": "HARD"\
+        }],\
+        ["npm:8.0.1", {\
+          "packageLocation": "./.yarn/cache/cliui-npm-8.0.1-3b029092cf-79648b3b00.zip/node_modules/cliui/",\
+          "packageDependencies": [\
+            ["cliui", "npm:8.0.1"],\
+            ["string-width", "npm:4.2.0"],\
+            ["strip-ansi", "npm:6.0.1"],\
+            ["wrap-ansi", "npm:7.0.0"]\
+          ],\
+          "linkType": "HARD"\
         }]\
       ]],\
       ["clone", [\
@@ -11037,15 +11077,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["fetchache", "npm:0.1.1"],\
             ["flatstr", "npm:1.0.12"],\
             ["http-cache-semantics", "npm:4.1.0"]\
-          ],\
-          "linkType": "HARD"\
-        }]\
-      ]],\
-      ["figlet", [\
-        ["npm:1.5.0", {\
-          "packageLocation": "./.yarn/cache/figlet-npm-1.5.0-8014ee3b57-89641163b3.zip/node_modules/figlet/",\
-          "packageDependencies": [\
-            ["figlet", "npm:1.5.0"]\
           ],\
           "linkType": "HARD"\
         }]\
@@ -14875,15 +14906,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD"\
         }]\
       ]],\
-      ["parent-require", [\
-        ["npm:1.0.0", {\
-          "packageLocation": "./.yarn/cache/parent-require-npm-1.0.0-c3b884e494-91ecef2c8e.zip/node_modules/parent-require/",\
-          "packageDependencies": [\
-            ["parent-require", "npm:1.0.0"]\
-          ],\
-          "linkType": "HARD"\
-        }]\
-      ]],\
       ["parse-json", [\
         ["npm:5.1.0", {\
           "packageLocation": "./.yarn/cache/parse-json-npm-5.1.0-a83e3ab0f2-0c0c299347.zip/node_modules/parse-json/",\
@@ -16213,6 +16235,16 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["strip-ansi", "npm:6.0.0"]\
           ],\
           "linkType": "HARD"\
+        }],\
+        ["npm:4.2.3", {\
+          "packageLocation": "./.yarn/cache/string-width-npm-4.2.3-2c27177bae-e52c10dc3f.zip/node_modules/string-width/",\
+          "packageDependencies": [\
+            ["string-width", "npm:4.2.3"],\
+            ["emoji-regex", "npm:8.0.0"],\
+            ["is-fullwidth-code-point", "npm:3.0.0"],\
+            ["strip-ansi", "npm:6.0.1"]\
+          ],\
+          "linkType": "HARD"\
         }]\
       ]],\
       ["string.prototype.trimend", [\
@@ -17025,27 +17057,182 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]\
       ]],\
       ["typeorm", [\
-        ["npm:0.2.34", {\
-          "packageLocation": "./.yarn/cache/typeorm-npm-0.2.34-590a97efd6-00bdd49c97.zip/node_modules/typeorm/",\
+        ["npm:0.2.45", {\
+          "packageLocation": "./.yarn/cache/typeorm-npm-0.2.45-8264084ef9-b7684a52c8.zip/node_modules/typeorm/",\
           "packageDependencies": [\
-            ["typeorm", "npm:0.2.34"],\
+            ["typeorm", "npm:0.2.45"]\
+          ],\
+          "linkType": "SOFT"\
+        }],\
+        ["virtual:2be7684f2ba6382db35d73aed842104189f9b09e1687c98a05e572834f9a945a2a972003e8bb0d7615b796a2608474f1b5fb5865d711f44884baeb7e2ffd9e61#npm:0.2.45", {\
+          "packageLocation": "./.yarn/__virtual__/typeorm-virtual-c4b702574a/0/cache/typeorm-npm-0.2.45-8264084ef9-b7684a52c8.zip/node_modules/typeorm/",\
+          "packageDependencies": [\
+            ["typeorm", "virtual:2be7684f2ba6382db35d73aed842104189f9b09e1687c98a05e572834f9a945a2a972003e8bb0d7615b796a2608474f1b5fb5865d711f44884baeb7e2ffd9e61#npm:0.2.45"],\
+            ["@sap/hana-client", null],\
             ["@sqltools/formatter", "npm:1.2.3"],\
+            ["@types/better-sqlite3", null],\
+            ["@types/hdb-pool", null],\
+            ["@types/ioredis", null],\
+            ["@types/mongodb", null],\
+            ["@types/mssql", null],\
+            ["@types/mysql2", null],\
+            ["@types/oracledb", null],\
+            ["@types/pg", null],\
+            ["@types/pg-native", null],\
+            ["@types/pg-query-stream", null],\
+            ["@types/redis", null],\
+            ["@types/sap__hana-client", null],\
+            ["@types/sql.js", null],\
+            ["@types/sqlite3", null],\
+            ["@types/typeorm-aurora-data-api-driver", null],\
             ["app-root-path", "npm:3.0.0"],\
+            ["better-sqlite3", null],\
             ["buffer", "npm:6.0.3"],\
             ["chalk", "npm:4.1.2"],\
             ["cli-highlight", "npm:2.1.11"],\
             ["debug", "virtual:66eebb2bc3b4f52280b83cc1b333b15f6585ed522f781d0567d2ce1a4931108ff4c790db57c6810d6afbdceb64309519bef02b156594aa3ca8181f5f0d1f78c9#npm:4.3.2"],\
             ["dotenv", "npm:8.2.0"],\
             ["glob", "npm:7.1.7"],\
+            ["hdb-pool", null],\
+            ["ioredis", null],\
             ["js-yaml", "npm:4.1.0"],\
             ["mkdirp", "npm:1.0.4"],\
+            ["mongodb", null],\
+            ["mssql", null],\
+            ["mysql2", null],\
+            ["oracledb", null],\
+            ["pg", null],\
+            ["pg-native", null],\
+            ["pg-query-stream", null],\
+            ["redis", null],\
             ["reflect-metadata", "npm:0.1.13"],\
             ["sha.js", "npm:2.4.11"],\
+            ["sql.js", null],\
+            ["sqlite3", null],\
             ["tslib", "npm:2.3.1"],\
+            ["typeorm-aurora-data-api-driver", null],\
+            ["uuid", "npm:8.3.2"],\
             ["xml2js", "npm:0.4.23"],\
-            ["yargonaut", "npm:1.1.4"],\
-            ["yargs", "npm:16.2.0"],\
+            ["yargs", "npm:17.6.2"],\
             ["zen-observable-ts", "npm:1.0.0"]\
+          ],\
+          "packagePeers": [\
+            "@sap/hana-client",\
+            "@types/better-sqlite3",\
+            "@types/hdb-pool",\
+            "@types/ioredis",\
+            "@types/mongodb",\
+            "@types/mssql",\
+            "@types/mysql2",\
+            "@types/oracledb",\
+            "@types/pg-native",\
+            "@types/pg-query-stream",\
+            "@types/pg",\
+            "@types/redis",\
+            "@types/sap__hana-client",\
+            "@types/sql.js",\
+            "@types/sqlite3",\
+            "@types/typeorm-aurora-data-api-driver",\
+            "better-sqlite3",\
+            "hdb-pool",\
+            "ioredis",\
+            "mongodb",\
+            "mssql",\
+            "mysql2",\
+            "oracledb",\
+            "pg-native",\
+            "pg-query-stream",\
+            "pg",\
+            "redis",\
+            "sql.js",\
+            "sqlite3",\
+            "typeorm-aurora-data-api-driver"\
+          ],\
+          "linkType": "HARD"\
+        }],\
+        ["virtual:4c56eae0b7a5725dbb9f69b78e0ed76ca95742c7eb30048ba6c17be62575746d6e9bf03d3ed47ccc343b55d85ae415c29dc5042cc525b899cd5a0d43af680804#npm:0.2.45", {\
+          "packageLocation": "./.yarn/__virtual__/typeorm-virtual-38486abc58/0/cache/typeorm-npm-0.2.45-8264084ef9-b7684a52c8.zip/node_modules/typeorm/",\
+          "packageDependencies": [\
+            ["typeorm", "virtual:4c56eae0b7a5725dbb9f69b78e0ed76ca95742c7eb30048ba6c17be62575746d6e9bf03d3ed47ccc343b55d85ae415c29dc5042cc525b899cd5a0d43af680804#npm:0.2.45"],\
+            ["@sap/hana-client", null],\
+            ["@sqltools/formatter", "npm:1.2.3"],\
+            ["@types/better-sqlite3", null],\
+            ["@types/hdb-pool", null],\
+            ["@types/ioredis", null],\
+            ["@types/mongodb", null],\
+            ["@types/mssql", null],\
+            ["@types/mysql2", null],\
+            ["@types/oracledb", null],\
+            ["@types/pg", null],\
+            ["@types/pg-native", null],\
+            ["@types/pg-query-stream", null],\
+            ["@types/redis", null],\
+            ["@types/sap__hana-client", null],\
+            ["@types/sql.js", "npm:1.4.3"],\
+            ["@types/sqlite3", null],\
+            ["@types/typeorm-aurora-data-api-driver", null],\
+            ["app-root-path", "npm:3.0.0"],\
+            ["better-sqlite3", null],\
+            ["buffer", "npm:6.0.3"],\
+            ["chalk", "npm:4.1.2"],\
+            ["cli-highlight", "npm:2.1.11"],\
+            ["debug", "virtual:66eebb2bc3b4f52280b83cc1b333b15f6585ed522f781d0567d2ce1a4931108ff4c790db57c6810d6afbdceb64309519bef02b156594aa3ca8181f5f0d1f78c9#npm:4.3.2"],\
+            ["dotenv", "npm:8.2.0"],\
+            ["glob", "npm:7.1.7"],\
+            ["hdb-pool", null],\
+            ["ioredis", null],\
+            ["js-yaml", "npm:4.1.0"],\
+            ["mkdirp", "npm:1.0.4"],\
+            ["mongodb", null],\
+            ["mssql", null],\
+            ["mysql2", null],\
+            ["oracledb", null],\
+            ["pg", null],\
+            ["pg-native", null],\
+            ["pg-query-stream", null],\
+            ["redis", null],\
+            ["reflect-metadata", "npm:0.1.13"],\
+            ["sha.js", "npm:2.4.11"],\
+            ["sql.js", "npm:1.6.2"],\
+            ["sqlite3", null],\
+            ["tslib", "npm:2.3.1"],\
+            ["typeorm-aurora-data-api-driver", null],\
+            ["uuid", "npm:8.3.2"],\
+            ["xml2js", "npm:0.4.23"],\
+            ["yargs", "npm:17.6.2"],\
+            ["zen-observable-ts", "npm:1.0.0"]\
+          ],\
+          "packagePeers": [\
+            "@sap/hana-client",\
+            "@types/better-sqlite3",\
+            "@types/hdb-pool",\
+            "@types/ioredis",\
+            "@types/mongodb",\
+            "@types/mssql",\
+            "@types/mysql2",\
+            "@types/oracledb",\
+            "@types/pg-native",\
+            "@types/pg-query-stream",\
+            "@types/pg",\
+            "@types/redis",\
+            "@types/sap__hana-client",\
+            "@types/sql.js",\
+            "@types/sqlite3",\
+            "@types/typeorm-aurora-data-api-driver",\
+            "better-sqlite3",\
+            "hdb-pool",\
+            "ioredis",\
+            "mongodb",\
+            "mssql",\
+            "mysql2",\
+            "oracledb",\
+            "pg-native",\
+            "pg-query-stream",\
+            "pg",\
+            "redis",\
+            "sql.js",\
+            "sqlite3",\
+            "typeorm-aurora-data-api-driver"\
           ],\
           "linkType": "HARD"\
         }]\
@@ -17712,18 +17899,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD"\
         }]\
       ]],\
-      ["yargonaut", [\
-        ["npm:1.1.4", {\
-          "packageLocation": "./.yarn/cache/yargonaut-npm-1.1.4-b6e76a38bc-d0ffc310a7.zip/node_modules/yargonaut/",\
-          "packageDependencies": [\
-            ["yargonaut", "npm:1.1.4"],\
-            ["chalk", "npm:1.1.3"],\
-            ["figlet", "npm:1.5.0"],\
-            ["parent-require", "npm:1.0.0"]\
-          ],\
-          "linkType": "HARD"\
-        }]\
-      ]],\
       ["yargs", [\
         ["npm:16.2.0", {\
           "packageLocation": "./.yarn/cache/yargs-npm-16.2.0-547873d425-b14afbb51e.zip/node_modules/yargs/",\
@@ -17738,6 +17913,20 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["yargs-parser", "npm:20.2.4"]\
           ],\
           "linkType": "HARD"\
+        }],\
+        ["npm:17.6.2", {\
+          "packageLocation": "./.yarn/cache/yargs-npm-17.6.2-1dd8b38d1b-47da1b0d85.zip/node_modules/yargs/",\
+          "packageDependencies": [\
+            ["yargs", "npm:17.6.2"],\
+            ["cliui", "npm:8.0.1"],\
+            ["escalade", "npm:3.1.1"],\
+            ["get-caller-file", "npm:2.0.5"],\
+            ["require-directory", "npm:2.1.1"],\
+            ["string-width", "npm:4.2.3"],\
+            ["y18n", "npm:5.0.5"],\
+            ["yargs-parser", "npm:21.1.1"]\
+          ],\
+          "linkType": "HARD"\
         }]\
       ]],\
       ["yargs-parser", [\
@@ -17745,6 +17934,13 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/yargs-parser-npm-20.2.4-1de20916a6-d251998a37.zip/node_modules/yargs-parser/",\
           "packageDependencies": [\
             ["yargs-parser", "npm:20.2.4"]\
+          ],\
+          "linkType": "HARD"\
+        }],\
+        ["npm:21.1.1", {\
+          "packageLocation": "./.yarn/cache/yargs-parser-npm-21.1.1-8fdc003314-ed2d96a616.zip/node_modules/yargs-parser/",\
+          "packageDependencies": [\
+            ["yargs-parser", "npm:21.1.1"]\
           ],\
           "linkType": "HARD"\
         }]\
