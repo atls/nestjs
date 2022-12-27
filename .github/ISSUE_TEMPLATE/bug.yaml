@@ -1,0 +1,46 @@
+name: Bug
+description: Что-то где-то сдохло
+labels: ['bug']
+assignees:
+  - TorinAsakura
+body:
+  - type: textarea
+    id: bug-description
+    attributes:
+      label: Описание бага
+    validations:
+      required: true
+  - type: textarea
+    id: reproduce
+    attributes:
+      label: Воспроизведение
+      description: 'Шаги для воспроизведения бага:'
+      placeholder: |
+        1. Идём туда-то **package/name/src/main.js:561**
+        2. Выполнить команду или что-то запустить
+        3. Видим то-то и то-то
+    validations:
+      required: true
+  - type: textarea
+    id: expected-behavior
+    attributes:
+      label: Ожидаемое поведение
+      placeholder: 'Чётко и понятно (без "я думал" или "ну, типа и так панятна же…не?") опишите ожидаемое поведение.'
+    validations:
+      required: true
+  - type: textarea
+    id: assets
+    attributes:
+      label: Материалы
+      description: Прикладываем скриншоты – если ошибка относится к визуальной части и сбор логов не приемлем. Прикладываем логи — если ошибка относится к системной части и скриншот не поможет в анализе и решении проблемы
+    validations:
+      required: true
+  - type: textarea
+    id: env
+    attributes:
+      label: Данные окружения
+      placeholder: |
+        - OS и версия [например iOS@14.7, Android@6.7.3, Windows@7.1]
+        - Браузер и версия [например Chrome@64, Safari@13]
+    validations:
+      required: true
