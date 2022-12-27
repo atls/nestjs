@@ -1,0 +1,92 @@
+name: Help Wanted
+description: Запрос на помощь
+labels: ['help wanted']
+assignees:
+  - TorinAsakura
+body:
+  - type: input
+    id: scope
+    attributes:
+      label: 'Скоуп'
+      description: 'Область, в которой возникла проблема'
+      placeholder: 'Например: Логика фильтрации элементов.'
+    validations:
+      required: true
+  - type: textarea
+    id: description
+    attributes:
+      label: 'Описание'
+      description: 'Обобщенное описание проблемы'
+      placeholder: 'Например: yarn typecheck выдает ошибку внутри библиотеки @grpc/grpc-js.'
+    validations:
+      required: true
+  - type: textarea
+    id: context
+    attributes:
+      label: 'Контекст'
+      description: 'Дополнительная информация, которая поможет погрузиться в проблему'
+      placeholder: 'Проблема уже встречалась на проекте <референс на проект>, решали ее так: <...>. Сейчас проблема появилась вновь, и прошлое решение не работает. Или проблема уже обсуждалась ранее с `@SomeGuy` (никнейм на GitHub), пришли к тому-то, тому-то.'
+  - type: textarea
+    id: reproduce
+    attributes:
+      label: 'Воспроизведение'
+      description: 'Шаги для воспроизведения проблемы'
+      placeholder: |
+        1. Идём туда-то **package/name/src/main.js:561**
+        2. Выполнить команду или что-то запустить
+        3. Видим то-то и то-то
+    validations:
+      required: true
+  - type: textarea
+    id: expected-behavior
+    attributes:
+      label: 'Ожидаемое поведение'
+      description: 'Чётко и понятно опишите ожидаемое поведение'
+      placeholder: 'Компонент Filter при нажатии на кнопку "Отфильтровать" должен фильтровать элементы, но этого не происходит.'
+    validations:
+      required: true
+  - type: textarea
+    id: assets-logs
+    attributes:
+      label: 'Логи'
+      description: 'Прикладываем логи — если ошибка относится к системной части и скриншот не поможет в анализе и решении проблемы'
+      placeholder: Сюда нужно вставить любой соответствующий вывод журнала. Этот текст будет автоматически отформатирован в код, поэтому бэктики (``) не нужны.
+      render: shell
+  - type: textarea
+    id: assets-media
+    attributes:
+      label: 'Медиа-материалы'
+      description: 'Прикладываем скриншоты – если ошибка относится к визуальной части и сбор логов невозможен'
+      placeholder: |
+        Можно: скриншоты/видео визуальных багов
+        Нельзя: скриншоты/видео любых логов
+  - type: textarea
+    id: actions
+    attributes:
+      label: 'Действия'
+      description: 'Описать порядок совершаемых вами действий в попытках решить проблему'
+      placeholder: |
+        1. Добавил `packageExtension`:
+        ```yml
+        '@grpc/grpc-js':
+          dependencies:
+            '@types/long': '*'
+        ```
+        2. Сделал `yarn`
+        3. Проверил, что пакет поставился: 
+        `yarn why @types/long`
+        `<Результат работы команды, подтверждающий ваши слова>`
+        4. Проблема не исчезла
+    validations:
+      required: true
+  - type: textarea
+    id: question
+    attributes:
+      label: 'Вопрос'
+      description: 'Резюмирующая часть, в которой вы должны дать отвечающему понять, какая именно помощь вам нужна. Все, что было выше, нужно исключительно для погружения в контекст проблемы. Без сформулированного вопроса отвечающему придется самому додумывать что именно вам непонятно'
+      placeholder: |
+        1. Каким образом я могу проверить наличие пакета `@types/long` в определенном инстансе библиотеки `@grpc/grpc-js`?
+        2. Как я могу избавиться от множества инстансов библиотеки `@grpc/grpc-js`, чтобы на проекте использовался только один?
+        3. Как я могу зафиксировать версию пакета?
+    validations:
+      required: true
