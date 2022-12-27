@@ -1,0 +1,37 @@
+name: Feature
+description: Изменение ломающее обратную совместимость
+labels: ['enhancement']
+assignees:
+  - TorinAsakura
+body:
+  - type: input
+    id: motivation
+    attributes:
+      label: С чем связан запрос на фичу?
+      placeholder: В случае с @Injectable мы должны иметь возможность, также, пробрасывать события с eventbus через provider
+    validations:
+      required: true
+  - type: textarea
+    id: poc
+    attributes:
+      label: Расскажите как вы это себе видите
+      placeholder: |
+        Например:
+        ```typescript
+        @Injectable({
+          provider: "IntlProvider"
+        })
+
+        export class IntlService {
+          getIntl(object){
+            return object.string
+          }
+        }
+        ```
+    validations:
+      required: true
+  - type: textarea
+    id: examples
+    attributes:
+      label: Приложите пример реализаций
+      placeholder: Просто оставьте ссылку на репу, статью, gist, любой другой источник откуда почерпнули идею
