@@ -1,0 +1,39 @@
+name: Chore
+description: Не фича и не баг
+labels: ['enhancement']
+assignees:
+  - TorinAsakura
+body:
+  - type: input
+    id: task-type
+    attributes:
+      label: Какого рода задача?
+      placeholder: Поменять значения или изменить логику
+    validations:
+      required: true
+  - type: textarea
+    id: details
+    attributes:
+      label: Что и где будем менять?
+      placeholder: |
+        **_Например:_**
+        Нужно изменить условие функции
+        ```javascript
+        if(servicePayment === 1) {
+          return
+        }
+        ```
+        на
+        ```javascript
+        if(!servicePayment && !servicePaymentValue){
+          window.location.href = homePageUrl || userProfilePageUrl
+          return null
+        }
+        ```'
+    validations:
+      required: true
+  - type: textarea
+    id: ref
+    attributes:
+      label: Укажите референс
+      placeholder: В связи с чем было принято решение? Ссылка на другую задачу, ПР, в общем – нужен контекст
