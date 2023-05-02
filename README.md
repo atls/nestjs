@@ -1,4 +1,4 @@
-![nestjs-github-cover](https://user-images.githubusercontent.com/102182195/234979467-e9d7282a-c4c0-4ad3-aef2-38d2d2f16833.png)
+![nestjs-github-cover](https://user-images.githubusercontent.com/102182195/235650080-e661338e-4466-43f7-84fc-f801558495eb.png)
 
 # NestJS Custom Workshop
 [//]: # (VERSIONS)
