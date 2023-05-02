@@ -1,6 +1,6 @@
 ![nestjs-github-cover](https://user-images.githubusercontent.com/102182195/234979467-e9d7282a-c4c0-4ad3-aef2-38d2d2f16833.png)
 
-# nestjs
+# NestJS Custom Workshop
 [//]: # (VERSIONS)
 
 [<img src="https://img.shields.io/static/v1?style=for-the-badge&label=%40atls%2Fschematics&message=0.0.9&labelColor=ECEEF5&color=D7DCEB">](https://npmjs.com/package/@atls/schematics)  [<img src="https://img.shields.io/static/v1?style=for-the-badge&label=%40atls%2Fnestjs-dataloader&message=0.0.4&labelColor=CB5458&color=BE4045">](https://npmjs.com/package/@atls/nestjs-dataloader)  [<img src="https://img.shields.io/static/v1?style=for-the-badge&label=%40atls%2Fnestjs-external-renderer&message=0.0.4&labelColor=CB5458&color=BE4045">](https://npmjs.com/package/@atls/nestjs-external-renderer)  [<img src="https://img.shields.io/static/v1?style=for-the-badge&label=%40atls%2Fnestjs-gateway&message=0.0.4&labelColor=CB5458&color=BE4045">](https://npmjs.com/package/@atls/nestjs-gateway)  [<img src="https://img.shields.io/static/v1?style=for-the-badge&label=%40atls%2Fnestjs-grpc-errors&message=0.0.4&labelColor=CB5458&color=BE4045">](https://npmjs.com/package/@atls/nestjs-grpc-errors)  [<img src="https://img.shields.io/static/v1?style=for-the-badge&label=%40atls%2Fnestjs-grpc-http-proxy&message=0.0.5&labelColor=CB5458&color=BE4045">](https://npmjs.com/package/@atls/nestjs-grpc-http-proxy)  [<img src="https://img.shields.io/static/v1?style=for-the-badge&label=%40atls%2Fnestjs-grpc-identity&message=0.0.6&labelColor=CB5458&color=BE4045">](https://npmjs.com/package/@atls/nestjs-grpc-identity)  [<img src="https://img.shields.io/static/v1?style=for-the-badge&label=%40atls%2Fnestjs-grpc-playground&message=0.0.8&labelColor=CB5458&color=BE4045">](https://npmjs.com/package/@atls/nestjs-grpc-playground)  [<img src="https://img.shields.io/static/v1?style=for-the-badge&label=%40atls%2Fnestjs-grpc-reflection&message=0.0.3&labelColor=CB5458&color=BE4045">](https://npmjs.com/package/@atls/nestjs-grpc-reflection)  [<img src="https://img.shields.io/static/v1?style=for-the-badge&label=%40atls%2Fnestjs-hydra&message=0.0.3&labelColor=CB5458&color=BE4045">](https://npmjs.com/package/@atls/nestjs-hydra)  [<img src="https://img.shields.io/static/v1?style=for-the-badge&label=%40atls%2Fnestjs-keto&message=0.0.4&labelColor=CB5458&color=BE4045">](https://npmjs.com/package/@atls/nestjs-keto)  [<img src="https://img.shields.io/static/v1?style=for-the-badge&label=%40atls%2Fnestjs-kratos&message=0.0.3&labelColor=CB5458&color=BE4045">](https://npmjs.com/package/@atls/nestjs-kratos)  [<img src="https://img.shields.io/static/v1?style=for-the-badge&label=%40atls%2Fnestjs-typesense-typeorm&message=0.0.4&labelColor=CB5458&color=BE4045">](https://npmjs.com/package/@atls/nestjs-typesense-typeorm)  [<img src="https://img.shields.io/static/v1?style=for-the-badge&label=%40atls%2Fnestjs-typesense&message=0.0.5&labelColor=CB5458&color=BE4045">](https://npmjs.com/package/@atls/nestjs-typesense)  
@@ -11,13 +11,13 @@
 
 В этом репозитории собраны полезные инструменты, интеграции и расширения, которые обеспечивают гибкость и мощь при создании современных приложений с использованием популярного фреймворка NestJS.
 
-## 🌟 Особенности:
+## 🌟&nbsp;&nbsp;Особенности:
 - Работа с различными технологиями и сервисами, такими как GraphQL, gRPC, логгирование, тестирование и другие.
 - Поддержка автоматической интеграции с популярными сервисами, такими как Hydra, Keto и Kratos.
 - Встроенное управление ошибками и их обработка в gRPC.
 - Гибкость и модульность для настройки под различные задачи и проекты.
 
-## 💼 Включает следующие пакеты:
+## 💼&nbsp;&nbsp;Включает следующие пакеты:
 
 1. `dataloader` - интеграция с DataLoader для оптимизации запросов.
 2. `external-renderer` - поддержка рендеринга на стороне сервера.
@@ -36,4 +36,4 @@
 15. `typesense-typeorm` - интеграция TypeORM с Typesense для работы с полнотекстовым поиском.
 16. `typesense` - модуль для работы с поисковым движком Typesense.
 
-🚀 Присоединяйтесь к нашему коммьюнити и начните использовать **atls/nestjs** в своих проектах!
+#### 🚀 Присоединяйтесь к нашему коммьюнити и начните использовать **atls/nestjs** в своих проектах!
