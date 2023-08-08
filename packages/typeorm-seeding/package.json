@@ -12,7 +12,7 @@
     "postpack": "rm -rf dist"
   },
   "dependencies": {
-    "@atls/typeorm-seeding": "^0.0.2",
+    "@atls/typeorm-seeding": "^0.0.3",
     "typeorm": "^0.2"
   },
   "devDependencies": {
