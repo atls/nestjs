@@ -24,7 +24,8 @@
     "module": "esnext",
     "target": "es2021",
     "jsx": "react",
-    "outDir": "./dist"
+    "outDir": "./dist",
+    "skipLibCheck": true
   },
   "include": ["packages/**/*", "examples/**/*"]
 }
