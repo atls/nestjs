@@ -11070,12 +11070,39 @@ __metadata:
   languageName: node
   linkType: hard
 
+"rxjs@npm:6.6.7":
+  version: 6.6.7
+  resolution: "rxjs@npm:6.6.7"
+  dependencies:
+    tslib: "npm:^1.9.0"
+  checksum: f593c1d7a24848a2c937d31b806b7940a7fad61902eea6893dad51298f42291585c3339112eec876671a5cd0eb3cf73da14e45a91255440db239c8f640f57ada
+  languageName: node
+  linkType: hard
+
+"rxjs@npm:7.5.2":
+  version: 7.5.2
+  resolution: "rxjs@npm:7.5.2"
+  dependencies:
+    tslib: "npm:^2.1.0"
+  checksum: 272d4d678a51dbe0d71281112b4bf0d1246d218f753c7eb382afc3158a7011eec08b6017a7a236206c9c0e851862bb9ba232c949aad32416314837565d7044bc
+  languageName: node
+  linkType: hard
+
 "rxjs@npm:7.5.4":
   version: 7.5.4
   resolution: "rxjs@npm:7.5.4"
   dependencies:
     tslib: "npm:^2.1.0"
   checksum: b6ab227e0fd7e30963e298502dd10926212e6c2d7be82d16f7501ab76ab9f90f73d03d6a34bad20635dea7eb7918a99c9c4b8eb1553305dfc1d2d6244324b9fc
+  languageName: node
+  linkType: hard
+
+"rxjs@npm:7.8.1, rxjs@npm:^7.5.4":
+  version: 7.8.1
+  resolution: "rxjs@npm:7.8.1"
+  dependencies:
+    tslib: "npm:^2.1.0"
+  checksum: d7daafba4296c4360b19bdff02d24e2f8acc7731605b0d99a0c920373d0af995bcb6b3c58c211e02db50aabddd9e854250a195f87ed193b56e79f245494774f5
   languageName: node
   linkType: hard
 
@@ -12232,7 +12259,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"tslib@npm:^1.10.0, tslib@npm:^1.9.3":
+"tslib@npm:^1.10.0, tslib@npm:^1.9.0, tslib@npm:^1.9.3":
   version: 1.14.1
   resolution: "tslib@npm:1.14.1"
   checksum: 441af59dc42ad4ae57140e62cb362369620c6076845c2c2b0ecc863c1d719ce24fdbc301e9053433fef43075e061bf84b702318ff1204b496a5bba10baf9eb9f
