@@ -1,0 +1,36 @@
+name: Task
+description: Шаблон задачи
+assignees:
+  - TorinAsakura
+body:
+  - type: input
+    id: motivation
+    attributes:
+      label: С чем связан запрос на фичу?
+      placeholder: Задайте себе вопрос - что привело меня к созданию этой задачи?
+    validations:
+      required: true
+  - type: textarea
+    id: solution
+    attributes:
+      label: Расскажите как вы это себе видите
+      placeholder: Задайте себе вопрос - как бы я это сделал? А затем распишите это в виде списка
+    validations:
+      required: true
+  - type: input
+    id: dod
+    attributes:
+      label: Definition of done (критерий готовности)
+      placeholder: Задайте себе вопрос - что нужно сделать для того чтобы задача была выполнена?
+    validations:
+      required: true
+  - type: textarea
+    id: examples
+    attributes:
+      label: Приложите пример реализаций
+      placeholder: Просто оставьте ссылку на репу, статью, gist, любой другой источник откуда почерпнули идею
+  - type: textarea
+    id: materials
+    attributes:
+      label: Приложите материалы задачи
+      placeholder: Приложите ссылку на figma документ или на Google Document в котором имеются данные по задаче
