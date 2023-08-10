@@ -26,7 +26,7 @@ import { Injectable }  from '@nestjs/common'
 export class MyDataLoader extends DataLoader<string, string> {
   constructor() {
     super(async (keys: string[]) => {
-      // Ваш код для загрузки данных пачками
+      / Ваш код для загрузки данных пачками
     })
   }
 }
