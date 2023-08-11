@@ -1,15 +1,17 @@
 import { ArgumentsHost }                   from '@nestjs/common'
+import { Inject }                          from '@nestjs/common'
 import { Catch }                           from '@nestjs/common'
 import { ExceptionFilter }                 from '@nestjs/common'
 
 import { join }                            from 'path'
 
 import { KratosRedirectRequiredException } from '../exceptions'
+import { KRATOS_BROWSER_URLS }             from '../module'
 import { KratosBrowserUrls }               from '../urls'
 
 @Catch(KratosRedirectRequiredException)
 export class KratosExceptionFilter implements ExceptionFilter {
-  constructor(private readonly urls: KratosBrowserUrls) {}
+  constructor(@Inject(KRATOS_BROWSER_URLS) private readonly urls: KratosBrowserUrls) {}
 
   catch(exception: KratosRedirectRequiredException, host: ArgumentsHost) {
     const ctx = host.switchToHttp()
