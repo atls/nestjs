@@ -1,6 +1,6 @@
 {
   "name": "@atls/nestjs-typesense-typeorm",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "license": "BSD 3-Clause",
   "main": "src/index.ts",
   "files": [
@@ -16,7 +16,7 @@
     "typeorm": "^0.2"
   },
   "devDependencies": {
-    "@atls/nestjs-typesense": "workspace:0.0.6",
+    "@atls/nestjs-typesense": "workspace:0.0.7",
     "@nestjs/common": "^8.0.5",
     "@nestjs/core": "^8.0.5",
     "@nestjs/testing": "^8.0.5",
