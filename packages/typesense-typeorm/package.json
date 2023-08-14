@@ -24,6 +24,7 @@
     "get-port": "^5.1.1",
     "reflect-metadata": "0.1.13",
     "rxjs": "7.5.4",
+    "sqlite3": "^5.1.6",
     "testcontainers": "^7.18.1",
     "typesense": "^0.14.0"
   },

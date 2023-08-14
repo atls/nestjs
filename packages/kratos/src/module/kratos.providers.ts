@@ -8,6 +8,7 @@ import { KratosExceptionFilter } from '../filters'
 import { WhoamiPipe }            from '../pipes'
 import { KratosBrowserUrls }     from '../urls'
 import { KratosModuleOptions }   from './kratos-module-options.interface'
+import { KRATOS_BROWSER_URLS }   from './kratos.constants'
 import { KRATOS_MODULE_OPTIONS } from './kratos.constants'
 
 export const createKratosOptionsProvider = (options: KratosModuleOptions): Provider[] => [
@@ -39,6 +40,9 @@ export const createKratosExportsProvider = (): Provider[] => [
       ),
     inject: [KRATOS_MODULE_OPTIONS],
   },
-  KratosBrowserUrls,
+  {
+    provide: KRATOS_BROWSER_URLS,
+    useClass: KratosBrowserUrls,
+  },
   WhoamiPipe,
 ]
