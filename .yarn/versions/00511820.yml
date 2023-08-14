@@ -1,0 +1,6 @@
+releases:
+  "@atls/nestjs-dataloader": patch
+  "@atls/nestjs-grpc-playground": patch
+  "@atls/nestjs-kratos": patch
+  "@atls/nestjs-typesense": patch
+  "@atls/nestjs-typesense-typeorm": patch
