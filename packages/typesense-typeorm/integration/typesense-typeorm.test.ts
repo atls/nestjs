@@ -66,6 +66,10 @@ describe('typesense-typeorm', () => {
       })
     )
 
+    await new Promise((r) => {
+      setTimeout(r, 5)
+    })
+
     const result = await client.collections('test').documents().search({
       q: 'Stark',
       query_by: 'company',
@@ -87,12 +91,16 @@ describe('typesense-typeorm', () => {
 
     await repository.save(entity)
 
+    await new Promise((r) => {
+      setTimeout(r, 5)
+    })
+
     const result = await client.collections('test').documents().search({
       q: 'Stark',
       query_by: 'company',
       filter_by: 'employees:>1000',
     })
 
-    expect(result.found).toBe(1)
+    expect(result.found).toBe(2)
   })
 })

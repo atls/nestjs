@@ -7,7 +7,7 @@ body:
   - type: input
     id: scope
     attributes:
-      label: 'Скоуп'
+      label: 'Область'
       description: 'Область, в которой возникла проблема'
       placeholder: 'Например: Логика фильтрации элементов.'
     validations:
@@ -16,8 +16,8 @@ body:
     id: description
     attributes:
       label: 'Описание'
-      description: 'Обобщенное описание проблемы'
-      placeholder: 'Например: yarn typecheck выдает ошибку внутри библиотеки @grpc/grpc-js.'
+      description: 'Описание проблемы'
+      placeholder: 'Например: yarn typecheck выдаёт ошибку внутри библиотеки @grpc/grpc-js.'
     validations:
       required: true
   - type: textarea
@@ -25,16 +25,16 @@ body:
     attributes:
       label: 'Контекст'
       description: 'Дополнительная информация, которая поможет погрузиться в проблему'
-      placeholder: 'Проблема уже встречалась на проекте <референс на проект>, решали ее так: <...>. Сейчас проблема появилась вновь, и прошлое решение не работает. Или проблема уже обсуждалась ранее с `@SomeGuy` (никнейм на GitHub), пришли к тому-то, тому-то.'
+      placeholder: 'Возможно подобная проблема уже решалась где-то в соседних репах. Укажи ник человека, который может знать что-либо или укажи ссылку на тикет.'
   - type: textarea
     id: reproduce
     attributes:
       label: 'Воспроизведение'
       description: 'Шаги для воспроизведения проблемы'
       placeholder: |
-        1. Идём туда-то **package/name/src/main.js:561**
-        2. Выполнить команду или что-то запустить
-        3. Видим то-то и то-то
+        1. Идём туда-то
+        2. Выполняем что-то
+        3. Видим то-то
     validations:
       required: true
   - type: textarea

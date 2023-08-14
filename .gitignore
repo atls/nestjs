@@ -40,9 +40,10 @@ node_modules
 # This is the Yarn install state cache, it can be rebuilt anytime
 /.yarn/install-state.gz
 
-.idea
-.vscode
-dist
+# IDE system files & modules
+dist/
+*.iml
+*.idea
 
 # next.js output
 .next
