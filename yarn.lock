@@ -357,24 +357,24 @@ __metadata:
   resolution: "@atls/nestjs-grpc-errors@workspace:packages/grpc-errors"
   dependencies:
     "@atls/grpc-error-status": "npm:^0.0.3"
-    "@grpc/grpc-js": "npm:^1.3.7"
-    "@nestjs/common": "npm:^8.0.5"
-    "@nestjs/core": "npm:^8.0.5"
-    "@nestjs/microservices": "npm:^8.0.5"
-    "@nestjs/testing": "npm:^8.0.5"
-    class-transformer: "npm:^0.4.0"
-    class-validator: "npm:^0.13.2"
-    get-port: "npm:^5.1.1"
+    "@grpc/grpc-js": "npm:1.9.0"
+    "@nestjs/common": "npm:10.1.3"
+    "@nestjs/core": "npm:10.1.3"
+    "@nestjs/microservices": "npm:10.1.3"
+    "@nestjs/testing": "npm:10.1.3"
+    class-transformer: "npm:0.5.1"
+    class-validator: "npm:0.14.0"
+    get-port: "npm:6.1.2"
     reflect-metadata: "npm:0.1.13"
-    rxjs: "npm:7.5.4"
-    supertest: "npm:^6.2.2"
+    rxjs: "npm:7.8.1"
+    supertest: "npm:6.3.3"
   peerDependencies:
-    "@nestjs/common": ^8.0.0
-    "@nestjs/core": ^8.0.0
-    "@nestjs/microservices": ^8.0.0
-    class-validator: ^0.13
-    reflect-metadata: ^0.1.12
-    rxjs: ^6.3.3
+    "@nestjs/common": 10.1.3
+    "@nestjs/core": 10.1.3
+    "@nestjs/microservices": 10.1.3
+    class-validator: 0.14.0
+    reflect-metadata: 0.1.13
+    rxjs: 7.8.1
   languageName: unknown
   linkType: soft
 
@@ -2257,13 +2257,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@grpc/grpc-js@npm:1.5.5":
-  version: 1.5.5
-  resolution: "@grpc/grpc-js@npm:1.5.5"
+"@grpc/grpc-js@npm:*, @grpc/grpc-js@npm:1.9.0, @grpc/grpc-js@npm:^1.3.4, @grpc/grpc-js@npm:^1.3.7, @grpc/grpc-js@npm:^1.5.5":
+  version: 1.9.0
+  resolution: "@grpc/grpc-js@npm:1.9.0"
   dependencies:
-    "@grpc/proto-loader": "npm:^0.6.4"
+    "@grpc/proto-loader": "npm:^0.7.0"
     "@types/node": "npm:>=12.12.47"
-  checksum: 4276d1b6ff83282bef317589d721580450162cfff7986445bde75ff4a80fb96620dde57fe1c28abad17e8add56b480c2bc4229f0b33d4cb315df108167c8d110
+  checksum: 9070b66ea78a7ab78d60cbffcd93f2e6be269ed6456c42ce8fe3133e9f90082c82e6b89d2560d531e5ea1cdc9040a029785d596111e6cd3f13c7dc81368194e0
   languageName: node
   linkType: hard
 
@@ -2279,6 +2279,21 @@ __metadata:
   bin:
     proto-loader-gen-types: build/bin/proto-loader-gen-types.js
   checksum: a7729d81259326987784cb78829936c58471039dfda7f05a90046b270c6f96a6f6c7a05fb5aba3f727ea97dfcbb061f6827f7fe85933cb22c65382448fb1e3d9
+  languageName: node
+  linkType: hard
+
+"@grpc/proto-loader@npm:^0.7.0":
+  version: 0.7.8
+  resolution: "@grpc/proto-loader@npm:0.7.8"
+  dependencies:
+    "@types/long": "npm:^4.0.1"
+    lodash.camelcase: "npm:^4.3.0"
+    long: "npm:^4.0.0"
+    protobufjs: "npm:^7.2.4"
+    yargs: "npm:^17.7.2"
+  bin:
+    proto-loader-gen-types: build/bin/proto-loader-gen-types.js
+  checksum: 8f03083e2ad1d66f0f80362a070819d161280ddc41caddeebd3b0bebdf7b36f296571a67951b1fd9918e5b9652a83c919ec181522009141f60e025da81c8ac59
   languageName: node
   linkType: hard
 
@@ -3879,6 +3894,13 @@ __metadata:
   version: 8.3.4
   resolution: "@types/uuid@npm:8.3.4"
   checksum: 42fa6d1868c459444c257fe418f624067aabfbe550ce97d9c124c5759a16f03bc475dc82086eefee807571608830b2f955e688c0e63e40aad5eb29b573471492
+  languageName: node
+  linkType: hard
+
+"@types/validator@npm:^13.7.10":
+  version: 13.11.1
+  resolution: "@types/validator@npm:13.11.1"
+  checksum: c5372ba5255706c51abe1888136c1928998c8458ac4330a92ce03103e6a8b16653682dae672dbf37bcdbf2739fd00920368daf043a53d38d84e99ddd70c83153
   languageName: node
   linkType: hard
 
@@ -5522,6 +5544,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"class-transformer@npm:0.5.1":
+  version: 0.5.1
+  resolution: "class-transformer@npm:0.5.1"
+  checksum: 08f2a0eaf5e674ef8b8839bd63c9b917fcc811a8d7044702dee933b1ba88d8906f5141c616173c22568d8b3e95cdf4e3afd25dcbd0f878b138a0b6e550b11d0c
+  languageName: node
+  linkType: hard
+
 "class-transformer@npm:^0.4.0":
   version: 0.4.0
   resolution: "class-transformer@npm:0.4.0"
@@ -5529,13 +5558,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"class-validator@npm:^0.13.2":
-  version: 0.13.2
-  resolution: "class-validator@npm:0.13.2"
+"class-validator@npm:0.14.0":
+  version: 0.14.0
+  resolution: "class-validator@npm:0.14.0"
   dependencies:
-    libphonenumber-js: "npm:^1.9.43"
+    "@types/validator": "npm:^13.7.10"
+    libphonenumber-js: "npm:^1.10.14"
     validator: "npm:^13.7.0"
-  checksum: 3b3c45bb9c84be5a621c23ecc1db70a844554d348b0d64229487e46b362fb945b885e60b65c2016f3f782f7e609c75919cb058ba3b264fb7ee8b30e654fa938f
+  checksum: 3bd7e3b93ee293b5cd456a52f7240accc69400234cc95985f38271c3f5ca44eb65d751d95d93a18f1bedd6373411b9909ee5c6d117cc6ca0fc77072c25880ccd
   languageName: node
   linkType: hard
 
@@ -9411,10 +9441,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"libphonenumber-js@npm:^1.9.43":
-  version: 1.9.49
-  resolution: "libphonenumber-js@npm:1.9.49"
-  checksum: f57894f7308af94adb67fd40d923b9927fc7902706e831068187c55cbdd403bd13f05ae34ee85e06d8a7b54c465e4326867bfcc0640a7c7f66f7fd7744e83703
+"libphonenumber-js@npm:^1.10.14":
+  version: 1.10.41
+  resolution: "libphonenumber-js@npm:1.10.41"
+  checksum: e27bab8ff750e5c9107070967a8ed5596f392b6c4db8995ecc4c6da2c61aa24f2595ec874b8fe176eda6f31a53e2af23e62f38d0decb41147fc1dc08511619ec
   languageName: node
   linkType: hard
 
@@ -9602,6 +9632,13 @@ __metadata:
   version: 4.0.0
   resolution: "long@npm:4.0.0"
   checksum: fc6d1bf0f251ec045c1004cb3a15be1dd6da11d8232cbfd63a4e7c5becd6d269ecac2e2f267114328280b20cdb00af435bd9a3d7b3af824484b59a635b9d52ab
+  languageName: node
+  linkType: hard
+
+"long@npm:^5.0.0":
+  version: 5.2.3
+  resolution: "long@npm:5.2.3"
+  checksum: 2f9db2d025e291fbd02e23a955cd00f18c263e82147df6dca302b1a1cd45f3851d31aef3a381373428185046ee700556af150145149bccfd74b7b87f683c66f1
   languageName: node
   linkType: hard
 
@@ -10857,6 +10894,26 @@ __metadata:
     pbjs: bin/pbjs
     pbts: bin/pbts
   checksum: b9aebaa664484e9d92b35696af8690a9702ea80c0bff4441268fae55d7eed25c286dcf59db4bbfcb1f8a6e127e8677797e94d9c0ae38723fc5ce3a84dab214e7
+  languageName: node
+  linkType: hard
+
+"protobufjs@npm:^7.2.4":
+  version: 7.2.4
+  resolution: "protobufjs@npm:7.2.4"
+  dependencies:
+    "@protobufjs/aspromise": "npm:^1.1.2"
+    "@protobufjs/base64": "npm:^1.1.2"
+    "@protobufjs/codegen": "npm:^2.0.4"
+    "@protobufjs/eventemitter": "npm:^1.1.0"
+    "@protobufjs/fetch": "npm:^1.1.0"
+    "@protobufjs/float": "npm:^1.0.2"
+    "@protobufjs/inquire": "npm:^1.1.0"
+    "@protobufjs/path": "npm:^1.1.2"
+    "@protobufjs/pool": "npm:^1.1.0"
+    "@protobufjs/utf8": "npm:^1.1.0"
+    "@types/node": "npm:>=13.7.0"
+    long: "npm:^5.0.0"
+  checksum: acf1d12c2f3e400eab90ec6441d05578455f6a005c94d54c9f237de128b66b4502633c23d44cd6c682d30ebd67799aae67c49e5c6453e6a372068d1d524cb334
   languageName: node
   linkType: hard
 
@@ -13333,6 +13390,21 @@ __metadata:
     y18n: "npm:^5.0.5"
     yargs-parser: "npm:^21.1.1"
   checksum: 31c667c5c38d1738ac4ecb6f5228eb94f53d0555db4e4091bd55bc7864d96f3e58e1b8126e1b19bfa056f4f1aeb7643723c3a8309267df36e30afb91e796a3fc
+  languageName: node
+  linkType: hard
+
+"yargs@npm:^17.7.2":
+  version: 17.7.2
+  resolution: "yargs@npm:17.7.2"
+  dependencies:
+    cliui: "npm:^8.0.1"
+    escalade: "npm:^3.1.1"
+    get-caller-file: "npm:^2.0.5"
+    require-directory: "npm:^2.1.1"
+    string-width: "npm:^4.2.3"
+    y18n: "npm:^5.0.5"
+    yargs-parser: "npm:^21.1.1"
+  checksum: 02578d19d9c9a21ed980903995a5a9b7d913e8dccefe182fadae1afee26c6903f912594524d13ea2950dbaad1024e9d255c380a150fbda957bd32e9d0d772eb0
   languageName: node
   linkType: hard
 
