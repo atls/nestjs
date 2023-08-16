@@ -37,6 +37,7 @@ jobs:
       
       - name: Check for version changes in @atls dependencies
         run: |
+          set -x
           CHANGED_FILES=$(git diff-tree --no-commit-id --name-only -r HEAD | grep 'package.json')
           echo "Changed Files: $CHANGED_FILES"
           for FILE in $CHANGED_FILES; do
