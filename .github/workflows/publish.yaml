@@ -29,6 +29,11 @@ jobs:
         env:
           YARN_NPM_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
+      - name: Publish to GitHub Registry
+        run: yarn workspaces changed foreach --verbose --topological --no-private npm publish
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
       - name: Commit changes
         uses: EndBug/add-and-commit@v9
         env:
@@ -38,3 +43,12 @@ jobs:
           author_email: github-bot@atls.team
           message: 'chore(common): publish'
           branch: master
+
+      - name: Create GitHub Release
+        run: |
+          TAG_NAME=$(git describe --tags --abbrev=0)
+          gh release create $TAG_NAME \
+            --title "Release $TAG_NAME" \
+            --notes "Release notes for $TAG_NAME"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
