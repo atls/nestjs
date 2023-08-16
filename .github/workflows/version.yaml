@@ -38,10 +38,10 @@ jobs:
       - name: Check for @atls version changes
         id: check-versions
         run: |
-          FILES=$(git diff --name-only HEAD~1 HEAD | grep 'package.json')
+          FILES=$(git diff --name-only ${{ github.event.pull_request.base.sha }} ${{ github.event.pull_request.head.sha }} | grep 'package.json')
           for FILE in $FILES; do
             # Extract old and new version for @atls dependencies
-            OLD_VERSIONS=$(git show HEAD~1:$FILE | jq '.dependencies | with_entries(select(.key | startswith("@atls/"))) | .[]')
+            OLD_VERSIONS=$(git show ${{ github.event.pull_request.base.sha }}:$FILE | jq '.dependencies | with_entries(select(.key | startswith("@atls/"))) | .[]')
             NEW_VERSIONS=$(cat $FILE | jq '.dependencies | with_entries(select(.key | startswith("@atls/"))) | .[]')
             
             # Check if old and new versions are different
