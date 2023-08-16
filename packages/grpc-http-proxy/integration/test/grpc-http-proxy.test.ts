@@ -50,7 +50,7 @@ describe('grpc http proxy', () => {
     await app.init()
 
     await app.listen(appPort, '0.0.0.0')
-    await service.listenAsync()
+    await service.listen()
 
     url = await app.getUrl()
   })

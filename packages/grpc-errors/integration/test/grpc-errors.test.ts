@@ -55,7 +55,7 @@ describe('grpc error', () => {
 
     await service.init()
 
-    await service.listenAsync()
+    await service.listen()
 
     testClient = service.get('client').getService('TestService')
   })
