@@ -35,27 +35,34 @@ jobs:
       - name: Install jq
         run: sudo apt-get install -y jq
       
-      - name: Check for version changes in @atls dependencies
+      - name: Check for dependency version changes
         run: |
           set -x
-          CHANGED_FILES=$(git diff-tree --no-commit-id --name-only -r HEAD | grep 'package.json')
+          CHANGED_FILES=$(git diff-tree --no-commit-id --name-only -r HEAD | grep 'package.json' || true)
           echo "Changed Files: $CHANGED_FILES"
+          
+          if [[ -z "$CHANGED_FILES" ]]; then
+              echo "No package.json files were changed."
+              exit 0
+          fi
+      
           for FILE in $CHANGED_FILES; do
-            echo "Checking file: $FILE"
-            
-            # Extract old and new version for @atls dependencies
-            OLD_VERSIONS=$(git show HEAD~1:$FILE | jq '.dependencies | with_entries(select(.key | startswith("@atls/"))) | .[]' || echo "No old versions")
-            echo "Old Versions: $OLD_VERSIONS"
-            
-            NEW_VERSIONS=$(cat $FILE | jq '.dependencies | with_entries(select(.key | startswith("@atls/"))) | .[]')
-            echo "New Versions: $NEW_VERSIONS"
-            
-            # Check if old and new versions are different
-            if [[ "$OLD_VERSIONS" != "$NEW_VERSIONS" ]]; then
-              echo "VERSION_CHANGED=true" >> $GITHUB_ENV
-              break
-            fi
+              echo "Checking file: $FILE"
+              
+              # Extract old and new version for @atls dependencies
+              OLD_VERSIONS=$(git show HEAD~1:$FILE | jq '.dependencies | with_entries(select(.key | startswith("@atls/"))) | .[]' || echo "No old versions")
+              echo "Old Versions: $OLD_VERSIONS"
+              
+              NEW_VERSIONS=$(cat $FILE | jq '.dependencies | with_entries(select(.key | startswith("@atls/"))) | .[]')
+              echo "New Versions: $NEW_VERSIONS"
+              
+              # Check if old and new versions are different
+              if [[ "$OLD_VERSIONS" != "$NEW_VERSIONS" ]]; then
+                echo "VERSION_CHANGED=true" >> $GITHUB_ENV
+                break
+              fi
           done
+        shell: bash
       
       - name: Generate Badges
         if: env.VERSION_CHANGED == 'true'
