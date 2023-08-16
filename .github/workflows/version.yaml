@@ -38,10 +38,16 @@ jobs:
       - name: Check for version changes in @atls dependencies
         run: |
           CHANGED_FILES=$(git diff-tree --no-commit-id --name-only -r HEAD | grep 'package.json')
+          echo "Changed Files: $CHANGED_FILES"
           for FILE in $CHANGED_FILES; do
+            echo "Checking file: $FILE"
+            
             # Extract old and new version for @atls dependencies
-            OLD_VERSIONS=$(git show HEAD~1:$FILE | jq '.dependencies | with_entries(select(.key | startswith("@atls/"))) | .[]' || echo "")
+            OLD_VERSIONS=$(git show HEAD~1:$FILE | jq '.dependencies | with_entries(select(.key | startswith("@atls/"))) | .[]' || echo "No old versions")
+            echo "Old Versions: $OLD_VERSIONS"
+            
             NEW_VERSIONS=$(cat $FILE | jq '.dependencies | with_entries(select(.key | startswith("@atls/"))) | .[]')
+            echo "New Versions: $NEW_VERSIONS"
             
             # Check if old and new versions are different
             if [[ "$OLD_VERSIONS" != "$NEW_VERSIONS" ]]; then
@@ -49,7 +55,7 @@ jobs:
               break
             fi
           done
-
+      
       - name: Generate Badges
         if: env.VERSION_CHANGED == 'true'
         run: yarn badges generate
