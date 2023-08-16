@@ -35,13 +35,12 @@ jobs:
       - name: Install jq
         run: sudo apt-get install -y jq
       
-      - name: Check for @atls version changes
-        id: check-versions
+      - name: Check for version changes in @atls dependencies
         run: |
-          FILES=$(git diff --name-only ${{ github.event.pull_request.base.sha }} ${{ github.event.pull_request.head.sha }} | grep 'package.json')
-          for FILE in $FILES; do
+          CHANGED_FILES=$(git diff-tree --no-commit-id --name-only -r HEAD | grep 'package.json')
+          for FILE in $CHANGED_FILES; do
             # Extract old and new version for @atls dependencies
-            OLD_VERSIONS=$(git show ${{ github.event.pull_request.base.sha }}:$FILE | jq '.dependencies | with_entries(select(.key | startswith("@atls/"))) | .[]')
+            OLD_VERSIONS=$(git show HEAD~1:$FILE | jq '.dependencies | with_entries(select(.key | startswith("@atls/"))) | .[]' || echo "")
             NEW_VERSIONS=$(cat $FILE | jq '.dependencies | with_entries(select(.key | startswith("@atls/"))) | .[]')
             
             # Check if old and new versions are different
