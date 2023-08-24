@@ -61,7 +61,7 @@ describe('grpc reflection', () => {
 
     await service.init()
 
-    await service.listenAsync()
+    await service.listen()
 
     serverReflection = service.get('client').getService('ServerReflection')
   })
