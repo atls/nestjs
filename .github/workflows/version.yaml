@@ -34,18 +34,18 @@ jobs:
 
       - name: Install jq
         run: sudo apt-get install -y jq
-      
+
       - name: Check for dependency version changes
         run: |
           set -x
           CHANGED_FILES=$(git diff-tree --no-commit-id --name-only -r HEAD | grep 'package.json' || true)
           echo "Changed Files: $CHANGED_FILES"
-          
+
           if [[ -z "$CHANGED_FILES" ]]; then
               echo "No package.json files were changed."
               exit 0
           fi
-      
+
           for FILE in $CHANGED_FILES; do
               echo "Checking file: $FILE"
               
@@ -63,7 +63,7 @@ jobs:
               fi
           done
         shell: bash
-      
+
       - name: Generate Badges
         if: env.VERSION_CHANGED == 'true'
         run: yarn badges generate
