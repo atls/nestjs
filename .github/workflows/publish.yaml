@@ -22,12 +22,12 @@ jobs:
       - name: Install
         run: yarn install
 
-      - name: Npm Publish
-        run: |
-          yarn version apply --all
-          yarn workspaces changed foreach --verbose --topological --no-private npm publish --access public
-        env:
-          YARN_NPM_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+      # - name: Npm Publish
+      #   run: |
+      #     yarn version apply --all
+      #     yarn workspaces changed foreach --verbose --topological --no-private npm publish --access public
+      #   env:
+      #     YARN_NPM_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
       - name: Publish to GitHub Registry
         run: |
