@@ -53,10 +53,11 @@ jobs:
 
       - name: Create GitHub Releases
         run: |
-          for package in $(yarn workspaces list --json | jq -r .name | grep '@atls'); do
-            cd $package
+          for package_name in $(yarn workspaces list --json | jq -r .name | grep '@atls'); do
+            package_path="packages/$(basename $package_name)"
+            cd $package_path
             VERSION=$(node -p "require('./package.json').version")
-            TAG_NAME="$package-v$VERSION"
+            TAG_NAME="$package_name-v$VERSION"
             git tag $TAG_NAME
             git push origin $TAG_NAME
             gh release create $TAG_NAME \
