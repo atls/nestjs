@@ -48,23 +48,27 @@ jobs:
           message: 'chore(common): publish'
           branch: master
 
-      - name: Install jq
-        run: sudo apt-get install -y jq
+      - uses: iamkubi/github-release@2.0
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Create GitHub Releases
-        run: |
-          for package_path in packages/*; do
-            cd $package_path
-            PACKAGE_NAME=$(node -p "require('./package.json').name")
-            VERSION=$(node -p "require('./package.json').version")
-            TAG_NAME="$PACKAGE_NAME-v$VERSION"
-            git tag $TAG_NAME
-            git push origin $TAG_NAME
-            gh release create $TAG_NAME \
-              --title "Release $TAG_NAME" \
-              --notes "Release notes for $TAG_NAME"
-            cd ../..
-          done
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      # - name: Install jq
+      #   run: sudo apt-get install -y jq
+
+      # - name: Create GitHub Releases
+      #   run: |
+      #     for package_path in packages/*; do
+      #       cd $package_path
+      #       PACKAGE_NAME=$(node -p "require('./package.json').name")
+      #       VERSION=$(node -p "require('./package.json').version")
+      #       TAG_NAME="$PACKAGE_NAME-v$VERSION"
+      #       git tag $TAG_NAME
+      #       git push origin $TAG_NAME
+      #       gh release create $TAG_NAME \
+      #         --title "Release $TAG_NAME" \
+      #         --notes "Release notes for $TAG_NAME"
+      #       cd ../..
+      #     done
+      #   env:
+      #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
