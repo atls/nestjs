@@ -31,7 +31,7 @@ jobs:
 
       - name: Publish to GitHub Registry
         run: |
-          echo "@atls:registry=https://npm.pkg.github.com" >> .npmrc
+          echo "@torinasakura:registry=https://npm.pkg.github.com" >> .npmrc
           echo "//npm.pkg.github.com/:_authToken=${{ secrets.GITHUB_TOKEN }}" >> .npmrc
           yarn workspaces changed foreach --verbose --topological --no-private npm publish
         env:
