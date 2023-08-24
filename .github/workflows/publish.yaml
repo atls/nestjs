@@ -48,9 +48,14 @@ jobs:
           message: 'chore(common): publish'
           branch: master
 
+      - name: Retrieve Tag
+        id: get_tag
+        run: echo "::set-output name=tag::$(git describe --tags $(git rev-list --tags --max-count=1))"
+      
       - uses: iamkubi/github-release@2.0
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
+          tag: ${{ steps.get_tag.outputs.tag }}
 
       # - name: Install jq
       #   run: sudo apt-get install -y jq
