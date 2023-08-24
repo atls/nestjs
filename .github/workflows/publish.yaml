@@ -13,6 +13,7 @@ jobs:
         uses: actions/checkout@v3
         with:
           ref: master
+          fetch-depth: 0
 
       - name: Setup Node
         uses: actions/setup-node@v3
@@ -47,11 +48,21 @@ jobs:
           message: 'chore(common): publish'
           branch: master
 
-      - name: Create GitHub Release
+      - name: Install jq
+        run: sudo apt-get install -y jq
+
+      - name: Create GitHub Releases
         run: |
-          TAG_NAME=$(git describe --tags --abbrev=0)
-          gh release create $TAG_NAME \
-            --title "Release $TAG_NAME" \
-            --notes "Release notes for $TAG_NAME"
+          for package in $(yarn workspaces list --json | jq -r .name | grep '@atls'); do
+            cd $package
+            VERSION=$(node -p "require('./package.json').version")
+            TAG_NAME="$package-v$VERSION"
+            git tag $TAG_NAME
+            git push origin $TAG_NAME
+            gh release create $TAG_NAME \
+              --title "Release $TAG_NAME" \
+              --notes "Release notes for $TAG_NAME"
+            cd ../..
+          done
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
