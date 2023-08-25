@@ -15,6 +15,9 @@
     "@octokit/request-error": "2.0.5",
     "@octokit/types": "6.13.0",
     "@octokit/webhooks": "8.12.0",
+    "@types/express@npm:*": "patch:@types/express@npm%3A4.17.13#~/.yarn/patches/@types-express-npm-4.17.13-0e12fe9c24.patch",
+    "@types/express@npm:^4.17.12": "patch:@types/express@npm%3A4.17.13#~/.yarn/patches/@types-express-npm-4.17.13-0e12fe9c24.patch",
+    "@types/express@npm:^4.17.14": "patch:@types/express@npm%3A4.17.13#~/.yarn/patches/@types-express-npm-4.17.13-0e12fe9c24.patch",
     "@types/ssh2": "0.5.51",
     "typeorm": "0.2.45",
     "typescript": "4.4.4"
