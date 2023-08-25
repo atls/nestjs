@@ -27,14 +27,6 @@ jobs:
         env:
           YARN_NPM_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
-      - name: Publish to GitHub Registry
-        run: |
-          echo "@torinasakura:registry=https://npm.pkg.github.com" >> .npmrc
-          echo "//npm.pkg.github.com/:_authToken=${{ secrets.GITHUB_TOKEN }}" >> .npmrc
-          yarn workspaces changed foreach --verbose --topological --no-private npm publish
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
       - name: Commit changes
         uses: EndBug/add-and-commit@v9
         env:
