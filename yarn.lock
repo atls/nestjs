@@ -419,26 +419,26 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@atls/nestjs-grpc-identity@workspace:packages/grpc-identity"
   dependencies:
-    "@atls/grpc-error-status": "npm:^0.0.3"
-    "@grpc/grpc-js": "npm:^1.3.7"
-    "@nestjs/common": "npm:^8.0.5"
-    "@nestjs/core": "npm:^8.0.5"
-    "@nestjs/microservices": "npm:^8.0.5"
-    "@nestjs/testing": "npm:^8.0.5"
-    "@types/jsonwebtoken": "npm:^8.5.8"
-    "@types/jwk-to-pem": "npm:^2.0.1"
-    get-port: "npm:^5.1.1"
-    jsonwebtoken: "npm:^8.5.1"
-    jwks-rsa: "npm:^2.0.5"
-    protobufjs: "npm:^6.11.2"
+    "@atls/grpc-error-status": "npm:0.0.3"
+    "@grpc/grpc-js": "npm:1.9.1"
+    "@nestjs/common": "npm:10.2.1"
+    "@nestjs/core": "npm:10.2.1"
+    "@nestjs/microservices": "npm:10.2.1"
+    "@nestjs/testing": "npm:10.2.1"
+    "@types/jsonwebtoken": "npm:9.0.2"
+    "@types/jwk-to-pem": "npm:2.0.1"
+    get-port: "npm:6.1.2"
+    jsonwebtoken: "npm:9.0.1"
+    jwks-rsa: "npm:2.1.4"
+    protobufjs: "npm:7.2.5"
     reflect-metadata: "npm:0.1.13"
-    rxjs: "npm:7.5.4"
+    rxjs: "npm:7.8.1"
   peerDependencies:
-    "@nestjs/common": ^8.0.0
-    "@nestjs/core": ^8.0.0
-    "@nestjs/microservices": ^8.0.0
-    reflect-metadata: ^0.1.12
-    rxjs: ^6.3.3
+    "@nestjs/common": 10.2.1
+    "@nestjs/core": 10.2.1
+    "@nestjs/microservices": 10.2.1
+    reflect-metadata: 0.1.13
+    rxjs: 7.8.1
   languageName: unknown
   linkType: soft
 
@@ -3655,16 +3655,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/express-jwt@npm:0.0.42":
-  version: 0.0.42
-  resolution: "@types/express-jwt@npm:0.0.42"
-  dependencies:
-    "@types/express": "npm:*"
-    "@types/express-unless": "npm:*"
-  checksum: 2653a4e73b59f4ffad9aa5dd37a6625ea71f3603e863094f4bd023b061594c440efcf015c87740ca56e5193b824942563aee1dd1c2216110cc960440cd76e3f7
-  languageName: node
-  linkType: hard
-
 "@types/express-serve-static-core@npm:^4.17.18, @types/express-serve-static-core@npm:^4.17.21":
   version: 4.17.24
   resolution: "@types/express-serve-static-core@npm:4.17.24"
@@ -3673,15 +3663,6 @@ __metadata:
     "@types/qs": "npm:*"
     "@types/range-parser": "npm:*"
   checksum: 42974db34a4e46f5faa8ba9b024edfa277bdc65bce395bf2e3fc1f4bceda744d1be5d8a08e650484ece9d17cb37d0c68c72f3f78c241d639b05999bf148567ec
-  languageName: node
-  linkType: hard
-
-"@types/express-unless@npm:*":
-  version: 0.5.1
-  resolution: "@types/express-unless@npm:0.5.1"
-  dependencies:
-    "@types/express": "npm:*"
-  checksum: 8536217421e3a70bcd3e2c9194618b87d67e85dd1eb82b65a3666b0aa69688c4cbfe237a5367043b93ca94950a0d0166ec2b48d62c1c63cd90b527299e14f864
   languageName: node
   linkType: hard
 
@@ -3799,7 +3780,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/jwk-to-pem@npm:^2.0.1":
+"@types/jwk-to-pem@npm:2.0.1":
   version: 2.0.1
   resolution: "@types/jwk-to-pem@npm:2.0.1"
   checksum: 6b461a974b1c0e6eb387532ab38c32ca48832e265b6ff527223edc00c795a30eae42cdeb3699428e85031a9535d767046339d91477219cacd26e65c3198d34fe
@@ -9590,24 +9571,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"jsonwebtoken@npm:^8.5.1":
-  version: 8.5.1
-  resolution: "jsonwebtoken@npm:8.5.1"
-  dependencies:
-    jws: "npm:^3.2.2"
-    lodash.includes: "npm:^4.3.0"
-    lodash.isboolean: "npm:^3.0.3"
-    lodash.isinteger: "npm:^4.0.4"
-    lodash.isnumber: "npm:^3.0.3"
-    lodash.isplainobject: "npm:^4.0.6"
-    lodash.isstring: "npm:^4.0.1"
-    lodash.once: "npm:^4.0.0"
-    ms: "npm:^2.1.1"
-    semver: "npm:^5.6.0"
-  checksum: 64198d5b0b69fce8e2c73e66b8d7923e177e960675333db349be16509d6f1549567568c5816c890ae10686cdd061035ba833221d35395d572b7947c0d3039b1c
-  languageName: node
-  linkType: hard
-
 "jsprim@npm:^1.2.2":
   version: 1.4.1
   resolution: "jsprim@npm:1.4.1"
@@ -9642,16 +9605,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"jwks-rsa@npm:^2.0.5":
-  version: 2.0.5
-  resolution: "jwks-rsa@npm:2.0.5"
+"jwks-rsa@npm:2.1.4":
+  version: 2.1.4
+  resolution: "jwks-rsa@npm:2.1.4"
   dependencies:
-    "@types/express-jwt": "npm:0.0.42"
-    debug: "npm:^4.3.2"
+    "@types/express": "npm:^4.17.13"
+    "@types/jsonwebtoken": "npm:^8.5.8"
+    debug: "npm:^4.3.4"
     jose: "npm:^2.0.5"
     limiter: "npm:^1.1.5"
     lru-memoizer: "npm:^2.1.4"
-  checksum: fc46622a2a2ce8e2c3f84564ac24f24df3753322c1bbf7f17074d4b546084a5e76c3a7e98bcc89acd8476a96e817c73b79c3f36699ddc696554f8f88c7b52f71
+  checksum: d247bf3365d415bccb1b569c5d7fbe5caf639c74ea46719762ae11753ddf646a605228f2b33bb76360cee6e038455d1491c0be2f0769e7a6d2d5ca4231e8923c
   languageName: node
   linkType: hard
 
@@ -9783,45 +9747,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"lodash.includes@npm:^4.3.0":
-  version: 4.3.0
-  resolution: "lodash.includes@npm:4.3.0"
-  checksum: 08a7ef2e255bff741d8590ba415964d489aac58cce10836b9b48251654b4ef74cbaad89f288fb40dda06439ce9b3c1dffc15056878b90f4c8db3a83f0dd8b20c
-  languageName: node
-  linkType: hard
-
-"lodash.isboolean@npm:^3.0.3":
-  version: 3.0.3
-  resolution: "lodash.isboolean@npm:3.0.3"
-  checksum: bace740c7ae1862d07012dc7bc4c095906ff9d28f85037dc00d3dd838cf9551aa8d5c4113f2e9214f36327fedd1a0c8e8258f91e1e3c0013ecf4299906cc3dbc
-  languageName: node
-  linkType: hard
-
-"lodash.isinteger@npm:^4.0.4":
-  version: 4.0.4
-  resolution: "lodash.isinteger@npm:4.0.4"
-  checksum: 937ccd87588799b0b534c619f87d5a1490a7194adcf345e57360bd72c6d06d7d4ed02cb880edfa1233906708da2db89f3a0da3ac4e85ee98834d6b291b8c1149
-  languageName: node
-  linkType: hard
-
-"lodash.isnumber@npm:^3.0.3":
-  version: 3.0.3
-  resolution: "lodash.isnumber@npm:3.0.3"
-  checksum: 0627047d8f9ea8eac559feff8e53d3d5484a4993b1938c960eb619b6fc15d69f15eff41eed2fdb67c2858d6f4893b477bf3eb5e51e8729c00b02f94ee282d169
-  languageName: node
-  linkType: hard
-
 "lodash.isplainobject@npm:^4.0.6":
   version: 4.0.6
   resolution: "lodash.isplainobject@npm:4.0.6"
   checksum: fd98cdf396efd994340f99a968553f6d37ca5a0e6bcf1e6cbe5953c1ef2ad04dca0503d6979f38938aad0d865940fdfddda85cbc365850d114187afac29f8d04
-  languageName: node
-  linkType: hard
-
-"lodash.isstring@npm:^4.0.1":
-  version: 4.0.1
-  resolution: "lodash.isstring@npm:4.0.1"
-  checksum: a0d31496f50ce6eac84b20d0892023948fdfccc9f7d9baac1d9b25d8ad6f1b90adf0d3d14618b0a2c8b6317d7d05ef0f24d24156e8f1adc489b57dfa0280d66c
   languageName: node
   linkType: hard
 
@@ -9843,13 +9772,6 @@ __metadata:
   version: 4.6.2
   resolution: "lodash.mergewith@npm:4.6.2"
   checksum: 4fe5a0a4bc0dcafea01c75e57a2eee0aaee07327a1cfd0618ff365b86a80e7e1172c2e61cb28ad0e4d96a332d65e53d75540c8701697add1b6f410afeabc0624
-  languageName: node
-  linkType: hard
-
-"lodash.once@npm:^4.0.0":
-  version: 4.1.1
-  resolution: "lodash.once@npm:4.1.1"
-  checksum: 210c440af77b8f34fa8c7a559b4e7de9b9baef1c9d2fc1e9eae1440034cf0030eca115e81abf164ce6039e4872e0b4b5ade7729394e93aa7545094fc46ea2a29
   languageName: node
   linkType: hard
 
@@ -11717,15 +11639,6 @@ __metadata:
   bin:
     semver: bin/semver.js
   checksum: 5b3caeefe452b0dde3e26b0697bbc05df87973f89a89a0f8238a30463b2b440a19e694921948e94066dfddc8c8ffebdb5c0da16a7341ea571e9490ec07096e8e
-  languageName: node
-  linkType: hard
-
-"semver@npm:^5.6.0":
-  version: 5.7.1
-  resolution: "semver@npm:5.7.1"
-  bin:
-    semver: ./bin/semver
-  checksum: e1d12140b695aeb8917978d134ff3f8fee33489a5eaf6b217111ab0b14cbf45f36753d510db4dfbdc5a6f304e053ff1a4995c5498e9734ad9bf98182e4f39704
   languageName: node
   linkType: hard
 
