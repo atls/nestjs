@@ -18,7 +18,7 @@
     "@nestjs/common": "^8.0.5",
     "@nestjs/core": "^8.0.5",
     "@nestjs/testing": "^8.0.5",
-    "@types/express": "patch:@types/express@npm%3A4.17.13#~/.yarn/patches/@types-express-npm-4.17.13-0e12fe9c24.patch",
+    "@types/express": "^4.17.13",
     "@types/node": "^17.0.18",
     "express": "^4.17.3",
     "get-port": "^5.1.1",
