@@ -390,7 +390,7 @@ __metadata:
     "@nestjs/microservices": "npm:10.1.3"
     "@nestjs/testing": "npm:10.1.3"
     "@types/cookie": "npm:0.5.1"
-    "@types/express": "npm:4.17.13"
+    "@types/express": "patch:@types/express@npm%3A4.17.13#~/.yarn/patches/@types-express-npm-4.17.13-0e12fe9c24.patch"
     "@types/jsonwebtoken": "npm:9.0.2"
     "@types/lodash.get": "npm:4.4.7"
     "@types/uuid": "npm:9.0.2"
@@ -429,7 +429,7 @@ __metadata:
     "@types/jwk-to-pem": "npm:2.0.1"
     get-port: "npm:6.1.2"
     jsonwebtoken: "npm:9.0.1"
-    jwks-rsa: "npm:2.1.4"
+    jwks-rsa: "npm:3.0.1"
     protobufjs: "npm:7.2.5"
     reflect-metadata: "npm:0.1.13"
     rxjs: "npm:7.8.1"
@@ -503,7 +503,7 @@ __metadata:
     "@nestjs/core": "npm:^8.0.5"
     "@nestjs/testing": "npm:^8.0.5"
     "@ory/hydra-client": "npm:1.9.2"
-    "@types/express": "npm:^4.17.13"
+    "@types/express": "patch:@types/express@npm%3A4.17.13#~/.yarn/patches/@types-express-npm-4.17.13-0e12fe9c24.patch"
     "@types/node": "npm:^17.0.18"
     express: "npm:^4.17.3"
     get-port: "npm:^5.1.1"
@@ -549,7 +549,7 @@ __metadata:
     "@nestjs/core": "npm:^8.0.5"
     "@nestjs/testing": "npm:^8.0.5"
     "@ory/kratos-client": "npm:0.5.5-alpha.4"
-    "@types/express": "npm:^4.17.13"
+    "@types/express": "patch:@types/express@npm%3A4.17.13#~/.yarn/patches/@types-express-npm-4.17.13-0e12fe9c24.patch"
     "@types/node": "npm:^17.0.18"
     express: "npm:^4.17.3"
     get-port: "npm:^5.1.1"
@@ -3330,13 +3330,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@panva/asn1.js@npm:^1.0.0":
-  version: 1.0.0
-  resolution: "@panva/asn1.js@npm:1.0.0"
-  checksum: 764261b7495b2cad08c0a8bcaca95f630b837bba9e5e54d801393da0f05bddddc2f35e319924bf189bb73cc27ddb646ecae92bd04c544d32c0ce07836339b084
-  languageName: node
-  linkType: hard
-
 "@protobufjs/aspromise@npm:^1.1.1, @protobufjs/aspromise@npm:^1.1.2":
   version: 1.1.2
   resolution: "@protobufjs/aspromise@npm:1.1.2"
@@ -3666,7 +3659,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/express@npm:*, @types/express@npm:4.17.13, @types/express@npm:^4.17.12, @types/express@npm:^4.17.13":
+"@types/express@npm:4.17.13":
   version: 4.17.13
   resolution: "@types/express@npm:4.17.13"
   dependencies:
@@ -3675,6 +3668,18 @@ __metadata:
     "@types/qs": "npm:*"
     "@types/serve-static": "npm:*"
   checksum: 114a3b85cd27a5d7873321499d4af2e8964d4f1a6344b224555d356be2d90e8024cba0dcf1159c30a8d39d8cb8312dff85b1a79a23c139122879499c568ac06e
+  languageName: node
+  linkType: hard
+
+"@types/express@patch:@types/express@npm%3A4.17.13#~/.yarn/patches/@types-express-npm-4.17.13-0e12fe9c24.patch":
+  version: 4.17.13
+  resolution: "@types/express@patch:@types/express@npm%3A4.17.13#~/.yarn/patches/@types-express-npm-4.17.13-0e12fe9c24.patch::version=4.17.13&hash=3f54a2"
+  dependencies:
+    "@types/body-parser": "npm:*"
+    "@types/express-serve-static-core": "npm:^4.17.18"
+    "@types/qs": "npm:*"
+    "@types/serve-static": "npm:*"
+  checksum: a613fd649fbbf50428f83cbe60c2fd4a5c4d2083c8ea4013ea37c9b2ae9f6ae7557611728c013c0ee3c15b15bfcb4739edc6fc44d66c8d8eaf9be091e352d3f7
   languageName: node
   linkType: hard
 
@@ -3762,21 +3767,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/jsonwebtoken@npm:9.0.2":
+"@types/jsonwebtoken@npm:9.0.2, @types/jsonwebtoken@npm:^9.0.0":
   version: 9.0.2
   resolution: "@types/jsonwebtoken@npm:9.0.2"
   dependencies:
     "@types/node": "npm:*"
   checksum: 4b1ecf9c0b3526c3bbdeca21c6f4727150b0dd41c43acaee5d9af1ad2137a19403f6ca1b7f2c6e84ae282e2e253b731f4187391133a5ba4345385d76cbbbe78b
-  languageName: node
-  linkType: hard
-
-"@types/jsonwebtoken@npm:^8.5.8":
-  version: 8.5.8
-  resolution: "@types/jsonwebtoken@npm:8.5.8"
-  dependencies:
-    "@types/node": "npm:*"
-  checksum: 0e76e1e626ac9ca1e09c68531315c9c4befa3f4e2a06647a95dbb58d244f810cf181478c365946545541611e4cd5b12e6e5e5e6495de426c57287e0f7d6cea95
   languageName: node
   linkType: hard
 
@@ -9347,12 +9343,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"jose@npm:^2.0.5":
-  version: 2.0.5
-  resolution: "jose@npm:2.0.5"
-  dependencies:
-    "@panva/asn1.js": "npm:^1.0.0"
-  checksum: 242e064900e50a6ddefcd79a551a86cd7de72ff643b5a20c3885e8546bf720763e0688e22455a33563e640fdc4c4cfa200535190484c1ef1fefb268db1c359d2
+"jose@npm:^4.10.4":
+  version: 4.14.4
+  resolution: "jose@npm:4.14.4"
+  checksum: 134a0432ea92fd589194007589db5f5b0b0c8aedcca01841c82267f392f87fde6c4af845235e7f4596d27682b38c0e60f209b65719cd509d38e63e1f0ab3c599
   languageName: node
   linkType: hard
 
@@ -9605,17 +9599,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"jwks-rsa@npm:2.1.4":
-  version: 2.1.4
-  resolution: "jwks-rsa@npm:2.1.4"
+"jwks-rsa@npm:3.0.1":
+  version: 3.0.1
+  resolution: "jwks-rsa@npm:3.0.1"
   dependencies:
-    "@types/express": "npm:^4.17.13"
-    "@types/jsonwebtoken": "npm:^8.5.8"
+    "@types/express": "npm:^4.17.14"
+    "@types/jsonwebtoken": "npm:^9.0.0"
     debug: "npm:^4.3.4"
-    jose: "npm:^2.0.5"
+    jose: "npm:^4.10.4"
     limiter: "npm:^1.1.5"
     lru-memoizer: "npm:^2.1.4"
-  checksum: d247bf3365d415bccb1b569c5d7fbe5caf639c74ea46719762ae11753ddf646a605228f2b33bb76360cee6e038455d1491c0be2f0769e7a6d2d5ca4231e8923c
+  checksum: 64df7b2ca27ff76e7b83d16727aa0fa4af174735cfc56255adc34c2c6fce2574f50ae07f538b25e1e8298816d190b869e89340b2363619c5005ad06eeabb962b
   languageName: node
   linkType: hard
 
