@@ -57,7 +57,7 @@ describe('grpc identity', () => {
     })
 
     await service.init()
-    await service.listenAsync()
+    await service.listen()
 
     client = service.get('client').getService('TestService')
   })
