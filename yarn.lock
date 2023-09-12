@@ -506,7 +506,7 @@ __metadata:
     "@types/express": "npm:4.17.17"
     "@types/node": "npm:20.6.0"
     express: "npm:4.18.2"
-    get-port: "npm:6.1.2"
+    get-port: "npm:7.0.0"
     reflect-metadata: "npm:0.1.13"
     rxjs: "npm:7.8.1"
     supertest: "npm:6.3.3"
@@ -7866,6 +7866,13 @@ __metadata:
   version: 6.1.2
   resolution: "get-port@npm:6.1.2"
   checksum: b3458247e1c6ed079cbf0f7b57bd2ba3db5b0108bc8f8061c0e0817237234ce2cfbb42dffe5ced6bc74d3410f913d5e56ad966fe7c35003db845ead70c7c3bf6
+  languageName: node
+  linkType: hard
+
+"get-port@npm:7.0.0":
+  version: 7.0.0
+  resolution: "get-port@npm:7.0.0"
+  checksum: 40ad30e748fe0dbe803578b3b55fa10762455311dbb995b6c455951196cf4b00350256c32536907c4489ce0c6540a0a86d96e6054a9efd62bf363d22a5919383
   languageName: node
   linkType: hard
 

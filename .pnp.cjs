@@ -1064,7 +1064,7 @@ const RAW_RUNTIME_STATE =
           ["@types/express", "npm:4.17.17"],\
           ["@types/node", "npm:20.6.0"],\
           ["express", "npm:4.18.2"],\
-          ["get-port", "npm:6.1.2"],\
+          ["get-port", "npm:7.0.0"],\
           ["reflect-metadata", "npm:0.1.13"],\
           ["rxjs", "npm:7.8.1"],\
           ["supertest", "npm:6.3.3"]\
@@ -12391,6 +12391,13 @@ const RAW_RUNTIME_STATE =
         "packageLocation": "../../../../../.yarn/berry/cache/get-port-npm-6.1.2-5a92df687a-9.zip/node_modules/get-port/",\
         "packageDependencies": [\
           ["get-port", "npm:6.1.2"]\
+        ],\
+        "linkType": "HARD"\
+      }],\
+      ["npm:7.0.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/get-port-npm-7.0.0-72b8a92f99-9.zip/node_modules/get-port/",\
+        "packageDependencies": [\
+          ["get-port", "npm:7.0.0"]\
         ],\
         "linkType": "HARD"\
       }]\
