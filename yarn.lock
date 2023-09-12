@@ -284,7 +284,7 @@ __metadata:
     "@nestjs/testing": "npm:10.2.5"
     "@types/node": "npm:20.6.0"
     get-port: "npm:6.1.2"
-    node-fetch: "npm:2.6.7"
+    node-fetch: "npm:2.7.0"
     reflect-metadata: "npm:0.1.13"
     rxjs: "npm:7.8.1"
     supertest: "npm:6.3.3"
@@ -10450,9 +10450,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"node-fetch@npm:2.6.7, node-fetch@npm:^2.6.7":
-  version: 2.6.7
-  resolution: "node-fetch@npm:2.6.7"
+"node-fetch@npm:2.7.0":
+  version: 2.7.0
+  resolution: "node-fetch@npm:2.7.0"
   dependencies:
     whatwg-url: "npm:^5.0.0"
   peerDependencies:
@@ -10460,7 +10460,7 @@ __metadata:
   peerDependenciesMeta:
     encoding:
       optional: true
-  checksum: 05c03fe66f38b9e349e691caf121b693a91adb41ab59c3af17d2c5f9d2f8d927c30b428e7c8049b739c674db06171117ba9d10dc72d6a2cf35ba8901dfb4de83
+  checksum: a3ad7889038bf6c49046272515d4f0e3167088b40fd37e1cc6eeea745f5a68cec798d55ac3210e2bc51891cb745e3dc30a734cc5f4b4df764f45886881b198b1
   languageName: node
   linkType: hard
 
@@ -10472,6 +10472,20 @@ __metadata:
     fetch-blob: "npm:^3.1.4"
     formdata-polyfill: "npm:^4.0.10"
   checksum: 7a65b4da92d8b825767e3b3a651828317060310ba7d3358e5ba1fcf86c56b851b422a4cc4fec7512498dd4a6403ae96afbaee4333e57c1a5061eebbace64d78a
+  languageName: node
+  linkType: hard
+
+"node-fetch@npm:^2.6.7":
+  version: 2.6.7
+  resolution: "node-fetch@npm:2.6.7"
+  dependencies:
+    whatwg-url: "npm:^5.0.0"
+  peerDependencies:
+    encoding: ^0.1.0
+  peerDependenciesMeta:
+    encoding:
+      optional: true
+  checksum: 05c03fe66f38b9e349e691caf121b693a91adb41ab59c3af17d2c5f9d2f8d927c30b428e7c8049b739c674db06171117ba9d10dc72d6a2cf35ba8901dfb4de83
   languageName: node
   linkType: hard
 
