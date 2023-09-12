@@ -12,7 +12,7 @@
     "postpack": "rm -rf dist"
   },
   "dependencies": {
-    "@ory/hydra-client": "1.9.2"
+    "@ory/hydra-client": "1.11.8"
   },
   "devDependencies": {
     "@nestjs/common": "10.2.5",

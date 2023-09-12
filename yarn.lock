@@ -502,7 +502,7 @@ __metadata:
     "@nestjs/common": "npm:10.2.5"
     "@nestjs/core": "npm:10.2.5"
     "@nestjs/testing": "npm:10.2.5"
-    "@ory/hydra-client": "npm:1.9.2"
+    "@ory/hydra-client": "npm:1.11.8"
     "@types/express": "npm:4.17.17"
     "@types/node": "npm:20.6.0"
     express: "npm:4.18.2"
@@ -3367,12 +3367,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@ory/hydra-client@npm:1.9.2":
-  version: 1.9.2
-  resolution: "@ory/hydra-client@npm:1.9.2"
+"@ory/hydra-client@npm:1.11.8":
+  version: 1.11.8
+  resolution: "@ory/hydra-client@npm:1.11.8"
   dependencies:
-    axios: "npm:^0.19.2"
-  checksum: 19b6b0693a504f1f0819a8b9405505915714464cc5a72d0a0f7d05cfd9770c820c0e64ea8822804b51ff991bca1fa8ee7f227b59e625c5a269eb5784ee4bcbea
+    axios: "npm:^0.21.4"
+  checksum: f7bcc42bf9f5b10a296782654346213546edd218fcea1412823b746a51d2e3fb3fcd97882f496e48a76b87c28ae9aeff877c3fb8f6823b8a19c8463c0768df49
   languageName: node
   linkType: hard
 
@@ -5032,6 +5032,15 @@ __metadata:
   dependencies:
     follow-redirects: "npm:1.5.10"
   checksum: 4f3653f7da6d660f579c867fcfb695e566a44426785416f9e682c6e1fd7b40f1049cf4b77573f19149d5ee4ce769cc5e11565bbcbb4daa4f7ae817a832a4cc70
+  languageName: node
+  linkType: hard
+
+"axios@npm:^0.21.4":
+  version: 0.21.4
+  resolution: "axios@npm:0.21.4"
+  dependencies:
+    follow-redirects: "npm:^1.14.0"
+  checksum: 3bb41e72f935e007d9d9c146b3fae09ab0b560dffb9e3f9b3598a270dc94311ae2a0e11d418b7d21409ca5477cc29c867ef4d0cd6fc704b91e6958a35c8fedd5
   languageName: node
   linkType: hard
 
@@ -7526,6 +7535,16 @@ __metadata:
   version: 1.13.0
   resolution: "follow-redirects@npm:1.13.0"
   checksum: b4a517af7b1b4ae3dd2bb5c5269ccaba1c5dc6acc36f25ee700fc2d6b0785f12406bde85501060d4a44448e2cf621ddd8856ae24bb85da0e9d60191fe210e2ec
+  languageName: node
+  linkType: hard
+
+"follow-redirects@npm:^1.14.0":
+  version: 1.15.2
+  resolution: "follow-redirects@npm:1.15.2"
+  peerDependenciesMeta:
+    debug:
+      optional: true
+  checksum: 930171f8b81bf00e9368df4b17f3b835934762d51192632af53a51a8a608d5510a1ffbc6da5761dce9996cdbd750740490ca844320e5ff11cdaf2329a5a69647
   languageName: node
   linkType: hard
 
