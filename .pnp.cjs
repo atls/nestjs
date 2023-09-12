@@ -1060,7 +1060,7 @@ const RAW_RUNTIME_STATE =
           ["@nestjs/common", "virtual:b57e28fc4f261c3d9bdcb8652f6990eb8e4a24233609dff411cd81f8097e3053f83fe1237fa90bab25ccdc39b5307a27a6942c0341c8092829b42263a218b688#npm:10.2.5"],\
           ["@nestjs/core", "virtual:b57e28fc4f261c3d9bdcb8652f6990eb8e4a24233609dff411cd81f8097e3053f83fe1237fa90bab25ccdc39b5307a27a6942c0341c8092829b42263a218b688#npm:10.2.5"],\
           ["@nestjs/testing", "virtual:b57e28fc4f261c3d9bdcb8652f6990eb8e4a24233609dff411cd81f8097e3053f83fe1237fa90bab25ccdc39b5307a27a6942c0341c8092829b42263a218b688#npm:10.2.5"],\
-          ["@ory/hydra-client", "npm:1.9.2"],\
+          ["@ory/hydra-client", "npm:1.11.8"],\
           ["@types/express", "npm:4.17.17"],\
           ["@types/node", "npm:20.6.0"],\
           ["express", "npm:4.18.2"],\
@@ -6988,11 +6988,11 @@ const RAW_RUNTIME_STATE =
       }]\
     ]],\
     ["@ory/hydra-client", [\
-      ["npm:1.9.2", {\
-        "packageLocation": "../../../../../.yarn/berry/cache/@ory-hydra-client-npm-1.9.2-290891c4a0-9.zip/node_modules/@ory/hydra-client/",\
+      ["npm:1.11.8", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@ory-hydra-client-npm-1.11.8-39eaa18e86-9.zip/node_modules/@ory/hydra-client/",\
         "packageDependencies": [\
-          ["@ory/hydra-client", "npm:1.9.2"],\
-          ["axios", "npm:0.19.2"]\
+          ["@ory/hydra-client", "npm:1.11.8"],\
+          ["axios", "npm:0.21.4"]\
         ],\
         "linkType": "HARD"\
       }]\
@@ -9155,6 +9155,14 @@ const RAW_RUNTIME_STATE =
         "packageDependencies": [\
           ["axios", "npm:0.21.1"],\
           ["follow-redirects", "npm:1.13.0"]\
+        ],\
+        "linkType": "HARD"\
+      }],\
+      ["npm:0.21.4", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/axios-npm-0.21.4-e278873748-9.zip/node_modules/axios/",\
+        "packageDependencies": [\
+          ["axios", "npm:0.21.4"],\
+          ["follow-redirects", "virtual:e278873748b4e9d158db595d2f6cb0351c74052f52b53924aec4d9299e7b6babfb62aead374cf2f6e453bc8bea3b052380dc6b1137a162bbfc102bbb1c8cac42#npm:1.15.2"]\
         ],\
         "linkType": "HARD"\
       }]\
@@ -12010,11 +12018,31 @@ const RAW_RUNTIME_STATE =
         ],\
         "linkType": "HARD"\
       }],\
+      ["npm:1.15.2", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/follow-redirects-npm-1.15.2-1ec1dd82be-9.zip/node_modules/follow-redirects/",\
+        "packageDependencies": [\
+          ["follow-redirects", "npm:1.15.2"]\
+        ],\
+        "linkType": "SOFT"\
+      }],\
       ["npm:1.5.10", {\
         "packageLocation": "../../../../../.yarn/berry/cache/follow-redirects-npm-1.5.10-bde6f43576-9.zip/node_modules/follow-redirects/",\
         "packageDependencies": [\
           ["follow-redirects", "npm:1.5.10"],\
           ["debug", "virtual:bde6f435769d1a96c3f371d2e8a88314847816fb841f758b3628da60329c36f988ca42f6984dc53bb31dd306522878e1e5d568caeca7af42e4f19b238d6261b3#npm:3.1.0"]\
+        ],\
+        "linkType": "HARD"\
+      }],\
+      ["virtual:e278873748b4e9d158db595d2f6cb0351c74052f52b53924aec4d9299e7b6babfb62aead374cf2f6e453bc8bea3b052380dc6b1137a162bbfc102bbb1c8cac42#npm:1.15.2", {\
+        "packageLocation": "./.yarn/__virtual__/follow-redirects-virtual-a3e7f4d39a/6/.yarn/berry/cache/follow-redirects-npm-1.15.2-1ec1dd82be-9.zip/node_modules/follow-redirects/",\
+        "packageDependencies": [\
+          ["follow-redirects", "virtual:e278873748b4e9d158db595d2f6cb0351c74052f52b53924aec4d9299e7b6babfb62aead374cf2f6e453bc8bea3b052380dc6b1137a162bbfc102bbb1c8cac42#npm:1.15.2"],\
+          ["@types/debug", null],\
+          ["debug", null]\
+        ],\
+        "packagePeers": [\
+          "@types/debug",\
+          "debug"\
         ],\
         "linkType": "HARD"\
       }]\
