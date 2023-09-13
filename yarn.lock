@@ -499,22 +499,22 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@atls/nestjs-hydra@workspace:packages/hydra"
   dependencies:
-    "@nestjs/common": "npm:^8.0.5"
-    "@nestjs/core": "npm:^8.0.5"
-    "@nestjs/testing": "npm:^8.0.5"
-    "@ory/hydra-client": "npm:1.9.2"
-    "@types/express": "npm:^4.17.13"
-    "@types/node": "npm:^17.0.18"
-    express: "npm:^4.17.3"
-    get-port: "npm:^5.1.1"
+    "@nestjs/common": "npm:10.2.5"
+    "@nestjs/core": "npm:10.2.5"
+    "@nestjs/testing": "npm:10.2.5"
+    "@ory/hydra-client": "npm:1.11.8"
+    "@types/express": "npm:4.17.17"
+    "@types/node": "npm:20.6.0"
+    express: "npm:4.18.2"
+    get-port: "npm:7.0.0"
     reflect-metadata: "npm:0.1.13"
-    rxjs: "npm:7.5.4"
-    supertest: "npm:^6.2.2"
+    rxjs: "npm:7.8.1"
+    supertest: "npm:6.3.3"
   peerDependencies:
-    "@nestjs/common": ^8.0.0
-    "@nestjs/core": ^8.0.0
-    reflect-metadata: ^0.1.12
-    rxjs: ^6.3.3
+    "@nestjs/common": 10.2.5
+    "@nestjs/core": 10.2.5
+    reflect-metadata: 0.1.13
+    rxjs: 7.8.1
   languageName: unknown
   linkType: soft
 
@@ -3442,12 +3442,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@ory/hydra-client@npm:1.9.2":
-  version: 1.9.2
-  resolution: "@ory/hydra-client@npm:1.9.2"
+"@ory/hydra-client@npm:1.11.8":
+  version: 1.11.8
+  resolution: "@ory/hydra-client@npm:1.11.8"
   dependencies:
-    axios: "npm:^0.19.2"
-  checksum: 19b6b0693a504f1f0819a8b9405505915714464cc5a72d0a0f7d05cfd9770c820c0e64ea8822804b51ff991bca1fa8ee7f227b59e625c5a269eb5784ee4bcbea
+    axios: "npm:^0.21.4"
+  checksum: f7bcc42bf9f5b10a296782654346213546edd218fcea1412823b746a51d2e3fb3fcd97882f496e48a76b87c28ae9aeff877c3fb8f6823b8a19c8463c0768df49
   languageName: node
   linkType: hard
 
@@ -3809,6 +3809,18 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/express-serve-static-core@npm:^4.17.33":
+  version: 4.17.36
+  resolution: "@types/express-serve-static-core@npm:4.17.36"
+  dependencies:
+    "@types/node": "npm:*"
+    "@types/qs": "npm:*"
+    "@types/range-parser": "npm:*"
+    "@types/send": "npm:*"
+  checksum: e39c5a8c22dec0227a346b5b43fd8d47c5257f269cadeffd58555517975774bd7f60a7087c31006ea8c994fd9b7f3f55945179218cbce594c05c6a0b303eb412
+  languageName: node
+  linkType: hard
+
 "@types/express@npm:*, @types/express@npm:4.17.13, @types/express@npm:^4.17.12, @types/express@npm:^4.17.13":
   version: 4.17.13
   resolution: "@types/express@npm:4.17.13"
@@ -3818,6 +3830,18 @@ __metadata:
     "@types/qs": "npm:*"
     "@types/serve-static": "npm:*"
   checksum: 114a3b85cd27a5d7873321499d4af2e8964d4f1a6344b224555d356be2d90e8024cba0dcf1159c30a8d39d8cb8312dff85b1a79a23c139122879499c568ac06e
+  languageName: node
+  linkType: hard
+
+"@types/express@npm:4.17.17":
+  version: 4.17.17
+  resolution: "@types/express@npm:4.17.17"
+  dependencies:
+    "@types/body-parser": "npm:*"
+    "@types/express-serve-static-core": "npm:^4.17.33"
+    "@types/qs": "npm:*"
+    "@types/serve-static": "npm:*"
+  checksum: 79fc9a17e54bf87b12ed65003fae24bf9b32b1bd8964bdfbab37cd3e53e0e4d596f293aa2f0ab1ed7c6a18dee033019e06461a5ce416904515bf764cdbf7d85f
   languageName: node
   linkType: hard
 
@@ -4015,6 +4039,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/mime@npm:^1":
+  version: 1.3.2
+  resolution: "@types/mime@npm:1.3.2"
+  checksum: 1f724ab3c619125bac1bb5890b42d6cdfeecc60207771b2ad861ec933931a5b0710023c49c181f728c4de4f4e026d3fa49dffddf31a0e3b7898ebd8b6da45f3d
+  languageName: node
+  linkType: hard
+
 "@types/minimatch@npm:*":
   version: 3.0.5
   resolution: "@types/minimatch@npm:3.0.5"
@@ -4104,6 +4135,16 @@ __metadata:
     "@types/tough-cookie": "npm:*"
     form-data: "npm:^2.5.0"
   checksum: 24cf245a0acbca0fb2d17a73b5ff986cda5d6d3c6fc69c8295f43f8c0f590e9d7f2eb0e478ea9be5eb8c582eb8dced2e35205ebc5f7b8663abfe9a6cfcc8a9d1
+  languageName: node
+  linkType: hard
+
+"@types/send@npm:*":
+  version: 0.17.1
+  resolution: "@types/send@npm:0.17.1"
+  dependencies:
+    "@types/mime": "npm:^1"
+    "@types/node": "npm:*"
+  checksum: 815b556663d684f0a42c12681d5476bb9e3036914611998b844ca4dc7226cc6eb2c0b7c5b0f51a282049dbf0f1a10d0e3aa4f978b4eb26a349b9a57dc2111274
   languageName: node
   linkType: hard
 
@@ -5066,6 +5107,15 @@ __metadata:
   dependencies:
     follow-redirects: "npm:1.5.10"
   checksum: 4f3653f7da6d660f579c867fcfb695e566a44426785416f9e682c6e1fd7b40f1049cf4b77573f19149d5ee4ce769cc5e11565bbcbb4daa4f7ae817a832a4cc70
+  languageName: node
+  linkType: hard
+
+"axios@npm:^0.21.4":
+  version: 0.21.4
+  resolution: "axios@npm:0.21.4"
+  dependencies:
+    follow-redirects: "npm:^1.14.0"
+  checksum: 3bb41e72f935e007d9d9c146b3fae09ab0b560dffb9e3f9b3598a270dc94311ae2a0e11d418b7d21409ca5477cc29c867ef4d0cd6fc704b91e6958a35c8fedd5
   languageName: node
   linkType: hard
 
@@ -7565,6 +7615,16 @@ __metadata:
   version: 1.13.0
   resolution: "follow-redirects@npm:1.13.0"
   checksum: b4a517af7b1b4ae3dd2bb5c5269ccaba1c5dc6acc36f25ee700fc2d6b0785f12406bde85501060d4a44448e2cf621ddd8856ae24bb85da0e9d60191fe210e2ec
+  languageName: node
+  linkType: hard
+
+"follow-redirects@npm:^1.14.0":
+  version: 1.15.2
+  resolution: "follow-redirects@npm:1.15.2"
+  peerDependenciesMeta:
+    debug:
+      optional: true
+  checksum: 930171f8b81bf00e9368df4b17f3b835934762d51192632af53a51a8a608d5510a1ffbc6da5761dce9996cdbd750740490ca844320e5ff11cdaf2329a5a69647
   languageName: node
   linkType: hard
 
