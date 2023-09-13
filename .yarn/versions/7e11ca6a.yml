@@ -1,0 +1,3 @@
+releases:
+  "@atls/nestjs-dataloader": patch
+  "@atls/nestjs-typeorm-seeding": patch

@@ -590,22 +590,22 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@atls/nestjs-typeorm-seeding@workspace:packages/typeorm-seeding"
   dependencies:
-    "@atls/typeorm-seeding": "npm:^0.0.3"
-    "@nestjs/common": "npm:^8.0.5"
-    "@nestjs/core": "npm:^8.0.5"
-    "@nestjs/testing": "npm:^8.0.5"
-    "@nestjs/typeorm": "npm:^8.0.1"
-    "@types/node": "npm:^17.0.18"
-    "@types/sql.js": "npm:^1.4.3"
+    "@atls/typeorm-seeding": "npm:0.0.3"
+    "@nestjs/common": "npm:10.2.5"
+    "@nestjs/core": "npm:10.2.5"
+    "@nestjs/testing": "npm:10.2.5"
+    "@nestjs/typeorm": "npm:8.0.5"
+    "@types/node": "npm:20.6.0"
+    "@types/sql.js": "npm:1.4.4"
     reflect-metadata: "npm:0.1.13"
-    rxjs: "npm:7.5.4"
-    sql.js: "npm:^1.6.2"
-    typeorm: "npm:^0.2"
+    rxjs: "npm:7.8.1"
+    sql.js: "npm:1.8.0"
+    typeorm: "npm:0.2.45"
   peerDependencies:
-    "@nestjs/common": ^8.0.0
-    "@nestjs/core": ^8.0.0
-    reflect-metadata: ^0.1.12
-    rxjs: ^6.3.3
+    "@nestjs/common": 10.2.5
+    "@nestjs/core": 10.2.5
+    reflect-metadata: 0.1.13
+    rxjs: 7.8.1
   languageName: unknown
   linkType: soft
 
@@ -683,7 +683,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@atls/typeorm-seeding@npm:^0.0.3":
+"@atls/typeorm-seeding@npm:0.0.3":
   version: 0.0.3
   resolution: "@atls/typeorm-seeding@npm:0.0.3"
   dependencies:
@@ -3352,6 +3352,21 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@nestjs/typeorm@npm:8.0.5":
+  version: 8.0.5
+  resolution: "@nestjs/typeorm@npm:8.0.5"
+  dependencies:
+    uuid: "npm:8.3.2"
+  peerDependencies:
+    "@nestjs/common": ^8.0.0 || ^9.0.0
+    "@nestjs/core": ^8.0.0 || ^9.0.0
+    reflect-metadata: ^0.1.13
+    rxjs: ^7.2.0
+    typeorm: ^0.2.34
+  checksum: 16f06310fa4fb09f852b13d119896a5f0681563bfc4ed2911db09351e95d70a809a9d84e13b5fb532783dc6f2ded18ce1206d17a47979eb490330e562ef58eda
+  languageName: node
+  linkType: hard
+
 "@nestjs/typeorm@npm:^8.0.1":
   version: 8.0.1
   resolution: "@nestjs/typeorm@npm:8.0.1"
@@ -4102,13 +4117,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/sql.js@npm:^1.4.3":
-  version: 1.4.3
-  resolution: "@types/sql.js@npm:1.4.3"
+"@types/sql.js@npm:1.4.4":
+  version: 1.4.4
+  resolution: "@types/sql.js@npm:1.4.4"
   dependencies:
     "@types/emscripten": "npm:*"
     "@types/node": "npm:*"
-  checksum: 390bf517a8d5ceff41babff3826be0c06d41cc370ac800a7c97e825d8048af5a6e35cabe72843512eb47ea90398c11442b319917d310fcb024af223a610e0da9
+  checksum: caba3520696980699bdc3145608d812117feca73f791e607ce499a20dee1d007cd588472c35c63f9a6323d7f3f427b842520efbaa48e35dc11613dd44a80ae42
   languageName: node
   linkType: hard
 
@@ -12183,10 +12198,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"sql.js@npm:^1.6.2":
-  version: 1.6.2
-  resolution: "sql.js@npm:1.6.2"
-  checksum: 719e34dea01aac67a77e8985f6a06c92f1b3f10c2d5d28544f8358ec8fe386f1e749c8b89db15c461ced2981d9ec11df0d22eb422a7abd6a38c197826204eb79
+"sql.js@npm:1.8.0":
+  version: 1.8.0
+  resolution: "sql.js@npm:1.8.0"
+  checksum: 88aab3ec67a109699e46aca771fe6ba94394c6bcc7af68311773c191536f8fd1b365a6b410ce3da44639ed6bfa4999925552442751667767eacd8dc3c9f5a5f5
   languageName: node
   linkType: hard
 
