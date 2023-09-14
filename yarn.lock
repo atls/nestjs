@@ -279,20 +279,20 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@atls/nestjs-external-renderer@workspace:packages/external-renderer"
   dependencies:
-    "@nestjs/common": "npm:^8.0.5"
-    "@nestjs/core": "npm:^8.0.5"
-    "@nestjs/testing": "npm:^8.0.5"
-    "@types/node": "npm:^17.0.12"
-    get-port: "npm:^5.1.1"
-    node-fetch: "npm:^2.6.7"
+    "@nestjs/common": "npm:10.2.5"
+    "@nestjs/core": "npm:10.2.5"
+    "@nestjs/testing": "npm:10.2.5"
+    "@types/node": "npm:20.6.0"
+    get-port: "npm:7.0.0"
+    node-fetch: "npm:2.7.0"
     reflect-metadata: "npm:0.1.13"
-    rxjs: "npm:7.5.4"
-    supertest: "npm:^6.2.2"
+    rxjs: "npm:7.8.1"
+    supertest: "npm:6.3.3"
   peerDependencies:
-    "@nestjs/common": ^8.0.0
-    "@nestjs/core": ^8.0.0
-    reflect-metadata: ^0.1.12
-    rxjs: ^6.3.3
+    "@nestjs/common": 10.2.5
+    "@nestjs/core": 10.2.5
+    reflect-metadata: 0.1.13
+    rxjs: 7.8.1
   languageName: unknown
   linkType: soft
 
@@ -4071,9 +4071,9 @@ __metadata:
   linkType: hard
 
 "@types/node@npm:16":
-  version: 16.11.25
-  resolution: "@types/node@npm:16.11.25"
-  checksum: a0976f9ea098aaf0364bd5bf3b6a8c5bdf1636f5aa791441c01963959a63354791316bf8c28f7eb4c2955d351502dabdec607dec46ab9c72c18b4913c80413e0
+  version: 16.18.50
+  resolution: "@types/node@npm:16.18.50"
+  checksum: bbe6ae1c796e4c1843dfc68f2ae841ce8adad966b4380aafe1f9e33fc7631d995f9fe4709cc8dbfa7bc6ec627c2499bfb01c2f53329e02ef7ede76c8eaf78e1d
   languageName: node
   linkType: hard
 
@@ -10613,6 +10613,20 @@ __metadata:
   languageName: node
   linkType: hard
 
+"node-fetch@npm:2.7.0":
+  version: 2.7.0
+  resolution: "node-fetch@npm:2.7.0"
+  dependencies:
+    whatwg-url: "npm:^5.0.0"
+  peerDependencies:
+    encoding: ^0.1.0
+  peerDependenciesMeta:
+    encoding:
+      optional: true
+  checksum: a3ad7889038bf6c49046272515d4f0e3167088b40fd37e1cc6eeea745f5a68cec798d55ac3210e2bc51891cb745e3dc30a734cc5f4b4df764f45886881b198b1
+  languageName: node
+  linkType: hard
+
 "node-fetch@npm:3.3.2":
   version: 3.3.2
   resolution: "node-fetch@npm:3.3.2"
@@ -13250,23 +13264,23 @@ __metadata:
   languageName: node
   linkType: hard
 
-"typescript@npm:4.4.4":
-  version: 4.4.4
-  resolution: "typescript@npm:4.4.4"
+"typescript@npm:4.5.5":
+  version: 4.5.5
+  resolution: "typescript@npm:4.5.5"
   bin:
     tsc: bin/tsc
     tsserver: bin/tsserver
-  checksum: d57f80c448b588b17845b186767ec128c8d4a441bd74103eb441258f424d9017a5e9dd1c14d3635d7591a20865472eb33fb20764b03bafe8f9c52318b40c9cec
+  checksum: d2d7724f3a75ff831b39b9086cec2cbfeb54279c3c4e75f8dabdb1b3fcb837922fe26d09c1db396c33d0c023f20c50bfe2bc5d46c51537d633cf8e6f3ca4cb5e
   languageName: node
   linkType: hard
 
-"typescript@patch:typescript@npm%3A4.4.4#optional!builtin<compat/typescript>":
-  version: 4.4.4
-  resolution: "typescript@patch:typescript@npm%3A4.4.4#optional!builtin<compat/typescript>::version=4.4.4&hash=bbeadb"
+"typescript@patch:typescript@npm%3A4.5.5#optional!builtin<compat/typescript>":
+  version: 4.5.5
+  resolution: "typescript@patch:typescript@npm%3A4.5.5#optional!builtin<compat/typescript>::version=4.5.5&hash=bcec9a"
   bin:
     tsc: bin/tsc
     tsserver: bin/tsserver
-  checksum: aad326b217b0dc534a0f6c401096586831e96811c91400bcfce2d33cc0744493ab0b919586518dd6df9a1dc1d36829b5612f1022fe616e7882e434db23bd29fa
+  checksum: 71310a426dc2d8c8bef6d26e707c85c0588463ec9c61637045acc899e9942e50d94eced53d72d264615074476a55173979a76bf002ef5c70606580c82557c4e4
   languageName: node
   linkType: hard
 

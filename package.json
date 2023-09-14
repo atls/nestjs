@@ -16,7 +16,7 @@
     "@octokit/webhooks": "8.12.0",
     "@types/ssh2": "0.5.51",
     "typeorm": "0.2.45",
-    "typescript": "4.4.4"
+    "typescript": "4.5.5"
   },
   "devDependencies": {
     "@atls/config-jest": "0.0.6",
