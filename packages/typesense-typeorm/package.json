@@ -12,29 +12,29 @@
     "postpack": "rm -rf dist"
   },
   "dependencies": {
-    "@atls/logger": "^0.0.1",
+    "@atls/logger": "0.0.2",
     "typeorm": "^0.2"
   },
   "devDependencies": {
     "@atls/nestjs-typesense": "workspace:0.0.7",
-    "@nestjs/common": "^8.0.5",
-    "@nestjs/core": "^8.0.5",
-    "@nestjs/testing": "^8.0.5",
-    "@nestjs/typeorm": "^8.0.1",
-    "get-port": "^5.1.1",
+    "@nestjs/common": "10.2.5",
+    "@nestjs/core": "10.2.5",
+    "@nestjs/testing": "10.2.5",
+    "@nestjs/typeorm": "10.0.0",
+    "get-port": "7.0.0",
     "reflect-metadata": "0.1.13",
-    "rxjs": "7.5.4",
+    "rxjs": "7.8.1",
     "sqlite3": "^5.1.6",
     "testcontainers": "^7.18.1",
-    "typesense": "^0.14.0"
+    "typesense": "0.15.0"
   },
   "peerDependencies": {
     "@atls/nestjs-typesense": "*",
-    "@nestjs/common": "^8.0.0",
-    "@nestjs/core": "^8.0.0",
-    "reflect-metadata": "^0.1.12",
-    "rxjs": "^6.3.3",
-    "typesense": "^0.14.0"
+    "@nestjs/common": "10.2.5",
+    "@nestjs/core": "10.2.5",
+    "reflect-metadata": "^0.1.13",
+    "rxjs": "7.8.1",
+    "typesense": "0.15.0"
   },
   "publishConfig": {
     "main": "dist/index.js",
