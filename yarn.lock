@@ -622,26 +622,26 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@atls/nestjs-typesense-typeorm@workspace:packages/typesense-typeorm"
   dependencies:
-    "@atls/logger": "npm:^0.0.1"
+    "@atls/logger": "npm:0.0.2"
     "@atls/nestjs-typesense": "workspace:0.0.7"
-    "@nestjs/common": "npm:^8.0.5"
-    "@nestjs/core": "npm:^8.0.5"
-    "@nestjs/testing": "npm:^8.0.5"
-    "@nestjs/typeorm": "npm:^8.0.1"
-    get-port: "npm:^5.1.1"
+    "@nestjs/common": "npm:10.2.5"
+    "@nestjs/core": "npm:10.2.5"
+    "@nestjs/testing": "npm:10.2.5"
+    "@nestjs/typeorm": "npm:10.0.0"
+    get-port: "npm:7.0.0"
     reflect-metadata: "npm:0.1.13"
-    rxjs: "npm:7.5.4"
+    rxjs: "npm:7.8.1"
     sqlite3: "npm:^5.1.6"
     testcontainers: "npm:^7.18.1"
     typeorm: "npm:^0.2"
-    typesense: "npm:^0.14.0"
+    typesense: "npm:0.15.0"
   peerDependencies:
     "@atls/nestjs-typesense": "*"
-    "@nestjs/common": ^8.0.0
-    "@nestjs/core": ^8.0.0
-    reflect-metadata: ^0.1.12
-    rxjs: ^6.3.3
-    typesense: ^0.14.0
+    "@nestjs/common": 10.2.5
+    "@nestjs/core": 10.2.5
+    reflect-metadata: ^0.1.13
+    rxjs: 7.8.1
+    typesense: 0.15.0
   languageName: unknown
   linkType: soft
 
@@ -3361,6 +3361,21 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@nestjs/typeorm@npm:10.0.0":
+  version: 10.0.0
+  resolution: "@nestjs/typeorm@npm:10.0.0"
+  dependencies:
+    uuid: "npm:9.0.0"
+  peerDependencies:
+    "@nestjs/common": ^8.0.0 || ^9.0.0 || ^10.0.0
+    "@nestjs/core": ^8.0.0 || ^9.0.0 || ^10.0.0
+    reflect-metadata: ^0.1.13
+    rxjs: ^7.2.0
+    typeorm: ^0.3.0
+  checksum: cb82f43aa9c93853f6331e490d78ebe038bb926570d43001d77af0c40f54f9a532ac9645c6ee93be53862cb868c9639f1621ec73897ef4a858bd96e50bd28334
+  languageName: node
+  linkType: hard
+
 "@nestjs/typeorm@npm:8.0.5":
   version: 8.0.5
   resolution: "@nestjs/typeorm@npm:8.0.5"
@@ -3373,21 +3388,6 @@ __metadata:
     rxjs: ^7.2.0
     typeorm: ^0.2.34
   checksum: 16f06310fa4fb09f852b13d119896a5f0681563bfc4ed2911db09351e95d70a809a9d84e13b5fb532783dc6f2ded18ce1206d17a47979eb490330e562ef58eda
-  languageName: node
-  linkType: hard
-
-"@nestjs/typeorm@npm:^8.0.1":
-  version: 8.0.1
-  resolution: "@nestjs/typeorm@npm:8.0.1"
-  dependencies:
-    uuid: "npm:8.3.2"
-  peerDependencies:
-    "@nestjs/common": ^8.0.0
-    "@nestjs/core": ^8.0.0
-    reflect-metadata: ^0.1.13
-    rxjs: ^7.2.0
-    typeorm: ^0.2.34
-  checksum: 54bad9fe9f0437324b6dda09c26eac9e5d659deda51a78b2aa13a0474a1177695d1489a7ad218e25b768ca02802a9484e5ec801349c6abc31513751c6bbf28ab
   languageName: node
   linkType: hard
 
