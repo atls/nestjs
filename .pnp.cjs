@@ -1216,6 +1216,7 @@ const RAW_RUNTIME_STATE =
         "packageDependencies": [\
           ["@atls/nestjs-typesense-typeorm", "workspace:packages/typesense-typeorm"],\
           ["@atls/logger", "npm:0.0.2"],\
+          ["@atls/logger", "npm:0.0.2"],\
           ["@atls/nestjs-typesense", "virtual:9690aa269ed7f0963f88f2f41cdbe29b7fe04ce225fdbc61cb0a364b09b929d1c2eaed05330c6dc7cecdadc37f50c68f1353b049eb428ace77331e8d82f98f3e#workspace:packages/typesense"],\
           ["@nestjs/common", "virtual:03b6af22cb80149b513f081c991b2ee015111d59bbeac45ddf1903895b7fd87d34f48a2f3c80a4ef3aface38a0df360e482b938a22fb0c3db73366f989167c03#npm:10.2.5"],\
           ["@nestjs/core", "virtual:3da99a4dd1a45fbb12f3936831275fe6ef127b2869363613ce7e5fc10bfba69fce118823d76d677d80a9d976776b1a4cb7b1bb4ee5c5a306e3ceed973bf055a2#npm:10.2.5"],\
@@ -1224,7 +1225,9 @@ const RAW_RUNTIME_STATE =
           ["get-port", "npm:7.0.0"],\
           ["reflect-metadata", "npm:0.1.13"],\
           ["rxjs", "npm:7.8.1"],\
+          ["rxjs", "npm:7.8.1"],\
           ["sqlite3", "virtual:9690aa269ed7f0963f88f2f41cdbe29b7fe04ce225fdbc61cb0a364b09b929d1c2eaed05330c6dc7cecdadc37f50c68f1353b049eb428ace77331e8d82f98f3e#npm:5.1.6"],\
+          ["testcontainers", "npm:10.2.1"],\
           ["testcontainers", "npm:10.2.1"],\
           ["typeorm", "virtual:9690aa269ed7f0963f88f2f41cdbe29b7fe04ce225fdbc61cb0a364b09b929d1c2eaed05330c6dc7cecdadc37f50c68f1353b049eb428ace77331e8d82f98f3e#npm:0.2.45"],\
           ["typesense", "virtual:9690aa269ed7f0963f88f2f41cdbe29b7fe04ce225fdbc61cb0a364b09b929d1c2eaed05330c6dc7cecdadc37f50c68f1353b049eb428ace77331e8d82f98f3e#npm:0.14.0"]\
@@ -6987,6 +6990,7 @@ const RAW_RUNTIME_STATE =
           ["@types/typeorm", null],\
           ["reflect-metadata", "npm:0.1.13"],\
           ["rxjs", "npm:7.8.1"],\
+          ["rxjs", "npm:7.8.1"],\
           ["typeorm", "virtual:9690aa269ed7f0963f88f2f41cdbe29b7fe04ce225fdbc61cb0a364b09b929d1c2eaed05330c6dc7cecdadc37f50c68f1353b049eb428ace77331e8d82f98f3e#npm:0.2.45"],\
           ["uuid", "npm:8.3.2"]\
         ],\
@@ -8977,10 +8981,13 @@ const RAW_RUNTIME_STATE =
         "packageLocation": "../../../../../.yarn/berry/cache/archiver-npm-5.3.2-cd50d62eca-9.zip/node_modules/archiver/",\
         "packageDependencies": [\
           ["archiver", "npm:5.3.2"],\
+          ["archiver", "npm:5.3.2"],\
           ["archiver-utils", "npm:2.1.0"],\
+          ["async", "npm:3.2.4"],\
           ["async", "npm:3.2.4"],\
           ["buffer-crc32", "npm:0.2.13"],\
           ["readable-stream", "npm:3.6.0"],\
+          ["readdir-glob", "npm:1.1.3"],\
           ["readdir-glob", "npm:1.1.3"],\
           ["tar-stream", "npm:2.2.0"],\
           ["zip-stream", "npm:4.1.0"]\
@@ -10590,6 +10597,18 @@ const RAW_RUNTIME_STATE =
         "linkType": "HARD"\
       }]\
     ]],\
+    ["cpu-features", [\
+      ["npm:0.0.9", {\
+        "packageLocation": "./.yarn/unplugged/cpu-features-npm-0.0.9-b608362c8d/node_modules/cpu-features/",\
+        "packageDependencies": [\
+          ["cpu-features", "npm:0.0.9"],\
+          ["buildcheck", "npm:0.0.6"],\
+          ["nan", "npm:2.18.0"],\
+          ["node-gyp", "npm:7.1.2"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
     ["crc-32", [\
       ["npm:1.2.0", {\
         "packageLocation": "../../../../../.yarn/berry/cache/crc-32-npm-1.2.0-e56bb85839-9.zip/node_modules/crc-32/",\
@@ -11113,6 +11132,8 @@ const RAW_RUNTIME_STATE =
         "packageDependencies": [\
           ["docker-compose", "npm:0.24.2"],\
           ["yaml", "npm:2.3.2"]\
+          ["docker-compose", "npm:0.24.2"],\
+          ["yaml", "npm:2.3.2"]\
         ],\
         "linkType": "HARD"\
       }]\
@@ -11134,6 +11155,8 @@ const RAW_RUNTIME_STATE =
       ["npm:3.3.5", {\
         "packageLocation": "../../../../../.yarn/berry/cache/dockerode-npm-3.3.5-2ec31bdac6-9.zip/node_modules/dockerode/",\
         "packageDependencies": [\
+          ["dockerode", "npm:3.3.5"],\
+          ["@balena/dockerignore", "npm:1.0.2"],\
           ["dockerode", "npm:3.3.5"],\
           ["@balena/dockerignore", "npm:1.0.2"],\
           ["docker-modem", "npm:3.0.0"],\
@@ -15549,6 +15572,16 @@ const RAW_RUNTIME_STATE =
         "linkType": "HARD"\
       }]\
     ]],\
+    ["nan", [\
+      ["npm:2.18.0", {\
+        "packageLocation": "./.yarn/unplugged/nan-npm-2.18.0-a51ed5bed5/node_modules/nan/",\
+        "packageDependencies": [\
+          ["nan", "npm:2.18.0"],\
+          ["node-gyp", "npm:7.1.2"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
     ["natural-compare", [\
       ["npm:1.4.0", {\
         "packageLocation": "../../../../../.yarn/berry/cache/natural-compare-npm-1.4.0-97b75b362d-9.zip/node_modules/natural-compare/",\
@@ -16824,6 +16857,8 @@ const RAW_RUNTIME_STATE =
         "packageDependencies": [\
           ["readdir-glob", "npm:1.1.3"],\
           ["minimatch", "npm:5.1.6"]\
+          ["readdir-glob", "npm:1.1.3"],\
+          ["minimatch", "npm:5.1.6"]\
         ],\
         "linkType": "HARD"\
       }]\
@@ -17606,7 +17641,9 @@ const RAW_RUNTIME_STATE =
         "packageLocation": "../../../../../.yarn/berry/cache/ssh-remote-port-forward-npm-1.0.4-5c686cdf22-9.zip/node_modules/ssh-remote-port-forward/",\
         "packageDependencies": [\
           ["ssh-remote-port-forward", "npm:1.0.4"],\
+          ["ssh-remote-port-forward", "npm:1.0.4"],\
           ["@types/ssh2", "npm:0.5.51"],\
+          ["ssh2", "npm:1.14.0"]\
           ["ssh2", "npm:1.14.0"]\
         ],\
         "linkType": "HARD"\
@@ -17618,6 +17655,17 @@ const RAW_RUNTIME_STATE =
         "packageDependencies": [\
           ["ssh2", "npm:0.8.9"],\
           ["ssh2-streams", "npm:0.4.10"]\
+        ],\
+        "linkType": "HARD"\
+      }],\
+      ["npm:1.14.0", {\
+        "packageLocation": "./.yarn/unplugged/ssh2-npm-1.14.0-132c2cff40/node_modules/ssh2/",\
+        "packageDependencies": [\
+          ["ssh2", "npm:1.14.0"],\
+          ["asn1", "npm:0.2.6"],\
+          ["bcrypt-pbkdf", "npm:1.0.2"],\
+          ["cpu-features", "npm:0.0.9"],\
+          ["nan", "npm:2.18.0"]\
         ],\
         "linkType": "HARD"\
       }],\
@@ -18158,8 +18206,10 @@ const RAW_RUNTIME_STATE =
         "packageLocation": "../../../../../.yarn/berry/cache/tar-fs-npm-3.0.4-fa3da2e321-9.zip/node_modules/tar-fs/",\
         "packageDependencies": [\
           ["tar-fs", "npm:3.0.4"],\
+          ["tar-fs", "npm:3.0.4"],\
           ["mkdirp-classic", "npm:0.5.3"],\
           ["pump", "npm:3.0.0"],\
+          ["tar-stream", "npm:3.1.6"]\
           ["tar-stream", "npm:3.1.6"]\
         ],\
         "linkType": "HARD"\
@@ -18234,11 +18284,24 @@ const RAW_RUNTIME_STATE =
           ["@balena/dockerignore", "npm:1.0.2"],\
           ["archiver", "npm:5.3.2"],\
           ["async-lock", "npm:1.4.0"],\
+          ["testcontainers", "npm:10.2.1"],\
+          ["@balena/dockerignore", "npm:1.0.2"],\
+          ["archiver", "npm:5.3.2"],\
+          ["async-lock", "npm:1.4.0"],\
           ["byline", "npm:5.0.0"],\
           ["debug", "virtual:da05128b9728c8809d1713e0563ac9ed151a9fd0162703321881f2f00f51e4284eb74c0baa2340006a0aae0deb562068c6afbec4e059872b1731a0cfac9b0be9#npm:4.3.4"],\
           ["docker-compose", "npm:0.24.2"],\
           ["dockerode", "npm:3.3.5"],\
+          ["debug", "virtual:da05128b9728c8809d1713e0563ac9ed151a9fd0162703321881f2f00f51e4284eb74c0baa2340006a0aae0deb562068c6afbec4e059872b1731a0cfac9b0be9#npm:4.3.4"],\
+          ["docker-compose", "npm:0.24.2"],\
+          ["dockerode", "npm:3.3.5"],\
           ["get-port", "npm:5.1.1"],\
+          ["node-fetch", "virtual:3da99a4dd1a45fbb12f3936831275fe6ef127b2869363613ce7e5fc10bfba69fce118823d76d677d80a9d976776b1a4cb7b1bb4ee5c5a306e3ceed973bf055a2#npm:2.7.0"],\
+          ["proper-lockfile", "npm:4.1.2"],\
+          ["properties-reader", "npm:2.3.0"],\
+          ["ssh-remote-port-forward", "npm:1.0.4"],\
+          ["tar-fs", "npm:3.0.4"],\
+          ["tmp", "npm:0.2.1"]\
           ["node-fetch", "virtual:3da99a4dd1a45fbb12f3936831275fe6ef127b2869363613ce7e5fc10bfba69fce118823d76d677d80a9d976776b1a4cb7b1bb4ee5c5a306e3ceed973bf055a2#npm:2.7.0"],\
           ["proper-lockfile", "npm:4.1.2"],\
           ["properties-reader", "npm:2.3.0"],\
