@@ -627,13 +627,13 @@ __metadata:
     "@nestjs/common": "npm:10.2.5"
     "@nestjs/core": "npm:10.2.5"
     "@nestjs/testing": "npm:10.2.5"
-    "@nestjs/typeorm": "npm:10.0.0"
+    "@nestjs/typeorm": "npm:8.0.5"
     get-port: "npm:7.0.0"
     reflect-metadata: "npm:0.1.13"
     rxjs: "npm:7.8.1"
     sqlite3: "npm:^5.1.6"
     testcontainers: "npm:^7.18.1"
-    typeorm: "npm:^0.2"
+    typeorm: "npm:0.2.45"
     typesense: "npm:0.15.0"
   peerDependencies:
     "@atls/nestjs-typesense": "*"
@@ -3358,21 +3358,6 @@ __metadata:
     "@nestjs/platform-express":
       optional: true
   checksum: 655180fc36422f581f13a779bf0ef787465bb5308164cc9c74ae71f14f61efa62a3941beb86c7fa1a4fc07dce27fc9e7349fb588048d7b1932f88734dc1c051b
-  languageName: node
-  linkType: hard
-
-"@nestjs/typeorm@npm:10.0.0":
-  version: 10.0.0
-  resolution: "@nestjs/typeorm@npm:10.0.0"
-  dependencies:
-    uuid: "npm:9.0.0"
-  peerDependencies:
-    "@nestjs/common": ^8.0.0 || ^9.0.0 || ^10.0.0
-    "@nestjs/core": ^8.0.0 || ^9.0.0 || ^10.0.0
-    reflect-metadata: ^0.1.13
-    rxjs: ^7.2.0
-    typeorm: ^0.3.0
-  checksum: cb82f43aa9c93853f6331e490d78ebe038bb926570d43001d77af0c40f54f9a532ac9645c6ee93be53862cb868c9639f1621ec73897ef4a858bd96e50bd28334
   languageName: node
   linkType: hard
 
