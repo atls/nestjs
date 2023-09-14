@@ -237,7 +237,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@atls/logger@npm:0.0.2":
+"@atls/logger@npm:0.0.2, @atls/logger@npm:^0.0.2":
   version: 0.0.2
   resolution: "@atls/logger@npm:0.0.2"
   dependencies:
@@ -13515,18 +13515,6 @@ __metadata:
   peerDependencies:
     "@babel/runtime": ^7.14.6
   checksum: df68744fcda67fc6d10d2f627c69e3cfbc9a36e4259a1ff68e5ecba59dc51102578637896c03bc29edea47ac7176b95971397225f1081bf876c06b249fc298a5
-  languageName: node
-  linkType: hard
-
-"typesense@npm:^0.14.0":
-  version: 0.14.0
-  resolution: "typesense@npm:0.14.0"
-  dependencies:
-    axios: "npm:^0.21.1"
-    loglevel: "npm:^1.7.1"
-  peerDependencies:
-    "@babel/runtime": ^7.14.6
-  checksum: 009f282e2dee47f08086a3a6a11873fb08e894001901af03110b2560b1beac88ea4b4238bb3c17209ce264ad8da8b28a30b49884b63b30514dcba8d27a6ebaa2
   languageName: node
   linkType: hard
 
