@@ -237,7 +237,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@atls/logger@npm:0.0.2, @atls/logger@npm:^0.0.2":
+"@atls/logger@npm:0.0.2":
   version: 0.0.2
   resolution: "@atls/logger@npm:0.0.2"
   dependencies:
