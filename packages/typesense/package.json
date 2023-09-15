@@ -12,8 +12,8 @@
     "postpack": "rm -rf dist"
   },
   "dependencies": {
-    "@atls/logger": "^0.0.2",
-    "decamelize": "^5.0.0"
+    "@atls/logger": "0.0.2",
+    "decamelize": "5.0.0"
   },
   "devDependencies": {
     "@nestjs/common": "10.2.5",

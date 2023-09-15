@@ -237,21 +237,21 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@atls/logger@npm:0.0.2":
+  version: 0.0.2
+  resolution: "@atls/logger@npm:0.0.2"
+  dependencies:
+    pino: "npm:8.15.0"
+  checksum: 1465565c96f2c030ab8aa5bb520f2235630246fd052273e2633bb77ee4289d9f5184eff6729d71f6827c841e0580f803c2f95540c91cd5945caf51ba0437e61e
+  languageName: node
+  linkType: hard
+
 "@atls/logger@npm:^0.0.1":
   version: 0.0.1
   resolution: "@atls/logger@npm:0.0.1"
   dependencies:
     pino: "npm:^6.11.3"
   checksum: 59e1ddea6c6690d3ddb3a6db982d8908379612568624da5e0cb8c75c76471c627e6ce6da381050a83943c5281c96d64f6360348efa160be16cb6eeda75402129
-  languageName: node
-  linkType: hard
-
-"@atls/logger@npm:^0.0.2":
-  version: 0.0.2
-  resolution: "@atls/logger@npm:0.0.2"
-  dependencies:
-    pino: "npm:8.15.0"
-  checksum: 1465565c96f2c030ab8aa5bb520f2235630246fd052273e2633bb77ee4289d9f5184eff6729d71f6827c841e0580f803c2f95540c91cd5945caf51ba0437e61e
   languageName: node
   linkType: hard
 
@@ -649,11 +649,11 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@atls/nestjs-typesense@workspace:packages/typesense"
   dependencies:
-    "@atls/logger": "npm:^0.0.2"
+    "@atls/logger": "npm:0.0.2"
     "@nestjs/common": "npm:10.2.5"
     "@nestjs/core": "npm:10.2.5"
     "@nestjs/testing": "npm:10.2.5"
-    decamelize: "npm:^5.0.0"
+    decamelize: "npm:5.0.0"
     get-port: "npm:7.0.0"
     reflect-metadata: "npm:0.1.13"
     rxjs: "npm:7.8.1"
@@ -6502,10 +6502,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"decamelize@npm:^5.0.0":
-  version: 5.0.1
-  resolution: "decamelize@npm:5.0.1"
-  checksum: 3ab0a369bdbfa50fb6706c266eb602fc5521c710b3aee658bed52d39c9963ebdad049302d6222ae53a28e25715cc389dc858223243f815d7d25aed4b23cae3bd
+"decamelize@npm:5.0.0":
+  version: 5.0.0
+  resolution: "decamelize@npm:5.0.0"
+  checksum: 3713776772001f44e38c809fee3f0c8df9e922670ee2cf5d2e6f1fa2f7b0def4c1df4a2f154482ecd8c3ba31ffbea5d07e938212c7e28fe0a72d27d7946f19ca
   languageName: node
   linkType: hard
 
