@@ -24,8 +24,10 @@ describe('typesense-typeorm', () => {
   beforeAll(async () => {
     typesense = await new GenericContainer('typesense/typesense:0.21.0')
       .withWaitStrategy(Wait.forLogMessage('Peer refresh succeeded!'))
-      .withEnv('TYPESENSE_DATA_DIR', '/tmp')
-      .withEnv('TYPESENSE_API_KEY', 'test')
+      .withEnvironment({
+        TYPESENSE_DATA_DIR: '/tmp',
+        TYPESENSE_API_KEY: 'test',
+      })
       .withExposedPorts(8108)
       .start()
 
