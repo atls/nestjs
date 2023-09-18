@@ -13,26 +13,26 @@
   },
   "dependencies": {
     "@atls/logger": "0.0.2",
-    "typeorm": "^0.2"
+    "typeorm": "0.2.45"
   },
   "devDependencies": {
     "@atls/nestjs-typesense": "workspace:0.0.7",
     "@nestjs/common": "10.2.5",
     "@nestjs/core": "10.2.5",
     "@nestjs/testing": "10.2.5",
-    "@nestjs/typeorm": "10.0.0",
+    "@nestjs/typeorm": "8.0.5",
     "get-port": "7.0.0",
     "reflect-metadata": "0.1.13",
     "rxjs": "7.8.1",
-    "sqlite3": "^5.1.6",
-    "testcontainers": "^7.18.1",
+    "sqlite3": "5.1.6",
+    "testcontainers": "10.2.1",
     "typesense": "0.15.0"
   },
   "peerDependencies": {
-    "@atls/nestjs-typesense": "*",
+    "@atls/nestjs-typesense": "workspace:0.0.7",
     "@nestjs/common": "10.2.5",
     "@nestjs/core": "10.2.5",
-    "reflect-metadata": "^0.1.13",
+    "reflect-metadata": "0.1.13",
     "rxjs": "7.8.1",
     "typesense": "0.15.0"
   },
