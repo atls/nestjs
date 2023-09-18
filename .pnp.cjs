@@ -1173,7 +1173,7 @@ const RAW_RUNTIME_STATE =
           ["@types/reflect-metadata", null],\
           ["@types/rxjs", null],\
           ["@types/typesense", null],\
-          ["decamelize", "npm:5.0.1"],\
+          ["decamelize", "npm:5.0.0"],\
           ["get-port", "npm:7.0.0"],\
           ["reflect-metadata", "npm:0.1.13"],\
           ["rxjs", "npm:7.8.1"],\
@@ -1201,7 +1201,7 @@ const RAW_RUNTIME_STATE =
           ["@nestjs/common", "virtual:03b6af22cb80149b513f081c991b2ee015111d59bbeac45ddf1903895b7fd87d34f48a2f3c80a4ef3aface38a0df360e482b938a22fb0c3db73366f989167c03#npm:10.2.5"],\
           ["@nestjs/core", "virtual:3da99a4dd1a45fbb12f3936831275fe6ef127b2869363613ce7e5fc10bfba69fce118823d76d677d80a9d976776b1a4cb7b1bb4ee5c5a306e3ceed973bf055a2#npm:10.2.5"],\
           ["@nestjs/testing", "virtual:3da99a4dd1a45fbb12f3936831275fe6ef127b2869363613ce7e5fc10bfba69fce118823d76d677d80a9d976776b1a4cb7b1bb4ee5c5a306e3ceed973bf055a2#npm:10.2.5"],\
-          ["decamelize", "npm:5.0.1"],\
+          ["decamelize", "npm:5.0.0"],\
           ["get-port", "npm:7.0.0"],\
           ["reflect-metadata", "npm:0.1.13"],\
           ["rxjs", "npm:7.8.1"],\
@@ -10826,10 +10826,10 @@ const RAW_RUNTIME_STATE =
       }]\
     ]],\
     ["decamelize", [\
-      ["npm:5.0.1", {\
-        "packageLocation": "../../../../../.yarn/berry/cache/decamelize-npm-5.0.1-2fde8c926c-9.zip/node_modules/decamelize/",\
+      ["npm:5.0.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/decamelize-npm-5.0.0-b0b9221490-9.zip/node_modules/decamelize/",\
         "packageDependencies": [\
-          ["decamelize", "npm:5.0.1"]\
+          ["decamelize", "npm:5.0.0"]\
         ],\
         "linkType": "HARD"\
       }]\
