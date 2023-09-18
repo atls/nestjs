@@ -29,7 +29,7 @@ export class KetoAccessControlGuard implements CanActivate {
   async canActivate(context: ExecutionContext): Promise<boolean> {
     const subject = this.getSubject(context)
 
-    const policy = this.reflector.get<any>(ACCESS_POLICY_METADATA, context.getHandler())
+    const policy = this.reflector.get(ACCESS_POLICY_METADATA, context.getHandler())
 
     if (!policy) {
       return true
