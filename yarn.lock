@@ -586,7 +586,7 @@ __metadata:
     reflect-metadata: "npm:0.1.13"
     rxjs: "npm:7.8.1"
     supertest: "npm:6.3.3"
-    typeorm: "npm:*"
+    typeorm: "npm:0.2.45"
   peerDependencies:
     "@nestjs/common": 10.2.5
     "@nestjs/core": 10.2.5
