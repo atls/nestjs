@@ -12,24 +12,24 @@
     "postpack": "rm -rf dist"
   },
   "dependencies": {
-    "@atls/logger": "^0.0.1",
-    "decamelize": "^5.0.0"
+    "@atls/logger": "0.0.2",
+    "decamelize": "5.0.0"
   },
   "devDependencies": {
-    "@nestjs/common": "^8.0.5",
-    "@nestjs/core": "^8.0.5",
-    "@nestjs/testing": "^8.0.5",
-    "get-port": "^5.1.1",
+    "@nestjs/common": "10.2.5",
+    "@nestjs/core": "10.2.5",
+    "@nestjs/testing": "10.2.5",
+    "get-port": "7.0.0",
     "reflect-metadata": "0.1.13",
-    "rxjs": "7.5.4",
-    "typesense": "^0.14.0"
+    "rxjs": "7.8.1",
+    "typesense": "0.15.0"
   },
   "peerDependencies": {
-    "@nestjs/common": "^8.0.0",
-    "@nestjs/core": "^8.0.0",
-    "reflect-metadata": "^0.1.12",
-    "rxjs": "^6.3.3",
-    "typesense": "^0.14.0"
+    "@nestjs/common": "10.2.5",
+    "@nestjs/core": "10.2.5",
+    "reflect-metadata": "0.1.13",
+    "rxjs": "7.8.1",
+    "typesense": "0.15.0"
   },
   "publishConfig": {
     "main": "dist/index.js",

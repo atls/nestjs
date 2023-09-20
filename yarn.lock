@@ -649,21 +649,21 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@atls/nestjs-typesense@workspace:packages/typesense"
   dependencies:
-    "@atls/logger": "npm:^0.0.1"
-    "@nestjs/common": "npm:^8.0.5"
-    "@nestjs/core": "npm:^8.0.5"
-    "@nestjs/testing": "npm:^8.0.5"
-    decamelize: "npm:^5.0.0"
-    get-port: "npm:^5.1.1"
+    "@atls/logger": "npm:0.0.2"
+    "@nestjs/common": "npm:10.2.5"
+    "@nestjs/core": "npm:10.2.5"
+    "@nestjs/testing": "npm:10.2.5"
+    decamelize: "npm:5.0.0"
+    get-port: "npm:7.0.0"
     reflect-metadata: "npm:0.1.13"
-    rxjs: "npm:7.5.4"
-    typesense: "npm:^0.14.0"
+    rxjs: "npm:7.8.1"
+    typesense: "npm:0.15.0"
   peerDependencies:
-    "@nestjs/common": ^8.0.0
-    "@nestjs/core": ^8.0.0
-    reflect-metadata: ^0.1.12
-    rxjs: ^6.3.3
-    typesense: ^0.14.0
+    "@nestjs/common": 10.2.5
+    "@nestjs/core": 10.2.5
+    reflect-metadata: 0.1.13
+    rxjs: 7.8.1
+    typesense: 0.15.0
   languageName: unknown
   linkType: soft
 
@@ -6496,7 +6496,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"decamelize@npm:^5.0.0":
+"decamelize@npm:5.0.0":
   version: 5.0.0
   resolution: "decamelize@npm:5.0.0"
   checksum: 3713776772001f44e38c809fee3f0c8df9e922670ee2cf5d2e6f1fa2f7b0def4c1df4a2f154482ecd8c3ba31ffbea5d07e938212c7e28fe0a72d27d7946f19ca
@@ -13522,18 +13522,6 @@ __metadata:
   peerDependencies:
     "@babel/runtime": ^7.14.6
   checksum: df68744fcda67fc6d10d2f627c69e3cfbc9a36e4259a1ff68e5ecba59dc51102578637896c03bc29edea47ac7176b95971397225f1081bf876c06b249fc298a5
-  languageName: node
-  linkType: hard
-
-"typesense@npm:^0.14.0":
-  version: 0.14.0
-  resolution: "typesense@npm:0.14.0"
-  dependencies:
-    axios: "npm:^0.21.1"
-    loglevel: "npm:^1.7.1"
-  peerDependencies:
-    "@babel/runtime": ^7.14.6
-  checksum: 009f282e2dee47f08086a3a6a11873fb08e894001901af03110b2560b1beac88ea4b4238bb3c17209ce264ad8da8b28a30b49884b63b30514dcba8d27a6ebaa2
   languageName: node
   linkType: hard
 
