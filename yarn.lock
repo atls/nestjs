@@ -4030,7 +4030,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:*, @types/node@npm:17.0.18, @types/node@npm:>=12.12.47, @types/node@npm:>=13.7.0, @types/node@npm:^17.0.12, @types/node@npm:^17.0.18":
+"@types/node@npm:*, @types/node@npm:17.0.18, @types/node@npm:>=12.12.47, @types/node@npm:>=13.7.0, @types/node@npm:^17.0.12":
   version: 17.0.18
   resolution: "@types/node@npm:17.0.18"
   checksum: 181ee79dfec9184c9d2d5071696651412d5a8cc524a0fdc4ec867fa97ae4f874dae6f9c0dc76157525c9156d80d1ef5f980327e23a34e199baba0348cdffc62f
