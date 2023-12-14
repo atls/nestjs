@@ -1,0 +1,46 @@
+{
+  "name": "@atls/grpc-keto",
+  "version": "0.0.0",
+  "license": "BSD-3-Clause",
+  "main": "src/index.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "yarn library build",
+    "dev": "yarn service dev",
+    "prepack": "yarn run build",
+    "postpack": "rm -rf dist"
+  },
+  "dependencies": {
+    "@grpc/grpc-js": "1.9.13",
+    "@ory/keto-grpc-client": "0.11.1-alpha.0",
+    "grpc": "1.24.11"
+  },
+  "devDependencies": {
+    "@nestjs/common": "9.4.3",
+    "@nestjs/core": "9.4.3",
+    "@nestjs/graphql": "11.0.6",
+    "@nestjs/testing": "9.4.3",
+    "@types/lodash": "4.14.178",
+    "@types/supertest": "2.0.16",
+    "graphql": "16.8.1",
+    "reflect-metadata": "0.2.1",
+    "rxjs": "7.8.1",
+    "supertest": "6.3.3",
+    "testcontainers": "10.4.0",
+    "ts-morph": "21.0.1"
+  },
+  "peerDependencies": {
+    "@nestjs/common": "*",
+    "@nestjs/core": "*",
+    "@nestjs/graphql": "*",
+    "graphql": "*",
+    "reflect-metadata": "*",
+    "rxjs": "*"
+  },
+  "publishConfig": {
+    "main": "dist/index.js",
+    "typings": "dist/index.d.ts"
+  }
+}
