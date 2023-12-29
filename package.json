@@ -15,21 +15,26 @@
     "@octokit/types": "6.13.0",
     "@octokit/webhooks": "8.12.0",
     "@types/ssh2": "0.5.51",
-    "typeorm": "0.2.45",
-    "typescript": "4.5.5"
+    "typeorm": "0.2.45"
   },
   "devDependencies": {
-    "@atls/config-jest": "0.0.6",
+    "@atls/code-service": "^0.0.24",
+    "@atls/config-eslint": "0.0.10",
+    "@atls/config-jest": "0.0.9",
     "@atls/schematics": "0.0.16",
     "@jest/core": "27.4.7",
+    "@rushstack/eslint-patch": "1.6.0",
     "@types/eslint": "8.4.1",
     "@types/jest": "27.4.0",
-    "@types/node": "16",
-    "eslint": "8.7.0",
+    "@types/node": "18.19.3",
+    "eslint": "8.17.0",
     "husky": "7.0.4",
-    "typescript": "4.5.5"
+    "typescript": "4.6.4"
   },
   "dependenciesMeta": {
+    "@atls/config-eslint@0.0.10": {
+      "unplugged": true
+    },
     "@grpc/grpc-js@1.5.5": {
       "unplugged": true
     },
@@ -37,7 +42,7 @@
       "unplugged": true
     }
   },
-  "packageManager": "yarn@3.6.1",
+  "packageManager": "yarn@4.0.2",
   "tools": {
     "schematic": {
       "collection": "@atls/schematics",

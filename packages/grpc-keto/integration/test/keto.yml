@@ -1,0 +1,34 @@
+version: v0.11.1-alpha.0
+
+dsn: memory
+
+serve:
+  read:
+    host: 0.0.0.0
+    cors:
+      enabled: false
+      allow_credentials: true
+      debug: true
+  write:
+    host: 0.0.0.0
+    cors:
+      enabled: false
+      allow_credentials: true
+      debug: true
+
+  opl:
+    host: localhost
+    cors:
+      enabled: false
+      allow_credentials: true
+      debug: true
+
+namespaces:
+  location: file:///home/ory/namespaces.keto.ts
+
+log:
+  level: debug
+  format: text
+  leak_sensitive_values: true
+
+$schema: file:///config/keto/schema.json

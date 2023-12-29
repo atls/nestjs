@@ -15,7 +15,7 @@
     "@ory/hydra-client": "1.11.8"
   },
   "devDependencies": {
-    "@nestjs/common": "10.2.5",
+    "@nestjs/common": "patch:@nestjs/common@npm%3A10.2.5#~/.yarn/patches/@nestjs-common-npm-10.2.5-816dceeade.patch",
     "@nestjs/core": "10.2.5",
     "@nestjs/testing": "10.2.5",
     "@types/express": "4.17.17",
