@@ -13,7 +13,7 @@ const bootstrap = async () => {
   app.enableShutdownHooks()
   app.enableCors()
 
-  await app.startAllMicroservicesAsync()
+  await app.startAllMicroservices()
   await app.listen(3000)
 
   if (module.hot) {
