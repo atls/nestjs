@@ -35,11 +35,13 @@ jobs:
         run: yarn checks test unit
         env:
           GITHUB_TOKEN: '${{ secrets.GITHUB_TOKEN }}'
+          NODE_OPTIONS: --experimental-vm-modules
 
       - name: TestIntegration
         run: yarn checks test integration
         env:
           GITHUB_TOKEN: '${{ secrets.GITHUB_TOKEN }}'
+          NODE_OPTIONS: --experimental-vm-modules
 
       - name: Release
         run: yarn checks release
