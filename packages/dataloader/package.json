@@ -15,7 +15,7 @@
     "dataloader": "2.2.2"
   },
   "devDependencies": {
-    "@nestjs/common": "10.2.5",
+    "@nestjs/common": "patch:@nestjs/common@npm%3A10.2.5#~/.yarn/patches/@nestjs-common-npm-10.2.5-816dceeade.patch",
     "@nestjs/core": "10.2.5",
     "@nestjs/graphql": "12.0.9",
     "@nestjs/microservices": "10.2.5",
@@ -25,7 +25,7 @@
     "get-port": "7.0.0",
     "graphql": "16.8.0",
     "reflect-metadata": "0.1.13",
-    "rxjs": "7.8.1",
+    "rxjs": "7.5.4",
     "supertest": "6.3.3",
     "ts-morph": "19.0.0",
     "ws": "8.14.1"

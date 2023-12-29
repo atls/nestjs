@@ -1,0 +1,6 @@
+{
+  "namespace": "Group",
+  "object": "admin",
+  "relation": "members",
+  "subject_id": "testUser"
+}

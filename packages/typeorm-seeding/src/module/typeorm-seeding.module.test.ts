@@ -1,4 +1,5 @@
 import { SeederFactory }        from '@atls/typeorm-seeding'
+import { TestingModule }        from '@nestjs/testing'
 import { Test }                 from '@nestjs/testing'
 import { TypeOrmModule }        from '@nestjs/typeorm'
 
@@ -6,7 +7,7 @@ import { TypeOrmSeedingModule } from './typeorm-seeding.module'
 
 describe('typeorm-seeding', () => {
   describe('module', () => {
-    let module
+    let module: TestingModule
 
     afterEach(async () => {
       await module.close()

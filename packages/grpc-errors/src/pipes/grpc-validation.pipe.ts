@@ -6,7 +6,7 @@ export class GrpcValidationPipe extends ValidationPipe {
   constructor(options?) {
     super({
       ...(options || {}),
-      transform: typeof options?.transform === 'undefined' ? true : options?.transform,
+      transform: typeof options?.transform === `undefined` ? true : options?.transform,
       exceptionFactory: grpcValidationExceptionFactory || options?.exceptionFactory,
     })
   }

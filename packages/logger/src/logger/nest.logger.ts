@@ -2,7 +2,7 @@ import { Logger }        from '@atls/logger'
 import { LoggerService } from '@nestjs/common'
 
 export class NestLogger implements LoggerService {
-  private logger = new Logger('nestjs')
+  private logger = new Logger(`nestjs`)
 
   public log(message: any, context?: string) {
     if (context) {

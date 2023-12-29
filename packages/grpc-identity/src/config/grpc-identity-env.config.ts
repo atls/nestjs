@@ -8,7 +8,7 @@ export class GrpcIdentityEnvConfig implements GrpcIdentityOptionsFactory {
     const jwksUri = process.env.IDENTITY_JWKS_URI
 
     if (!jwksUri) {
-      throw new Error('Identity JwksUri configuration not found.')
+      throw new Error(`Identity JwksUri configuration not found.`)
     }
 
     const options = {

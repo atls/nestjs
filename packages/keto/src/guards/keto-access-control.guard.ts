@@ -40,9 +40,12 @@ export class KetoAccessControlGuard implements CanActivate {
     }
 
     try {
+      // @ts-ignore
       const { body } = await this.keto.doOryAccessControlPoliciesAllow(policy.flavor, {
         subject,
+        // @ts-ignore
         resource: this.resourceService.withScope(policy.resource),
+        // @ts-ignore
         action: policy.action,
         context: {},
       })
