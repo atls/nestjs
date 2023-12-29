@@ -12,7 +12,7 @@ describe('ExpressExternalRendererView', () => {
 
   beforeAll(async () => {
     const view = new ExpressExternalRendererView('/test', {
-      root: 'http://localhost:3000',
+      root: `http://localhost:3000`,
     })
 
     render = (params = {}) => new Promise((resolve) => view.render(params, resolve))

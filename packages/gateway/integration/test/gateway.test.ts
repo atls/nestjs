@@ -136,7 +136,7 @@ describe('gateway', () => {
     await service.init()
 
     await app.listen(appPort, '0.0.0.0')
-    await service.listenAsync()
+    await service.listen()
 
     pubsub = app.get(PubSub)
     url = await app.getUrl()

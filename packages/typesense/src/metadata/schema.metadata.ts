@@ -1,6 +1,6 @@
 export interface SchemaField {
-  name: string
   type: string
+  name: string
   facet?: boolean
   index?: boolean
   optional?: boolean

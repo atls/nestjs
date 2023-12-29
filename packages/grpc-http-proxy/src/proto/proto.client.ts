@@ -14,9 +14,7 @@ export class ProtoClient {
     const metadata = new Metadata()
 
     Object.keys(meta).forEach((key) => {
-      if (meta[key]) {
-        metadata.add(key, meta[key])
-      }
+      if (meta[key]) metadata.add(key, meta[key])
     })
 
     return new Promise((resolve, reject) => {

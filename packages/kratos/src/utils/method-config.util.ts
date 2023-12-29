@@ -24,13 +24,9 @@ export type MethodConfig =
   | VerificationFlowMethodConfig
 
 export const methodConfig = (flow: MethodConfigFlow, key: string): MethodConfig | null => {
-  if (flow.active && flow.active !== key) {
-    return null
-  }
+  if (flow.active && flow.active !== key) return null
 
-  if (!flow.methods[key]) {
-    return null
-  }
+  if (!flow.methods[key]) return null
 
   const { config } = flow.methods[key]
 
