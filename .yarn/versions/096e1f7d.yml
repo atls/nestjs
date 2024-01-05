@@ -1,4 +1,0 @@
-releases:
-  "@atls/nestjs-dataloader": patch
-  "@atls/nestjs-hydra": patch
-  "@atls/nestjs-typeorm-seeding": patch
