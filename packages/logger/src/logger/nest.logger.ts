@@ -4,19 +4,19 @@ import { LoggerService } from '@nestjs/common'
 export class NestLogger implements LoggerService {
   private logger = new Logger(`nestjs`)
 
-  public log(message: any, context?: string) {
-    if (context) {
-      this.logger.child(context).info(message)
-    } else {
-      this.logger.info(message)
-    }
-  }
-
   public error(message: any, trace?: string, context?: string) {
     if (context) {
       this.logger.child(context).error(message)
     } else {
       this.logger.error(message)
+    }
+  }
+
+  public log(message: any, context?: string) {
+    if (context) {
+      this.logger.child(context).info(message)
+    } else {
+      this.logger.info(message)
     }
   }
 
