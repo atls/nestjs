@@ -1,4 +1,4 @@
 export * from './decorators'
-export * from './guards'
 export * from './module'
+export * from './guards'
 export * from './config'
