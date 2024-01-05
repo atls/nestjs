@@ -1,6 +1,6 @@
 {
   "name": "@atls/nestjs-grpc-identity",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "license": "BSD-3-Clause",
   "main": "src/index.ts",
   "files": [
