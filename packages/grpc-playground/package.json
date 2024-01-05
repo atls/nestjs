@@ -1,6 +1,6 @@
 {
   "name": "@atls/nestjs-grpc-playground",
-  "version": "0.0.14",
+  "version": "0.0.15",
   "license": "BSD-3-Clause",
   "main": "src/index.ts",
   "files": [
@@ -12,8 +12,8 @@
     "postpack": "rm -rf dist"
   },
   "dependencies": {
-    "@atls/nestjs-grpc-http-proxy": "workspace:0.0.9",
-    "@atls/nestjs-grpc-reflection": "workspace:0.0.6",
+    "@atls/nestjs-grpc-http-proxy": "workspace:*",
+    "@atls/nestjs-grpc-reflection": "workspace:*",
     "node-fetch": "3.3.2"
   },
   "devDependencies": {

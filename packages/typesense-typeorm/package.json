@@ -16,7 +16,7 @@
     "typeorm": "0.2.45"
   },
   "devDependencies": {
-    "@atls/nestjs-typesense": "workspace:0.0.7",
+    "@atls/nestjs-typesense": "workspace:*",
     "@nestjs/common": "patch:@nestjs/common@npm%3A10.2.5#~/.yarn/patches/@nestjs-common-npm-10.2.5-816dceeade.patch",
     "@nestjs/core": "10.2.5",
     "@nestjs/testing": "10.2.5",
@@ -29,7 +29,7 @@
     "typesense": "0.15.0"
   },
   "peerDependencies": {
-    "@atls/nestjs-typesense": "workspace:0.0.7",
+    "@atls/nestjs-typesense": "workspace:*",
     "@nestjs/common": "10.2.5",
     "@nestjs/core": "10.2.5",
     "reflect-metadata": "0.1.13",
