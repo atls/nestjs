@@ -1,2 +1,2 @@
-export * from './module'
 export * from './grpc'
+export * from './module'

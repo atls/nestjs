@@ -1,5 +1,5 @@
 export * from './keto.module'
-export * from './decorators'
 export * from './constants'
+export * from './decorators'
 export * from './services'
 export * from './guards'

@@ -622,7 +622,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@atls/nestjs-grpc-http-proxy@workspace:0.0.9, @atls/nestjs-grpc-http-proxy@workspace:packages/grpc-http-proxy":
+"@atls/nestjs-grpc-http-proxy@workspace:*, @atls/nestjs-grpc-http-proxy@workspace:packages/grpc-http-proxy":
   version: 0.0.0-use.local
   resolution: "@atls/nestjs-grpc-http-proxy@workspace:packages/grpc-http-proxy"
   dependencies:
@@ -686,12 +686,12 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@atls/nestjs-grpc-playground@workspace:0.0.14, @atls/nestjs-grpc-playground@workspace:packages/grpc-playground":
+"@atls/nestjs-grpc-playground@workspace:*, @atls/nestjs-grpc-playground@workspace:packages/grpc-playground":
   version: 0.0.0-use.local
   resolution: "@atls/nestjs-grpc-playground@workspace:packages/grpc-playground"
   dependencies:
-    "@atls/nestjs-grpc-http-proxy": "workspace:0.0.9"
-    "@atls/nestjs-grpc-reflection": "workspace:0.0.6"
+    "@atls/nestjs-grpc-http-proxy": "workspace:*"
+    "@atls/nestjs-grpc-reflection": "workspace:*"
     "@nestjs/common": "patch:@nestjs/common@npm%3A10.2.5#~/.yarn/patches/@nestjs-common-npm-10.2.5-816dceeade.patch"
     "@nestjs/core": "npm:10.2.5"
     "@nestjs/microservices": "npm:10.2.5"
@@ -710,7 +710,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@atls/nestjs-grpc-reflection@workspace:0.0.6, @atls/nestjs-grpc-reflection@workspace:packages/grpc-reflection":
+"@atls/nestjs-grpc-reflection@workspace:*, @atls/nestjs-grpc-reflection@workspace:packages/grpc-reflection":
   version: 0.0.0-use.local
   resolution: "@atls/nestjs-grpc-reflection@workspace:packages/grpc-reflection"
   dependencies:
@@ -858,7 +858,7 @@ __metadata:
   resolution: "@atls/nestjs-typesense-typeorm@workspace:packages/typesense-typeorm"
   dependencies:
     "@atls/logger": "npm:0.0.2"
-    "@atls/nestjs-typesense": "workspace:0.0.7"
+    "@atls/nestjs-typesense": "workspace:*"
     "@nestjs/common": "patch:@nestjs/common@npm%3A10.2.5#~/.yarn/patches/@nestjs-common-npm-10.2.5-816dceeade.patch"
     "@nestjs/core": "npm:10.2.5"
     "@nestjs/testing": "npm:10.2.5"
@@ -871,7 +871,7 @@ __metadata:
     typeorm: "npm:0.2.45"
     typesense: "npm:0.15.0"
   peerDependencies:
-    "@atls/nestjs-typesense": "workspace:0.0.7"
+    "@atls/nestjs-typesense": "workspace:*"
     "@nestjs/common": 10.2.5
     "@nestjs/core": 10.2.5
     reflect-metadata: 0.1.13
@@ -880,7 +880,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@atls/nestjs-typesense@workspace:0.0.7, @atls/nestjs-typesense@workspace:packages/typesense":
+"@atls/nestjs-typesense@workspace:*, @atls/nestjs-typesense@workspace:packages/typesense":
   version: 0.0.0-use.local
   resolution: "@atls/nestjs-typesense@workspace:packages/typesense"
   dependencies:
@@ -1937,8 +1937,8 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@examples/grpc-http-proxy@workspace:examples/grpc-http-proxy"
   dependencies:
-    "@atls/nestjs-grpc-http-proxy": "workspace:0.0.9"
-    "@atls/nestjs-grpc-reflection": "workspace:0.0.6"
+    "@atls/nestjs-grpc-http-proxy": "workspace:*"
+    "@atls/nestjs-grpc-reflection": "workspace:*"
     "@grpc/grpc-js": "npm:^1.3.7"
     "@grpc/proto-loader": "npm:^0.6.4"
     "@nestjs/common": "patch:@nestjs/common@npm%3A10.2.5#~/.yarn/patches/@nestjs-common-npm-10.2.5-816dceeade.patch"
@@ -1958,8 +1958,8 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@examples/grpc-playground@workspace:examples/grpc-playground"
   dependencies:
-    "@atls/nestjs-grpc-playground": "workspace:0.0.14"
-    "@atls/nestjs-grpc-reflection": "workspace:0.0.6"
+    "@atls/nestjs-grpc-playground": "workspace:*"
+    "@atls/nestjs-grpc-reflection": "workspace:*"
     "@grpc/grpc-js": "npm:^1.3.7"
     "@grpc/proto-loader": "npm:^0.6.4"
     "@nestjs/common": "patch:@nestjs/common@npm%3A10.2.5#~/.yarn/patches/@nestjs-common-npm-10.2.5-816dceeade.patch"
@@ -1979,7 +1979,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@examples/grpc-reflection@workspace:examples/grpc-reflection"
   dependencies:
-    "@atls/nestjs-grpc-reflection": "workspace:0.0.6"
+    "@atls/nestjs-grpc-reflection": "workspace:*"
     "@grpc/grpc-js": "npm:^1.3.7"
     "@grpc/proto-loader": "npm:^0.6.4"
     "@nestjs/common": "patch:@nestjs/common@npm%3A10.2.5#~/.yarn/patches/@nestjs-common-npm-10.2.5-816dceeade.patch"
