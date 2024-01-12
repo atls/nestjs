@@ -1,1 +1,1 @@
-export * from './keto-access-control.guard'
+export * from './keto.guard'
