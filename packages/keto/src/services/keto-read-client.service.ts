@@ -28,7 +28,7 @@ export class KetoReadClientService {
           relation: req.relation,
           object: req.object,
           namespace: req.namespace,
-          subjectId: req.subject_id
+          subjectId: req.subject_id,
         }
       } else {
         // @ts-ignore
