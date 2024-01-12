@@ -1,1 +1,5 @@
-export * from './resource.service'
+export * from './keto-read-client.service'
+export * from './keto-write-client.service'
+export * from './keto-configuration.service'
+export * from './keto-permissions.service'
+export * from './keto-relations.service'

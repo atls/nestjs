@@ -12,25 +12,29 @@
     "postpack": "rm -rf dist"
   },
   "dependencies": {
-    "@oryd/keto-client": "^0.5.6-alpha.1"
+    "@ory/keto-client": "0.11.0-alpha.0"
   },
   "devDependencies": {
     "@nestjs/common": "patch:@nestjs/common@npm%3A10.2.5#~/.yarn/patches/@nestjs-common-npm-10.2.5-816dceeade.patch",
     "@nestjs/core": "10.2.5",
-    "@nestjs/graphql": "^7.0.0",
-    "@types/node": "17.0.18",
-    "apollo-server-core": "^3.3.0",
-    "graphql": "^15.5.3",
-    "reflect-metadata": "0.1.13",
+    "@nestjs/graphql": "12.0.10",
+    "@nestjs/testing": "10.2.5",
+    "@types/node": "18.19.6",
+    "@types/supertest": "6",
+    "apollo-server-core": "3.3.0",
+    "graphql": "16.8.1",
+    "reflect-metadata": "0.2.1",
     "rimraf": "3.0.2",
-    "rxjs": "^7.5.4",
-    "typescript": "^3.8.3"
+    "rxjs": "7.8.1",
+    "supertest": "6.3.3",
+    "testcontainers": "10.4.0",
+    "typescript": "4.6.4"
   },
   "peerDependencies": {
-    "@nestjs/common": "^8.0.4",
-    "@nestjs/core": "^8.0.4",
-    "reflect-metadata": "^0.1.12",
-    "rxjs": "^7.2.0"
+    "@nestjs/common": "*",
+    "@nestjs/core": "*",
+    "reflect-metadata": "*",
+    "rxjs": "*"
   },
   "publishConfig": {
     "main": "dist/index.js",
