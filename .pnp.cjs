@@ -725,7 +725,7 @@ const RAW_RUNTIME_STATE =
           ["@nestjs/core", "virtual:72695b3e8df4e2f6d44b80879c09222d3fa2f1034c45558c00ba1f3b5eaad5ba4202c8c63f745c51c5f3d6e6cc3258d6462bdaef0a9d6910d1f666031ec198d6#npm:10.2.5"],\
           ["@nestjs/graphql", "virtual:72695b3e8df4e2f6d44b80879c09222d3fa2f1034c45558c00ba1f3b5eaad5ba4202c8c63f745c51c5f3d6e6cc3258d6462bdaef0a9d6910d1f666031ec198d6#npm:12.0.10"],\
           ["@nestjs/testing", "virtual:72695b3e8df4e2f6d44b80879c09222d3fa2f1034c45558c00ba1f3b5eaad5ba4202c8c63f745c51c5f3d6e6cc3258d6462bdaef0a9d6910d1f666031ec198d6#npm:10.2.5"],\
-          ["@ory/keto-grpc-client", "virtual:72695b3e8df4e2f6d44b80879c09222d3fa2f1034c45558c00ba1f3b5eaad5ba4202c8c63f745c51c5f3d6e6cc3258d6462bdaef0a9d6910d1f666031ec198d6#patch:@ory/keto-grpc-client@npm%3A0.11.1-alpha.0#~/.yarn/patches/@ory-keto-grpc-client-npm-0.11.1-alpha.0-92da71e435.patch::version=0.11.1-alpha.0&hash=74abdd"],\
+          ["@ory/keto-grpc-client", "virtual:72695b3e8df4e2f6d44b80879c09222d3fa2f1034c45558c00ba1f3b5eaad5ba4202c8c63f745c51c5f3d6e6cc3258d6462bdaef0a9d6910d1f666031ec198d6#npm:0.11.1-alpha.0"],\
           ["@types/lodash", "npm:4.14.178"],\
           ["@types/supertest", "npm:2.0.16"],\
           ["graphql", "npm:16.8.1"],\
@@ -7356,17 +7356,17 @@ const RAW_RUNTIME_STATE =
       }]\
     ]],\
     ["@ory/keto-grpc-client", [\
-      ["patch:@ory/keto-grpc-client@npm%3A0.11.1-alpha.0#~/.yarn/patches/@ory-keto-grpc-client-npm-0.11.1-alpha.0-92da71e435.patch::version=0.11.1-alpha.0&hash=74abdd", {\
-        "packageLocation": "./.yarn/cache/@ory-keto-grpc-client-patch-ee1da5507f-d4cccb1268.zip/node_modules/@ory/keto-grpc-client/",\
+      ["npm:0.11.1-alpha.0", {\
+        "packageLocation": "./.yarn/cache/@ory-keto-grpc-client-npm-0.11.1-alpha.0-92da71e435-517a3e1278.zip/node_modules/@ory/keto-grpc-client/",\
         "packageDependencies": [\
-          ["@ory/keto-grpc-client", "patch:@ory/keto-grpc-client@npm%3A0.11.1-alpha.0#~/.yarn/patches/@ory-keto-grpc-client-npm-0.11.1-alpha.0-92da71e435.patch::version=0.11.1-alpha.0&hash=74abdd"]\
+          ["@ory/keto-grpc-client", "npm:0.11.1-alpha.0"]\
         ],\
         "linkType": "SOFT"\
       }],\
-      ["virtual:72695b3e8df4e2f6d44b80879c09222d3fa2f1034c45558c00ba1f3b5eaad5ba4202c8c63f745c51c5f3d6e6cc3258d6462bdaef0a9d6910d1f666031ec198d6#patch:@ory/keto-grpc-client@npm%3A0.11.1-alpha.0#~/.yarn/patches/@ory-keto-grpc-client-npm-0.11.1-alpha.0-92da71e435.patch::version=0.11.1-alpha.0&hash=74abdd", {\
-        "packageLocation": "./.yarn/__virtual__/@ory-keto-grpc-client-virtual-1d167c70f2/0/cache/@ory-keto-grpc-client-patch-ee1da5507f-d4cccb1268.zip/node_modules/@ory/keto-grpc-client/",\
+      ["virtual:72695b3e8df4e2f6d44b80879c09222d3fa2f1034c45558c00ba1f3b5eaad5ba4202c8c63f745c51c5f3d6e6cc3258d6462bdaef0a9d6910d1f666031ec198d6#npm:0.11.1-alpha.0", {\
+        "packageLocation": "./.yarn/__virtual__/@ory-keto-grpc-client-virtual-50250cd7f6/0/cache/@ory-keto-grpc-client-npm-0.11.1-alpha.0-92da71e435-517a3e1278.zip/node_modules/@ory/keto-grpc-client/",\
         "packageDependencies": [\
-          ["@ory/keto-grpc-client", "virtual:72695b3e8df4e2f6d44b80879c09222d3fa2f1034c45558c00ba1f3b5eaad5ba4202c8c63f745c51c5f3d6e6cc3258d6462bdaef0a9d6910d1f666031ec198d6#patch:@ory/keto-grpc-client@npm%3A0.11.1-alpha.0#~/.yarn/patches/@ory-keto-grpc-client-npm-0.11.1-alpha.0-92da71e435.patch::version=0.11.1-alpha.0&hash=74abdd"],\
+          ["@ory/keto-grpc-client", "virtual:72695b3e8df4e2f6d44b80879c09222d3fa2f1034c45558c00ba1f3b5eaad5ba4202c8c63f745c51c5f3d6e6cc3258d6462bdaef0a9d6910d1f666031ec198d6#npm:0.11.1-alpha.0"],\
           ["@grpc/grpc-js", "npm:1.9.13"],\
           ["@types/grpc", null],\
           ["google-protobuf", "npm:3.21.2"],\

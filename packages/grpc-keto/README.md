@@ -1,5 +1,13 @@
 # @atls/grpc-keto
 
+## Ошибка `typecheck`
+
+https://github.com/ory/keto/issues/1317
+
+---
+
+## Принцип работы
+
 Интеграция с `keto` на уровне контроллера.
 
 Принцип действия:

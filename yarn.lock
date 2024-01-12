@@ -445,7 +445,7 @@ __metadata:
     "@nestjs/core": "npm:10.2.5"
     "@nestjs/graphql": "npm:12.0.10"
     "@nestjs/testing": "npm:10.2.5"
-    "@ory/keto-grpc-client": "patch:@ory/keto-grpc-client@npm%3A0.11.1-alpha.0#~/.yarn/patches/@ory-keto-grpc-client-npm-0.11.1-alpha.0-92da71e435.patch"
+    "@ory/keto-grpc-client": "npm:0.11.1-alpha.0"
     "@types/lodash": "npm:4.14.178"
     "@types/supertest": "npm:2.0.16"
     graphql: "npm:16.8.1"
@@ -3677,16 +3677,6 @@ __metadata:
     "@grpc/grpc-js": "npm:^1.7.3"
     google-protobuf: "npm:^3.21.2"
   checksum: 517a3e1278e5fa8ea7e4115721b533e2dafe74c3f25965e60a084120e130cdafc0dc67b1f2603066ddd39b86c9a3f568b62d3d99ada1fb6ebda8e945985be8ff
-  languageName: node
-  linkType: hard
-
-"@ory/keto-grpc-client@patch:@ory/keto-grpc-client@npm%3A0.11.1-alpha.0#~/.yarn/patches/@ory-keto-grpc-client-npm-0.11.1-alpha.0-92da71e435.patch":
-  version: 0.11.1-alpha.0
-  resolution: "@ory/keto-grpc-client@patch:@ory/keto-grpc-client@npm%3A0.11.1-alpha.0#~/.yarn/patches/@ory-keto-grpc-client-npm-0.11.1-alpha.0-92da71e435.patch::version=0.11.1-alpha.0&hash=74abdd"
-  dependencies:
-    "@grpc/grpc-js": "npm:^1.7.3"
-    google-protobuf: "npm:^3.21.2"
-  checksum: d4cccb1268b07660614362993bdf01d8efb99f773f206555f72a4e79b526dd38aa5f850e49cddd8cea81e1a5ce2cd7300f67766295a81030924bec8b4eaf6a48
   languageName: node
   linkType: hard
 
