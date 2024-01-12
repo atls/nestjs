@@ -723,6 +723,7 @@ __metadata:
     rxjs: "npm:7.8.1"
     supertest: "npm:6.3.3"
     testcontainers: "npm:10.4.0"
+    ts-morph: "npm:21.0.1"
     typescript: "npm:4.6.4"
   peerDependencies:
     "@nestjs/common": "*"
