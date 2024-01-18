@@ -68,8 +68,8 @@ describe('Keto read client', () => {
     })
       .overrideProvider(KETO_MODULE_OPTIONS)
       .useValue({
-        read: `localhost:${ketoContainer.getMappedPort(KETO_READ_PORT)}`,
-        write: `localhost:${ketoContainer.getMappedPort(KETO_WRITE_PORT)}`,
+        read: `http://${ketoContainer.getHost()}:${ketoContainer.getMappedPort(KETO_READ_PORT)}`,
+        write: `http://${ketoContainer.getHost()}:${ketoContainer.getMappedPort(KETO_WRITE_PORT)}`,
       })
       .compile()
 
