@@ -38,7 +38,7 @@ jobs:
           NODE_OPTIONS: --experimental-vm-modules
 
       - name: TestIntegration
-        run: DEBUG=testcontainers* yarn checks test integration
+        run: yarn checks test integration
         env:
           GITHUB_TOKEN: '${{ secrets.GITHUB_TOKEN }}'
           NODE_OPTIONS: --experimental-vm-modules
