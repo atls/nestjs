@@ -1,4 +1,3 @@
-import path           from 'path'
 import { FileToCopy } from 'testcontainers/build/types'
 
 export const KETO_MIGRATE_COMMAND = ['migrate', 'up', '--yes']

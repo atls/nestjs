@@ -25,7 +25,7 @@ import { KETO_START_COMMAND }    from './test.constants'
 import { KETO_INIT_COMMAND }     from './test.constants'
 import { KETO_MIGRATE_COMMAND }  from './test.constants'
 
-jest.setTimeout(15000)
+jest.setTimeout(60000)
 
 describe('Keto read client', () => {
   let app: INestApplication
