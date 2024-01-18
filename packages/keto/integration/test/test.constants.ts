@@ -1,3 +1,4 @@
+import path           from 'path'
 import { FileToCopy } from 'testcontainers/build/types'
 
 export const KETO_MIGRATE_COMMAND = ['migrate', 'up', '--yes']
@@ -34,8 +35,7 @@ export const KETO_READ_PORT = 4466
 
 export const KETO_WRITE_PORT = 4467
 
-const PROJECT_PATH =
-  '/Users/nikoroach/Documents/Typescript/atlantis/nestjs/packages/keto/integration/test'
+const PROJECT_PATH = __dirname
 
 export const KETO_FILES: FileToCopy[] = [
   {
