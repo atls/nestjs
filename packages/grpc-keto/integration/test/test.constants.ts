@@ -34,8 +34,7 @@ export const KETO_READ_PORT = 4466
 
 export const KETO_WRITE_PORT = 4467
 
-const PROJECT_PATH =
-  '/Users/nikoroach/Documents/Typescript/atlantis/nestjs/packages/grpc-keto/integration/test'
+const PROJECT_PATH = __dirname
 
 export const KETO_FILES: FileToCopy[] = [
   {
