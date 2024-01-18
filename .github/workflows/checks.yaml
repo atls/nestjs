@@ -11,11 +11,6 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
 
-      - name: Setup Docker
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y docker-compose
-
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
@@ -43,7 +38,7 @@ jobs:
           NODE_OPTIONS: --experimental-vm-modules
 
       - name: TestIntegration
-        run: yarn checks test integration
+        run: DEBUG=testcontainers* yarn checks test integration
         env:
           GITHUB_TOKEN: '${{ secrets.GITHUB_TOKEN }}'
           NODE_OPTIONS: --experimental-vm-modules
