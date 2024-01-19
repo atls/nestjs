@@ -1,0 +1,15 @@
+import { Inject }                    from '@nestjs/common'
+import { Injectable }                from '@nestjs/common'
+import { ConfigurationParameters }   from '@ory/keto-client'
+import { Configuration }             from '@ory/keto-client'
+
+import { KETO_MODULE_CONFIGURATION } from '../module'
+
+@Injectable()
+export class KetoConfigurationService extends Configuration {
+  constructor(
+    @Inject(KETO_MODULE_CONFIGURATION) private readonly options: ConfigurationParameters
+  ) {
+    super(options)
+  }
+}

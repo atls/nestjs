@@ -24,7 +24,7 @@
     "@nestjs/testing": "10.2.5",
     "@types/jsonwebtoken": "9.0.2",
     "@types/jwk-to-pem": "2.0.1",
-    "get-port": "6.1.2",
+    "get-port": "5.1.1",
     "protobufjs": "7.2.5",
     "reflect-metadata": "0.1.13",
     "rxjs": "7.8.1"
