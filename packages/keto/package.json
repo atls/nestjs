@@ -22,6 +22,7 @@
     "@types/node": "18.19.6",
     "@types/supertest": "6",
     "apollo-server-core": "3.3.0",
+    "get-port": "5.1.1",
     "graphql": "16.8.1",
     "reflect-metadata": "0.2.1",
     "rimraf": "3.0.2",
