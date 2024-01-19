@@ -5,6 +5,7 @@
 import { INestApplication }      from '@nestjs/common'
 import { TestingModule }         from '@nestjs/testing'
 import { Test }                  from '@nestjs/testing'
+import getPort                   from 'get-port'
 
 import request                   from 'supertest'
 import { Network }               from 'testcontainers'
@@ -16,7 +17,6 @@ import { KETO_MODULE_OPTIONS }   from '../../src'
 import { KetoIntegrationModule } from '../src'
 import { KETO_WRITE_PORT }       from './test.constants'
 import { KETO_READ_PORT }        from './test.constants'
-import { APP_PORT }              from './test.constants'
 import { KETO_FILES }            from './test.constants'
 import { KETO_ENVIRONMENT }      from './test.constants'
 import { DB_PORT }               from './test.constants'
@@ -25,7 +25,7 @@ import { KETO_START_COMMAND }    from './test.constants'
 import { KETO_INIT_COMMAND }     from './test.constants'
 import { KETO_MIGRATE_COMMAND }  from './test.constants'
 
-jest.setTimeout(60000)
+jest.setTimeout(25000)
 
 describe('Keto read client', () => {
   let app: INestApplication
@@ -36,6 +36,8 @@ describe('Keto read client', () => {
   let ketoContainer: StartedTestContainer
 
   beforeAll(async () => {
+    const port = await getPort()
+
     const network = await new Network().start()
 
     dbContainer = await new GenericContainer('bitnami/postgresql')
@@ -68,15 +70,15 @@ describe('Keto read client', () => {
     })
       .overrideProvider(KETO_MODULE_OPTIONS)
       .useValue({
-        read: `http://${ketoContainer.getHost()}:${ketoContainer.getMappedPort(KETO_READ_PORT)}`,
-        write: `http://${ketoContainer.getHost()}:${ketoContainer.getMappedPort(KETO_WRITE_PORT)}`,
+        read: `${ketoContainer.getHost()}:${ketoContainer.getMappedPort(KETO_READ_PORT)}`,
+        write: `${ketoContainer.getHost()}:${ketoContainer.getMappedPort(KETO_WRITE_PORT)}`,
       })
       .compile()
 
     app = module.createNestApplication()
 
     await app.init()
-    await app.listen(APP_PORT)
+    await app.listen(port)
 
     url = await app.getHttpServer()
   })

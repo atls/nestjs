@@ -22,6 +22,7 @@
     "@atls/config-eslint": "0.0.10",
     "@atls/config-jest": "0.0.9",
     "@atls/schematics": "0.0.16",
+    "@grpc/proto-loader": "0.7.10",
     "@jest/core": "27.4.7",
     "@rushstack/eslint-patch": "1.6.0",
     "@types/eslint": "8.4.1",

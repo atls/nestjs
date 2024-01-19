@@ -33,7 +33,7 @@
     "@types/lodash.get": "4.4.7",
     "@types/uuid": "9.0.2",
     "express": "4.18.2",
-    "get-port": "6.1.2",
+    "get-port": "5.1.1",
     "protobufjs": "7.2.4",
     "reflect-metadata": "0.1.13",
     "rxjs": "7.8.1",

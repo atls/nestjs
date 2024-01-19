@@ -50,4 +50,3 @@ export const KETO_FILES: FileToCopy[] = [
     target: '/home/ory/relationships/relationships.json',
   },
 ]
-export const APP_PORT = 3000
