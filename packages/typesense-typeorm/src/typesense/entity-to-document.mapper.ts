@@ -8,7 +8,7 @@ import { TypesenseMetadataRegistry } from '@atls/nestjs-typesense'
 export class EntityToDocumentMapper {
   constructor(
     private readonly typesense: Client,
-    private readonly registry: TypesenseMetadataRegistry,
+    private readonly registry: TypesenseMetadataRegistry
   ) {}
 
   async insert(entity) {

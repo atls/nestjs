@@ -16,7 +16,7 @@
   },
   "dependencies": {
     "@grpc/grpc-js": "1.9.1",
-    "@grpc/proto-loader": "0.7.9",
+    "@grpc/proto-loader": "0.7.10",
     "@monstrs/types-import-proto": "0.0.1",
     "google-protobuf": "3.21.2",
     "protobufjs": "7.2.5"
@@ -27,7 +27,7 @@
     "@nestjs/microservices": "10.2.5",
     "@nestjs/testing": "10.2.5",
     "@types/long": "5.0.0",
-    "get-port": "6.1.2",
+    "get-port": "5.1.1",
     "long": "5.2.3",
     "reflect-metadata": "0.1.13",
     "rxjs": "7.8.1",

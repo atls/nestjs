@@ -13,7 +13,7 @@ import { TYPESENSE_MODULE_OPTIONS }          from '@atls/nestjs-typesense'
 import { TypesenseTypeOrmIntegrationModule } from './src'
 import { TestEntity }                        from './src/test.entity'
 
-jest.setTimeout(60000)
+jest.setTimeout(30000)
 
 describe('typesense-typeorm', () => {
   let typesense: StartedTestContainer
@@ -39,7 +39,7 @@ describe('typesense-typeorm', () => {
         apiKey: 'test',
         nodes: [
           {
-            host: 'localhost',
+            host: typesense.getHost(),
             protocol: 'http',
             port: typesense.getMappedPort(8108),
           },
