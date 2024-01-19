@@ -1,6 +1,6 @@
 {
   "name": "@atls/nestjs-grpc-playground",
-  "version": "0.0.16",
+  "version": "0.0.17",
   "license": "BSD-3-Clause",
   "main": "src/index.ts",
   "files": [
