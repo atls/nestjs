@@ -6,33 +6,7 @@ on:
 jobs:
   run:
     name: Publish
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v3
-
-      - name: Setup Node
-        uses: actions/setup-node@v3
-        with:
-          node-version: '18.13'
-
-      - name: Install
-        run: yarn install
-
-      - name: Npm Publish
-        run: |
-          yarn version apply --all
-          yarn workspaces changed foreach --verbose --topological --no-private npm publish --access public
-        env:
-          YARN_NPM_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-
-      - name: Commit changes
-        uses: EndBug/add-and-commit@v9
-        env:
-          GITHUB_TOKEN: '${{ secrets.GITHUB_TOKEN }}'
-        with:
-          author_name: Atls Github Bot
-          author_email: github-bot@atls.team
-          message: 'chore(common): publish'
-          branch: master
+    uses: atls/tools/.github/workflows/reusable-publish.yaml@master
+    permissions: write-all
+    secrets:
+      npmAuthToken: ${{ secrets.NPM_TOKEN }}
