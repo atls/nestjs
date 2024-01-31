@@ -3,47 +3,15 @@ name: Checks
 on: [pull_request]
 
 jobs:
-  run:
-    name: Run
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v3
-
-      - name: Setup Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: '18.13'
-
-      - name: Install
-        run: yarn install
-        env:
-          GITHUB_TOKEN: '${{ secrets.GITHUB_TOKEN }}'
-
-      - name: Lint
-        run: yarn checks lint
-        env:
-          GITHUB_TOKEN: '${{ secrets.GITHUB_TOKEN }}'
-
-      - name: TypeCheck
-        run: yarn checks typecheck
-        env:
-          GITHUB_TOKEN: '${{ secrets.GITHUB_TOKEN }}'
-
-      - name: TestUnit
-        run: yarn checks test unit
-        env:
-          GITHUB_TOKEN: '${{ secrets.GITHUB_TOKEN }}'
-          NODE_OPTIONS: --experimental-vm-modules
-
-      - name: TestIntegration
-        run: yarn checks test integration
-        env:
-          GITHUB_TOKEN: '${{ secrets.GITHUB_TOKEN }}'
-          NODE_OPTIONS: --experimental-vm-modules
-
-      - name: Release
-        run: yarn checks release
-        env:
-          GITHUB_TOKEN: '${{ secrets.GITHUB_TOKEN }}'
+  check:
+    name: Typecheck, lint
+    uses: atls/tools/.github/workflows/reusable-checks.yaml@master
+    permissions: write-all
+  release:
+    name: Release
+    uses: atls/tools/.github/workflows/reusable-release.yaml@master
+    permissions: write-all
+  test:
+    name: Tests
+    uses: atls/tools/.github/workflows/reusable-tests.yaml@master
+    permissions: write-all
