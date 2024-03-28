@@ -1,6 +1,6 @@
 import Long from 'long'
 
-function patchLongJs() {
+const patchLongJs = () => {
   const originalLongFromValue = Long.fromValue.bind(Long)
   Long.fromValue = (value: any) => {
     if (typeof value === 'bigint') {

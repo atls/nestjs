@@ -8,7 +8,7 @@
     "forceConsistentCasingInFileNames": true,
     "importHelpers": false,
     "isolatedModules": false,
-    "moduleResolution": "node",
+    "moduleResolution": "nodenext",
     "noFallthroughCasesInSwitch": true,
     "noImplicitAny": false,
     "noImplicitReturns": false,
@@ -22,7 +22,7 @@
     "strictPropertyInitialization": false,
     "sourceMap": false,
     "module": "esnext",
-    "target": "es2021",
+    "target": "es2022",
     "jsx": "react",
     "outDir": "./dist"
   },
