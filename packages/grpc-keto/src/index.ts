@@ -1,5 +1,5 @@
 export * from './module'
 export * from '@ory/keto-grpc-client'
-export * from './guard'
 export * from './decorators'
+export * from './guard'
 export * from './utils'
