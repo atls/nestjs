@@ -5,13 +5,13 @@ on: [pull_request]
 jobs:
   check:
     name: Typecheck, lint
-    uses: atls/tools/.github/workflows/reusable-checks.yaml@master
+    uses: atls/shared/.github/workflows/checks.yaml@master
     permissions: write-all
   release:
     name: Release
-    uses: atls/tools/.github/workflows/reusable-release.yaml@master
+    uses: atls/shared/.github/workflows/release.yaml@master
     permissions: write-all
   test:
     name: Tests
-    uses: atls/tools/.github/workflows/reusable-tests.yaml@master
+    uses: atls/shared/.github/workflows/tests.yaml@master
     permissions: write-all
