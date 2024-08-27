@@ -1,6 +1,28 @@
 {
   "compilerOptions": {
-    "lib": ["dom", "dom.iterable", "esnext"],
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext",
+      "dom",
+      "dom.iterable",
+      "esnext",
+      "dom",
+      "dom.iterable",
+      "esnext",
+      "dom",
+      "dom.iterable",
+      "esnext",
+      "dom",
+      "dom.iterable",
+      "esnext",
+      "dom",
+      "dom.iterable",
+      "esnext",
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
     "declaration": false,
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
@@ -8,11 +30,11 @@
     "forceConsistentCasingInFileNames": true,
     "importHelpers": false,
     "isolatedModules": false,
-    "moduleResolution": "node",
+    "moduleResolution": "NodeNext",
     "noFallthroughCasesInSwitch": true,
-    "noImplicitAny": false,
-    "noImplicitReturns": false,
-    "noImplicitThis": false,
+    "noImplicitAny": true,
+    "noImplicitReturns": true,
+    "noImplicitThis": true,
     "noUnusedLocals": false,
     "noUnusedParameters": false,
     "pretty": true,
@@ -21,10 +43,12 @@
     "strict": true,
     "strictPropertyInitialization": false,
     "sourceMap": false,
-    "module": "esnext",
-    "target": "es2021",
+    "module": "NodeNext",
+    "target": "es2022",
     "jsx": "react",
-    "outDir": "./dist"
+    "outDir": "./dist",
+    "noImplicitOverride": true,
+    "skipLibCheck": true
   },
-  "include": ["packages/**/*", "examples/**/*"]
+  "include": ["project.types.d.ts", "packages/**/*"]
 }
