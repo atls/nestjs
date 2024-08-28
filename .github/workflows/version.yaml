@@ -9,5 +9,6 @@ on:
 jobs:
   run:
     name: Publish
+    if: github.event.pull_request.merged == true
     uses: atls/shared/.github/workflows/version.yaml@master
     permissions: write-all
