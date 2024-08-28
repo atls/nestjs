@@ -1,7 +1,7 @@
 {
-  "name": "@monstrs/nestjs-s3-client",
-  "version": "0.1.4",
-  "license": "MIT",
+  "name": "@atls/nestjs-s3-client",
+  "version": "0.0.0",
+  "license": "BSD-3-Clause",
   "type": "module",
   "exports": {
     "./package.json": "./package.json",
