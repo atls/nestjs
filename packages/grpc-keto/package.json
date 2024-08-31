@@ -14,8 +14,7 @@
   },
   "dependencies": {
     "@grpc/grpc-js": "1.9.13",
-    "@ory/keto-grpc-client": "patch:@ory/keto-grpc-client@npm%3A0.11.1-alpha.0#~/.yarn/patches/@ory-keto-grpc-client-npm-0.11.1-alpha.0-92da71e435.patch",
-    "grpc": "1.24.11"
+    "@ory/keto-grpc-client": "patch:@ory/keto-grpc-client@npm%3A0.11.1-alpha.0#~/.yarn/patches/@ory-keto-grpc-client-npm-0.11.1-alpha.0-92da71e435.patch"
   },
   "devDependencies": {
     "@nestjs/common": "patch:@nestjs/common@npm%3A10.2.5#~/.yarn/patches/@nestjs-common-npm-10.2.5-816dceeade.patch",
