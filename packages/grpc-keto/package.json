@@ -1,17 +1,12 @@
 {
   "name": "@atls/grpc-keto",
   "version": "0.0.2",
+  "private": true,
   "license": "BSD-3-Clause",
   "main": "src/index.ts",
   "files": [
     "dist"
   ],
-  "scripts": {
-    "build": "yarn library build",
-    "dev": "yarn service dev",
-    "prepack": "yarn run build",
-    "postpack": "rm -rf dist"
-  },
   "dependencies": {
     "@grpc/grpc-js": "1.9.13",
     "@ory/keto-grpc-client": "patch:@ory/keto-grpc-client@npm%3A0.11.1-alpha.0#~/.yarn/patches/@ory-keto-grpc-client-npm-0.11.1-alpha.0-92da71e435.patch"
