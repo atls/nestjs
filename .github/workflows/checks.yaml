@@ -1,17 +1,13 @@
 name: Checks
 
-on: [pull_request]
+on:
+  pull_request:
+    paths-ignore:
+      - '.github/**'
 
 jobs:
   check:
-    name: Typecheck, lint
+    name: Checks
+    if: github.event.pull_request.merged == false && github.event.action != 'closed'
     uses: atls/shared/.github/workflows/checks.yaml@master
-    permissions: write-all
-  release:
-    name: Release
-    uses: atls/shared/.github/workflows/release.yaml@master
-    permissions: write-all
-  test:
-    name: Tests
-    uses: atls/shared/.github/workflows/tests.yaml@master
     permissions: write-all
