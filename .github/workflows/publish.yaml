@@ -12,8 +12,10 @@ on:
 jobs:
   publish:
     if: github.event.pull_request.merged == true
-    name: Publish
     uses: atls/shared/.github/workflows/publish.yaml@master
     permissions: write-all
+    with:
+      appId: ${{ vars.ATLANTIS_SUPER_BOT_APP_ID }}
     secrets:
+      appPrivateKey: ${{ secrets.ATLANTIS_SUPER_BOT_PRIVATE_KEY }}
       npmAuthToken: ${{ secrets.NPM_TOKEN }}
