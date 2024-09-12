@@ -674,26 +674,6 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@atls/nestjs-validation@workspace:packages/nestjs-validation":
-  version: 0.0.0-use.local
-  resolution: "@atls/nestjs-validation@workspace:packages/nestjs-validation"
-  dependencies:
-    "@nestjs/common": "npm:^10.0.5"
-    "@nestjs/core": "npm:^10.0.5"
-    class-transformer: "npm:0.5.1"
-    class-validator: "npm:^0.14.0"
-    reflect-metadata: "npm:^0.1.13"
-    rxjs: "npm:^7.8.1"
-  peerDependencies:
-    "@nestjs/common": ^10
-    "@nestjs/core": ^10
-    class-transformer: 0.5
-    class-validator: ^0.14
-    reflect-metadata: ^0.1
-    rxjs: ^7
-  languageName: unknown
-  linkType: soft
-
 "@atls/typeorm-seeding@npm:0.0.3":
   version: 0.0.3
   resolution: "@atls/typeorm-seeding@npm:0.0.3"
@@ -2465,27 +2445,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@nestjs/common@npm:^10.0.5":
-  version: 10.4.1
-  resolution: "@nestjs/common@npm:10.4.1"
-  dependencies:
-    iterare: "npm:1.2.1"
-    tslib: "npm:2.6.3"
-    uid: "npm:2.0.2"
-  peerDependencies:
-    class-transformer: "*"
-    class-validator: "*"
-    reflect-metadata: ^0.1.12 || ^0.2.0
-    rxjs: ^7.1.0
-  peerDependenciesMeta:
-    class-transformer:
-      optional: true
-    class-validator:
-      optional: true
-  checksum: 10c0/4b624893ad55f9fcf8638eca045d09dd091a8be2cd5061988e3a479178f95b9517aaa7c51ce136801d8b87bfe1494cd198dc0a68630bb8bcba100044915736e7
-  languageName: node
-  linkType: hard
-
 "@nestjs/common@patch:@nestjs/common@npm%3A10.2.5#~/.yarn/patches/@nestjs-common-npm-10.2.5-816dceeade.patch":
   version: 10.2.5
   resolution: "@nestjs/common@patch:@nestjs/common@npm%3A10.2.5#~/.yarn/patches/@nestjs-common-npm-10.2.5-816dceeade.patch::version=10.2.5&hash=b1d2d6"
@@ -2532,34 +2491,6 @@ __metadata:
     "@nestjs/websockets":
       optional: true
   checksum: 10c0/d4e2465494f7d41d87e3e8130bc6ab9c7b08342fd7820918ab8bfd020b471824e2f4e04967d38385bde21581b60aef22321fb98a7301a6e98ed44cd1ce3da213
-  languageName: node
-  linkType: hard
-
-"@nestjs/core@npm:^10.0.5":
-  version: 10.4.1
-  resolution: "@nestjs/core@npm:10.4.1"
-  dependencies:
-    "@nuxtjs/opencollective": "npm:0.3.2"
-    fast-safe-stringify: "npm:2.1.1"
-    iterare: "npm:1.2.1"
-    path-to-regexp: "npm:3.2.0"
-    tslib: "npm:2.6.3"
-    uid: "npm:2.0.2"
-  peerDependencies:
-    "@nestjs/common": ^10.0.0
-    "@nestjs/microservices": ^10.0.0
-    "@nestjs/platform-express": ^10.0.0
-    "@nestjs/websockets": ^10.0.0
-    reflect-metadata: ^0.1.12 || ^0.2.0
-    rxjs: ^7.1.0
-  peerDependenciesMeta:
-    "@nestjs/microservices":
-      optional: true
-    "@nestjs/platform-express":
-      optional: true
-    "@nestjs/websockets":
-      optional: true
-  checksum: 10c0/57be2fc7617041558e90a92ec7c6f1011ed2bab8bfe5c5c02db5f5a03115e5e7347c06be0117767ce7d6c748fbe81ff075fc50190c998d30bbf25fd20e6f4ab8
   languageName: node
   linkType: hard
 
@@ -3717,15 +3648,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:^20.3.3":
-  version: 20.16.5
-  resolution: "@types/node@npm:20.16.5"
-  dependencies:
-    undici-types: "npm:~6.19.2"
-  checksum: 10c0/6af7994129815010bcbc4cf8221865559c8116ff43e74a6549525c2108267596fc2d18aff5d5ecfe089fb60a119f975631343e2c65c52bfa0955ed9dc56733d6
-  languageName: node
-  linkType: hard
-
 "@types/object-path@npm:^0.11.0":
   version: 0.11.0
   resolution: "@types/object-path@npm:0.11.0"
@@ -3860,13 +3782,6 @@ __metadata:
   version: 9.0.2
   resolution: "@types/uuid@npm:9.0.2"
   checksum: 10c0/4c4834f9738575a69db1179589cf397830dc205850b491216697afb254764c79c96a63b92f76e81b6d03515bed9227adf184fa4d33bb04970e6377e2f7c5bab9
-  languageName: node
-  linkType: hard
-
-"@types/validator@npm:^13.11.8":
-  version: 13.12.1
-  resolution: "@types/validator@npm:13.12.1"
-  checksum: 10c0/473b12e287f569e08741c24d4d91663e740ec6264032eeb311c21c8f00dfa274c6fe5af9190ffe1b4b527e95a1bb31c81598682d5dbd76e1604f898bc19adc2b
   languageName: node
   linkType: hard
 
@@ -5614,17 +5529,6 @@ __metadata:
     libphonenumber-js: "npm:^1.10.14"
     validator: "npm:^13.7.0"
   checksum: 10c0/1f7c34052f0c342b1d27c5aec7c42b646bb77a56874acc0d8003e2ad8f0294e7da18b43e9caaac8e8817cbb309cf9f14bcebe4611994390ca4818f3b393783dc
-  languageName: node
-  linkType: hard
-
-"class-validator@npm:^0.14.0":
-  version: 0.14.1
-  resolution: "class-validator@npm:0.14.1"
-  dependencies:
-    "@types/validator": "npm:^13.11.8"
-    libphonenumber-js: "npm:^1.10.53"
-    validator: "npm:^13.9.0"
-  checksum: 10c0/946e914e47548b5081449c720ea6a4877bac63dc960e14fca4b990b56e64efe3802d12f07ec22d6420c290245b72ea2d646939239f2a3b597794e6c4c2a4f2ae
   languageName: node
   linkType: hard
 
@@ -9599,13 +9503,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"libphonenumber-js@npm:^1.10.53":
-  version: 1.11.8
-  resolution: "libphonenumber-js@npm:1.11.8"
-  checksum: 10c0/6128c25429b4d01dd60d668084d6015cf56f798e464ad625e0abe28cf3d52f046966f0c6bd21295ba154170416e85ab674f436f7b0cc132bf82cfe16beab230c
-  languageName: node
-  linkType: hard
-
 "limiter@npm:^1.1.5":
   version: 1.1.5
   resolution: "limiter@npm:1.1.5"
@@ -10226,7 +10123,6 @@ __metadata:
   resolution: "nestjs@workspace:."
   dependencies:
     "@atls/code-runtime": "npm:^1.1.0"
-    "@types/node": "npm:^20.3.3"
     typescript: "npm:5.3.3"
   languageName: unknown
   linkType: soft
@@ -11571,7 +11467,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"rxjs@npm:7.8.1, rxjs@npm:^7.8.1":
+"rxjs@npm:7.8.1":
   version: 7.8.1
   resolution: "rxjs@npm:7.8.1"
   dependencies:
@@ -12854,13 +12750,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"tslib@npm:2.6.3":
-  version: 2.6.3
-  resolution: "tslib@npm:2.6.3"
-  checksum: 10c0/2598aef53d9dbe711af75522464b2104724d6467b26a60f2bdac8297d2b5f1f6b86a71f61717384aa8fd897240467aaa7bcc36a0700a0faf751293d1331db39a
-  languageName: node
-  linkType: hard
-
 "tslib@npm:^1.10.0, tslib@npm:^1.8.1, tslib@npm:^1.9.3":
   version: 1.14.1
   resolution: "tslib@npm:1.14.1"
@@ -13211,13 +13100,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"undici-types@npm:~6.19.2":
-  version: 6.19.8
-  resolution: "undici-types@npm:6.19.8"
-  checksum: 10c0/078afa5990fba110f6824823ace86073b4638f1d5112ee26e790155f481f2a868cc3e0615505b6f4282bdf74a3d8caad715fd809e870c2bb0704e3ea6082f344
-  languageName: node
-  linkType: hard
-
 "unique-filename@npm:^1.1.1":
   version: 1.1.1
   resolution: "unique-filename@npm:1.1.1"
@@ -13380,13 +13262,6 @@ __metadata:
   version: 13.7.0
   resolution: "validator@npm:13.7.0"
   checksum: 10c0/234c9db98001d6f75c04174dd7f67a297728c8cb369db99f21c41ba4a254558bf91427ecdcc9017ddcd44271c9db38e96079cf432a41c92f13d96d6ca0d5c28d
-  languageName: node
-  linkType: hard
-
-"validator@npm:^13.9.0":
-  version: 13.12.0
-  resolution: "validator@npm:13.12.0"
-  checksum: 10c0/21d48a7947c9e8498790550f56cd7971e0e3d724c73388226b109c1bac2728f4f88caddfc2f7ed4b076f9b0d004316263ac786a17e9c4edf075741200718cd32
   languageName: node
   linkType: hard
 
