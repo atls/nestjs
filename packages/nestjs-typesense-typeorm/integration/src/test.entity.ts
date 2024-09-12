@@ -2,8 +2,8 @@ import { PrimaryGeneratedColumn } from 'typeorm'
 import { Entity }                 from 'typeorm'
 import { Column }                 from 'typeorm'
 
-import { Schema }                 from '@atls/nestjs-typesense'
-import { Field }                  from '@atls/nestjs-typesense'
+import { Schema }                 from '../../../nestjs-typesense'
+import { Field }                  from '../../../nestjs-typesense'
 
 @Entity()
 @Schema({ name: 'test' })
