@@ -8,7 +8,7 @@ import { Wait }                              from 'testcontainers'
 import { Repository }                        from 'typeorm'
 import { Client }                            from 'typesense'
 
-import { TYPESENSE_MODULE_OPTIONS }          from '@atls/nestjs-typesense'
+import { TYPESENSE_MODULE_OPTIONS }          from '../../nestjs-typesense'
 
 import { TypesenseTypeOrmIntegrationModule } from './src'
 import { TestEntity }                        from './src/test.entity'
