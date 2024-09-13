@@ -9,5 +9,6 @@
     "@atls/code-runtime": "1.1.0",
     "typescript": "5.4.2"
   },
-  "packageManager": "yarn@4.4.1"
+  "packageManager": "yarn@4.4.1",
+  "typecheckSkipLibCheck": true
 }
