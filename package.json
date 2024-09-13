@@ -3,53 +3,12 @@
   "private": true,
   "license": "BSD-3 Clause",
   "workspaces": [
-    "packages/*",
-    "examples/*"
+    "packages/**/*"
   ],
-  "resolutions": {
-    "@octokit/app": "11.2.0",
-    "@octokit/core": "3.3.2",
-    "@octokit/graphql": "4.6.1",
-    "@octokit/request": "5.4.14",
-    "@octokit/request-error": "2.0.5",
-    "@octokit/types": "6.13.0",
-    "@octokit/webhooks": "8.12.0",
-    "@types/ssh2": "0.5.51",
-    "typeorm": "0.2.45"
-  },
   "devDependencies": {
-    "@atls/code-service": "^0.0.24",
-    "@atls/config-eslint": "0.0.10",
-    "@atls/config-jest": "0.0.9",
-    "@atls/schematics": "0.0.16",
-    "@grpc/proto-loader": "0.7.10",
-    "@jest/core": "27.4.7",
-    "@rushstack/eslint-patch": "1.6.0",
-    "@types/eslint": "8.4.1",
-    "@types/jest": "27.4.0",
-    "@types/node": "18.19.3",
-    "eslint": "8.17.0",
-    "husky": "7.0.4",
-    "typescript": "4.6.4"
+    "@atls/code-runtime": "1.1.0",
+    "typescript": "5.4.2"
   },
-  "dependenciesMeta": {
-    "@atls/config-eslint@0.0.10": {
-      "unplugged": true
-    },
-    "@grpc/grpc-js@1.5.5": {
-      "unplugged": true
-    },
-    "ts-proto@1.82.0": {
-      "unplugged": true
-    }
-  },
-  "packageManager": "yarn@4.0.2",
-  "tools": {
-    "schematic": {
-      "collection": "@atls/schematics",
-      "schematic": "project",
-      "type": "libraries",
-      "migration": "1645279706757"
-    }
-  }
+  "packageManager": "yarn@4.4.1",
+  "typecheckSkipLibCheck": true
 }
