@@ -1,8 +1,11 @@
+// @ts-ignore
 import { CheckRequest }                      from '@ory/keto-grpc-client/ory/keto/relation_tuples/v1alpha2/check_service_pb'
+// @ts-ignore
 import { SubjectSet }                        from '@ory/keto-grpc-client/ory/keto/relation_tuples/v1alpha2/relation_tuples_pb'
+// @ts-ignore
 import { Subject }                           from '@ory/keto-grpc-client/ory/keto/relation_tuples/v1alpha2/relation_tuples_pb'
 
-import { KetoRelationTupleInvalidException } from '../exceptions'
+import { KetoRelationTupleInvalidException } from '../exceptions/index.js'
 
 type Tuple = string | ((...args: string[]) => string)
 
@@ -11,7 +14,10 @@ export class RelationTupleConverter {
 
   private tupleString: string
 
-  constructor(private readonly tuple: Tuple, private readonly replacement: string = '') {
+  constructor(
+    private readonly tuple: Tuple,
+    private readonly replacement: string = ''
+  ) {
     this.checkRequest = new CheckRequest()
 
     this.convertToString()

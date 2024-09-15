@@ -1,1 +1,1 @@
-export * from './grpc-identity-env.config'
+export * from './grpc-identity-env.config.js'

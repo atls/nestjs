@@ -1,3 +1,3 @@
-export * from './module'
-export * from './renderer'
-export * from './config'
+export * from './module/index.js'
+export * from './renderer/index.js'
+export * from './config/index.js'

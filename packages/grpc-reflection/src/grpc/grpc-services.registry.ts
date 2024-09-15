@@ -1,6 +1,6 @@
 import { ServiceDefinition }   from '@grpc/proto-loader'
 import { Injectable }          from '@nestjs/common'
-
+// @ts-ignore
 import { FileDescriptorProto } from 'google-protobuf/google/protobuf/descriptor_pb'
 
 @Injectable()
@@ -25,6 +25,7 @@ export class GrpcServicesRegistry {
     }
   }
 
+  // @ts-ignore
   getFileDescriptorProtoByFileContainingSymbol(fileContainingSymbol) {
     return this.services.reduce<FileDescriptorProto | undefined>((fileDescriptorProto, service) => {
       if (fileDescriptorProto) {

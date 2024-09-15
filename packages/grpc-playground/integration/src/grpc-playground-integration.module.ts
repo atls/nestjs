@@ -1,6 +1,6 @@
 import { Module }               from '@nestjs/common'
 
-import { GrpcPlaygroundModule } from '../../src'
+import { GrpcPlaygroundModule } from '../../src/index.js'
 
 @Module({
   imports: [

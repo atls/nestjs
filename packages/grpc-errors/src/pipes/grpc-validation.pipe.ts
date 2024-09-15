@@ -1,8 +1,9 @@
 import { ValidationPipe }                 from '@nestjs/common'
 
-import { grpcValidationExceptionFactory } from '../exception-factories'
+import { grpcValidationExceptionFactory } from '../exception-factories/index.js'
 
 export class GrpcValidationPipe extends ValidationPipe {
+  // @ts-ignore
   constructor(options?) {
     super({
       ...(options || {}),

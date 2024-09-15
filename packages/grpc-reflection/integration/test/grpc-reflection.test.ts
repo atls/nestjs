@@ -6,16 +6,21 @@ import { INestMicroservice }               from '@nestjs/common'
 import { ClientsModule }                   from '@nestjs/microservices'
 import { Transport }                       from '@nestjs/microservices'
 import { Test }                            from '@nestjs/testing'
-
-import getPort                             from 'get-port'
-import path                                from 'path'
+import { describe }                        from '@jest/globals'
+import { beforeAll }                       from '@jest/globals'
+import { it }                              from '@jest/globals'
+import { expect }                          from '@jest/globals'
+import { afterAll }                        from '@jest/globals'
+// @ts-ignore
 import { FileDescriptorProto }             from 'google-protobuf/google/protobuf/descriptor_pb'
 import { ReplaySubject }                   from 'rxjs'
+import getPort                             from 'get-port'
+import path                                from 'path'
 
-import { ServerReflectionClient }          from '../../src'
-import { ServerReflectionRequest }         from '../../src'
-import { GrpcReflectionIntegrationModule } from '../src'
-import { serverOptions }                   from '../src'
+import { ServerReflectionClient }          from '../../src/index.js'
+import { ServerReflectionRequest }         from '../../src/index.js'
+import { GrpcReflectionIntegrationModule } from '../src/index.js'
+import { serverOptions }                   from '../src/index.js'
 
 describe('grpc reflection', () => {
   let service: INestMicroservice

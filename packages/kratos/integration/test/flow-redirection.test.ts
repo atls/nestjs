@@ -4,12 +4,16 @@
 
 import { INestApplication }        from '@nestjs/common'
 import { Test }                    from '@nestjs/testing'
-
+import { describe }                from '@jest/globals'
+import { it }                      from '@jest/globals'
+import { expect }                  from '@jest/globals'
+import { beforeAll }               from '@jest/globals'
+import { afterAll }                from '@jest/globals'
 import getPort                     from 'get-port'
 import request                     from 'supertest'
 
-import { KRATOS_MODULE_OPTIONS }   from '../../src'
-import { KratosIntegrationModule } from '../src'
+import { KRATOS_MODULE_OPTIONS }   from '../../src/index.js'
+import { KratosIntegrationModule } from '../src/index.js'
 
 describe('kratos flow redirection', () => {
   let app: INestApplication

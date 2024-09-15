@@ -1,10 +1,9 @@
 import { Provider }                     from '@nestjs/common'
-
 import { JwksClient }                   from 'jwks-rsa'
 
-import { JwtVerifier }                  from '../jwt'
-import { GrpcIdentityModuleOptions }    from './grpc-identity-module.interface'
-import { GRPC_IDENTITY_MODULE_OPTIONS } from './grpc-identity.constants'
+import { JwtVerifier }                  from '../jwt/index.js'
+import { GrpcIdentityModuleOptions }    from './grpc-identity-module.interface.js'
+import { GRPC_IDENTITY_MODULE_OPTIONS } from './grpc-identity.constants.js'
 
 export const createGrpcIdentityOptionsProvider = (
   options: GrpcIdentityModuleOptions

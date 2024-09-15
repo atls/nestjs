@@ -1,7 +1,7 @@
 import { Module }           from '@nestjs/common'
 
-import { GatewayModule }    from '../../src'
-import { MoviesController } from './movies.controller'
+import { GatewayModule }    from '../../src/index.js'
+import { MoviesController } from './movies.controller.js'
 
 @Module({
   imports: [GatewayModule.register()],

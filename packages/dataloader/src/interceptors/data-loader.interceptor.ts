@@ -6,11 +6,11 @@ import { NestInterceptor }              from '@nestjs/common'
 import { ModuleRef }                    from '@nestjs/core'
 import { GqlExecutionContext }          from '@nestjs/graphql'
 import { GraphQLExecutionContext }      from '@nestjs/graphql'
-
+// @ts-ignore
 import { Observable }                   from 'rxjs'
 
-import { GET_LOADER_CONTEXT_KEY }       from '../constants'
-import { NestDataLoader }               from '../interfaces'
+import { GET_LOADER_CONTEXT_KEY }       from '../constants.js'
+import { NestDataLoader }               from '../interfaces/index.js'
 
 @Injectable()
 export class DataLoaderInterceptor implements NestInterceptor {

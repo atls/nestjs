@@ -6,9 +6,9 @@ import { ServerGrpc }                     from '@nestjs/microservices'
 import { loadPackageDefinition }          from '@grpc/grpc-js'
 import { loadSync }                       from '@grpc/proto-loader'
 
-import { GRPC_REFLECTION_MODULE_OPTIONS } from '../module'
-import { GrpcReflectionModuleOptions }    from '../module'
-import { GrpcServicesRegistry }           from './grpc-services.registry'
+import { GRPC_REFLECTION_MODULE_OPTIONS } from '../module/index.js'
+import { GrpcReflectionModuleOptions }    from '../module/index.js'
+import { GrpcServicesRegistry }           from './grpc-services.registry.js'
 
 @Injectable()
 export class GrpcReflector implements OnModuleInit {
@@ -27,6 +27,7 @@ export class GrpcReflector implements OnModuleInit {
       : [this.options.protoPath]
 
     for (const protoPath of protoPaths) {
+      // @ts-ignore
       const packageDefinition = loadSync(protoPath, this.options.loader)
       const grpcContext = loadPackageDefinition(packageDefinition)
 

@@ -6,10 +6,10 @@ import { RelationshipApiDeleteRelationshipsRequest } from '@ory/keto-client'
 import { Relationship }                              from '@ory/keto-client'
 import { RelationshipApiCreateRelationshipRequest }  from '@ory/keto-client'
 
-import { KetoGeneralException }                      from '../exceptions'
-import { RelationShipTuple }                         from '../module'
-import { KETO_RELATIONS }                            from '../module'
-import { KetoRelationsService }                      from './keto-relations.service'
+import { KetoGeneralException }                      from '../exceptions/index.js'
+import { RelationShipTuple }                         from '../module/index.js'
+import { KETO_RELATIONS }                            from '../module/index.js'
+import { KetoRelationsService }                      from './keto-relations.service.js'
 
 @Injectable()
 export class KetoWriteClientService {

@@ -1,9 +1,9 @@
 import { Injectable }      from '@nestjs/common'
 import { OnModuleInit }    from '@nestjs/common'
 
-import { AbstractStorage } from './abstract.storage'
-import { SignUrlOptions }  from './storage.interfaces'
-import { SignedUrl }       from './storage.interfaces'
+import { AbstractStorage } from './abstract.storage.js'
+import { SignUrlOptions }  from './storage.interfaces.js'
+import { SignedUrl }       from './storage.interfaces.js'
 
 @Injectable()
 export class GcsStorage extends AbstractStorage implements OnModuleInit {

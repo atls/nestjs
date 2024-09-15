@@ -1,4 +1,5 @@
 import { ErrorStatus }  from '@atls/grpc-error-status'
+import { Metadata }     from '@grpc/grpc-js'
 import { Controller }   from '@nestjs/common'
 import { GrpcMethod }   from '@nestjs/microservices'
 import { RpcException } from '@nestjs/microservices'
@@ -6,7 +7,8 @@ import { RpcException } from '@nestjs/microservices'
 @Controller()
 export class MoviesController {
   @GrpcMethod('ExampleService', 'getMovies')
-  getMovies(_, metadata) {
+  // @ts-ignore
+  getMovies(_, metadata: Metadata) {
     return {
       result: [
         {
@@ -19,7 +21,8 @@ export class MoviesController {
   }
 
   @GrpcMethod('ExampleService', 'GetMetadata')
-  getMetadata(_, metadata) {
+  // @ts-ignore
+  getMetadata(_, metadata: Metadata) {
     return metadata.getMap()
   }
 

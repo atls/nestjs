@@ -1,7 +1,7 @@
 import { Logger }     from '@atls/logger'
 import { Injectable } from '@nestjs/common'
 
-import { Schema }     from './schema.metadata'
+import { Schema }     from './schema.metadata.js'
 
 type Constructor = new (...args: any[]) => {}
 

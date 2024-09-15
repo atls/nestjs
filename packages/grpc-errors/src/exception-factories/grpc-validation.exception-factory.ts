@@ -6,7 +6,7 @@ import { status }          from '@grpc/grpc-js'
 
 const traverseErrors = (
   errors: ValidationError[] = [],
-  callback: (error: ValidationError, string) => void,
+  callback: (error: ValidationError, string: string) => void,
   path: string[] = []
 ) => {
   errors.forEach((error) => {

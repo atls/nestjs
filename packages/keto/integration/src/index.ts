@@ -1,1 +1,1 @@
-export * from './keto-integration.module'
+export * from './keto-integration.module.js'

@@ -1,7 +1,7 @@
 import { NestFactory }             from '@nestjs/core'
 
-import { GrpcPlaygroundAppModule } from './grpc-playground-app.module'
-import { serverOptions }           from './server.options'
+import { GrpcPlaygroundAppModule } from './grpc-playground-app.module.js'
+import { serverOptions }           from './server.options.js'
 
 declare const module: any
 

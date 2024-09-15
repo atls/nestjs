@@ -1,1 +1,1 @@
-export * from './kratos-redirect.interceptor'
+export * from './kratos-redirect.interceptor.js'

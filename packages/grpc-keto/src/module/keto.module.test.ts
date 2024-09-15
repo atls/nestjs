@@ -3,11 +3,12 @@ import { Module }              from '@nestjs/common'
 import { Test }                from '@nestjs/testing'
 import { TestingModule }       from '@nestjs/testing'
 
-import { KetoModuleOptions }   from './keto-module.interfaces'
-import { KETO_WRITE_CLIENT }   from './keto.constants'
-import { KETO_READ_CLIENT }    from './keto.constants'
-import { KETO_MODULE_OPTIONS } from './keto.constants'
-import { KetoModule }          from './keto.module'
+import { KetoModuleOptions }   from './keto-module.interfaces.js'
+import { KETO_WRITE_CLIENT }   from './keto.constants.js'
+import { KETO_READ_CLIENT }    from './keto.constants.js'
+import { KETO_MODULE_OPTIONS } from './keto.constants.js'
+import { KetoModule }          from './keto.module.js'
+import {describe, it, expect, afterEach} from '@jest/globals'
 
 describe('Keto module', () => {
   let module: TestingModule

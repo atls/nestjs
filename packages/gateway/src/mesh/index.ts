@@ -1,5 +1,5 @@
-export * from './graphql-mesh.handler'
-export * from './graphql-mesh.config'
-export * from './graphql.mesh'
+export * from './graphql-mesh.handler.js'
+export * from './graphql-mesh.config.js'
+export * from './graphql.mesh.js'
 
-export * from './graphql-mesh.schema-dumper'
+export * from './graphql-mesh.schema-dumper.js'

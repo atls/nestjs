@@ -1,1 +1,1 @@
-export * from './data-loader.interceptor'
+export * from './data-loader.interceptor.js'

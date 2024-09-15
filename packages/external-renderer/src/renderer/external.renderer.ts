@@ -3,9 +3,9 @@ import { OnModuleInit }                     from '@nestjs/common'
 import { Injectable }                       from '@nestjs/common'
 import { HttpAdapterHost }                  from '@nestjs/core'
 
-import { EXTERNAL_RENDERER_MODULE_OPTIONS } from '../module'
-import { ExternalRendererModuleOptions }    from '../module'
-import { ExpressExternalRendererView }      from './express-external-renderer.view'
+import { EXTERNAL_RENDERER_MODULE_OPTIONS } from '../module/index.js'
+import { ExternalRendererModuleOptions }    from '../module/index.js'
+import { ExpressExternalRendererView }      from './express-external-renderer.view.js'
 
 @Injectable()
 export class ExternalRenderer implements OnModuleInit {
@@ -24,8 +24,8 @@ export class ExternalRenderer implements OnModuleInit {
 
       const { render } = instance.response
 
-      // eslint-disable-next-line func-names
-      instance.response.render = function (view, options, callback) {
+      // @ts-ignore eslint-disable-next-line func-names
+      instance.response.render = function (view, options, callback: Function) {
         return render.apply(this, [
           view,
           {

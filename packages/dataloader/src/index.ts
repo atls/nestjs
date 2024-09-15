@@ -1,3 +1,3 @@
-export * from './decorators'
-export * from './interceptors'
-export * from './interfaces'
+export * from './decorators/index.js'
+export * from './interceptors/index.js'
+export * from './interfaces/index.js'

@@ -1,1 +1,1 @@
-export * from './method-config.util'
+export * from './method-config.util.js'

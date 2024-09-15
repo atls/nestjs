@@ -5,8 +5,8 @@ import { GqlExecutionContext }          from '@nestjs/graphql'
 import { GraphQLExecutionContext }      from '@nestjs/graphql'
 import { createParamDecorator }         from '@nestjs/common'
 
-import { GET_LOADER_CONTEXT_KEY }       from '../constants'
-import { DataLoaderInterceptor }        from '../interceptors/data-loader.interceptor'
+import { GET_LOADER_CONTEXT_KEY }       from '../constants.js'
+import { DataLoaderInterceptor }        from '../interceptors/index.js'
 
 export const Loader: (type: string) => ParameterDecorator = createParamDecorator((
   type: string,

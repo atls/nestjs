@@ -3,8 +3,8 @@ import { TypeOrmModule }          from '@nestjs/typeorm'
 
 import { TypesenseModule }        from '@atls/nestjs-typesense'
 
-import { TypesenseTypeOrmModule } from '../../src'
-import { TestEntity }             from './test.entity'
+import { TypesenseTypeOrmModule } from '../../src/index.js'
+import { TestEntity }             from './test.entity.js'
 
 @Module({
   imports: [

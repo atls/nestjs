@@ -4,11 +4,10 @@
 import { OnModuleInit }              from '@nestjs/common'
 import { Injectable }                from '@nestjs/common'
 import { printSchemaWithDirectives } from '@graphql-tools/utils'
-
 import { promises as fs }            from 'fs'
 import { join }                      from 'path'
 
-import { GraphQLMesh }               from './graphql.mesh'
+import { GraphQLMesh }               from './graphql.mesh.js'
 
 declare const __non_webpack_require__: any
 

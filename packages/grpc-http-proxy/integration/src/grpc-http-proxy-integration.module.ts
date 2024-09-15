@@ -1,9 +1,9 @@
 import { Module }              from '@nestjs/common'
 
-import { GrpcHttpProxyModule } from '../../src'
-import { NopeAuthenticator }   from './nope.authenticator'
-import { TestController }      from './test.controller'
-import { serverOptions }       from './proto.options'
+import { GrpcHttpProxyModule } from '../../src/index.js'
+import { NopeAuthenticator }   from './nope.authenticator.js'
+import { TestController }      from './test.controller.js'
+import { serverOptions }       from './proto.options.js'
 
 @Module({
   imports: [

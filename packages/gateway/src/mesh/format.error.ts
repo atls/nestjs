@@ -1,10 +1,12 @@
-import { ErrorStatus } from '@atls/grpc-error-status'
+import { ErrorStatus }  from '@atls/grpc-error-status'
+import { ServiceError } from '@grpc/grpc-js'
 
-const isGrpcErrorStatus = (error) => error.code >= 0 && error.metadata && error.details
+const isGrpcErrorStatus = (error: { code: number; metadata: any; details: any }) =>
+  error.code >= 0 && error.metadata && error.details
 
-export const formatError = (error) => {
+export const formatError = (error: { extensions: { exception: ServiceError } }) => {
   if (error.extensions?.exception && isGrpcErrorStatus(error.extensions.exception)) {
-    // eslint-disable-next-line no-param-reassign
+    // @ts-ignore eslint-disable-next-line no-param-reassign
     error.extensions.exception = ErrorStatus.fromServiceError(error.extensions.exception).toObject()
   }
 

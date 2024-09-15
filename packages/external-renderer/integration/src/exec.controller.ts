@@ -20,6 +20,7 @@ export class ExecController {
   }
 
   @Get('/res-render-params')
+  // @ts-ignore
   resRenderParams(@Res() res) {
     return res.render('/render/params', {
       param: 'value',

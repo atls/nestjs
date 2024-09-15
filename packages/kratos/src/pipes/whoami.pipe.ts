@@ -2,7 +2,7 @@ import { PipeTransform }    from '@nestjs/common'
 import { Injectable }       from '@nestjs/common'
 import { ArgumentMetadata } from '@nestjs/common'
 
-import { KratosPublicApi }  from '../client'
+import { KratosPublicApi }  from '../client/index.js'
 
 @Injectable()
 export class WhoamiPipe implements PipeTransform {

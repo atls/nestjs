@@ -2,10 +2,10 @@ import { Metadata }         from '@grpc/grpc-js'
 /* eslint-disable */
 import { GrpcMethod }       from '@nestjs/microservices'
 import { GrpcStreamMethod } from '@nestjs/microservices'
-
-import _m0                  from 'protobufjs/minimal'
-import Long                 from 'long'
+// @ts-ignore
 import { Observable }       from 'rxjs'
+import Long                 from 'long'
+import _m0                  from 'protobufjs/minimal.js'
 
 export const protobufPackage = 'examples.echo.v1'
 

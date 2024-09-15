@@ -1,1 +1,1 @@
-export * from './typeorm-seeding.module'
+export * from './typeorm-seeding.module.js'

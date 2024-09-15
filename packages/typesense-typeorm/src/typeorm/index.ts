@@ -1,1 +1,1 @@
-export * from './typeorm-listeners.builder'
+export * from './typeorm-listeners.builder.js'
