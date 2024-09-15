@@ -1,8 +1,8 @@
 import { CallHandler }                     from '@nestjs/common'
 import { ExecutionContextHost }            from '@nestjs/core/helpers/execution-context-host.js'
 import { describe }                        from '@jest/globals'
-import { it }                    from '@jest/globals'
-import { expect }            from '@jest/globals'
+import { it }                              from '@jest/globals'
+import { expect }                          from '@jest/globals'
 import { throwError }                      from 'rxjs'
 
 import { KratosRedirectRequiredException } from '../exceptions/index.js'
