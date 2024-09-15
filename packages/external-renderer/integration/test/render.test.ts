@@ -2,13 +2,18 @@
  * @jest-environment node
  */
 
-import { INestApplication }                  from '@nestjs/common'
-import { Test }                              from '@nestjs/testing'
-import getPort                               from 'get-port'
-import request                               from 'supertest'
+import { INestApplication }                          from '@nestjs/common'
+import { Test }                                      from '@nestjs/testing'
+import { describe }                                  from '@jest/globals'
+import { it }                              from '@jest/globals'
+import { expect }                      from '@jest/globals'
+import { beforeAll }           from '@jest/globals'
+import { afterAll } from '@jest/globals'
+import getPort                                       from 'get-port'
+import request                                       from 'supertest'
 
-import { EXTERNAL_RENDERER_MODULE_OPTIONS }  from '../../src'
-import { ExternalRendererIntegrationModule } from '../src'
+import { EXTERNAL_RENDERER_MODULE_OPTIONS }          from '../../src/index.js'
+import { ExternalRendererIntegrationModule }         from '../src/index.js'
 
 describe('external renderer', () => {
   let app: INestApplication

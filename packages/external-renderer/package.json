@@ -2,6 +2,10 @@
   "name": "@atls/nestjs-external-renderer",
   "version": "0.0.7",
   "license": "BSD-3 Clause",
+  "type": "module",
+  "exports": {
+    ".": "./src/index.ts"
+  },
   "main": "src/index.ts",
   "files": [
     "dist"
@@ -15,10 +19,13 @@
     "node-fetch": "2.7.0"
   },
   "devDependencies": {
+    "@jest/globals": "^29.7.0",
     "@nestjs/common": "patch:@nestjs/common@npm%3A10.2.5#~/.yarn/patches/@nestjs-common-npm-10.2.5-816dceeade.patch",
     "@nestjs/core": "10.2.5",
     "@nestjs/testing": "10.2.5",
     "@types/node": "20.6.0",
+    "@types/node-fetch": "^2.6.11",
+    "@types/supertest": "^6.0.2",
     "get-port": "5.1.1",
     "reflect-metadata": "0.1.13",
     "rxjs": "7.8.1",
@@ -31,6 +38,24 @@
     "rxjs": "7.8.1"
   },
   "publishConfig": {
+    "exports": {
+      "./package.json": "./package.json",
+      ".": {
+        "import": "./dist/index.js",
+        "types": "./dist/index.d.ts",
+        "default": "./dist/index.js"
+      },
+      "./app-router": {
+        "import": "./dist/app-router.js",
+        "types": "./dist/app-router.d.ts",
+        "default": "./dist/app-router.js"
+      },
+      "./page-router": {
+        "import": "./dist/page-router.js",
+        "types": "./dist/page-router.d.ts",
+        "default": "./dist/page-router.js"
+      }
+    },
     "main": "dist/index.js",
     "typings": "dist/index.d.ts"
   }

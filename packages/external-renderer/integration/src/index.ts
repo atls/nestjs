@@ -1,1 +1,1 @@
-export * from './external-renderer-integration.module'
+export * from './external-renderer-integration.module.js'
