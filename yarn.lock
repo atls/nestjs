@@ -536,6 +536,7 @@ __metadata:
   dependencies:
     "@grpc/grpc-js": "npm:1.9.1"
     "@grpc/proto-loader": "npm:0.7.10"
+    "@jest/globals": "npm:^29.7.0"
     "@monstrs/types-import-proto": "npm:0.0.1"
     "@nestjs/common": "patch:@nestjs/common@npm%3A10.2.5#~/.yarn/patches/@nestjs-common-npm-10.2.5-816dceeade.patch"
     "@nestjs/core": "npm:10.2.5"
