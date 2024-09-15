@@ -1,3 +1,3 @@
-export * from './keto.module'
-export * from './keto.constants'
-export * from './keto-module.interfaces'
+export * from './keto.module.js'
+export * from './keto.constants.js'
+export * from './keto-module.interfaces.js'

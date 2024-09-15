@@ -1098,6 +1098,7 @@ const RAW_RUNTIME_STATE =
         "packageLocation": "./packages/keto/",\
         "packageDependencies": [\
           ["@atls/nestjs-keto", "workspace:packages/keto"],\
+          ["@jest/globals", "npm:29.7.0"],\
           ["@nestjs/common", "virtual:72695b3e8df4e2f6d44b80879c09222d3fa2f1034c45558c00ba1f3b5eaad5ba4202c8c63f745c51c5f3d6e6cc3258d6462bdaef0a9d6910d1f666031ec198d6#patch:@nestjs/common@npm%3A10.2.5#~/.yarn/patches/@nestjs-common-npm-10.2.5-816dceeade.patch::version=10.2.5&hash=b1d2d6"],\
           ["@nestjs/core", "virtual:72695b3e8df4e2f6d44b80879c09222d3fa2f1034c45558c00ba1f3b5eaad5ba4202c8c63f745c51c5f3d6e6cc3258d6462bdaef0a9d6910d1f666031ec198d6#npm:10.2.5"],\
           ["@nestjs/graphql", "virtual:72695b3e8df4e2f6d44b80879c09222d3fa2f1034c45558c00ba1f3b5eaad5ba4202c8c63f745c51c5f3d6e6cc3258d6462bdaef0a9d6910d1f666031ec198d6#npm:12.0.10"],\

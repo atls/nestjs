@@ -3,7 +3,7 @@ import { Injectable }                from '@nestjs/common'
 import { ConfigurationParameters }   from '@ory/keto-client'
 import { Configuration }             from '@ory/keto-client'
 
-import { KETO_MODULE_CONFIGURATION } from '../module'
+import { KETO_MODULE_CONFIGURATION } from '../module/index.js'
 
 @Injectable()
 export class KetoConfigurationService extends Configuration {

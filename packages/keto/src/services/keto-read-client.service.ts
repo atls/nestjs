@@ -2,12 +2,12 @@ import { Inject }                              from '@nestjs/common'
 import { Injectable }                          from '@nestjs/common'
 import { PermissionApiCheckPermissionRequest } from '@ory/keto-client'
 
-import { KetoGeneralException }                from '../exceptions'
-import { RelationShipTupleWithId }             from '../module'
-import { RelationShipTupleWithSet }            from '../module'
-import { RelationShipTuple }                   from '../module'
-import { KETO_PERMISSIONS }                    from '../module'
-import { KetoPermissionsService }              from './keto-permissions.service'
+import { KetoGeneralException }                from '../exceptions/index.js'
+import { RelationShipTupleWithId }             from '../module/index.js'
+import { RelationShipTupleWithSet }            from '../module/index.js'
+import { RelationShipTuple }                   from '../module/index.js'
+import { KETO_PERMISSIONS }                    from '../module/index.js'
+import { KetoPermissionsService }              from './keto-permissions.service.js'
 
 @Injectable()
 export class KetoReadClientService {

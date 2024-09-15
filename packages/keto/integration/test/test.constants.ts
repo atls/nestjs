@@ -1,4 +1,4 @@
-import { FileToCopy } from 'testcontainers/build/types'
+import { FileToCopy } from 'testcontainers/build/types.js'
 
 export const KETO_MIGRATE_COMMAND = ['migrate', 'up', '--yes']
 

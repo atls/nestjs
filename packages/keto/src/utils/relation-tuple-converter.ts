@@ -1,9 +1,9 @@
 import { SubjectSet }                        from '@ory/keto-client'
 
-import { KetoRelationTupleInvalidException } from '../exceptions'
-import { RelationShipTupleWithSet }          from '../module'
-import { RelationShipTupleWithId }           from '../module'
-import { RelationShipTuple }                 from '../module'
+import { KetoRelationTupleInvalidException } from '../exceptions/index.js'
+import { RelationShipTupleWithSet }          from '../module/index.js'
+import { RelationShipTupleWithId }           from '../module/index.js'
+import { RelationShipTuple }                 from '../module/index.js'
 
 type Tuple = string | ((...args: string[]) => string)
 

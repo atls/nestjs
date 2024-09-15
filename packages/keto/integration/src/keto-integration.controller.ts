@@ -2,8 +2,8 @@ import { UseGuards }     from '@nestjs/common'
 import { Controller }    from '@nestjs/common'
 import { Get }           from '@nestjs/common'
 
-import { GuardedByKeto } from '../../src'
-import { KetoGuard }     from '../../src'
+import { GuardedByKeto } from '../../src/index.js'
+import { KetoGuard }     from '../../src/index.js'
 
 @Controller()
 export class KetoIntegrationController {
