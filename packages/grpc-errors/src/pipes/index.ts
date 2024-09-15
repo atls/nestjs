@@ -1,1 +1,1 @@
-export * from './grpc-validation.pipe'
+export * from './grpc-validation.pipe.js'

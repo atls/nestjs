@@ -1,1 +1,1 @@
-export * from './grpc.exception-filter'
+export * from './grpc.exception-filter.js'
