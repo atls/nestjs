@@ -2,16 +2,21 @@
  * @jest-environment node
  */
 
-import { INestApplication }               from '@nestjs/common'
-import { INestMicroservice }              from '@nestjs/common'
-import { Test }                           from '@nestjs/testing'
-import getPort                            from 'get-port'
-import request                            from 'supertest'
+import { INestApplication }                          from '@nestjs/common'
+import { INestMicroservice }                         from '@nestjs/common'
+import { Test }                                      from '@nestjs/testing'
+import { describe }                                  from '@jest/globals'
+import { beforeAll }                       from '@jest/globals'
+import { it }                   from '@jest/globals'
+import { expect }           from '@jest/globals'
+import { afterAll } from '@jest/globals'
+import getPort                                       from 'get-port'
+import request                                       from 'supertest'
 
-import { GRPC_HTTP_PROXY_MODULE_OPTIONS } from '../../src'
-import { GrpcHttpProxyIntegrationModule } from '../src'
-import { NopeAuthenticator }              from '../src'
-import { serverOptions }                  from '../src'
+import { GRPC_HTTP_PROXY_MODULE_OPTIONS }            from '../../src/index.js'
+import { GrpcHttpProxyIntegrationModule }            from '../src/index.js'
+import { NopeAuthenticator }                         from '../src/index.js'
+import { serverOptions }                             from '../src/index.js'
 
 describe('grpc http proxy', () => {
   let service: INestMicroservice

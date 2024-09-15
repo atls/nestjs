@@ -2,21 +2,21 @@
  * @jest-environment node
  */
 
-import { ErrorStatus }                               from '@atls/grpc-error-status'
-import { INestMicroservice }                         from '@nestjs/common'
-import { ClientsModule }                             from '@nestjs/microservices'
-import { Transport }                                 from '@nestjs/microservices'
-import { Test }                                      from '@nestjs/testing'
-import { describe }                                  from '@jest/globals'
-import { it }                              from '@jest/globals'
+import { ErrorStatus }                 from '@atls/grpc-error-status'
+import { INestMicroservice }           from '@nestjs/common'
+import { ClientsModule }               from '@nestjs/microservices'
+import { Transport }                   from '@nestjs/microservices'
+import { Test }                        from '@nestjs/testing'
+import { describe }                    from '@jest/globals'
+import { it }                          from '@jest/globals'
 import { beforeAll }                   from '@jest/globals'
-import { expect }           from '@jest/globals'
-import { afterAll } from '@jest/globals'
-import { join }                                      from 'path'
-import getPort                                       from 'get-port'
+import { expect }                      from '@jest/globals'
+import { afterAll }                    from '@jest/globals'
+import { join }                        from 'path'
+import getPort                         from 'get-port'
 
-import { GrpcErrorsIntegrationModule }               from '../src/index.js'
-import { serverOptions }                             from '../src/index.js'
+import { GrpcErrorsIntegrationModule } from '../src/index.js'
+import { serverOptions }               from '../src/index.js'
 
 describe('grpc error', () => {
   let service: INestMicroservice

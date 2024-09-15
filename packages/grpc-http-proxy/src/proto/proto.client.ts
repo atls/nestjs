@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { Metadata }     from '@grpc/grpc-js'
 import { ServiceError } from '@grpc/grpc-js'
 import { Client }       from '@grpc/grpc-js'
