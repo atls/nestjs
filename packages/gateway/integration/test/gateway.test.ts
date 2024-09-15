@@ -1,20 +1,25 @@
-import { INestApplication }         from '@nestjs/common'
-import { INestMicroservice }        from '@nestjs/common'
-import { Transport }                from '@nestjs/microservices'
-import { Test }                     from '@nestjs/testing'
-import { PubSub }                   from 'graphql-subscriptions'
-import { WebSocket }                from 'ws'
-import { buildClientSchema }        from 'graphql'
-import { printSchema }              from 'graphql'
-import { getIntrospectionQuery }    from 'graphql'
-import { createClient }             from 'graphql-ws'
-import getPort                      from 'get-port'
-import path                         from 'path'
-import request                      from 'supertest'
+import { INestApplication }                         from '@nestjs/common'
+import { INestMicroservice }                        from '@nestjs/common'
+import { Transport }                                from '@nestjs/microservices'
+import { Test }                                     from '@nestjs/testing'
+import { describe }                                  from '@jest/globals'
+import { beforeAll }                       from '@jest/globals'
+import { it }                   from '@jest/globals'
+import { expect }           from '@jest/globals'
+import { afterAll } from '@jest/globals'
+import { PubSub }                                   from 'graphql-subscriptions'
+import { WebSocket }                                from 'ws'
+import { buildClientSchema }                        from 'graphql'
+import { printSchema }                              from 'graphql'
+import { getIntrospectionQuery }                    from 'graphql'
+import { createClient }                             from 'graphql-ws'
+import getPort                                      from 'get-port'
+import path                                         from 'path'
+import request                                      from 'supertest'
 
-import { GatewaySourceType }        from '../../src'
-import { GATEWAY_MODULE_OPTIONS }   from '../../src'
-import { GatewayIntegrationModule } from '../src'
+import { GatewaySourceType }                        from '../../src/index.js'
+import { GATEWAY_MODULE_OPTIONS }                   from '../../src/index.js'
+import { GatewayIntegrationModule }                 from '../src/index.js'
 
 describe('gateway', () => {
   let service: INestMicroservice
@@ -232,6 +237,7 @@ describe('gateway', () => {
     })
 
     const event = new Promise((resolve, reject) => {
+      // @ts-ignore
       let result
 
       client.subscribe(
@@ -246,6 +252,7 @@ describe('gateway', () => {
           // eslint-disable-next-line
           next: (data) => (result = data),
           error: reject,
+          // @ts-ignore
           complete: () => resolve(result),
         }
       )

@@ -2,16 +2,21 @@
 
 import './patch-long-js'
 
+// @ts-ignore
 import { StoreProxy }                                      from '@graphql-mesh/store'
+// @ts-ignore
 import { GetMeshSourceOptions }                            from '@graphql-mesh/types'
+// @ts-ignore
 import { MeshHandler }                                     from '@graphql-mesh/types'
+// @ts-ignore
 import { YamlConfig }                                      from '@graphql-mesh/types'
 import { ChannelCredentials }                              from '@grpc/grpc-js'
 import { ClientReadableStream }                            from '@grpc/grpc-js'
 import { ClientUnaryCall }                                 from '@grpc/grpc-js'
 import { Metadata }                                        from '@grpc/grpc-js'
 import { ChannelOptions }                                  from '@grpc/grpc-js'
-import { ConnectivityState }                               from '@grpc/grpc-js/build/src/connectivity-state'
+import { ConnectivityState }                               from '@grpc/grpc-js/build/src/connectivity-state.js'
+// @ts-ignore
 import { withCancel }                                      from '@graphql-mesh/utils'
 import { credentials }                                     from '@grpc/grpc-js'
 import { loadPackageDefinition }                           from '@grpc/grpc-js'
@@ -39,10 +44,10 @@ import globby                                              from 'globby'
 import protobufjs                                          from 'protobufjs'
 import descriptor                                          from 'protobufjs/ext/descriptor/index.js'
 
-import { ClientMethod }                                    from './utils'
-import { addIncludePathResolver }                          from './utils'
-import { addMetaDataToCall }                               from './utils'
-import { getTypeName }                                     from './utils'
+import { ClientMethod }                                    from './utils.js'
+import { addIncludePathResolver }                          from './utils.js'
+import { addMetaDataToCall }                               from './utils.js'
+import { getTypeName }                                     from './utils.js'
 
 const { readFile } = fsPromises
 
@@ -69,12 +74,17 @@ export default class GrpcHandler implements MeshHandler {
   private rootJsonAndDecodedDescriptorSet: StoreProxy<RootJsonAndDecodedDescriptorSet>
 
   constructor(private readonly options: GrpcHandlerOptions) {
+    // @ts-ignore
     if (!options.config) {
       throw new Error('Config not specified!')
     }
+    // @ts-ignore
     this.config = options.config
+    // @ts-ignore
     this.baseDir = options.baseDir
+    // @ts-ignore
     this.rootJsonAndDecodedDescriptorSet = options.store.proxy('descriptorSet.proto', {
+      // @ts-ignore
       codify: ({ rootJson, decodedDescriptorSet }) =>
         `
 const { FileDescriptorSet } = require('protobufjs/ext/descriptor/index.js');
@@ -230,6 +240,7 @@ module.exports = {
       name: 'ConnectivityState',
       values: Object.entries(ConnectivityState).reduce((values, [key, value]) => {
         if (typeof value === 'number') {
+          // @ts-ignore
           values[key] = { value }
         }
         return values

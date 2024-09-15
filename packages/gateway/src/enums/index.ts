@@ -1,1 +1,1 @@
-export * from './gateway-source-type.enum'
+export * from './gateway-source-type.enum.js'

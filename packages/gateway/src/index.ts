@@ -1,4 +1,4 @@
 export { PubSub } from 'graphql-subscriptions'
 
-export * from './enums'
-export * from './module'
+export * from './enums/index.js'
+export * from './module/index.js'

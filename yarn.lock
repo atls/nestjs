@@ -377,6 +377,7 @@ __metadata:
     "@graphql-tools/utils": "npm:^8.1.1"
     "@grpc/grpc-js": "npm:^1.5.5"
     "@grpc/proto-loader": "npm:^0.6.4"
+    "@jest/globals": "npm:^29.7.0"
     "@nestjs/common": "patch:@nestjs/common@npm%3A10.2.5#~/.yarn/patches/@nestjs-common-npm-10.2.5-816dceeade.patch"
     "@nestjs/core": "npm:10.2.5"
     "@nestjs/microservices": "npm:10.2.5"
@@ -384,6 +385,8 @@ __metadata:
     "@types/lodash": "npm:^4.14.178"
     "@types/long": "npm:^4.0.1"
     "@types/node": "npm:^17.0.12"
+    "@types/supertest": "npm:^6.0.2"
+    "@types/ws": "npm:8.5.12"
     apollo-server-express: "npm:^2.25.2"
     get-port: "npm:^5.1.1"
     globby: "npm:11.0.4"
@@ -4731,6 +4734,15 @@ __metadata:
   version: 13.12.1
   resolution: "@types/validator@npm:13.12.1"
   checksum: 10c0/473b12e287f569e08741c24d4d91663e740ec6264032eeb311c21c8f00dfa274c6fe5af9190ffe1b4b527e95a1bb31c81598682d5dbd76e1604f898bc19adc2b
+  languageName: node
+  linkType: hard
+
+"@types/ws@npm:8.5.12":
+  version: 8.5.12
+  resolution: "@types/ws@npm:8.5.12"
+  dependencies:
+    "@types/node": "npm:*"
+  checksum: 10c0/3fd77c9e4e05c24ce42bfc7647f7506b08c40a40fe2aea236ef6d4e96fc7cb4006a81ed1b28ec9c457e177a74a72924f4768b7b4652680b42dfd52bc380e15f9
   languageName: node
   linkType: hard
 

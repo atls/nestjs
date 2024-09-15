@@ -4,13 +4,14 @@ import { OnModuleDestroy }        from '@nestjs/common'
 import { Injectable }             from '@nestjs/common'
 import { HttpAdapterHost }        from '@nestjs/core'
 import { ApolloServer }           from 'apollo-server-express'
+// @ts-ignore
 import { Server }                 from 'ws'
 import { useServer }              from 'graphql-ws/lib/use/ws'
 
-import { GATEWAY_MODULE_OPTIONS } from '../module'
-import { GatewayModuleOptions }   from '../module'
-import { GraphQLMesh }            from './graphql.mesh'
-import { formatError }            from './format.error'
+import { GATEWAY_MODULE_OPTIONS } from '../module/index.js'
+import { GatewayModuleOptions }   from '../module/index.js'
+import { GraphQLMesh }            from './graphql.mesh.js'
+import { formatError }            from './format.error.js'
 
 @Injectable()
 export class GraphQLMeshHandler implements OnModuleInit, OnModuleDestroy {
@@ -38,6 +39,7 @@ export class GraphQLMeshHandler implements OnModuleInit, OnModuleDestroy {
         introspection: introspection === undefined ? Boolean(playground) : introspection,
         context: contextBuilder,
         playground,
+        // @ts-ignore
         formatError,
       })
 
@@ -82,7 +84,9 @@ export class GraphQLMeshHandler implements OnModuleInit, OnModuleDestroy {
           this.wss
         )
 
+        // @ts-ignore
         this.adapterHost.httpAdapter.getHttpServer().on('upgrade', (req, socket, head) => {
+          // @ts-ignore
           this.wss.handleUpgrade(req, socket, head, (ws) => {
             this.wss.emit('connection', ws, req)
           })
