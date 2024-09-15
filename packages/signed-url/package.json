@@ -3,7 +3,11 @@
   "version": "0.1.40",
   "repository": "git@github.com:atls/nestjs.git",
   "license": "BSD-3 Clause",
-  "main": "dist/index.js",
+  "type": "module",
+  "exports": {
+    ".": "./src/index.js"
+  },
+  "main": "src/index.js",
   "source": "src/index.ts",
   "typings": "dist/index.d.ts",
   "files": [
@@ -16,6 +20,7 @@
   },
   "devDependencies": {
     "@google-cloud/storage": "5.7.2",
+    "@jest/globals": "^29.7.0",
     "@nestjs/common": "patch:@nestjs/common@npm%3A10.2.5#~/.yarn/patches/@nestjs-common-npm-10.2.5-816dceeade.patch",
     "@nestjs/core": "10.2.5",
     "@nestjs/testing": "10.2.5",
@@ -31,6 +36,15 @@
     "rxjs": "^6.6.7"
   },
   "publishConfig": {
-    "access": "public"
+    "access": "public",
+    "exports": {
+      "./package.json": "./package.json",
+      ".": {
+        "import": "./dist/index.js",
+        "types": "./dist/index.d.ts",
+        "default": "./dist/index.js"
+      }
+    },
+    "main": "dist/index.js"
   }
 }
