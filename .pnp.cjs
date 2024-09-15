@@ -1077,6 +1077,7 @@ const RAW_RUNTIME_STATE =
         "packageLocation": "./packages/hydra/",\
         "packageDependencies": [\
           ["@atls/nestjs-hydra", "workspace:packages/hydra"],\
+          ["@jest/globals", "npm:29.7.0"],\
           ["@nestjs/common", "virtual:3da99a4dd1a45fbb12f3936831275fe6ef127b2869363613ce7e5fc10bfba69fce118823d76d677d80a9d976776b1a4cb7b1bb4ee5c5a306e3ceed973bf055a2#patch:@nestjs/common@npm%3A10.2.5#~/.yarn/patches/@nestjs-common-npm-10.2.5-816dceeade.patch::version=10.2.5&hash=b1d2d6"],\
           ["@nestjs/core", "virtual:3da99a4dd1a45fbb12f3936831275fe6ef127b2869363613ce7e5fc10bfba69fce118823d76d677d80a9d976776b1a4cb7b1bb4ee5c5a306e3ceed973bf055a2#npm:10.2.5"],\
           ["@nestjs/testing", "virtual:3da99a4dd1a45fbb12f3936831275fe6ef127b2869363613ce7e5fc10bfba69fce118823d76d677d80a9d976776b1a4cb7b1bb4ee5c5a306e3ceed973bf055a2#npm:10.2.5"],\

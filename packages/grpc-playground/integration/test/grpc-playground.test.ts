@@ -2,17 +2,17 @@
  * @jest-environment node
  */
 
-import { INestApplication }                          from '@nestjs/common'
-import { Test }                                      from '@nestjs/testing'
-import { describe }                                  from '@jest/globals'
+import { INestApplication }                from '@nestjs/common'
+import { Test }                            from '@nestjs/testing'
+import { describe }                        from '@jest/globals'
 import { beforeAll }                       from '@jest/globals'
-import { it }                   from '@jest/globals'
-import { expect }           from '@jest/globals'
-import { afterAll } from '@jest/globals'
-import getPort                                       from 'get-port'
-import request                                       from 'supertest'
+import { it }                              from '@jest/globals'
+import { expect }                          from '@jest/globals'
+import { afterAll }                        from '@jest/globals'
+import getPort                             from 'get-port'
+import request                             from 'supertest'
 
-import { GrpcPlaygroundIntegrationModule }           from '../src/index.js'
+import { GrpcPlaygroundIntegrationModule } from '../src/index.js'
 
 describe('grpc playground', () => {
   let app: INestApplication

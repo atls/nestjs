@@ -1,5 +1,5 @@
-import { HydraOptionsFactory } from '../module'
-import { HydraModuleOptions }  from '../module'
+import { HydraOptionsFactory } from '../module/index.js'
+import { HydraModuleOptions }  from '../module/index.js'
 
 export class HydraEnvConfig implements HydraOptionsFactory {
   createHydraOptions(): HydraModuleOptions {

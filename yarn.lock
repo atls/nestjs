@@ -567,6 +567,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@atls/nestjs-hydra@workspace:packages/hydra"
   dependencies:
+    "@jest/globals": "npm:^29.7.0"
     "@nestjs/common": "patch:@nestjs/common@npm%3A10.2.5#~/.yarn/patches/@nestjs-common-npm-10.2.5-816dceeade.patch"
     "@nestjs/core": "npm:10.2.5"
     "@nestjs/testing": "npm:10.2.5"

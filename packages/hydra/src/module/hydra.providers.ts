@@ -1,9 +1,9 @@
 import { Provider }             from '@nestjs/common'
 
-import { Configuration }        from '../client'
-import { HydraAdminApi }        from '../client'
-import { HydraModuleOptions }   from './hydra-module-options.interface'
-import { HYDRA_MODULE_OPTIONS } from './hydra.constants'
+import { Configuration }        from '../client/index.js'
+import { HydraAdminApi }        from '../client/index.js'
+import { HydraModuleOptions }   from './hydra-module-options.interface.js'
+import { HYDRA_MODULE_OPTIONS } from './hydra.constants.js'
 
 export const createHydraOptionsProvider = (options: HydraModuleOptions): Provider[] => [
   {
