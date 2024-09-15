@@ -1,9 +1,9 @@
 import { Provider }                         from '@nestjs/common'
 
-import { TypeOrmListenersBuilder }          from '../typeorm'
-import { EntityToDocumentMapper }           from '../typesense'
-import { TypesenseTypeOrmModuleOptions }    from './typesense-typeorm-module.interface'
-import { TYPESENSE_TYPEORM_MODULE_OPTIONS } from './typesense-typeorm.constants'
+import { TypeOrmListenersBuilder }          from '../typeorm/index.js'
+import { EntityToDocumentMapper }           from '../typesense/index.js'
+import { TypesenseTypeOrmModuleOptions }    from './typesense-typeorm-module.interface.js'
+import { TYPESENSE_TYPEORM_MODULE_OPTIONS } from './typesense-typeorm.constants.js'
 
 export const createTypesenseTypeOrmOptionsProvider = (
   options: TypesenseTypeOrmModuleOptions = {}

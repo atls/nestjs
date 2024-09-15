@@ -1,16 +1,22 @@
-import { INestApplication }                  from '@nestjs/common'
-import { Test }                              from '@nestjs/testing'
-import { getRepositoryToken }                from '@nestjs/typeorm'
-import { GenericContainer }                  from 'testcontainers'
-import { StartedTestContainer }              from 'testcontainers'
-import { Wait }                              from 'testcontainers'
-import { Repository }                        from 'typeorm'
-import { Client }                            from 'typesense'
+import { INestApplication }                                from '@nestjs/common'
+import { Test }                                            from '@nestjs/testing'
+import { jest }                                            from '@jest/globals'
+import { describe }                                  from '@jest/globals'
+import { beforeAll }                       from '@jest/globals'
+import { it }                   from '@jest/globals'
+import { expect }           from '@jest/globals'
+import { afterAll } from '@jest/globals'
+import { getRepositoryToken }                              from '@nestjs/typeorm'
+import { GenericContainer }                                from 'testcontainers'
+import { StartedTestContainer }                            from 'testcontainers'
+import { Wait }                                            from 'testcontainers'
+import { Repository }                                      from 'typeorm'
+import { Client }                                          from 'typesense'
 
-import { TYPESENSE_MODULE_OPTIONS }          from '@atls/nestjs-typesense'
+import { TYPESENSE_MODULE_OPTIONS }                        from '@atls/nestjs-typesense'
 
-import { TypesenseTypeOrmIntegrationModule } from './src'
-import { TestEntity }                        from './src/test.entity'
+import { TypesenseTypeOrmIntegrationModule }               from './src/index.js'
+import { TestEntity }                                      from './src/test.entity.js'
 
 jest.setTimeout(30000)
 

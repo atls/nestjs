@@ -1,14 +1,12 @@
 /* eslint-disable max-classes-per-file */
 
-import { describe }             from '@jest/globals'
+import { describe }       from '@jest/globals'
+import { it }             from '@jest/globals'
+import { expect }         from '@jest/globals'
 
-import { it }         from '@jest/globals'
-
-import { expect } from '@jest/globals'
-
-import { Field }                from './field.decorator.js'
-import { FIELD_METADATA }       from './field.decorator.js'
-import { Schema }               from './schema.decorator.js'
+import { Field }          from './field.decorator.js'
+import { FIELD_METADATA } from './field.decorator.js'
+import { Schema }         from './schema.decorator.js'
 
 describe('typesense', () => {
   describe('decorators', () => {

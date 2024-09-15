@@ -1,1 +1,1 @@
-export * from './entity-to-document.mapper'
+export * from './entity-to-document.mapper.js'
