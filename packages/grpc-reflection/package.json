@@ -19,32 +19,33 @@
     "proto:lint": "buf lint"
   },
   "dependencies": {
-    "@grpc/grpc-js": "1.9.1",
-    "@grpc/proto-loader": "0.7.10",
+    "@grpc/grpc-js": "1.11.2",
+    "@grpc/proto-loader": "0.7.13",
     "@monstrs/types-import-proto": "0.0.1",
     "google-protobuf": "3.21.2",
-    "protobufjs": "7.2.5"
+    "protobufjs": "7.4.0"
   },
   "devDependencies": {
-    "@jest/globals": "^29.7.0",
-    "@nestjs/common": "patch:@nestjs/common@npm%3A10.2.5#~/.yarn/patches/@nestjs-common-npm-10.2.5-816dceeade.patch",
-    "@nestjs/core": "10.2.5",
-    "@nestjs/microservices": "10.2.5",
-    "@nestjs/testing": "10.2.5",
+    "@jest/globals": "29.7.0",
+    "@nestjs/common": "10.4.1",
+    "@nestjs/core": "10.4.1",
+    "@nestjs/microservices": "10.4.1",
+    "@nestjs/testing": "10.4.1",
+    "@types/google-protobuf": "3.15.12",
     "@types/long": "5.0.0",
-    "get-port": "5.1.1",
+    "get-port": "7.1.0",
     "long": "5.2.3",
-    "reflect-metadata": "0.1.13",
+    "reflect-metadata": "0.2.2",
     "rxjs": "7.8.1",
-    "supertest": "6.3.3",
+    "supertest": "6.3.4",
     "ts-proto": "1.156.7"
   },
   "peerDependencies": {
-    "@nestjs/common": "10.2.5",
-    "@nestjs/core": "10.2.5",
-    "@nestjs/microservices": "10.2.5",
-    "reflect-metadata": "0.1.13",
-    "rxjs": "7.8.1"
+    "@nestjs/common": "10",
+    "@nestjs/core": "10",
+    "@nestjs/microservices": "10",
+    "reflect-metadata": "0.2",
+    "rxjs": "7"
   },
   "publishConfig": {
     "exports": {

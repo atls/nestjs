@@ -32,7 +32,7 @@ import { GraphQLJSON }                                     from 'graphql-scalars
 import { AnyNestedObject }                                 from 'protobufjs'
 import { IParseOptions }                                   from 'protobufjs'
 import { Message }                                         from 'protobufjs'
-import { RootConstructor }                                 from 'protobufjs'
+import { Constructor }                                 from 'protobufjs'
 import { IFileDescriptorSet }                              from 'protobufjs/ext/descriptor'
 import { promises as fsPromises }                          from 'fs'
 import { specifiedDirectives }                             from 'graphql'
@@ -146,7 +146,8 @@ module.exports = {
             descriptorSetBuffer
           ) as DecodedDescriptorSet
         }
-        const rootFromDescriptor = (Root as RootConstructor).fromDescriptor(decodedDescriptorSet)
+        // @ts-ignore
+        const rootFromDescriptor = (Root as Constructor).fromDescriptor(decodedDescriptorSet)
         appendRoot(rootFromDescriptor)
       }
 
@@ -189,6 +190,7 @@ module.exports = {
         rootJson: root.toJSON({
           keepComments: true,
         }),
+        // @ts-ignore
         decodedDescriptorSet: root.toDescriptor('proto3'),
       }
     })
@@ -285,6 +287,7 @@ module.exports = {
         }
         const commentMap = (nested as any).comments
         for (const [key, value] of Object.entries(nested.values)) {
+          // @ts-ignore
           enumTypeConfig.values[key] = {
             value,
             description: commentMap?.[key],

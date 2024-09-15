@@ -6,11 +6,11 @@ import { CanActivate }              from '@nestjs/common'
 import { Reflector }                from '@nestjs/core'
 import { GqlExecutionContext }      from '@nestjs/graphql'
 
-import { KetoGeneralException }     from '../exceptions'
-import { KETO_READ_CLIENT }         from '../module'
-import { KetoReadClientService }    from '../services'
-import { RelationTupleConverter }   from '../utils'
-import { getGuardingRelationTuple } from '../decorators'
+import { KetoGeneralException }     from '../exceptions/index.js'
+import { KETO_READ_CLIENT }         from '../module/index.js'
+import { KetoReadClientService }    from '../services/index.js'
+import { RelationTupleConverter }   from '../utils/index.js'
+import { getGuardingRelationTuple } from '../decorators/index.js'
 
 @Injectable()
 export class KetoGuard implements CanActivate {

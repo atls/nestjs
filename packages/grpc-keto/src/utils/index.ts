@@ -1,1 +1,1 @@
-export * from './relation-tuple-converter'
+export * from './relation-tuple-converter.js'

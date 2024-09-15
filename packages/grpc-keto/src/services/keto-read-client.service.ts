@@ -1,10 +1,11 @@
 import { Inject }                 from '@nestjs/common'
 import { Injectable }             from '@nestjs/common'
+// @ts-ignore
 import { CheckRequest }           from '@ory/keto-grpc-client/ory/keto/relation_tuples/v1alpha2/check_service_pb'
 
-import { KetoGeneralException }   from '../exceptions'
-import { KETO_CHECK_CLIENT }      from '../module'
-import { KetoCheckClientService } from './keto-check-client.service'
+import { KetoGeneralException }   from '../exceptions/index.js'
+import { KETO_CHECK_CLIENT }      from '../module/index.js'
+import { KetoCheckClientService } from './keto-check-client.service.js'
 
 @Injectable()
 export class KetoReadClientService {
@@ -15,6 +16,7 @@ export class KetoReadClientService {
   async validateRelationTuple(checkRequest: CheckRequest): Promise<boolean> {
     try {
       return new Promise((resolve) => {
+        // @ts-ignore
         this.checkServiceClient.check(checkRequest, (error, response) => {
           if (error) throw error
 
