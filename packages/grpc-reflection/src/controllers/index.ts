@@ -1,1 +1,1 @@
-export * from './grpc-reflection.controller'
+export * from './grpc-reflection.controller.js'

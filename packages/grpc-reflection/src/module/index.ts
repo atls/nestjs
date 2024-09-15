@@ -1,3 +1,3 @@
-export * from './grpc-reflection-module-options.interface'
-export * from './grpc-reflection.constants'
-export * from './grpc-reflection.module'
+export * from './grpc-reflection-module-options.interface.js'
+export * from './grpc-reflection.constants.js'
+export * from './grpc-reflection.module.js'

@@ -1,9 +1,9 @@
 import { Provider }                       from '@nestjs/common'
 
-import { GrpcServicesRegistry }           from '../grpc'
-import { GrpcReflector }                  from '../grpc'
-import { GrpcReflectionModuleOptions }    from './grpc-reflection-module-options.interface'
-import { GRPC_REFLECTION_MODULE_OPTIONS } from './grpc-reflection.constants'
+import { GrpcServicesRegistry }           from '../grpc/index.js'
+import { GrpcReflector }                  from '../grpc/index.js'
+import { GrpcReflectionModuleOptions }    from './grpc-reflection-module-options.interface.js'
+import { GRPC_REFLECTION_MODULE_OPTIONS } from './grpc-reflection.constants.js'
 
 export const createGrpcReflectionOptionsProvider = (
   options: GrpcReflectionModuleOptions
