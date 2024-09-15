@@ -1,7 +1,14 @@
-import { SubjectSet }             from '@ory/keto-client'
+import { SubjectSet }                      from '@ory/keto-client'
+import { describe }                        from '@jest/globals'
 
-import { RelationShipTuple }      from '../module'
-import { RelationTupleConverter } from './relation-tuple-converter'
+import { beforeAll }             from '@jest/globals'
+
+import { it }         from '@jest/globals'
+
+import { expect } from '@jest/globals'
+
+import { RelationShipTuple }               from '../module/index.js'
+import { RelationTupleConverter }          from './relation-tuple-converter.js'
 
 describe('Keto relation tuple converter', () => {
   let stringConverter: RelationTupleConverter

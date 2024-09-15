@@ -1,7 +1,7 @@
 import { Module }                    from '@nestjs/common'
 
-import { KetoModule }                from '../../src'
-import { KetoIntegrationController } from './keto-integration.controller'
+import { KetoModule }                from '../../src/index.js'
+import { KetoIntegrationController } from './keto-integration.controller.js'
 
 @Module({
   imports: [
