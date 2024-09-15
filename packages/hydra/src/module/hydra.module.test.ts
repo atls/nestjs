@@ -1,15 +1,23 @@
 /* eslint-disable max-classes-per-file */
 
-import { Module }               from '@nestjs/common'
-import { Test }                 from '@nestjs/testing'
+import { Module }                          from '@nestjs/common'
+import { Test }                            from '@nestjs/testing'
+import { TestingModule }             from '@nestjs/testing'
+import { describe }                        from '@jest/globals'
 
-import { HydraModuleOptions }   from './hydra-module-options.interface'
-import { HYDRA_MODULE_OPTIONS } from './hydra.constants'
-import { HydraModule }          from './hydra.module'
+import { afterEach }             from '@jest/globals'
+
+import { it }         from '@jest/globals'
+
+import { expect } from '@jest/globals'
+
+import { HydraModuleOptions }              from './hydra-module-options.interface.js'
+import { HYDRA_MODULE_OPTIONS }            from './hydra.constants.js'
+import { HydraModule }                     from './hydra.module.js'
 
 describe('hydra', () => {
   describe('module', () => {
-    let module
+    let module: TestingModule
 
     afterEach(async () => {
       await module.close()

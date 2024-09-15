@@ -1,1 +1,1 @@
-export * from './hydra-env.config'
+export * from './hydra-env.config.js'
