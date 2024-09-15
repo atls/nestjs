@@ -2,20 +2,30 @@
 
 import 'reflect-metadata'
 
-import { Module }                    from '@nestjs/common'
-import { DiscoveryModule }           from '@nestjs/core'
-import { Test }                      from '@nestjs/testing'
+import { Module }                                      from '@nestjs/common'
+import { DiscoveryModule }                             from '@nestjs/core'
+import { Test }                                        from '@nestjs/testing'
+import { TestingModule }                         from '@nestjs/testing'
+import { describe }                                    from '@jest/globals'
 
-import { Schema }                    from '../decorators'
-import { Field }                     from '../decorators'
-import { TypesenseMetadataAccessor } from './typesense.metadata-accessor'
-import { TypesenseMetadataExplorer } from './typesense.metadata-explorer'
-import { TypesenseMetadataRegistry } from './typesense.metadata-registry'
+import { it }                                from '@jest/globals'
+
+import { expect }                        from '@jest/globals'
+
+import { beforeEach }            from '@jest/globals'
+
+import { afterEach } from '@jest/globals'
+
+import { Schema }                                      from '../decorators/index.js'
+import { Field }                                       from '../decorators/index.js'
+import { TypesenseMetadataAccessor }                   from './typesense.metadata-accessor.js'
+import { TypesenseMetadataExplorer }                   from './typesense.metadata-explorer.js'
+import { TypesenseMetadataRegistry }                   from './typesense.metadata-registry.js'
 
 describe('typesense', () => {
   describe('metadata', () => {
     describe('explorer', () => {
-      let module
+      let module: TestingModule
 
       @Module({
         imports: [DiscoveryModule],

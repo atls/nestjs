@@ -1,2 +1,2 @@
-export * from './schema.decorator'
-export * from './field.decorator'
+export * from './schema.decorator.js'
+export * from './field.decorator.js'

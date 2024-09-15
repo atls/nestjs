@@ -1,15 +1,23 @@
 /* eslint-disable max-classes-per-file */
 
-import { Module }                   from '@nestjs/common'
-import { Test }                     from '@nestjs/testing'
+import { Module }                          from '@nestjs/common'
+import { Test }                            from '@nestjs/testing'
+import { TestingModule }             from '@nestjs/testing'
+import { describe }                        from '@jest/globals'
 
-import { TypesenseModuleOptions }   from './typesense-module.interface'
-import { TYPESENSE_MODULE_OPTIONS } from './typesense.constants'
-import { TypesenseModule }          from './typesense.module'
+import { expect }                from '@jest/globals'
+
+import { it }            from '@jest/globals'
+
+import { afterEach } from '@jest/globals'
+
+import { TypesenseModuleOptions }          from './typesense-module.interface.js'
+import { TYPESENSE_MODULE_OPTIONS }        from './typesense.constants.js'
+import { TypesenseModule }                 from './typesense.module.js'
 
 describe('typesense', () => {
   describe('module', () => {
-    let module
+    let module: TestingModule
 
     afterEach(async () => {
       await module.close()

@@ -3,13 +3,13 @@ import { Provider }                       from '@nestjs/common'
 import { Module }                         from '@nestjs/common'
 import { DiscoveryModule }                from '@nestjs/core'
 
-import { TypesenseModuleAsyncOptions }    from './typesense-module.interface'
-import { TypesenseModuleOptions }         from './typesense-module.interface'
-import { TypesenseOptionsFactory }        from './typesense-module.interface'
-import { TYPESENSE_MODULE_OPTIONS }       from './typesense.constants'
-import { createTypesenseExportsProvider } from './typesense.providers'
-import { createTypesenseProvider }        from './typesense.providers'
-import { createTypesenseOptionsProvider } from './typesense.providers'
+import { TypesenseModuleAsyncOptions }    from './typesense-module.interface.js'
+import { TypesenseModuleOptions }         from './typesense-module.interface.js'
+import { TypesenseOptionsFactory }        from './typesense-module.interface.js'
+import { TYPESENSE_MODULE_OPTIONS }       from './typesense.constants.js'
+import { createTypesenseExportsProvider } from './typesense.providers.js'
+import { createTypesenseProvider }        from './typesense.providers.js'
+import { createTypesenseOptionsProvider } from './typesense.providers.js'
 
 @Module({
   imports: [DiscoveryModule],
