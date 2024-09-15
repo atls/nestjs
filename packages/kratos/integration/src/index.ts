@@ -1,1 +1,1 @@
-export * from './kratos-integration.module'
+export * from './kratos-integration.module.js'

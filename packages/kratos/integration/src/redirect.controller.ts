@@ -4,9 +4,9 @@ import { Controller }                from '@nestjs/common'
 import { Get }                       from '@nestjs/common'
 import { UseInterceptors }           from '@nestjs/common'
 
-import { KratosRedirectInterceptor } from '../../src'
-import { Flow }                      from '../../src'
-import { KratosPublicApi }           from '../../src'
+import { KratosRedirectInterceptor } from '../../src/index.js'
+import { Flow }                      from '../../src/index.js'
+import { KratosPublicApi }           from '../../src/index.js'
 
 @Controller('redirect')
 export class RedirectController {

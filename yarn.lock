@@ -621,12 +621,14 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@atls/nestjs-kratos@workspace:packages/kratos"
   dependencies:
+    "@jest/globals": "npm:^29.7.0"
     "@nestjs/common": "patch:@nestjs/common@npm%3A10.2.5#~/.yarn/patches/@nestjs-common-npm-10.2.5-816dceeade.patch"
     "@nestjs/core": "npm:10.2.5"
     "@nestjs/testing": "npm:10.2.5"
     "@ory/kratos-client": "npm:0.5.5-alpha.4"
     "@types/express": "npm:^4.17.13"
     "@types/node": "npm:^17.0.18"
+    "@types/supertest": "npm:^6.0.2"
     express: "npm:^4.17.3"
     get-port: "npm:^5.1.1"
     reflect-metadata: "npm:0.1.13"

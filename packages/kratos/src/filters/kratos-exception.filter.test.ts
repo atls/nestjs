@@ -1,9 +1,16 @@
 import { ArgumentsHost }                   from '@nestjs/common'
-import { HttpArgumentsHost }               from '@nestjs/common/interfaces/features/arguments-host.interface'
+import { HttpArgumentsHost }               from '@nestjs/common/interfaces/features/arguments-host.interface.js'
+import { describe }                        from '@jest/globals'
 
-import { KratosRedirectRequiredException } from '../exceptions'
-import { KratosBrowserUrls }               from '../urls'
-import { KratosExceptionFilter }           from './kratos-expection.filter'
+import { it }                    from '@jest/globals'
+
+import { expect }            from '@jest/globals'
+
+import { jest }      from '@jest/globals'
+
+import { KratosRedirectRequiredException } from '../exceptions/index.js'
+import { KratosBrowserUrls }               from '../urls/index.js'
+import { KratosExceptionFilter }           from './kratos-expection.filter.js'
 
 describe('KratosExceptionFilter', () => {
   it('redirect on KratosFlowRequiredException', async () => {
@@ -54,7 +61,7 @@ describe('KratosExceptionFilter', () => {
         query: {
           return_to: 'http://localhost:3000',
         },
-        header: (name) => {
+        header: (name: string) => {
           if (name === 'x-forwarded-proto') {
             return 'https'
           }

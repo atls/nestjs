@@ -1,15 +1,23 @@
 /* eslint-disable max-classes-per-file */
 
-import { Module }                from '@nestjs/common'
-import { Test }                  from '@nestjs/testing'
+import { Module }                          from '@nestjs/common'
+import { Test }                            from '@nestjs/testing'
+import { TestingModule }             from '@nestjs/testing'
+import { describe }                        from '@jest/globals'
 
-import { KratosModuleOptions }   from './kratos-module-options.interface'
-import { KRATOS_MODULE_OPTIONS } from './kratos.constants'
-import { KratosModule }          from './kratos.module'
+import { it }                    from '@jest/globals'
+
+import { expect }            from '@jest/globals'
+
+import { afterEach } from '@jest/globals'
+
+import { KratosModuleOptions }             from './kratos-module-options.interface.js'
+import { KRATOS_MODULE_OPTIONS }           from './kratos.constants.js'
+import { KratosModule }                    from './kratos.module.js'
 
 describe('kratos', () => {
   describe('module', () => {
-    let module
+    let module: TestingModule
 
     afterEach(async () => {
       await module.close()

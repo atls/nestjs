@@ -1,20 +1,17 @@
 /* eslint-disable max-classes-per-file */
-import { Module }                          from '@nestjs/common'
-import { Test }                            from '@nestjs/testing'
-import { TestingModule }                   from '@nestjs/testing'
-import { describe }                        from '@jest/globals'
+import { Module }                    from '@nestjs/common'
+import { Test }                      from '@nestjs/testing'
+import { TestingModule }             from '@nestjs/testing'
+import { describe }                  from '@jest/globals'
+import { it }                        from '@jest/globals'
+import { expect }                    from '@jest/globals'
+import { afterEach }                 from '@jest/globals'
 
-import { it }                    from '@jest/globals'
-
-import { expect }            from '@jest/globals'
-
-import { afterEach } from '@jest/globals'
-
-import { KetoModuleOptions }               from './keto-module.interfaces.js'
-import { KETO_WRITE_CLIENT }               from './keto.constants.js'
-import { KETO_READ_CLIENT }                from './keto.constants.js'
-import { KETO_MODULE_CONFIGURATION }       from './keto.constants.js'
-import { KetoModule }                      from './keto.module.js'
+import { KetoModuleOptions }         from './keto-module.interfaces.js'
+import { KETO_WRITE_CLIENT }         from './keto.constants.js'
+import { KETO_READ_CLIENT }          from './keto.constants.js'
+import { KETO_MODULE_CONFIGURATION } from './keto.constants.js'
+import { KetoModule }                from './keto.module.js'
 
 describe('Keto module', () => {
   let module: TestingModule

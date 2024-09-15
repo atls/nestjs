@@ -4,9 +4,9 @@ import { Catch }                           from '@nestjs/common'
 import { ExceptionFilter }                 from '@nestjs/common'
 import { join }                            from 'path'
 
-import { KratosRedirectRequiredException } from '../exceptions'
-import { KRATOS_BROWSER_URLS }             from '../module'
-import { KratosBrowserUrls }               from '../urls'
+import { KratosRedirectRequiredException } from '../exceptions/index.js'
+import { KRATOS_BROWSER_URLS }             from '../module/index.js'
+import { KratosBrowserUrls }               from '../urls/index.js'
 
 @Catch(KratosRedirectRequiredException)
 export class KratosExceptionFilter implements ExceptionFilter {

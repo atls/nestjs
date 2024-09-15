@@ -1,1 +1,1 @@
-export * from './kratos-expection.filter'
+export * from './kratos-expection.filter.js'
