@@ -542,6 +542,7 @@ const RAW_RUNTIME_STATE =
           ["@graphql-tools/utils", "virtual:7e92e9787114a7b5cad0a5f62eab65f5552eaa55e0bbf8c35384f1f5ddb8dc3522c69e8798fe152309c58a778d55f7af8a4bd45e696640c7f97f8bb04d05a712#npm:8.13.1"],\
           ["@grpc/grpc-js", "npm:1.11.2"],\
           ["@grpc/proto-loader", "npm:0.6.13"],\
+          ["@jest/globals", "npm:29.7.0"],\
           ["@nestjs/common", "virtual:7e92e9787114a7b5cad0a5f62eab65f5552eaa55e0bbf8c35384f1f5ddb8dc3522c69e8798fe152309c58a778d55f7af8a4bd45e696640c7f97f8bb04d05a712#patch:@nestjs/common@npm%3A10.2.5#~/.yarn/patches/@nestjs-common-npm-10.2.5-816dceeade.patch::version=10.2.5&hash=b1d2d6"],\
           ["@nestjs/core", "virtual:7e92e9787114a7b5cad0a5f62eab65f5552eaa55e0bbf8c35384f1f5ddb8dc3522c69e8798fe152309c58a778d55f7af8a4bd45e696640c7f97f8bb04d05a712#npm:10.2.5"],\
           ["@nestjs/microservices", "virtual:7e92e9787114a7b5cad0a5f62eab65f5552eaa55e0bbf8c35384f1f5ddb8dc3522c69e8798fe152309c58a778d55f7af8a4bd45e696640c7f97f8bb04d05a712#npm:10.2.5"],\
@@ -549,6 +550,8 @@ const RAW_RUNTIME_STATE =
           ["@types/lodash", "npm:4.17.7"],\
           ["@types/long", "npm:4.0.2"],\
           ["@types/node", "npm:17.0.45"],\
+          ["@types/supertest", "npm:6.0.2"],\
+          ["@types/ws", "npm:8.5.12"],\
           ["apollo-server-express", "virtual:7e92e9787114a7b5cad0a5f62eab65f5552eaa55e0bbf8c35384f1f5ddb8dc3522c69e8798fe152309c58a778d55f7af8a4bd45e696640c7f97f8bb04d05a712#npm:2.26.2"],\
           ["get-port", "npm:5.1.1"],\
           ["globby", "npm:11.0.4"],\
@@ -8804,6 +8807,14 @@ const RAW_RUNTIME_STATE =
         "packageLocation": "../.yarn/berry/cache/@types-ws-npm-7.4.7-d0c95c0958-10c0.zip/node_modules/@types/ws/",\
         "packageDependencies": [\
           ["@types/ws", "npm:7.4.7"],\
+          ["@types/node", "npm:22.5.4"]\
+        ],\
+        "linkType": "HARD"\
+      }],\
+      ["npm:8.5.12", {\
+        "packageLocation": "../.yarn/berry/cache/@types-ws-npm-8.5.12-90c42288cf-10c0.zip/node_modules/@types/ws/",\
+        "packageDependencies": [\
+          ["@types/ws", "npm:8.5.12"],\
           ["@types/node", "npm:22.5.4"]\
         ],\
         "linkType": "HARD"\

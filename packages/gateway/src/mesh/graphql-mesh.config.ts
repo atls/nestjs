@@ -1,35 +1,53 @@
 /* eslint-disable no-else-return */
 
+// @ts-ignore
 import { GetMeshOptions }              from '@graphql-mesh/runtime'
+// @ts-ignore
 import { InMemoryStoreStorageAdapter } from '@graphql-mesh/store'
+// @ts-ignore
 import { MeshStore }                   from '@graphql-mesh/store'
+// @ts-ignore
 import { MeshTransform }               from '@graphql-mesh/types'
 import { Inject }                      from '@nestjs/common'
 import { Injectable }                  from '@nestjs/common'
+// @ts-ignore
 import { resolveAdditionalTypeDefs }   from '@graphql-mesh/config'
+// @ts-ignore
 import { getDefaultSyncImport }        from '@graphql-mesh/utils'
+// @ts-ignore
 import { resolveAdditionalResolvers }  from '@graphql-mesh/utils'
+// @ts-ignore
 import InMemoryLRUCache                from '@graphql-mesh/cache-inmemory-lru'
+// @ts-ignore
 import StitchingMerger                 from '@graphql-mesh/merger-stitching'
+// @ts-ignore
 import CacheTransform                  from '@graphql-mesh/transform-cache'
+// @ts-ignore
 import EncapsulateTransform            from '@graphql-mesh/transform-encapsulate'
+// @ts-ignore
 import FilterTransform                 from '@graphql-mesh/transform-filter-schema'
+// @ts-ignore
 import MockingTransform                from '@graphql-mesh/transform-mock'
+// @ts-ignore
 import NamingConventionTransform       from '@graphql-mesh/transform-naming-convention'
+// @ts-ignore
 import PrefixTransform                 from '@graphql-mesh/transform-prefix'
+// @ts-ignore
 import RenameTransform                 from '@graphql-mesh/transform-rename'
+// @ts-ignore
 import ResolversCompositionTransform   from '@graphql-mesh/transform-resolvers-composition'
+// @ts-ignore
 import SnapshotTransform               from '@graphql-mesh/transform-snapshot'
 import { PubSub }                      from 'graphql-subscriptions'
 import { join }                        from 'path'
 
-import { GatewaySourceType }           from '../enums'
-import { GATEWAY_MODULE_OPTIONS }      from '../module'
-import { GatewayModuleOptions }        from '../module'
-import { SourceOptions }               from '../module'
-import { SourceTransformsOptions }     from '../module'
-import { GraphQLMeshLogger }           from './graphql-mesh.logger'
-import GrpcHandler                     from './handlers/grpc/grpc.handler'
+import { GatewaySourceType }           from '../enums/index.js'
+import { GATEWAY_MODULE_OPTIONS }      from '../module/index.js'
+import { GatewayModuleOptions }        from '../module/index.js'
+import { SourceOptions }               from '../module/index.js'
+import { SourceTransformsOptions }     from '../module/index.js'
+import { GraphQLMeshLogger }           from './graphql-mesh.logger.js'
+import GrpcHandler                     from './handlers/grpc/grpc.handler.js'
 
 @Injectable()
 export class GraphQLMeshConfig {
@@ -97,6 +115,7 @@ export class GraphQLMeshConfig {
   }
 
   protected createSources() {
+    // @ts-ignore
     return (this.options.sources || []).map((source) => ({
       name: source.name,
       handler: this.createHandler(source),
@@ -107,6 +126,7 @@ export class GraphQLMeshConfig {
   protected createHandler(source: SourceOptions) {
     if (source.type === GatewaySourceType.GRPC) {
       return new GrpcHandler({
+        // @ts-ignore
         name: source.name,
         config: source.handler,
         cache: this.cache,

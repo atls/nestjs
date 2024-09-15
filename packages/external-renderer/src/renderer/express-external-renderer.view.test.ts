@@ -1,15 +1,15 @@
 /* eslint-disable no-promise-executor-return */
 
-import { jest }                                             from '@jest/globals'
-import { expect }                                     from '@jest/globals'
-import { it }                                 from '@jest/globals'
-import { describe }                       from '@jest/globals'
-import { beforeAll }            from '@jest/globals'
-import { afterEach } from '@jest/globals'
-import { Response }                                         from 'node-fetch'
-import fetch                                                from 'node-fetch'
+import { jest }                        from '@jest/globals'
+import { expect }                      from '@jest/globals'
+import { it }                          from '@jest/globals'
+import { describe }                    from '@jest/globals'
+import { beforeAll }                   from '@jest/globals'
+import { afterEach }                   from '@jest/globals'
+import { Response }                    from 'node-fetch'
+import fetch                           from 'node-fetch'
 
-import { ExpressExternalRendererView }                      from './express-external-renderer.view.js'
+import { ExpressExternalRendererView } from './express-external-renderer.view.js'
 
 jest.mock('node-fetch')
 

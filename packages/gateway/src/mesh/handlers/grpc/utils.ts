@@ -2,6 +2,7 @@ import { ClientReadableStream } from '@grpc/grpc-js'
 import { ClientUnaryCall }      from '@grpc/grpc-js'
 import { Metadata }             from '@grpc/grpc-js'
 import { MetadataValue }        from '@grpc/grpc-js'
+// @ts-ignore
 import { jsonFlatStringify }    from '@graphql-mesh/utils'
 import { SchemaComposer }       from 'graphql-compose'
 import { Root }                 from 'protobufjs'
@@ -10,8 +11,8 @@ import { isAbsolute }           from 'path'
 import { join }                 from 'path'
 import _                        from 'lodash'
 
-import { getGraphQLScalar }     from './scalars'
-import { isScalarType }         from './scalars'
+import { getGraphQLScalar }     from './scalars.js'
+import { isScalarType }         from './scalars.js'
 
 export type ClientMethod = (
   input: unknown,
