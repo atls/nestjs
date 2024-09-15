@@ -1,1 +1,1 @@
-export * from './grpc-playground.controller'
+export * from './grpc-playground.controller.js'

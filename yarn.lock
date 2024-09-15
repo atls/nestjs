@@ -512,10 +512,13 @@ __metadata:
   dependencies:
     "@atls/nestjs-grpc-http-proxy": "workspace:*"
     "@atls/nestjs-grpc-reflection": "workspace:*"
+    "@jest/globals": "npm:^29.7.0"
     "@nestjs/common": "patch:@nestjs/common@npm%3A10.2.5#~/.yarn/patches/@nestjs-common-npm-10.2.5-816dceeade.patch"
     "@nestjs/core": "npm:10.2.5"
     "@nestjs/microservices": "npm:10.2.5"
     "@nestjs/testing": "npm:10.2.5"
+    "@types/node-fetch": "npm:^2.6.11"
+    "@types/supertest": "npm:^6.0.2"
     get-port: "npm:5.1.1"
     node-fetch: "npm:2.7.0"
     reflect-metadata: "npm:0.1.13"
