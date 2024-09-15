@@ -3,7 +3,8 @@ import { TestingModule }        from '@nestjs/testing'
 import { Test }                 from '@nestjs/testing'
 import { TypeOrmModule }        from '@nestjs/typeorm'
 
-import { TypeOrmSeedingModule } from './typeorm-seeding.module'
+import { TypeOrmSeedingModule } from './typeorm-seeding.module.js'
+import { describe, afterEach, it, expect } from '@jest/globals'
 
 describe('typeorm-seeding', () => {
   describe('module', () => {
