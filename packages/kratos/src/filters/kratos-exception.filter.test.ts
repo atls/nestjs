@@ -1,12 +1,9 @@
 import { ArgumentsHost }                   from '@nestjs/common'
 import { HttpArgumentsHost }               from '@nestjs/common/interfaces/features/arguments-host.interface.js'
 import { describe }                        from '@jest/globals'
-
-import { it }                    from '@jest/globals'
-
-import { expect }            from '@jest/globals'
-
-import { jest }      from '@jest/globals'
+import { it }                              from '@jest/globals'
+import { expect }                          from '@jest/globals'
+import { jest }                            from '@jest/globals'
 
 import { KratosRedirectRequiredException } from '../exceptions/index.js'
 import { KratosBrowserUrls }               from '../urls/index.js'
