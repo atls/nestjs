@@ -304,6 +304,7 @@ const RAW_RUNTIME_STATE =
         "packageDependencies": [\
           ["@atlantis-lab/nestjs-signed-url", "workspace:packages/signed-url"],\
           ["@google-cloud/storage", "npm:5.7.2"],\
+          ["@jest/globals", "npm:29.7.0"],\
           ["@nestjs/common", "virtual:03b6af22cb80149b513f081c991b2ee015111d59bbeac45ddf1903895b7fd87d34f48a2f3c80a4ef3aface38a0df360e482b938a22fb0c3db73366f989167c03#patch:@nestjs/common@npm%3A10.2.5#~/.yarn/patches/@nestjs-common-npm-10.2.5-816dceeade.patch::version=10.2.5&hash=b1d2d6"],\
           ["@nestjs/core", "virtual:ce6e270dd1a913383e665adba70cc98d266ccaf9b82d6842ca76d9a267595f17392335d4f77efe1fba88c49b9f83113b77096a14512ffbac711a190b6046caa1#npm:10.2.5"],\
           ["@nestjs/testing", "virtual:ce6e270dd1a913383e665adba70cc98d266ccaf9b82d6842ca76d9a267595f17392335d4f77efe1fba88c49b9f83113b77096a14512ffbac711a190b6046caa1#npm:10.2.5"],\

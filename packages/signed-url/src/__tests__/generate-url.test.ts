@@ -1,9 +1,18 @@
-import { Test }             from '@nestjs/testing'
+import { Test }                                   from '@nestjs/testing'
+import { describe }                               from '@jest/globals'
 
-import { SignedUrlService } from '../index'
-import { GcsStorage }       from '../storage'
-import { STORAGE }          from '../storage'
-import { SignedUrl }        from '../storage'
+import { expect }                       from '@jest/globals'
+
+import { it }                   from '@jest/globals'
+
+import { beforeEach }       from '@jest/globals'
+
+import { jest } from '@jest/globals'
+
+import { SignedUrlService }                       from '../index.js'
+import { GcsStorage }                             from '../storage/index.js'
+import { STORAGE }                                from '../storage/index.js'
+import { SignedUrl }                              from '../storage/index.js'
 
 describe('SignedUrlService', () => {
   let signedUrlService: SignedUrlService
