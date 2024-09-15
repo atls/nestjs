@@ -8,11 +8,10 @@ import { ClientsModule }                 from '@nestjs/microservices'
 import { Transport }                     from '@nestjs/microservices'
 import { Test }                          from '@nestjs/testing'
 import { status }                        from '@grpc/grpc-js'
-
-import getPort                           from 'get-port'
 import { readFileSync }                  from 'fs'
 import { sign }                          from 'jsonwebtoken'
 import { join }                          from 'path'
+import getPort                           from 'get-port'
 
 import { GrpcIdentityIntegrationModule } from './src'
 import { serverOptions }                 from './src'

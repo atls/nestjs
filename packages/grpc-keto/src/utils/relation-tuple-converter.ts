@@ -11,7 +11,10 @@ export class RelationTupleConverter {
 
   private tupleString: string
 
-  constructor(private readonly tuple: Tuple, private readonly replacement: string = '') {
+  constructor(
+    private readonly tuple: Tuple,
+    private readonly replacement: string = ''
+  ) {
     this.checkRequest = new CheckRequest()
 
     this.convertToString()

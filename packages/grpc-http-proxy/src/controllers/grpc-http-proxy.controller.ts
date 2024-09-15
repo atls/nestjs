@@ -7,7 +7,6 @@ import { Param }                 from '@nestjs/common'
 import { Header }                from '@nestjs/common'
 import { Req }                   from '@nestjs/common'
 import { Res }                   from '@nestjs/common'
-
 import BJSON                     from 'buffer-json'
 
 import { AuthenticationService } from '../authenticators'

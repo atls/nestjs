@@ -5,13 +5,12 @@
 import { INestApplication }      from '@nestjs/common'
 import { TestingModule }         from '@nestjs/testing'
 import { Test }                  from '@nestjs/testing'
-import getPort                   from 'get-port'
-
-import request                   from 'supertest'
 import { Network }               from 'testcontainers'
 import { Wait }                  from 'testcontainers'
 import { StartedTestContainer }  from 'testcontainers'
 import { GenericContainer }      from 'testcontainers'
+import getPort                   from 'get-port'
+import request                   from 'supertest'
 
 import { KETO_MODULE_OPTIONS }   from '../../src'
 import { KetoIntegrationModule } from '../src'

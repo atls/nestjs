@@ -1,6 +1,5 @@
 import { ServiceDefinition }   from '@grpc/proto-loader'
 import { Injectable }          from '@nestjs/common'
-
 import { FileDescriptorProto } from 'google-protobuf/google/protobuf/descriptor_pb'
 
 @Injectable()

@@ -4,7 +4,6 @@
 import { OnModuleInit }              from '@nestjs/common'
 import { Injectable }                from '@nestjs/common'
 import { printSchemaWithDirectives } from '@graphql-tools/utils'
-
 import { promises as fs }            from 'fs'
 import { join }                      from 'path'
 

@@ -6,11 +6,10 @@ import { INestMicroservice }               from '@nestjs/common'
 import { ClientsModule }                   from '@nestjs/microservices'
 import { Transport }                       from '@nestjs/microservices'
 import { Test }                            from '@nestjs/testing'
-
-import getPort                             from 'get-port'
-import path                                from 'path'
 import { FileDescriptorProto }             from 'google-protobuf/google/protobuf/descriptor_pb'
 import { ReplaySubject }                   from 'rxjs'
+import getPort                             from 'get-port'
+import path                                from 'path'
 
 import { ServerReflectionClient }          from '../../src'
 import { ServerReflectionRequest }         from '../../src'

@@ -5,7 +5,6 @@
 import { INestApplication }               from '@nestjs/common'
 import { INestMicroservice }              from '@nestjs/common'
 import { Test }                           from '@nestjs/testing'
-
 import getPort                            from 'get-port'
 import request                            from 'supertest'
 

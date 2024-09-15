@@ -5,7 +5,6 @@ import { YamlConfig }        from '@graphql-mesh/types'
 import { ChannelOptions }    from '@grpc/grpc-js'
 import { ModuleMetadata }    from '@nestjs/common/interfaces'
 import { Type }              from '@nestjs/common/interfaces'
-
 import { PlaygroundConfig }  from 'apollo-server-express'
 
 import { GatewaySourceType } from '../enums'

@@ -1,1 +1,1 @@
-export * from './nest-dataloader.interfaces'
+export * from './nest-dataloader.interfaces.js'
