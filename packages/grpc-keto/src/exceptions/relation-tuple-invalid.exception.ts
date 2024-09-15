@@ -1,6 +1,6 @@
 import { AssertionError }       from 'assert'
 
-import { KetoExceptionMessage } from './exception-message.constants'
+import { KetoExceptionMessage } from './exception-message.constants.js'
 
 export class KetoRelationTupleInvalidException extends AssertionError {
   constructor() {

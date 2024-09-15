@@ -25,6 +25,7 @@ export class ProtoRegistry implements OnApplicationBootstrap {
       : [this.options.options.protoPath]
 
     this.definitions = await Promise.all(
+      // @ts-ignore
       protoPaths.map(async (protoPath: string) => {
         const packageDefinition = await load(protoPath, this.options.options.loader)
 

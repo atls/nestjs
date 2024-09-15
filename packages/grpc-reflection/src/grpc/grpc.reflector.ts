@@ -27,6 +27,7 @@ export class GrpcReflector implements OnModuleInit {
       : [this.options.protoPath]
 
     for (const protoPath of protoPaths) {
+      // @ts-ignore
       const packageDefinition = loadSync(protoPath, this.options.loader)
       const grpcContext = loadPackageDefinition(packageDefinition)
 

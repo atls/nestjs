@@ -1,6 +1,7 @@
 {
   "name": "nestjs",
   "private": true,
+  "type": "module",
   "license": "BSD-3 Clause",
   "workspaces": [
     "packages/**/*",
