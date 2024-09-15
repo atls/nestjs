@@ -1,1 +1,1 @@
-export * from './playground.module'
+export * from './playground.module.js'

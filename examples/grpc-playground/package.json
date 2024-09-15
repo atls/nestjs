@@ -3,6 +3,7 @@
   "version": "0.0.1",
   "private": true,
   "license": "BSD 3-Clause",
+  "type": "module",
   "scripts": {
     "dev": "yarn service dev",
     "proto:generate": "buf generate",
@@ -11,18 +12,18 @@
   "dependencies": {
     "@atls/nestjs-grpc-playground": "workspace:*",
     "@atls/nestjs-grpc-reflection": "workspace:*",
-    "@grpc/grpc-js": "^1.3.7",
-    "@grpc/proto-loader": "^0.6.4",
-    "@nestjs/common": "patch:@nestjs/common@npm%3A10.2.5#~/.yarn/patches/@nestjs-common-npm-10.2.5-816dceeade.patch",
-    "@nestjs/core": "10.2.5",
-    "@nestjs/microservices": "10.2.5",
-    "@nestjs/testing": "10.2.5",
-    "@types/long": "^4.0.1",
-    "google-protobuf": "^3.17.3",
-    "long": "^4.0.0",
-    "protobufjs": "^6.11.2",
-    "reflect-metadata": "0.1.13",
-    "rxjs": "7.5.4"
+    "@grpc/grpc-js": "1.11.2",
+    "@grpc/proto-loader": "0.7.13",
+    "@nestjs/common": "10.4.1",
+    "@nestjs/core": "10.4.1",
+    "@nestjs/microservices": "10.4.1",
+    "@nestjs/testing": "10.4.1",
+    "@types/long": "4.0.2",
+    "google-protobuf": "3.21.4",
+    "long": "4.0.0",
+    "protobufjs": "6.11.4",
+    "reflect-metadata": "0.2.2",
+    "rxjs": "7.8.1"
   },
   "externalDependencies": {
     "@nestjs/common/utils/load-package.util": "*"
