@@ -506,7 +506,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@atls/nestjs-grpc-playground@workspace:packages/grpc-playground":
+"@atls/nestjs-grpc-playground@workspace:*, @atls/nestjs-grpc-playground@workspace:packages/grpc-playground":
   version: 0.0.0-use.local
   resolution: "@atls/nestjs-grpc-playground@workspace:packages/grpc-playground"
   dependencies:
@@ -1235,6 +1235,68 @@ __metadata:
   checksum: 10c0/9a518bb8625ba3350613903a6d8c622352ab0c6557a59fe6ff6178bf882bf57123f9d92aa826ee8ac3ee74b9c6203fe630e9ee00efb03d753962dcf65ee4bd94
   languageName: node
   linkType: hard
+
+"@examples/grpc-http-proxy@workspace:examples/grpc-http-proxy":
+  version: 0.0.0-use.local
+  resolution: "@examples/grpc-http-proxy@workspace:examples/grpc-http-proxy"
+  dependencies:
+    "@atls/nestjs-grpc-http-proxy": "workspace:*"
+    "@atls/nestjs-grpc-reflection": "workspace:*"
+    "@grpc/grpc-js": "npm:1.11.2"
+    "@grpc/proto-loader": "npm:0.7.13"
+    "@nestjs/common": "npm:10.4.1"
+    "@nestjs/core": "npm:10.4.1"
+    "@nestjs/microservices": "npm:10.4.1"
+    "@nestjs/testing": "npm:10.4.1"
+    "@types/long": "npm:4.0.2"
+    google-protobuf: "npm:3.21.4"
+    long: "npm:4.0.0"
+    protobufjs: "npm:6.11.4"
+    reflect-metadata: "npm:0.2.2"
+    rxjs: "npm:7.8.1"
+  languageName: unknown
+  linkType: soft
+
+"@examples/grpc-playground@workspace:examples/grpc-playground":
+  version: 0.0.0-use.local
+  resolution: "@examples/grpc-playground@workspace:examples/grpc-playground"
+  dependencies:
+    "@atls/nestjs-grpc-playground": "workspace:*"
+    "@atls/nestjs-grpc-reflection": "workspace:*"
+    "@grpc/grpc-js": "npm:^1.3.7"
+    "@grpc/proto-loader": "npm:^0.6.4"
+    "@nestjs/common": "patch:@nestjs/common@npm%3A10.2.5#~/.yarn/patches/@nestjs-common-npm-10.2.5-816dceeade.patch"
+    "@nestjs/core": "npm:10.2.5"
+    "@nestjs/microservices": "npm:10.2.5"
+    "@nestjs/testing": "npm:10.2.5"
+    "@types/long": "npm:^4.0.1"
+    google-protobuf: "npm:^3.17.3"
+    long: "npm:^4.0.0"
+    protobufjs: "npm:^6.11.2"
+    reflect-metadata: "npm:0.1.13"
+    rxjs: "npm:7.5.4"
+  languageName: unknown
+  linkType: soft
+
+"@examples/grpc-reflection@workspace:examples/grpc-reflection":
+  version: 0.0.0-use.local
+  resolution: "@examples/grpc-reflection@workspace:examples/grpc-reflection"
+  dependencies:
+    "@atls/nestjs-grpc-reflection": "workspace:*"
+    "@grpc/grpc-js": "npm:^1.3.7"
+    "@grpc/proto-loader": "npm:^0.6.4"
+    "@nestjs/common": "patch:@nestjs/common@npm%3A10.2.5#~/.yarn/patches/@nestjs-common-npm-10.2.5-816dceeade.patch"
+    "@nestjs/core": "npm:10.2.5"
+    "@nestjs/microservices": "npm:10.2.5"
+    "@nestjs/testing": "npm:10.2.5"
+    "@types/long": "npm:^4.0.1"
+    google-protobuf: "npm:^3.17.3"
+    long: "npm:^4.0.0"
+    protobufjs: "npm:^6.11.2"
+    reflect-metadata: "npm:0.1.13"
+    rxjs: "npm:7.5.4"
+  languageName: unknown
+  linkType: soft
 
 "@gar/promisify@npm:^1.0.1":
   version: 1.1.3
@@ -2756,7 +2818,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@grpc/grpc-js@npm:*, @grpc/grpc-js@npm:^1.3.4, @grpc/grpc-js@npm:^1.5.5, @grpc/grpc-js@npm:^1.7.3":
+"@grpc/grpc-js@npm:*, @grpc/grpc-js@npm:1.11.2, @grpc/grpc-js@npm:^1.3.4, @grpc/grpc-js@npm:^1.3.7, @grpc/grpc-js@npm:^1.5.5, @grpc/grpc-js@npm:^1.7.3":
   version: 1.11.2
   resolution: "@grpc/grpc-js@npm:1.11.2"
   dependencies:
@@ -2796,7 +2858,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@grpc/proto-loader@npm:*, @grpc/proto-loader@npm:^0.7.0, @grpc/proto-loader@npm:^0.7.13, @grpc/proto-loader@npm:^0.7.8":
+"@grpc/proto-loader@npm:*, @grpc/proto-loader@npm:0.7.13, @grpc/proto-loader@npm:^0.7.0, @grpc/proto-loader@npm:^0.7.13, @grpc/proto-loader@npm:^0.7.8":
   version: 0.7.13
   resolution: "@grpc/proto-loader@npm:0.7.13"
   dependencies:
@@ -3301,6 +3363,27 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@nestjs/common@npm:10.4.1":
+  version: 10.4.1
+  resolution: "@nestjs/common@npm:10.4.1"
+  dependencies:
+    iterare: "npm:1.2.1"
+    tslib: "npm:2.6.3"
+    uid: "npm:2.0.2"
+  peerDependencies:
+    class-transformer: "*"
+    class-validator: "*"
+    reflect-metadata: ^0.1.12 || ^0.2.0
+    rxjs: ^7.1.0
+  peerDependenciesMeta:
+    class-transformer:
+      optional: true
+    class-validator:
+      optional: true
+  checksum: 10c0/4b624893ad55f9fcf8638eca045d09dd091a8be2cd5061988e3a479178f95b9517aaa7c51ce136801d8b87bfe1494cd198dc0a68630bb8bcba100044915736e7
+  languageName: node
+  linkType: hard
+
 "@nestjs/common@patch:@nestjs/common@npm%3A10.2.5#~/.yarn/patches/@nestjs-common-npm-10.2.5-816dceeade.patch":
   version: 10.2.5
   resolution: "@nestjs/common@patch:@nestjs/common@npm%3A10.2.5#~/.yarn/patches/@nestjs-common-npm-10.2.5-816dceeade.patch::version=10.2.5&hash=b1d2d6"
@@ -3347,6 +3430,34 @@ __metadata:
     "@nestjs/websockets":
       optional: true
   checksum: 10c0/d4e2465494f7d41d87e3e8130bc6ab9c7b08342fd7820918ab8bfd020b471824e2f4e04967d38385bde21581b60aef22321fb98a7301a6e98ed44cd1ce3da213
+  languageName: node
+  linkType: hard
+
+"@nestjs/core@npm:10.4.1":
+  version: 10.4.1
+  resolution: "@nestjs/core@npm:10.4.1"
+  dependencies:
+    "@nuxtjs/opencollective": "npm:0.3.2"
+    fast-safe-stringify: "npm:2.1.1"
+    iterare: "npm:1.2.1"
+    path-to-regexp: "npm:3.2.0"
+    tslib: "npm:2.6.3"
+    uid: "npm:2.0.2"
+  peerDependencies:
+    "@nestjs/common": ^10.0.0
+    "@nestjs/microservices": ^10.0.0
+    "@nestjs/platform-express": ^10.0.0
+    "@nestjs/websockets": ^10.0.0
+    reflect-metadata: ^0.1.12 || ^0.2.0
+    rxjs: ^7.1.0
+  peerDependenciesMeta:
+    "@nestjs/microservices":
+      optional: true
+    "@nestjs/platform-express":
+      optional: true
+    "@nestjs/websockets":
+      optional: true
+  checksum: 10c0/57be2fc7617041558e90a92ec7c6f1011ed2bab8bfe5c5c02db5f5a03115e5e7347c06be0117767ce7d6c748fbe81ff075fc50190c998d30bbf25fd20e6f4ab8
   languageName: node
   linkType: hard
 
@@ -3490,6 +3601,49 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@nestjs/microservices@npm:10.4.1":
+  version: 10.4.1
+  resolution: "@nestjs/microservices@npm:10.4.1"
+  dependencies:
+    iterare: "npm:1.2.1"
+    tslib: "npm:2.6.3"
+  peerDependencies:
+    "@grpc/grpc-js": "*"
+    "@nestjs/common": ^10.0.0
+    "@nestjs/core": ^10.0.0
+    "@nestjs/websockets": ^10.0.0
+    amqp-connection-manager: "*"
+    amqplib: "*"
+    cache-manager: "*"
+    ioredis: "*"
+    kafkajs: "*"
+    mqtt: "*"
+    nats: "*"
+    reflect-metadata: ^0.1.12 || ^0.2.0
+    rxjs: ^7.1.0
+  peerDependenciesMeta:
+    "@grpc/grpc-js":
+      optional: true
+    "@nestjs/websockets":
+      optional: true
+    amqp-connection-manager:
+      optional: true
+    amqplib:
+      optional: true
+    cache-manager:
+      optional: true
+    ioredis:
+      optional: true
+    kafkajs:
+      optional: true
+    mqtt:
+      optional: true
+    nats:
+      optional: true
+  checksum: 10c0/d5e50e27bf75ea2d460b9efa2a5c1f831be15ccdeffca120d266c1247347940f63d3dea892406812cfe64ac6a3d1c5e02b9d468effbde4df2514154bf4191a3e
+  languageName: node
+  linkType: hard
+
 "@nestjs/platform-express@npm:*":
   version: 10.4.1
   resolution: "@nestjs/platform-express@npm:10.4.1"
@@ -3522,6 +3676,25 @@ __metadata:
     "@nestjs/platform-express":
       optional: true
   checksum: 10c0/c9f3df399e5b33eda2c3e32d17393fd79ed2c2324f37584afe344c2dc955dd2f42eb363d21af5e7b01ffd5be4d7b45916f0cedc8151fb4e42777f460f831fb19
+  languageName: node
+  linkType: hard
+
+"@nestjs/testing@npm:10.4.1":
+  version: 10.4.1
+  resolution: "@nestjs/testing@npm:10.4.1"
+  dependencies:
+    tslib: "npm:2.6.3"
+  peerDependencies:
+    "@nestjs/common": ^10.0.0
+    "@nestjs/core": ^10.0.0
+    "@nestjs/microservices": ^10.0.0
+    "@nestjs/platform-express": ^10.0.0
+  peerDependenciesMeta:
+    "@nestjs/microservices":
+      optional: true
+    "@nestjs/platform-express":
+      optional: true
+  checksum: 10c0/3cbd36d578975435fab92e865f7bf19759d60dd065ace7493f38a16369e04fbf164b5f961f47dc1fdd1fe2ab753acd82c5c4b7671adc9e73caf2ae0ea58c7bc6
   languageName: node
   linkType: hard
 
@@ -4517,7 +4690,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/long@npm:^4.0.0, @types/long@npm:^4.0.1":
+"@types/long@npm:4.0.2, @types/long@npm:^4.0.0, @types/long@npm:^4.0.1":
   version: 4.0.2
   resolution: "@types/long@npm:4.0.2"
   checksum: 10c0/42ec66ade1f72ff9d143c5a519a65efc7c1c77be7b1ac5455c530ae9acd87baba065542f8847522af2e3ace2cc999f3ad464ef86e6b7352eece34daf88f8c924
@@ -8992,7 +9165,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"google-protobuf@npm:^3.17.3, google-protobuf@npm:^3.21.2":
+"google-protobuf@npm:3.21.4, google-protobuf@npm:^3.17.3, google-protobuf@npm:^3.21.2":
   version: 3.21.4
   resolution: "google-protobuf@npm:3.21.4"
   checksum: 10c0/28f2800f7fe1a8fc55eb58ba76e158268407bfb3b90646eaf8a177dd92a2e522459b773f8132ae546e60ac3b6f5947557a1cf3d963a05bb594f43bcde640f54f
@@ -10843,7 +11016,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"long@npm:^4.0.0":
+"long@npm:4.0.0, long@npm:^4.0.0":
   version: 4.0.0
   resolution: "long@npm:4.0.0"
   checksum: 10c0/50a6417d15b06104dbe4e3d4a667c39b137f130a9108ea8752b352a4cfae047531a3ac351c181792f3f8768fe17cca6b0f406674a541a86fb638aaac560d83ed
@@ -12178,6 +12351,30 @@ __metadata:
   languageName: node
   linkType: hard
 
+"protobufjs@npm:6.11.4, protobufjs@npm:^6.11.2, protobufjs@npm:^6.11.3":
+  version: 6.11.4
+  resolution: "protobufjs@npm:6.11.4"
+  dependencies:
+    "@protobufjs/aspromise": "npm:^1.1.2"
+    "@protobufjs/base64": "npm:^1.1.2"
+    "@protobufjs/codegen": "npm:^2.0.4"
+    "@protobufjs/eventemitter": "npm:^1.1.0"
+    "@protobufjs/fetch": "npm:^1.1.0"
+    "@protobufjs/float": "npm:^1.0.2"
+    "@protobufjs/inquire": "npm:^1.1.0"
+    "@protobufjs/path": "npm:^1.1.2"
+    "@protobufjs/pool": "npm:^1.1.0"
+    "@protobufjs/utf8": "npm:^1.1.0"
+    "@types/long": "npm:^4.0.1"
+    "@types/node": "npm:>=13.7.0"
+    long: "npm:^4.0.0"
+  bin:
+    pbjs: bin/pbjs
+    pbts: bin/pbts
+  checksum: 10c0/c244d7b9b6d3258193da5c0d1e558dfb47f208ae345e209f90ec45c9dca911b90fa17e937892a9a39a4136ab9886981aae9efdf6039f7baff4f7225f5eeb9812
+  languageName: node
+  linkType: hard
+
 "protobufjs@npm:7.2.4":
   version: 7.2.4
   resolution: "protobufjs@npm:7.2.4"
@@ -12215,30 +12412,6 @@ __metadata:
     "@types/node": "npm:>=13.7.0"
     long: "npm:^5.0.0"
   checksum: 10c0/12bb88965a2291ec717daddb1b7153c0e567586076da7d138c8f04558d3d0a9cad6445a3558f16c1a61f5cd9dec1a107712590daccb71763429d9b1e10d164d3
-  languageName: node
-  linkType: hard
-
-"protobufjs@npm:^6.11.2, protobufjs@npm:^6.11.3":
-  version: 6.11.4
-  resolution: "protobufjs@npm:6.11.4"
-  dependencies:
-    "@protobufjs/aspromise": "npm:^1.1.2"
-    "@protobufjs/base64": "npm:^1.1.2"
-    "@protobufjs/codegen": "npm:^2.0.4"
-    "@protobufjs/eventemitter": "npm:^1.1.0"
-    "@protobufjs/fetch": "npm:^1.1.0"
-    "@protobufjs/float": "npm:^1.0.2"
-    "@protobufjs/inquire": "npm:^1.1.0"
-    "@protobufjs/path": "npm:^1.1.2"
-    "@protobufjs/pool": "npm:^1.1.0"
-    "@protobufjs/utf8": "npm:^1.1.0"
-    "@types/long": "npm:^4.0.1"
-    "@types/node": "npm:>=13.7.0"
-    long: "npm:^4.0.0"
-  bin:
-    pbjs: bin/pbjs
-    pbts: bin/pbts
-  checksum: 10c0/c244d7b9b6d3258193da5c0d1e558dfb47f208ae345e209f90ec45c9dca911b90fa17e937892a9a39a4136ab9886981aae9efdf6039f7baff4f7225f5eeb9812
   languageName: node
   linkType: hard
 
@@ -12491,6 +12664,13 @@ __metadata:
   version: 0.2.1
   resolution: "reflect-metadata@npm:0.2.1"
   checksum: 10c0/6ca3c674bb43cf8ec3a3f5f38c8730a6116335f8e562fcdcdf3a492af168c5a7f0e8f17476a5710c3fe6bf9b5d22e8a463f14c0e26e326339cab65e099900ef7
+  languageName: node
+  linkType: hard
+
+"reflect-metadata@npm:0.2.2":
+  version: 0.2.2
+  resolution: "reflect-metadata@npm:0.2.2"
+  checksum: 10c0/1cd93a15ea291e420204955544637c264c216e7aac527470e393d54b4bb075f10a17e60d8168ec96600c7e0b9fcc0cb0bb6e91c3fbf5b0d8c9056f04e6ac1ec2
   languageName: node
   linkType: hard
 

@@ -1,1 +1,1 @@
-export * from './echo.module'
+export * from './echo.module.js'
