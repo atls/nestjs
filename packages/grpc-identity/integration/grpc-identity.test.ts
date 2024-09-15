@@ -2,24 +2,24 @@
  * @jest-environment node
  */
 
-import { Metadata }                                  from '@grpc/grpc-js'
-import { INestMicroservice }                         from '@nestjs/common'
-import { ClientsModule }                             from '@nestjs/microservices'
-import { Transport }                                 from '@nestjs/microservices'
-import { Test }                                      from '@nestjs/testing'
-import { status }                                    from '@grpc/grpc-js'
-import { describe }                                  from '@jest/globals'
-import { beforeAll }                       from '@jest/globals'
-import { it }                   from '@jest/globals'
-import { expect }           from '@jest/globals'
-import { afterAll } from '@jest/globals'
-import { readFileSync }                              from 'fs'
-import { sign }                                      from 'jsonwebtoken'
-import { join }                                      from 'path'
-import getPort                                       from 'get-port'
+import { Metadata }                      from '@grpc/grpc-js'
+import { INestMicroservice }             from '@nestjs/common'
+import { ClientsModule }                 from '@nestjs/microservices'
+import { Transport }                     from '@nestjs/microservices'
+import { Test }                          from '@nestjs/testing'
+import { status }                        from '@grpc/grpc-js'
+import { describe }                      from '@jest/globals'
+import { beforeAll }                     from '@jest/globals'
+import { it }                            from '@jest/globals'
+import { expect }                        from '@jest/globals'
+import { afterAll }                      from '@jest/globals'
+import { readFileSync }                  from 'fs'
+import { sign }                          from 'jsonwebtoken'
+import { join }                          from 'path'
+import getPort                           from 'get-port'
 
-import { GrpcIdentityIntegrationModule }             from './src/index.js'
-import { serverOptions }                             from './src/index.js'
+import { GrpcIdentityIntegrationModule } from './src/index.js'
+import { serverOptions }                 from './src/index.js'
 
 describe('grpc identity', () => {
   let service: INestMicroservice
