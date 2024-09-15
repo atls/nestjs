@@ -1,1 +1,1 @@
-export * from './grpc-jwt-identity.guard'
+export * from './grpc-jwt-identity.guard.js'

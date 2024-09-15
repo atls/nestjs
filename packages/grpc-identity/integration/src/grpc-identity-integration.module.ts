@@ -2,8 +2,8 @@ import { Module }             from '@nestjs/common'
 import { promises as fs }     from 'fs'
 import { join }               from 'path'
 
-import { GrpcIdentityModule } from '../../src'
-import { TestController }     from './test.controller'
+import { GrpcIdentityModule } from '../../src/index.js'
+import { TestController }     from './test.controller.js'
 
 @Module({
   imports: [

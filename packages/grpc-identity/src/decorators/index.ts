@@ -1,1 +1,1 @@
-export * from './subject.decorator'
+export * from './subject.decorator.js'
