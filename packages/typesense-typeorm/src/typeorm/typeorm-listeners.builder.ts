@@ -10,7 +10,7 @@ import { Connection }                from 'typeorm'
 
 import { TypesenseMetadataRegistry } from '@atls/nestjs-typesense'
 
-import { EntityToDocumentMapper }    from '../typesense'
+import { EntityToDocumentMapper }    from '../typesense/index.js'
 
 @Injectable()
 export class TypeOrmListenersBuilder implements OnModuleInit {

@@ -2,6 +2,10 @@
   "name": "@atls/nestjs-typesense-typeorm",
   "version": "0.0.8",
   "license": "BSD 3-Clause",
+  "type": "module",
+  "exports": {
+    ".": "./src/index.ts"
+  },
   "main": "src/index.ts",
   "files": [
     "dist"
@@ -17,6 +21,7 @@
   },
   "devDependencies": {
     "@atls/nestjs-typesense": "workspace:*",
+    "@jest/globals": "^29.7.0",
     "@nestjs/common": "patch:@nestjs/common@npm%3A10.2.5#~/.yarn/patches/@nestjs-common-npm-10.2.5-816dceeade.patch",
     "@nestjs/core": "10.2.5",
     "@nestjs/testing": "10.2.5",
@@ -37,6 +42,14 @@
     "typesense": "0.15.0"
   },
   "publishConfig": {
+    "exports": {
+      "./package.json": "./package.json",
+      ".": {
+        "import": "./dist/index.js",
+        "types": "./dist/index.d.ts",
+        "default": "./dist/index.js"
+      }
+    },
     "main": "dist/index.js",
     "typings": "dist/index.d.ts"
   }

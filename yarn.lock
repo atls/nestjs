@@ -695,6 +695,7 @@ __metadata:
   dependencies:
     "@atls/logger": "npm:0.0.2"
     "@atls/nestjs-typesense": "workspace:*"
+    "@jest/globals": "npm:^29.7.0"
     "@nestjs/common": "patch:@nestjs/common@npm%3A10.2.5#~/.yarn/patches/@nestjs-common-npm-10.2.5-816dceeade.patch"
     "@nestjs/core": "npm:10.2.5"
     "@nestjs/testing": "npm:10.2.5"

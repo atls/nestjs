@@ -2,13 +2,13 @@ import { DynamicModule }                         from '@nestjs/common'
 import { Provider }                              from '@nestjs/common'
 import { Module }                                from '@nestjs/common'
 
-import { TypesenseTypeOrmModuleAsyncOptions }    from './typesense-typeorm-module.interface'
-import { TypesenseTypeOrmModuleOptions }         from './typesense-typeorm-module.interface'
-import { TypesenseTypeOrmOptionsFactory }        from './typesense-typeorm-module.interface'
-import { TYPESENSE_TYPEORM_MODULE_OPTIONS }      from './typesense-typeorm.constants'
-import { createTypesenseTypeOrmExportsProvider } from './typesense-typeorm.providers'
-import { createTypesenseTypeOrmProvider }        from './typesense-typeorm.providers'
-import { createTypesenseTypeOrmOptionsProvider } from './typesense-typeorm.providers'
+import { TypesenseTypeOrmModuleAsyncOptions }    from './typesense-typeorm-module.interface.js'
+import { TypesenseTypeOrmModuleOptions }         from './typesense-typeorm-module.interface.js'
+import { TypesenseTypeOrmOptionsFactory }        from './typesense-typeorm-module.interface.js'
+import { TYPESENSE_TYPEORM_MODULE_OPTIONS }      from './typesense-typeorm.constants.js'
+import { createTypesenseTypeOrmExportsProvider } from './typesense-typeorm.providers.js'
+import { createTypesenseTypeOrmProvider }        from './typesense-typeorm.providers.js'
+import { createTypesenseTypeOrmOptionsProvider } from './typesense-typeorm.providers.js'
 
 @Module({})
 export class TypesenseTypeOrmModule {
