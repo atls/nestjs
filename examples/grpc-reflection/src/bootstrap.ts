@@ -1,7 +1,7 @@
 import { NestFactory }             from '@nestjs/core'
 
-import { GrpcReflectionAppModule } from './grpc-reflection-app.module'
-import { serverOptions }           from './server.options'
+import { GrpcReflectionAppModule } from './grpc-reflection-app.module.js'
+import { serverOptions }           from './server.options.js'
 
 declare const module: any
 
