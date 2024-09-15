@@ -1,5 +1,14 @@
 /* eslint-disable no-else-return */
 
+import { GetMeshOptions }              from '@graphql-mesh/runtime'
+import { InMemoryStoreStorageAdapter } from '@graphql-mesh/store'
+import { MeshStore }                   from '@graphql-mesh/store'
+import { MeshTransform }               from '@graphql-mesh/types'
+import { Inject }                      from '@nestjs/common'
+import { Injectable }                  from '@nestjs/common'
+import { resolveAdditionalTypeDefs }   from '@graphql-mesh/config'
+import { getDefaultSyncImport }        from '@graphql-mesh/utils'
+import { resolveAdditionalResolvers }  from '@graphql-mesh/utils'
 import InMemoryLRUCache                from '@graphql-mesh/cache-inmemory-lru'
 import StitchingMerger                 from '@graphql-mesh/merger-stitching'
 import CacheTransform                  from '@graphql-mesh/transform-cache'
@@ -11,26 +20,16 @@ import PrefixTransform                 from '@graphql-mesh/transform-prefix'
 import RenameTransform                 from '@graphql-mesh/transform-rename'
 import ResolversCompositionTransform   from '@graphql-mesh/transform-resolvers-composition'
 import SnapshotTransform               from '@graphql-mesh/transform-snapshot'
-import { GetMeshOptions }              from '@graphql-mesh/runtime'
-import { InMemoryStoreStorageAdapter } from '@graphql-mesh/store'
-import { MeshStore }                   from '@graphql-mesh/store'
-import { MeshTransform }               from '@graphql-mesh/types'
-import { Inject }                      from '@nestjs/common'
-import { Injectable }                  from '@nestjs/common'
-import { resolveAdditionalTypeDefs }   from '@graphql-mesh/config'
-import { getDefaultSyncImport }        from '@graphql-mesh/utils'
-import { resolveAdditionalResolvers }  from '@graphql-mesh/utils'
-
 import { PubSub }                      from 'graphql-subscriptions'
 import { join }                        from 'path'
 
-import GrpcHandler                     from './handlers/grpc/grpc.handler'
 import { GatewaySourceType }           from '../enums'
 import { GATEWAY_MODULE_OPTIONS }      from '../module'
 import { GatewayModuleOptions }        from '../module'
 import { SourceOptions }               from '../module'
 import { SourceTransformsOptions }     from '../module'
 import { GraphQLMeshLogger }           from './graphql-mesh.logger'
+import GrpcHandler                     from './handlers/grpc/grpc.handler'
 
 @Injectable()
 export class GraphQLMeshConfig {

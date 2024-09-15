@@ -12,7 +12,10 @@ export class RelationTupleConverter {
 
   private result: RelationShipTuple
 
-  constructor(private readonly tuple: Tuple, private readonly replacement: string = '') {
+  constructor(
+    private readonly tuple: Tuple,
+    private readonly replacement: string = ''
+  ) {
     this.convertToString()
   }
 

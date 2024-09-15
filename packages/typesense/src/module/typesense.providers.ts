@@ -1,5 +1,4 @@
 import { Provider }                    from '@nestjs/common'
-
 import { Client }                      from 'typesense'
 
 import { TypesenseCollectionsCreator } from '../collections'

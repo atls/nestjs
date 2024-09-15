@@ -1,5 +1,4 @@
 import { Provider }                     from '@nestjs/common'
-
 import { JwksClient }                   from 'jwks-rsa'
 
 import { JwtVerifier }                  from '../jwt'

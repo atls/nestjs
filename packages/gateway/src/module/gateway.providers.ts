@@ -1,5 +1,4 @@
 import { Provider }                from '@nestjs/common'
-
 import { EventEmitter }            from 'events'
 import { PubSub }                  from 'graphql-subscriptions'
 

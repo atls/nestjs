@@ -5,7 +5,6 @@ import { Inject }                         from '@nestjs/common'
 import { Injectable }                     from '@nestjs/common'
 import { loadPackageDefinition }          from '@grpc/grpc-js'
 import { load }                           from '@grpc/proto-loader'
-
 import get                                from 'lodash.get'
 
 import { GRPC_HTTP_PROXY_MODULE_OPTIONS } from '../module'

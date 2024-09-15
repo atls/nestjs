@@ -7,9 +7,8 @@ import { INestMicroservice }           from '@nestjs/common'
 import { ClientsModule }               from '@nestjs/microservices'
 import { Transport }                   from '@nestjs/microservices'
 import { Test }                        from '@nestjs/testing'
-
-import getPort                         from 'get-port'
 import { join }                        from 'path'
+import getPort                         from 'get-port'
 
 import { GrpcErrorsIntegrationModule } from '../src'
 import { serverOptions }               from '../src'

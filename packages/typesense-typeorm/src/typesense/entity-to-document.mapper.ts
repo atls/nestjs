@@ -1,5 +1,4 @@
 import { Injectable }                from '@nestjs/common'
-
 import { Client }                    from 'typesense'
 
 import { TypesenseMetadataRegistry } from '@atls/nestjs-typesense'
