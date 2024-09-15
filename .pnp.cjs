@@ -601,10 +601,12 @@ const RAW_RUNTIME_STATE =
           ["@atls/grpc-error-status", "npm:0.0.3"],\
           ["@grpc/grpc-js", "npm:1.9.0"],\
           ["@grpc/proto-loader", "npm:0.7.8"],\
+          ["@jest/globals", "npm:29.7.0"],\
           ["@nestjs/common", "virtual:3da99a4dd1a45fbb12f3936831275fe6ef127b2869363613ce7e5fc10bfba69fce118823d76d677d80a9d976776b1a4cb7b1bb4ee5c5a306e3ceed973bf055a2#patch:@nestjs/common@npm%3A10.2.5#~/.yarn/patches/@nestjs-common-npm-10.2.5-816dceeade.patch::version=10.2.5&hash=b1d2d6"],\
           ["@nestjs/core", "virtual:f707dac3aa7229ebf4c650c03b38ba4b5be485988e92f2a5d4adf0d456b26619d3627f119111b9a68c2b1957c16eb741793fdeb10657222f4c5e22d93ee8bb43#npm:10.2.5"],\
           ["@nestjs/microservices", "virtual:f707dac3aa7229ebf4c650c03b38ba4b5be485988e92f2a5d4adf0d456b26619d3627f119111b9a68c2b1957c16eb741793fdeb10657222f4c5e22d93ee8bb43#npm:10.2.5"],\
           ["@nestjs/testing", "virtual:f707dac3aa7229ebf4c650c03b38ba4b5be485988e92f2a5d4adf0d456b26619d3627f119111b9a68c2b1957c16eb741793fdeb10657222f4c5e22d93ee8bb43#npm:10.2.5"],\
+          ["@types/buffer-json", "npm:2.0.3"],\
           ["@types/cookie", "npm:0.5.1"],\
           ["@types/express", "npm:4.17.13"],\
           ["@types/jsonwebtoken", "npm:9.0.2"],\
@@ -614,6 +616,7 @@ const RAW_RUNTIME_STATE =
           ["@types/nestjs__microservices", null],\
           ["@types/reflect-metadata", null],\
           ["@types/rxjs", null],\
+          ["@types/supertest", "npm:6.0.2"],\
           ["@types/uuid", "npm:9.0.2"],\
           ["buffer-json", "npm:2.0.0"],\
           ["class-transformer", "npm:0.5.1"],\
@@ -649,14 +652,17 @@ const RAW_RUNTIME_STATE =
           ["@atls/grpc-error-status", "npm:0.0.3"],\
           ["@grpc/grpc-js", "npm:1.9.0"],\
           ["@grpc/proto-loader", "npm:0.7.8"],\
+          ["@jest/globals", "npm:29.7.0"],\
           ["@nestjs/common", "virtual:a2160e3b2e27c63b1b84c6435ca41f4eb71e35a78ebc7c1ffc239ded29b61466bf16d9a78f6ac2fc343b6bf7363917f14146da61a234e2285c5eecea1ecc2202#patch:@nestjs/common@npm%3A10.2.5#~/.yarn/patches/@nestjs-common-npm-10.2.5-816dceeade.patch::version=10.2.5&hash=b1d2d6"],\
           ["@nestjs/core", "virtual:a2160e3b2e27c63b1b84c6435ca41f4eb71e35a78ebc7c1ffc239ded29b61466bf16d9a78f6ac2fc343b6bf7363917f14146da61a234e2285c5eecea1ecc2202#npm:10.2.5"],\
           ["@nestjs/microservices", "virtual:a2160e3b2e27c63b1b84c6435ca41f4eb71e35a78ebc7c1ffc239ded29b61466bf16d9a78f6ac2fc343b6bf7363917f14146da61a234e2285c5eecea1ecc2202#npm:10.2.5"],\
           ["@nestjs/testing", "virtual:a2160e3b2e27c63b1b84c6435ca41f4eb71e35a78ebc7c1ffc239ded29b61466bf16d9a78f6ac2fc343b6bf7363917f14146da61a234e2285c5eecea1ecc2202#npm:10.2.5"],\
+          ["@types/buffer-json", "npm:2.0.3"],\
           ["@types/cookie", "npm:0.5.1"],\
           ["@types/express", "npm:4.17.13"],\
           ["@types/jsonwebtoken", "npm:9.0.2"],\
           ["@types/lodash.get", "npm:4.4.7"],\
+          ["@types/supertest", "npm:6.0.2"],\
           ["@types/uuid", "npm:9.0.2"],\
           ["buffer-json", "npm:2.0.0"],\
           ["class-transformer", "npm:0.5.1"],\
@@ -8183,6 +8189,15 @@ const RAW_RUNTIME_STATE =
           ["@types/body-parser", "npm:1.19.5"],\
           ["@types/connect", "npm:3.4.38"],\
           ["@types/node", "npm:22.5.4"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["@types/buffer-json", [\
+      ["npm:2.0.3", {\
+        "packageLocation": "../.yarn/berry/cache/@types-buffer-json-npm-2.0.3-cdb36608cc-10c0.zip/node_modules/@types/buffer-json/",\
+        "packageDependencies": [\
+          ["@types/buffer-json", "npm:2.0.3"]\
         ],\
         "linkType": "HARD"\
       }]\

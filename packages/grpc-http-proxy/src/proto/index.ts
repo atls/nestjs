@@ -1,1 +1,1 @@
-export * from './proto.registry'
+export * from './proto.registry.js'

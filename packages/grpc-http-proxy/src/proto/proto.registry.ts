@@ -7,9 +7,9 @@ import { loadPackageDefinition }          from '@grpc/grpc-js'
 import { load }                           from '@grpc/proto-loader'
 import get                                from 'lodash.get'
 
-import { GRPC_HTTP_PROXY_MODULE_OPTIONS } from '../module'
-import { GrpcHttpProxyModuleOptions }     from '../module'
-import { ProtoClient }                    from './proto.client'
+import { GRPC_HTTP_PROXY_MODULE_OPTIONS } from '../module/index.js'
+import { GrpcHttpProxyModuleOptions }     from '../module/index.js'
+import { ProtoClient }                    from './proto.client.js'
 
 @Injectable()
 export class ProtoRegistry implements OnApplicationBootstrap {
@@ -25,7 +25,7 @@ export class ProtoRegistry implements OnApplicationBootstrap {
       : [this.options.options.protoPath]
 
     this.definitions = await Promise.all(
-      protoPaths.map(async (protoPath) => {
+      protoPaths.map(async (protoPath: string) => {
         const packageDefinition = await load(protoPath, this.options.options.loader)
 
         return loadPackageDefinition(packageDefinition)

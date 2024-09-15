@@ -1,3 +1,3 @@
-export * from './grpc-http-proxy-integration.module'
-export * from './nope.authenticator'
-export * from './proto.options'
+export * from './grpc-http-proxy-integration.module.js'
+export * from './nope.authenticator.js'
+export * from './proto.options.js'
