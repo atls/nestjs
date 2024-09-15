@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { ErrorStatus }           from '@atls/grpc-error-status'
 import { Controller }            from '@nestjs/common'
 import { Body }                  from '@nestjs/common'
@@ -7,11 +8,10 @@ import { Param }                 from '@nestjs/common'
 import { Header }                from '@nestjs/common'
 import { Req }                   from '@nestjs/common'
 import { Res }                   from '@nestjs/common'
-
 import BJSON                     from 'buffer-json'
 
-import { AuthenticationService } from '../authenticators'
-import { ProtoRegistry }         from '../proto'
+import { AuthenticationService } from '../authenticators/index.js'
+import { ProtoRegistry }         from '../proto/index.js'
 
 @Controller('grpc-proxy')
 export class GrpcHttpProxyController {

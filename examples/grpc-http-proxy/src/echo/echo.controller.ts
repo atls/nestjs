@@ -1,8 +1,8 @@
 import { Controller }   from '@nestjs/common'
 import { GrpcMethod }   from '@nestjs/microservices'
 
-import { EchoRequest }  from '../../proto'
-import { EchoResponse } from '../../proto'
+import { EchoRequest }  from '../../proto/index.js'
+import { EchoResponse } from '../../proto/index.js'
 
 @Controller()
 export class EchoController {

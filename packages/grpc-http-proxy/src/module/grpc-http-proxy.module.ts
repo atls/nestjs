@@ -2,14 +2,14 @@ import { DynamicModule }                      from '@nestjs/common'
 import { Module }                             from '@nestjs/common'
 import { Provider }                           from '@nestjs/common'
 
-import { GrpcHttpProxyController }            from '../controllers'
-import { GrpcHttpProxyModuleAsyncOptions }    from './grpc-http-proxy-module-options.interface'
-import { GrpcHttpProxyModuleOptions }         from './grpc-http-proxy-module-options.interface'
-import { GrpcHttpProxyOptionsFactory }        from './grpc-http-proxy-module-options.interface'
-import { GRPC_HTTP_PROXY_MODULE_OPTIONS }     from './grpc-http-proxy.constants'
-import { createGrpcHttpProxyExportsProvider } from './grpc-http-proxy.providers'
-import { createGrpcHttpProxyProvider }        from './grpc-http-proxy.providers'
-import { createGrpcHttpProxyOptionsProvider } from './grpc-http-proxy.providers'
+import { GrpcHttpProxyController }            from '../controllers/index.js'
+import { GrpcHttpProxyModuleAsyncOptions }    from './grpc-http-proxy-module-options.interface.js'
+import { GrpcHttpProxyModuleOptions }         from './grpc-http-proxy-module-options.interface.js'
+import { GrpcHttpProxyOptionsFactory }        from './grpc-http-proxy-module-options.interface.js'
+import { GRPC_HTTP_PROXY_MODULE_OPTIONS }     from './grpc-http-proxy.constants.js'
+import { createGrpcHttpProxyExportsProvider } from './grpc-http-proxy.providers.js'
+import { createGrpcHttpProxyProvider }        from './grpc-http-proxy.providers.js'
+import { createGrpcHttpProxyOptionsProvider } from './grpc-http-proxy.providers.js'
 
 @Module({})
 export class GrpcHttpProxyModule {

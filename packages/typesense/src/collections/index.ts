@@ -1,1 +1,1 @@
-export * from './typesense-colletctions.creator'
+export * from './typesense-colletctions.creator.js'

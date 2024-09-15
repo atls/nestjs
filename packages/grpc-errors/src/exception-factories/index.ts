@@ -1,2 +1,2 @@
-export * from './grpc-validation.exception-factory'
-export * from './assertion.exception-factory'
+export * from './grpc-validation.exception-factory.js'
+export * from './assertion.exception-factory.js'

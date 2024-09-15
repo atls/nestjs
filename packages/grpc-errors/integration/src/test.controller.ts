@@ -2,8 +2,8 @@ import { Controller }         from '@nestjs/common'
 import { UsePipes }           from '@nestjs/common'
 import { GrpcMethod }         from '@nestjs/microservices'
 
-import { GrpcValidationPipe } from '../../src'
-import { TestDto }            from './test.dto'
+import { GrpcValidationPipe } from '../../src/index.js'
+import { TestDto }            from './test.dto.js'
 
 @Controller()
 export class TestController {

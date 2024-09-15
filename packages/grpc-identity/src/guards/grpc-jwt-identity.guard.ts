@@ -6,7 +6,7 @@ import { Injectable }       from '@nestjs/common'
 import { RpcException }     from '@nestjs/microservices'
 import { status }           from '@grpc/grpc-js'
 
-import { JwtVerifier }      from '../jwt'
+import { JwtVerifier }      from '../jwt/index.js'
 
 @Injectable()
 export class GrpcJwtIdentityGuard implements CanActivate {

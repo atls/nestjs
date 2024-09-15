@@ -1,7 +1,10 @@
+// @ts-ignore
 import { CheckRequest }           from '@ory/keto-grpc-client/ory/keto/relation_tuples/v1alpha2/check_service_pb'
+// @ts-ignore
 import { SubjectSet }             from '@ory/keto-grpc-client/ory/keto/relation_tuples/v1alpha2/relation_tuples_pb'
 
-import { RelationTupleConverter } from './relation-tuple-converter'
+import { RelationTupleConverter } from './relation-tuple-converter.js'
+import {describe, expect, it, beforeAll} from '@jest/globals'
 
 describe('Keto relation tuple converter', () => {
   let stringConverter: RelationTupleConverter

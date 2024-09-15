@@ -1,2 +1,2 @@
 export * from '@atls/typeorm-seeding'
-export * from './module'
+export * from './module/index.js'

@@ -3,13 +3,13 @@ import { Module }                       from '@nestjs/common'
 import { Provider }                     from '@nestjs/common'
 import { DiscoveryModule }              from '@nestjs/core'
 
-import { GatewayModuleAsyncOptions }    from './gateway-module-options.interface'
-import { GatewayModuleOptions }         from './gateway-module-options.interface'
-import { GatewayOptionsFactory }        from './gateway-module-options.interface'
-import { GATEWAY_MODULE_OPTIONS }       from './gateway.constants'
-import { createGatewayExportsProvider } from './gateway.providers'
-import { createGatewayProvider }        from './gateway.providers'
-import { createGatewayOptionsProvider } from './gateway.providers'
+import { GatewayModuleAsyncOptions }    from './gateway-module-options.interface.js'
+import { GatewayModuleOptions }         from './gateway-module-options.interface.js'
+import { GatewayOptionsFactory }        from './gateway-module-options.interface.js'
+import { GATEWAY_MODULE_OPTIONS }       from './gateway.constants.js'
+import { createGatewayExportsProvider } from './gateway.providers.js'
+import { createGatewayProvider }        from './gateway.providers.js'
+import { createGatewayOptionsProvider } from './gateway.providers.js'
 
 @Module({
   imports: [DiscoveryModule],

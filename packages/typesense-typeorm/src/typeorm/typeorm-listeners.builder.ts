@@ -3,7 +3,6 @@
 import { Logger }                    from '@atls/logger'
 import { OnModuleInit }              from '@nestjs/common'
 import { Injectable }                from '@nestjs/common'
-
 import { EntitySubscriberInterface } from 'typeorm'
 import { InsertEvent }               from 'typeorm'
 import { UpdateEvent }               from 'typeorm'
@@ -11,7 +10,7 @@ import { Connection }                from 'typeorm'
 
 import { TypesenseMetadataRegistry } from '@atls/nestjs-typesense'
 
-import { EntityToDocumentMapper }    from '../typesense'
+import { EntityToDocumentMapper }    from '../typesense/index.js'
 
 @Injectable()
 export class TypeOrmListenersBuilder implements OnModuleInit {
@@ -30,7 +29,10 @@ export class TypeOrmListenersBuilder implements OnModuleInit {
   build() {
     for (const target of this.registry.getTargets()) {
       const Subscriber = class EntitySubscriber implements EntitySubscriberInterface<any> {
-        constructor(private readonly mapper: EntityToDocumentMapper, connection: Connection) {
+        constructor(
+          private readonly mapper: EntityToDocumentMapper,
+          connection: Connection
+        ) {
           connection.subscribers.push(this)
         }
 

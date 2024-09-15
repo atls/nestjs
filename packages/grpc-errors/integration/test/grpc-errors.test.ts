@@ -7,15 +7,20 @@ import { INestMicroservice }           from '@nestjs/common'
 import { ClientsModule }               from '@nestjs/microservices'
 import { Transport }                   from '@nestjs/microservices'
 import { Test }                        from '@nestjs/testing'
-
-import getPort                         from 'get-port'
+import { describe }                    from '@jest/globals'
+import { it }                          from '@jest/globals'
+import { beforeAll }                   from '@jest/globals'
+import { expect }                      from '@jest/globals'
+import { afterAll }                    from '@jest/globals'
 import { join }                        from 'path'
+import getPort                         from 'get-port'
 
-import { GrpcErrorsIntegrationModule } from '../src'
-import { serverOptions }               from '../src'
+import { GrpcErrorsIntegrationModule } from '../src/index.js'
+import { serverOptions }               from '../src/index.js'
 
 describe('grpc error', () => {
   let service: INestMicroservice
+  // @ts-ignore
   let testClient
 
   beforeAll(async () => {
@@ -68,6 +73,7 @@ describe('grpc error', () => {
     expect.assertions(1)
 
     try {
+      // @ts-ignore
       await testClient.testValidation({ id: 'test', child: { id: 'test' } }).toPromise()
     } catch (error) {
       expect(ErrorStatus.fromServiceError(error as any).toObject()).toEqual(

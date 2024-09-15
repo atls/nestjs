@@ -1,14 +1,13 @@
 import { Provider }                from '@nestjs/common'
-
 import { EventEmitter }            from 'events'
 import { PubSub }                  from 'graphql-subscriptions'
 
-import { GraphQLMeshHandler }      from '../mesh'
-import { GraphQLMeshConfig }       from '../mesh'
-import { GraphQLMesh }             from '../mesh'
-import { GraphQLMeshSchemaDumper } from '../mesh'
-import { GatewayModuleOptions }    from './gateway-module-options.interface'
-import { GATEWAY_MODULE_OPTIONS }  from './gateway.constants'
+import { GraphQLMeshHandler }      from '../mesh/index.js'
+import { GraphQLMeshConfig }       from '../mesh/index.js'
+import { GraphQLMesh }             from '../mesh/index.js'
+import { GraphQLMeshSchemaDumper } from '../mesh/index.js'
+import { GatewayModuleOptions }    from './gateway-module-options.interface.js'
+import { GATEWAY_MODULE_OPTIONS }  from './gateway.constants.js'
 
 export const createGatewayOptionsProvider = (options: GatewayModuleOptions): Provider[] => [
   {

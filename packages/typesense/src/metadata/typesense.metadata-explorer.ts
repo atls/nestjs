@@ -2,10 +2,10 @@ import { Logger }                    from '@atls/logger'
 import { Injectable }                from '@nestjs/common'
 import { OnModuleInit }              from '@nestjs/common'
 import { DiscoveryService }          from '@nestjs/core'
-import { InstanceWrapper }           from '@nestjs/core/injector/instance-wrapper'
+import { InstanceWrapper }           from '@nestjs/core/injector/instance-wrapper.js'
 
-import { TypesenseMetadataAccessor } from './typesense.metadata-accessor'
-import { TypesenseMetadataRegistry } from './typesense.metadata-registry'
+import { TypesenseMetadataAccessor } from './typesense.metadata-accessor.js'
+import { TypesenseMetadataRegistry } from './typesense.metadata-registry.js'
 
 @Injectable()
 export class TypesenseMetadataExplorer implements OnModuleInit {
@@ -33,6 +33,7 @@ export class TypesenseMetadataExplorer implements OnModuleInit {
     })
   }
 
+  // @ts-ignore
   lookupSchema(instance) {
     const metadata = this.metadataAccessor.getTypesenseMetadata(instance)
 

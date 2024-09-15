@@ -1,6 +1,6 @@
 export * from '@ory/hydra-client'
 
-export * from './config'
-export * from './module'
-export * from './client'
-export * from './utils'
+export * from './config/index.js'
+export * from './module/index.js'
+export * from './client/index.js'
+export * from './utils/index.js'

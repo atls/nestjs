@@ -1,1 +1,1 @@
-export * from './kratos-browser.urls'
+export * from './kratos-browser.urls.js'

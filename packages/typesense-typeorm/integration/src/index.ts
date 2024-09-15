@@ -1,1 +1,1 @@
-export * from './typesense-typeorm-integration.module'
+export * from './typesense-typeorm-integration.module.js'

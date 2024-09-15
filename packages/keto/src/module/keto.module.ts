@@ -2,12 +2,12 @@ import { Provider }                        from '@nestjs/common'
 import { DynamicModule }                   from '@nestjs/common'
 import { Module }                          from '@nestjs/common'
 
-import { KetoOptionsFactory }              from './keto-module.interfaces'
-import { KetoModuleAsyncOptions }          from './keto-module.interfaces'
-import { KetoModuleOptions }               from './keto-module.interfaces'
-import { KETO_MODULE_CONFIGURATION }       from './keto.constants'
-import { createKetoExportsProvider }       from './keto.providers'
-import { createKetoConfigurationProvider } from './keto.providers'
+import { KetoOptionsFactory }              from './keto-module.interfaces.js'
+import { KetoModuleAsyncOptions }          from './keto-module.interfaces.js'
+import { KetoModuleOptions }               from './keto-module.interfaces.js'
+import { KETO_MODULE_CONFIGURATION }       from './keto.constants.js'
+import { createKetoExportsProvider }       from './keto.providers.js'
+import { createKetoConfigurationProvider } from './keto.providers.js'
 
 @Module({})
 export class KetoModule {

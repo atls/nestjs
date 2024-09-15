@@ -1,6 +1,5 @@
 import { SetMetadata }     from '@nestjs/common'
 import { applyDecorators } from '@nestjs/common'
-
 import decamelize          from 'decamelize'
 
 export interface SchemaMetadata {

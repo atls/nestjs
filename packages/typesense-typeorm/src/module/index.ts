@@ -1,3 +1,3 @@
-export * from './typesense-typeorm-module.interface'
-export * from './typesense-typeorm.constants'
-export * from './typesense-typeorm.module'
+export * from './typesense-typeorm-module.interface.js'
+export * from './typesense-typeorm.constants.js'
+export * from './typesense-typeorm.module.js'

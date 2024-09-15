@@ -1,7 +1,7 @@
 import { NestFactory }            from '@nestjs/core'
 
-import { GrpcHttpProxyAppModule } from './grpc-http-proxy-app.module'
-import { serverOptions }          from './server.options'
+import { GrpcHttpProxyAppModule } from './grpc-http-proxy-app.module.js'
+import { serverOptions }          from './server.options.js'
 
 declare const module: any
 

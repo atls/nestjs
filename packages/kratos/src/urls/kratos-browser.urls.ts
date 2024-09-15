@@ -1,10 +1,9 @@
 import { Injectable }            from '@nestjs/common'
 import { Inject }                from '@nestjs/common'
-
 import path                      from 'path'
 
-import { KratosModuleOptions }   from '../module'
-import { KRATOS_MODULE_OPTIONS } from '../module'
+import { KratosModuleOptions }   from '../module/index.js'
+import { KRATOS_MODULE_OPTIONS } from '../module/index.js'
 
 export type KratosBrowserUrlFlow =
   | 'login'
@@ -47,6 +46,7 @@ export class KratosBrowserUrls {
     this.logout = KratosBrowserUrls.formatUrl(options.browser, '/self-service/browser/flows/logout')
   }
 
+  // @ts-ignore
   static formatUrl(root, target) {
     const rootUrl = new URL(root)
 

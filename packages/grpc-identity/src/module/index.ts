@@ -1,3 +1,3 @@
-export * from './grpc-identity-module.interface'
-export * from './grpc-identity.constants'
-export * from './grpc-identity.module'
+export * from './grpc-identity-module.interface.js'
+export * from './grpc-identity.constants.js'
+export * from './grpc-identity.module.js'

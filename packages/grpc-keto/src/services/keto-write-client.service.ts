@@ -1,12 +1,15 @@
 import { Inject }                        from '@nestjs/common'
 import { Injectable }                    from '@nestjs/common'
+// @ts-ignore
 import { RelationTuple }                 from '@ory/keto-grpc-client/ory/keto/relation_tuples/v1alpha2/relation_tuples_pb'
+// @ts-ignore
 import { RelationTupleDelta }            from '@ory/keto-grpc-client/ory/keto/relation_tuples/v1alpha2/write_service_pb'
+// @ts-ignore
 import { TransactRelationTuplesRequest } from '@ory/keto-grpc-client/ory/keto/relation_tuples/v1alpha2/write_service_pb'
 
-import { KetoGeneralException }          from '../exceptions'
-import { KETO_WRITE_NATIVE_CLIENT }      from '../module'
-import { KetoWriteNativeClientService }  from './keto-write-native-client.service'
+import { KetoGeneralException }          from '../exceptions/index.js'
+import { KETO_WRITE_NATIVE_CLIENT }      from '../module/index.js'
+import { KetoWriteNativeClientService }  from './keto-write-native-client.service.js'
 
 import Action = RelationTupleDelta.Action
 
@@ -26,6 +29,7 @@ export class KetoWriteClientService {
       relationRequest.addRelationTupleDeltas(delta)
 
       return new Promise((resolve) => {
+        // @ts-ignore
         this.writeServiceClient.transactRelationTuples(relationRequest, (error, response) => {
           if (error) throw error
 
@@ -46,6 +50,7 @@ export class KetoWriteClientService {
       relationRequest.addRelationTupleDeltas(delta)
 
       return new Promise((resolve) => {
+        // @ts-ignore
         this.writeServiceClient.transactRelationTuples(relationRequest, (error, response) => {
           if (error) throw error
 

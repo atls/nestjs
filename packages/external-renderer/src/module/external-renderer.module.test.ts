@@ -1,15 +1,20 @@
 /* eslint-disable max-classes-per-file */
 
 import { Module }                           from '@nestjs/common'
+import { TestingModule }                    from '@nestjs/testing'
 import { Test }                             from '@nestjs/testing'
+import { describe }                         from '@jest/globals'
+import { expect }                           from '@jest/globals'
+import { it }                               from '@jest/globals'
+import { afterEach }                        from '@jest/globals'
 
-import { ExternalRendererModuleOptions }    from './external-renderer-module-options.interface'
-import { EXTERNAL_RENDERER_MODULE_OPTIONS } from './external-renderer.constants'
-import { ExternalRendererModule }           from './external-renderer.module'
+import { ExternalRendererModuleOptions }    from './external-renderer-module-options.interface.js'
+import { EXTERNAL_RENDERER_MODULE_OPTIONS } from './external-renderer.constants.js'
+import { ExternalRendererModule }           from './external-renderer.module.js'
 
 describe('external-renderer', () => {
   describe('module', () => {
-    let module
+    let module: TestingModule
 
     afterEach(async () => {
       await module.close()

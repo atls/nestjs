@@ -1,8 +1,8 @@
+// @ts-nocheck
 import { Controller }       from '@nestjs/common'
 import { GrpcMethod }       from '@nestjs/microservices'
 import { GrpcStreamMethod } from '@nestjs/microservices'
 import { RpcException }     from '@nestjs/microservices'
-
 import { Subject }          from 'rxjs'
 
 @Controller()

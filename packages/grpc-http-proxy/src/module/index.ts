@@ -1,3 +1,3 @@
-export * from './grpc-http-proxy-module-options.interface'
-export * from './grpc-http-proxy.constants'
-export * from './grpc-http-proxy.module'
+export * from './grpc-http-proxy-module-options.interface.js'
+export * from './grpc-http-proxy.constants.js'
+export * from './grpc-http-proxy.module.js'

@@ -1,14 +1,17 @@
+// @ts-ignore
 import { MeshPubSub }        from '@graphql-mesh/types'
+// @ts-ignore
 import { KeyValueCache }     from '@graphql-mesh/types'
+// @ts-ignore
 import { MeshMerger }        from '@graphql-mesh/types'
+// @ts-ignore
 import { YamlConfig }        from '@graphql-mesh/types'
 import { ChannelOptions }    from '@grpc/grpc-js'
 import { ModuleMetadata }    from '@nestjs/common/interfaces'
 import { Type }              from '@nestjs/common/interfaces'
-
 import { PlaygroundConfig }  from 'apollo-server-express'
 
-import { GatewaySourceType } from '../enums'
+import { GatewaySourceType } from '../enums/index.js'
 
 export interface SourceTransformsOptions {
   rename?: YamlConfig.Transform['rename']

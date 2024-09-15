@@ -1,1 +1,1 @@
-export * from './kratos-env.config'
+export * from './kratos-env.config.js'

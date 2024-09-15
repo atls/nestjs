@@ -1,1 +1,1 @@
-export * from './jwt.verifier'
+export * from './jwt.verifier.js'

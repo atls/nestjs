@@ -1,3 +1,3 @@
-export * from './grpc-playground-module-options.interface'
-export * from './grpc-playground.constants'
-export * from './grpc-playground.module'
+export * from './grpc-playground-module-options.interface.js'
+export * from './grpc-playground.constants.js'
+export * from './grpc-playground.module.js'

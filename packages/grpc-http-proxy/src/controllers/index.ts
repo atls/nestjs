@@ -1,1 +1,1 @@
-export * from './grpc-http-proxy.controller'
+export * from './grpc-http-proxy.controller.js'

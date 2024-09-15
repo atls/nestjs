@@ -1,1 +1,1 @@
-export * from './gateway-integration.module'
+export * from './gateway-integration.module.js'

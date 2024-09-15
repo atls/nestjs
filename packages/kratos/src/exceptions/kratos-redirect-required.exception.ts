@@ -1,4 +1,4 @@
-import { KratosBrowserUrlFlow } from '../urls'
+import { KratosBrowserUrlFlow } from '../urls/index.js'
 
 export class KratosRedirectRequiredException extends Error {
   constructor(public readonly redirectTo: KratosBrowserUrlFlow) {

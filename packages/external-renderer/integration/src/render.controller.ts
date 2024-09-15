@@ -10,6 +10,7 @@ export class RenderController {
   }
 
   @Post('params')
+  // @ts-ignore
   params(@Body() body) {
     return body.param
   }

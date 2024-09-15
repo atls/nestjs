@@ -1,15 +1,14 @@
 import { Provider }                     from '@nestjs/common'
-
-import { KetoWriteNativeClientService } from '../services'
-import { KetoWriteClientService }       from '../services'
-import { KetoReadClientService }        from '../services'
-import { KetoCheckClientService }       from '../services'
-import { KetoModuleOptions }            from './keto-module.interfaces'
-import { KETO_WRITE_NATIVE_CLIENT }     from './keto.constants'
-import { KETO_CHECK_CLIENT }            from './keto.constants'
-import { KETO_WRITE_CLIENT }            from './keto.constants'
-import { KETO_READ_CLIENT }             from './keto.constants'
-import { KETO_MODULE_OPTIONS }          from './keto.constants'
+import { KetoWriteNativeClientService } from '../services/index.js'
+import { KetoWriteClientService }       from '../services/index.js'
+import { KetoReadClientService }        from '../services/index.js'
+import { KetoCheckClientService }       from '../services/index.js'
+import { KetoModuleOptions }            from './keto-module.interfaces.js'
+import { KETO_WRITE_NATIVE_CLIENT }     from './keto.constants.js'
+import { KETO_CHECK_CLIENT }            from './keto.constants.js'
+import { KETO_WRITE_CLIENT }            from './keto.constants.js'
+import { KETO_READ_CLIENT }             from './keto.constants.js'
+import { KETO_MODULE_OPTIONS }          from './keto.constants.js'
 
 export const createKetoOptionsProvider = (options: KetoModuleOptions): Provider[] => [
   {

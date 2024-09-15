@@ -2,13 +2,13 @@ import { DynamicModule }                         from '@nestjs/common'
 import { Module }                                from '@nestjs/common'
 import { Provider }                              from '@nestjs/common'
 
-import { ExternalRendererModuleAsyncOptions }    from './external-renderer-module-options.interface'
-import { ExternalRendererModuleOptions }         from './external-renderer-module-options.interface'
-import { ExternalRendererOptionsFactory }        from './external-renderer-module-options.interface'
-import { EXTERNAL_RENDERER_MODULE_OPTIONS }      from './external-renderer.constants'
-import { createExternalRendererExportsProvider } from './external-renderer.providers'
-import { createExternalRendererProvider }        from './external-renderer.providers'
-import { createExternalRendererOptionsProvider } from './external-renderer.providers'
+import { ExternalRendererModuleAsyncOptions }    from './external-renderer-module-options.interface.js'
+import { ExternalRendererModuleOptions }         from './external-renderer-module-options.interface.js'
+import { ExternalRendererOptionsFactory }        from './external-renderer-module-options.interface.js'
+import { EXTERNAL_RENDERER_MODULE_OPTIONS }      from './external-renderer.constants.js'
+import { createExternalRendererExportsProvider } from './external-renderer.providers.js'
+import { createExternalRendererProvider }        from './external-renderer.providers.js'
+import { createExternalRendererOptionsProvider } from './external-renderer.providers.js'
 
 @Module({})
 export class ExternalRendererModule {
