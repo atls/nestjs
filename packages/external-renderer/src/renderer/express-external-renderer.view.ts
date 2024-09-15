@@ -11,12 +11,12 @@ export class ExpressExternalRendererView {
 
   baseUrl: string
 
-  constructor(name, options) {
+  constructor(name: string, options: { root: string }) {
     this.baseUrl = options.root
     this.path = name
   }
 
-  render({ data, query, headers }: ExpressExternalRendererViewParams, callback) {
+  render({ data, query, headers }: ExpressExternalRendererViewParams, callback: Function) {
     this.exec(this.getUrl(query), headers, data)
       .then((result) => callback(null, result))
       .catch((error) => callback(error))
@@ -26,13 +26,14 @@ export class ExpressExternalRendererView {
     const url = new URL(this.path, this.baseUrl)
 
     Object.keys(query).forEach((key) => {
+      // @ts-ignore
       url.searchParams.append(key, query[key])
     })
 
     return url.toString()
   }
 
-  protected async exec(url, headers = {}, data = {}) {
+  protected async exec(url: string, headers = {}, data = {}) {
     const response = await fetch(url, {
       method: 'POST',
       headers: {

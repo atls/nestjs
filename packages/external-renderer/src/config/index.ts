@@ -1,1 +1,1 @@
-export * from './external-renderer-env.config'
+export * from './external-renderer-env.config.js'

@@ -1,8 +1,8 @@
 import { Module }                 from '@nestjs/common'
 
-import { ExternalRendererModule } from '../../src'
-import { ExecController }         from './exec.controller'
-import { RenderController }       from './render.controller'
+import { ExternalRendererModule } from '../../src/index.js'
+import { ExecController }         from './exec.controller.js'
+import { RenderController }       from './render.controller.js'
 
 @Module({
   imports: [
