@@ -3,10 +3,10 @@
   "version": "0.0.9",
   "license": "BSD 3-Clause",
   "type": "module",
-  "main": "src/index.ts",
   "exports": {
     ".": "./src/index.ts"
   },
+  "main": "src/index.ts",
   "files": [
     "dist"
   ],
@@ -73,7 +73,6 @@
     "rxjs": "^6.3.3"
   },
   "publishConfig": {
-    "main": "dist/index.js",
     "exports": {
       "./package.json": "./package.json",
       ".": {
@@ -82,6 +81,7 @@
         "default": "./dist/index.js"
       }
     },
+    "main": "dist/index.js",
     "typings": "dist/index.d.ts"
   }
 }

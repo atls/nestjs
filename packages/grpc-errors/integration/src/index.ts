@@ -1,2 +1,2 @@
-export * from './grpc-errors-integration.module'
-export * from './proto.options'
+export * from './grpc-errors-integration.module.js'
+export * from './proto.options.js'
