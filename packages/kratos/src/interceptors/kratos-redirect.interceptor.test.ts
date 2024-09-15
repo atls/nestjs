@@ -1,10 +1,13 @@
 import { CallHandler }                     from '@nestjs/common'
-import { ExecutionContextHost }            from '@nestjs/core/helpers/execution-context-host'
+import { ExecutionContextHost }            from '@nestjs/core/helpers/execution-context-host.js'
+import { describe }                        from '@jest/globals'
+import { it }                    from '@jest/globals'
+import { expect }            from '@jest/globals'
 import { throwError }                      from 'rxjs'
 
-import { KratosRedirectRequiredException } from '../exceptions'
-import { KratosFlowRequiredException }     from '../exceptions'
-import { KratosRedirectInterceptor }       from './kratos-redirect.interceptor'
+import { KratosRedirectRequiredException } from '../exceptions/index.js'
+import { KratosFlowRequiredException }     from '../exceptions/index.js'
+import { KratosRedirectInterceptor }       from './kratos-redirect.interceptor.js'
 
 describe('KratosRedirectInterceptor', () => {
   it('skip not kratos errors', async () => {

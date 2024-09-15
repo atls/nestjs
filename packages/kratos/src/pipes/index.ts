@@ -1,1 +1,1 @@
-export * from './whoami.pipe'
+export * from './whoami.pipe.js'

@@ -1,9 +1,9 @@
 import { Module }                from '@nestjs/common'
 
-import { KratosModule }          from '../../src'
-import { RedirectController }    from './redirect.controller'
-import { SelfServiceController } from './self-service.controller'
-import { SessionController }     from './session.controller'
+import { KratosModule }          from '../../src/index.js'
+import { RedirectController }    from './redirect.controller.js'
+import { SelfServiceController } from './self-service.controller.js'
+import { SessionController }     from './session.controller.js'
 
 @Module({
   imports: [

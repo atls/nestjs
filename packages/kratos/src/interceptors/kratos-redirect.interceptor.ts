@@ -8,9 +8,9 @@ import { Observable }                      from 'rxjs'
 import { throwError }                      from 'rxjs'
 import { catchError }                      from 'rxjs/operators'
 
-import { KratosRedirectRequiredException } from '../exceptions'
-import { KratosFlowRequiredException }     from '../exceptions'
-import { KratosBrowserUrlFlow }            from '../urls'
+import { KratosRedirectRequiredException } from '../exceptions/index.js'
+import { KratosFlowRequiredException }     from '../exceptions/index.js'
+import { KratosBrowserUrlFlow }            from '../urls/index.js'
 
 @Injectable()
 export class KratosRedirectInterceptor implements NestInterceptor {
@@ -18,6 +18,7 @@ export class KratosRedirectInterceptor implements NestInterceptor {
 
   intercept(context: ExecutionContext, next: CallHandler): Observable<any> {
     return next.handle().pipe(
+      // @ts-ignore
       catchError((error) => {
         if (error.response && [403, 404, 410].includes(error.response.status)) {
           return throwError(new KratosRedirectRequiredException(this.redirectTo))

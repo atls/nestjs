@@ -1,5 +1,5 @@
-import { KratosOptionsFactory } from '../module'
-import { KratosModuleOptions }  from '../module'
+import { KratosOptionsFactory } from '../module/index.js'
+import { KratosModuleOptions }  from '../module/index.js'
 
 export class KratosEnvConfig implements KratosOptionsFactory {
   createKratosOptions(): KratosModuleOptions {

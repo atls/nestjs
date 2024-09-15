@@ -1,7 +1,7 @@
 import { ExecutionContext }     from '@nestjs/common'
 import { createParamDecorator } from '@nestjs/common'
 
-import { WhoamiPipe }           from '../pipes'
+import { WhoamiPipe }           from '../pipes/index.js'
 
 export const WhoamiCredentials = createParamDecorator((data: unknown, ctx: ExecutionContext) => {
   const request = ctx.switchToHttp().getRequest()
