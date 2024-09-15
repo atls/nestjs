@@ -1,1 +1,1 @@
-export * from './grpc-playground-integration.module'
+export * from './grpc-playground-integration.module.js'

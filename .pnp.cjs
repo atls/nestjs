@@ -828,6 +828,7 @@ const RAW_RUNTIME_STATE =
           ["@atls/nestjs-grpc-playground", "virtual:51dcb3fe3f47cfb6224dcab5ae8c7e50b5682560d9d6abdf449cb9fd665402b311244dcf35352838e6165320fb5bb25ae45a36f802c2a93ab14064614bee36b9#workspace:packages/grpc-playground"],\
           ["@atls/nestjs-grpc-http-proxy", "virtual:8dae1ab32ef17d2c369c7996158b5d7575eb4f7425582d621cb0d2b399089e06336cea656274a2168d214b85f6d187f9d204da9a9a940dc18b1ef5ba21692251#workspace:packages/grpc-http-proxy"],\
           ["@atls/nestjs-grpc-reflection", "virtual:51dcb3fe3f47cfb6224dcab5ae8c7e50b5682560d9d6abdf449cb9fd665402b311244dcf35352838e6165320fb5bb25ae45a36f802c2a93ab14064614bee36b9#workspace:packages/grpc-reflection"],\
+          ["@jest/globals", "npm:29.7.0"],\
           ["@nestjs/common", "virtual:77887786a24289fa840c9acd370d634accbe79bcf317ecf5401844ffff73b8a593879dd9cce463873637e6414a631dfdb1a2473704bf332d823bcfffac8c2469#npm:10.4.1"],\
           ["@nestjs/core", "virtual:51dcb3fe3f47cfb6224dcab5ae8c7e50b5682560d9d6abdf449cb9fd665402b311244dcf35352838e6165320fb5bb25ae45a36f802c2a93ab14064614bee36b9#npm:10.4.1"],\
           ["@nestjs/microservices", "virtual:51dcb3fe3f47cfb6224dcab5ae8c7e50b5682560d9d6abdf449cb9fd665402b311244dcf35352838e6165320fb5bb25ae45a36f802c2a93ab14064614bee36b9#npm:10.4.1"],\
@@ -835,8 +836,10 @@ const RAW_RUNTIME_STATE =
           ["@types/nestjs__common", null],\
           ["@types/nestjs__core", null],\
           ["@types/nestjs__microservices", null],\
+          ["@types/node-fetch", "npm:2.6.11"],\
           ["@types/reflect-metadata", null],\
           ["@types/rxjs", null],\
+          ["@types/supertest", "npm:6.0.2"],\
           ["get-port", "npm:5.1.1"],\
           ["node-fetch", "virtual:72db6b3551c1b46986e711aee96d1643b26ff6991672401c35442adfbef36d10ccd9289b58e518aac04afe4e688ca4b130da9fae9c1c040113a2585b8cfeea9a#npm:2.7.0"],\
           ["reflect-metadata", "npm:0.2.2"],\
@@ -863,10 +866,13 @@ const RAW_RUNTIME_STATE =
           ["@atls/nestjs-grpc-playground", "workspace:packages/grpc-playground"],\
           ["@atls/nestjs-grpc-http-proxy", "virtual:f707dac3aa7229ebf4c650c03b38ba4b5be485988e92f2a5d4adf0d456b26619d3627f119111b9a68c2b1957c16eb741793fdeb10657222f4c5e22d93ee8bb43#workspace:packages/grpc-http-proxy"],\
           ["@atls/nestjs-grpc-reflection", "virtual:f707dac3aa7229ebf4c650c03b38ba4b5be485988e92f2a5d4adf0d456b26619d3627f119111b9a68c2b1957c16eb741793fdeb10657222f4c5e22d93ee8bb43#workspace:packages/grpc-reflection"],\
+          ["@jest/globals", "npm:29.7.0"],\
           ["@nestjs/common", "virtual:3da99a4dd1a45fbb12f3936831275fe6ef127b2869363613ce7e5fc10bfba69fce118823d76d677d80a9d976776b1a4cb7b1bb4ee5c5a306e3ceed973bf055a2#patch:@nestjs/common@npm%3A10.2.5#~/.yarn/patches/@nestjs-common-npm-10.2.5-816dceeade.patch::version=10.2.5&hash=b1d2d6"],\
           ["@nestjs/core", "virtual:f707dac3aa7229ebf4c650c03b38ba4b5be485988e92f2a5d4adf0d456b26619d3627f119111b9a68c2b1957c16eb741793fdeb10657222f4c5e22d93ee8bb43#npm:10.2.5"],\
           ["@nestjs/microservices", "virtual:f707dac3aa7229ebf4c650c03b38ba4b5be485988e92f2a5d4adf0d456b26619d3627f119111b9a68c2b1957c16eb741793fdeb10657222f4c5e22d93ee8bb43#npm:10.2.5"],\
           ["@nestjs/testing", "virtual:f707dac3aa7229ebf4c650c03b38ba4b5be485988e92f2a5d4adf0d456b26619d3627f119111b9a68c2b1957c16eb741793fdeb10657222f4c5e22d93ee8bb43#npm:10.2.5"],\
+          ["@types/node-fetch", "npm:2.6.11"],\
+          ["@types/supertest", "npm:6.0.2"],\
           ["get-port", "npm:5.1.1"],\
           ["node-fetch", "virtual:72db6b3551c1b46986e711aee96d1643b26ff6991672401c35442adfbef36d10ccd9289b58e518aac04afe4e688ca4b130da9fae9c1c040113a2585b8cfeea9a#npm:2.7.0"],\
           ["reflect-metadata", "npm:0.1.13"],\

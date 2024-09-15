@@ -5,8 +5,8 @@ import { Res }                            from '@nestjs/common'
 import { Get }                            from '@nestjs/common'
 import fetch                              from 'node-fetch'
 
-import { GRPC_PLAYGROUND_MODULE_OPTIONS } from '../module'
-import { GrpcPlaygroundModuleOptions }    from '../module'
+import { GRPC_PLAYGROUND_MODULE_OPTIONS } from '../module/index.js'
+import { GrpcPlaygroundModuleOptions }    from '../module/index.js'
 
 @Controller()
 export class GrpcPlaygroundController {
@@ -27,6 +27,7 @@ export class GrpcPlaygroundController {
   }
 
   @Get('/_next/static/chunks/:chunk')
+  // @ts-ignore
   async chunks(@Res() res, @Param('chunk') chunk: string) {
     res.redirect(this.getJsdelivrUrl(`_next/static/chunks/${chunk}`))
   }
