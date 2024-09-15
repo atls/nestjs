@@ -1,7 +1,7 @@
 import { promises as fs }             from 'fs'
 
-import { GrpcIdentityOptionsFactory } from '../module'
-import { GrpcIdentityModuleOptions }  from '../module'
+import { GrpcIdentityOptionsFactory } from '../module/index.js'
+import { GrpcIdentityModuleOptions }  from '../module/index.js'
 
 export class GrpcIdentityEnvConfig implements GrpcIdentityOptionsFactory {
   getJwksOptions() {

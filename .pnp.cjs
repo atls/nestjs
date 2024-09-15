@@ -687,6 +687,7 @@ const RAW_RUNTIME_STATE =
           ["@atls/nestjs-grpc-identity", "workspace:packages/grpc-identity"],\
           ["@atls/grpc-error-status", "npm:0.0.3"],\
           ["@grpc/grpc-js", "npm:1.9.1"],\
+          ["@jest/globals", "npm:29.7.0"],\
           ["@nestjs/common", "virtual:3da99a4dd1a45fbb12f3936831275fe6ef127b2869363613ce7e5fc10bfba69fce118823d76d677d80a9d976776b1a4cb7b1bb4ee5c5a306e3ceed973bf055a2#patch:@nestjs/common@npm%3A10.2.5#~/.yarn/patches/@nestjs-common-npm-10.2.5-816dceeade.patch::version=10.2.5&hash=b1d2d6"],\
           ["@nestjs/core", "virtual:7ddb0d13045d018c5269b41da965bca74c35c9b587749ec13a11ae9dbddac7e86e77af63bbb051c958431bbeaec2334f1a71eb34f18e6da6d8b4d5c80e9448f4#npm:10.2.5"],\
           ["@nestjs/microservices", "virtual:7ddb0d13045d018c5269b41da965bca74c35c9b587749ec13a11ae9dbddac7e86e77af63bbb051c958431bbeaec2334f1a71eb34f18e6da6d8b4d5c80e9448f4#npm:10.2.5"],\

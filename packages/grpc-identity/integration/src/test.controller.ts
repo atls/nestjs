@@ -2,8 +2,8 @@ import { Controller }           from '@nestjs/common'
 import { UseGuards }            from '@nestjs/common'
 import { GrpcMethod }           from '@nestjs/microservices'
 
-import { GrpcJwtIdentityGuard } from '../../src'
-import { Subject }              from '../../src'
+import { GrpcJwtIdentityGuard } from '../../src/index.js'
+import { Subject }              from '../../src/index.js'
 
 @Controller()
 @UseGuards(GrpcJwtIdentityGuard)

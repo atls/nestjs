@@ -2,13 +2,13 @@ import { DynamicModule }                     from '@nestjs/common'
 import { Module }                            from '@nestjs/common'
 import { Provider }                          from '@nestjs/common'
 
-import { GrpcIdentityModuleAsyncOptions }    from './grpc-identity-module.interface'
-import { GrpcIdentityModuleOptions }         from './grpc-identity-module.interface'
-import { GrpcIdentityOptionsFactory }        from './grpc-identity-module.interface'
-import { GRPC_IDENTITY_MODULE_OPTIONS }      from './grpc-identity.constants'
-import { createGrpcIdentityExportsProvider } from './grpc-identity.providers'
-import { createGrpcIdentityProvider }        from './grpc-identity.providers'
-import { createGrpcIdentityOptionsProvider } from './grpc-identity.providers'
+import { GrpcIdentityModuleAsyncOptions }    from './grpc-identity-module.interface.js'
+import { GrpcIdentityModuleOptions }         from './grpc-identity-module.interface.js'
+import { GrpcIdentityOptionsFactory }        from './grpc-identity-module.interface.js'
+import { GRPC_IDENTITY_MODULE_OPTIONS }      from './grpc-identity.constants.js'
+import { createGrpcIdentityExportsProvider } from './grpc-identity.providers.js'
+import { createGrpcIdentityProvider }        from './grpc-identity.providers.js'
+import { createGrpcIdentityOptionsProvider } from './grpc-identity.providers.js'
 
 @Module({})
 export class GrpcIdentityModule {

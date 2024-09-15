@@ -484,6 +484,7 @@ __metadata:
   dependencies:
     "@atls/grpc-error-status": "npm:0.0.3"
     "@grpc/grpc-js": "npm:1.9.1"
+    "@jest/globals": "npm:^29.7.0"
     "@nestjs/common": "patch:@nestjs/common@npm%3A10.2.5#~/.yarn/patches/@nestjs-common-npm-10.2.5-816dceeade.patch"
     "@nestjs/core": "npm:10.2.5"
     "@nestjs/microservices": "npm:10.2.5"

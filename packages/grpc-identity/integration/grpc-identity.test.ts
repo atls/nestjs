@@ -2,22 +2,28 @@
  * @jest-environment node
  */
 
-import { Metadata }                      from '@grpc/grpc-js'
-import { INestMicroservice }             from '@nestjs/common'
-import { ClientsModule }                 from '@nestjs/microservices'
-import { Transport }                     from '@nestjs/microservices'
-import { Test }                          from '@nestjs/testing'
-import { status }                        from '@grpc/grpc-js'
-import { readFileSync }                  from 'fs'
-import { sign }                          from 'jsonwebtoken'
-import { join }                          from 'path'
-import getPort                           from 'get-port'
+import { Metadata }                                  from '@grpc/grpc-js'
+import { INestMicroservice }                         from '@nestjs/common'
+import { ClientsModule }                             from '@nestjs/microservices'
+import { Transport }                                 from '@nestjs/microservices'
+import { Test }                                      from '@nestjs/testing'
+import { status }                                    from '@grpc/grpc-js'
+import { describe }                                  from '@jest/globals'
+import { beforeAll }                       from '@jest/globals'
+import { it }                   from '@jest/globals'
+import { expect }           from '@jest/globals'
+import { afterAll } from '@jest/globals'
+import { readFileSync }                              from 'fs'
+import { sign }                                      from 'jsonwebtoken'
+import { join }                                      from 'path'
+import getPort                                       from 'get-port'
 
-import { GrpcIdentityIntegrationModule } from './src'
-import { serverOptions }                 from './src'
+import { GrpcIdentityIntegrationModule }             from './src/index.js'
+import { serverOptions }                             from './src/index.js'
 
 describe('grpc identity', () => {
   let service: INestMicroservice
+  // @ts-ignore
   let client
 
   beforeAll(async () => {
@@ -74,6 +80,7 @@ describe('grpc identity', () => {
 
     metadata.add('authorization', `Bearer ${token}`)
 
+    // @ts-ignore
     const result = await client.test({ id: 'test' }, metadata).toPromise()
 
     expect(result.id).toBe('test')
@@ -87,6 +94,7 @@ describe('grpc identity', () => {
 
       metadata.add('authorization', `Bearer test`)
 
+      // @ts-ignore
       await client.test({ id: 'test' }, metadata).toPromise()
     } catch (error) {
       expect((error as any).code).toBe(status.UNAUTHENTICATED)
