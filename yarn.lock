@@ -419,6 +419,30 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@atls/nestjs-graphql-redis-subscriptions@workspace:packages/nestjs-graphql-redis-subscriptions":
+  version: 0.0.0-use.local
+  resolution: "@atls/nestjs-graphql-redis-subscriptions@workspace:packages/nestjs-graphql-redis-subscriptions"
+  dependencies:
+    "@atls/nestjs-redis": "npm:^0.0.1"
+    "@nestjs/common": "npm:^10.0.5"
+    "@nestjs/core": "npm:^10.0.5"
+    graphql-redis-subscriptions: "npm:^2.6.0"
+    graphql-subscriptions: "npm:^2.0.0"
+    reflect-metadata: "npm:^0.1.13"
+    rxjs: "npm:^7.8.1"
+    telejson: "npm:^7.1.0"
+  peerDependencies:
+    "@nestjs/bull": ^0.6
+    "@nestjs/common": ^10
+    "@nestjs/core": ^10
+    reflect-metadata: ^0.1
+    rxjs: ^7
+  peerDependenciesMeta:
+    graphql:
+      optional: true
+  languageName: unknown
+  linkType: soft
+
 "@atls/nestjs-grpc-errors@workspace:packages/nestjs-grpc-errors":
   version: 0.0.0-use.local
   resolution: "@atls/nestjs-grpc-errors@workspace:packages/nestjs-grpc-errors"
@@ -673,7 +697,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@atls/nestjs-redis@workspace:packages/nestjs-redis":
+"@atls/nestjs-redis@npm:^0.0.1, @atls/nestjs-redis@workspace:packages/nestjs-redis":
   version: 0.0.0-use.local
   resolution: "@atls/nestjs-redis@workspace:packages/nestjs-redis"
   dependencies:
@@ -10447,6 +10471,20 @@ __metadata:
   languageName: node
   linkType: hard
 
+"graphql-redis-subscriptions@npm:^2.6.0":
+  version: 2.6.1
+  resolution: "graphql-redis-subscriptions@npm:2.6.1"
+  dependencies:
+    ioredis: "npm:^5.3.2"
+  peerDependencies:
+    graphql-subscriptions: ^1.0.0 || ^2.0.0
+  dependenciesMeta:
+    ioredis:
+      optional: true
+  checksum: 10c0/4ad2f84207f574604f6901616c2890caf78adb2527c4dcd342d655d8197c035ba1f5fb1099ec4eb097129c6c7bc1883dcd46611309fe50239a8fb2ae657b21da
+  languageName: node
+  linkType: hard
+
 "graphql-scalars@npm:1.12.0":
   version: 1.12.0
   resolution: "graphql-scalars@npm:1.12.0"
@@ -10480,7 +10518,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"graphql-subscriptions@npm:2.0.0":
+"graphql-subscriptions@npm:2.0.0, graphql-subscriptions@npm:^2.0.0":
   version: 2.0.0
   resolution: "graphql-subscriptions@npm:2.0.0"
   dependencies:
@@ -12294,10 +12332,26 @@ __metadata:
   languageName: node
   linkType: hard
 
+"map-or-similar@npm:^1.5.0":
+  version: 1.5.0
+  resolution: "map-or-similar@npm:1.5.0"
+  checksum: 10c0/33c6ccfdc272992e33e4e99a69541a3e7faed9de3ac5bc732feb2500a9ee71d3f9d098980a70b7746e7eeb7f859ff7dfb8aa9b5ecc4e34170a32ab78cfb18def
+  languageName: node
+  linkType: hard
+
 "media-typer@npm:0.3.0":
   version: 0.3.0
   resolution: "media-typer@npm:0.3.0"
   checksum: 10c0/d160f31246907e79fed398470285f21bafb45a62869dc469b1c8877f3f064f5eabc4bcc122f9479b8b605bc5c76187d7871cf84c4ee3ecd3e487da1993279928
+  languageName: node
+  linkType: hard
+
+"memoizerific@npm:^1.11.3":
+  version: 1.11.3
+  resolution: "memoizerific@npm:1.11.3"
+  dependencies:
+    map-or-similar: "npm:^1.5.0"
+  checksum: 10c0/661bf69b7afbfad57f0208f0c63324f4c96087b480708115b78ee3f0237d86c7f91347f6db31528740b2776c2e34c709bcb034e1e910edee2270c9603a0a469e
   languageName: node
   linkType: hard
 
@@ -14889,6 +14943,15 @@ __metadata:
     stream-events: "npm:^1.0.5"
     uuid: "npm:^8.0.0"
   checksum: 10c0/257ee30444ef92f43f12e98d87199fb726e89745b7995c8f496b627ff720e468da571c748376b9a14802f624b77b212ebcbc7777f033b6e78afda66838a8b2b9
+  languageName: node
+  linkType: hard
+
+"telejson@npm:^7.1.0":
+  version: 7.2.0
+  resolution: "telejson@npm:7.2.0"
+  dependencies:
+    memoizerific: "npm:^1.11.3"
+  checksum: 10c0/d26e6cc93e54bfdcdb207b49905508c5db45862e811a2e2193a735409e47b14530e1c19351618a3e03ad2fd4ffc3759364fcd72851aba2df0300fab574b6151c
   languageName: node
   linkType: hard
 
