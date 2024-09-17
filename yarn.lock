@@ -292,6 +292,24 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@atls/nestjs-cqrs@workspace:packages/nestjs-cqrs":
+  version: 0.0.0-use.local
+  resolution: "@atls/nestjs-cqrs@workspace:packages/nestjs-cqrs"
+  dependencies:
+    "@nestjs/common": "npm:^10.0.5"
+    "@nestjs/core": "npm:^10.0.5"
+    "@nestjs/cqrs": "npm:^10.2.5"
+    reflect-metadata: "npm:^0.1.13"
+    rxjs: "npm:^7.8.1"
+  peerDependencies:
+    "@nestjs/common": ^10
+    "@nestjs/core": ^10
+    "@nestjs/cqrs": ^10
+    reflect-metadata: ^0.1
+    rxjs: ^7
+  languageName: unknown
+  linkType: soft
+
 "@atls/nestjs-dataloader@workspace:packages/nestjs-dataloader":
   version: 0.0.0-use.local
   resolution: "@atls/nestjs-dataloader@workspace:packages/nestjs-dataloader"
@@ -4218,6 +4236,20 @@ __metadata:
     "@nestjs/websockets":
       optional: true
   checksum: 10c0/86f6ea196ee944e121e7f0b80bdcc796abccc266be48ab169114fc059d9633ccc8ffe646bc4e87933c503a34ffa782bf1f3efe848ae668f88aa7fa6f04568aa8
+  languageName: node
+  linkType: hard
+
+"@nestjs/cqrs@npm:^10.2.5":
+  version: 10.2.7
+  resolution: "@nestjs/cqrs@npm:10.2.7"
+  dependencies:
+    uuid: "npm:9.0.1"
+  peerDependencies:
+    "@nestjs/common": ^9.0.0 || ^10.0.0
+    "@nestjs/core": ^9.0.0 || ^10.0.0
+    reflect-metadata: ^0.1.13 || ^0.2.0
+    rxjs: ^7.2.0
+  checksum: 10c0/9bcc236a39ab11e516df7db8ebfe16f509e39412ac8be32aa8ff9e15d12ebed86d6477bbb3fb9c220e402288c75e00aa91eb4ddc65b12efab17b2e31346edc75
   languageName: node
   linkType: hard
 
