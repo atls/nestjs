@@ -128,6 +128,7 @@ const RAW_RUNTIME_STATE =
         "packageLocation": "./",\
         "packageDependencies": [\
           ["@atls/code-runtime", "npm:1.1.0"],\
+          ["@types/node", "npm:22.5.5"],\
           ["typescript", "patch:typescript@npm%3A5.4.2#optional!builtin<compat/typescript>::version=5.4.2&hash=5adc0c"]\
         ],\
         "linkType": "SOFT"\
@@ -1177,6 +1178,7 @@ const RAW_RUNTIME_STATE =
           ["@nestjs/testing", "virtual:3da99a4dd1a45fbb12f3936831275fe6ef127b2869363613ce7e5fc10bfba69fce118823d76d677d80a9d976776b1a4cb7b1bb4ee5c5a306e3ceed973bf055a2#npm:10.4.1"],\
           ["@types/nestjs__common", null],\
           ["@types/nestjs__core", null],\
+          ["@types/node", "npm:22.5.5"],\
           ["@types/reflect-metadata", null],\
           ["@types/rxjs", null],\
           ["@types/typesense", null],\
@@ -1209,6 +1211,7 @@ const RAW_RUNTIME_STATE =
           ["@nestjs/common", "virtual:77887786a24289fa840c9acd370d634accbe79bcf317ecf5401844ffff73b8a593879dd9cce463873637e6414a631dfdb1a2473704bf332d823bcfffac8c2469#npm:10.4.1"],\
           ["@nestjs/core", "virtual:3da99a4dd1a45fbb12f3936831275fe6ef127b2869363613ce7e5fc10bfba69fce118823d76d677d80a9d976776b1a4cb7b1bb4ee5c5a306e3ceed973bf055a2#npm:10.4.1"],\
           ["@nestjs/testing", "virtual:3da99a4dd1a45fbb12f3936831275fe6ef127b2869363613ce7e5fc10bfba69fce118823d76d677d80a9d976776b1a4cb7b1bb4ee5c5a306e3ceed973bf055a2#npm:10.4.1"],\
+          ["@types/node", "npm:22.5.5"],\
           ["decamelize", "npm:5.0.1"],\
           ["get-port", "npm:7.1.0"],\
           ["reflect-metadata", "npm:0.2.2"],\
@@ -1230,6 +1233,7 @@ const RAW_RUNTIME_STATE =
           ["@nestjs/core", "virtual:3da99a4dd1a45fbb12f3936831275fe6ef127b2869363613ce7e5fc10bfba69fce118823d76d677d80a9d976776b1a4cb7b1bb4ee5c5a306e3ceed973bf055a2#npm:10.4.1"],\
           ["@nestjs/testing", "virtual:3da99a4dd1a45fbb12f3936831275fe6ef127b2869363613ce7e5fc10bfba69fce118823d76d677d80a9d976776b1a4cb7b1bb4ee5c5a306e3ceed973bf055a2#npm:10.4.1"],\
           ["@nestjs/typeorm", "virtual:9690aa269ed7f0963f88f2f41cdbe29b7fe04ce225fdbc61cb0a364b09b929d1c2eaed05330c6dc7cecdadc37f50c68f1353b049eb428ace77331e8d82f98f3e#npm:10.0.2"],\
+          ["@types/node", "npm:22.5.5"],\
           ["get-port", "npm:7.1.0"],\
           ["reflect-metadata", "npm:0.2.2"],\
           ["rxjs", "npm:7.8.1"],\
@@ -16774,6 +16778,7 @@ const RAW_RUNTIME_STATE =
         "packageDependencies": [\
           ["nestjs", "workspace:."],\
           ["@atls/code-runtime", "npm:1.1.0"],\
+          ["@types/node", "npm:22.5.5"],\
           ["typescript", "patch:typescript@npm%3A5.4.2#optional!builtin<compat/typescript>::version=5.4.2&hash=5adc0c"]\
         ],\
         "linkType": "SOFT"\
