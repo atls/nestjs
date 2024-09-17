@@ -83,6 +83,10 @@ const RAW_RUNTIME_STATE =
       "reference": "workspace:packages/nestjs-logger"\
     },\
     {\
+      "name": "@atls/nestjs-redis",\
+      "reference": "workspace:packages/nestjs-redis"\
+    },\
+    {\
       "name": "@atls/nestjs-s3-client",\
       "reference": "workspace:packages/nestjs-s3-client"\
     },\
@@ -125,6 +129,7 @@ const RAW_RUNTIME_STATE =
     ["@atls/nestjs-keto", ["workspace:packages/nestjs-keto"]],\
     ["@atls/nestjs-kratos", ["workspace:packages/nestjs-kratos"]],\
     ["@atls/nestjs-logger", ["workspace:packages/nestjs-logger"]],\
+    ["@atls/nestjs-redis", ["workspace:packages/nestjs-redis"]],\
     ["@atls/nestjs-s3-client", ["workspace:packages/nestjs-s3-client"]],\
     ["@atls/nestjs-typeorm-seeding", ["workspace:packages/nestjs-typeorm-seeding"]],\
     ["@atls/nestjs-typesense", ["virtual:084046633b9e7ae3480afb238e14edfec9426b631126ce31d204d664b2eaf2dd2c2c5ef9a4d5ee9cdc10a0b796d57bd90ef5416ebdadd91ed67409da21b59a10#workspace:packages/nestjs-typesense", "workspace:packages/nestjs-typesense"]],\
@@ -1170,6 +1175,20 @@ const RAW_RUNTIME_STATE =
           ["rxjs", "npm:7.8.1"],\
           ["supertest", "npm:6.3.4"],\
           ["typeorm", "virtual:5fdc09c7fdc30e48d390ab6ffff8ef725f2a327d08c70586e3df1d71e2657ff8df407f90899951495c83561309126b92db55566d67cf317480e9e55fd8e5b605#npm:0.2.45"]\
+        ],\
+        "linkType": "SOFT"\
+      }]\
+    ]],\
+    ["@atls/nestjs-redis", [\
+      ["workspace:packages/nestjs-redis", {\
+        "packageLocation": "./packages/nestjs-redis/",\
+        "packageDependencies": [\
+          ["@atls/nestjs-redis", "workspace:packages/nestjs-redis"],\
+          ["@nestjs/common", "virtual:a83c01fc4cba5ca49a56474f02d0e2a42b67fd84218e0ed8446c312a68b5dcda210438f3221534d1b20254ee4cad2d7a7704d91b0774cb67fd2dcafbea6e550e#npm:10.4.3"],\
+          ["@nestjs/core", "virtual:a83c01fc4cba5ca49a56474f02d0e2a42b67fd84218e0ed8446c312a68b5dcda210438f3221534d1b20254ee4cad2d7a7704d91b0774cb67fd2dcafbea6e550e#npm:10.4.3"],\
+          ["ioredis", "npm:5.4.1"],\
+          ["reflect-metadata", "npm:0.1.14"],\
+          ["rxjs", "npm:7.8.1"]\
         ],\
         "linkType": "SOFT"\
       }]\
@@ -6162,6 +6181,15 @@ const RAW_RUNTIME_STATE =
         "packageLocation": "../.yarn/berry/cache/@humanwhocodes-object-schema-npm-2.0.3-4f0e508cd9-10c0.zip/node_modules/@humanwhocodes/object-schema/",\
         "packageDependencies": [\
           ["@humanwhocodes/object-schema", "npm:2.0.3"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["@ioredis/commands", [\
+      ["npm:1.2.0", {\
+        "packageLocation": "../.yarn/berry/cache/@ioredis-commands-npm-1.2.0-47541de88b-10c0.zip/node_modules/@ioredis/commands/",\
+        "packageDependencies": [\
+          ["@ioredis/commands", "npm:1.2.0"]\
         ],\
         "linkType": "HARD"\
       }]\
@@ -13174,6 +13202,15 @@ const RAW_RUNTIME_STATE =
         "linkType": "HARD"\
       }]\
     ]],\
+    ["cluster-key-slot", [\
+      ["npm:1.1.2", {\
+        "packageLocation": "../.yarn/berry/cache/cluster-key-slot-npm-1.1.2-0571a28825-10c0.zip/node_modules/cluster-key-slot/",\
+        "packageDependencies": [\
+          ["cluster-key-slot", "npm:1.1.2"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
     ["co", [\
       ["npm:4.6.0", {\
         "packageLocation": "../.yarn/berry/cache/co-npm-4.6.0-03f2d1feb6-10c0.zip/node_modules/co/",\
@@ -13897,6 +13934,15 @@ const RAW_RUNTIME_STATE =
         "packageLocation": "../.yarn/berry/cache/delegates-npm-1.0.0-9b1942d75f-10c0.zip/node_modules/delegates/",\
         "packageDependencies": [\
           ["delegates", "npm:1.0.0"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["denque", [\
+      ["npm:2.1.0", {\
+        "packageLocation": "../.yarn/berry/cache/denque-npm-2.1.0-578d0b6297-10c0.zip/node_modules/denque/",\
+        "packageDependencies": [\
+          ["denque", "npm:2.1.0"]\
         ],\
         "linkType": "HARD"\
       }]\
@@ -16684,6 +16730,24 @@ const RAW_RUNTIME_STATE =
         "linkType": "HARD"\
       }]\
     ]],\
+    ["ioredis", [\
+      ["npm:5.4.1", {\
+        "packageLocation": "../.yarn/berry/cache/ioredis-npm-5.4.1-c96e18ae67-10c0.zip/node_modules/ioredis/",\
+        "packageDependencies": [\
+          ["ioredis", "npm:5.4.1"],\
+          ["@ioredis/commands", "npm:1.2.0"],\
+          ["cluster-key-slot", "npm:1.1.2"],\
+          ["debug", "virtual:1b9e2a314c35921e1b14ca2d2c7664f165a5c0f3f02ca1e30357c6546941724b55e5624ce0d5b4790874f2259ae08ae26d9f95d2cdbb84aae50aa451a2a572cd#npm:4.3.7"],\
+          ["denque", "npm:2.1.0"],\
+          ["lodash.defaults", "npm:4.2.0"],\
+          ["lodash.isarguments", "npm:3.1.0"],\
+          ["redis-errors", "npm:1.2.0"],\
+          ["redis-parser", "npm:3.0.0"],\
+          ["standard-as-callback", "npm:2.1.0"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
     ["ip-address", [\
       ["npm:9.0.5", {\
         "packageLocation": "../.yarn/berry/cache/ip-address-npm-9.0.5-9fa024d42a-10c0.zip/node_modules/ip-address/",\
@@ -18045,11 +18109,29 @@ const RAW_RUNTIME_STATE =
         "linkType": "HARD"\
       }]\
     ]],\
+    ["lodash.defaults", [\
+      ["npm:4.2.0", {\
+        "packageLocation": "../.yarn/berry/cache/lodash.defaults-npm-4.2.0-c5dea025ab-10c0.zip/node_modules/lodash.defaults/",\
+        "packageDependencies": [\
+          ["lodash.defaults", "npm:4.2.0"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
     ["lodash.get", [\
       ["npm:4.4.2", {\
         "packageLocation": "../.yarn/berry/cache/lodash.get-npm-4.4.2-7bda64ed87-10c0.zip/node_modules/lodash.get/",\
         "packageDependencies": [\
           ["lodash.get", "npm:4.4.2"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["lodash.isarguments", [\
+      ["npm:3.1.0", {\
+        "packageLocation": "../.yarn/berry/cache/lodash.isarguments-npm-3.1.0-9e74d350b8-10c0.zip/node_modules/lodash.isarguments/",\
+        "packageDependencies": [\
+          ["lodash.isarguments", "npm:3.1.0"]\
         ],\
         "linkType": "HARD"\
       }]\
@@ -19825,6 +19907,25 @@ const RAW_RUNTIME_STATE =
         "linkType": "HARD"\
       }]\
     ]],\
+    ["redis-errors", [\
+      ["npm:1.2.0", {\
+        "packageLocation": "../.yarn/berry/cache/redis-errors-npm-1.2.0-a81fd9b0f1-10c0.zip/node_modules/redis-errors/",\
+        "packageDependencies": [\
+          ["redis-errors", "npm:1.2.0"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["redis-parser", [\
+      ["npm:3.0.0", {\
+        "packageLocation": "../.yarn/berry/cache/redis-parser-npm-3.0.0-7ebe40abcb-10c0.zip/node_modules/redis-parser/",\
+        "packageDependencies": [\
+          ["redis-parser", "npm:3.0.0"],\
+          ["redis-errors", "npm:1.2.0"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
     ["reflect-metadata", [\
       ["npm:0.1.14", {\
         "packageLocation": "../.yarn/berry/cache/reflect-metadata-npm-0.1.14-b105eed5b2-10c0.zip/node_modules/reflect-metadata/",\
@@ -20577,6 +20678,15 @@ const RAW_RUNTIME_STATE =
         "packageDependencies": [\
           ["stack-utils", "npm:2.0.6"],\
           ["escape-string-regexp", "npm:2.0.0"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["standard-as-callback", [\
+      ["npm:2.1.0", {\
+        "packageLocation": "../.yarn/berry/cache/standard-as-callback-npm-2.1.0-8e47620bd4-10c0.zip/node_modules/standard-as-callback/",\
+        "packageDependencies": [\
+          ["standard-as-callback", "npm:2.1.0"]\
         ],\
         "linkType": "HARD"\
       }]\
