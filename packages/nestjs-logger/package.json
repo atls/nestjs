@@ -1,6 +1,6 @@
 {
   "name": "@atls/nestjs-logger",
-  "version": "0.2.39",
+  "version": "0.2.40",
   "repository": "git@github.com:atls/nestjs.git",
   "license": "BSD-3 Clause",
   "type": "module",
