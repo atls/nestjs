@@ -26,6 +26,7 @@
     "@nestjs/core": "10.4.1",
     "@nestjs/testing": "10.4.1",
     "@nestjs/typeorm": "10.0.2",
+    "@types/node": "22.5.5",
     "get-port": "7.1.0",
     "reflect-metadata": "0.2.2",
     "rxjs": "7.8.1",
@@ -52,5 +53,6 @@
     },
     "main": "dist/index.js",
     "typings": "dist/index.d.ts"
-  }
+  },
+  "typecheckSkipLibCheck": true
 }
