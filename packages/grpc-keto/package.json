@@ -50,5 +50,6 @@
       }
     },
     "typings": "dist/index.d.ts"
-  }
+  },
+  "typecheckSkipLibCheck": true
 }
