@@ -1,7 +1,7 @@
 import { Injectable }                from '@nestjs/common'
 import { Client }                    from 'typesense'
 
-import { TypesenseMetadataRegistry } from '../../../nestjs-typesense'
+import { TypesenseMetadataRegistry } from '@atls/nestjs-typesense'
 
 @Injectable()
 export class EntityToDocumentMapper {
@@ -23,7 +23,7 @@ export class EntityToDocumentMapper {
     const schema = this.registry.getSchemaByTarget(entity.constructor)
     const document = this.buildDocument(entity)
 
-    await this.typesense.collections(schema!.name).documents().update(document)
+    await this.typesense.collections(schema!.name).documents().update(document, {})
   }
 
   // @ts-ignore

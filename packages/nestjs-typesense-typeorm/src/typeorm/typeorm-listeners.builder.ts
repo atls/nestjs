@@ -8,7 +8,7 @@ import { InsertEvent }               from 'typeorm'
 import { UpdateEvent }               from 'typeorm'
 import { Connection }                from 'typeorm'
 
-import { TypesenseMetadataRegistry } from '../../../nestjs-typesense'
+import { TypesenseMetadataRegistry } from '@atls/nestjs-typesense'
 
 import { EntityToDocumentMapper }    from '../typesense/index.js'
 
