@@ -18,6 +18,8 @@ export class TypesenseCollectionsCreator implements OnModuleInit {
     for (const target of this.registry.getTargets()) {
       const schema = this.registry.getSchemaByTarget(target)
 
+      if (!schema) return
+
       try {
         // eslint-disable-next-line no-await-in-loop
         await this.typesense.collections(schema!.name).retrieve()

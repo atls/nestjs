@@ -1,8 +1,8 @@
 import { DynamicModule }                  from '@nestjs/common'
 import { Module }                         from '@nestjs/common'
 
-import { GrpcHttpProxyModule }            from '../../../nestjs-grpc-http-proxy'
-import { GrpcReflectionModule }           from '../../../nestjs-grpc-reflection'
+import { GrpcHttpProxyModule }            from '@atls/nestjs-grpc-http-proxy'
+import { GrpcReflectionModule }           from '@atls/nestjs-grpc-reflection'
 
 import { GrpcPlaygroundController }       from '../controllers/index.js'
 import { GrpcPlaygroundModuleOptions }    from './grpc-playground-module-options.interface.js'
