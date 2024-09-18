@@ -1,6 +1,6 @@
 import { GrpcOptions }   from '@nestjs/microservices'
 
-import { Authenticator } from '../../../nestjs-grpc-http-proxy'
+import { Authenticator } from '@atls/nestjs-grpc-http-proxy'
 
 export interface GrpcPlaygroundModuleOptions {
   version?: string

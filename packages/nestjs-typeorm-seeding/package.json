@@ -16,8 +16,8 @@
     "postpack": "rm -rf dist"
   },
   "dependencies": {
-    "@atls/typeorm-seeding": "0.0.4",
-    "typeorm": "0.2.45"
+    "@atls/typeorm-seeding": "1.0.3",
+    "typeorm": "0.3.20"
   },
   "devDependencies": {
     "@jest/globals": "29.7.0",

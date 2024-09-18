@@ -1,9 +1,10 @@
 import { ModuleMetadata } from '@nestjs/common/interfaces'
 import { Type }           from '@nestjs/common/interfaces'
+import { LogLevelDesc }   from 'loglevel'
 
 export interface TypesenseNodeOptions {
   host: string
-  port: string
+  port: number
   protocol: string
 }
 
@@ -14,7 +15,7 @@ export interface TypesenseModuleOptions {
   connectionTimeoutSeconds?: number
   retryIntervalSeconds?: number
   healthcheckIntervalSeconds?: number
-  logLevel?: string
+  logLevel?: LogLevelDesc
 }
 
 export interface TypesenseOptionsFactory {
