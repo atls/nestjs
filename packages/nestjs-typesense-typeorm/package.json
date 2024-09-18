@@ -1,6 +1,6 @@
 {
   "name": "@atls/nestjs-typesense-typeorm",
-  "version": "0.0.8",
+  "version": "0.0.9",
   "license": "BSD 3-Clause",
   "type": "module",
   "exports": {
