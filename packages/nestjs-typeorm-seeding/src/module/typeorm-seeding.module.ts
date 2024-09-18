@@ -1,15 +1,15 @@
 import { SeederFactory } from '@atls/typeorm-seeding'
 import { DynamicModule } from '@nestjs/common'
 import { Module }        from '@nestjs/common'
-import { Connection }    from 'typeorm'
+import { DataSource }    from 'typeorm'
 
 @Module({})
 export class TypeOrmSeedingModule {
   static register(): DynamicModule {
     const seederFactoryProvider = {
       provide: SeederFactory,
-      useFactory: (connection: Connection) => new SeederFactory({ connection }),
-      inject: [Connection],
+      useFactory: (connection: DataSource) => new SeederFactory({ connection }),
+      inject: [DataSource],
     }
 
     return {

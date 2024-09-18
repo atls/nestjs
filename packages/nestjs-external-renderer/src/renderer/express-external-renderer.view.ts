@@ -1,5 +1,3 @@
-import fetch from 'node-fetch'
-
 export interface ExpressExternalRendererViewParams {
   data?: object
   query?: object

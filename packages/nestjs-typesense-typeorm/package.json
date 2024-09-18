@@ -17,7 +17,7 @@
   },
   "dependencies": {
     "@atls/logger": "0.0.2",
-    "typeorm": "0.2.45"
+    "typeorm": "0.3.20"
   },
   "devDependencies": {
     "@atls/nestjs-typesense": "workspace:*",
@@ -32,7 +32,7 @@
     "rxjs": "7.8.1",
     "sqlite3": "5.1.6",
     "testcontainers": "10.13.1",
-    "typesense": "0.15.0"
+    "typesense": "1.8.2"
   },
   "peerDependencies": {
     "@atls/nestjs-typesense": "workspace:*",

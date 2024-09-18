@@ -1,13 +1,7 @@
-export interface SchemaField {
-  type: string
-  name: string
-  facet?: boolean
-  index?: boolean
-  optional?: boolean
-}
+import { CollectionFieldSchema } from 'typesense/lib/Typesense/Collection.js'
 
 export interface Schema {
   name: string
   defaultSortingField: string
-  fields: Array<SchemaField>
+  fields: Array<CollectionFieldSchema>
 }
