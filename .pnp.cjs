@@ -1144,8 +1144,10 @@ const RAW_RUNTIME_STATE =
         "packageLocation": "./packages/nestjs-kafka/",\
         "packageDependencies": [\
           ["@atls/nestjs-kafka", "workspace:packages/nestjs-kafka"],\
+          ["@atls/logger", "npm:0.0.2"],\
           ["@nestjs/common", "virtual:a83c01fc4cba5ca49a56474f02d0e2a42b67fd84218e0ed8446c312a68b5dcda210438f3221534d1b20254ee4cad2d7a7704d91b0774cb67fd2dcafbea6e550e#npm:10.4.3"],\
           ["@nestjs/core", "virtual:a83c01fc4cba5ca49a56474f02d0e2a42b67fd84218e0ed8446c312a68b5dcda210438f3221534d1b20254ee4cad2d7a7704d91b0774cb67fd2dcafbea6e550e#npm:10.4.3"],\
+          ["camelcase", "npm:8.0.0"],\
           ["kafkajs", "npm:2.2.4"],\
           ["reflect-metadata", "npm:0.1.14"],\
           ["rxjs", "npm:7.8.1"]\
@@ -13072,6 +13074,13 @@ const RAW_RUNTIME_STATE =
         "packageLocation": "../.yarn/berry/cache/camelcase-npm-6.3.0-e5e42a0d15-10c0.zip/node_modules/camelcase/",\
         "packageDependencies": [\
           ["camelcase", "npm:6.3.0"]\
+        ],\
+        "linkType": "HARD"\
+      }],\
+      ["npm:8.0.0", {\
+        "packageLocation": "../.yarn/berry/cache/camelcase-npm-8.0.0-a3fa03dcc3-10c0.zip/node_modules/camelcase/",\
+        "packageDependencies": [\
+          ["camelcase", "npm:8.0.0"]\
         ],\
         "linkType": "HARD"\
       }]\
