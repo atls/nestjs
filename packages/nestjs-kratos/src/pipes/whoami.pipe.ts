@@ -10,7 +10,7 @@ export class WhoamiPipe implements PipeTransform {
 
   public async transform(value: string[], metadata: ArgumentMetadata) {
     try {
-      const { data } = await this.kratos.whoami(...value)
+      const { data } = await this.kratos.toSession({ cookie: value[0] })
 
       return data
     } catch {

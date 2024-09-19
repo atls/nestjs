@@ -1,34 +1,23 @@
-import { LoginFlow }                    from '@ory/kratos-client'
-import { RecoveryFlow }                 from '@ory/kratos-client'
-import { RegistrationFlow }             from '@ory/kratos-client'
-import { SettingsFlow }                 from '@ory/kratos-client'
-import { VerificationFlow }             from '@ory/kratos-client'
-import { RegistrationFlowMethodConfig } from '@ory/kratos-client'
-import { LoginFlowMethodConfig }        from '@ory/kratos-client'
-import { RecoveryFlowMethodConfig }     from '@ory/kratos-client'
-import { SettingsFlowMethodConfig }     from '@ory/kratos-client'
-import { VerificationFlowMethodConfig } from '@ory/kratos-client'
+import type { LoginFlow }        from '@ory/kratos-client'
+import type { RecoveryFlow }     from '@ory/kratos-client'
+import type { RegistrationFlow } from '@ory/kratos-client'
+import type { SettingsFlow }     from '@ory/kratos-client'
+import type { VerificationFlow } from '@ory/kratos-client'
+import type { UiContainer }      from '@ory/kratos-client'
 
 export type MethodConfigFlow =
   | LoginFlow
-  | RegistrationFlow
   | RecoveryFlow
+  | RegistrationFlow
   | SettingsFlow
   | VerificationFlow
 
-export type MethodConfig =
-  | RegistrationFlowMethodConfig
-  | LoginFlowMethodConfig
-  | RecoveryFlowMethodConfig
-  | SettingsFlowMethodConfig
-  | VerificationFlowMethodConfig
+export type MethodConfig = UiContainer
 
 export const methodConfig = (flow: MethodConfigFlow, key: string): MethodConfig | null => {
   if (flow.active && flow.active !== key) return null
 
-  if (!flow.methods[key]) return null
+  if (!flow.ui) return null
 
-  const { config } = flow.methods[key]
-
-  return config
+  return flow.ui
 }

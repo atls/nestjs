@@ -1,3 +1,3 @@
-import { PublicApi } from '@ory/kratos-client'
+import { FrontendApi } from '@ory/kratos-client'
 
-export class KratosPublicApi extends PublicApi {}
+export class KratosPublicApi extends FrontendApi {}

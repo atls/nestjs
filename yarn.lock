@@ -659,7 +659,7 @@ __metadata:
     "@nestjs/common": "npm:10.4.1"
     "@nestjs/core": "npm:10.4.1"
     "@nestjs/testing": "npm:10.4.1"
-    "@ory/kratos-client": "npm:0.5.5-alpha.4"
+    "@ory/kratos-client": "npm:1.2.1"
     "@types/express": "npm:4.17.21"
     "@types/node": "npm:22.5.5"
     "@types/supertest": "npm:6.0.2"
@@ -4580,12 +4580,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@ory/kratos-client@npm:0.5.5-alpha.4":
-  version: 0.5.5-alpha.4
-  resolution: "@ory/kratos-client@npm:0.5.5-alpha.4"
+"@ory/kratos-client@npm:1.2.1":
+  version: 1.2.1
+  resolution: "@ory/kratos-client@npm:1.2.1"
   dependencies:
-    axios: "npm:^0.19.2"
-  checksum: 10c0/c7c0ae7a4bd3a332f148f38c168d92bdaaaec96db97805c3f76c286968d06fc24a17336aac51463686078b11c1a8f5da6ab337eb25526b893d47d8c10a4e4699
+    axios: "npm:^1.6.1"
+  checksum: 10c0/cb5abe68b89aa70bce653c4cb7991764069018f0ec87d2d54a5f1742ee0c3957affe820cbfec532b942243f687624d90d469074d76f5cec10c5d20b8d60e3a2a
   languageName: node
   linkType: hard
 
@@ -7330,15 +7330,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"axios@npm:^0.19.2":
-  version: 0.19.2
-  resolution: "axios@npm:0.19.2"
-  dependencies:
-    follow-redirects: "npm:1.5.10"
-  checksum: 10c0/b775abf2db44ea4f182f4c2bfa4bf84a723b86f5aa001f222f12193fa45ba243b7e3f27b66289c6afa51d696402b05c82715fd621a34add5b538e850adcdbce1
-  languageName: node
-  linkType: hard
-
 "axios@npm:^0.21.4":
   version: 0.21.4
   resolution: "axios@npm:0.21.4"
@@ -7348,7 +7339,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"axios@npm:^1.6.0":
+"axios@npm:^1.6.0, axios@npm:^1.6.1":
   version: 1.7.7
   resolution: "axios@npm:1.7.7"
   dependencies:
@@ -8535,15 +8526,6 @@ __metadata:
     supports-color:
       optional: true
   checksum: 10c0/1471db19c3b06d485a622d62f65947a19a23fbd0dd73f7fd3eafb697eec5360cde447fb075919987899b1a2096e85d35d4eb5a4de09a57600ac9cf7e6c8e768b
-  languageName: node
-  linkType: hard
-
-"debug@npm:=3.1.0":
-  version: 3.1.0
-  resolution: "debug@npm:3.1.0"
-  dependencies:
-    ms: "npm:2.0.0"
-  checksum: 10c0/5bff34a352d7b2eaa31886eeaf2ee534b5461ec0548315b2f9f80bd1d2533cab7df1fa52e130ce27bc31c3945fbffb0fc72baacdceb274b95ce853db89254ea4
   languageName: node
   linkType: hard
 
@@ -9929,15 +9911,6 @@ __metadata:
   version: 3.3.1
   resolution: "flatted@npm:3.3.1"
   checksum: 10c0/324166b125ee07d4ca9bcf3a5f98d915d5db4f39d711fba640a3178b959919aae1f7cfd8aabcfef5826ed8aa8a2aa14cc85b2d7d18ff638ddf4ae3df39573eaf
-  languageName: node
-  linkType: hard
-
-"follow-redirects@npm:1.5.10":
-  version: 1.5.10
-  resolution: "follow-redirects@npm:1.5.10"
-  dependencies:
-    debug: "npm:=3.1.0"
-  checksum: 10c0/f56ca26dcf3c9996a6cf8868b61e369a35d4000ade0292bdd27b5e0934902681b037060b9fabe58e7042bb8b85166d5db8bbcf027f1825c1577e4cffd904fd3f
   languageName: node
   linkType: hard
 

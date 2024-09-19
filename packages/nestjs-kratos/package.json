@@ -16,7 +16,7 @@
     "postpack": "rm -rf dist"
   },
   "dependencies": {
-    "@ory/kratos-client": "0.5.5-alpha.4"
+    "@ory/kratos-client": "1.2.1"
   },
   "devDependencies": {
     "@jest/globals": "29.7.0",

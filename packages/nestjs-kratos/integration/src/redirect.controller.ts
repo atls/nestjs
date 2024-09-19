@@ -15,19 +15,19 @@ export class RedirectController {
   @Get('403')
   @UseInterceptors(new KratosRedirectInterceptor('login'))
   async redirect403() {
-    await this.kratos.getSelfServiceLoginFlow('flow')
+    await this.kratos.getLoginFlow({ id: 'flow' })
   }
 
   @Get('404')
   @UseInterceptors(new KratosRedirectInterceptor('login'))
   async redirect404() {
-    await this.kratos.getSelfServiceRegistrationFlow('flow')
+    await this.kratos.getRegistrationFlow({ id: 'flow' })
   }
 
   @Get('410')
   @UseInterceptors(new KratosRedirectInterceptor('login'))
   async redirect410() {
-    await this.kratos.getSelfServiceRecoveryFlow('flow')
+    await this.kratos.getRecoveryFlow({ id: 'flow' })
   }
 
   @Get('flow')
