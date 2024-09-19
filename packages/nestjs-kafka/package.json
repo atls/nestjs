@@ -17,6 +17,8 @@
     "postpack": "rm -rf dist"
   },
   "dependencies": {
+    "@atls/logger": "^0.0.2",
+    "camelcase": "^8.0.0",
     "kafkajs": "^2.2.4"
   },
   "devDependencies": {
