@@ -1170,7 +1170,7 @@ const RAW_RUNTIME_STATE =
           ["@nestjs/common", "virtual:77887786a24289fa840c9acd370d634accbe79bcf317ecf5401844ffff73b8a593879dd9cce463873637e6414a631dfdb1a2473704bf332d823bcfffac8c2469#npm:10.4.1"],\
           ["@nestjs/core", "virtual:32efc678226e64754471818dda8fe30dfb2e6b7e28f8b47fea1a50b926d8d4b6f1b3b66eb4d3cac5110197214b9be2f6d4b41b19fa675b77184f6f40ee3aa10f#npm:10.4.1"],\
           ["@nestjs/testing", "virtual:32efc678226e64754471818dda8fe30dfb2e6b7e28f8b47fea1a50b926d8d4b6f1b3b66eb4d3cac5110197214b9be2f6d4b41b19fa675b77184f6f40ee3aa10f#npm:10.4.1"],\
-          ["@ory/kratos-client", "npm:0.5.5-alpha.4"],\
+          ["@ory/kratos-client", "npm:1.2.1"],\
           ["@types/express", "npm:4.17.21"],\
           ["@types/node", "npm:22.5.5"],\
           ["@types/supertest", "npm:6.0.2"],\
@@ -9004,11 +9004,11 @@ const RAW_RUNTIME_STATE =
       }]\
     ]],\
     ["@ory/kratos-client", [\
-      ["npm:0.5.5-alpha.4", {\
-        "packageLocation": "../.yarn/berry/cache/@ory-kratos-client-npm-0.5.5-alpha.4-6171ca63af-10c0.zip/node_modules/@ory/kratos-client/",\
+      ["npm:1.2.1", {\
+        "packageLocation": "../.yarn/berry/cache/@ory-kratos-client-npm-1.2.1-3ac961fde3-10c0.zip/node_modules/@ory/kratos-client/",\
         "packageDependencies": [\
-          ["@ory/kratos-client", "npm:0.5.5-alpha.4"],\
-          ["axios", "npm:0.19.2"]\
+          ["@ory/kratos-client", "npm:1.2.1"],\
+          ["axios", "npm:1.7.7"]\
         ],\
         "linkType": "HARD"\
       }]\
@@ -12442,14 +12442,6 @@ const RAW_RUNTIME_STATE =
       }]\
     ]],\
     ["axios", [\
-      ["npm:0.19.2", {\
-        "packageLocation": "../.yarn/berry/cache/axios-npm-0.19.2-e4e8599895-10c0.zip/node_modules/axios/",\
-        "packageDependencies": [\
-          ["axios", "npm:0.19.2"],\
-          ["follow-redirects", "npm:1.5.10"]\
-        ],\
-        "linkType": "HARD"\
-      }],\
       ["npm:0.21.4", {\
         "packageLocation": "../.yarn/berry/cache/axios-npm-0.21.4-e278873748-10c0.zip/node_modules/axios/",\
         "packageDependencies": [\
@@ -13839,13 +13831,6 @@ const RAW_RUNTIME_STATE =
         ],\
         "linkType": "SOFT"\
       }],\
-      ["npm:3.1.0", {\
-        "packageLocation": "../.yarn/berry/cache/debug-npm-3.1.0-9f0accb99b-10c0.zip/node_modules/debug/",\
-        "packageDependencies": [\
-          ["debug", "npm:3.1.0"]\
-        ],\
-        "linkType": "SOFT"\
-      }],\
       ["npm:3.2.7", {\
         "packageLocation": "../.yarn/berry/cache/debug-npm-3.2.7-754e818c7a-10c0.zip/node_modules/debug/",\
         "packageDependencies": [\
@@ -13880,20 +13865,6 @@ const RAW_RUNTIME_STATE =
           ["debug", "virtual:2a426afc4b2eef43db12a540d29c2b5476640459bfcd5c24f86bb401cf8cce97e63bd81794d206a5643057e7f662643afd5ce3dfc4d4bfd8e706006c6309c5fa#npm:3.2.7"],\
           ["@types/supports-color", null],\
           ["ms", "npm:2.1.3"],\
-          ["supports-color", null]\
-        ],\
-        "packagePeers": [\
-          "@types/supports-color",\
-          "supports-color"\
-        ],\
-        "linkType": "HARD"\
-      }],\
-      ["virtual:bde6f435769d1a96c3f371d2e8a88314847816fb841f758b3628da60329c36f988ca42f6984dc53bb31dd306522878e1e5d568caeca7af42e4f19b238d6261b3#npm:3.1.0", {\
-        "packageLocation": "./.yarn/__virtual__/debug-virtual-f2284580f9/2/.yarn/berry/cache/debug-npm-3.1.0-9f0accb99b-10c0.zip/node_modules/debug/",\
-        "packageDependencies": [\
-          ["debug", "virtual:bde6f435769d1a96c3f371d2e8a88314847816fb841f758b3628da60329c36f988ca42f6984dc53bb31dd306522878e1e5d568caeca7af42e4f19b238d6261b3#npm:3.1.0"],\
-          ["@types/supports-color", null],\
-          ["ms", "npm:2.0.0"],\
           ["supports-color", null]\
         ],\
         "packagePeers": [\
@@ -15584,14 +15555,6 @@ const RAW_RUNTIME_STATE =
           ["follow-redirects", "npm:1.15.9"]\
         ],\
         "linkType": "SOFT"\
-      }],\
-      ["npm:1.5.10", {\
-        "packageLocation": "../.yarn/berry/cache/follow-redirects-npm-1.5.10-bde6f43576-10c0.zip/node_modules/follow-redirects/",\
-        "packageDependencies": [\
-          ["follow-redirects", "npm:1.5.10"],\
-          ["debug", "virtual:bde6f435769d1a96c3f371d2e8a88314847816fb841f758b3628da60329c36f988ca42f6984dc53bb31dd306522878e1e5d568caeca7af42e4f19b238d6261b3#npm:3.1.0"]\
-        ],\
-        "linkType": "HARD"\
       }],\
       ["virtual:e278873748b4e9d158db595d2f6cb0351c74052f52b53924aec4d9299e7b6babfb62aead374cf2f6e453bc8bea3b052380dc6b1137a162bbfc102bbb1c8cac42#npm:1.15.9", {\
         "packageLocation": "./.yarn/__virtual__/follow-redirects-virtual-f701e31d21/2/.yarn/berry/cache/follow-redirects-npm-1.15.9-539785d34c-10c0.zip/node_modules/follow-redirects/",\
