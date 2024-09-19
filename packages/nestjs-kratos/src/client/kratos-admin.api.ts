@@ -1,3 +1,3 @@
-import { AdminApi } from '@ory/kratos-client'
+import { IdentityApi } from '@ory/kratos-client'
 
-export class KratosAdminApi extends AdminApi {}
+export class KratosAdminApi extends IdentityApi {}

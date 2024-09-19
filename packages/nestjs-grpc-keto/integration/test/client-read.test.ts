@@ -5,6 +5,11 @@
 import { INestApplication }      from '@nestjs/common'
 import { TestingModule }         from '@nestjs/testing'
 import { Test }                  from '@nestjs/testing'
+import { jest }                  from '@jest/globals'
+import { describe }              from '@jest/globals'
+import { beforeAll }             from '@jest/globals'
+import { afterAll }              from '@jest/globals'
+import { it }                    from '@jest/globals'
 import { Network }               from 'testcontainers'
 import { Wait }                  from 'testcontainers'
 import { StartedTestContainer }  from 'testcontainers'
@@ -23,7 +28,6 @@ import { DB_ENVIRONMENT }        from './test.constants.js'
 import { KETO_START_COMMAND }    from './test.constants.js'
 import { KETO_INIT_COMMAND }     from './test.constants.js'
 import { KETO_MIGRATE_COMMAND }  from './test.constants.js'
-import { jest, describe, beforeAll, afterAll, it } from '@jest/globals'
 
 jest.setTimeout(25000)
 

@@ -32,7 +32,7 @@ import { GraphQLJSON }                                     from 'graphql-scalars
 import { AnyNestedObject }                                 from 'protobufjs'
 import { IParseOptions }                                   from 'protobufjs'
 import { Message }                                         from 'protobufjs'
-import { Constructor }                                 from 'protobufjs'
+import { Constructor }                                     from 'protobufjs'
 import { IFileDescriptorSet }                              from 'protobufjs/ext/descriptor'
 import { promises as fsPromises }                          from 'fs'
 import { specifiedDirectives }                             from 'graphql'

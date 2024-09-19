@@ -1,6 +1,7 @@
+import path                      from 'node:path'
+
 import { Injectable }            from '@nestjs/common'
 import { Inject }                from '@nestjs/common'
-import path                      from 'node:path'
 
 import { KratosModuleOptions }   from '../module/index.js'
 import { KRATOS_MODULE_OPTIONS } from '../module/index.js'
