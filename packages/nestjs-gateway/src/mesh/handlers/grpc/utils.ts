@@ -63,8 +63,8 @@ export function addMetaDataToCall(
   call: ClientMethod,
   input: unknown,
   context: Record<string, unknown>,
-  metaData: Record<string, string | string[] | Buffer>
-): Promise<ClientUnaryCall> | AsyncIterator<ClientReadableStream<unknown>> {
+  metaData: Record<string, Array<string> | Buffer | string>
+): AsyncIterator<ClientReadableStream<unknown>> | Promise<ClientUnaryCall> {
   if (metaData) {
     const meta = new Metadata()
     for (const [key, value] of Object.entries(metaData)) {

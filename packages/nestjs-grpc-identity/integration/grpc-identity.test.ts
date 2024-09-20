@@ -24,8 +24,7 @@ import { serverOptions }                 from './src/index.js'
 
 describe('grpc identity', () => {
   let service: INestMicroservice
-  // @ts-expect-error
-  let client
+  let client: any
 
   beforeAll(async () => {
     const servicePort = await getPort()
@@ -65,6 +64,7 @@ describe('grpc identity', () => {
     await service.init()
     await service.listen()
 
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-call
     client = service.get('client').getService('TestService')
   })
 
@@ -81,7 +81,7 @@ describe('grpc identity', () => {
 
     metadata.add('authorization', `Bearer ${token}`)
 
-    // @ts-expect-error
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-call
     const result = await client.test({ id: 'test' }, metadata).toPromise()
 
     expect(result.id).toBe('test')
@@ -95,7 +95,7 @@ describe('grpc identity', () => {
 
       metadata.add('authorization', `Bearer test`)
 
-      // @ts-expect-error
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-call
       await client.test({ id: 'test' }, metadata).toPromise()
     } catch (error) {
       expect((error as any).code).toBe(status.UNAUTHENTICATED)

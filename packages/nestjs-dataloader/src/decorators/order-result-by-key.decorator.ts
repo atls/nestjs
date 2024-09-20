@@ -5,7 +5,7 @@ export const OrderResultByKey = (key = 'id', defaultValue = undefined) =>
     const original = descriptor.value
 
     // @ts-ignore eslint-disable-next-line func-names
-    descriptor.value = async function (keys, ...args) {
+    descriptor.value = async function (keys, ...args): Promise<any> {
       const method = original.bind(this)
       const result = await method(keys, ...args)
 
