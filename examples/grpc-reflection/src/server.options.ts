@@ -1,11 +1,12 @@
 /// <reference path='./proto.d.ts'/>
 
-import { Transport }   from '@nestjs/microservices'
-import { GrpcOptions } from '@nestjs/microservices'
+import type { GrpcOptions } from '@nestjs/microservices'
 
-import reflection      from '@atls/nestjs-grpc-reflection/proto/grpc/reflection/v1alpha/reflection.proto'
+import { Transport }        from '@nestjs/microservices'
 
-import echo            from '../proto/examples/echo/v1/echo.proto'
+import reflection           from '@atls/nestjs-grpc-reflection/proto/grpc/reflection/v1alpha/reflection.proto'
+
+import echo                 from '../proto/examples/echo/v1/echo.proto'
 
 export const serverOptions: GrpcOptions = {
   transport: Transport.GRPC,

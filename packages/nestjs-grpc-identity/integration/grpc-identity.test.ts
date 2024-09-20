@@ -2,8 +2,9 @@
  * @jest-environment node
  */
 
+import type { INestMicroservice }        from '@nestjs/common'
+
 import { Metadata }                      from '@grpc/grpc-js'
-import { INestMicroservice }             from '@nestjs/common'
 import { ClientsModule }                 from '@nestjs/microservices'
 import { Transport }                     from '@nestjs/microservices'
 import { Test }                          from '@nestjs/testing'
@@ -23,13 +24,13 @@ import { serverOptions }                 from './src/index.js'
 
 describe('grpc identity', () => {
   let service: INestMicroservice
-  // @ts-ignore
+  // @ts-expect-error
   let client
 
   beforeAll(async () => {
     const servicePort = await getPort()
 
-    const module = await Test.createTestingModule({
+    const testModule = await Test.createTestingModule({
       imports: [
         GrpcIdentityIntegrationModule,
         ClientsModule.register([
@@ -53,7 +54,7 @@ describe('grpc identity', () => {
       ],
     }).compile()
 
-    service = module.createNestMicroservice({
+    service = testModule.createNestMicroservice({
       ...serverOptions,
       options: {
         ...serverOptions.options,
@@ -80,7 +81,7 @@ describe('grpc identity', () => {
 
     metadata.add('authorization', `Bearer ${token}`)
 
-    // @ts-ignore
+    // @ts-expect-error
     const result = await client.test({ id: 'test' }, metadata).toPromise()
 
     expect(result.id).toBe('test')
@@ -94,7 +95,7 @@ describe('grpc identity', () => {
 
       metadata.add('authorization', `Bearer test`)
 
-      // @ts-ignore
+      // @ts-expect-error
       await client.test({ id: 'test' }, metadata).toPromise()
     } catch (error) {
       expect((error as any).code).toBe(status.UNAUTHENTICATED)
