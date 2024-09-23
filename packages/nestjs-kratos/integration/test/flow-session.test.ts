@@ -47,7 +47,7 @@ describe('kratos flow session', () => {
   it(`exists session`, async () => {
     const response = await request(url)
       .get('/identity/session/whoami')
-      .set('Authorization', 'test')
+      .set('Cookie', 'test')
       .expect(200)
 
     expect(response.body.id).toBe('test')
