@@ -10,24 +10,27 @@ export class EntityToDocumentMapper {
     private readonly registry: TypesenseMetadataRegistry
   ) {}
 
-  // @ts-ignore
-  async insert(entity) {
+  // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
+  async insert(entity: any): Promise<void> {
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
     const schema = this.registry.getSchemaByTarget(entity.constructor)
     const document = this.buildDocument(entity)
 
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
     await this.typesense.collections(schema!.name).documents().create(document)
   }
 
-  // @ts-ignore
-  async update(entity) {
+  // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
+  async update(entity: any): Promise<void> {
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
     const schema = this.registry.getSchemaByTarget(entity.constructor)
     const document = this.buildDocument(entity)
 
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
     await this.typesense.collections(schema!.name).documents().update(document, {})
   }
 
-  // @ts-ignore
-  private buildDocument(entity) {
+  private buildDocument(entity: any): any {
     return {
       ...entity,
       ...(entity.id ? { id: String(entity.id) } : {}),

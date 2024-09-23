@@ -1,29 +1,30 @@
-import { ClientReadableStream } from '@grpc/grpc-js'
-import { ClientUnaryCall }      from '@grpc/grpc-js'
-import { Metadata }             from '@grpc/grpc-js'
-import { MetadataValue }        from '@grpc/grpc-js'
-// @ts-ignore
-import { jsonFlatStringify }    from '@graphql-mesh/utils'
-import { SchemaComposer }       from 'graphql-compose'
-import { Root }                 from 'protobufjs'
-import { existsSync }           from 'fs'
-import { isAbsolute }           from 'path'
-import { join }                 from 'path'
-import _                        from 'lodash'
+import type { MetadataValue }        from '@grpc/grpc-js'
+import type { ClientReadableStream } from '@grpc/grpc-js'
+import type { ClientUnaryCall }      from '@grpc/grpc-js'
+import type { SchemaComposer }       from 'graphql-compose'
+import type { Root }                 from 'protobufjs'
 
-import { getGraphQLScalar }     from './scalars.js'
-import { isScalarType }         from './scalars.js'
+import { Metadata }                  from '@grpc/grpc-js'
+// @ts-expect-error
+import { jsonFlatStringify }         from '@graphql-mesh/utils'
+import { existsSync }                from 'fs'
+import { isAbsolute }                from 'path'
+import { join }                      from 'path'
+import _                             from 'lodash'
+
+import { getGraphQLScalar }          from './scalars.js'
+import { isScalarType }              from './scalars.js'
 
 export type ClientMethod = (
   input: unknown,
   metaData?: Metadata
-) => Promise<ClientUnaryCall> | AsyncIterator<ClientReadableStream<unknown>>
+) => AsyncIterator<ClientReadableStream<unknown>> | Promise<ClientUnaryCall>
 
 export function getTypeName(
   schemaComposer: SchemaComposer,
-  pathWithName: string[] | undefined,
+  pathWithName: Array<string> | undefined,
   isInput: boolean
-) {
+): string {
   if (pathWithName?.length) {
     const baseTypeName = pathWithName.filter(Boolean).join('_')
     if (isScalarType(baseTypeName)) {
@@ -37,10 +38,10 @@ export function getTypeName(
   return 'Void'
 }
 
-export function addIncludePathResolver(root: Root, includePaths: string[]): void {
+export function addIncludePathResolver(root: Root, includePaths: Array<string>): void {
   const originalResolvePath = root.resolvePath
   // eslint-disable-next-line no-param-reassign
-  root.resolvePath = (origin: string, target: string) => {
+  root.resolvePath = (origin: string, target: string): string | null => {
     if (isAbsolute(target)) {
       return target
     }
@@ -53,7 +54,7 @@ export function addIncludePathResolver(root: Root, includePaths: string[]): void
     const path = originalResolvePath(origin, target)
     if (path === null) {
       // eslint-disable-next-line no-console
-      console.warn(`${target} not found in any of the include paths ${includePaths}`)
+      console.warn(`${target} not found in any of the include paths ${includePaths.join(', ')}`)
     }
     return path
   }
@@ -75,6 +76,7 @@ export function addMetaDataToCall(
       }
       // Ensure that the metadata is compatible with what node-grpc expects
       if (typeof metaValue !== 'string' && !(metaValue instanceof Buffer)) {
+        // eslint-disable-next-line @typescript-eslint/no-unsafe-call
         metaValue = jsonFlatStringify(metaValue)
       }
 

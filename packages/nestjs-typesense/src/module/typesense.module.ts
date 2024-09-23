@@ -1,15 +1,17 @@
-import { DynamicModule }                  from '@nestjs/common'
-import { Provider }                       from '@nestjs/common'
-import { Module }                         from '@nestjs/common'
-import { DiscoveryModule }                from '@nestjs/core'
+import type { DynamicModule }               from '@nestjs/common'
+import type { Provider }                    from '@nestjs/common'
 
-import { TypesenseModuleAsyncOptions }    from './typesense-module.interface.js'
-import { TypesenseModuleOptions }         from './typesense-module.interface.js'
-import { TypesenseOptionsFactory }        from './typesense-module.interface.js'
-import { TYPESENSE_MODULE_OPTIONS }       from './typesense.constants.js'
-import { createTypesenseExportsProvider } from './typesense.providers.js'
-import { createTypesenseProvider }        from './typesense.providers.js'
-import { createTypesenseOptionsProvider } from './typesense.providers.js'
+import type { TypesenseModuleAsyncOptions } from './typesense-module.interface.js'
+import type { TypesenseModuleOptions }      from './typesense-module.interface.js'
+import type { TypesenseOptionsFactory }     from './typesense-module.interface.js'
+
+import { Module }                           from '@nestjs/common'
+import { DiscoveryModule }                  from '@nestjs/core'
+
+import { TYPESENSE_MODULE_OPTIONS }         from './typesense.constants.js'
+import { createTypesenseExportsProvider }   from './typesense.providers.js'
+import { createTypesenseProvider }          from './typesense.providers.js'
+import { createTypesenseOptionsProvider }   from './typesense.providers.js'
 
 @Module({
   imports: [DiscoveryModule],
@@ -41,7 +43,7 @@ export class TypesenseModule {
     }
   }
 
-  private static createAsyncProviders(options: TypesenseModuleAsyncOptions): Provider[] {
+  private static createAsyncProviders(options: TypesenseModuleAsyncOptions): Array<Provider> {
     if (options.useExisting || options.useFactory) {
       return [this.createAsyncOptionsProvider(options)]
     }
@@ -66,7 +68,7 @@ export class TypesenseModule {
 
     return {
       provide: TYPESENSE_MODULE_OPTIONS,
-      useFactory: (optionsFactory: TypesenseOptionsFactory) =>
+      useFactory: async (optionsFactory: TypesenseOptionsFactory) =>
         optionsFactory.createTypesenseOptions(),
       inject: [options.useExisting! || options.useClass!],
     }

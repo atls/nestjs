@@ -1,5 +1,5 @@
-import { SignUrlOptions } from './storage.interfaces.js'
-import { SignedUrl }      from './storage.interfaces.js'
+import type { SignUrlOptions } from './storage.interfaces.js'
+import type { SignedUrl }      from './storage.interfaces.js'
 
 export abstract class AbstractStorage {
   abstract generateWriteUrl(

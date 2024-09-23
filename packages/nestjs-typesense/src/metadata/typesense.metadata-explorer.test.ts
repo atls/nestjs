@@ -2,10 +2,11 @@
 
 import 'reflect-metadata'
 
+import type { TestingModule }        from '@nestjs/testing'
+
 import { Module }                    from '@nestjs/common'
 import { DiscoveryModule }           from '@nestjs/core'
 import { Test }                      from '@nestjs/testing'
-import { TestingModule }             from '@nestjs/testing'
 import { describe }                  from '@jest/globals'
 import { it }                        from '@jest/globals'
 import { expect }                    from '@jest/globals'
@@ -21,7 +22,7 @@ import { TypesenseMetadataRegistry } from './typesense.metadata-registry.js'
 describe('typesense', () => {
   describe('metadata', () => {
     describe('explorer', () => {
-      let module: TestingModule
+      let testingModule: TestingModule
 
       @Module({
         imports: [DiscoveryModule],
@@ -40,20 +41,22 @@ describe('typesense', () => {
       }
 
       beforeEach(async () => {
-        module = await Test.createTestingModule({
+        testingModule = await Test.createTestingModule({
           imports: [TestMetadataModule],
           providers: [TestSchema],
         }).compile()
 
-        await module.init()
+        await testingModule.init()
       })
 
       afterEach(async () => {
-        await module.close()
+        await testingModule.close()
       })
 
       it('should store schema metadata', () => {
-        expect(module.get(TypesenseMetadataRegistry).getSchemaByTarget(TestSchema)).toBeDefined()
+        expect(
+          testingModule.get(TypesenseMetadataRegistry).getSchemaByTarget(TestSchema)
+        ).toBeDefined()
       })
     })
   })
