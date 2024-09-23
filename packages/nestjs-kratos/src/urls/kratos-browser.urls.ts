@@ -8,11 +8,11 @@ import { KRATOS_MODULE_OPTIONS } from '../module/index.js'
 
 export type KratosBrowserUrlFlow =
   | 'login'
+  | 'logout'
   | 'recovery'
   | 'registration'
   | 'settings'
   | 'verification'
-  | 'logout'
 
 export interface KratosBrowserUrlParams {
   returnTo?: string
@@ -47,15 +47,14 @@ export class KratosBrowserUrls {
     this.logout = KratosBrowserUrls.formatUrl(options.browser, '/self-service/browser/flows/logout')
   }
 
-  // @ts-ignore
-  static formatUrl(root, target) {
+  static formatUrl(root: string, target: string): string {
     const rootUrl = new URL(root)
 
     return new URL(path.join(rootUrl.pathname, target), rootUrl.origin).toString()
   }
 
-  get(flow: KratosBrowserUrlFlow, params?: KratosBrowserUrlParams) {
-    if (!(params && params.returnTo)) {
+  get(flow: KratosBrowserUrlFlow, params?: KratosBrowserUrlParams): string {
+    if (!params?.returnTo) {
       return this[flow]
     }
 
@@ -66,7 +65,12 @@ export class KratosBrowserUrls {
     return url.toString()
   }
 
-  createInterceptingUrl(interceptorPath: string, proto?: string, host?: string, returnTo?: string) {
+  createInterceptingUrl(
+    interceptorPath: string,
+    proto?: string,
+    host?: string,
+    returnTo?: string
+  ): string | undefined {
     if (proto !== 'https' || !host || !returnTo) {
       return undefined
     }

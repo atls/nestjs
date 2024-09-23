@@ -1,14 +1,16 @@
-import { DynamicModule }               from '@nestjs/common'
-import { Module }                      from '@nestjs/common'
-import { Provider }                    from '@nestjs/common'
+import type { DynamicModule }            from '@nestjs/common'
+import type { Provider }                 from '@nestjs/common'
 
-import { KratosModuleAsyncOptions }    from './kratos-module-options.interface.js'
-import { KratosModuleOptions }         from './kratos-module-options.interface.js'
-import { KratosOptionsFactory }        from './kratos-module-options.interface.js'
-import { KRATOS_MODULE_OPTIONS }       from './kratos.constants.js'
-import { createKratosExportsProvider } from './kratos.providers.js'
-import { createKratosProvider }        from './kratos.providers.js'
-import { createKratosOptionsProvider } from './kratos.providers.js'
+import type { KratosModuleAsyncOptions } from './kratos-module-options.interface.js'
+import type { KratosModuleOptions }      from './kratos-module-options.interface.js'
+import type { KratosOptionsFactory }     from './kratos-module-options.interface.js'
+
+import { Module }                        from '@nestjs/common'
+
+import { KRATOS_MODULE_OPTIONS }         from './kratos.constants.js'
+import { createKratosExportsProvider }   from './kratos.providers.js'
+import { createKratosProvider }          from './kratos.providers.js'
+import { createKratosOptionsProvider }   from './kratos.providers.js'
 
 @Module({})
 export class KratosModule {
@@ -38,7 +40,7 @@ export class KratosModule {
     }
   }
 
-  private static createAsyncProviders(options: KratosModuleAsyncOptions): Provider[] {
+  private static createAsyncProviders(options: KratosModuleAsyncOptions): Array<Provider> {
     if (options.useExisting || options.useFactory) {
       return [this.createAsyncOptionsProvider(options)]
     }
@@ -63,7 +65,8 @@ export class KratosModule {
 
     return {
       provide: KRATOS_MODULE_OPTIONS,
-      useFactory: (optionsFactory: KratosOptionsFactory) => optionsFactory.createKratosOptions(),
+      useFactory: async (optionsFactory: KratosOptionsFactory) =>
+        optionsFactory.createKratosOptions(),
       inject: [options.useExisting! || options.useClass!],
     }
   }
