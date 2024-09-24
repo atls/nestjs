@@ -8,23 +8,27 @@ import { Subject }          from 'rxjs'
 @Controller()
 export class TestController {
   @GrpcMethod('TestService', 'Test')
-  test({ id }) {
+  test(input: { id: string }): { id: string } {
     return {
-      id,
+      id: input.id,
     }
   }
 
   @GrpcMethod('TestService', 'TestError')
-  testError({ id }) {
-    throw new RpcException(new Error(id))
+  testError(input: { id: string }): void {
+    throw new RpcException(new Error(input.id))
   }
 
   @GrpcStreamMethod('TestService', 'TestStream')
+  // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types, @typescript-eslint/explicit-function-return-type
   testStream(request) {
     const response = new Subject()
 
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-call
     request.subscribe({
-      complete: () => response.complete(),
+      complete: () => {
+        response.complete()
+      },
       next: ({ id }) => {
         response.next({
           id,
@@ -36,7 +40,9 @@ export class TestController {
   }
 
   @GrpcMethod('TestService', 'TestAuth')
-  auth(_, metadata) {
+  // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
+  auth(_, metadata): { id: string } {
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-call
     const authorization = metadata.get('authorization')?.[0]
 
     return {

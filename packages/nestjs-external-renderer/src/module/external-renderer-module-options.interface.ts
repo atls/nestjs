@@ -1,21 +1,21 @@
-import { ModuleMetadata } from '@nestjs/common/interfaces'
-import { Type }           from '@nestjs/common/interfaces'
+import type { ModuleMetadata } from '@nestjs/common/interfaces'
+import type { Type }           from '@nestjs/common/interfaces'
 
 export interface ExternalRendererModuleOptions {
   url: string
 }
 
 export interface ExternalRendererOptionsFactory {
-  createExternalRendererOptions():
-    | Promise<ExternalRendererModuleOptions>
+  createExternalRendererOptions: () =>
     | ExternalRendererModuleOptions
+    | Promise<ExternalRendererModuleOptions>
 }
 
 export interface ExternalRendererModuleAsyncOptions extends Pick<ModuleMetadata, 'imports'> {
   useExisting?: Type<ExternalRendererOptionsFactory>
   useClass?: Type<ExternalRendererOptionsFactory>
   useFactory?: (
-    ...args: any[]
-  ) => Promise<ExternalRendererModuleOptions> | ExternalRendererModuleOptions
-  inject?: any[]
+    ...args: Array<any>
+  ) => ExternalRendererModuleOptions | Promise<ExternalRendererModuleOptions>
+  inject?: Array<any>
 }

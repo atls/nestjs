@@ -1,5 +1,6 @@
-import { ArgumentsHost }                   from '@nestjs/common'
-import { HttpArgumentsHost }               from '@nestjs/common/interfaces/features/arguments-host.interface.js'
+import type { ArgumentsHost }              from '@nestjs/common'
+import type { HttpArgumentsHost }          from '@nestjs/common/interfaces/features/arguments-host.interface.js'
+
 import { describe }                        from '@jest/globals'
 import { it }                              from '@jest/globals'
 import { expect }                          from '@jest/globals'
@@ -23,14 +24,18 @@ describe('KratosExceptionFilter', () => {
     }
 
     const argumentHost = {
+      // eslint-disable-next-line @typescript-eslint/explicit-function-return-type, @typescript-eslint/no-unsafe-return
       getResponse: () => response as any,
+      // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
       getRequest: () => ({
+        // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
         header: () => undefined,
         query: {},
       }),
     }
 
     const host = {
+      // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
       switchToHttp: () => argumentHost as HttpArgumentsHost,
     }
 
@@ -52,13 +57,15 @@ describe('KratosExceptionFilter', () => {
     }
 
     const argumentHost = {
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-return, @typescript-eslint/explicit-function-return-type
       getResponse: () => response as any,
+      // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
       getRequest: () => ({
         path: '/',
         query: {
           return_to: 'http://localhost:3000',
         },
-        header: (name: string) => {
+        header: (name: string): string | undefined => {
           if (name === 'x-forwarded-proto') {
             return 'https'
           }
@@ -73,6 +80,7 @@ describe('KratosExceptionFilter', () => {
     }
 
     const host = {
+      // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
       switchToHttp: () => argumentHost as HttpArgumentsHost,
     }
 

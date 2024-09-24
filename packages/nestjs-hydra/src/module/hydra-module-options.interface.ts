@@ -1,5 +1,5 @@
-import { ModuleMetadata } from '@nestjs/common/interfaces'
-import { Type }           from '@nestjs/common/interfaces'
+import type { ModuleMetadata } from '@nestjs/common/interfaces'
+import type { Type }           from '@nestjs/common/interfaces'
 
 export interface HydraModuleUrlsOptions {
   admin: string
@@ -16,13 +16,13 @@ export interface HydraModuleOptions {
 }
 
 export interface HydraOptionsFactory {
-  createHydraOptions(): Promise<HydraModuleOptions> | HydraModuleOptions
+  createHydraOptions: () => HydraModuleOptions | Promise<HydraModuleOptions>
 }
 
 export interface HydraModuleAsyncOptions extends Pick<ModuleMetadata, 'imports'> {
   useExisting?: Type<HydraOptionsFactory>
   useClass?: Type<HydraOptionsFactory>
-  useFactory?: (...args: any[]) => Promise<HydraModuleOptions> | HydraModuleOptions
-  inject?: any[]
+  useFactory?: (...args: Array<any>) => HydraModuleOptions | Promise<HydraModuleOptions>
+  inject?: Array<any>
   global?: boolean
 }

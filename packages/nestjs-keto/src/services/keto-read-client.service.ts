@@ -1,13 +1,15 @@
-import { Inject }                              from '@nestjs/common'
-import { Injectable }                          from '@nestjs/common'
-import { PermissionApiCheckPermissionRequest } from '@ory/keto-client'
+import type { PermissionApiCheckPermissionRequest } from '@ory/keto-client'
 
-import { KetoGeneralException }                from '../exceptions/index.js'
-import { RelationShipTupleWithId }             from '../module/index.js'
-import { RelationShipTupleWithSet }            from '../module/index.js'
-import { RelationShipTuple }                   from '../module/index.js'
-import { KETO_PERMISSIONS }                    from '../module/index.js'
-import { KetoPermissionsService }              from './keto-permissions.service.js'
+import type { RelationShipTupleWithId }             from '../module/index.js'
+import type { RelationShipTupleWithSet }            from '../module/index.js'
+import type { RelationShipTuple }                   from '../module/index.js'
+
+import { Inject }                                   from '@nestjs/common'
+import { Injectable }                               from '@nestjs/common'
+
+import { KetoGeneralException }                     from '../exceptions/index.js'
+import { KETO_PERMISSIONS }                         from '../module/index.js'
+import { KetoPermissionsService }                   from './keto-permissions.service.js'
 
 @Injectable()
 export class KetoReadClientService {
@@ -19,9 +21,9 @@ export class KetoReadClientService {
     try {
       let data: PermissionApiCheckPermissionRequest
 
-      // @ts-ignore
+      // @ts-expect-error
       if (request.subject_id !== undefined) {
-        // @ts-ignore
+        // @ts-expect-error
         const req: RelationShipTupleWithId = request
 
         data = {
@@ -31,7 +33,7 @@ export class KetoReadClientService {
           subjectId: req.subject_id,
         }
       } else {
-        // @ts-ignore
+        // @ts-expect-error
         const req: RelationShipTupleWithSet = request
 
         data = {

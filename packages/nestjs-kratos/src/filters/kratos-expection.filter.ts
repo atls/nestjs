@@ -20,9 +20,13 @@ export class KratosExceptionFilter implements ExceptionFilter {
     const response = ctx.getResponse()
 
     const returnTo = this.urls.createInterceptingUrl(
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
       join(request.path || '', '/complete'),
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
       request.header('x-forwarded-proto'),
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
       request.header('host'),
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
       request.query.return_to
     )
 

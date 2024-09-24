@@ -1,6 +1,7 @@
-import { ServiceDefinition }              from '@grpc/proto-loader'
+import type { ServiceDefinition }         from '@grpc/proto-loader'
+import type { OnModuleInit }              from '@nestjs/common'
+
 import { Injectable }                     from '@nestjs/common'
-import { OnModuleInit }                   from '@nestjs/common'
 import { Inject }                         from '@nestjs/common'
 import { ServerGrpc }                     from '@nestjs/microservices'
 import { loadPackageDefinition }          from '@grpc/grpc-js'
@@ -19,7 +20,7 @@ export class GrpcReflector implements OnModuleInit {
     public readonly registry: GrpcServicesRegistry
   ) {}
 
-  async onModuleInit() {
+  async onModuleInit(): Promise<void> {
     const grpcServer = new ServerGrpc(this.options)
 
     const protoPaths = Array.isArray(this.options.protoPath)
@@ -27,7 +28,7 @@ export class GrpcReflector implements OnModuleInit {
       : [this.options.protoPath]
 
     for (const protoPath of protoPaths) {
-      // @ts-ignore
+      // @ts-expect-error
       const packageDefinition = loadSync(protoPath, this.options.loader)
       const grpcContext = loadPackageDefinition(packageDefinition)
 
@@ -40,6 +41,7 @@ export class GrpcReflector implements OnModuleInit {
 
         if (grpcPkg) {
           for (const definition of grpcServer.getServiceNames(grpcPkg)) {
+            // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
             this.registry.addService(definition.service.service)
           }
         }
@@ -47,7 +49,8 @@ export class GrpcReflector implements OnModuleInit {
     }
   }
 
-  public lookupPackage(root: any, packageName: string) {
+  // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
+  public lookupPackage(root: any, packageName: string): any {
     let pkg = root
 
     for (const name of packageName.split(/\./)) {

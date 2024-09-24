@@ -1,7 +1,8 @@
-// @ts-ignore
-import { MeshInstance }      from '@graphql-mesh/runtime'
+// @ts-expect-error
+import type { MeshInstance } from '@graphql-mesh/runtime'
+
 import { Injectable }        from '@nestjs/common'
-// @ts-ignore
+// @ts-expect-error
 import { getMesh }           from '@graphql-mesh/runtime'
 
 import { GraphQLMeshConfig } from './graphql-mesh.config.js'
@@ -12,11 +13,13 @@ export class GraphQLMesh {
 
   constructor(private readonly config: GraphQLMeshConfig) {}
 
-  async getInstance() {
+  async getInstance(): Promise<MeshInstance> {
     if (!this.mesh) {
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-call
       this.mesh = await getMesh(await this.config.create())
     }
 
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-return
     return this.mesh
   }
 }

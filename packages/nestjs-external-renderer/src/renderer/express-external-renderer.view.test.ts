@@ -1,4 +1,3 @@
-/* eslint-disable no-promise-executor-return */
 import { jest }                        from '@jest/globals'
 import { expect }                      from '@jest/globals'
 import { it }                          from '@jest/globals'
@@ -20,7 +19,10 @@ describe('ExpressExternalRendererView', () => {
       root: `http://localhost:3000`,
     })
 
-    render = (params = {}) => new Promise((resolve) => view.render(params, resolve))
+    render = async (params = {}): Promise<void> =>
+      new Promise((resolve) => {
+        view.render(params, resolve)
+      })
   })
 
   afterEach(() => {
@@ -28,8 +30,9 @@ describe('ExpressExternalRendererView', () => {
   })
 
   it('pass querie variables', async () => {
-    ;(fetch as jest.Mock).mockImplementation(() => Promise.resolve(new Response('')))
+    ;(fetch as jest.Mock).mockImplementation(async () => Promise.resolve(new Response('')))
 
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-call
     await render({
       query: {
         foo: 'bar',
@@ -47,9 +50,11 @@ describe('ExpressExternalRendererView', () => {
   })
 
   it('pass data', async () => {
-    // @ts-ignore
+    // @ts-expect-error
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-call
     fetch.mockReturnValue(Promise.resolve(new Response('')))
 
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-call
     await render({
       data: {
         foo: 'bar',
@@ -67,9 +72,11 @@ describe('ExpressExternalRendererView', () => {
   })
 
   it('pass headers', async () => {
-    // @ts-ignore
+    // @ts-expect-error
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-call
     fetch.mockReturnValue(Promise.resolve(new Response('')))
 
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-call
     await render({
       headers: {
         foo: 'bar',

@@ -1,6 +1,6 @@
-import { ChannelCredentials } from '@grpc/grpc-js'
-import { Type }               from '@nestjs/common/interfaces'
-import { ModuleMetadata }     from '@nestjs/common/interfaces'
+import type { ChannelCredentials } from '@grpc/grpc-js'
+import type { Type }               from '@nestjs/common/interfaces'
+import type { ModuleMetadata }     from '@nestjs/common/interfaces'
 
 export interface KetoModuleOptions {
   read: string
@@ -10,13 +10,13 @@ export interface KetoModuleOptions {
 }
 
 export interface KetoOptionsFactory {
-  createKetoOptions(): Promise<KetoModuleOptions> | KetoModuleOptions
+  createKetoOptions: () => KetoModuleOptions | Promise<KetoModuleOptions>
 }
 
 export interface KetoModuleAsyncOptions extends Pick<ModuleMetadata, 'imports'> {
   useExisting?: Type<KetoOptionsFactory>
   useClass?: Type<KetoOptionsFactory>
-  useFactory?: (...args: any[]) => Promise<KetoModuleOptions> | KetoModuleOptions
-  inject?: any[]
+  useFactory?: (...args: Array<any>) => KetoModuleOptions | Promise<KetoModuleOptions>
+  inject?: Array<any>
   global?: boolean
 }

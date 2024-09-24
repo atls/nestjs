@@ -35,6 +35,7 @@ describe('SignedUrlService', () => {
           fields: [],
         })
       })
+      // eslint-disable-next-line @typescript-eslint/promise-function-async
       jest.spyOn(signedUrlService, 'generateWriteUrl').mockImplementation(() => result)
 
       expect(
@@ -53,6 +54,7 @@ describe('SignedUrlService', () => {
           fields: [],
         })
       })
+      // eslint-disable-next-line @typescript-eslint/promise-function-async
       jest.spyOn(signedUrlService, 'generateReadUrl').mockImplementation(() => result)
 
       expect(signedUrlService.generateReadUrl('test', 'test')).toBe(result)

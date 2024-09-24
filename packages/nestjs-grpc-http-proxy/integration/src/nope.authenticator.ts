@@ -1,7 +1,7 @@
-import { Authenticator } from '../../src/index.js'
+import type { Authenticator } from '../../src/index.js'
 
 export class NopeAuthenticator implements Authenticator {
-  execute() {
+  async execute(): Promise<string> {
     return Promise.resolve('nope')
   }
 }

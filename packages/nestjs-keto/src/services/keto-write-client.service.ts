@@ -1,15 +1,17 @@
-import { Inject }                                    from '@nestjs/common'
-import { Injectable }                                from '@nestjs/common'
-import { RelationshipPatchActionEnum }               from '@ory/keto-client'
-import { RelationshipApiPatchRelationshipsRequest }  from '@ory/keto-client'
-import { RelationshipApiDeleteRelationshipsRequest } from '@ory/keto-client'
-import { Relationship }                              from '@ory/keto-client'
-import { RelationshipApiCreateRelationshipRequest }  from '@ory/keto-client'
+import type { RelationshipPatchActionEnum }               from '@ory/keto-client'
+import type { RelationshipApiPatchRelationshipsRequest }  from '@ory/keto-client'
+import type { RelationshipApiDeleteRelationshipsRequest } from '@ory/keto-client'
+import type { Relationship }                              from '@ory/keto-client'
+import type { RelationshipApiCreateRelationshipRequest }  from '@ory/keto-client'
 
-import { KetoGeneralException }                      from '../exceptions/index.js'
-import { RelationShipTuple }                         from '../module/index.js'
-import { KETO_RELATIONS }                            from '../module/index.js'
-import { KetoRelationsService }                      from './keto-relations.service.js'
+import type { RelationShipTuple }                         from '../module/index.js'
+
+import { Inject }                                         from '@nestjs/common'
+import { Injectable }                                     from '@nestjs/common'
+
+import { KetoGeneralException }                           from '../exceptions/index.js'
+import { KETO_RELATIONS }                                 from '../module/index.js'
+import { KetoRelationsService }                           from './keto-relations.service.js'
 
 @Injectable()
 export class KetoWriteClientService {

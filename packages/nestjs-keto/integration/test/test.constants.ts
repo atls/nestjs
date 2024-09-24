@@ -1,4 +1,4 @@
-import { FileToCopy } from 'testcontainers/build/types.js'
+import type { FileToCopy } from 'testcontainers/build/types.js'
 
 export const KETO_MIGRATE_COMMAND = ['migrate', 'up', '--yes']
 
@@ -36,7 +36,7 @@ export const KETO_WRITE_PORT = 4467
 
 const PROJECT_PATH = __dirname
 
-export const KETO_FILES: FileToCopy[] = [
+export const KETO_FILES: Array<FileToCopy> = [
   {
     source: `${PROJECT_PATH}/keto.yml`,
     target: '/home/ory/keto.yml',

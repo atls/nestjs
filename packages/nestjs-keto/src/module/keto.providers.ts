@@ -1,25 +1,26 @@
-import { Provider }                  from '@nestjs/common'
+import type { Provider }             from '@nestjs/common'
+
+import type { KetoModuleOptions }    from './keto-module.interfaces.js'
 
 import { KetoConfigurationService }  from '../services/index.js'
 import { KetoPermissionsService }    from '../services/index.js'
 import { KetoWriteClientService }    from '../services/index.js'
 import { KetoReadClientService }     from '../services/index.js'
 import { KetoRelationsService }      from '../services/index.js'
-import { KetoModuleOptions }         from './keto-module.interfaces.js'
 import { KETO_RELATIONS }            from './keto.constants.js'
 import { KETO_PERMISSIONS }          from './keto.constants.js'
 import { KETO_WRITE_CLIENT }         from './keto.constants.js'
 import { KETO_READ_CLIENT }          from './keto.constants.js'
 import { KETO_MODULE_CONFIGURATION } from './keto.constants.js'
 
-export const createKetoConfigurationProvider = (options: KetoModuleOptions): Provider[] => [
+export const createKetoConfigurationProvider = (options: KetoModuleOptions): Array<Provider> => [
   {
     provide: KETO_MODULE_CONFIGURATION,
     useFactory: () => new KetoConfigurationService(options),
   },
 ]
 
-export const createKetoExportsProvider = (): Provider[] => [
+export const createKetoExportsProvider = (): Array<Provider> => [
   {
     provide: KETO_PERMISSIONS,
     useFactory: (options: KetoConfigurationService) => new KetoPermissionsService(options),

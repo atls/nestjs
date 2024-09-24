@@ -2,8 +2,9 @@
  * @jest-environment node
  */
 
-import { INestApplication }               from '@nestjs/common'
-import { INestMicroservice }              from '@nestjs/common'
+import type { INestApplication }          from '@nestjs/common'
+import type { INestMicroservice }         from '@nestjs/common'
+
 import { Test }                           from '@nestjs/testing'
 import { describe }                       from '@jest/globals'
 import { beforeAll }                      from '@jest/globals'
@@ -27,7 +28,7 @@ describe('grpc http proxy', () => {
     const servicePort = await getPort()
     const appPort = await getPort()
 
-    const module = await Test.createTestingModule({
+    const testingModule = await Test.createTestingModule({
       imports: [GrpcHttpProxyIntegrationModule],
     })
       .overrideProvider(GRPC_HTTP_PROXY_MODULE_OPTIONS)
@@ -40,7 +41,7 @@ describe('grpc http proxy', () => {
       })
       .compile()
 
-    service = module.createNestMicroservice({
+    service = testingModule.createNestMicroservice({
       ...serverOptions,
       options: {
         ...serverOptions.options,
@@ -48,7 +49,7 @@ describe('grpc http proxy', () => {
       },
     })
 
-    app = module.createNestApplication()
+    app = testingModule.createNestApplication()
 
     await service.init()
     await app.init()

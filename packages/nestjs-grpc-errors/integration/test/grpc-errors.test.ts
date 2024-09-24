@@ -2,8 +2,9 @@
  * @jest-environment node
  */
 
+import type { INestMicroservice }      from '@nestjs/common'
+
 import { ErrorStatus }                 from '@atls/grpc-error-status'
-import { INestMicroservice }           from '@nestjs/common'
 import { ClientsModule }               from '@nestjs/microservices'
 import { Transport }                   from '@nestjs/microservices'
 import { Test }                        from '@nestjs/testing'
@@ -20,13 +21,13 @@ import { serverOptions }               from '../src/index.js'
 
 describe('grpc error', () => {
   let service: INestMicroservice
-  // @ts-ignore
+  // @ts-expect-error
   let testClient
 
   beforeAll(async () => {
     const servicePort = await getPort()
 
-    const module = await Test.createTestingModule({
+    const testingModule = await Test.createTestingModule({
       imports: [
         GrpcErrorsIntegrationModule,
         ClientsModule.register([
@@ -50,7 +51,7 @@ describe('grpc error', () => {
       ],
     }).compile()
 
-    service = module.createNestMicroservice({
+    service = testingModule.createNestMicroservice({
       ...serverOptions,
       options: {
         ...serverOptions.options,
@@ -62,6 +63,7 @@ describe('grpc error', () => {
 
     await service.listen()
 
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-call
     testClient = service.get('client').getService('TestService')
   })
 
@@ -73,9 +75,11 @@ describe('grpc error', () => {
     expect.assertions(1)
 
     try {
-      // @ts-ignore
+      // @ts-expect-error
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-call
       await testClient.testValidation({ id: 'test', child: { id: 'test' } }).toPromise()
     } catch (error) {
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
       expect(ErrorStatus.fromServiceError(error as any).toObject()).toEqual(
         expect.objectContaining({
           details: expect.arrayContaining([

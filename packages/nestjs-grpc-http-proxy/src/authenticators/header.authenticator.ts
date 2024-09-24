@@ -1,9 +1,9 @@
-import { Request }       from 'express'
+import type { Request }       from 'express'
 
-import { Authenticator } from './authenticator.interface.js'
+import type { Authenticator } from './authenticator.interface.js'
 
 export class HeaderAuthenticator implements Authenticator {
-  async execute(req: Request) {
+  async execute(req: Request): Promise<string | null> {
     return req.headers.authorization || null
   }
 }

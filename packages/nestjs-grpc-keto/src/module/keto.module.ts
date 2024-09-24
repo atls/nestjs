@@ -1,13 +1,15 @@
-import { Provider }                  from '@nestjs/common'
-import { DynamicModule }             from '@nestjs/common'
-import { Module }                    from '@nestjs/common'
+import type { Provider }               from '@nestjs/common'
+import type { DynamicModule }          from '@nestjs/common'
 
-import { KetoOptionsFactory }        from './keto-module.interfaces.js'
-import { KetoModuleAsyncOptions }    from './keto-module.interfaces.js'
-import { KetoModuleOptions }         from './keto-module.interfaces.js'
-import { KETO_MODULE_OPTIONS }       from './keto.constants.js'
-import { createKetoExportsProvider } from './keto.providers.js'
-import { createKetoOptionsProvider } from './keto.providers.js'
+import type { KetoOptionsFactory }     from './keto-module.interfaces.js'
+import type { KetoModuleAsyncOptions } from './keto-module.interfaces.js'
+import type { KetoModuleOptions }      from './keto-module.interfaces.js'
+
+import { Module }                      from '@nestjs/common'
+
+import { KETO_MODULE_OPTIONS }         from './keto.constants.js'
+import { createKetoExportsProvider }   from './keto.providers.js'
+import { createKetoOptionsProvider }   from './keto.providers.js'
 
 @Module({})
 export class KetoModule {
@@ -35,7 +37,7 @@ export class KetoModule {
     }
   }
 
-  private static createAsyncProviders(options: KetoModuleAsyncOptions): Provider[] {
+  private static createAsyncProviders(options: KetoModuleAsyncOptions): Array<Provider> {
     if (options.useExisting || options.useFactory) {
       return [this.createAsyncOptionsProvider(options)]
     }
@@ -60,7 +62,7 @@ export class KetoModule {
 
     return {
       provide: KETO_MODULE_OPTIONS,
-      useFactory: (optionsFactory: KetoOptionsFactory) => optionsFactory.createKetoOptions(),
+      useFactory: async (optionsFactory: KetoOptionsFactory) => optionsFactory.createKetoOptions(),
       inject: [options.useExisting! || options.useClass!],
     }
   }
