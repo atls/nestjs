@@ -35,7 +35,7 @@ describe('SignedUrlService', () => {
           fields: [],
         })
       })
-      jest.spyOn(signedUrlService, 'generateWriteUrl').mockImplementation(async () => result)
+      jest.spyOn(signedUrlService, 'generateWriteUrl').mockImplementation(() => result)
 
       expect(
         signedUrlService.generateWriteUrl('test', 'test', {
@@ -53,7 +53,7 @@ describe('SignedUrlService', () => {
           fields: [],
         })
       })
-      jest.spyOn(signedUrlService, 'generateReadUrl').mockImplementation(async () => result)
+      jest.spyOn(signedUrlService, 'generateReadUrl').mockImplementation(() => result)
 
       expect(signedUrlService.generateReadUrl('test', 'test')).toBe(result)
     })
