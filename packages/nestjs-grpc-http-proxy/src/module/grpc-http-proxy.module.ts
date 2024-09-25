@@ -1,15 +1,17 @@
-import { DynamicModule }                      from '@nestjs/common'
-import { Module }                             from '@nestjs/common'
-import { Provider }                           from '@nestjs/common'
+import type { DynamicModule }                   from '@nestjs/common'
+import type { Provider }                        from '@nestjs/common'
 
-import { GrpcHttpProxyController }            from '../controllers/index.js'
-import { GrpcHttpProxyModuleAsyncOptions }    from './grpc-http-proxy-module-options.interface.js'
-import { GrpcHttpProxyModuleOptions }         from './grpc-http-proxy-module-options.interface.js'
-import { GrpcHttpProxyOptionsFactory }        from './grpc-http-proxy-module-options.interface.js'
-import { GRPC_HTTP_PROXY_MODULE_OPTIONS }     from './grpc-http-proxy.constants.js'
-import { createGrpcHttpProxyExportsProvider } from './grpc-http-proxy.providers.js'
-import { createGrpcHttpProxyProvider }        from './grpc-http-proxy.providers.js'
-import { createGrpcHttpProxyOptionsProvider } from './grpc-http-proxy.providers.js'
+import type { GrpcHttpProxyModuleAsyncOptions } from './grpc-http-proxy-module-options.interface.js'
+import type { GrpcHttpProxyModuleOptions }      from './grpc-http-proxy-module-options.interface.js'
+import type { GrpcHttpProxyOptionsFactory }     from './grpc-http-proxy-module-options.interface.js'
+
+import { Module }                               from '@nestjs/common'
+
+import { GrpcHttpProxyController }              from '../controllers/index.js'
+import { GRPC_HTTP_PROXY_MODULE_OPTIONS }       from './grpc-http-proxy.constants.js'
+import { createGrpcHttpProxyExportsProvider }   from './grpc-http-proxy.providers.js'
+import { createGrpcHttpProxyProvider }          from './grpc-http-proxy.providers.js'
+import { createGrpcHttpProxyOptionsProvider }   from './grpc-http-proxy.providers.js'
 
 @Module({})
 export class GrpcHttpProxyModule {
@@ -39,7 +41,7 @@ export class GrpcHttpProxyModule {
     }
   }
 
-  private static createAsyncProviders(options: GrpcHttpProxyModuleAsyncOptions): Provider[] {
+  private static createAsyncProviders(options: GrpcHttpProxyModuleAsyncOptions): Array<Provider> {
     if (options.useExisting || options.useFactory) {
       return [this.createAsyncOptionsProvider(options)]
     }
@@ -64,7 +66,7 @@ export class GrpcHttpProxyModule {
 
     return {
       provide: GRPC_HTTP_PROXY_MODULE_OPTIONS,
-      useFactory: (optionsFactory: GrpcHttpProxyOptionsFactory) =>
+      useFactory: async (optionsFactory: GrpcHttpProxyOptionsFactory) =>
         optionsFactory.createGrpcHttpProxyOptions(),
       inject: [options.useExisting! || options.useClass!],
     }

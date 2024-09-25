@@ -2,39 +2,40 @@
  * @jest-environment node
  */
 
-import { INestApplication }      from '@nestjs/common'
-import { TestingModule }         from '@nestjs/testing'
-import { Test }                  from '@nestjs/testing'
-import { jest }                  from '@jest/globals'
-import { describe }              from '@jest/globals'
-import { beforeAll }             from '@jest/globals'
-import { afterAll }              from '@jest/globals'
-import { it }                    from '@jest/globals'
-import { Network }               from 'testcontainers'
-import { Wait }                  from 'testcontainers'
-import { StartedTestContainer }  from 'testcontainers'
-import { GenericContainer }      from 'testcontainers'
-import getPort                   from 'get-port'
-import request                   from 'supertest'
+import type { INestApplication }     from '@nestjs/common'
+import type { TestingModule }        from '@nestjs/testing'
+import type { StartedTestContainer } from 'testcontainers'
 
-import { KETO_MODULE_OPTIONS }   from '../../src/index.js'
-import { KetoIntegrationModule } from '../src/index.js'
-import { KETO_WRITE_PORT }       from './test.constants.js'
-import { KETO_READ_PORT }        from './test.constants.js'
-import { KETO_FILES }            from './test.constants.js'
-import { KETO_ENVIRONMENT }      from './test.constants.js'
-import { DB_PORT }               from './test.constants.js'
-import { DB_ENVIRONMENT }        from './test.constants.js'
-import { KETO_START_COMMAND }    from './test.constants.js'
-import { KETO_INIT_COMMAND }     from './test.constants.js'
-import { KETO_MIGRATE_COMMAND }  from './test.constants.js'
+import { Test }                      from '@nestjs/testing'
+import { jest }                      from '@jest/globals'
+import { describe }                  from '@jest/globals'
+import { beforeAll }                 from '@jest/globals'
+import { afterAll }                  from '@jest/globals'
+import { it }                        from '@jest/globals'
+import { Network }                   from 'testcontainers'
+import { Wait }                      from 'testcontainers'
+import { GenericContainer }          from 'testcontainers'
+import getPort                       from 'get-port'
+import request                       from 'supertest'
+
+import { KETO_MODULE_OPTIONS }       from '../../src/index.js'
+import { KetoIntegrationModule }     from '../src/index.js'
+import { KETO_WRITE_PORT }           from './test.constants.js'
+import { KETO_READ_PORT }            from './test.constants.js'
+import { KETO_FILES }                from './test.constants.js'
+import { KETO_ENVIRONMENT }          from './test.constants.js'
+import { DB_PORT }                   from './test.constants.js'
+import { DB_ENVIRONMENT }            from './test.constants.js'
+import { KETO_START_COMMAND }        from './test.constants.js'
+import { KETO_INIT_COMMAND }         from './test.constants.js'
+import { KETO_MIGRATE_COMMAND }      from './test.constants.js'
 
 jest.setTimeout(25000)
 
 describe('Keto read client', () => {
   let app: INestApplication
   let url: string
-  let module: TestingModule
+  let testingModule: TestingModule
 
   let dbContainer: StartedTestContainer
   let ketoContainer: StartedTestContainer
@@ -69,7 +70,7 @@ describe('Keto read client', () => {
 
     await ketoContainer.exec(KETO_INIT_COMMAND)
 
-    module = await Test.createTestingModule({
+    testingModule = await Test.createTestingModule({
       imports: [KetoIntegrationModule],
     })
       .overrideProvider(KETO_MODULE_OPTIONS)
@@ -79,7 +80,7 @@ describe('Keto read client', () => {
       })
       .compile()
 
-    app = module.createNestApplication()
+    app = testingModule.createNestApplication()
 
     await app.init()
     await app.listen(port)

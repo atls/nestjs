@@ -1,10 +1,11 @@
+// @ts-expect-error
+import type { RelationTuple }            from '@ory/keto-grpc-client/ory/keto/relation_tuples/v1alpha2/relation_tuples_pb'
+
 import { Inject }                        from '@nestjs/common'
 import { Injectable }                    from '@nestjs/common'
-// @ts-ignore
-import { RelationTuple }                 from '@ory/keto-grpc-client/ory/keto/relation_tuples/v1alpha2/relation_tuples_pb'
-// @ts-ignore
+// @ts-expect-error
 import { RelationTupleDelta }            from '@ory/keto-grpc-client/ory/keto/relation_tuples/v1alpha2/write_service_pb'
-// @ts-ignore
+// @ts-expect-error
 import { TransactRelationTuplesRequest } from '@ory/keto-grpc-client/ory/keto/relation_tuples/v1alpha2/write_service_pb'
 
 import { KetoGeneralException }          from '../exceptions/index.js'
@@ -20,20 +21,24 @@ export class KetoWriteClientService {
     private readonly writeServiceClient: KetoWriteNativeClientService
   ) {}
 
-  async addRelationTuple(tuple: RelationTuple): Promise<string[]> {
+  async addRelationTuple(tuple: RelationTuple): Promise<Array<string>> {
     try {
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-call
       const relationRequest = new TransactRelationTuplesRequest()
 
       const delta = this.convertDeltaToTuple(tuple, Action.ACTION_INSERT)
 
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-call
       relationRequest.addRelationTupleDeltas(delta)
 
       return new Promise((resolve) => {
-        // @ts-ignore
+        // @ts-expect-error
+        // eslint-disable-next-line @typescript-eslint/no-unsafe-call
         this.writeServiceClient.transactRelationTuples(relationRequest, (error, response) => {
           if (error) throw error
 
-          return resolve(response.getSnaptokensList())
+          // eslint-disable-next-line @typescript-eslint/no-unsafe-argument, @typescript-eslint/no-unsafe-call
+          resolve(response.getSnaptokensList())
         })
       })
     } catch (error) {
@@ -41,20 +46,24 @@ export class KetoWriteClientService {
     }
   }
 
-  async deleteRelationTuple(tuple: RelationTuple): Promise<string[]> {
+  async deleteRelationTuple(tuple: RelationTuple): Promise<Array<string>> {
     try {
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-call
       const relationRequest = new TransactRelationTuplesRequest()
 
       const delta = this.convertDeltaToTuple(tuple, Action.ACTION_DELETE)
 
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-call
       relationRequest.addRelationTupleDeltas(delta)
 
       return new Promise((resolve) => {
-        // @ts-ignore
+        // @ts-expect-error
+        // eslint-disable-next-line @typescript-eslint/no-unsafe-call
         this.writeServiceClient.transactRelationTuples(relationRequest, (error, response) => {
           if (error) throw error
 
-          return resolve(response.getSnaptokensList())
+          // eslint-disable-next-line @typescript-eslint/no-unsafe-argument, @typescript-eslint/no-unsafe-call
+          resolve(response.getSnaptokensList())
         })
       })
     } catch (error) {
@@ -63,10 +72,13 @@ export class KetoWriteClientService {
   }
 
   private convertDeltaToTuple(tuple: RelationTuple, action: Action): RelationTupleDelta {
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-call
     const delta = new RelationTupleDelta()
 
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-call
     delta.setAction(action).setRelationTuple(tuple)
 
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-return
     return delta
   }
 }

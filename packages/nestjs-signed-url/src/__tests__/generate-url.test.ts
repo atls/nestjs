@@ -1,3 +1,5 @@
+import type { SignedUrl }   from '../storage/index.js'
+
 import { Test }             from '@nestjs/testing'
 import { describe }         from '@jest/globals'
 import { expect }           from '@jest/globals'
@@ -8,13 +10,12 @@ import { jest }             from '@jest/globals'
 import { SignedUrlService } from '../index.js'
 import { GcsStorage }       from '../storage/index.js'
 import { STORAGE }          from '../storage/index.js'
-import { SignedUrl }        from '../storage/index.js'
 
 describe('SignedUrlService', () => {
   let signedUrlService: SignedUrlService
   const storageProvider = {
     provide: STORAGE,
-    useFactory: () => new GcsStorage(),
+    useFactory: (): GcsStorage => new GcsStorage(),
   }
 
   beforeEach(async () => {
@@ -34,6 +35,7 @@ describe('SignedUrlService', () => {
           fields: [],
         })
       })
+      // eslint-disable-next-line @typescript-eslint/promise-function-async
       jest.spyOn(signedUrlService, 'generateWriteUrl').mockImplementation(() => result)
 
       expect(
@@ -52,6 +54,7 @@ describe('SignedUrlService', () => {
           fields: [],
         })
       })
+      // eslint-disable-next-line @typescript-eslint/promise-function-async
       jest.spyOn(signedUrlService, 'generateReadUrl').mockImplementation(() => result)
 
       expect(signedUrlService.generateReadUrl('test', 'test')).toBe(result)

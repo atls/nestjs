@@ -1,10 +1,12 @@
-import { Logger }        from '@atls/logger'
-import { LoggerService } from '@nestjs/common'
+import type { LoggerService } from '@nestjs/common'
+
+import { Logger }             from '@atls/logger'
 
 export class NestLogger implements LoggerService {
   private logger = new Logger(`nestjs`)
 
-  public error(message: any, trace?: string, context?: string) {
+  // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
+  public error(message: any, trace?: string, context?: string): void {
     if (context) {
       this.logger.child(context).error(message)
     } else {
@@ -12,7 +14,8 @@ export class NestLogger implements LoggerService {
     }
   }
 
-  public log(message: any, context?: string) {
+  // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
+  public log(message: any, context?: string): void {
     if (context) {
       this.logger.child(context).info(message)
     } else {
@@ -20,7 +23,8 @@ export class NestLogger implements LoggerService {
     }
   }
 
-  public warn(message: any, context?: string) {
+  // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
+  public warn(message: any, context?: string): void {
     if (context) {
       this.logger.child(context).warn(message)
     } else {
@@ -28,7 +32,8 @@ export class NestLogger implements LoggerService {
     }
   }
 
-  public debug(message: any, context?: string) {
+  // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
+  public debug(message: any, context?: string): void {
     if (context) {
       this.logger.child(context).debug(message)
     } else {
@@ -36,7 +41,8 @@ export class NestLogger implements LoggerService {
     }
   }
 
-  public verbose?(message: any, context?: string) {
+  // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
+  public verbose?(message: any, context?: string): void {
     if (context) {
       this.logger.child(context).trace(message)
     } else {

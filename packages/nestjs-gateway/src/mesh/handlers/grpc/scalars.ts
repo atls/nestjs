@@ -27,6 +27,6 @@ export function getGraphQLScalar(scalarType: string): string {
   if (!gqlScalar) {
     throw new Error(`Could not find GraphQL Scalar for type ${scalarType}`)
   }
-  // @ts-ignore
+  // @ts-expect-error
   return SCALARS.get(scalarType)
 }

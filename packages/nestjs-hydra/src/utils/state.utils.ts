@@ -1,6 +1,8 @@
-import { LoginRequest } from '@ory/hydra-client'
+import type { LoginRequest } from '@ory/hydra-client'
 
-export const extractLoginRequestState = (body: LoginRequest) => {
+type LoginRequestState = Record<string, any>
+
+export const extractLoginRequestState = (body: LoginRequest): LoginRequestState => {
   if (!body.request_url) {
     return {}
   }
@@ -14,6 +16,7 @@ export const extractLoginRequestState = (body: LoginRequest) => {
       return {}
     }
 
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-return
     return JSON.parse(Buffer.from(state, 'base64').toString('utf8'))
   } catch {
     // TODO: log error

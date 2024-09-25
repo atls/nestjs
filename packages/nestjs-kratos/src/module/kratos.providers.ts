@@ -1,31 +1,33 @@
-import { Provider }              from '@nestjs/common'
-import { APP_FILTER }            from '@nestjs/core'
+import type { Provider }            from '@nestjs/common'
 
-import { Configuration }         from '../client/index.js'
-import { KratosPublicApi }       from '../client/index.js'
-import { KratosAdminApi }        from '../client/index.js'
-import { KratosExceptionFilter } from '../filters/index.js'
-import { WhoamiPipe }            from '../pipes/index.js'
-import { KratosBrowserUrls }     from '../urls/index.js'
-import { KratosModuleOptions }   from './kratos-module-options.interface.js'
-import { KRATOS_BROWSER_URLS }   from './kratos.constants.js'
-import { KRATOS_MODULE_OPTIONS } from './kratos.constants.js'
+import type { KratosModuleOptions } from './kratos-module-options.interface.js'
 
-export const createKratosOptionsProvider = (options: KratosModuleOptions): Provider[] => [
+import { APP_FILTER }               from '@nestjs/core'
+
+import { Configuration }            from '../client/index.js'
+import { KratosPublicApi }          from '../client/index.js'
+import { KratosAdminApi }           from '../client/index.js'
+import { KratosExceptionFilter }    from '../filters/index.js'
+import { WhoamiPipe }               from '../pipes/index.js'
+import { KratosBrowserUrls }        from '../urls/index.js'
+import { KRATOS_BROWSER_URLS }      from './kratos.constants.js'
+import { KRATOS_MODULE_OPTIONS }    from './kratos.constants.js'
+
+export const createKratosOptionsProvider = (options: KratosModuleOptions): Array<Provider> => [
   {
     provide: KRATOS_MODULE_OPTIONS,
     useValue: options,
   },
 ]
 
-export const createKratosProvider = (): Provider[] => [
+export const createKratosProvider = (): Array<Provider> => [
   {
     provide: APP_FILTER,
     useClass: KratosExceptionFilter,
   },
 ]
 
-export const createKratosExportsProvider = (): Provider[] => [
+export const createKratosExportsProvider = (): Array<Provider> => [
   {
     provide: KratosPublicApi,
     useFactory: (config: KratosModuleOptions) =>

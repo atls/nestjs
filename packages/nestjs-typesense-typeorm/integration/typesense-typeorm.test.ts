@@ -1,4 +1,7 @@
-import { INestApplication }                  from '@nestjs/common'
+import type { INestApplication }             from '@nestjs/common'
+import type { StartedTestContainer }         from 'testcontainers'
+import type { Repository }                   from 'typeorm'
+
 import { Test }                              from '@nestjs/testing'
 import { jest }                              from '@jest/globals'
 import { describe }                          from '@jest/globals'
@@ -8,9 +11,7 @@ import { expect }                            from '@jest/globals'
 import { afterAll }                          from '@jest/globals'
 import { getRepositoryToken }                from '@nestjs/typeorm'
 import { GenericContainer }                  from 'testcontainers'
-import { StartedTestContainer }              from 'testcontainers'
 import { Wait }                              from 'testcontainers'
-import { Repository }                        from 'typeorm'
 import { Client }                            from 'typesense'
 
 import { TYPESENSE_MODULE_OPTIONS }          from '@atls/nestjs-typesense'
@@ -36,7 +37,7 @@ describe('typesense-typeorm', () => {
       .withExposedPorts(8108)
       .start()
 
-    const module = await Test.createTestingModule({
+    const testModule = await Test.createTestingModule({
       imports: [TypesenseTypeOrmIntegrationModule],
     })
       .overrideProvider(TYPESENSE_MODULE_OPTIONS)
@@ -52,12 +53,12 @@ describe('typesense-typeorm', () => {
       })
       .compile()
 
-    app = module.createNestApplication()
+    app = testModule.createNestApplication()
 
     await app.init()
 
-    repository = module.get(getRepositoryToken(TestEntity))
-    client = module.get(Client)
+    repository = testModule.get(getRepositoryToken(TestEntity))
+    client = testModule.get(Client)
   })
 
   afterAll(async () => {

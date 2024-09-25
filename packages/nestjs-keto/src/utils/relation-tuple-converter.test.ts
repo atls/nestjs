@@ -1,10 +1,12 @@
-import { SubjectSet }             from '@ory/keto-client'
+import type { SubjectSet }        from '@ory/keto-client'
+
+import type { RelationShipTuple } from '../module/index.js'
+
 import { describe }               from '@jest/globals'
 import { beforeAll }              from '@jest/globals'
 import { it }                     from '@jest/globals'
 import { expect }                 from '@jest/globals'
 
-import { RelationShipTuple }      from '../module/index.js'
 import { RelationTupleConverter } from './relation-tuple-converter.js'
 
 describe('Keto relation tuple converter', () => {
@@ -67,10 +69,10 @@ describe('Keto relation tuple converter', () => {
     })
 
     it('gets subjectId', () => {
-      // @ts-ignore
+      // @ts-expect-error
       expect(stringResult.subject_id).toBe('testSubject')
 
-      // @ts-ignore
+      // @ts-expect-error
       expect(functionResult.subject_id).toBe('testSubject')
     })
 
@@ -78,7 +80,7 @@ describe('Keto relation tuple converter', () => {
       let stringSubjectSet: SubjectSet | undefined
 
       beforeAll(() => {
-        // @ts-ignore
+        // @ts-expect-error
         stringSubjectSet = stringResultSubjectSet.subject_set
       })
 

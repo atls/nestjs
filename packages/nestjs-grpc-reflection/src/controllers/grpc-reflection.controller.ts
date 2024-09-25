@@ -1,12 +1,13 @@
-import { Controller }               from '@nestjs/common'
-import { GrpcStreamMethod }         from '@nestjs/microservices'
-import { status }                   from '@grpc/grpc-js'
-import { Observable }               from 'rxjs'
-import { Subject }                  from 'rxjs'
+import type { ServerReflectionRequest }  from '../grpc/index.js'
+import type { ServerReflectionResponse } from '../grpc/index.js'
 
-import { ServerReflectionRequest }  from '../grpc/index.js'
-import { ServerReflectionResponse } from '../grpc/index.js'
-import { GrpcServicesRegistry }     from '../grpc/index.js'
+import { Controller }                    from '@nestjs/common'
+import { GrpcStreamMethod }              from '@nestjs/microservices'
+import { status }                        from '@grpc/grpc-js'
+import { Observable }                    from 'rxjs'
+import { Subject }                       from 'rxjs'
+
+import { GrpcServicesRegistry }          from '../grpc/index.js'
 
 @Controller()
 export class GrpcReflectionController {
@@ -16,7 +17,7 @@ export class GrpcReflectionController {
   info(request: Observable<ServerReflectionRequest>): Observable<ServerReflectionResponse> {
     const response = new Subject<ServerReflectionResponse>()
 
-    const onNext = (reflectionRequest: ServerReflectionRequest) => {
+    const onNext = (reflectionRequest: ServerReflectionRequest): void => {
       if (reflectionRequest.listServices) {
         response.next({
           validHost: '',
@@ -52,7 +53,9 @@ export class GrpcReflectionController {
     }
 
     request.subscribe({
-      complete: () => response.complete(),
+      complete: () => {
+        response.complete()
+      },
       next: onNext,
     })
 

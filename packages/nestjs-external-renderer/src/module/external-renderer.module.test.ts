@@ -1,27 +1,29 @@
 /* eslint-disable max-classes-per-file */
 
-import { Module }                           from '@nestjs/common'
-import { TestingModule }                    from '@nestjs/testing'
-import { Test }                             from '@nestjs/testing'
-import { describe }                         from '@jest/globals'
-import { expect }                           from '@jest/globals'
-import { it }                               from '@jest/globals'
-import { afterEach }                        from '@jest/globals'
+import type { TestingModule }                 from '@nestjs/testing'
 
-import { ExternalRendererModuleOptions }    from './external-renderer-module-options.interface.js'
-import { EXTERNAL_RENDERER_MODULE_OPTIONS } from './external-renderer.constants.js'
-import { ExternalRendererModule }           from './external-renderer.module.js'
+import type { ExternalRendererModuleOptions } from './external-renderer-module-options.interface.js'
+
+import { Module }                             from '@nestjs/common'
+import { Test }                               from '@nestjs/testing'
+import { describe }                           from '@jest/globals'
+import { expect }                             from '@jest/globals'
+import { it }                                 from '@jest/globals'
+import { afterEach }                          from '@jest/globals'
+
+import { EXTERNAL_RENDERER_MODULE_OPTIONS }   from './external-renderer.constants.js'
+import { ExternalRendererModule }             from './external-renderer.module.js'
 
 describe('external-renderer', () => {
   describe('module', () => {
-    let module: TestingModule
+    let testingModule: TestingModule
 
     afterEach(async () => {
-      await module.close()
+      await testingModule.close()
     })
 
     it(`register`, async () => {
-      module = await Test.createTestingModule({
+      testingModule = await Test.createTestingModule({
         imports: [
           ExternalRendererModule.register({
             url: 'http://localhost:3000',
@@ -29,11 +31,11 @@ describe('external-renderer', () => {
         ],
       }).compile()
 
-      expect(module.get(EXTERNAL_RENDERER_MODULE_OPTIONS)).toBeDefined()
+      expect(testingModule.get(EXTERNAL_RENDERER_MODULE_OPTIONS)).toBeDefined()
     })
 
     it(`register async use factory`, async () => {
-      module = await Test.createTestingModule({
+      testingModule = await Test.createTestingModule({
         imports: [
           ExternalRendererModule.registerAsync({
             useFactory: () => ({
@@ -43,7 +45,7 @@ describe('external-renderer', () => {
         ],
       }).compile()
 
-      expect(module.get(EXTERNAL_RENDERER_MODULE_OPTIONS)).toBeDefined()
+      expect(testingModule.get(EXTERNAL_RENDERER_MODULE_OPTIONS)).toBeDefined()
     })
 
     it(`register async use class`, async () => {
@@ -55,7 +57,7 @@ describe('external-renderer', () => {
         }
       }
 
-      module = await Test.createTestingModule({
+      testingModule = await Test.createTestingModule({
         imports: [
           ExternalRendererModule.registerAsync({
             useClass: TestExternalRendererModuleOptions,
@@ -63,7 +65,7 @@ describe('external-renderer', () => {
         ],
       }).compile()
 
-      expect(module.get(EXTERNAL_RENDERER_MODULE_OPTIONS)).toBeDefined()
+      expect(testingModule.get(EXTERNAL_RENDERER_MODULE_OPTIONS)).toBeDefined()
     })
 
     it(`register async use exists`, async () => {
@@ -78,7 +80,7 @@ describe('external-renderer', () => {
       @Module({})
       class TestExternalRendererModule {}
 
-      module = await Test.createTestingModule({
+      testingModule = await Test.createTestingModule({
         imports: [
           ExternalRendererModule.registerAsync({
             imports: [
@@ -93,7 +95,7 @@ describe('external-renderer', () => {
         ],
       }).compile()
 
-      expect(module.get(EXTERNAL_RENDERER_MODULE_OPTIONS)).toBeDefined()
+      expect(testingModule.get(EXTERNAL_RENDERER_MODULE_OPTIONS)).toBeDefined()
     })
   })
 })

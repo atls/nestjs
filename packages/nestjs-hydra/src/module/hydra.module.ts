@@ -1,14 +1,16 @@
-import { DynamicModule }              from '@nestjs/common'
-import { Module }                     from '@nestjs/common'
-import { Provider }                   from '@nestjs/common'
+import type { DynamicModule }           from '@nestjs/common'
+import type { Provider }                from '@nestjs/common'
 
-import { HydraModuleAsyncOptions }    from './hydra-module-options.interface.js'
-import { HydraModuleOptions }         from './hydra-module-options.interface.js'
-import { HydraOptionsFactory }        from './hydra-module-options.interface.js'
-import { HYDRA_MODULE_OPTIONS }       from './hydra.constants.js'
-import { createHydraExportsProvider } from './hydra.providers.js'
-import { createHydraProvider }        from './hydra.providers.js'
-import { createHydraOptionsProvider } from './hydra.providers.js'
+import type { HydraModuleAsyncOptions } from './hydra-module-options.interface.js'
+import type { HydraModuleOptions }      from './hydra-module-options.interface.js'
+import type { HydraOptionsFactory }     from './hydra-module-options.interface.js'
+
+import { Module }                       from '@nestjs/common'
+
+import { HYDRA_MODULE_OPTIONS }         from './hydra.constants.js'
+import { createHydraExportsProvider }   from './hydra.providers.js'
+import { createHydraProvider }          from './hydra.providers.js'
+import { createHydraOptionsProvider }   from './hydra.providers.js'
 
 @Module({})
 export class HydraModule {
@@ -38,7 +40,7 @@ export class HydraModule {
     }
   }
 
-  private static createAsyncProviders(options: HydraModuleAsyncOptions): Provider[] {
+  private static createAsyncProviders(options: HydraModuleAsyncOptions): Array<Provider> {
     if (options.useExisting || options.useFactory) {
       return [this.createAsyncOptionsProvider(options)]
     }
@@ -63,7 +65,8 @@ export class HydraModule {
 
     return {
       provide: HYDRA_MODULE_OPTIONS,
-      useFactory: (optionsFactory: HydraOptionsFactory) => optionsFactory.createHydraOptions(),
+      useFactory: async (optionsFactory: HydraOptionsFactory) =>
+        optionsFactory.createHydraOptions(),
       inject: [options.useExisting! || options.useClass!],
     }
   }

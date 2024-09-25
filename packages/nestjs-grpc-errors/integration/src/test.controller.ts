@@ -9,7 +9,7 @@ import { TestDto }            from './test.dto.js'
 export class TestController {
   @GrpcMethod('TestService', 'TestValidation')
   @UsePipes(new GrpcValidationPipe())
-  test({ id }: TestDto) {
+  test({ id }: TestDto): { id: string } {
     return {
       id,
     }

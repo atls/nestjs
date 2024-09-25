@@ -1,4 +1,4 @@
-import { CollectionFieldSchema } from 'typesense/lib/Typesense/Collection.js'
+import type { CollectionFieldSchema } from 'typesense/lib/Typesense/Collection.js'
 
 export interface Schema {
   name: string

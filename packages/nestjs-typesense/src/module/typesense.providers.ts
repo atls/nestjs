@@ -1,30 +1,32 @@
-import { Provider }                    from '@nestjs/common'
+import type { Provider }               from '@nestjs/common'
+
+import type { TypesenseModuleOptions } from './typesense-module.interface.js'
+
 import { Client }                      from 'typesense'
 
 import { TypesenseCollectionsCreator } from '../collections/index.js'
 import { TypesenseMetadataAccessor }   from '../metadata/index.js'
 import { TypesenseMetadataExplorer }   from '../metadata/index.js'
 import { TypesenseMetadataRegistry }   from '../metadata/index.js'
-import { TypesenseModuleOptions }      from './typesense-module.interface.js'
 import { TYPESENSE_MODULE_OPTIONS }    from './typesense.constants.js'
 
 export const createTypesenseOptionsProvider = (
   options: TypesenseModuleOptions = {}
-): Provider[] => [
+): Array<Provider> => [
   {
     provide: TYPESENSE_MODULE_OPTIONS,
     useValue: options,
   },
 ]
 
-export const createTypesenseProvider = (): Provider[] => [
+export const createTypesenseProvider = (): Array<Provider> => [
   TypesenseMetadataAccessor,
   TypesenseMetadataExplorer,
   TypesenseMetadataRegistry,
   TypesenseCollectionsCreator,
 ]
 
-export const createTypesenseExportsProvider = (): Provider[] => [
+export const createTypesenseExportsProvider = (): Array<Provider> => [
   TypesenseMetadataRegistry,
   {
     provide: Client,
@@ -41,7 +43,7 @@ export const createTypesenseExportsProvider = (): Provider[] => [
           },
         ],
         numRetries: options.numRetries || 10,
-        apiKey: options.apiKey ?? (process.env.TYPESENSE_API_KEY as string),
+        apiKey: options.apiKey ?? process.env.TYPESENSE_API_KEY!,
         connectionTimeoutSeconds: options.connectionTimeoutSeconds || 10,
         retryIntervalSeconds: options.retryIntervalSeconds || 0.1,
         healthcheckIntervalSeconds: options.healthcheckIntervalSeconds || 2,

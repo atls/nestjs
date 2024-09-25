@@ -1,14 +1,16 @@
-import { DynamicModule }                         from '@nestjs/common'
-import { Provider }                              from '@nestjs/common'
-import { Module }                                from '@nestjs/common'
+import type { DynamicModule }                      from '@nestjs/common'
+import type { Provider }                           from '@nestjs/common'
 
-import { TypesenseTypeOrmModuleAsyncOptions }    from './typesense-typeorm-module.interface.js'
-import { TypesenseTypeOrmModuleOptions }         from './typesense-typeorm-module.interface.js'
-import { TypesenseTypeOrmOptionsFactory }        from './typesense-typeorm-module.interface.js'
-import { TYPESENSE_TYPEORM_MODULE_OPTIONS }      from './typesense-typeorm.constants.js'
-import { createTypesenseTypeOrmExportsProvider } from './typesense-typeorm.providers.js'
-import { createTypesenseTypeOrmProvider }        from './typesense-typeorm.providers.js'
-import { createTypesenseTypeOrmOptionsProvider } from './typesense-typeorm.providers.js'
+import type { TypesenseTypeOrmModuleAsyncOptions } from './typesense-typeorm-module.interface.js'
+import type { TypesenseTypeOrmModuleOptions }      from './typesense-typeorm-module.interface.js'
+import type { TypesenseTypeOrmOptionsFactory }     from './typesense-typeorm-module.interface.js'
+
+import { Module }                                  from '@nestjs/common'
+
+import { TYPESENSE_TYPEORM_MODULE_OPTIONS }        from './typesense-typeorm.constants.js'
+import { createTypesenseTypeOrmExportsProvider }   from './typesense-typeorm.providers.js'
+import { createTypesenseTypeOrmProvider }          from './typesense-typeorm.providers.js'
+import { createTypesenseTypeOrmOptionsProvider }   from './typesense-typeorm.providers.js'
 
 @Module({})
 export class TypesenseTypeOrmModule {
@@ -36,7 +38,9 @@ export class TypesenseTypeOrmModule {
     }
   }
 
-  private static createAsyncProviders(options: TypesenseTypeOrmModuleAsyncOptions): Provider[] {
+  private static createAsyncProviders(
+    options: TypesenseTypeOrmModuleAsyncOptions
+  ): Array<Provider> {
     if (options.useExisting || options.useFactory) {
       return [this.createAsyncOptionsProvider(options)]
     }
@@ -61,7 +65,7 @@ export class TypesenseTypeOrmModule {
 
     return {
       provide: TYPESENSE_TYPEORM_MODULE_OPTIONS,
-      useFactory: (optionsFactory: TypesenseTypeOrmOptionsFactory) =>
+      useFactory: async (optionsFactory: TypesenseTypeOrmOptionsFactory) =>
         optionsFactory.createTypesenseTypeOrmOptions(),
       inject: [options.useExisting! || options.useClass!],
     }

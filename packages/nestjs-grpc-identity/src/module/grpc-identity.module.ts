@@ -1,14 +1,16 @@
-import { DynamicModule }                     from '@nestjs/common'
-import { Module }                            from '@nestjs/common'
-import { Provider }                          from '@nestjs/common'
+import type { DynamicModule }                  from '@nestjs/common'
+import type { Provider }                       from '@nestjs/common'
 
-import { GrpcIdentityModuleAsyncOptions }    from './grpc-identity-module.interface.js'
-import { GrpcIdentityModuleOptions }         from './grpc-identity-module.interface.js'
-import { GrpcIdentityOptionsFactory }        from './grpc-identity-module.interface.js'
-import { GRPC_IDENTITY_MODULE_OPTIONS }      from './grpc-identity.constants.js'
-import { createGrpcIdentityExportsProvider } from './grpc-identity.providers.js'
-import { createGrpcIdentityProvider }        from './grpc-identity.providers.js'
-import { createGrpcIdentityOptionsProvider } from './grpc-identity.providers.js'
+import type { GrpcIdentityModuleAsyncOptions } from './grpc-identity-module.interface.js'
+import type { GrpcIdentityModuleOptions }      from './grpc-identity-module.interface.js'
+import type { GrpcIdentityOptionsFactory }     from './grpc-identity-module.interface.js'
+
+import { Module }                              from '@nestjs/common'
+
+import { GRPC_IDENTITY_MODULE_OPTIONS }        from './grpc-identity.constants.js'
+import { createGrpcIdentityExportsProvider }   from './grpc-identity.providers.js'
+import { createGrpcIdentityProvider }          from './grpc-identity.providers.js'
+import { createGrpcIdentityOptionsProvider }   from './grpc-identity.providers.js'
 
 @Module({})
 export class GrpcIdentityModule {
@@ -36,7 +38,7 @@ export class GrpcIdentityModule {
     }
   }
 
-  private static createAsyncProviders(options: GrpcIdentityModuleAsyncOptions): Provider[] {
+  private static createAsyncProviders(options: GrpcIdentityModuleAsyncOptions): Array<Provider> {
     if (options.useExisting || options.useFactory) {
       return [this.createAsyncOptionsProvider(options)]
     }
@@ -61,7 +63,7 @@ export class GrpcIdentityModule {
 
     return {
       provide: GRPC_IDENTITY_MODULE_OPTIONS,
-      useFactory: (optionsFactory: GrpcIdentityOptionsFactory) =>
+      useFactory: async (optionsFactory: GrpcIdentityOptionsFactory) =>
         optionsFactory.createGrpcIdentityOptions(),
       inject: [options.useExisting! || options.useClass!],
     }

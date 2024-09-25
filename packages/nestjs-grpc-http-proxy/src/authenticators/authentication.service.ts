@@ -1,7 +1,8 @@
+import type { Request }                   from 'express'
+import type { Response }                  from 'express'
+
 import { Injectable }                     from '@nestjs/common'
 import { Inject }                         from '@nestjs/common'
-import { Request }                        from 'express'
-import { Response }                       from 'express'
 
 import { GrpcHttpProxyModuleOptions }     from '../module/index.js'
 import { GRPC_HTTP_PROXY_MODULE_OPTIONS } from '../module/index.js'
@@ -12,7 +13,7 @@ export class AuthenticationService {
     @Inject(GRPC_HTTP_PROXY_MODULE_OPTIONS) private readonly options: GrpcHttpProxyModuleOptions
   ) {}
 
-  authenticate(req: Request, res: Response) {
+  async authenticate(req: Request, res: Response): Promise<string | null> {
     if (!this.options.authenticator) {
       return null
     }

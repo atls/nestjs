@@ -8,9 +8,7 @@ import { serverOptions }        from './server.options.js'
 
 @Module({
   imports: [
-    // @ts-ignore
     GrpcReflectionModule.register(serverOptions.options),
-    // @ts-ignore
     GrpcHttpProxyModule.register({ options: serverOptions.options }),
     EchoModule,
   ],

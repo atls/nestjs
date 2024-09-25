@@ -1,5 +1,6 @@
+import type { OnModuleInit }         from '@nestjs/common'
+
 import { Logger }                    from '@atls/logger'
-import { OnModuleInit }              from '@nestjs/common'
 import { Injectable }                from '@nestjs/common'
 import { Client }                    from 'typesense'
 
@@ -14,7 +15,7 @@ export class TypesenseCollectionsCreator implements OnModuleInit {
     private readonly typesense: Client
   ) {}
 
-  async onModuleInit() {
+  async onModuleInit(): Promise<void> {
     for (const target of this.registry.getTargets()) {
       const schema = this.registry.getSchemaByTarget(target)
 
@@ -22,7 +23,7 @@ export class TypesenseCollectionsCreator implements OnModuleInit {
 
       try {
         // eslint-disable-next-line no-await-in-loop
-        await this.typesense.collections(schema!.name).retrieve()
+        await this.typesense.collections(schema.name).retrieve()
       } catch (error) {
         if ((error as any).httpStatus === 404) {
           // eslint-disable-next-line no-await-in-loop

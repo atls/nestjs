@@ -1,13 +1,13 @@
-import { CustomDecorator } from '@nestjs/common'
-import { Reflector }       from '@nestjs/core'
+import type { CustomDecorator } from '@nestjs/common'
+import type { Reflector }       from '@nestjs/core'
 
 export type GetGuardingRelationTuple = (
   reflector: Reflector,
   handler: Parameters<Reflector['get']>[1]
-) => string | ReplaceGenerator
+) => ReplaceGenerator | string
 
 export type ReplaceGenerator = (value: string) => string
 
 export type GuardedByKetoFunction = (
-  relationTuple: string | ReplaceGenerator
+  relationTuple: ReplaceGenerator | string
 ) => CustomDecorator<symbol>

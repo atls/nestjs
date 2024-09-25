@@ -1,16 +1,18 @@
+import type { Schema }     from './schema.metadata.js'
+
 import { Injectable }      from '@nestjs/common'
 import { Reflector }       from '@nestjs/core'
 
 import { SCHEMA_METADATA } from '../decorators/index.js'
 import { FIELD_METADATA }  from '../decorators/index.js'
-import { Schema }          from './schema.metadata.js'
+
+type Constructor<T> = new (...args: Array<any>) => T
 
 @Injectable()
 export class TypesenseMetadataAccessor {
   constructor(private readonly reflector: Reflector) {}
 
-  // @ts-ignore
-  getTypesenseMetadata(target): Schema | undefined {
+  getTypesenseMetadata(target: Constructor<any> | object): Schema | undefined {
     if (target.constructor) {
       const schema = this.reflector.get(SCHEMA_METADATA, target.constructor)
       const fields = this.reflector.get(FIELD_METADATA, target.constructor)

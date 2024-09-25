@@ -1,5 +1,5 @@
-import { ExternalRendererOptionsFactory } from '../module/index.js'
-import { ExternalRendererModuleOptions }  from '../module/index.js'
+import type { ExternalRendererOptionsFactory } from '../module/index.js'
+import type { ExternalRendererModuleOptions }  from '../module/index.js'
 
 export class ExternalRendererEnvConfig implements ExternalRendererOptionsFactory {
   createExternalRendererOptions(): ExternalRendererModuleOptions {

@@ -1,8 +1,9 @@
-import { Metadata }                 from '@grpc/grpc-js'
+import type { Metadata }            from '@grpc/grpc-js'
+import type { ExecutionContext }    from '@nestjs/common'
+import type { CanActivate }         from '@nestjs/common'
+
 import { Inject }                   from '@nestjs/common'
-import { ExecutionContext }         from '@nestjs/common'
 import { Injectable }               from '@nestjs/common'
-import { CanActivate }              from '@nestjs/common'
 import { Reflector }                from '@nestjs/core'
 import { GqlExecutionContext }      from '@nestjs/graphql'
 
@@ -40,24 +41,28 @@ export class KetoGuard implements CanActivate {
   }
 
   private getUserId(ctx: ExecutionContext): string | null {
-    const contextType = ctx.getType() as string
+    const contextType = ctx.getType<string>()
 
+    // eslint-disable-next-line @typescript-eslint/no-redundant-type-constituents
     let metadata: Metadata | any
 
     switch (contextType) {
       case 'graphql':
-        metadata = GqlExecutionContext.create(ctx).getContext() as Metadata
+        metadata = GqlExecutionContext.create(ctx).getContext()
 
+        // eslint-disable-next-line @typescript-eslint/no-unsafe-return
         return metadata.user
 
       case 'rpc':
-        metadata = ctx.switchToRpc().getContext() as Metadata
+        metadata = ctx.switchToRpc().getContext()
 
+        // eslint-disable-next-line @typescript-eslint/no-unsafe-return, @typescript-eslint/no-unsafe-call
         return (metadata.get('x_user') ?? metadata.get('x-user')).toString()
 
       default:
-        metadata = ctx.switchToHttp().getRequest() as Metadata
+        metadata = ctx.switchToHttp().getRequest()
 
+        // eslint-disable-next-line @typescript-eslint/no-unsafe-return, @typescript-eslint/no-unsafe-call
         return metadata.get('x_user') ?? metadata.get('x-user')
     }
   }

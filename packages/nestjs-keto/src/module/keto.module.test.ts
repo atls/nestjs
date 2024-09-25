@@ -1,28 +1,30 @@
 /* eslint-disable max-classes-per-file */
+import type { TestingModule }        from '@nestjs/testing'
+
+import type { KetoModuleOptions }    from './keto-module.interfaces.js'
+
 import { Module }                    from '@nestjs/common'
 import { Test }                      from '@nestjs/testing'
-import { TestingModule }             from '@nestjs/testing'
 import { describe }                  from '@jest/globals'
 import { it }                        from '@jest/globals'
 import { expect }                    from '@jest/globals'
 import { afterEach }                 from '@jest/globals'
 
-import { KetoModuleOptions }         from './keto-module.interfaces.js'
 import { KETO_WRITE_CLIENT }         from './keto.constants.js'
 import { KETO_READ_CLIENT }          from './keto.constants.js'
 import { KETO_MODULE_CONFIGURATION } from './keto.constants.js'
 import { KetoModule }                from './keto.module.js'
 
 describe('Keto module', () => {
-  let module: TestingModule
+  let testingModule: TestingModule
   const BASE_PATH = 'http://localhost:4466'
 
   afterEach(async () => {
-    await module.close()
+    await testingModule.close()
   })
 
   it('registers', async () => {
-    module = await Test.createTestingModule({
+    testingModule = await Test.createTestingModule({
       imports: [
         KetoModule.register({
           basePath: BASE_PATH,
@@ -30,9 +32,9 @@ describe('Keto module', () => {
       ],
     }).compile()
 
-    expect(module.get(KETO_MODULE_CONFIGURATION)).toBeDefined()
-    expect(module.get(KETO_READ_CLIENT)).toBeDefined()
-    expect(module.get(KETO_WRITE_CLIENT)).toBeDefined()
+    expect(testingModule.get(KETO_MODULE_CONFIGURATION)).toBeDefined()
+    expect(testingModule.get(KETO_READ_CLIENT)).toBeDefined()
+    expect(testingModule.get(KETO_WRITE_CLIENT)).toBeDefined()
   })
 
   it(`registers async use exists`, async () => {
@@ -47,7 +49,7 @@ describe('Keto module', () => {
     @Module({})
     class TestKetoModule {}
 
-    module = await Test.createTestingModule({
+    testingModule = await Test.createTestingModule({
       imports: [
         KetoModule.registerAsync({
           imports: [
@@ -62,9 +64,9 @@ describe('Keto module', () => {
       ],
     }).compile()
 
-    expect(module.get(KETO_MODULE_CONFIGURATION)).toBeDefined()
-    expect(module.get(KETO_READ_CLIENT)).toBeDefined()
-    expect(module.get(KETO_WRITE_CLIENT)).toBeDefined()
+    expect(testingModule.get(KETO_MODULE_CONFIGURATION)).toBeDefined()
+    expect(testingModule.get(KETO_READ_CLIENT)).toBeDefined()
+    expect(testingModule.get(KETO_WRITE_CLIENT)).toBeDefined()
   })
 
   it(`registers async use class`, async () => {
@@ -76,7 +78,7 @@ describe('Keto module', () => {
       }
     }
 
-    module = await Test.createTestingModule({
+    testingModule = await Test.createTestingModule({
       imports: [
         KetoModule.registerAsync({
           useClass: TestKetoModuleOptions,
@@ -84,8 +86,8 @@ describe('Keto module', () => {
       ],
     }).compile()
 
-    expect(module.get(KETO_MODULE_CONFIGURATION)).toBeDefined()
-    expect(module.get(KETO_READ_CLIENT)).toBeDefined()
-    expect(module.get(KETO_WRITE_CLIENT)).toBeDefined()
+    expect(testingModule.get(KETO_MODULE_CONFIGURATION)).toBeDefined()
+    expect(testingModule.get(KETO_READ_CLIENT)).toBeDefined()
+    expect(testingModule.get(KETO_WRITE_CLIENT)).toBeDefined()
   })
 })

@@ -1,4 +1,5 @@
-import { Metadata }         from '@grpc/grpc-js'
+import type { Metadata }    from '@grpc/grpc-js'
+
 /* eslint-disable */
 import { GrpcMethod }       from '@nestjs/microservices'
 import { GrpcStreamMethod } from '@nestjs/microservices'

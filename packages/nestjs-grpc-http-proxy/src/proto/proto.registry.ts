@@ -1,6 +1,7 @@
-import { GrpcObject }                     from '@grpc/grpc-js'
-import { Client }                         from '@grpc/grpc-js'
-import { OnApplicationBootstrap }         from '@nestjs/common'
+import type { GrpcObject }                from '@grpc/grpc-js'
+import type { Client }                    from '@grpc/grpc-js'
+import type { OnApplicationBootstrap }    from '@nestjs/common'
+
 import { Inject }                         from '@nestjs/common'
 import { Injectable }                     from '@nestjs/common'
 import { loadPackageDefinition }          from '@grpc/grpc-js'
@@ -13,19 +14,19 @@ import { ProtoClient }                    from './proto.client.js'
 
 @Injectable()
 export class ProtoRegistry implements OnApplicationBootstrap {
-  private definitions: GrpcObject[] = []
+  private definitions: Array<GrpcObject> = []
 
   constructor(
     @Inject(GRPC_HTTP_PROXY_MODULE_OPTIONS) private readonly options: GrpcHttpProxyModuleOptions
   ) {}
 
-  async onApplicationBootstrap() {
+  async onApplicationBootstrap(): Promise<void> {
     const protoPaths = Array.isArray(this.options.options.protoPath)
       ? this.options.options.protoPath
       : [this.options.options.protoPath]
 
     this.definitions = await Promise.all(
-      // @ts-ignore
+      // @ts-expect-error
       protoPaths.map(async (protoPath: string) => {
         const packageDefinition = await load(protoPath, this.options.options.loader)
 

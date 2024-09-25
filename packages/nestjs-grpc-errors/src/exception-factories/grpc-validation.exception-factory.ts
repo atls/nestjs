@@ -1,14 +1,16 @@
-import { BadRequest }      from '@atls/grpc-error-status'
-import { ErrorStatus }     from '@atls/grpc-error-status'
-import { ValidationError } from '@nestjs/common'
-import { RpcException }    from '@nestjs/microservices'
-import { status }          from '@grpc/grpc-js'
+import type { ValidationError } from '@nestjs/common'
+
+import { BadRequest }           from '@atls/grpc-error-status'
+import { ErrorStatus }          from '@atls/grpc-error-status'
+import { RpcException }         from '@nestjs/microservices'
+import { status }               from '@grpc/grpc-js'
 
 const traverseErrors = (
-  errors: ValidationError[] = [],
+  // eslint-disable-next-line @typescript-eslint/default-param-last
+  errors: Array<ValidationError> = [],
   callback: (error: ValidationError, string: string) => void,
-  path: string[] = []
-) => {
+  path: Array<string> = []
+): void => {
   errors.forEach((error) => {
     const currentPath = [...path, error.property]
 
@@ -20,7 +22,7 @@ const traverseErrors = (
   })
 }
 
-export const grpcValidationExceptionFactory = (errors: ValidationError[]) => {
+export const grpcValidationExceptionFactory = (errors: Array<ValidationError>): RpcException => {
   const badRequest = new BadRequest()
 
   traverseErrors(errors, (error, field) => {

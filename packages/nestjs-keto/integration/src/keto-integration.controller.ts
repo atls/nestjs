@@ -8,14 +8,14 @@ import { KetoGuard }     from '../../src/index.js'
 @Controller()
 export class KetoIntegrationController {
   @Get('/allowed')
-  async allow() {
+  async allow(): Promise<boolean> {
     return true
   }
 
   @Get('/protected-by-keto')
   @GuardedByKeto((user) => `Group:admin#members@${user}`)
   @UseGuards(KetoGuard)
-  async protect() {
+  async protect(): Promise<boolean> {
     return true
   }
 }

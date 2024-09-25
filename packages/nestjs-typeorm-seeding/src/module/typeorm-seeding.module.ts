@@ -1,7 +1,8 @@
-import { SeederFactory } from '@atls/typeorm-seeding'
-import { DynamicModule } from '@nestjs/common'
-import { Module }        from '@nestjs/common'
-import { DataSource }    from 'typeorm'
+import type { DynamicModule } from '@nestjs/common'
+
+import { SeederFactory }      from '@atls/typeorm-seeding'
+import { Module }             from '@nestjs/common'
+import { DataSource }         from 'typeorm'
 
 @Module({})
 export class TypeOrmSeedingModule {

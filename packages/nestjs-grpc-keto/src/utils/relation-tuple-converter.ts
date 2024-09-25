@@ -1,13 +1,13 @@
-// @ts-ignore
+// @ts-expect-error
 import { CheckRequest }                      from '@ory/keto-grpc-client/ory/keto/relation_tuples/v1alpha2/check_service_pb'
-// @ts-ignore
+// @ts-expect-error
 import { SubjectSet }                        from '@ory/keto-grpc-client/ory/keto/relation_tuples/v1alpha2/relation_tuples_pb'
-// @ts-ignore
+// @ts-expect-error
 import { Subject }                           from '@ory/keto-grpc-client/ory/keto/relation_tuples/v1alpha2/relation_tuples_pb'
 
 import { KetoRelationTupleInvalidException } from '../exceptions/index.js'
 
-type Tuple = string | ((...args: string[]) => string)
+type Tuple = string | ((...args: Array<string>) => string)
 
 export class RelationTupleConverter {
   private readonly checkRequest: CheckRequest
@@ -18,43 +18,51 @@ export class RelationTupleConverter {
     private readonly tuple: Tuple,
     private readonly replacement: string = ''
   ) {
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-call
     this.checkRequest = new CheckRequest()
 
     this.convertToString()
   }
 
-  private get subjectId() {
+  private get subjectId(): string {
     return this.tupleString
   }
 
-  private get subject() {
+  private get subject(): Subject {
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-return, @typescript-eslint/no-unsafe-call
     return new Subject()
   }
 
-  run() {
+  run(): CheckRequest {
     if (!this.isTupleCorrect()) {
       throw new KetoRelationTupleInvalidException()
     }
 
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-call
     this.checkRequest.setNamespace(this.getNamespace())
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-call
     this.checkRequest.setObject(this.getObject())
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-call
     this.checkRequest.setRelation(this.getRelation())
 
     const { subject } = this
 
     if (this.isSubjectSet()) {
       const subjectSet = this.getSubjectSet()
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-call
       this.checkRequest.setSubject(subject.setSet(subjectSet))
     } else {
       const { subjectId } = this
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-call
       subject.setId(subjectId)
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-call
       this.checkRequest.setSubject(subject)
     }
 
     return this.checkRequest
   }
 
-  private convertToString() {
+  private convertToString(): void {
     if (typeof this.tuple === 'string') {
       this.tupleString = this.tuple
     } else {
@@ -62,13 +70,13 @@ export class RelationTupleConverter {
     }
   }
 
-  private isTupleCorrect() {
+  private isTupleCorrect(): boolean {
     const regex = /^\w+:\w+#\w+@[\w\W]+/i
 
     return regex.test(this.tupleString)
   }
 
-  private getNamespace() {
+  private getNamespace(): string {
     const endOfNamespace = this.tupleString.indexOf(':')
 
     const namespace = this.tupleString.substring(0, endOfNamespace)
@@ -78,7 +86,7 @@ export class RelationTupleConverter {
     return namespace
   }
 
-  private getObject() {
+  private getObject(): string {
     const endOfObject = this.tupleString.indexOf('#')
 
     const object = this.tupleString.substring(0, endOfObject)
@@ -88,7 +96,7 @@ export class RelationTupleConverter {
     return object
   }
 
-  private getRelation() {
+  private getRelation(): string {
     const endOfRelation = this.tupleString.indexOf('@')
 
     const relation = this.tupleString.substring(0, endOfRelation > 0 ? endOfRelation : undefined)
@@ -98,21 +106,26 @@ export class RelationTupleConverter {
     return relation
   }
 
-  private getSubjectSet() {
+  private getSubjectSet(): SubjectSet {
     const namespace = this.getNamespace()
     const object = this.getObject()
     const relation = this.getRelation()
 
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-call
     const subjectSet = new SubjectSet()
 
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-call
     subjectSet.setNamespace(namespace)
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-call
     subjectSet.setObject(object)
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-call
     subjectSet.setRelation(relation)
 
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-return
     return subjectSet
   }
 
-  private isSubjectSet() {
+  private isSubjectSet(): boolean {
     return this.tupleString.includes(':') || this.tupleString.includes('#')
   }
 }

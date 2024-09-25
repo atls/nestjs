@@ -1,7 +1,8 @@
+import type { ExecutionContext }    from '@nestjs/common'
+import type { CanActivate }         from '@nestjs/common'
+
 import { Inject }                   from '@nestjs/common'
-import { ExecutionContext }         from '@nestjs/common'
 import { Injectable }               from '@nestjs/common'
-import { CanActivate }              from '@nestjs/common'
 import { Reflector }                from '@nestjs/core'
 import { GqlExecutionContext }      from '@nestjs/graphql'
 
@@ -39,7 +40,7 @@ export class KetoGuard implements CanActivate {
   }
 
   private getUserId(ctx: ExecutionContext): string | null {
-    const contextType = ctx.getType() as string
+    const contextType = ctx.getType<string>()
 
     let metadata
 
@@ -47,11 +48,13 @@ export class KetoGuard implements CanActivate {
       case 'graphql':
         metadata = GqlExecutionContext.create(ctx).getContext()
 
+        // eslint-disable-next-line @typescript-eslint/no-unsafe-return
         return metadata.user
 
       default:
         metadata = ctx.switchToHttp().getRequest()
 
+        // eslint-disable-next-line @typescript-eslint/no-unsafe-return, @typescript-eslint/no-unsafe-call
         return metadata.get('x_user') ?? metadata.get('x-user')
     }
   }

@@ -2,7 +2,8 @@
  * @jest-environment node
  */
 
-import { INestApplication }                from '@nestjs/common'
+import type { INestApplication }           from '@nestjs/common'
+
 import { Test }                            from '@nestjs/testing'
 import { describe }                        from '@jest/globals'
 import { beforeAll }                       from '@jest/globals'
@@ -21,11 +22,11 @@ describe('grpc playground', () => {
   beforeAll(async () => {
     const appPort = await getPort()
 
-    const module = await Test.createTestingModule({
+    const testingModule = await Test.createTestingModule({
       imports: [GrpcPlaygroundIntegrationModule],
     }).compile()
 
-    app = module.createNestApplication()
+    app = testingModule.createNestApplication()
 
     await app.init()
 

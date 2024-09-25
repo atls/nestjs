@@ -14,12 +14,8 @@ export class GrpcPlaygroundController {
     @Inject(GRPC_PLAYGROUND_MODULE_OPTIONS) private readonly options: GrpcPlaygroundModuleOptions
   ) {}
 
-  getJsdelivrUrl(pathname: string) {
-    return `https://cdn.jsdelivr.net/npm/@atls/grpc-playground-app@${this.options.version}/dist/${pathname}`
-  }
-
   @Get()
-  async index() {
+  async index(): Promise<string> {
     const response = await fetch(this.getJsdelivrUrl('index.html'))
     const content = await response.text()
 
@@ -27,8 +23,14 @@ export class GrpcPlaygroundController {
   }
 
   @Get('/_next/static/chunks/:chunk')
-  // @ts-ignore
-  async chunks(@Res() res, @Param('chunk') chunk: string) {
+  // @ts-expect-error
+  // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
+  async chunks(@Res() res, @Param('chunk') chunk: string): Promise<void> {
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-call
     res.redirect(this.getJsdelivrUrl(`_next/static/chunks/${chunk}`))
+  }
+
+  getJsdelivrUrl(pathname: string): string {
+    return `https://cdn.jsdelivr.net/npm/@atls/grpc-playground-app@${this.options.version!}/dist/${pathname}`
   }
 }

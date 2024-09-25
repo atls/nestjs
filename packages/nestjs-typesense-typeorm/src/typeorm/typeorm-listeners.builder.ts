@@ -1,16 +1,17 @@
 /* eslint-disable max-classes-per-file */
 
-import { Logger }                    from '@atls/logger'
-import { OnModuleInit }              from '@nestjs/common'
-import { Injectable }                from '@nestjs/common'
-import { EntitySubscriberInterface } from 'typeorm'
-import { InsertEvent }               from 'typeorm'
-import { UpdateEvent }               from 'typeorm'
-import { Connection }                from 'typeorm'
+import type { OnModuleInit }              from '@nestjs/common'
+import type { EntitySubscriberInterface } from 'typeorm'
+import type { InsertEvent }               from 'typeorm'
+import type { UpdateEvent }               from 'typeorm'
 
-import { TypesenseMetadataRegistry } from '@atls/nestjs-typesense'
+import { Logger }                         from '@atls/logger'
+import { Injectable }                     from '@nestjs/common'
+import { Connection }                     from 'typeorm'
 
-import { EntityToDocumentMapper }    from '../typesense/index.js'
+import { TypesenseMetadataRegistry }      from '@atls/nestjs-typesense'
+
+import { EntityToDocumentMapper }         from '../typesense/index.js'
 
 @Injectable()
 export class TypeOrmListenersBuilder implements OnModuleInit {
@@ -22,13 +23,13 @@ export class TypeOrmListenersBuilder implements OnModuleInit {
     private readonly connection: Connection
   ) {}
 
-  onModuleInit() {
+  onModuleInit(): void {
     this.build()
   }
 
-  build() {
+  build(): void {
     for (const target of this.registry.getTargets()) {
-      const Subscriber = class EntitySubscriber implements EntitySubscriberInterface<any> {
+      const Subscriber = class EntitySubscriber implements EntitySubscriberInterface {
         constructor(
           private readonly mapper: EntityToDocumentMapper,
           connection: Connection
@@ -36,15 +37,16 @@ export class TypeOrmListenersBuilder implements OnModuleInit {
           connection.subscribers.push(this)
         }
 
+        // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
         listenTo() {
           return target
         }
 
-        afterInsert(event: InsertEvent<any>) {
+        afterInsert(event: InsertEvent<any>): void {
           this.mapper.insert(event.entity)
         }
 
-        afterUpdate(event: UpdateEvent<any>) {
+        afterUpdate(event: UpdateEvent<any>): void {
           this.mapper.update(event.entity)
         }
       }
