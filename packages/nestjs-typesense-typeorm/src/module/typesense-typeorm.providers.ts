@@ -1,22 +1,23 @@
-import { Provider }                         from '@nestjs/common'
+import type { Provider }                      from '@nestjs/common'
 
-import { TypeOrmListenersBuilder }          from '../typeorm/index.js'
-import { EntityToDocumentMapper }           from '../typesense/index.js'
-import { TypesenseTypeOrmModuleOptions }    from './typesense-typeorm-module.interface.js'
-import { TYPESENSE_TYPEORM_MODULE_OPTIONS } from './typesense-typeorm.constants.js'
+import type { TypesenseTypeOrmModuleOptions } from './typesense-typeorm-module.interface.js'
+
+import { TypeOrmListenersBuilder }            from '../typeorm/index.js'
+import { EntityToDocumentMapper }             from '../typesense/index.js'
+import { TYPESENSE_TYPEORM_MODULE_OPTIONS }   from './typesense-typeorm.constants.js'
 
 export const createTypesenseTypeOrmOptionsProvider = (
   options: TypesenseTypeOrmModuleOptions = {}
-): Provider[] => [
+): Array<Provider> => [
   {
     provide: TYPESENSE_TYPEORM_MODULE_OPTIONS,
     useValue: options,
   },
 ]
 
-export const createTypesenseTypeOrmProvider = (): Provider[] => [
+export const createTypesenseTypeOrmProvider = (): Array<Provider> => [
   TypeOrmListenersBuilder,
   EntityToDocumentMapper,
 ]
 
-export const createTypesenseTypeOrmExportsProvider = (): Provider[] => []
+export const createTypesenseTypeOrmExportsProvider = (): Array<Provider> => []

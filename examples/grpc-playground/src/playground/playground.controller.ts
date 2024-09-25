@@ -1,3 +1,4 @@
+/* eslint-disable */
 // @ts-nocheck
 import { Controller } from '@nestjs/common'
 import { GrpcMethod } from '@nestjs/microservices'

@@ -1,11 +1,12 @@
-import { Request }        from 'express'
-import { Response }       from 'express'
-import { promises as fs } from 'fs'
-import { sign }           from 'jsonwebtoken'
-import { v4 as uuid }     from 'uuid'
-import cookie             from 'cookie'
+import type { Request }       from 'express'
+import type { Response }      from 'express'
 
-import { Authenticator }  from './authenticator.interface.js'
+import type { Authenticator } from './authenticator.interface.js'
+
+import { promises as fs }     from 'fs'
+import { sign }               from 'jsonwebtoken'
+import { v4 as uuid }         from 'uuid'
+import cookie                 from 'cookie'
 
 export class PrivateKeyAuthenticator implements Authenticator {
   constructor(private readonly privateKey?: string) {
@@ -14,7 +15,7 @@ export class PrivateKeyAuthenticator implements Authenticator {
     }
   }
 
-  async execute(req: Request, res: Response) {
+  async execute(req: Request, res: Response): Promise<string | null> {
     if (this.privateKey) {
       const cookies = cookie.parse(req.headers.cookie || '')
       const subject = cookies.subject || uuid()

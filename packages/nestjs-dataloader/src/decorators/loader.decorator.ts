@@ -1,8 +1,9 @@
-import { ExecutionContext }             from '@nestjs/common'
+import type { ExecutionContext }        from '@nestjs/common'
+import type { GraphQLExecutionContext } from '@nestjs/graphql'
+
 import { InternalServerErrorException } from '@nestjs/common'
 import { APP_INTERCEPTOR }              from '@nestjs/core'
 import { GqlExecutionContext }          from '@nestjs/graphql'
-import { GraphQLExecutionContext }      from '@nestjs/graphql'
 import { createParamDecorator }         from '@nestjs/common'
 
 import { GET_LOADER_CONTEXT_KEY }       from '../constants.js'
@@ -21,5 +22,6 @@ export const Loader: (type: string) => ParameterDecorator = createParamDecorator
       `)
   }
 
+  // eslint-disable-next-line @typescript-eslint/no-unsafe-call, @typescript-eslint/no-unsafe-return
   return ctx[GET_LOADER_CONTEXT_KEY](type)
 })

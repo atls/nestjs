@@ -5,7 +5,7 @@ export interface SignedUrlField {
 
 export interface SignedUrl {
   url: string
-  fields?: SignedUrlField[]
+  fields?: Array<SignedUrlField>
 }
 
 export interface SignUrlOptions {

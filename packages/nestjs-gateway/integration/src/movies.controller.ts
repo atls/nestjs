@@ -4,11 +4,16 @@ import { Controller }   from '@nestjs/common'
 import { GrpcMethod }   from '@nestjs/microservices'
 import { RpcException } from '@nestjs/microservices'
 
+type Movie = {
+  name: string
+  rating: number
+  year: number
+}
+
 @Controller()
 export class MoviesController {
   @GrpcMethod('ExampleService', 'getMovies')
-  // @ts-ignore
-  getMovies(_, metadata: Metadata) {
+  getMovies(_: unknown, metadata: Metadata): { result: Array<Movie> } {
     return {
       result: [
         {
@@ -21,18 +26,18 @@ export class MoviesController {
   }
 
   @GrpcMethod('ExampleService', 'GetMetadata')
-  // @ts-ignore
-  getMetadata(_, metadata: Metadata) {
+  // eslint-disable-next-line @typescript-eslint/explicit-function-return-type, @typescript-eslint/explicit-module-boundary-types
+  getMetadata(_: unknown, metadata: Metadata) {
     return metadata.getMap()
   }
 
   @GrpcMethod('ExampleService', 'GetError')
-  getError() {
+  getError(): void {
     throw new RpcException(new ErrorStatus(3, 'Test').toServiceError())
   }
 
   @GrpcMethod('ExampleService', 'GetMustRename')
-  getRenamed() {
+  getRenamed(): { result: string } {
     return {
       result: 'success',
     }

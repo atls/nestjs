@@ -1,5 +1,5 @@
 export * from './guarded-by-keto.decorator.js'
-export { GuardedByKetoFunction } from './guarded-by-keto.interfaces.js'
-export { GetGuardingRelationTuple } from './guarded-by-keto.interfaces.js'
+export type { GuardedByKetoFunction } from './guarded-by-keto.interfaces.js'
+export type { GetGuardingRelationTuple } from './guarded-by-keto.interfaces.js'
 export { GUARDED_BY_METADATA_KEY } from './guarded-by-keto.constants.js'
 export { getGuardingRelationTuple } from './get-guarding-relation.helper.js'

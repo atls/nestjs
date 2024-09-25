@@ -1,5 +1,6 @@
-import { INestApplication }         from '@nestjs/common'
-import { INestMicroservice }        from '@nestjs/common'
+import type { INestApplication }    from '@nestjs/common'
+import type { INestMicroservice }   from '@nestjs/common'
+
 import { Transport }                from '@nestjs/microservices'
 import { Test }                     from '@nestjs/testing'
 import { describe }                 from '@jest/globals'
@@ -31,7 +32,7 @@ describe('gateway', () => {
     const servicePort = await getPort()
     const appPort = await getPort()
 
-    const module = await Test.createTestingModule({
+    const testingModule = await Test.createTestingModule({
       imports: [GatewayIntegrationModule],
     })
       .overrideProvider(GATEWAY_MODULE_OPTIONS)
@@ -118,9 +119,9 @@ describe('gateway', () => {
       })
       .compile()
 
-    app = module.createNestApplication()
+    app = testingModule.createNestApplication()
 
-    service = module.createNestMicroservice({
+    service = testingModule.createNestMicroservice({
       transport: Transport.GRPC,
       options: {
         package: ['tech.atls'],
@@ -158,6 +159,7 @@ describe('gateway', () => {
       query: getIntrospectionQuery(),
     })
 
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
     const schema = printSchema(buildClientSchema(res.body.data))
 
     expect(schema).toContain('getMovies(input: MovieRequest_Input): MoviesResult')
@@ -237,7 +239,7 @@ describe('gateway', () => {
     })
 
     const event = new Promise((resolve, reject) => {
-      // @ts-ignore
+      // @ts-expect-error
       let result
 
       client.subscribe(
@@ -252,8 +254,10 @@ describe('gateway', () => {
           // eslint-disable-next-line
           next: (data) => (result = data),
           error: reject,
-          // @ts-ignore
-          complete: () => resolve(result),
+          complete: () => {
+            // @ts-expect-error
+            resolve(result)
+          },
         }
       )
 

@@ -1,27 +1,29 @@
 /* eslint-disable max-classes-per-file */
 
-import { Module }               from '@nestjs/common'
-import { Test }                 from '@nestjs/testing'
-import { TestingModule }        from '@nestjs/testing'
-import { describe }             from '@jest/globals'
-import { afterEach }            from '@jest/globals'
-import { it }                   from '@jest/globals'
-import { expect }               from '@jest/globals'
+import type { TestingModule }      from '@nestjs/testing'
 
-import { HydraModuleOptions }   from './hydra-module-options.interface.js'
-import { HYDRA_MODULE_OPTIONS } from './hydra.constants.js'
-import { HydraModule }          from './hydra.module.js'
+import type { HydraModuleOptions } from './hydra-module-options.interface.js'
+
+import { Module }                  from '@nestjs/common'
+import { Test }                    from '@nestjs/testing'
+import { describe }                from '@jest/globals'
+import { afterEach }               from '@jest/globals'
+import { it }                      from '@jest/globals'
+import { expect }                  from '@jest/globals'
+
+import { HYDRA_MODULE_OPTIONS }    from './hydra.constants.js'
+import { HydraModule }             from './hydra.module.js'
 
 describe('hydra', () => {
   describe('module', () => {
-    let module: TestingModule
+    let testingModule: TestingModule
 
     afterEach(async () => {
-      await module.close()
+      await testingModule.close()
     })
 
     it(`register`, async () => {
-      module = await Test.createTestingModule({
+      testingModule = await Test.createTestingModule({
         imports: [
           HydraModule.register({
             urls: {
@@ -31,11 +33,11 @@ describe('hydra', () => {
         ],
       }).compile()
 
-      expect(module.get(HYDRA_MODULE_OPTIONS)).toBeDefined()
+      expect(testingModule.get(HYDRA_MODULE_OPTIONS)).toBeDefined()
     })
 
     it(`register async use factory`, async () => {
-      module = await Test.createTestingModule({
+      testingModule = await Test.createTestingModule({
         imports: [
           HydraModule.registerAsync({
             useFactory: () => ({
@@ -47,7 +49,7 @@ describe('hydra', () => {
         ],
       }).compile()
 
-      expect(module.get(HYDRA_MODULE_OPTIONS)).toBeDefined()
+      expect(testingModule.get(HYDRA_MODULE_OPTIONS)).toBeDefined()
     })
 
     it(`register async use class`, async () => {
@@ -61,7 +63,7 @@ describe('hydra', () => {
         }
       }
 
-      module = await Test.createTestingModule({
+      testingModule = await Test.createTestingModule({
         imports: [
           HydraModule.registerAsync({
             useClass: TestHydraModuleOptions,
@@ -69,7 +71,7 @@ describe('hydra', () => {
         ],
       }).compile()
 
-      expect(module.get(HYDRA_MODULE_OPTIONS)).toBeDefined()
+      expect(testingModule.get(HYDRA_MODULE_OPTIONS)).toBeDefined()
     })
 
     it(`register async use exists`, async () => {
@@ -86,7 +88,7 @@ describe('hydra', () => {
       @Module({})
       class TestHydraModule {}
 
-      module = await Test.createTestingModule({
+      testingModule = await Test.createTestingModule({
         imports: [
           HydraModule.registerAsync({
             imports: [
@@ -101,7 +103,7 @@ describe('hydra', () => {
         ],
       }).compile()
 
-      expect(module.get(HYDRA_MODULE_OPTIONS)).toBeDefined()
+      expect(testingModule.get(HYDRA_MODULE_OPTIONS)).toBeDefined()
     })
   })
 })

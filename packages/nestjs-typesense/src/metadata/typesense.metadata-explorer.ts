@@ -1,8 +1,9 @@
+import type { OnModuleInit }         from '@nestjs/common'
+import type { InstanceWrapper }      from '@nestjs/core/injector/instance-wrapper.js'
+
 import { Logger }                    from '@atls/logger'
 import { Injectable }                from '@nestjs/common'
-import { OnModuleInit }              from '@nestjs/common'
 import { DiscoveryService }          from '@nestjs/core'
-import { InstanceWrapper }           from '@nestjs/core/injector/instance-wrapper.js'
 
 import { TypesenseMetadataAccessor } from './typesense.metadata-accessor.js'
 import { TypesenseMetadataRegistry } from './typesense.metadata-registry.js'
@@ -17,11 +18,11 @@ export class TypesenseMetadataExplorer implements OnModuleInit {
     private readonly metadataRegistry: TypesenseMetadataRegistry
   ) {}
 
-  onModuleInit() {
+  onModuleInit(): void {
     this.explore()
   }
 
-  explore() {
+  explore(): void {
     this.discoveryService.getProviders().forEach((wrapper: InstanceWrapper) => {
       const { instance } = wrapper
 
@@ -29,16 +30,17 @@ export class TypesenseMetadataExplorer implements OnModuleInit {
         return
       }
 
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
       this.lookupSchema(instance)
     })
   }
 
-  // @ts-ignore
-  lookupSchema(instance) {
+  lookupSchema(instance: object): void {
     const metadata = this.metadataAccessor.getTypesenseMetadata(instance)
 
     if (metadata) {
-      this.metadataRegistry.addSchema(instance.constructor, metadata)
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
+      this.metadataRegistry.addSchema((instance as any).constructor, metadata)
     }
   }
 }

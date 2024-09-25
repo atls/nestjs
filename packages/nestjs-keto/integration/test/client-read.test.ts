@@ -2,18 +2,18 @@
  * @jest-environment node
  */
 
-import { INestApplication }          from '@nestjs/common'
-import { TestingModule }             from '@nestjs/testing'
+import type { INestApplication }     from '@nestjs/common'
+import type { TestingModule }        from '@nestjs/testing'
+import type { StartedTestContainer } from 'testcontainers'
+
 import { Test }                      from '@nestjs/testing'
 import { jest }                      from '@jest/globals'
 import { describe }                  from '@jest/globals'
 import { it }                        from '@jest/globals'
-import { expect }                    from '@jest/globals'
 import { beforeAll }                 from '@jest/globals'
 import { afterAll }                  from '@jest/globals'
 import { Network }                   from 'testcontainers'
 import { Wait }                      from 'testcontainers'
-import { StartedTestContainer }      from 'testcontainers'
 import { GenericContainer }          from 'testcontainers'
 import getPort                       from 'get-port'
 import request                       from 'supertest'
@@ -35,7 +35,7 @@ jest.setTimeout(25000)
 describe('Keto read client', () => {
   let app: INestApplication
   let url: string
-  let module: TestingModule
+  let testingModule: TestingModule
 
   let dbContainer: StartedTestContainer
   let ketoContainer: StartedTestContainer
@@ -70,7 +70,7 @@ describe('Keto read client', () => {
 
     await ketoContainer.exec(KETO_INIT_COMMAND)
 
-    module = await Test.createTestingModule({
+    testingModule = await Test.createTestingModule({
       imports: [KetoIntegrationModule],
     })
       .overrideProvider(KETO_MODULE_CONFIGURATION)
@@ -79,7 +79,7 @@ describe('Keto read client', () => {
       })
       .compile()
 
-    app = module.createNestApplication()
+    app = testingModule.createNestApplication()
 
     await app.init()
     await app.listen(port)

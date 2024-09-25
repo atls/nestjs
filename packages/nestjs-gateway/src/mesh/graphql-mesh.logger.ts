@@ -1,6 +1,7 @@
-import { Logger }               from '@atls/logger'
-// @ts-ignore
-import { Logger as MeshLogger } from '@graphql-mesh/types'
+// @ts-expect-error
+import type { Logger as MeshLogger } from '@graphql-mesh/types'
+
+import { Logger }                    from '@atls/logger'
 
 export class GraphQLMeshLogger implements MeshLogger {
   private logger: Logger
@@ -9,30 +10,29 @@ export class GraphQLMeshLogger implements MeshLogger {
     this.logger = new Logger(name)
   }
 
-  log(message: string) {
+  log(message: string): void {
     this.logger.info(message)
   }
 
-  warn(message: string) {
+  warn(message: string): void {
     this.logger.warn(message)
   }
 
-  info(message: string) {
+  info(message: string): void {
     this.logger.info(message)
   }
 
-  error(message: string) {
+  error(message: string): void {
     this.logger.error(message)
   }
 
-  debug(message: string) {
+  debug(message: string): void {
     this.logger.debug(message)
   }
 
   child(name: string): MeshLogger {
     const logger = new GraphQLMeshLogger(name)
 
-    // @ts-ignore
     logger.logger = this.logger.child(name)
 
     return logger

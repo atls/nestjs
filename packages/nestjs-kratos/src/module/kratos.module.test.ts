@@ -1,27 +1,29 @@
 /* eslint-disable max-classes-per-file */
 
-import { Module }                from '@nestjs/common'
-import { Test }                  from '@nestjs/testing'
-import { TestingModule }         from '@nestjs/testing'
-import { describe }              from '@jest/globals'
-import { it }                    from '@jest/globals'
-import { expect }                from '@jest/globals'
-import { afterEach }             from '@jest/globals'
+import type { TestingModule }       from '@nestjs/testing'
 
-import { KratosModuleOptions }   from './kratos-module-options.interface.js'
-import { KRATOS_MODULE_OPTIONS } from './kratos.constants.js'
-import { KratosModule }          from './kratos.module.js'
+import type { KratosModuleOptions } from './kratos-module-options.interface.js'
+
+import { Module }                   from '@nestjs/common'
+import { Test }                     from '@nestjs/testing'
+import { describe }                 from '@jest/globals'
+import { it }                       from '@jest/globals'
+import { expect }                   from '@jest/globals'
+import { afterEach }                from '@jest/globals'
+
+import { KRATOS_MODULE_OPTIONS }    from './kratos.constants.js'
+import { KratosModule }             from './kratos.module.js'
 
 describe('kratos', () => {
   describe('module', () => {
-    let module: TestingModule
+    let testingModule: TestingModule
 
     afterEach(async () => {
-      await module.close()
+      await testingModule.close()
     })
 
     it(`register`, async () => {
-      module = await Test.createTestingModule({
+      testingModule = await Test.createTestingModule({
         imports: [
           KratosModule.register({
             public: 'http://localhost:3000',
@@ -30,11 +32,11 @@ describe('kratos', () => {
         ],
       }).compile()
 
-      expect(module.get(KRATOS_MODULE_OPTIONS)).toBeDefined()
+      expect(testingModule.get(KRATOS_MODULE_OPTIONS)).toBeDefined()
     })
 
     it(`register async use factory`, async () => {
-      module = await Test.createTestingModule({
+      testingModule = await Test.createTestingModule({
         imports: [
           KratosModule.registerAsync({
             useFactory: () => ({
@@ -45,7 +47,7 @@ describe('kratos', () => {
         ],
       }).compile()
 
-      expect(module.get(KRATOS_MODULE_OPTIONS)).toBeDefined()
+      expect(testingModule.get(KRATOS_MODULE_OPTIONS)).toBeDefined()
     })
 
     it(`register async use class`, async () => {
@@ -58,7 +60,7 @@ describe('kratos', () => {
         }
       }
 
-      module = await Test.createTestingModule({
+      testingModule = await Test.createTestingModule({
         imports: [
           KratosModule.registerAsync({
             useClass: TestKratosModuleOptions,
@@ -66,7 +68,7 @@ describe('kratos', () => {
         ],
       }).compile()
 
-      expect(module.get(KRATOS_MODULE_OPTIONS)).toBeDefined()
+      expect(testingModule.get(KRATOS_MODULE_OPTIONS)).toBeDefined()
     })
 
     it(`register async use exists`, async () => {
@@ -82,7 +84,7 @@ describe('kratos', () => {
       @Module({})
       class TestKratosModule {}
 
-      module = await Test.createTestingModule({
+      testingModule = await Test.createTestingModule({
         imports: [
           KratosModule.registerAsync({
             imports: [
@@ -97,7 +99,7 @@ describe('kratos', () => {
         ],
       }).compile()
 
-      expect(module.get(KRATOS_MODULE_OPTIONS)).toBeDefined()
+      expect(testingModule.get(KRATOS_MODULE_OPTIONS)).toBeDefined()
     })
   })
 })

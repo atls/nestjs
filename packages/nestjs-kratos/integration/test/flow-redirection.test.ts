@@ -2,7 +2,8 @@
  * @jest-environment node
  */
 
-import { INestApplication }        from '@nestjs/common'
+import type { INestApplication }   from '@nestjs/common'
+
 import { Test }                    from '@nestjs/testing'
 import { describe }                from '@jest/globals'
 import { it }                      from '@jest/globals'
@@ -22,7 +23,7 @@ describe('kratos flow redirection', () => {
   beforeAll(async () => {
     const port = await getPort()
 
-    const module = await Test.createTestingModule({
+    const testingModule = await Test.createTestingModule({
       imports: [KratosIntegrationModule],
     })
       .overrideProvider(KRATOS_MODULE_OPTIONS)
@@ -32,7 +33,7 @@ describe('kratos flow redirection', () => {
       })
       .compile()
 
-    app = module.createNestApplication()
+    app = testingModule.createNestApplication()
 
     await app.init()
     await app.listen(port, '0.0.0.0')

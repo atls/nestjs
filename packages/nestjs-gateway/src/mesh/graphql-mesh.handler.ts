@@ -1,10 +1,11 @@
+import type { OnModuleInit }      from '@nestjs/common'
+import type { OnModuleDestroy }   from '@nestjs/common'
+
 import { Inject }                 from '@nestjs/common'
-import { OnModuleInit }           from '@nestjs/common'
-import { OnModuleDestroy }        from '@nestjs/common'
 import { Injectable }             from '@nestjs/common'
 import { HttpAdapterHost }        from '@nestjs/core'
 import { ApolloServer }           from 'apollo-server-express'
-// @ts-ignore
+// @ts-expect-error
 import { Server }                 from 'ws'
 import { useServer }              from 'graphql-ws/lib/use/ws'
 
@@ -26,7 +27,7 @@ export class GraphQLMeshHandler implements OnModuleInit, OnModuleDestroy {
     private readonly options: GatewayModuleOptions
   ) {}
 
-  async onModuleInit() {
+  async onModuleInit(): Promise<void> {
     const { schema, contextBuilder, subscribe, execute } = await this.mesh.getInstance()
 
     if (this.adapterHost.httpAdapter.getType() === 'express') {
@@ -39,7 +40,7 @@ export class GraphQLMeshHandler implements OnModuleInit, OnModuleDestroy {
         introspection: introspection === undefined ? Boolean(playground) : introspection,
         context: contextBuilder,
         playground,
-        // @ts-ignore
+        // @ts-expect-error
         formatError,
       })
 
@@ -54,7 +55,9 @@ export class GraphQLMeshHandler implements OnModuleInit, OnModuleDestroy {
 
       this.apolloServer = apolloServer
 
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-call
       if (schema.getSubscriptionType()) {
+        // eslint-disable-next-line @typescript-eslint/no-unsafe-call
         this.wss = new Server({
           noServer: true,
           path,
@@ -65,29 +68,35 @@ export class GraphQLMeshHandler implements OnModuleInit, OnModuleDestroy {
           {
             schema,
             execute: (args) =>
+              // eslint-disable-next-line @typescript-eslint/no-unsafe-return, @typescript-eslint/no-unsafe-call
               execute(args.document, args.variableValues, args.contextValue, args.rootValue),
             subscribe: (args) =>
+              // eslint-disable-next-line @typescript-eslint/no-unsafe-return, @typescript-eslint/no-unsafe-call
               subscribe(args.document, args.variableValues, args.contextValue, args.rootValue),
             context: async ({ connectionParams = {}, extra: { request } }) => {
               for (const [key, value] of Object.entries(
-                (connectionParams.headers ?? {}) as { [s: string]: unknown }
+                (connectionParams.headers ?? {}) as Record<string, unknown>
               )) {
                 if (!(key.toLowerCase() in request.headers)) {
-                  // @ts-ignore
+                  // @ts-expect-error
                   request.headers[key.toLowerCase()] = value
                 }
               }
 
+              // eslint-disable-next-line @typescript-eslint/no-unsafe-call, @typescript-eslint/no-unsafe-return
               return contextBuilder(request)
             },
           },
           this.wss
         )
 
-        // @ts-ignore
+        // @ts-expect-error
+        // eslint-disable-next-line @typescript-eslint/no-unsafe-call
         this.adapterHost.httpAdapter.getHttpServer().on('upgrade', (req, socket, head) => {
-          // @ts-ignore
+          // @ts-expect-error
+          // eslint-disable-next-line @typescript-eslint/no-unsafe-call
           this.wss.handleUpgrade(req, socket, head, (ws) => {
+            // eslint-disable-next-line @typescript-eslint/no-unsafe-call
             this.wss.emit('connection', ws, req)
           })
         })
@@ -97,11 +106,12 @@ export class GraphQLMeshHandler implements OnModuleInit, OnModuleDestroy {
     }
   }
 
-  async onModuleDestroy() {
+  async onModuleDestroy(): Promise<void> {
     await this.apolloServer?.stop()
 
     if (this.wss) {
       for (const client of this.wss.clients) {
+        // eslint-disable-next-line @typescript-eslint/no-unsafe-call
         client.close(1001, 'Going away')
       }
     }

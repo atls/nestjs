@@ -2,7 +2,11 @@
  * @jest-environment node
  */
 
-import { INestMicroservice }               from '@nestjs/common'
+import type { INestMicroservice }          from '@nestjs/common'
+
+import type { ServerReflectionClient }     from '../../src/index.js'
+import type { ServerReflectionRequest }    from '../../src/index.js'
+
 import { ClientsModule }                   from '@nestjs/microservices'
 import { Transport }                       from '@nestjs/microservices'
 import { Test }                            from '@nestjs/testing'
@@ -11,14 +15,12 @@ import { beforeAll }                       from '@jest/globals'
 import { it }                              from '@jest/globals'
 import { expect }                          from '@jest/globals'
 import { afterAll }                        from '@jest/globals'
-// @ts-ignore
+// @ts-expect-error
 import { FileDescriptorProto }             from 'google-protobuf/google/protobuf/descriptor_pb'
 import { ReplaySubject }                   from 'rxjs'
 import getPort                             from 'get-port'
 import path                                from 'path'
 
-import { ServerReflectionClient }          from '../../src/index.js'
-import { ServerReflectionRequest }         from '../../src/index.js'
 import { GrpcReflectionIntegrationModule } from '../src/index.js'
 import { serverOptions }                   from '../src/index.js'
 
@@ -29,7 +31,7 @@ describe('grpc reflection', () => {
   beforeAll(async () => {
     const servicePort = await getPort()
 
-    const module = await Test.createTestingModule({
+    const testingModule = await Test.createTestingModule({
       imports: [
         GrpcReflectionIntegrationModule,
         ClientsModule.register([
@@ -56,7 +58,7 @@ describe('grpc reflection', () => {
       ],
     }).compile()
 
-    service = module.createNestMicroservice({
+    service = testingModule.createNestMicroservice({
       ...serverOptions,
       options: {
         ...serverOptions.options,
@@ -68,6 +70,7 @@ describe('grpc reflection', () => {
 
     await service.listen()
 
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-call
     serverReflection = service.get('client').getService('ServerReflection')
   })
 
@@ -114,6 +117,7 @@ describe('grpc reflection', () => {
 
     const response = await serverReflection.serverReflectionInfo(request.asObservable()).toPromise()
 
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-call
     const descriptor = FileDescriptorProto.deserializeBinary(
       response?.fileDescriptorResponse?.fileDescriptorProto[0]
     )

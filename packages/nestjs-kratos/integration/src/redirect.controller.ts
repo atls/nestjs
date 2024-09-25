@@ -14,23 +14,23 @@ export class RedirectController {
 
   @Get('403')
   @UseInterceptors(new KratosRedirectInterceptor('login'))
-  async redirect403() {
+  async redirect403(): Promise<void> {
     await this.kratos.getLoginFlow({ id: 'flow' })
   }
 
   @Get('404')
   @UseInterceptors(new KratosRedirectInterceptor('login'))
-  async redirect404() {
+  async redirect404(): Promise<void> {
     await this.kratos.getRegistrationFlow({ id: 'flow' })
   }
 
   @Get('410')
   @UseInterceptors(new KratosRedirectInterceptor('login'))
-  async redirect410() {
+  async redirect410(): Promise<void> {
     await this.kratos.getRecoveryFlow({ id: 'flow' })
   }
 
   @Get('flow')
   @UseInterceptors(new KratosRedirectInterceptor('login'))
-  redirectFlow(@Flow() flow: string) {}
+  redirectFlow(@Flow() flow: string): void {}
 }

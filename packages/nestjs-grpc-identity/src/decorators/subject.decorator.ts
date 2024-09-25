@@ -1,6 +1,7 @@
-import { Metadata }             from '@grpc/grpc-js'
-import { ExecutionContext }     from '@nestjs/common'
-import { createParamDecorator } from '@nestjs/common'
+import type { ExecutionContext } from '@nestjs/common'
+
+import { Metadata }              from '@grpc/grpc-js'
+import { createParamDecorator }  from '@nestjs/common'
 
 export const Subject = createParamDecorator((data: unknown, context: ExecutionContext) => {
   if (context.getType() === 'rpc') {
@@ -12,6 +13,7 @@ export const Subject = createParamDecorator((data: unknown, context: ExecutionCo
       try {
         const identity = JSON.parse(identityMetadata[0].toString())
 
+        // eslint-disable-next-line @typescript-eslint/no-unsafe-return
         return identity.sub
       } catch {
         return null

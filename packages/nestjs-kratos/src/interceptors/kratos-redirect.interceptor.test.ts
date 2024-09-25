@@ -1,4 +1,5 @@
-import { CallHandler }                     from '@nestjs/common'
+import type { CallHandler }                from '@nestjs/common'
+
 import { ExecutionContextHost }            from '@nestjs/core/helpers/execution-context-host.js'
 import { describe }                        from '@jest/globals'
 import { it }                              from '@jest/globals'

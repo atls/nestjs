@@ -3,9 +3,15 @@ import { NestFactory }            from '@nestjs/core'
 import { GrpcHttpProxyAppModule } from './grpc-http-proxy-app.module.js'
 import { serverOptions }          from './server.options.js'
 
-declare const module: any
+// eslint-disable-next-line @next/next/no-assign-module-variable
+declare const module: {
+  hot?: {
+    accept: () => void
+    dispose: (callback: () => Promise<void>) => void
+  }
+}
 
-const bootstrap = async () => {
+const bootstrap = async (): Promise<void> => {
   const app = await NestFactory.create(GrpcHttpProxyAppModule)
 
   app.connectMicroservice(serverOptions)
@@ -18,7 +24,9 @@ const bootstrap = async () => {
 
   if (module.hot) {
     module.hot.accept()
-    module.hot.dispose(() => app.close())
+    module.hot.dispose(async () => {
+      await app.close()
+    })
   }
 }
 

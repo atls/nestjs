@@ -1,9 +1,9 @@
-import { Logger }     from '@atls/logger'
-import { Injectable } from '@nestjs/common'
+import type { Schema } from './schema.metadata.js'
 
-import { Schema }     from './schema.metadata.js'
+import { Logger }      from '@atls/logger'
+import { Injectable }  from '@nestjs/common'
 
-type Constructor = new (...args: any[]) => {}
+type Constructor = new (...args: Array<any>) => object
 
 @Injectable()
 export class TypesenseMetadataRegistry {
@@ -11,19 +11,19 @@ export class TypesenseMetadataRegistry {
 
   private schemas: Map<Constructor, Schema> = new Map()
 
-  addSchema(target: Constructor, schema: Schema) {
+  addSchema(target: Constructor, schema: Schema): void {
     if (this.schemas.has(target)) {
-      this.logger.warn(`Schema ${target} already exists`)
+      this.logger.warn(`Schema ${target.toString()} already exists`)
     }
 
     this.schemas.set(target, schema)
   }
 
-  getSchemaByTarget(target: Constructor) {
+  getSchemaByTarget(target: Constructor): Schema | undefined {
     return this.schemas.get(target)
   }
 
-  getTargets() {
+  getTargets(): IterableIterator<Constructor> {
     return this.schemas.keys()
   }
 }

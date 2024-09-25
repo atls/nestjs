@@ -2,7 +2,8 @@
  * @jest-environment node
  */
 
-import { INestApplication }                  from '@nestjs/common'
+import type { INestApplication }             from '@nestjs/common'
+
 import { Test }                              from '@nestjs/testing'
 import { describe }                          from '@jest/globals'
 import { it }                                from '@jest/globals'
@@ -22,7 +23,7 @@ describe('external renderer', () => {
   beforeAll(async () => {
     const port = await getPort()
 
-    const module = await Test.createTestingModule({
+    const testingModule = await Test.createTestingModule({
       imports: [ExternalRendererIntegrationModule],
     })
       .overrideProvider(EXTERNAL_RENDERER_MODULE_OPTIONS)
@@ -31,7 +32,7 @@ describe('external renderer', () => {
       })
       .compile()
 
-    app = module.createNestApplication()
+    app = testingModule.createNestApplication()
 
     await app.init()
     await app.listen(port, '0.0.0.0')

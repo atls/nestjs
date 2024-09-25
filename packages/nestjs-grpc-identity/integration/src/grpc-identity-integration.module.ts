@@ -13,6 +13,7 @@ import { TestController }     from './test.controller.js'
         fetcher: async (jwksUri) => {
           const data = await fs.readFile(jwksUri)
 
+          // eslint-disable-next-line @typescript-eslint/no-unsafe-return
           return JSON.parse(data.toString())
         },
         cache: true,

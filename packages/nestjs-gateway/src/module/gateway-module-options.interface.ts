@@ -1,17 +1,17 @@
-// @ts-ignore
-import { MeshPubSub }        from '@graphql-mesh/types'
-// @ts-ignore
-import { KeyValueCache }     from '@graphql-mesh/types'
-// @ts-ignore
-import { MeshMerger }        from '@graphql-mesh/types'
-// @ts-ignore
-import { YamlConfig }        from '@graphql-mesh/types'
-import { ChannelOptions }    from '@grpc/grpc-js'
-import { ModuleMetadata }    from '@nestjs/common/interfaces'
-import { Type }              from '@nestjs/common/interfaces'
-import { PlaygroundConfig }  from 'apollo-server-express'
+// @ts-expect-error
+import type { MeshPubSub }        from '@graphql-mesh/types'
+// @ts-expect-error
+import type { KeyValueCache }     from '@graphql-mesh/types'
+// @ts-expect-error
+import type { MeshMerger }        from '@graphql-mesh/types'
+// @ts-expect-error
+import type { YamlConfig }        from '@graphql-mesh/types'
+import type { ChannelOptions }    from '@grpc/grpc-js'
+import type { ModuleMetadata }    from '@nestjs/common/interfaces'
+import type { Type }              from '@nestjs/common/interfaces'
+import type { PlaygroundConfig }  from 'apollo-server-express'
 
-import { GatewaySourceType } from '../enums/index.js'
+import type { GatewaySourceType } from '../enums/index.js'
 
 export interface SourceTransformsOptions {
   rename?: YamlConfig.Transform['rename']
@@ -36,30 +36,34 @@ export interface GatewayModuleOptions {
   path?: string
   playground?: PlaygroundConfig
   introspection?: boolean
+  // eslint-disable-next-line @typescript-eslint/no-redundant-type-constituents
   cors?: any | boolean
   pubsub?: MeshPubSub
   cache?: KeyValueCache
   merger?: MeshMerger
-  sources?: SourceOptions[]
+  sources?: Array<SourceOptions>
   transforms?: SourceTransformsOptions
   additionalTypeDefs?: any
   limit?: number | string
   grpcChannelOptions?: Partial<ChannelOptions>
-  additionalResolvers?: (
-    | string
-    | YamlConfig.AdditionalStitchingResolverObject
+  additionalResolvers?: Array<
+    // eslint-disable-next-line @typescript-eslint/no-redundant-type-constituents
     | YamlConfig.AdditionalStitchingBatchResolverObject
+    // eslint-disable-next-line @typescript-eslint/no-redundant-type-constituents
+    | YamlConfig.AdditionalStitchingResolverObject
+    // eslint-disable-next-line @typescript-eslint/no-redundant-type-constituents
     | YamlConfig.AdditionalSubscriptionObject
-  )[]
+    | string
+  >
 }
 
 export interface GatewayOptionsFactory {
-  createGatewayOptions(): Promise<GatewayModuleOptions> | GatewayModuleOptions
+  createGatewayOptions: () => GatewayModuleOptions | Promise<GatewayModuleOptions>
 }
 
 export interface GatewayModuleAsyncOptions extends Pick<ModuleMetadata, 'imports'> {
   useExisting?: Type<GatewayOptionsFactory>
   useClass?: Type<GatewayOptionsFactory>
-  useFactory?: (...args: any[]) => Promise<GatewayModuleOptions> | GatewayModuleOptions
-  inject?: any[]
+  useFactory?: (...args: Array<any>) => GatewayModuleOptions | Promise<GatewayModuleOptions>
+  inject?: Array<any>
 }

@@ -10,22 +10,23 @@ export interface FieldMetadata {
 
 export type FieldType =
   | 'auto'
-  | 'string'
-  | 'int32'
-  | 'int64'
-  | 'float'
   | 'bool'
+  | 'bool[]'
+  | 'float'
+  | 'float[]'
   | 'geopoint'
-  | 'string[]'
+  | 'int32'
   | 'int32[]'
   | 'int64'
-  | 'float[]'
-  | 'bool[]'
+  | 'int64[]'
+  | 'string'
+  | 'string[]'
 
 export const FIELD_METADATA = '__fieldMetadata__'
 
+// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types, @typescript-eslint/explicit-function-return-type
 export const Field = (type: FieldType, options: FieldMetadata = {}) =>
-  applyDecorators((target: object, key?: any, descriptor?: any) => {
+  applyDecorators((target: object, key: string | symbol, descriptor: PropertyDescriptor) => {
     const exists = Reflect.getMetadata(FIELD_METADATA, target.constructor) || []
 
     return SetMetadata(FIELD_METADATA, [

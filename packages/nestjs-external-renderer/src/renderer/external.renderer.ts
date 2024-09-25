@@ -1,5 +1,6 @@
+import type { OnModuleInit }                from '@nestjs/common'
+
 import { Inject }                           from '@nestjs/common'
-import { OnModuleInit }                     from '@nestjs/common'
 import { Injectable }                       from '@nestjs/common'
 import { HttpAdapterHost }                  from '@nestjs/core'
 
@@ -15,17 +16,21 @@ export class ExternalRenderer implements OnModuleInit {
     private readonly options: ExternalRendererModuleOptions
   ) {}
 
-  async onModuleInit() {
+  async onModuleInit(): Promise<void> {
     if (this.adapterHost.httpAdapter.getType() === 'express') {
       const instance = this.adapterHost.httpAdapter.getInstance()
 
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-call
       instance.set('view', ExpressExternalRendererView)
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-call
       instance.set('views', this.options.url)
 
       const { render } = instance.response
 
-      // @ts-ignore eslint-disable-next-line func-names
-      instance.response.render = function (view, options, callback: Function) {
+      // @ts-expect-error
+      // eslint-disable-next-line @typescript-eslint/explicit-function-return-type, @typescript-eslint/ban-types
+      instance.response.render = function renderView(view, options, callback: Function) {
+        // eslint-disable-next-line @typescript-eslint/no-unsafe-return, @typescript-eslint/no-unsafe-call
         return render.apply(this, [
           view,
           {

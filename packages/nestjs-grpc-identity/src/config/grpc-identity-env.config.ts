@@ -1,10 +1,10 @@
-import { promises as fs }             from 'fs'
+import type { GrpcIdentityOptionsFactory } from '../module/index.js'
+import type { GrpcIdentityModuleOptions }  from '../module/index.js'
 
-import { GrpcIdentityOptionsFactory } from '../module/index.js'
-import { GrpcIdentityModuleOptions }  from '../module/index.js'
+import { promises as fs }                  from 'fs'
 
 export class GrpcIdentityEnvConfig implements GrpcIdentityOptionsFactory {
-  getJwksOptions() {
+  getJwksOptions(): GrpcIdentityModuleOptions['jwks'] {
     const jwksUri = process.env.IDENTITY_JWKS_URI
 
     if (!jwksUri) {
@@ -18,7 +18,8 @@ export class GrpcIdentityEnvConfig implements GrpcIdentityOptionsFactory {
     }
 
     if (!jwksUri.startsWith('http')) {
-      // @ts-ignore
+      // @ts-expect-error
+      // eslint-disable-next-line @typescript-eslint/explicit-function-return-type, @typescript-eslint/no-unsafe-return, @typescript-eslint/no-unsafe-argument
       options.fetcher = async (uri) => JSON.parse(await fs.readFile(uri, 'utf-8'))
     }
 

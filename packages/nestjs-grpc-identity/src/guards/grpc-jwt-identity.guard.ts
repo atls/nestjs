@@ -1,12 +1,13 @@
-import { ErrorStatus }      from '@atls/grpc-error-status'
-import { Metadata }         from '@grpc/grpc-js'
-import { ExecutionContext } from '@nestjs/common'
-import { CanActivate }      from '@nestjs/common'
-import { Injectable }       from '@nestjs/common'
-import { RpcException }     from '@nestjs/microservices'
-import { status }           from '@grpc/grpc-js'
+import type { ExecutionContext } from '@nestjs/common'
+import type { CanActivate }      from '@nestjs/common'
 
-import { JwtVerifier }      from '../jwt/index.js'
+import { ErrorStatus }           from '@atls/grpc-error-status'
+import { Metadata }              from '@grpc/grpc-js'
+import { Injectable }            from '@nestjs/common'
+import { RpcException }          from '@nestjs/microservices'
+import { status }                from '@grpc/grpc-js'
+
+import { JwtVerifier }           from '../jwt/index.js'
 
 @Injectable()
 export class GrpcJwtIdentityGuard implements CanActivate {

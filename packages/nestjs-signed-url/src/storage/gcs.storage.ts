@@ -1,9 +1,11 @@
-import { Injectable }      from '@nestjs/common'
-import { OnModuleInit }    from '@nestjs/common'
+import type { OnModuleInit }   from '@nestjs/common'
 
-import { AbstractStorage } from './abstract.storage.js'
-import { SignUrlOptions }  from './storage.interfaces.js'
-import { SignedUrl }       from './storage.interfaces.js'
+import type { SignUrlOptions } from './storage.interfaces.js'
+import type { SignedUrl }      from './storage.interfaces.js'
+
+import { Injectable }          from '@nestjs/common'
+
+import { AbstractStorage }     from './abstract.storage.js'
 
 @Injectable()
 export class GcsStorage extends AbstractStorage implements OnModuleInit {
@@ -11,9 +13,11 @@ export class GcsStorage extends AbstractStorage implements OnModuleInit {
 
   bucket: string
 
-  onModuleInit() {
+  onModuleInit(): void {
+    // eslint-disable-next-line @typescript-eslint/no-require-imports, @typescript-eslint/no-var-requires
     const { Storage } = require('@google-cloud/storage')
 
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-call
     this.storage = new Storage()
   }
 
@@ -29,6 +33,7 @@ export class GcsStorage extends AbstractStorage implements OnModuleInit {
       contentType: options.type,
     }
 
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-call
     const [url] = await this.storage.bucket(bucket).file(filename).getSignedUrl(params)
 
     return { url, fields: [] }
@@ -41,6 +46,7 @@ export class GcsStorage extends AbstractStorage implements OnModuleInit {
       expires: Date.now() + 15 * 60 * 1000,
     }
 
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-call
     const [url] = await this.storage.bucket(bucket).file(filename).getSignedUrl(params)
 
     return { url, fields: [] }

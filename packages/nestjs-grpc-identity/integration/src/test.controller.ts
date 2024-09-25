@@ -9,7 +9,7 @@ import { Subject }              from '../../src/index.js'
 @UseGuards(GrpcJwtIdentityGuard)
 export class TestController {
   @GrpcMethod('TestService', 'Test')
-  test(@Subject() subject: string) {
+  test(@Subject() subject: string): { id: string } {
     return {
       id: subject,
     }

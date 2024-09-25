@@ -1,33 +1,36 @@
-import { Provider }                from '@nestjs/common'
-import { EventEmitter }            from 'events'
-import { PubSub }                  from 'graphql-subscriptions'
+import type { Provider }             from '@nestjs/common'
 
-import { GraphQLMeshHandler }      from '../mesh/index.js'
-import { GraphQLMeshConfig }       from '../mesh/index.js'
-import { GraphQLMesh }             from '../mesh/index.js'
-import { GraphQLMeshSchemaDumper } from '../mesh/index.js'
-import { GatewayModuleOptions }    from './gateway-module-options.interface.js'
-import { GATEWAY_MODULE_OPTIONS }  from './gateway.constants.js'
+import type { GatewayModuleOptions } from './gateway-module-options.interface.js'
 
-export const createGatewayOptionsProvider = (options: GatewayModuleOptions): Provider[] => [
+import { EventEmitter }              from 'events'
+import { PubSub }                    from 'graphql-subscriptions'
+
+import { GraphQLMeshHandler }        from '../mesh/index.js'
+import { GraphQLMeshConfig }         from '../mesh/index.js'
+import { GraphQLMesh }               from '../mesh/index.js'
+import { GraphQLMeshSchemaDumper }   from '../mesh/index.js'
+import { GATEWAY_MODULE_OPTIONS }    from './gateway.constants.js'
+
+export const createGatewayOptionsProvider = (options: GatewayModuleOptions): Array<Provider> => [
   {
     provide: GATEWAY_MODULE_OPTIONS,
     useValue: options,
   },
 ]
 
-export const createGatewayProvider = (): Provider[] => [
+export const createGatewayProvider = (): Array<Provider> => [
   GraphQLMeshConfig,
   GraphQLMeshHandler,
   GraphQLMesh,
   GraphQLMeshSchemaDumper,
 ]
 
-export const createGatewayExportsProvider = (): Provider[] => [
+export const createGatewayExportsProvider = (): Array<Provider> => [
   {
     provide: PubSub,
-    useFactory: (options: GatewayModuleOptions) => {
+    useFactory: (options: GatewayModuleOptions): PubSub => {
       if (options.pubsub) {
+        // eslint-disable-next-line @typescript-eslint/no-unsafe-return
         return options.pubsub
       }
 

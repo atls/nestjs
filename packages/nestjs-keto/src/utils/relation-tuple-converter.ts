@@ -1,11 +1,12 @@
-import { SubjectSet }                        from '@ory/keto-client'
+import type { SubjectSet }                   from '@ory/keto-client'
+
+import type { RelationShipTupleWithSet }     from '../module/index.js'
+import type { RelationShipTupleWithId }      from '../module/index.js'
+import type { RelationShipTuple }            from '../module/index.js'
 
 import { KetoRelationTupleInvalidException } from '../exceptions/index.js'
-import { RelationShipTupleWithSet }          from '../module/index.js'
-import { RelationShipTupleWithId }           from '../module/index.js'
-import { RelationShipTuple }                 from '../module/index.js'
 
-type Tuple = string | ((...args: string[]) => string)
+type Tuple = string | ((...args: Array<string>) => string)
 
 export class RelationTupleConverter {
   private tupleString: string
@@ -19,11 +20,11 @@ export class RelationTupleConverter {
     this.convertToString()
   }
 
-  private get subjectId() {
+  private get subjectId(): string {
     return this.tupleString
   }
 
-  run() {
+  run(): RelationShipTuple {
     if (!this.isTupleCorrect()) {
       throw new KetoRelationTupleInvalidException()
     }
@@ -39,6 +40,7 @@ export class RelationTupleConverter {
 
       this.result = {
         namespace,
+        // eslint-disable-next-line react/forbid-prop-types
         object,
         relation,
         subject_set: subjectSet,
@@ -50,6 +52,7 @@ export class RelationTupleConverter {
 
       this.result = {
         namespace,
+        // eslint-disable-next-line react/forbid-prop-types
         object,
         relation,
         subject_id: subjectId,
@@ -59,7 +62,7 @@ export class RelationTupleConverter {
     return this.result
   }
 
-  private convertToString() {
+  private convertToString(): void {
     if (typeof this.tuple === 'string') {
       this.tupleString = this.tuple
     } else {
@@ -67,13 +70,13 @@ export class RelationTupleConverter {
     }
   }
 
-  private isTupleCorrect() {
+  private isTupleCorrect(): boolean {
     const regex = /^\w+:\w+#\w+@[\w\W]+/i
 
     return regex.test(this.tupleString)
   }
 
-  private getNamespace() {
+  private getNamespace(): string {
     const endOfNamespace = this.tupleString.indexOf(':')
 
     const namespace = this.tupleString.substring(0, endOfNamespace)
@@ -83,7 +86,7 @@ export class RelationTupleConverter {
     return namespace
   }
 
-  private getObject() {
+  private getObject(): string {
     const endOfObject = this.tupleString.indexOf('#')
 
     const object = this.tupleString.substring(0, endOfObject)
@@ -93,7 +96,7 @@ export class RelationTupleConverter {
     return object
   }
 
-  private getRelation() {
+  private getRelation(): string {
     const endOfRelation = this.tupleString.indexOf('@')
 
     const relation = this.tupleString.substring(0, endOfRelation > 0 ? endOfRelation : undefined)
@@ -103,7 +106,7 @@ export class RelationTupleConverter {
     return relation
   }
 
-  private getSubjectSet() {
+  private getSubjectSet(): SubjectSet {
     const namespace = this.getNamespace()
     const object = this.getObject()
     const relation = this.getRelation()
@@ -117,7 +120,7 @@ export class RelationTupleConverter {
     return subjectSet
   }
 
-  private isSubjectSet() {
+  private isSubjectSet(): boolean {
     return this.tupleString.includes(':') || this.tupleString.includes('#')
   }
 }

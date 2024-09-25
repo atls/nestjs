@@ -1,15 +1,17 @@
-import { DynamicModule }                from '@nestjs/common'
-import { Module }                       from '@nestjs/common'
-import { Provider }                     from '@nestjs/common'
-import { DiscoveryModule }              from '@nestjs/core'
+import type { DynamicModule }             from '@nestjs/common'
+import type { Provider }                  from '@nestjs/common'
 
-import { GatewayModuleAsyncOptions }    from './gateway-module-options.interface.js'
-import { GatewayModuleOptions }         from './gateway-module-options.interface.js'
-import { GatewayOptionsFactory }        from './gateway-module-options.interface.js'
-import { GATEWAY_MODULE_OPTIONS }       from './gateway.constants.js'
-import { createGatewayExportsProvider } from './gateway.providers.js'
-import { createGatewayProvider }        from './gateway.providers.js'
-import { createGatewayOptionsProvider } from './gateway.providers.js'
+import type { GatewayModuleAsyncOptions } from './gateway-module-options.interface.js'
+import type { GatewayModuleOptions }      from './gateway-module-options.interface.js'
+import type { GatewayOptionsFactory }     from './gateway-module-options.interface.js'
+
+import { Module }                         from '@nestjs/common'
+import { DiscoveryModule }                from '@nestjs/core'
+
+import { GATEWAY_MODULE_OPTIONS }         from './gateway.constants.js'
+import { createGatewayExportsProvider }   from './gateway.providers.js'
+import { createGatewayProvider }          from './gateway.providers.js'
+import { createGatewayOptionsProvider }   from './gateway.providers.js'
 
 @Module({
   imports: [DiscoveryModule],
@@ -39,7 +41,7 @@ export class GatewayModule {
     }
   }
 
-  private static createAsyncProviders(options: GatewayModuleAsyncOptions): Provider[] {
+  private static createAsyncProviders(options: GatewayModuleAsyncOptions): Array<Provider> {
     if (options.useExisting || options.useFactory) {
       return [this.createAsyncOptionsProvider(options)]
     }
@@ -64,7 +66,8 @@ export class GatewayModule {
 
     return {
       provide: GATEWAY_MODULE_OPTIONS,
-      useFactory: (optionsFactory: GatewayOptionsFactory) => optionsFactory.createGatewayOptions(),
+      useFactory: async (optionsFactory: GatewayOptionsFactory) =>
+        optionsFactory.createGatewayOptions(),
       inject: [options.useExisting! || options.useClass!],
     }
   }

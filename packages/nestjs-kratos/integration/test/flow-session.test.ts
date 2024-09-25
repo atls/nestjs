@@ -2,7 +2,8 @@
  * @jest-environment node
  */
 
-import { INestApplication }        from '@nestjs/common'
+import type { INestApplication }   from '@nestjs/common'
+
 import { Test }                    from '@nestjs/testing'
 import { describe }                from '@jest/globals'
 import { it }                      from '@jest/globals'
@@ -22,7 +23,7 @@ describe('kratos flow session', () => {
   beforeAll(async () => {
     const port = await getPort()
 
-    const module = await Test.createTestingModule({
+    const testingModule = await Test.createTestingModule({
       imports: [KratosIntegrationModule],
     })
       .overrideProvider(KRATOS_MODULE_OPTIONS)
@@ -32,7 +33,7 @@ describe('kratos flow session', () => {
       })
       .compile()
 
-    app = module.createNestApplication()
+    app = testingModule.createNestApplication()
 
     await app.init()
     await app.listen(port, '0.0.0.0')
@@ -47,7 +48,7 @@ describe('kratos flow session', () => {
   it(`exists session`, async () => {
     const response = await request(url)
       .get('/identity/session/whoami')
-      .set('Authorization', 'test')
+      .set('Cookie', 'test')
       .expect(200)
 
     expect(response.body.id).toBe('test')
