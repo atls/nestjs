@@ -91,6 +91,10 @@ const RAW_RUNTIME_STATE =
       "reference": "workspace:packages/nestjs-logger"\
     },\
     {\
+      "name": "@atls/nestjs-proto-types",\
+      "reference": "workspace:packages/nestjs-proto-types"\
+    },\
+    {\
       "name": "@atls/nestjs-redis",\
       "reference": "workspace:packages/nestjs-redis"\
     },\
@@ -139,6 +143,7 @@ const RAW_RUNTIME_STATE =
     ["@atls/nestjs-keto", ["workspace:packages/nestjs-keto"]],\
     ["@atls/nestjs-kratos", ["workspace:packages/nestjs-kratos"]],\
     ["@atls/nestjs-logger", ["workspace:packages/nestjs-logger"]],\
+    ["@atls/nestjs-proto-types", ["workspace:packages/nestjs-proto-types"]],\
     ["@atls/nestjs-redis", ["virtual:aa86a8b1e4af9c7ed2d40753369461968e36be23b2875d3c89dbac92602aff336fbb024f39404040b429227b7fc2a1f6e029467aba212068d84f7a25c2e5afcc#workspace:packages/nestjs-redis", "workspace:packages/nestjs-redis"]],\
     ["@atls/nestjs-s3-client", ["workspace:packages/nestjs-s3-client"]],\
     ["@atls/nestjs-typeorm-seeding", ["workspace:packages/nestjs-typeorm-seeding"]],\
@@ -928,10 +933,10 @@ const RAW_RUNTIME_STATE =
         "packageLocation": "./.yarn/__virtual__/@atls-nestjs-grpc-reflection-virtual-be0c057c37/1/packages/nestjs-grpc-reflection/",\
         "packageDependencies": [\
           ["@atls/nestjs-grpc-reflection", "virtual:1b645f34e708f7901d1bd6b5b2d1038edc84294a49890304b13123db78ac85a009762dcf36af72cc3f76303827188f19bee713c279b8ca82cc7dee72e3732570#workspace:packages/nestjs-grpc-reflection"],\
+          ["@atls/nestjs-proto-types", "workspace:packages/nestjs-proto-types"],\
           ["@grpc/grpc-js", "npm:1.11.2"],\
           ["@grpc/proto-loader", "npm:0.7.13"],\
           ["@jest/globals", "npm:29.7.0"],\
-          ["@monstrs/types-import-proto", "npm:0.0.1"],\
           ["@nestjs/common", "virtual:77887786a24289fa840c9acd370d634accbe79bcf317ecf5401844ffff73b8a593879dd9cce463873637e6414a631dfdb1a2473704bf332d823bcfffac8c2469#npm:10.4.1"],\
           ["@nestjs/core", "virtual:1b645f34e708f7901d1bd6b5b2d1038edc84294a49890304b13123db78ac85a009762dcf36af72cc3f76303827188f19bee713c279b8ca82cc7dee72e3732570#npm:10.4.1"],\
           ["@nestjs/microservices", "virtual:1b645f34e708f7901d1bd6b5b2d1038edc84294a49890304b13123db78ac85a009762dcf36af72cc3f76303827188f19bee713c279b8ca82cc7dee72e3732570#npm:10.4.1"],\
@@ -970,10 +975,10 @@ const RAW_RUNTIME_STATE =
         "packageLocation": "./.yarn/__virtual__/@atls-nestjs-grpc-reflection-virtual-fe1dde0b00/1/packages/nestjs-grpc-reflection/",\
         "packageDependencies": [\
           ["@atls/nestjs-grpc-reflection", "virtual:51dcb3fe3f47cfb6224dcab5ae8c7e50b5682560d9d6abdf449cb9fd665402b311244dcf35352838e6165320fb5bb25ae45a36f802c2a93ab14064614bee36b9#workspace:packages/nestjs-grpc-reflection"],\
+          ["@atls/nestjs-proto-types", "workspace:packages/nestjs-proto-types"],\
           ["@grpc/grpc-js", "npm:1.11.2"],\
           ["@grpc/proto-loader", "npm:0.7.13"],\
           ["@jest/globals", "npm:29.7.0"],\
-          ["@monstrs/types-import-proto", "npm:0.0.1"],\
           ["@nestjs/common", "virtual:77887786a24289fa840c9acd370d634accbe79bcf317ecf5401844ffff73b8a593879dd9cce463873637e6414a631dfdb1a2473704bf332d823bcfffac8c2469#npm:10.4.1"],\
           ["@nestjs/core", "virtual:51dcb3fe3f47cfb6224dcab5ae8c7e50b5682560d9d6abdf449cb9fd665402b311244dcf35352838e6165320fb5bb25ae45a36f802c2a93ab14064614bee36b9#npm:10.4.1"],\
           ["@nestjs/microservices", "virtual:51dcb3fe3f47cfb6224dcab5ae8c7e50b5682560d9d6abdf449cb9fd665402b311244dcf35352838e6165320fb5bb25ae45a36f802c2a93ab14064614bee36b9#npm:10.4.1"],\
@@ -1012,10 +1017,10 @@ const RAW_RUNTIME_STATE =
         "packageLocation": "./.yarn/__virtual__/@atls-nestjs-grpc-reflection-virtual-c6bf547457/1/packages/nestjs-grpc-reflection/",\
         "packageDependencies": [\
           ["@atls/nestjs-grpc-reflection", "virtual:77887786a24289fa840c9acd370d634accbe79bcf317ecf5401844ffff73b8a593879dd9cce463873637e6414a631dfdb1a2473704bf332d823bcfffac8c2469#workspace:packages/nestjs-grpc-reflection"],\
+          ["@atls/nestjs-proto-types", "workspace:packages/nestjs-proto-types"],\
           ["@grpc/grpc-js", "npm:1.11.2"],\
           ["@grpc/proto-loader", "npm:0.7.13"],\
           ["@jest/globals", "npm:29.7.0"],\
-          ["@monstrs/types-import-proto", "npm:0.0.1"],\
           ["@nestjs/common", "virtual:77887786a24289fa840c9acd370d634accbe79bcf317ecf5401844ffff73b8a593879dd9cce463873637e6414a631dfdb1a2473704bf332d823bcfffac8c2469#npm:10.4.1"],\
           ["@nestjs/core", "virtual:77887786a24289fa840c9acd370d634accbe79bcf317ecf5401844ffff73b8a593879dd9cce463873637e6414a631dfdb1a2473704bf332d823bcfffac8c2469#npm:10.4.1"],\
           ["@nestjs/microservices", "virtual:77887786a24289fa840c9acd370d634accbe79bcf317ecf5401844ffff73b8a593879dd9cce463873637e6414a631dfdb1a2473704bf332d823bcfffac8c2469#npm:10.4.1"],\
@@ -1054,10 +1059,10 @@ const RAW_RUNTIME_STATE =
         "packageLocation": "./.yarn/__virtual__/@atls-nestjs-grpc-reflection-virtual-d3d9fdea73/1/packages/nestjs-grpc-reflection/",\
         "packageDependencies": [\
           ["@atls/nestjs-grpc-reflection", "virtual:80857f29dff653ed1b21e1b78c415c79278e1a3708fec8563133922c0b3b287990dd6895d3d76575acec38e5f7e5fa8985f270e2d46a7eb121f744d431d0761f#workspace:packages/nestjs-grpc-reflection"],\
+          ["@atls/nestjs-proto-types", "workspace:packages/nestjs-proto-types"],\
           ["@grpc/grpc-js", "npm:1.11.2"],\
           ["@grpc/proto-loader", "npm:0.7.13"],\
           ["@jest/globals", "npm:29.7.0"],\
-          ["@monstrs/types-import-proto", "npm:0.0.1"],\
           ["@nestjs/common", "virtual:77887786a24289fa840c9acd370d634accbe79bcf317ecf5401844ffff73b8a593879dd9cce463873637e6414a631dfdb1a2473704bf332d823bcfffac8c2469#npm:10.4.1"],\
           ["@nestjs/core", "virtual:80857f29dff653ed1b21e1b78c415c79278e1a3708fec8563133922c0b3b287990dd6895d3d76575acec38e5f7e5fa8985f270e2d46a7eb121f744d431d0761f#npm:10.4.1"],\
           ["@nestjs/microservices", "virtual:80857f29dff653ed1b21e1b78c415c79278e1a3708fec8563133922c0b3b287990dd6895d3d76575acec38e5f7e5fa8985f270e2d46a7eb121f744d431d0761f#npm:10.4.1"],\
@@ -1096,10 +1101,10 @@ const RAW_RUNTIME_STATE =
         "packageLocation": "./packages/nestjs-grpc-reflection/",\
         "packageDependencies": [\
           ["@atls/nestjs-grpc-reflection", "workspace:packages/nestjs-grpc-reflection"],\
+          ["@atls/nestjs-proto-types", "workspace:packages/nestjs-proto-types"],\
           ["@grpc/grpc-js", "npm:1.11.2"],\
           ["@grpc/proto-loader", "npm:0.7.13"],\
           ["@jest/globals", "npm:29.7.0"],\
-          ["@monstrs/types-import-proto", "npm:0.0.1"],\
           ["@nestjs/common", "virtual:77887786a24289fa840c9acd370d634accbe79bcf317ecf5401844ffff73b8a593879dd9cce463873637e6414a631dfdb1a2473704bf332d823bcfffac8c2469#npm:10.4.1"],\
           ["@nestjs/core", "virtual:ec8981ecaea40e2febae31b46ac73d9116df8c03ad650498e32a27b7067b620948a688dd82750726a2a222ea50e5d2539eb56777a3aebd27de3e0b0824c9aa23#npm:10.4.1"],\
           ["@nestjs/microservices", "virtual:ec8981ecaea40e2febae31b46ac73d9116df8c03ad650498e32a27b7067b620948a688dd82750726a2a222ea50e5d2539eb56777a3aebd27de3e0b0824c9aa23#npm:10.4.1"],\
@@ -1219,6 +1224,15 @@ const RAW_RUNTIME_STATE =
           ["rxjs", "npm:7.8.1"],\
           ["supertest", "npm:6.3.4"],\
           ["typeorm", "virtual:5fdc09c7fdc30e48d390ab6ffff8ef725f2a327d08c70586e3df1d71e2657ff8df407f90899951495c83561309126b92db55566d67cf317480e9e55fd8e5b605#npm:0.3.20"]\
+        ],\
+        "linkType": "SOFT"\
+      }]\
+    ]],\
+    ["@atls/nestjs-proto-types", [\
+      ["workspace:packages/nestjs-proto-types", {\
+        "packageLocation": "./packages/nestjs-proto-types/",\
+        "packageDependencies": [\
+          ["@atls/nestjs-proto-types", "workspace:packages/nestjs-proto-types"]\
         ],\
         "linkType": "SOFT"\
       }]\
@@ -6695,15 +6709,6 @@ const RAW_RUNTIME_STATE =
           ["rimraf", "npm:3.0.2"],\
           ["semver", "npm:7.6.3"],\
           ["tar", "npm:6.2.1"]\
-        ],\
-        "linkType": "HARD"\
-      }]\
-    ]],\
-    ["@monstrs/types-import-proto", [\
-      ["npm:0.0.1", {\
-        "packageLocation": "../.yarn/berry/cache/@monstrs-types-import-proto-npm-0.0.1-839ead19ea-10c0.zip/node_modules/@monstrs/types-import-proto/",\
-        "packageDependencies": [\
-          ["@monstrs/types-import-proto", "npm:0.0.1"]\
         ],\
         "linkType": "HARD"\
       }]\

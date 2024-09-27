@@ -1,0 +1,31 @@
+{
+  "name": "@atls/nestjs-proto-types",
+  "version": "0.0.0",
+  "license": "BSD-3-Clause",
+  "type": "module",
+  "exports": {
+    "./package.json": "./package.json",
+    ".": "./src/index.ts"
+  },
+  "main": "src/index.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "yarn library build",
+    "prepack": "yarn run build",
+    "postpack": "rm -rf dist"
+  },
+  "publishConfig": {
+    "exports": {
+      "./package.json": "./package.json",
+      ".": {
+        "import": "./dist/index.js",
+        "types": "./dist/index.d.ts",
+        "default": "./dist/index.js"
+      }
+    },
+    "main": "dist/index.js",
+    "typings": "dist/index.d.ts"
+  }
+}
