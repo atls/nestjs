@@ -570,10 +570,10 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@atls/nestjs-grpc-reflection@workspace:packages/nestjs-grpc-reflection"
   dependencies:
+    "@atls/nestjs-proto-types": "workspace:*"
     "@grpc/grpc-js": "npm:1.11.2"
     "@grpc/proto-loader": "npm:0.7.13"
     "@jest/globals": "npm:29.7.0"
-    "@monstrs/types-import-proto": "npm:0.0.1"
     "@nestjs/common": "npm:10.4.1"
     "@nestjs/core": "npm:10.4.1"
     "@nestjs/microservices": "npm:10.4.1"
@@ -714,6 +714,12 @@ __metadata:
     "@nestjs/core": 10
     reflect-metadata: 0.2
     rxjs: 7
+  languageName: unknown
+  linkType: soft
+
+"@atls/nestjs-proto-types@workspace:*, @atls/nestjs-proto-types@workspace:packages/nestjs-proto-types":
+  version: 0.0.0-use.local
+  resolution: "@atls/nestjs-proto-types@workspace:packages/nestjs-proto-types"
   languageName: unknown
   linkType: soft
 
@@ -4179,13 +4185,6 @@ __metadata:
   bin:
     node-pre-gyp: bin/node-pre-gyp
   checksum: 10c0/2b24b93c31beca1c91336fa3b3769fda98e202fb7f9771f0f4062588d36dcc30fcf8118c36aa747fa7f7610d8cf601872bdaaf62ce7822bb08b545d1bbe086cc
-  languageName: node
-  linkType: hard
-
-"@monstrs/types-import-proto@npm:0.0.1":
-  version: 0.0.1
-  resolution: "@monstrs/types-import-proto@npm:0.0.1"
-  checksum: 10c0/e99a8e461364156d84714afaf13cd631200bf4f22c709c7f93a03aefa992882b8c3f585a7fcfa621b8f58de7c50208399788662fa21b03838e983ef543d744e8
   languageName: node
   linkType: hard
 
