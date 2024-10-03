@@ -13,7 +13,7 @@ import type { CheckFail }                      from './batch-queue.interface.js'
 import { Injectable }                          from '@nestjs/common'
 
 import { BatchQueueOptions }                   from './batch-queue.interface.js'
-import { MaxQueueLimitExceededError }          from './errors/index.js'
+import { MaxQueueCountError }                  from './errors/index.js'
 import { MaxQueueLengthExceededError }         from './errors/index.js'
 import { MaxTotalLengthOfQueuesExceededError } from './errors/index.js'
 import { CheckFailedError }                    from './errors/index.js'
@@ -54,7 +54,7 @@ export class BatchQueue<T> implements BatchQueueI<T> {
 
     if (!this.queues.has(queueName)) {
       if (this.queues.size >= this.options.maxQueues) {
-        throw new MaxQueueLimitExceededError()
+        throw new MaxQueueCountError()
       }
       this.queues.set(queueName, [])
     }
