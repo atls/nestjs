@@ -54,7 +54,6 @@ export class BatchQueue<T> implements BatchQueueI<T> {
 
     if (!this.queues.has(queueName)) {
       if (this.queues.size >= this.options.maxQueues) {
-        await this.triggerProcessing(queueName)
         throw new MaxQueueLimitExceededError()
       }
       this.queues.set(queueName, [])
@@ -68,13 +67,14 @@ export class BatchQueue<T> implements BatchQueueI<T> {
       throw new MaxQueueLengthExceededError()
     }
 
-    queue.push(...items)
-    this.totalQueueLength += items.length
-
-    if (this.totalQueueLength > this.options.maxTotalQueueLength) {
+    const totalQueueWithItemsLength = this.totalQueueLength + items.length
+    if (totalQueueWithItemsLength > this.options.maxTotalQueueLength) {
       await this.triggerProcessing(queueName)
       throw new MaxTotalLengthOfQueuesExceededError()
     }
+
+    queue.push(...items)
+    this.totalQueueLength += items.length
 
     this.startTimerIfNecessary(queueName)
   }
