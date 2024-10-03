@@ -513,6 +513,7 @@ const RAW_RUNTIME_STATE =
         "packageLocation": "./packages/nestjs-batch-queue/",\
         "packageDependencies": [\
           ["@atls/nestjs-batch-queue", "workspace:packages/nestjs-batch-queue"],\
+          ["@jest/globals", "npm:29.7.0"],\
           ["@nestjs/common", "virtual:384ea579cfa4894f6eac15b91efb921812c2f87fc877e3e286eadb6b78ddc99a7b8b2c81597d0c76179dfd62ebca58864a616049a66816fb0d2621b12550c91c#npm:10.4.3"],\
           ["@nestjs/core", "virtual:384ea579cfa4894f6eac15b91efb921812c2f87fc877e3e286eadb6b78ddc99a7b8b2c81597d0c76179dfd62ebca58864a616049a66816fb0d2621b12550c91c#npm:10.4.3"],\
           ["@nestjs/schedule", "virtual:384ea579cfa4894f6eac15b91efb921812c2f87fc877e3e286eadb6b78ddc99a7b8b2c81597d0c76179dfd62ebca58864a616049a66816fb0d2621b12550c91c#npm:4.1.1"],\

@@ -296,6 +296,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@atls/nestjs-batch-queue@workspace:packages/nestjs-batch-queue"
   dependencies:
+    "@jest/globals": "npm:29.7.0"
     "@nestjs/common": "npm:^10.0.5"
     "@nestjs/core": "npm:^10.0.5"
     "@nestjs/schedule": "npm:4.1.1"
