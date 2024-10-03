@@ -166,12 +166,12 @@ export class BatchQueue<T> implements BatchQueueI<T> {
   }
 
   private async triggerOkCallbacks(): Promise<void> {
-    const promises = Promise.all(this.onOkCallbacks)
+    const promises = Promise.all(this.onOkCallbacks.map((callback) => callback()))
     await promises
   }
 
   private async triggerFailCallbacks(): Promise<void> {
-    const promises = Promise.all(this.onFailCallbacks)
+    const promises = Promise.all(this.onFailCallbacks.map((callback) => callback()))
     await promises
   }
 }
