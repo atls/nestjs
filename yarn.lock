@@ -300,6 +300,7 @@ __metadata:
     "@nestjs/common": "npm:^10.0.5"
     "@nestjs/core": "npm:^10.0.5"
     "@nestjs/schedule": "npm:4.1.1"
+    "@nestjs/testing": "npm:10.4.1"
     cron: "npm:3.1.7"
     reflect-metadata: "npm:^0.1.13"
     rxjs: "npm:^7.8.1"
