@@ -55,23 +55,19 @@ export class BatchQueueModule {
   private static createAsyncProviders(options: BatchQueueModuleAsyncOptions): Array<Provider> {
     const batchQueueProvider = {
       provide: 'BATCH_QUEUE',
-      useFactory: (opt: BatchQueueModuleOptions): BatchQueue => {
-        return new BatchQueue(opt.core)
-      },
+      useFactory: (opt: BatchQueueModuleOptions): BatchQueue<any> => new BatchQueue(opt.core),
       inject: [BATCH_QUEUE_MODULE_OPTIONS],
-    };
+    }
 
     const consumerProvider = {
       provide: BATCH_QUEUE_CONSUMER,
-      useFactory: (batchQueue: BatchQueue<any>): Consumer => 
-        new Consumer(batchQueue),
+      useFactory: (batchQueue: BatchQueue<any>): Consumer => new Consumer(batchQueue),
       inject: ['BATCH_QUEUE'],
     }
 
     const producerProvider = {
       provide: BATCH_QUEUE_PRODUCER,
-      useFactory: (batchQueue: BatchQueue<any>): Producer => 
-        new Producer(batchQueue),
+      useFactory: (batchQueue: BatchQueue<any>): Producer<any> => new Producer(batchQueue),
       inject: ['BATCH_QUEUE'],
     }
 
