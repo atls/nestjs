@@ -9,16 +9,13 @@ import type { Checks }                         from './batch-queue.interface.js'
 import type { CheckOk }                        from './batch-queue.interface.js'
 import type { CheckFail }                      from './batch-queue.interface.js'
 import type { CheckOnAdd }                     from './batch-queue.interface.js'
+import type { BatchQueueOptions }              from './batch-queue.interface.js'
 
-import { Injectable }                          from '@nestjs/common'
-
-import { BatchQueueOptions }                   from './batch-queue.interface.js'
 import { MaxQueueCountError }                  from './errors/index.js'
 import { MaxQueueLengthExceededError }         from './errors/index.js'
 import { MaxTotalLengthOfQueuesExceededError } from './errors/index.js'
 import { CheckFailedError }                    from './errors/index.js'
 
-@Injectable()
 export class BatchQueue<T> {
   private queues: Map<QueueName, Array<T>> = new Map()
 

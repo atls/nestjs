@@ -6,46 +6,59 @@ import type { BatchQueueModuleOptions }      from './batch-queue-module-options.
 import type { BatchQueueOptionsFactory }     from './batch-queue-module-options.interface.js'
 
 import { Module }                            from '@nestjs/common'
+import { Inject }                            from '@nestjs/common'
 
+import { BatchQueue }                        from '../batch-queue/index.js'
+import { Consumer }                          from '../batch-queue/index.js'
 import { BATCH_QUEUE_MODULE_OPTIONS }        from './batch-queue.constants.js'
-import { createBatchQueueOptionsProvider }   from './batch-queue.providers.js'
-import { createBatchQueueExportsProvider }   from './batch-queue.providers.js'
+import { BATCH_QUEUE_CONSUMER }              from './batch-queue.constants.js'
+
+// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types, @typescript-eslint/explicit-function-return-type
+export const BatchConsumer = () => Inject(BATCH_QUEUE_CONSUMER)
 
 @Module({})
 export class BatchQueueModule {
   static register(options: BatchQueueModuleOptions): DynamicModule {
-    const optionsProviders = createBatchQueueOptionsProvider(options)
-    const exportsProviders = createBatchQueueExportsProvider()
+    const batchQueue = new BatchQueue(options.core)
 
-    // TODO: Create BatchQueue + inject to checkers + inject to producers + inject to consumers
+    const consumerProvider = {
+      provide: BATCH_QUEUE_CONSUMER,
+      useValue: new Consumer(batchQueue),
+    }
 
     return {
       module: BatchQueueModule,
-      providers: [...optionsProviders, ...exportsProviders],
-      exports: exportsProviders,
+      providers: [consumerProvider],
+      exports: [BATCH_QUEUE_CONSUMER],
     }
   }
 
   static registerAsync(options: BatchQueueModuleAsyncOptions): DynamicModule {
-    const exportsProviders = createBatchQueueExportsProvider()
-
-    // TODO: Create BatchQueue + inject to checkers + inject to producers + inject to consumers
-
     return {
       module: BatchQueueModule,
       imports: options.imports || [],
-      providers: [...this.createAsyncProviders(options), ...exportsProviders],
-      exports: exportsProviders,
+      providers: [...this.createAsyncProviders(options)],
+      exports: [BATCH_QUEUE_CONSUMER],
     }
   }
 
   private static createAsyncProviders(options: BatchQueueModuleAsyncOptions): Array<Provider> {
+    const batchQueueConsumerProvider = {
+      provide: BATCH_QUEUE_CONSUMER,
+      useFactory: (opt: BatchQueueModuleOptions): Consumer => {
+        const batchQueue = new BatchQueue(opt.core)
+        return new Consumer(batchQueue)
+      },
+      inject: [BATCH_QUEUE_MODULE_OPTIONS],
+    }
+
     if (options.useExisting || options.useFactory) {
-      return [this.createAsyncOptionsProvider(options)]
+      return [this.createAsyncOptionsProvider(options), batchQueueConsumerProvider]
     }
 
     return [
       this.createAsyncOptionsProvider(options),
+      batchQueueConsumerProvider,
       {
         provide: options.useClass!,
         useClass: options.useClass!,
