@@ -83,7 +83,7 @@ export class BatchQueue<T> implements BatchQueueI<T> {
       throw new MaxTotalLengthOfQueuesExceededError()
     }
 
-    await this.checkOnAddChecks(items.length);
+    await this.checkOnAddChecks(items.length)
 
     queue.push(...items)
     this.totalQueueLength += items.length
@@ -158,7 +158,7 @@ export class BatchQueue<T> implements BatchQueueI<T> {
     }
   }
 
-  private async checkOnAddChecks(itemsLength: number): void {
+  private async checkOnAddChecks(itemsLength: number): Promise<void> {
     for (const [
       checkName,
       { checkOnAdd, checkEveryItem, currentItemCounter },
