@@ -1,5 +1,6 @@
 import type { ProcessorFn }                    from './batch-queue.interface.js'
 import type { OnChangeStateToOkCallback }      from './batch-queue.interface.js'
+import type { CheckOnAdd }                     from './batch-queue.interface.js'
 
 import { jest }                                from '@jest/globals'
 import { beforeEach }                          from '@jest/globals'
@@ -150,5 +151,121 @@ describe('BatchQueue', () => {
     jest.advanceTimersByTime(2000)
 
     expect(slowProcessorFn).toHaveBeenCalledTimes(2)
+  })
+
+  it('should not trigger checkOnAdd until the specified number of items is added', async () => {
+    const batchQueue = new BatchQueue<number>(defaultOptions)
+    const checkOnAdd = jest.fn().mockResolvedValue(true) as CheckOnAdd
+    batchQueue.createCheckOnAdd('check1', checkOnAdd, 3)
+
+    await batchQueue.addMany({ queueName: 'queue1', items: [1, 2] })
+
+    expect(checkOnAdd).not.toHaveBeenCalled()
+
+    await batchQueue.addMany({ queueName: 'queue1', items: [3] })
+
+    expect(checkOnAdd).toHaveBeenCalledTimes(1)
+  })
+
+  it('should throw CheckFailedError if checkOnAdd returns false', async () => {
+    const batchQueue = new BatchQueue<number>(defaultOptions)
+    const checkOnAdd = jest.fn().mockResolvedValue(false)
+    batchQueue.createCheckOnAdd('check1', checkOnAdd, 2)
+
+    await expect(batchQueue.addMany({ queueName: 'queue1', items: [1, 2] }))
+      .rejects
+      .toThrow(CheckFailedError)
+
+    expect(checkOnAdd).toHaveBeenCalledTimes(1)
+  })
+
+  it('should accumulate currentItemCounter across multiple addMany calls', async () => {
+    jest.useFakeTimers()
+    const batchQueue = new BatchQueue<number>(defaultOptions)
+    const checkOnAdd = jest.fn().mockResolvedValue(true)
+    batchQueue.createCheckOnAdd('check1', checkOnAdd, 5)
+
+    await batchQueue.addMany({ queueName: 'queue1', items: [1, 2] })
+    await batchQueue.addMany({ queueName: 'queue1', items: [3, 4] })
+
+    expect(checkOnAdd).not.toHaveBeenCalled()
+
+    jest.advanceTimersByTime(300)
+
+    await batchQueue.addMany({ queueName: 'queue1', items: [5] })
+
+    expect(checkOnAdd).toHaveBeenCalledTimes(1)
+  })
+
+  it('should call checkOnAdd after adding the specified number of items across different queues', async () => {
+    const batchQueue = new BatchQueue<number>(defaultOptions)
+    const checkOnAdd = jest.fn().mockResolvedValue(true)
+    batchQueue.createCheckOnAdd('check1', checkOnAdd, 5)
+
+    await batchQueue.addMany({ queueName: 'queue1', items: [1, 2] })
+    await batchQueue.addMany({ queueName: 'queue2', items: [3, 4] })
+
+    expect(checkOnAdd).not.toHaveBeenCalled()
+
+    await batchQueue.addMany({ queueName: 'queue1', items: [5] })
+
+    expect(checkOnAdd).toHaveBeenCalledTimes(1)
+  })
+
+  it('should handle async checkOnAdd correctly', async () => {
+    jest.useRealTimers()
+    const batchQueue = new BatchQueue<number>(defaultOptions)
+    const processorFn = jest.fn().mockResolvedValue(true) as ProcessorFn<number>
+    batchQueue.processBatch(processorFn)
+    let callInsideAsync = 0;
+    const checkOnAdd = jest.fn().mockImplementation(() => new Promise((resolve) => {
+      setTimeout(() => {
+        callInsideAsync += 1
+        resolve(true)
+      }, 500)
+    })) as CheckOnAdd
+    batchQueue.createCheckOnAdd('check1', checkOnAdd, 3)
+
+    await batchQueue.addMany({ queueName: 'queue1', items: [1, 2] })
+    expect(callInsideAsync).toBe(0)
+    await batchQueue.addMany({ queueName: 'queue1', items: [3] })
+
+    expect(checkOnAdd).toHaveBeenCalledTimes(1)
+    expect(callInsideAsync).toBe(1)
+    jest.useFakeTimers()
+  })
+
+  it('should handle checkOnAdd failures across multiple queues and throw CheckFailedError', async () => {
+    const batchQueue = new BatchQueue<number>(defaultOptions)
+    const checkOnAdd1 = jest.fn().mockResolvedValue(true)
+    const checkOnAdd2 = jest.fn().mockResolvedValue(false)
+
+    batchQueue.createCheckOnAdd('check1', checkOnAdd1, 3)
+    batchQueue.createCheckOnAdd('check2', checkOnAdd2, 2)
+
+    await batchQueue.addMany({ queueName: 'queue1', items: [1] })
+
+    await expect(batchQueue.addMany({ queueName: 'queue2', items: [2, 3] })).rejects.toThrow(
+      CheckFailedError
+    )
+
+    expect(checkOnAdd2).toHaveBeenCalledTimes(1)
+  })
+
+  it('should reset checkOnAdd counter after successful check', async () => {
+    const batchQueue = new BatchQueue<number>(defaultOptions)
+    const processorFn = jest.fn().mockResolvedValue(true) as ProcessorFn<number>
+    batchQueue.processBatch(processorFn)
+    const checkOnAdd = jest.fn().mockResolvedValue(true)
+    batchQueue.createCheckOnAdd('check1', checkOnAdd, 3)
+
+    await batchQueue.addMany({ queueName: 'queue1', items: [1, 2] })
+    await batchQueue.addMany({ queueName: 'queue2', items: [3] })
+
+    expect(checkOnAdd).toHaveBeenCalledTimes(1)
+
+    await batchQueue.addMany({ queueName: 'queue3', items: [4, 5] })
+
+    expect(checkOnAdd).toHaveBeenCalledTimes(2)
   })
 })
