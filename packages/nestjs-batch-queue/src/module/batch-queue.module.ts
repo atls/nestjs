@@ -39,9 +39,7 @@ export class BatchQueueModule {
     }
   }
 
-  private static createAsyncProviders(
-    options: BatchQueueModuleAsyncOptions
-  ): Array<Provider> {
+  private static createAsyncProviders(options: BatchQueueModuleAsyncOptions): Array<Provider> {
     if (options.useExisting || options.useFactory) {
       return [this.createAsyncOptionsProvider(options)]
     }

@@ -1,4 +1,4 @@
-import type { Provider }                      from '@nestjs/common'
+import type { Provider }                from '@nestjs/common'
 
 import type { BatchQueueModuleOptions } from './batch-queue-module-options.interface.js'
 
