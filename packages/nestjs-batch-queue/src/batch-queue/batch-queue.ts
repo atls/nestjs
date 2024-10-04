@@ -9,6 +9,7 @@ import type { AddManyCond }                    from './batch-queue.interface.js'
 import type { Checks }                         from './batch-queue.interface.js'
 import type { CheckOk }                        from './batch-queue.interface.js'
 import type { CheckFail }                      from './batch-queue.interface.js'
+import type { CheckOnAdd }                     from './batch-queue.interface.js'
 
 import { Injectable }                          from '@nestjs/common'
 
@@ -23,6 +24,15 @@ export class BatchQueue<T> implements BatchQueueI<T> {
   private queues: Map<QueueName, Array<T>> = new Map()
 
   private checks: Map<CheckName, boolean> = new Map()
+
+  private onAddChecks: Map<
+    CheckName,
+    {
+      checkOnAdd: CheckOnAdd
+      checkEveryItem: number
+      currentItemCounter: number
+    }
+  > = new Map()
 
   private onOkCallbacks: Array<OnChangeStateToOkCallback> = []
 
@@ -73,6 +83,8 @@ export class BatchQueue<T> implements BatchQueueI<T> {
       throw new MaxTotalLengthOfQueuesExceededError()
     }
 
+    await this.checkOnAddChecks(items.length);
+
     queue.push(...items)
     this.totalQueueLength += items.length
 
@@ -109,6 +121,14 @@ export class BatchQueue<T> implements BatchQueueI<T> {
     return { checkOk, checkFail }
   }
 
+  public createCheckOnAdd(
+    checkName: CheckName,
+    checkOnAdd: CheckOnAdd,
+    checkEveryItem: number
+  ): void {
+    this.onAddChecks.set(checkName, { checkOnAdd, checkEveryItem, currentItemCounter: 0 })
+  }
+
   public onChangeTotalStateToOk(callback: OnChangeStateToOkCallback): void {
     this.onOkCallbacks.push(callback)
   }
@@ -135,6 +155,24 @@ export class BatchQueue<T> implements BatchQueueI<T> {
     }
     if (failedChecks.length > 0) {
       throw new CheckFailedError(failedChecks)
+    }
+  }
+
+  private async checkOnAddChecks(itemsLength: number): void {
+    for (const [
+      checkName,
+      { checkOnAdd, checkEveryItem, currentItemCounter },
+    ] of this.onAddChecks.entries()) {
+      const itemCounter = currentItemCounter + itemsLength
+      // eslint-disable-next-line no-continue
+      if (itemCounter < checkEveryItem) continue
+      // eslint-disable-next-line no-await-in-loop
+      const okCheck = await checkOnAdd()
+      if (!okCheck) throw new CheckFailedError([checkName])
+    }
+
+    for (const value of this.onAddChecks.values()) {
+      value.currentItemCounter += itemsLength
     }
   }
 

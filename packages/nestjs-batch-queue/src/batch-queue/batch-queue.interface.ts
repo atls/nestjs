@@ -9,6 +9,7 @@ export type AddManyCond<T> = {
   items: Array<T>
 }
 export type ProcessorFn<T> = (queueName: QueueName, item: Array<T>) => Promise<void>
+export type CheckOnAdd = () => Promise<boolean>
 export type CheckOk = () => Promise<void>
 export type CheckFail = () => Promise<void>
 export type Checks = {
