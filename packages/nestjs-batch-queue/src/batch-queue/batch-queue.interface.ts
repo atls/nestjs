@@ -19,15 +19,6 @@ export type Checks = {
 export type OnChangeStateToOkCallback = () => Promise<void>
 export type OnChangeStateToFailCallback = () => Promise<void>
 
-export interface BatchQueueI<T> {
-  add: (addCond: AddCond<T>) => Promise<void>
-  addMany: (addManyCond: AddManyCond<T>) => Promise<void>
-  processBatch: (processorFn: ProcessorFn<T>) => void
-  createCheck: (checkName: CheckName, initialState: boolean) => Checks
-  onChangeTotalStateToOk: (callback: OnChangeStateToOkCallback) => void
-  onChangeTotalStateToFail: (callback: OnChangeStateToFailCallback) => void
-}
-
 export interface BatchQueueOptions {
   maxQueueLength: number
   maxTotalQueueLength: number

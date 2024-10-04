@@ -1,4 +1,3 @@
-import type { BatchQueueI }                    from './batch-queue.interface.js'
 import type { QueueName }                      from './batch-queue.interface.js'
 import type { CheckName }                      from './batch-queue.interface.js'
 import type { OnChangeStateToOkCallback }      from './batch-queue.interface.js'
@@ -20,7 +19,7 @@ import { MaxTotalLengthOfQueuesExceededError } from './errors/index.js'
 import { CheckFailedError }                    from './errors/index.js'
 
 @Injectable()
-export class BatchQueue<T> implements BatchQueueI<T> {
+export class BatchQueue<T> {
   private queues: Map<QueueName, Array<T>> = new Map()
 
   private checks: Map<CheckName, boolean> = new Map()
