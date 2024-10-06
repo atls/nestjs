@@ -7,7 +7,8 @@ import { Injectable }           from '@nestjs/common'
 import { SchedulerRegistry }    from '@nestjs/schedule'
 import { CronJob }              from 'cron'
 
-import { BatchQueue }           from '../../batch-queue/index.js'
+import { Checker }              from '../../batch-queue/index.js'
+import { BatchChecker }         from '../../module/index.js'
 import { MEMORY_CHECK_NAME }    from './memory-checker.constants.js'
 import { MemoryCheckerOptions } from './memory-checker.interface.js'
 
@@ -20,13 +21,13 @@ export class MemoryChecker implements OnModuleInit {
   private checkFail: CheckFail
 
   constructor(
-    private batchQueue: BatchQueue<any>,
+    @BatchChecker() private checker: Checker,
     private memoryCheckerOptions: MemoryCheckerOptions,
     private schedulerRegistry: SchedulerRegistry
   ) {}
 
   async onModuleInit(): Promise<void> {
-    const { checkOk, checkFail } = await this.batchQueue.createCheck(MEMORY_CHECK_NAME, false)
+    const { checkOk, checkFail } = await this.checker.createCheck(MEMORY_CHECK_NAME, false)
     this.checkOk = checkOk
     this.checkFail = checkFail
     const { intervalSec } = this.memoryCheckerOptions.schedule
