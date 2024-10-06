@@ -6,7 +6,6 @@ import type { BatchQueueModuleOptions }      from './batch-queue-module-options.
 import type { BatchQueueOptionsFactory }     from './batch-queue-module-options.interface.js'
 
 import { Module }                            from '@nestjs/common'
-import { Inject }                            from '@nestjs/common'
 
 import { BatchQueue }                        from '../batch-queue/index.js'
 import { Consumer }                          from '../batch-queue/index.js'
@@ -18,18 +17,6 @@ import { BATCH_QUEUE_CONSUMER }              from './batch-queue.constants.js'
 import { BATCH_QUEUE_PRODUCER }              from './batch-queue.constants.js'
 import { BATCH_QUEUE_CHECKER }               from './batch-queue.constants.js'
 import { BATCH_QUEUE_STATE_HANDLER }         from './batch-queue.constants.js'
-
-// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types, @typescript-eslint/explicit-function-return-type
-export const BatchConsumer = () => Inject(BATCH_QUEUE_CONSUMER)
-
-// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types, @typescript-eslint/explicit-function-return-type
-export const BatchProducer = () => Inject(BATCH_QUEUE_PRODUCER)
-
-// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types, @typescript-eslint/explicit-function-return-type
-export const BatchChecker = () => Inject(BATCH_QUEUE_CHECKER)
-
-// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types, @typescript-eslint/explicit-function-return-type
-export const BatchStateHandler = () => Inject(BATCH_QUEUE_STATE_HANDLER)
 
 @Module({})
 export class BatchQueueModule {
