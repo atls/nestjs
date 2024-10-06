@@ -12,10 +12,12 @@ import { BatchQueue }                        from '../batch-queue/index.js'
 import { Consumer }                          from '../batch-queue/index.js'
 import { Producer }                          from '../batch-queue/index.js'
 import { Checker }                           from '../batch-queue/index.js'
+import { StateHandler }                      from '../batch-queue/index.js'
 import { BATCH_QUEUE_MODULE_OPTIONS }        from './batch-queue.constants.js'
 import { BATCH_QUEUE_CONSUMER }              from './batch-queue.constants.js'
 import { BATCH_QUEUE_PRODUCER }              from './batch-queue.constants.js'
 import { BATCH_QUEUE_CHECKER }               from './batch-queue.constants.js'
+import { BATCH_QUEUE_STATE_HANDLER }         from './batch-queue.constants.js'
 
 // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types, @typescript-eslint/explicit-function-return-type
 export const BatchConsumer = () => Inject(BATCH_QUEUE_CONSUMER)
@@ -25,6 +27,9 @@ export const BatchProducer = () => Inject(BATCH_QUEUE_PRODUCER)
 
 // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types, @typescript-eslint/explicit-function-return-type
 export const BatchChecker = () => Inject(BATCH_QUEUE_CHECKER)
+
+// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types, @typescript-eslint/explicit-function-return-type
+export const BatchStateHandler = () => Inject(BATCH_QUEUE_STATE_HANDLER)
 
 @Module({})
 export class BatchQueueModule {
@@ -46,10 +51,20 @@ export class BatchQueueModule {
       useValue: new Checker(batchQueue),
     }
 
+    const stateHandlerProvider = {
+      provide: BATCH_QUEUE_STATE_HANDLER,
+      useValue: new StateHandler(batchQueue),
+    }
+
     return {
       module: BatchQueueModule,
-      providers: [consumerProvider, producerProvider, checkerProvider],
-      exports: [BATCH_QUEUE_CONSUMER, BATCH_QUEUE_PRODUCER, BATCH_QUEUE_CHECKER],
+      providers: [consumerProvider, producerProvider, checkerProvider, stateHandlerProvider],
+      exports: [
+        BATCH_QUEUE_CONSUMER,
+        BATCH_QUEUE_PRODUCER,
+        BATCH_QUEUE_CHECKER,
+        BATCH_QUEUE_STATE_HANDLER,
+      ],
     }
   }
 
@@ -58,7 +73,12 @@ export class BatchQueueModule {
       module: BatchQueueModule,
       imports: options.imports || [],
       providers: [...this.createAsyncProviders(options)],
-      exports: [BATCH_QUEUE_CONSUMER, BATCH_QUEUE_PRODUCER, BATCH_QUEUE_CHECKER],
+      exports: [
+        BATCH_QUEUE_CONSUMER,
+        BATCH_QUEUE_PRODUCER,
+        BATCH_QUEUE_CHECKER,
+        BATCH_QUEUE_STATE_HANDLER,
+      ],
     }
   }
 
@@ -87,6 +107,12 @@ export class BatchQueueModule {
       inject: ['BATCH_QUEUE'],
     }
 
+    const stateHandlerProvider = {
+      provide: BATCH_QUEUE_STATE_HANDLER,
+      useFactory: (batchQueue: BatchQueue<any>): StateHandler => new StateHandler(batchQueue),
+      inject: ['BATCH_QUEUE'],
+    }
+
     if (options.useExisting || options.useFactory) {
       return [
         this.createAsyncOptionsProvider(options),
@@ -94,6 +120,7 @@ export class BatchQueueModule {
         consumerProvider,
         producerProvider,
         checkerProvider,
+        stateHandlerProvider,
       ]
     }
 
@@ -103,6 +130,7 @@ export class BatchQueueModule {
       consumerProvider,
       producerProvider,
       checkerProvider,
+      stateHandlerProvider,
       {
         provide: options.useClass!,
         useClass: options.useClass!,
