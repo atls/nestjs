@@ -11,15 +11,20 @@ import { Inject }                            from '@nestjs/common'
 import { BatchQueue }                        from '../batch-queue/index.js'
 import { Consumer }                          from '../batch-queue/index.js'
 import { Producer }                          from '../batch-queue/index.js'
+import { Checker }                           from '../batch-queue/index.js'
 import { BATCH_QUEUE_MODULE_OPTIONS }        from './batch-queue.constants.js'
 import { BATCH_QUEUE_CONSUMER }              from './batch-queue.constants.js'
 import { BATCH_QUEUE_PRODUCER }              from './batch-queue.constants.js'
+import { BATCH_QUEUE_CHECKER }               from './batch-queue.constants.js'
 
 // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types, @typescript-eslint/explicit-function-return-type
 export const BatchConsumer = () => Inject(BATCH_QUEUE_CONSUMER)
 
 // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types, @typescript-eslint/explicit-function-return-type
 export const BatchProducer = () => Inject(BATCH_QUEUE_PRODUCER)
+
+// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types, @typescript-eslint/explicit-function-return-type
+export const BatchChecker = () => Inject(BATCH_QUEUE_CHECKER)
 
 @Module({})
 export class BatchQueueModule {
@@ -36,10 +41,15 @@ export class BatchQueueModule {
       useValue: new Producer(batchQueue),
     }
 
+    const checkerProvider = {
+      provide: BATCH_QUEUE_CHECKER,
+      useValue: new Checker(batchQueue),
+    }
+
     return {
       module: BatchQueueModule,
-      providers: [consumerProvider, producerProvider],
-      exports: [BATCH_QUEUE_CONSUMER, BATCH_QUEUE_PRODUCER],
+      providers: [consumerProvider, producerProvider, checkerProvider],
+      exports: [BATCH_QUEUE_CONSUMER, BATCH_QUEUE_PRODUCER, BATCH_QUEUE_CHECKER],
     }
   }
 
@@ -48,7 +58,7 @@ export class BatchQueueModule {
       module: BatchQueueModule,
       imports: options.imports || [],
       providers: [...this.createAsyncProviders(options)],
-      exports: [BATCH_QUEUE_CONSUMER, BATCH_QUEUE_PRODUCER],
+      exports: [BATCH_QUEUE_CONSUMER, BATCH_QUEUE_PRODUCER, BATCH_QUEUE_CHECKER],
     }
   }
 
@@ -71,12 +81,19 @@ export class BatchQueueModule {
       inject: ['BATCH_QUEUE'],
     }
 
+    const checkerProvider = {
+      provide: BATCH_QUEUE_CHECKER,
+      useFactory: (batchQueue: BatchQueue<any>): Checker => new Checker(batchQueue),
+      inject: ['BATCH_QUEUE'],
+    }
+
     if (options.useExisting || options.useFactory) {
       return [
         this.createAsyncOptionsProvider(options),
         batchQueueProvider,
         consumerProvider,
         producerProvider,
+        checkerProvider,
       ]
     }
 
@@ -85,6 +102,7 @@ export class BatchQueueModule {
       batchQueueProvider,
       consumerProvider,
       producerProvider,
+      checkerProvider,
       {
         provide: options.useClass!,
         useClass: options.useClass!,
