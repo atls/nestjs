@@ -1,4 +1,4 @@
-export type QueueName = string | symbol
+export type QueueName = string
 export type CheckName = string | symbol
 export type AddCond<T> = {
   queueName: QueueName
