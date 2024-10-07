@@ -15,7 +15,6 @@ import { MaxQueueCountError }                  from './errors/index.js'
 import { MaxQueueLengthExceededError }         from './errors/index.js'
 import { MaxTotalLengthOfQueuesExceededError } from './errors/index.js'
 import { CheckFailedError }                    from './errors/index.js'
-
 import { Mutex }                               from './utils/index.js'
 
 export class BatchQueue<T> {
@@ -58,7 +57,7 @@ export class BatchQueue<T> {
   }
 
   public async addMany(addManyCond: AddManyCond<T>): Promise<void> {
-    const unlock = await this.getMutex(addManyCond.queueName).lock();
+    const unlock = await this.getMutex(addManyCond.queueName).lock()
     try {
       this.checkAllChecks()
 
@@ -92,7 +91,7 @@ export class BatchQueue<T> {
 
       this.startTimerIfNecessary(queueName)
     } finally {
-      unlock();
+      unlock()
     }
   }
 
@@ -220,8 +219,8 @@ export class BatchQueue<T> {
 
   private getMutex(queueName: QueueName): Mutex {
     if (!this.mutexes.has(queueName)) {
-      this.mutexes.set(queueName, new Mutex());
+      this.mutexes.set(queueName, new Mutex())
     }
-    return this.mutexes.get(queueName)!;
+    return this.mutexes.get(queueName)!
   }
 }
