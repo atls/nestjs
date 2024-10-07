@@ -90,9 +90,11 @@ export class BatchQueue<T> {
       this.totalQueueLength += items.length
 
       this.startTimerIfNecessary(queueName)
-    } finally {
+    } catch (e) {
       unlock()
+      throw e
     }
+    unlock()
   }
 
   public processBatch(processorFn: ProcessorFn<T>): void {
