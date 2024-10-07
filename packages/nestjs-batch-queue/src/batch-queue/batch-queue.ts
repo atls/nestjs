@@ -16,6 +16,8 @@ import { MaxQueueLengthExceededError }         from './errors/index.js'
 import { MaxTotalLengthOfQueuesExceededError } from './errors/index.js'
 import { CheckFailedError }                    from './errors/index.js'
 
+import { Mutex }                               from './utils/index.js'
+
 export class BatchQueue<T> {
   private queues: Map<QueueName, Array<T>> = new Map()
 
@@ -42,6 +44,8 @@ export class BatchQueue<T> {
 
   private processorFn: ProcessorFn<T>
 
+  private mutexes: Map<QueueName, Mutex> = new Map()
+
   constructor(options: BatchQueueOptions) {
     this.options = options
   }
@@ -54,37 +58,42 @@ export class BatchQueue<T> {
   }
 
   public async addMany(addManyCond: AddManyCond<T>): Promise<void> {
-    this.checkAllChecks()
+    const unlock = await this.getMutex(addManyCond.queueName).lock();
+    try {
+      this.checkAllChecks()
 
-    const { queueName, items } = addManyCond
+      const { queueName, items } = addManyCond
 
-    if (!this.queues.has(queueName)) {
-      if (this.queues.size >= this.options.maxQueues) {
-        throw new MaxQueueCountError()
+      if (!this.queues.has(queueName)) {
+        if (this.queues.size >= this.options.maxQueues) {
+          throw new MaxQueueCountError()
+        }
+        this.queues.set(queueName, [])
       }
-      this.queues.set(queueName, [])
+
+      const queue = this.queues.get(queueName)
+      if (!queue) return
+
+      if (queue.length + items.length > this.options.maxQueueLength) {
+        await this.triggerProcessing(queueName)
+        throw new MaxQueueLengthExceededError()
+      }
+
+      const totalQueueWithItemsLength = this.totalQueueLength + items.length
+      if (totalQueueWithItemsLength > this.options.maxTotalQueueLength) {
+        await this.triggerProcessing(queueName)
+        throw new MaxTotalLengthOfQueuesExceededError()
+      }
+
+      await this.checkOnAddChecks(items.length)
+
+      queue.push(...items)
+      this.totalQueueLength += items.length
+
+      this.startTimerIfNecessary(queueName)
+    } finally {
+      unlock();
     }
-
-    const queue = this.queues.get(queueName)
-    if (!queue) return
-
-    if (queue.length + items.length > this.options.maxQueueLength) {
-      await this.triggerProcessing(queueName)
-      throw new MaxQueueLengthExceededError()
-    }
-
-    const totalQueueWithItemsLength = this.totalQueueLength + items.length
-    if (totalQueueWithItemsLength > this.options.maxTotalQueueLength) {
-      await this.triggerProcessing(queueName)
-      throw new MaxTotalLengthOfQueuesExceededError()
-    }
-
-    await this.checkOnAddChecks(items.length)
-
-    queue.push(...items)
-    this.totalQueueLength += items.length
-
-    this.startTimerIfNecessary(queueName)
   }
 
   public processBatch(processorFn: ProcessorFn<T>): void {
@@ -207,5 +216,12 @@ export class BatchQueue<T> {
   private async triggerFailCallbacks(): Promise<void> {
     const promises = Promise.all(this.onFailCallbacks.map(async (callback) => callback()))
     await promises
+  }
+
+  private getMutex(queueName: QueueName): Mutex {
+    if (!this.mutexes.has(queueName)) {
+      this.mutexes.set(queueName, new Mutex());
+    }
+    return this.mutexes.get(queueName)!;
   }
 }
