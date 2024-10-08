@@ -17,11 +17,17 @@ import { BATCH_QUEUE_CONSUMER }              from './batch-queue.constants.js'
 import { BATCH_QUEUE_PRODUCER }              from './batch-queue.constants.js'
 import { BATCH_QUEUE_CHECKER }               from './batch-queue.constants.js'
 import { BATCH_QUEUE_STATE_HANDLER }         from './batch-queue.constants.js'
+import { MEMORY_CHECKER_OPTIONS }            from './batch-queue.constants.js'
 
 @Module({})
 export class BatchQueueModule {
   static register(options: BatchQueueModuleOptions): DynamicModule {
     const batchQueue = new BatchQueue(options.core)
+
+    const memoryCheckerOptionsProvider = {
+      provide: MEMORY_CHECKER_OPTIONS,
+      useValue: options.memoryCheckerOptions,
+    }
 
     const consumerProvider = {
       provide: BATCH_QUEUE_CONSUMER,
@@ -45,12 +51,19 @@ export class BatchQueueModule {
 
     return {
       module: BatchQueueModule,
-      providers: [consumerProvider, producerProvider, checkerProvider, stateHandlerProvider],
+      providers: [
+        consumerProvider,
+        producerProvider,
+        checkerProvider,
+        stateHandlerProvider,
+        memoryCheckerOptionsProvider,
+      ],
       exports: [
         BATCH_QUEUE_CONSUMER,
         BATCH_QUEUE_PRODUCER,
         BATCH_QUEUE_CHECKER,
         BATCH_QUEUE_STATE_HANDLER,
+        MEMORY_CHECKER_OPTIONS,
       ],
     }
   }
@@ -65,6 +78,7 @@ export class BatchQueueModule {
         BATCH_QUEUE_PRODUCER,
         BATCH_QUEUE_CHECKER,
         BATCH_QUEUE_STATE_HANDLER,
+        MEMORY_CHECKER_OPTIONS,
       ],
     }
   }
@@ -73,6 +87,12 @@ export class BatchQueueModule {
     const batchQueueProvider = {
       provide: 'BATCH_QUEUE',
       useFactory: (opt: BatchQueueModuleOptions): BatchQueue<any> => new BatchQueue(opt.core),
+      inject: [BATCH_QUEUE_MODULE_OPTIONS],
+    }
+
+    const memoryCheckerOptionsProvider = {
+      provide: MEMORY_CHECKER_OPTIONS,
+      useFactory: (opt: BatchQueueModuleOptions) => opt.memoryCheckerOptions,
       inject: [BATCH_QUEUE_MODULE_OPTIONS],
     }
 
@@ -108,6 +128,7 @@ export class BatchQueueModule {
         producerProvider,
         checkerProvider,
         stateHandlerProvider,
+        memoryCheckerOptionsProvider,
       ]
     }
 
@@ -118,6 +139,7 @@ export class BatchQueueModule {
       producerProvider,
       checkerProvider,
       stateHandlerProvider,
+      memoryCheckerOptionsProvider,
       {
         provide: options.useClass!,
         useClass: options.useClass!,
