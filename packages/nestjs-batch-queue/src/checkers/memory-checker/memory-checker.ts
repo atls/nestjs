@@ -21,7 +21,7 @@ export class MemoryChecker implements OnModuleInit {
   private checkFail: CheckFail
 
   constructor(
-    @InjectBatchChecker() private checker: Checker,
+    @InjectBatchChecker() private readonly checker: Checker,
     private memoryCheckerOptions: MemoryCheckerOptions,
     private schedulerRegistry: SchedulerRegistry
   ) {}
