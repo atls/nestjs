@@ -276,7 +276,7 @@ describe('BatchQueue', () => {
 
     expect(checkOnAdd).toHaveBeenCalledTimes(1)
 
-    await batchQueue.addMany({ queueName: 'queue3', items: [4, 5] })
+    await batchQueue.addMany({ queueName: 'queue3', items: [4, 5, 6] })
 
     expect(checkOnAdd).toHaveBeenCalledTimes(2)
   })
