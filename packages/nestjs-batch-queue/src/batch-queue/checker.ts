@@ -9,4 +9,12 @@ export class Checker {
     const checks = this.batchQueue.createCheck(checkName, initialState)
     return checks
   }
+
+  public createCheckOnAdd(
+    checkName: CheckName,
+    checkOnAdd: CheckOnAdd,
+    checkEveryItem: number
+  ) {
+    this.batchQueue.createCheckOnAdd(checkName, checkOnAdd, checkEveryItem)
+  }
 }
