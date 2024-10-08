@@ -35,6 +35,11 @@ export class MemoryChecker implements OnModuleInit {
       await this.checkMemory()
     })
     this.schedulerRegistry.addCronJob(MemoryChecker.jobName, job)
+    this.checker.createCheckOnAdd(
+      MEMORY_CHECK_NAME,
+      this.memoryCheckerOptions.everyAdd.checkEveryItem,
+      this.checkMemory.bind(this)
+    )
     job.start()
   }
 

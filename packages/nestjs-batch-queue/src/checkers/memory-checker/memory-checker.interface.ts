@@ -9,4 +9,7 @@ export interface MemoryCheckerOptions {
   schedule: {
     intervalSec: number
   }
+  everyAdd: {
+    checkEveryItem: number
+  }
 }
