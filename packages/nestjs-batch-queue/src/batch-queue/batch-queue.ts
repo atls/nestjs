@@ -12,10 +12,10 @@ import type { CheckOnAdd }                     from './batch-queue.interface.js'
 import type { BatchQueueOptions }              from './batch-queue.interface.js'
 import type { OnAddConfig }                    from './batch-queue.interface.js'
 
-import { MaxQueueCountError }                  from './errors/index.js'
-import { MaxQueueLengthExceededError }         from './errors/index.js'
-import { MaxTotalLengthOfQueuesExceededError } from './errors/index.js'
-import { CheckFailedError }                    from './errors/index.js'
+import { MaxQueueCountError }                  from './batch-queue.errors.js'
+import { MaxQueueLengthExceededError }         from './batch-queue.errors.js'
+import { MaxTotalLengthOfQueuesExceededError } from './batch-queue.errors.js'
+import { CheckFailedError }                    from './batch-queue.errors.js'
 import { Mutex }                               from './mutex.js'
 
 export class BatchQueue<T> {
