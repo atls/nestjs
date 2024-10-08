@@ -110,7 +110,7 @@ describe('external renderer', () => {
   it('base test', async () => {
     await channelWrapper.sendToQueue(
       'test-queue',
-      Buffer.from(JSON.stringify({ queueName: 'batch-queue', value: 'test' }))
+      Buffer.from(JSON.stringify({ queueName: 'batch-queue', value: 'test-0-0' }))
     )
     await new Promise((res) => {
       setTimeout(() => {
@@ -120,7 +120,7 @@ describe('external renderer', () => {
     expect(consumeBatchs.length).toBe(1)
     const result = consumeBatchs.pop()!
     expect(result[0]).toBe('batch-queue')
-    expect(result[1]).toEqual(['test'])
+    expect(result[1]).toEqual(['test-0-0'])
   })
 
   it('fill 90% queue', async () => {
@@ -129,7 +129,7 @@ describe('external renderer', () => {
       messages.push(
         channelWrapper.sendToQueue(
           'test-queue',
-          Buffer.from(JSON.stringify({ queueName: 'batch-queue', value: `test-${i}` }))
+          Buffer.from(JSON.stringify({ queueName: 'batch-queue', value: `test-1-${i}` }))
         )
       )
     }
@@ -142,7 +142,11 @@ describe('external renderer', () => {
     expect(consumeBatchs.length).toBe(1)
     const result = consumeBatchs.pop()!
     expect(result[0]).toBe('batch-queue')
-    expect(result[1].length).toBe(9_000)
+    const expectMessages = []
+    for (let i = 0; i < 9_000; i += 1) {
+      expectMessages.push(`test-1-${i}`)
+    }
+    expect(result[1]).toEqual(expectMessages)
   })
 
   it('fullfill queue', async () => {
@@ -151,7 +155,7 @@ describe('external renderer', () => {
       messages.push(
         channelWrapper.sendToQueue(
           'test-queue',
-          Buffer.from(JSON.stringify({ queueName: 'batch-queue', value: `test-${i}` }))
+          Buffer.from(JSON.stringify({ queueName: 'batch-queue', value: `test-2-${i}` }))
         )
       )
     }
@@ -164,7 +168,11 @@ describe('external renderer', () => {
     expect(consumeBatchs.length).toBe(1)
     const result = consumeBatchs.pop()!
     expect(result[0]).toBe('batch-queue')
-    expect(result[1].length).toBe(10_000)
+    const expectMessages = []
+    for (let i = 0; i < 10_000; i += 1) {
+      expectMessages.push(`test-2-${i}`)
+    }
+    expect(result[1]).toEqual(expectMessages)
   })
 
   it('handle multiple queues', async () => {
@@ -182,10 +190,10 @@ describe('external renderer', () => {
         messages.push(
           channelWrapper.sendToQueue(
             'test-queue',
-            Buffer.from(JSON.stringify({ queueName: queue, value: `message-${i}` }))
+            Buffer.from(JSON.stringify({ queueName: queue, value: `test-3-${i}` }))
           )
         )
-        expectedResults[queue].push(`message-${i}`)
+        expectedResults[queue].push(`test-3-${i}`)
       })
     }
 
@@ -211,7 +219,7 @@ describe('external renderer', () => {
       messages.push(
         channelWrapper.sendToQueue(
           'test-queue',
-          Buffer.from(JSON.stringify({ queueName: 'batch-queue', value: `test-${i}` }))
+          Buffer.from(JSON.stringify({ queueName: 'batch-queue', value: `test-4-${i}` }))
         )
       )
     }
@@ -238,7 +246,7 @@ describe('external renderer', () => {
           Buffer.from(
             JSON.stringify({
               queueName: i % 2 === 0 ? 'queue-one' : 'queue-two',
-              value: `test-${i}`,
+              value: `test-5-${i}`,
             })
           )
         )
@@ -272,7 +280,7 @@ describe('external renderer', () => {
       messages.push(
         channelWrapper.sendToQueue(
           'test-queue',
-          Buffer.from(JSON.stringify({ queueName: 'batch-queue', value: `test-${i}` }))
+          Buffer.from(JSON.stringify({ queueName: 'batch-queue', value: `test-6-${i}` }))
         )
       )
     }
@@ -285,6 +293,11 @@ describe('external renderer', () => {
     expect(consumeBatchs.length).toBe(0)
     expect(fnOk).toBeCalledTimes(0)
     await checks.checkOk()
+    await new Promise((res) => {
+      setTimeout(() => {
+        res(null)
+      }, 1200)
+    })
   })
 
   it('should not consume batches when batch queue is unavailable and then recover', async () => {
@@ -295,34 +308,32 @@ describe('external renderer', () => {
     stateHandler.onChangeTotalStateToOk(fnOk)
     stateHandler.onChangeTotalStateToFail(fnFail)
     const checks = checker.createCheck('mock-memory-2', false)
-    // const messages = []
-    // for (let i = 0; i < 12_000; i += 1) {
-    //   messages.push(
-    //     channelWrapper.sendToQueue(
-    //       'test-queue',
-    //       Buffer.from(JSON.stringify({ queueName: 'batch-queue', value: `test-${i}` }))
-    //     )
-    //   )
-    // }
-    // await Promise.all(messages)
+    const messages = []
+    for (let i = 0; i < 12_000; i += 1) {
+      messages.push(
+        channelWrapper.sendToQueue(
+          'test-queue',
+          Buffer.from(JSON.stringify({ queueName: 'batch-queue', value: `test-${i}` }))
+        )
+      )
+    }
+    await Promise.all(messages)
     await new Promise((res) => {
       setTimeout(() => {
         res(null)
       }, 1200)
     })
     expect(consumeBatchs.length).toBe(0)
-    // await checks.checkOk()
-    // expect(fnOk).toBeCalledTimes(1)
-    // expect(fnFail).toBeCalledTimes(0)
-    // await new Promise((res) => {
-    //   setTimeout(() => {
-    //     res(null)
-    //   }, 2000)
-    // })
-    // expect(consumeBatchs.length).toBe(4)
-    // expect(consumeBatchs[0][1].length).toBe(10_000)
-    // expect(consumeBatchs[1][1].length).toBe(10_000)
-    // expect(consumeBatchs[2][1].length).toBe(2_000)
-    // expect(consumeBatchs[3][1].length).toBe(2_000)
+    await checks.checkOk()
+    expect(fnOk).toBeCalledTimes(1)
+    expect(fnFail).toBeCalledTimes(0)
+    await new Promise((res) => {
+      setTimeout(() => {
+        res(null)
+      }, 1400)
+    })
+    expect(consumeBatchs.length).toBe(2)
+    expect(consumeBatchs[0][1].length).toBe(10_000)
+    expect(consumeBatchs[1][1].length).toBe(2_000)
   })
 })
