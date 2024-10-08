@@ -180,15 +180,18 @@ export class BatchQueue<T> {
       if (!onAddConfig) continue
 
       const { checkOnAdd, checkEveryItem, currentItemCounter } = onAddConfig
-      const itemCounter = currentItemCounter + itemsLength
+      let itemCounter = currentItemCounter + itemsLength
 
-      // eslint-disable-next-line no-continue
-      if (itemCounter < checkEveryItem) continue
+      while (itemCounter >= checkEveryItem) {
+        // eslint-disable-next-line no-await-in-loop
+        const okCheck = await checkOnAdd()
 
-      // eslint-disable-next-line no-await-in-loop
-      const okCheck = await checkOnAdd()
-      if (!okCheck) throw new CheckFailedError([checkName])
+        if (!okCheck) {
+          throw new CheckFailedError([checkName])
+        }
 
+        itemCounter -= checkEveryItem
+      }
       onAddConfig.currentItemCounter = itemCounter
     }
   }
