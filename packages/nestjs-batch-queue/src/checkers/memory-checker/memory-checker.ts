@@ -14,7 +14,7 @@ import { MemoryCheckerOptions } from './memory-checker.interface.js'
 
 @Injectable()
 export class MemoryChecker implements OnModuleInit {
-  static jobName = 'memory-checker-job'
+  static jobName = 'MEMORY_CHECKER_JOB'
 
   private checkOk: CheckOk
 
