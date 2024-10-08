@@ -23,7 +23,10 @@ import { MEMORY_CHECKER_OPTIONS }            from './constants/index.js'
 @Module({})
 export class BatchQueueModule {
   static register(options: BatchQueueModuleOptions): DynamicModule {
-    const batchQueue = new BatchQueue(options.core)
+    const batchQueueProvider = {
+      provide: BATCH_QUEUE,
+      useValue: new BatchQueue(options.core),
+    }
 
     const memoryCheckerOptionsProvider = {
       provide: MEMORY_CHECKER_OPTIONS,
@@ -32,27 +35,32 @@ export class BatchQueueModule {
 
     const consumerProvider = {
       provide: BATCH_QUEUE_CONSUMER,
-      useValue: new Consumer(batchQueue),
+      useFactory: (batchQueue: BatchQueue<any>): Consumer => new Consumer(batchQueue),
+      inject: [BATCH_QUEUE],
     }
 
     const producerProvider = {
       provide: BATCH_QUEUE_PRODUCER,
-      useValue: new Producer(batchQueue),
+      useFactory: (batchQueue: BatchQueue<any>): Producer<any> => new Producer(batchQueue),
+      inject: [BATCH_QUEUE],
     }
 
     const checkerProvider = {
       provide: BATCH_QUEUE_CHECKER,
-      useValue: new Checker(batchQueue),
+      useFactory: (batchQueue: BatchQueue<any>): Checker => new Checker(batchQueue),
+      inject: [BATCH_QUEUE],
     }
 
     const stateHandlerProvider = {
       provide: BATCH_QUEUE_STATE_HANDLER,
-      useValue: new StateHandler(batchQueue),
+      useFactory: (batchQueue: BatchQueue<any>): StateHandler => new StateHandler(batchQueue),
+      inject: [BATCH_QUEUE],
     }
 
     return {
       module: BatchQueueModule,
       providers: [
+        batchQueueProvider,
         consumerProvider,
         producerProvider,
         checkerProvider,
