@@ -33,6 +33,22 @@ describe('external renderer', () => {
   let channelWrapper: ChannelWrapper
   let consumeBatchs: Array<[string, Array<string>]> = []
   let consumeFn: (queueName: string, value: Array<string>) => Promise<void>
+  let messageProcessedCount = 0
+
+  const waitForProcessedMessages = async (expectedCount: number, timeout = 5000): Promise<void> => {
+    const endTime = Date.now() + timeout
+    return new Promise((resolve, reject) => {
+      const interval = setInterval(() => {
+        if (messageProcessedCount >= expectedCount) {
+          clearInterval(interval)
+          resolve()
+        } else if (Date.now() > endTime) {
+          clearInterval(interval)
+          reject(new Error('Timeout waiting for messages to be processed'))
+        }
+      }, 100)
+    })
+  }
 
   beforeAll(async () => {
     rabbitmq = await new GenericContainer('rabbitmq:3-alpine')
@@ -76,6 +92,7 @@ describe('external renderer', () => {
         const parsed: { queueName: string; value: any } = JSON.parse(msg.content.toString())
         try {
           await producer.produce(parsed.queueName, parsed.value)
+          messageProcessedCount += 1
           channelWrapper.ack(msg)
         } catch (e) {
           if (e instanceof BaseQueueError) {
@@ -103,6 +120,7 @@ describe('external renderer', () => {
   })
 
   beforeEach(async () => {
+    messageProcessedCount = 0
     await channelWrapper.purgeQueue('test-queue')
     consumeBatchs = []
   })
@@ -112,6 +130,7 @@ describe('external renderer', () => {
       'test-queue',
       Buffer.from(JSON.stringify({ queueName: 'batch-queue', value: 'test-0-0' }))
     )
+    await waitForProcessedMessages(1)
     await new Promise((res) => {
       setTimeout(() => {
         res(null)
@@ -134,10 +153,11 @@ describe('external renderer', () => {
       )
     }
     await Promise.all(messages)
+    await waitForProcessedMessages(9_000)
     await new Promise((res) => {
       setTimeout(() => {
         res(null)
-      }, 1200)
+      }, 1100)
     })
     expect(consumeBatchs.length).toBe(1)
     const result = consumeBatchs.pop()!
@@ -160,10 +180,11 @@ describe('external renderer', () => {
       )
     }
     await Promise.all(messages)
+    await waitForProcessedMessages(10_000)
     await new Promise((res) => {
       setTimeout(() => {
         res(null)
-      }, 1200)
+      }, 1100)
     })
     expect(consumeBatchs.length).toBe(1)
     const result = consumeBatchs.pop()!
@@ -199,10 +220,11 @@ describe('external renderer', () => {
 
     await Promise.all(messages)
 
+    await waitForProcessedMessages(9_000)
     await new Promise((res) => {
       setTimeout(() => {
         res(null)
-      }, 1200)
+      }, 1100)
     })
 
     expect(consumeBatchs.length).toBe(3)
@@ -225,10 +247,11 @@ describe('external renderer', () => {
     }
     await Promise.all(messages)
 
+    await waitForProcessedMessages(12_000)
     await new Promise((res) => {
       setTimeout(() => {
         res(null)
-      }, 1200)
+      }, 1100)
     })
 
     expect(consumeBatchs.length).toBe(2)
@@ -254,10 +277,11 @@ describe('external renderer', () => {
     }
     await Promise.all(messages)
 
+    await waitForProcessedMessages(24_000)
     await new Promise((res) => {
       setTimeout(() => {
         res(null)
-      }, 1200)
+      }, 1100)
     })
 
     expect(consumeBatchs.length).toBe(4)
@@ -288,15 +312,16 @@ describe('external renderer', () => {
     await new Promise((res) => {
       setTimeout(() => {
         res(null)
-      }, 1200)
+      }, 1100)
     })
     expect(consumeBatchs.length).toBe(0)
     expect(fnOk).toBeCalledTimes(0)
     await checks.checkOk()
+    await waitForProcessedMessages(10_000)
     await new Promise((res) => {
       setTimeout(() => {
         res(null)
-      }, 1200)
+      }, 1100)
     })
   })
 
@@ -321,16 +346,17 @@ describe('external renderer', () => {
     await new Promise((res) => {
       setTimeout(() => {
         res(null)
-      }, 1200)
+      }, 1100)
     })
     expect(consumeBatchs.length).toBe(0)
     await checks.checkOk()
     expect(fnOk).toBeCalledTimes(1)
     expect(fnFail).toBeCalledTimes(0)
+    await waitForProcessedMessages(12_000)
     await new Promise((res) => {
       setTimeout(() => {
         res(null)
-      }, 1400)
+      }, 1100)
     })
     expect(consumeBatchs.length).toBe(2)
     expect(consumeBatchs[0][1].length).toBe(10_000)
@@ -351,10 +377,11 @@ describe('external renderer', () => {
       )
     }
     await Promise.all(messages)
+    await waitForProcessedMessages(5)
     await new Promise((res) => {
       setTimeout(() => {
         res(null)
-      }, 1200)
+      }, 1100)
     })
     expect(checkFn).toHaveBeenCalledTimes(1)
   })
