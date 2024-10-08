@@ -16,7 +16,7 @@ import { MaxQueueCountError }                  from './errors/index.js'
 import { MaxQueueLengthExceededError }         from './errors/index.js'
 import { MaxTotalLengthOfQueuesExceededError } from './errors/index.js'
 import { CheckFailedError }                    from './errors/index.js'
-import { Mutex }                               from './utils/index.js'
+import { Mutex }                               from './mutex.js'
 
 export class BatchQueue<T> {
   private queues: Map<QueueName, Array<T>> = new Map()
