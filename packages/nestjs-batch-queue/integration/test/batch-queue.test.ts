@@ -336,4 +336,26 @@ describe('external renderer', () => {
     expect(consumeBatchs[0][1].length).toBe(10_000)
     expect(consumeBatchs[1][1].length).toBe(2_000)
   })
+
+  it('should execute checkOnAdd successfully', async () => {
+    const checker: Checker = app.get(BATCH_QUEUE_CHECKER)
+    const checkFn = jest.fn<() => Promise<boolean>>().mockResolvedValue(true)
+    checker.createCheckOnAdd('check-1', checkFn, 5)
+    const messages = [];
+    for (let i = 0; i < 5; i++) {
+      messages.push(
+        channelWrapper.sendToQueue(
+          'test-queue',
+          Buffer.from(JSON.stringify({ queueName: 'batch-queue', value: `test-7-${i}` }))
+        )
+      )
+    }
+    await Promise.all(messages)
+    await new Promise((res) => {
+      setTimeout(() => {
+        res(null)
+      }, 1200)
+    })
+    expect(checkFn).toHaveBeenCalledTimes(1)
+  })
 })
