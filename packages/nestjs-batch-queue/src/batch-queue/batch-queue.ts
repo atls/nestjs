@@ -207,6 +207,8 @@ export class BatchQueue<T> {
       this.totalQueueLength -= items.length
       await this.processorFn(queueName, items)
     }
+
+    this.mutexes.delete(queueName)
   }
 
   private async triggerOkCallbacks(): Promise<void> {
