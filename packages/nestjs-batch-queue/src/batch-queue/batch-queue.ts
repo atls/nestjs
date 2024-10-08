@@ -203,7 +203,7 @@ export class BatchQueue<T> {
 
     const items = this.queues.get(queueName)
     if (items && items.length > 0) {
-      this.queues.set(queueName, [])
+      this.queues.delete(queueName)
       this.totalQueueLength -= items.length
       await this.processorFn(queueName, items)
     }
