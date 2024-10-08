@@ -37,13 +37,13 @@ export class MemoryChecker implements OnModuleInit {
     this.schedulerRegistry.addCronJob(MemoryChecker.jobName, job)
     this.checker.createCheckOnAdd(
       MEMORY_CHECK_NAME,
-      this.memoryCheckerOptions.everyAdd.checkEveryItem,
-      this.checkMemory.bind(this)
+      this.check.bind(this),
+      this.memoryCheckerOptions.everyAdd.checkEveryItem
     )
     job.start()
   }
 
-  private async checkMemory(): Promise<void> {
+  private async check(): Promise<boolean> {
     const memoryUsage = process.memoryUsage()
     const okCheck =
       memoryUsage.rss < this.memoryCheckerOptions.limitMemoryUsage.rss &&
@@ -51,6 +51,11 @@ export class MemoryChecker implements OnModuleInit {
       memoryUsage.heapUsed < this.memoryCheckerOptions.limitMemoryUsage.heapUsed &&
       memoryUsage.external < this.memoryCheckerOptions.limitMemoryUsage.external &&
       memoryUsage.arrayBuffers < this.memoryCheckerOptions.limitMemoryUsage.arrayBuffers
+    return okCheck
+  }
+
+  private async checkMemory(): Promise<void> {
+    const okCheck = await this.check()
     if (okCheck) {
       await this.checkOk()
     } else {

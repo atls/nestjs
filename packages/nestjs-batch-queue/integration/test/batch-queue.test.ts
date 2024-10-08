@@ -341,8 +341,8 @@ describe('external renderer', () => {
     const checker: Checker = app.get(BATCH_QUEUE_CHECKER)
     const checkFn = jest.fn<() => Promise<boolean>>().mockResolvedValue(true)
     checker.createCheckOnAdd('check-1', checkFn, 5)
-    const messages = [];
-    for (let i = 0; i < 5; i++) {
+    const messages = []
+    for (let i = 0; i < 5; i += 1) {
       messages.push(
         channelWrapper.sendToQueue(
           'test-queue',
