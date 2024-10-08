@@ -1,22 +1,20 @@
-import type { DynamicModule }                      from '@nestjs/common'
-import type { Provider }                           from '@nestjs/common'
+import type { DynamicModule }                   from '@nestjs/common'
+import type { Provider }                        from '@nestjs/common'
 
-import type { BatchQueueModuleAsyncOptions }       from './batch-queue-module-options.interface.js'
-import type { BatchQueueModuleOptions }            from './batch-queue-module-options.interface.js'
-import type { BatchQueueOptionsFactory }           from './batch-queue-module-options.interface.js'
+import type { BatchQueueModuleAsyncOptions }    from './batch-queue-module-options.interface.js'
+import type { BatchQueueModuleOptions }         from './batch-queue-module-options.interface.js'
+import type { BatchQueueOptionsFactory }        from './batch-queue-module-options.interface.js'
 
-import { Module }                                  from '@nestjs/common'
+import { Module }                               from '@nestjs/common'
 
-import { BATCH_QUEUE_MODULE_OPTIONS }              from './constants/index.js'
-import { createBatchQueueSyncProvider }            from './batch-queue.providers.js'
-import { createBatchQueueAsyncProvider }           from './batch-queue.providers.js'
-import { createMemoryCheckerOptionsSyncProvider }  from './batch-queue.providers.js'
-import { createMemoryCheckerOptionsAsyncProvider } from './batch-queue.providers.js'
-import { createBatchQueueConsumerProvider }        from './batch-queue.providers.js'
-import { createBatchQueueProducerProvider }        from './batch-queue.providers.js'
-import { createBatchQueueCheckerProvider }         from './batch-queue.providers.js'
-import { createBatchQueueStateHandlerProvider }    from './batch-queue.providers.js'
-import { exportsProviders }                        from './batch-queue.providers.js'
+import { BATCH_QUEUE_MODULE_OPTIONS }           from './constants/index.js'
+import { createBatchQueueSyncProvider }         from './batch-queue.providers.js'
+import { createBatchQueueAsyncProvider }        from './batch-queue.providers.js'
+import { createBatchQueueConsumerProvider }     from './batch-queue.providers.js'
+import { createBatchQueueProducerProvider }     from './batch-queue.providers.js'
+import { createBatchQueueCheckerProvider }      from './batch-queue.providers.js'
+import { createBatchQueueStateHandlerProvider } from './batch-queue.providers.js'
+import { exportsProviders }                     from './batch-queue.providers.js'
 
 @Module({})
 export class BatchQueueModule {
@@ -24,7 +22,6 @@ export class BatchQueueModule {
     module: BatchQueueModule,
     providers: [
       createBatchQueueSyncProvider(options),
-      createMemoryCheckerOptionsSyncProvider(options),
       createBatchQueueConsumerProvider(),
       createBatchQueueProducerProvider(),
       createBatchQueueCheckerProvider(),
@@ -46,7 +43,6 @@ export class BatchQueueModule {
     const providers: Array<Provider> = [
       this.createAsyncOptionsProvider(options),
       createBatchQueueAsyncProvider(),
-      createMemoryCheckerOptionsAsyncProvider(),
       createBatchQueueConsumerProvider(),
       createBatchQueueProducerProvider(),
       createBatchQueueCheckerProvider(),

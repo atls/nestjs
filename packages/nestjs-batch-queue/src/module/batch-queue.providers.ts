@@ -9,7 +9,6 @@ import { Checker }                      from '../batch-queue/index.js'
 import { StateHandler }                 from '../batch-queue/index.js'
 import { BATCH_QUEUE_MODULE_OPTIONS }   from './constants/index.js'
 import { BATCH_QUEUE }                  from './constants/index.js'
-import { MEMORY_CHECKER_OPTIONS }       from './constants/index.js'
 import { BATCH_QUEUE_CONSUMER }         from './constants/index.js'
 import { BATCH_QUEUE_PRODUCER }         from './constants/index.js'
 import { BATCH_QUEUE_CHECKER }          from './constants/index.js'
@@ -26,20 +25,6 @@ export const createBatchQueueAsyncProvider = (): Provider => ({
   provide: BATCH_QUEUE,
   useFactory: (batchQueueModuleOptions: BatchQueueModuleOptions): BatchQueue<any> =>
     new BatchQueue(batchQueueModuleOptions.core),
-  inject: [BATCH_QUEUE_MODULE_OPTIONS],
-})
-
-export const createMemoryCheckerOptionsSyncProvider = (
-  batchQueueModuleOptions: BatchQueueModuleOptions
-): Provider => ({
-  provide: MEMORY_CHECKER_OPTIONS,
-  useValue: batchQueueModuleOptions.memoryCheckerOptions,
-})
-
-export const createMemoryCheckerOptionsAsyncProvider = (): Provider => ({
-  provide: MEMORY_CHECKER_OPTIONS,
-  useFactory: (batchQueueModuleOptions: BatchQueueModuleOptions): any =>
-    batchQueueModuleOptions.memoryCheckerOptions,
   inject: [BATCH_QUEUE_MODULE_OPTIONS],
 })
 
@@ -72,5 +57,4 @@ export const exportsProviders = [
   BATCH_QUEUE_PRODUCER,
   BATCH_QUEUE_CHECKER,
   BATCH_QUEUE_STATE_HANDLER,
-  MEMORY_CHECKER_OPTIONS,
 ]

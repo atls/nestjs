@@ -1,13 +1,11 @@
-import type { Type }                 from '@nestjs/common'
-import type { ModuleMetadata }       from '@nestjs/common'
+import type { Type }              from '@nestjs/common'
+import type { ModuleMetadata }    from '@nestjs/common'
 
-import type { BatchQueueOptions }    from '../batch-queue/index.js'
-import type { Consumer }             from '../batch-queue/index.js'
-import type { MemoryCheckerOptions } from '../checkers/index.js'
+import type { BatchQueueOptions } from '../batch-queue/index.js'
+import type { Consumer }          from '../batch-queue/index.js'
 
 export interface BatchQueueModuleOptions {
   core: BatchQueueOptions
-  memoryCheckerOptions?: MemoryCheckerOptions
 }
 
 export interface BatchQueueOptionsFactory {
