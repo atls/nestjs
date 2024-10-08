@@ -12,6 +12,7 @@ import { Consumer }                          from '../batch-queue/index.js'
 import { Producer }                          from '../batch-queue/index.js'
 import { Checker }                           from '../batch-queue/index.js'
 import { StateHandler }                      from '../batch-queue/index.js'
+import { BATCH_QUEUE }                       from './batch-queue.constants.js'
 import { BATCH_QUEUE_MODULE_OPTIONS }        from './batch-queue.constants.js'
 import { BATCH_QUEUE_CONSUMER }              from './batch-queue.constants.js'
 import { BATCH_QUEUE_PRODUCER }              from './batch-queue.constants.js'
@@ -85,7 +86,7 @@ export class BatchQueueModule {
 
   private static createAsyncProviders(options: BatchQueueModuleAsyncOptions): Array<Provider> {
     const batchQueueProvider = {
-      provide: 'BATCH_QUEUE',
+      provide: BATCH_QUEUE,
       useFactory: (opt: BatchQueueModuleOptions): BatchQueue<any> => new BatchQueue(opt.core),
       inject: [BATCH_QUEUE_MODULE_OPTIONS],
     }
@@ -99,25 +100,25 @@ export class BatchQueueModule {
     const consumerProvider = {
       provide: BATCH_QUEUE_CONSUMER,
       useFactory: (batchQueue: BatchQueue<any>): Consumer => new Consumer(batchQueue),
-      inject: ['BATCH_QUEUE'],
+      inject: [BATCH_QUEUE],
     }
 
     const producerProvider = {
       provide: BATCH_QUEUE_PRODUCER,
       useFactory: (batchQueue: BatchQueue<any>): Producer<any> => new Producer(batchQueue),
-      inject: ['BATCH_QUEUE'],
+      inject: [BATCH_QUEUE],
     }
 
     const checkerProvider = {
       provide: BATCH_QUEUE_CHECKER,
       useFactory: (batchQueue: BatchQueue<any>): Checker => new Checker(batchQueue),
-      inject: ['BATCH_QUEUE'],
+      inject: [BATCH_QUEUE],
     }
 
     const stateHandlerProvider = {
       provide: BATCH_QUEUE_STATE_HANDLER,
       useFactory: (batchQueue: BatchQueue<any>): StateHandler => new StateHandler(batchQueue),
-      inject: ['BATCH_QUEUE'],
+      inject: [BATCH_QUEUE],
     }
 
     if (options.useExisting || options.useFactory) {
