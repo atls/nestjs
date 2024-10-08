@@ -10,6 +10,7 @@ import type { CheckOk }                        from './batch-queue.interface.js'
 import type { CheckFail }                      from './batch-queue.interface.js'
 import type { CheckOnAdd }                     from './batch-queue.interface.js'
 import type { BatchQueueOptions }              from './batch-queue.interface.js'
+import type { OnAddConfig }                    from './batch-queue.interface.js'
 
 import { MaxQueueCountError }                  from './errors/index.js'
 import { MaxQueueLengthExceededError }         from './errors/index.js'
@@ -20,14 +21,11 @@ import { Mutex }                               from './utils/index.js'
 export class BatchQueue<T> {
   private queues: Map<QueueName, Array<T>> = new Map()
 
-  private checks: Map<CheckName, boolean> = new Map()
-
-  private onAddChecks: Map<
+  private checkStates: Map<
     CheckName,
     {
-      checkOnAdd: CheckOnAdd
-      checkEveryItem: number
-      currentItemCounter: number
+      state: boolean
+      onAddConfig?: OnAddConfig
     }
   > = new Map()
 
@@ -102,11 +100,16 @@ export class BatchQueue<T> {
   }
 
   public createCheck(checkName: CheckName, initialState: boolean): Checks {
-    this.checks.set(checkName, initialState)
+    if (!this.checkStates.has(checkName)) {
+      this.checkStates.set(checkName, { state: initialState })
+    }
 
     const checkOk: CheckOk = async () => {
       const beforeTotalCheck = this.totalCheck()
-      this.checks.set(checkName, true)
+      const checkState = this.checkStates.get(checkName)
+      if (checkState) {
+        checkState.state = true
+      }
       if (beforeTotalCheck) return
       const afterTotalCheck = this.totalCheck()
       if (afterTotalCheck) {
@@ -116,7 +119,10 @@ export class BatchQueue<T> {
 
     const checkFail: CheckFail = async () => {
       const beforeTotalCheck = this.totalCheck()
-      this.checks.set(checkName, false)
+      const checkState = this.checkStates.get(checkName)
+      if (checkState) {
+        checkState.state = false
+      }
       if (!beforeTotalCheck) return
       const afterTotalCheck = this.totalCheck()
       if (!afterTotalCheck) {
@@ -132,7 +138,11 @@ export class BatchQueue<T> {
     checkOnAdd: CheckOnAdd,
     checkEveryItem: number
   ): void {
-    this.onAddChecks.set(checkName, { checkOnAdd, checkEveryItem, currentItemCounter: 0 })
+    if (!this.checkStates.has(checkName)) {
+      this.checkStates.set(checkName, { state: true })
+    }
+    const checkState = this.checkStates.get(checkName)!
+    checkState.onAddConfig = { checkOnAdd, checkEveryItem, currentItemCounter: 0 }
   }
 
   public onChangeTotalStateToOk(callback: OnChangeStateToOkCallback): void {
@@ -144,7 +154,7 @@ export class BatchQueue<T> {
   }
 
   private totalCheck(): boolean {
-    for (const state of this.checks.values()) {
+    for (const { state } of this.checkStates.values()) {
       if (!state) {
         return false
       }
@@ -154,7 +164,7 @@ export class BatchQueue<T> {
 
   private checkAllChecks(): void {
     const failedChecks = []
-    for (const [checkName, state] of this.checks.entries()) {
+    for (const [checkName, { state }] of this.checkStates.entries()) {
       if (!state) {
         failedChecks.push(checkName)
       }
@@ -165,20 +175,21 @@ export class BatchQueue<T> {
   }
 
   private async checkOnAddChecks(itemsLength: number): Promise<void> {
-    for (const [
-      checkName,
-      { checkOnAdd, checkEveryItem, currentItemCounter },
-    ] of this.onAddChecks.entries()) {
+    for (const [checkName, { onAddConfig }] of this.checkStates.entries()) {
+      // eslint-disable-next-line no-continue
+      if (!onAddConfig) continue
+
+      const { checkOnAdd, checkEveryItem, currentItemCounter } = onAddConfig
       const itemCounter = currentItemCounter + itemsLength
+
       // eslint-disable-next-line no-continue
       if (itemCounter < checkEveryItem) continue
+
       // eslint-disable-next-line no-await-in-loop
       const okCheck = await checkOnAdd()
       if (!okCheck) throw new CheckFailedError([checkName])
-    }
 
-    for (const value of this.onAddChecks.values()) {
-      value.currentItemCounter += itemsLength
+      onAddConfig.currentItemCounter = itemCounter
     }
   }
 
