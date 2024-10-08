@@ -8,7 +8,7 @@ import { SchedulerRegistry }    from '@nestjs/schedule'
 import { CronJob }              from 'cron'
 
 import { Checker }              from '../../batch-queue/index.js'
-import { BatchChecker }         from '../../module/index.js'
+import { InjectBatchChecker }   from '../../module/index.js'
 import { MEMORY_CHECK_NAME }    from './memory-checker.constants.js'
 import { MemoryCheckerOptions } from './memory-checker.interface.js'
 
@@ -21,7 +21,7 @@ export class MemoryChecker implements OnModuleInit {
   private checkFail: CheckFail
 
   constructor(
-    @BatchChecker() private checker: Checker,
+    @InjectBatchChecker() private checker: Checker,
     private memoryCheckerOptions: MemoryCheckerOptions,
     private schedulerRegistry: SchedulerRegistry
   ) {}
