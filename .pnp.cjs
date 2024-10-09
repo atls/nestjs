@@ -469,7 +469,7 @@ const RAW_RUNTIME_STATE =
           ["@nestjs/core", "virtual:32efc678226e64754471818dda8fe30dfb2e6b7e28f8b47fea1a50b926d8d4b6f1b3b66eb4d3cac5110197214b9be2f6d4b41b19fa675b77184f6f40ee3aa10f#npm:10.4.1"],\
           ["@nestjs/graphql", "virtual:4a6123b3323c5cbd8ab60b308dbfbff936ff4ed339ccf4d7de69dbf7171c4e51636c4a3d50e885325a293101d894e695299e2452151b2da5c53e2e131ee57fa7#npm:12.2.0"],\
           ["@nestjs/testing", "virtual:32efc678226e64754471818dda8fe30dfb2e6b7e28f8b47fea1a50b926d8d4b6f1b3b66eb4d3cac5110197214b9be2f6d4b41b19fa675b77184f6f40ee3aa10f#npm:10.4.1"],\
-          ["@ory/keto-grpc-client", "virtual:4a6123b3323c5cbd8ab60b308dbfbff936ff4ed339ccf4d7de69dbf7171c4e51636c4a3d50e885325a293101d894e695299e2452151b2da5c53e2e131ee57fa7#npm:0.13.0-alpha.0"],\
+          ["@ory/keto-grpc-client", "npm:0.13.0-alpha.0"],\
           ["@types/lodash", "npm:4.17.7"],\
           ["@types/supertest", "npm:6.0.2"],\
           ["get-port", "npm:7.1.0"],\
@@ -8628,22 +8628,9 @@ const RAW_RUNTIME_STATE =
       ["npm:0.13.0-alpha.0", {\
         "packageLocation": "../.yarn/berry/cache/@ory-keto-grpc-client-npm-0.13.0-alpha.0-798a35fc57-10c0.zip/node_modules/@ory/keto-grpc-client/",\
         "packageDependencies": [\
-          ["@ory/keto-grpc-client", "npm:0.13.0-alpha.0"]\
-        ],\
-        "linkType": "SOFT"\
-      }],\
-      ["virtual:4a6123b3323c5cbd8ab60b308dbfbff936ff4ed339ccf4d7de69dbf7171c4e51636c4a3d50e885325a293101d894e695299e2452151b2da5c53e2e131ee57fa7#npm:0.13.0-alpha.0", {\
-        "packageLocation": "./.yarn/__virtual__/@ory-keto-grpc-client-virtual-17d4cbb087/2/.yarn/berry/cache/@ory-keto-grpc-client-npm-0.13.0-alpha.0-798a35fc57-10c0.zip/node_modules/@ory/keto-grpc-client/",\
-        "packageDependencies": [\
-          ["@ory/keto-grpc-client", "virtual:4a6123b3323c5cbd8ab60b308dbfbff936ff4ed339ccf4d7de69dbf7171c4e51636c4a3d50e885325a293101d894e695299e2452151b2da5c53e2e131ee57fa7#npm:0.13.0-alpha.0"],\
+          ["@ory/keto-grpc-client", "npm:0.13.0-alpha.0"],\
           ["@grpc/grpc-js", "npm:1.9.6"],\
-          ["@types/grpc", null],\
-          ["google-protobuf", "npm:3.21.4"],\
-          ["grpc", null]\
-        ],\
-        "packagePeers": [\
-          "@types/grpc",\
-          "grpc"\
+          ["google-protobuf", "npm:3.21.4"]\
         ],\
         "linkType": "HARD"\
       }]\
