@@ -21840,12 +21840,13 @@ const RAW_RUNTIME_STATE =
         "packageLocation": "./.yarn/__virtual__/typesense-virtual-c24d0b1067/2/.yarn/berry/cache/typesense-npm-1.8.2-932edd9511-10c0.zip/node_modules/typesense/",\
         "packageDependencies": [\
           ["typesense", "virtual:2ceae254eff9b8dc14e8b050c034797cac6c7e88b6e00ffe80916bcea420ec1fd4801b19a23bc33d0f7c4fb55ee66fa380804233076e51614563a292015d6de7#npm:1.8.2"],\
-          ["@babel/runtime", "npm:7.25.6"],\
+          ["@babel/runtime", null],\
           ["@types/babel__runtime", null],\
           ["axios", "npm:1.7.7"],\
           ["loglevel", "npm:1.9.2"]\
         ],\
         "packagePeers": [\
+          "@babel/runtime",\
           "@types/babel__runtime"\
         ],\
         "linkType": "HARD"\
