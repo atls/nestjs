@@ -7511,7 +7511,7 @@ const RAW_RUNTIME_STATE =
         "packageLocation": "./.yarn/__virtual__/@nestjs-microservices-virtual-cc98db2e32/2/.yarn/berry/cache/@nestjs-microservices-npm-10.4.1-709407ada4-10c0.zip/node_modules/@nestjs/microservices/",\
         "packageDependencies": [\
           ["@nestjs/microservices", "virtual:5684741650352e1582f448b99b7f7528343a48773222d4c8f4e2073ba7107323b86db91c334c93c2cc6c808050bce96d5fdaa449679d00e9e0389b9e72c3feb0#npm:10.4.1"],\
-          ["@grpc/grpc-js", "npm:1.11.2"],\
+          ["@grpc/grpc-js", null],\
           ["@nestjs/common", "virtual:77887786a24289fa840c9acd370d634accbe79bcf317ecf5401844ffff73b8a593879dd9cce463873637e6414a631dfdb1a2473704bf332d823bcfffac8c2469#npm:10.4.1"],\
           ["@nestjs/core", "virtual:5684741650352e1582f448b99b7f7528343a48773222d4c8f4e2073ba7107323b86db91c334c93c2cc6c808050bce96d5fdaa449679d00e9e0389b9e72c3feb0#npm:10.4.1"],\
           ["@nestjs/websockets", null],\
@@ -7541,6 +7541,7 @@ const RAW_RUNTIME_STATE =
           ["tslib", "npm:2.6.3"]\
         ],\
         "packagePeers": [\
+          "@grpc/grpc-js",\
           "@nestjs/common",\
           "@nestjs/core",\
           "@nestjs/websockets",\
@@ -7699,7 +7700,7 @@ const RAW_RUNTIME_STATE =
         "packageLocation": "./.yarn/__virtual__/@nestjs-microservices-virtual-94d45a8cc5/2/.yarn/berry/cache/@nestjs-microservices-npm-10.4.1-709407ada4-10c0.zip/node_modules/@nestjs/microservices/",\
         "packageDependencies": [\
           ["@nestjs/microservices", "virtual:80857f29dff653ed1b21e1b78c415c79278e1a3708fec8563133922c0b3b287990dd6895d3d76575acec38e5f7e5fa8985f270e2d46a7eb121f744d431d0761f#npm:10.4.1"],\
-          ["@grpc/grpc-js", "npm:1.11.2"],\
+          ["@grpc/grpc-js", null],\
           ["@nestjs/common", "virtual:77887786a24289fa840c9acd370d634accbe79bcf317ecf5401844ffff73b8a593879dd9cce463873637e6414a631dfdb1a2473704bf332d823bcfffac8c2469#npm:10.4.1"],\
           ["@nestjs/core", "virtual:80857f29dff653ed1b21e1b78c415c79278e1a3708fec8563133922c0b3b287990dd6895d3d76575acec38e5f7e5fa8985f270e2d46a7eb121f744d431d0761f#npm:10.4.1"],\
           ["@nestjs/websockets", null],\
@@ -7729,6 +7730,7 @@ const RAW_RUNTIME_STATE =
           ["tslib", "npm:2.6.3"]\
         ],\
         "packagePeers": [\
+          "@grpc/grpc-js",\
           "@nestjs/common",\
           "@nestjs/core",\
           "@nestjs/websockets",\
