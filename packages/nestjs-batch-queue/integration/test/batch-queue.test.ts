@@ -26,6 +26,7 @@ import { BATCH_QUEUE_PRODUCER }      from '../../src/index.js'
 import { BATCH_QUEUE_CHECKER }       from '../../src/index.js'
 import { BATCH_QUEUE_STATE_HANDLER } from '../../src/index.js'
 import { BaseQueueError }            from '../../src/index.js'
+import { waitForConsumeCount }       from './helpers/index.js'
 
 describe('external renderer', () => {
   let app: INestApplication
@@ -34,21 +35,6 @@ describe('external renderer', () => {
   let consumeBatchs: Array<[string, Array<string>]> = []
   let consumeFn: (queueName: string, value: Array<string>) => Promise<void>
   let succesProduceCount = 0
-
-  const waitForConsumeCount = async (expectedCount: number, timeout = 5000): Promise<void> => {
-    const endTime = Date.now() + timeout
-    return new Promise((resolve, reject) => {
-      const interval = setInterval(() => {
-        if (consumeBatchs.length >= expectedCount) {
-          clearInterval(interval)
-          resolve()
-        } else if (Date.now() > endTime) {
-          clearInterval(interval)
-          reject(new Error('Timeout waiting for messages to be processed'))
-        }
-      }, 100)
-    })
-  }
 
   beforeAll(async () => {
     rabbitmq = await new GenericContainer('rabbitmq:3-alpine')
@@ -130,7 +116,7 @@ describe('external renderer', () => {
       'test-queue',
       Buffer.from(JSON.stringify({ queueName: 'batch-queue', value: 'test-0-0' }))
     )
-    await waitForConsumeCount(1)
+    await waitForConsumeCount(1, consumeBatchs)
     expect(consumeBatchs.length).toBe(1)
     const result = consumeBatchs.pop()!
     expect(result[0]).toBe('batch-queue')
@@ -148,7 +134,7 @@ describe('external renderer', () => {
       )
     }
     await Promise.all(messages)
-    await waitForConsumeCount(1)
+    await waitForConsumeCount(1, consumeBatchs)
     expect(consumeBatchs.length).toBe(1)
     const result = consumeBatchs.pop()!
     expect(result[0]).toBe('batch-queue')
@@ -170,7 +156,7 @@ describe('external renderer', () => {
       )
     }
     await Promise.all(messages)
-    await waitForConsumeCount(1)
+    await waitForConsumeCount(1, consumeBatchs)
     expect(consumeBatchs.length).toBe(1)
     const result = consumeBatchs.pop()!
     expect(result[0]).toBe('batch-queue')
@@ -205,7 +191,7 @@ describe('external renderer', () => {
 
     await Promise.all(messages)
 
-    await waitForConsumeCount(3)
+    await waitForConsumeCount(3, consumeBatchs)
     expect(consumeBatchs.length).toBe(3)
     consumeBatchs.forEach((result) => {
       expect(result[1].length).toBe(3_000)
@@ -226,7 +212,7 @@ describe('external renderer', () => {
     }
     await Promise.all(messages)
 
-    await waitForConsumeCount(2)
+    await waitForConsumeCount(2, consumeBatchs)
 
     expect(consumeBatchs.length).toBe(2)
     expect(consumeBatchs[0][1].length).toBe(10_000)
@@ -251,7 +237,7 @@ describe('external renderer', () => {
     }
     await Promise.all(messages)
 
-    await waitForConsumeCount(4)
+    await waitForConsumeCount(4, consumeBatchs)
 
     expect(consumeBatchs.length).toBe(4)
     expect(consumeBatchs[0][1].length).toBe(10_000)
@@ -281,7 +267,7 @@ describe('external renderer', () => {
     expect(succesProduceCount).toBe(0)
     expect(fnOk).toBeCalledTimes(0)
     await checks.checkOk()
-    await waitForConsumeCount(1)
+    await waitForConsumeCount(1, consumeBatchs)
   })
 
   it('should not consume batches when batch queue is unavailable and then recover', async () => {
@@ -307,7 +293,7 @@ describe('external renderer', () => {
     await checks.checkOk()
     expect(fnOk).toBeCalledTimes(1)
     expect(fnFail).toBeCalledTimes(0)
-    await waitForConsumeCount(2)
+    await waitForConsumeCount(2, consumeBatchs)
     expect(consumeBatchs.length).toBe(2)
     expect(consumeBatchs[0][1].length).toBe(10_000)
     expect(consumeBatchs[1][1].length).toBe(2_000)
@@ -327,7 +313,7 @@ describe('external renderer', () => {
       )
     }
     await Promise.all(messages)
-    await waitForConsumeCount(1)
+    await waitForConsumeCount(1, consumeBatchs)
     expect(checkFn).toHaveBeenCalledTimes(1)
   })
 })
