@@ -1,6 +1,6 @@
-import type { OnChangeStateToOkCallback }   from './batch-queue.interface.js'
-import type { OnChangeStateToFailCallback } from './batch-queue.interface.js'
 import type { BatchQueue }                  from './batch-queue.js'
+import type { OnChangeStateToOkCallback }   from './types/index.js'
+import type { OnChangeStateToFailCallback } from './types/index.js'
 
 export class StateHandler {
   constructor(private batchQueue: BatchQueue<any>) {}

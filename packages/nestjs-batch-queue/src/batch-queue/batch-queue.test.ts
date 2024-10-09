@@ -1,6 +1,6 @@
-import type { ProcessorFn }                    from './batch-queue.interface.js'
-import type { OnChangeStateToOkCallback }      from './batch-queue.interface.js'
-import type { CheckOnAdd }                     from './batch-queue.interface.js'
+import type { ProcessorFn }                    from './types/index.js'
+import type { OnChangeStateToOkCallback }      from './types/index.js'
+import type { CheckOnAdd }                     from './types/index.js'
 
 import { jest }                                from '@jest/globals'
 import { beforeEach }                          from '@jest/globals'

@@ -1,7 +1,7 @@
-import type { CheckName }  from './batch-queue.interface.js'
-import type { Checks }     from './batch-queue.interface.js'
-import type { CheckOnAdd } from './batch-queue.interface.js'
 import type { BatchQueue } from './batch-queue.js'
+import type { CheckName }  from './types/index.js'
+import type { Checks }     from './types/index.js'
+import type { CheckOnAdd } from './types/index.js'
 
 export class Checker {
   constructor(private batchQueue: BatchQueue<any>) {}
