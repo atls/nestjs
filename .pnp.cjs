@@ -5843,8 +5843,7 @@ const RAW_RUNTIME_STATE =
         "packageDependencies": [\
           ["@grpc/grpc-js", "npm:1.11.2"],\
           ["@grpc/proto-loader", "npm:0.7.13"],\
-          ["@js-sdsl/ordered-map", "npm:4.4.2"],\
-          ["@types/long", "npm:5.0.0"]\
+          ["@js-sdsl/ordered-map", "npm:4.4.2"]\
         ],\
         "linkType": "HARD"\
       }],\
@@ -5853,7 +5852,6 @@ const RAW_RUNTIME_STATE =
         "packageDependencies": [\
           ["@grpc/grpc-js", "npm:1.9.6"],\
           ["@grpc/proto-loader", "npm:0.7.13"],\
-          ["@types/long", "npm:5.0.0"],\
           ["@types/node", "npm:22.5.5"]\
         ],\
         "linkType": "HARD"\
