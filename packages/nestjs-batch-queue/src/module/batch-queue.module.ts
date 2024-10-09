@@ -7,7 +7,7 @@ import type { BatchQueueOptionsFactory }        from './batch-queue-module-optio
 
 import { Module }                               from '@nestjs/common'
 
-import { BATCH_QUEUE_MODULE_OPTIONS }           from './constants/index.js'
+import { BATCH_QUEUE_MODULE_OPTIONS }           from '../constants/index.js'
 import { createBatchQueueSyncProvider }         from './batch-queue.providers.js'
 import { createBatchQueueAsyncProvider }        from './batch-queue.providers.js'
 import { createBatchQueueConsumerProvider }     from './batch-queue.providers.js'

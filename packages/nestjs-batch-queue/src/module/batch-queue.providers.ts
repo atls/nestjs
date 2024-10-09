@@ -7,12 +7,12 @@ import { Consumer }                     from '../batch-queue/index.js'
 import { Producer }                     from '../batch-queue/index.js'
 import { Checker }                      from '../batch-queue/index.js'
 import { StateHandler }                 from '../batch-queue/index.js'
-import { BATCH_QUEUE_MODULE_OPTIONS }   from './constants/index.js'
-import { BATCH_QUEUE }                  from './constants/index.js'
-import { BATCH_QUEUE_CONSUMER }         from './constants/index.js'
-import { BATCH_QUEUE_PRODUCER }         from './constants/index.js'
-import { BATCH_QUEUE_CHECKER }          from './constants/index.js'
-import { BATCH_QUEUE_STATE_HANDLER }    from './constants/index.js'
+import { BATCH_QUEUE_MODULE_OPTIONS }   from '../constants/index.js'
+import { BATCH_QUEUE }                  from '../constants/index.js'
+import { BATCH_QUEUE_CONSUMER }         from '../constants/index.js'
+import { BATCH_QUEUE_PRODUCER }         from '../constants/index.js'
+import { BATCH_QUEUE_CHECKER }          from '../constants/index.js'
+import { BATCH_QUEUE_STATE_HANDLER }    from '../constants/index.js'
 
 export const createBatchQueueSyncProvider = (
   batchQueueModuleOptions: BatchQueueModuleOptions
