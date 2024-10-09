@@ -53,7 +53,7 @@ describe('typesense-typeorm', () => {
       })
       .compile()
 
-    app = testModule.createNestApplication()
+    app = testModule.createNestApplication() as INestApplication
 
     await app.init()
 
