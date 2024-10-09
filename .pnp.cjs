@@ -528,12 +528,10 @@ const RAW_RUNTIME_STATE =
           ["@jest/globals", "npm:29.7.0"],\
           ["@nestjs/common", "virtual:384ea579cfa4894f6eac15b91efb921812c2f87fc877e3e286eadb6b78ddc99a7b8b2c81597d0c76179dfd62ebca58864a616049a66816fb0d2621b12550c91c#npm:10.4.3"],\
           ["@nestjs/core", "virtual:384ea579cfa4894f6eac15b91efb921812c2f87fc877e3e286eadb6b78ddc99a7b8b2c81597d0c76179dfd62ebca58864a616049a66816fb0d2621b12550c91c#npm:10.4.3"],\
-          ["@nestjs/schedule", "virtual:384ea579cfa4894f6eac15b91efb921812c2f87fc877e3e286eadb6b78ddc99a7b8b2c81597d0c76179dfd62ebca58864a616049a66816fb0d2621b12550c91c#npm:4.1.1"],\
           ["@nestjs/testing", "virtual:384ea579cfa4894f6eac15b91efb921812c2f87fc877e3e286eadb6b78ddc99a7b8b2c81597d0c76179dfd62ebca58864a616049a66816fb0d2621b12550c91c#npm:10.4.1"],\
           ["@types/amqplib", "npm:0.10.1"],\
           ["amqp-connection-manager", "virtual:384ea579cfa4894f6eac15b91efb921812c2f87fc877e3e286eadb6b78ddc99a7b8b2c81597d0c76179dfd62ebca58864a616049a66816fb0d2621b12550c91c#npm:4.1.14"],\
           ["amqplib", "npm:0.10.4"],\
-          ["cron", "npm:3.1.7"],\
           ["reflect-metadata", "npm:0.1.14"],\
           ["rxjs", "npm:7.8.1"],\
           ["testcontainers", "npm:10.13.2"]\
@@ -8598,34 +8596,6 @@ const RAW_RUNTIME_STATE =
         "linkType": "HARD"\
       }]\
     ]],\
-    ["@nestjs/schedule", [\
-      ["npm:4.1.1", {\
-        "packageLocation": "../.yarn/berry/cache/@nestjs-schedule-npm-4.1.1-28c3f112bc-10c0.zip/node_modules/@nestjs/schedule/",\
-        "packageDependencies": [\
-          ["@nestjs/schedule", "npm:4.1.1"]\
-        ],\
-        "linkType": "SOFT"\
-      }],\
-      ["virtual:384ea579cfa4894f6eac15b91efb921812c2f87fc877e3e286eadb6b78ddc99a7b8b2c81597d0c76179dfd62ebca58864a616049a66816fb0d2621b12550c91c#npm:4.1.1", {\
-        "packageLocation": "./.yarn/__virtual__/@nestjs-schedule-virtual-b555da3303/2/.yarn/berry/cache/@nestjs-schedule-npm-4.1.1-28c3f112bc-10c0.zip/node_modules/@nestjs/schedule/",\
-        "packageDependencies": [\
-          ["@nestjs/schedule", "virtual:384ea579cfa4894f6eac15b91efb921812c2f87fc877e3e286eadb6b78ddc99a7b8b2c81597d0c76179dfd62ebca58864a616049a66816fb0d2621b12550c91c#npm:4.1.1"],\
-          ["@nestjs/common", "virtual:384ea579cfa4894f6eac15b91efb921812c2f87fc877e3e286eadb6b78ddc99a7b8b2c81597d0c76179dfd62ebca58864a616049a66816fb0d2621b12550c91c#npm:10.4.3"],\
-          ["@nestjs/core", "virtual:384ea579cfa4894f6eac15b91efb921812c2f87fc877e3e286eadb6b78ddc99a7b8b2c81597d0c76179dfd62ebca58864a616049a66816fb0d2621b12550c91c#npm:10.4.3"],\
-          ["@types/nestjs__common", null],\
-          ["@types/nestjs__core", null],\
-          ["cron", "npm:3.1.7"],\
-          ["uuid", "npm:10.0.0"]\
-        ],\
-        "packagePeers": [\
-          "@nestjs/common",\
-          "@nestjs/core",\
-          "@types/nestjs__common",\
-          "@types/nestjs__core"\
-        ],\
-        "linkType": "HARD"\
-      }]\
-    ]],\
     ["@nestjs/testing", [\
       ["npm:10.4.1", {\
         "packageLocation": "../.yarn/berry/cache/@nestjs-testing-npm-10.4.1-7172a7cc82-10c0.zip/node_modules/@nestjs/testing/",\
@@ -10835,15 +10805,6 @@ const RAW_RUNTIME_STATE =
         "packageDependencies": [\
           ["@types/long", "npm:5.0.0"],\
           ["long", "npm:5.2.3"]\
-        ],\
-        "linkType": "HARD"\
-      }]\
-    ]],\
-    ["@types/luxon", [\
-      ["npm:3.4.2", {\
-        "packageLocation": "../.yarn/berry/cache/@types-luxon-npm-3.4.2-092583f006-10c0.zip/node_modules/@types/luxon/",\
-        "packageDependencies": [\
-          ["@types/luxon", "npm:3.4.2"]\
         ],\
         "linkType": "HARD"\
       }]\
@@ -13808,17 +13769,6 @@ const RAW_RUNTIME_STATE =
           ["crc32-stream", "npm:6.0.0"],\
           ["crc-32", "npm:1.2.2"],\
           ["readable-stream", "npm:4.5.2"]\
-        ],\
-        "linkType": "HARD"\
-      }]\
-    ]],\
-    ["cron", [\
-      ["npm:3.1.7", {\
-        "packageLocation": "../.yarn/berry/cache/cron-npm-3.1.7-e31150a197-10c0.zip/node_modules/cron/",\
-        "packageDependencies": [\
-          ["cron", "npm:3.1.7"],\
-          ["@types/luxon", "npm:3.4.2"],\
-          ["luxon", "npm:3.4.4"]\
         ],\
         "linkType": "HARD"\
       }]\
@@ -18597,15 +18547,6 @@ const RAW_RUNTIME_STATE =
         "linkType": "HARD"\
       }]\
     ]],\
-    ["luxon", [\
-      ["npm:3.4.4", {\
-        "packageLocation": "../.yarn/berry/cache/luxon-npm-3.4.4-c93f95dde8-10c0.zip/node_modules/luxon/",\
-        "packageDependencies": [\
-          ["luxon", "npm:3.4.4"]\
-        ],\
-        "linkType": "HARD"\
-      }]\
-    ]],\
     ["make-dir", [\
       ["npm:3.1.0", {\
         "packageLocation": "../.yarn/berry/cache/make-dir-npm-3.1.0-d1d7505142-10c0.zip/node_modules/make-dir/",\
@@ -22734,13 +22675,6 @@ const RAW_RUNTIME_STATE =
       }]\
     ]],\
     ["uuid", [\
-      ["npm:10.0.0", {\
-        "packageLocation": "../.yarn/berry/cache/uuid-npm-10.0.0-4872b46ff8-10c0.zip/node_modules/uuid/",\
-        "packageDependencies": [\
-          ["uuid", "npm:10.0.0"]\
-        ],\
-        "linkType": "HARD"\
-      }],\
       ["npm:3.4.0", {\
         "packageLocation": "../.yarn/berry/cache/uuid-npm-3.4.0-4fd8ef88ad-10c0.zip/node_modules/uuid/",\
         "packageDependencies": [\
