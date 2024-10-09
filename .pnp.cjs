@@ -6407,7 +6407,6 @@ const RAW_RUNTIME_STATE =
         "packageLocation": "./.yarn/__virtual__/@nestjs-common-virtual-8bb967ba88/2/.yarn/berry/cache/@nestjs-common-npm-10.4.1-940734b1b1-10c0.zip/node_modules/@nestjs/common/",\
         "packageDependencies": [\
           ["@nestjs/common", "virtual:0bc3504934a30fca5775db1c73a91864628f7965ab6dd1fddc21cd16addcd821c36580c256d09baa307a7c821a87e6afc774b3c7c84ecf4ca215862f2bb0a0f3#npm:10.4.1"],\
-          ["@grpc/proto-loader", "npm:0.7.13"],\
           ["@types/class-transformer", null],\
           ["@types/class-validator", null],\
           ["@types/reflect-metadata", null],\
@@ -6436,7 +6435,6 @@ const RAW_RUNTIME_STATE =
         "packageLocation": "./.yarn/__virtual__/@nestjs-common-virtual-15db80b603/2/.yarn/berry/cache/@nestjs-common-npm-10.4.1-940734b1b1-10c0.zip/node_modules/@nestjs/common/",\
         "packageDependencies": [\
           ["@nestjs/common", "virtual:6270f4dc4f00d55a4228df5f67a61513a5b6d4312b3b5847ee9c785cfc38b3a0ccc2f02fc94322bbc9de8212ea483800edc561f64a61ecf33ef48eecd272391c#npm:10.4.1"],\
-          ["@grpc/proto-loader", "npm:0.7.13"],\
           ["@types/class-transformer", null],\
           ["@types/class-validator", null],\
           ["@types/reflect-metadata", null],\
@@ -6465,7 +6463,6 @@ const RAW_RUNTIME_STATE =
         "packageLocation": "./.yarn/__virtual__/@nestjs-common-virtual-d13c8c526b/2/.yarn/berry/cache/@nestjs-common-npm-10.4.1-940734b1b1-10c0.zip/node_modules/@nestjs/common/",\
         "packageDependencies": [\
           ["@nestjs/common", "virtual:77887786a24289fa840c9acd370d634accbe79bcf317ecf5401844ffff73b8a593879dd9cce463873637e6414a631dfdb1a2473704bf332d823bcfffac8c2469#npm:10.4.1"],\
-          ["@grpc/proto-loader", "npm:0.7.13"],\
           ["@types/class-transformer", null],\
           ["@types/class-validator", null],\
           ["@types/reflect-metadata", null],\
@@ -6494,7 +6491,6 @@ const RAW_RUNTIME_STATE =
         "packageLocation": "./.yarn/__virtual__/@nestjs-common-virtual-a824cd9ec9/2/.yarn/berry/cache/@nestjs-common-npm-10.4.3-c8baed1848-10c0.zip/node_modules/@nestjs/common/",\
         "packageDependencies": [\
           ["@nestjs/common", "virtual:82c048b5d29d98effb158530a6945e2dff634e60027727e8e466d7eb17aae4f7dab78b4f8b6e9b66564a6323d8f832ee9648588d0bee432ff101abcba1b0b492#npm:10.4.3"],\
-          ["@grpc/proto-loader", "npm:0.7.13"],\
           ["@types/class-transformer", null],\
           ["@types/class-validator", null],\
           ["@types/reflect-metadata", null],\
@@ -6523,7 +6519,6 @@ const RAW_RUNTIME_STATE =
         "packageLocation": "./.yarn/__virtual__/@nestjs-common-virtual-6775051a82/2/.yarn/berry/cache/@nestjs-common-npm-10.4.3-c8baed1848-10c0.zip/node_modules/@nestjs/common/",\
         "packageDependencies": [\
           ["@nestjs/common", "virtual:a83c01fc4cba5ca49a56474f02d0e2a42b67fd84218e0ed8446c312a68b5dcda210438f3221534d1b20254ee4cad2d7a7704d91b0774cb67fd2dcafbea6e550e#npm:10.4.3"],\
-          ["@grpc/proto-loader", "npm:0.7.13"],\
           ["@types/class-transformer", null],\
           ["@types/class-validator", null],\
           ["@types/reflect-metadata", null],\
