@@ -3703,7 +3703,6 @@ const RAW_RUNTIME_STATE =
           ["@types/graphql", null],\
           ["ajv", "npm:8.6.2"],\
           ["cosmiconfig", "npm:7.0.0"],\
-          ["fetchache", "npm:0.1.6"],\
           ["graphql", "npm:16.9.0"],\
           ["graphql-subscriptions", "virtual:420937aa6e26d1616b79bbc33a8fd56103fa773427edcab7136fa7cf5d0ad09a5a82319fc41e971fc166c28e110a660630c2b86b00cbc0db5b9268e5d3f2e8aa#npm:1.2.1"],\
           ["param-case", "npm:3.0.4"]\
@@ -15459,15 +15458,6 @@ const RAW_RUNTIME_STATE =
           ["fetchache", "npm:0.1.1"],\
           ["flatstr", "npm:1.0.12"],\
           ["http-cache-semantics", "npm:4.1.0"]\
-        ],\
-        "linkType": "HARD"\
-      }],\
-      ["npm:0.1.6", {\
-        "packageLocation": "../.yarn/berry/cache/fetchache-npm-0.1.6-daf2bd3a70-10c0.zip/node_modules/fetchache/",\
-        "packageDependencies": [\
-          ["fetchache", "npm:0.1.6"],\
-          ["http-cache-semantics", "npm:4.1.1"],\
-          ["tslib", "npm:2.7.0"]\
         ],\
         "linkType": "HARD"\
       }]\
