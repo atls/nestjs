@@ -610,7 +610,7 @@ const RAW_RUNTIME_STATE =
           ["reflect-metadata", "npm:0.2.2"],\
           ["rxjs", "npm:7.8.1"],\
           ["supertest", "npm:6.3.4"],\
-          ["ws", "virtual:3460f4d5996482ab942531a3dad10f2a4bb581da9d376fa6c0f92cd1610996da071cef458d4c3f906a51cf0ef0240dcaa3daad9d75bbdda2cee8eed719651ce6#npm:8.18.0"]\
+          ["ws", "virtual:420937aa6e26d1616b79bbc33a8fd56103fa773427edcab7136fa7cf5d0ad09a5a82319fc41e971fc166c28e110a660630c2b86b00cbc0db5b9268e5d3f2e8aa#npm:8.18.0"]\
         ],\
         "linkType": "SOFT"\
       }]\
@@ -16106,8 +16106,7 @@ const RAW_RUNTIME_STATE =
         "packageDependencies": [\
           ["graphql-ws", "virtual:e5d2e27d8d6ba8ae4d19bff7fc527f885e665226dacf6bc5c9839b3cf1b27af8d7836f07d10d1d329dffe8c7c3fde19aa1628ff758ebb71e113cf2bd99d38de8#npm:5.16.0"],\
           ["@types/graphql", null],\
-          ["graphql", "npm:16.9.0"],\
-          ["ws", "virtual:3460f4d5996482ab942531a3dad10f2a4bb581da9d376fa6c0f92cd1610996da071cef458d4c3f906a51cf0ef0240dcaa3daad9d75bbdda2cee8eed719651ce6#npm:8.18.0"]\
+          ["graphql", "npm:16.9.0"]\
         ],\
         "packagePeers": [\
           "@types/graphql",\
@@ -22460,10 +22459,10 @@ const RAW_RUNTIME_STATE =
         ],\
         "linkType": "HARD"\
       }],\
-      ["virtual:3460f4d5996482ab942531a3dad10f2a4bb581da9d376fa6c0f92cd1610996da071cef458d4c3f906a51cf0ef0240dcaa3daad9d75bbdda2cee8eed719651ce6#npm:8.18.0", {\
-        "packageLocation": "./.yarn/__virtual__/ws-virtual-3068b6b384/2/.yarn/berry/cache/ws-npm-8.18.0-56f68bc4d6-10c0.zip/node_modules/ws/",\
+      ["virtual:420937aa6e26d1616b79bbc33a8fd56103fa773427edcab7136fa7cf5d0ad09a5a82319fc41e971fc166c28e110a660630c2b86b00cbc0db5b9268e5d3f2e8aa#npm:8.18.0", {\
+        "packageLocation": "./.yarn/__virtual__/ws-virtual-6a3be30a15/2/.yarn/berry/cache/ws-npm-8.18.0-56f68bc4d6-10c0.zip/node_modules/ws/",\
         "packageDependencies": [\
-          ["ws", "virtual:3460f4d5996482ab942531a3dad10f2a4bb581da9d376fa6c0f92cd1610996da071cef458d4c3f906a51cf0ef0240dcaa3daad9d75bbdda2cee8eed719651ce6#npm:8.18.0"],\
+          ["ws", "virtual:420937aa6e26d1616b79bbc33a8fd56103fa773427edcab7136fa7cf5d0ad09a5a82319fc41e971fc166c28e110a660630c2b86b00cbc0db5b9268e5d3f2e8aa#npm:8.18.0"],\
           ["@types/bufferutil", null],\
           ["@types/utf-8-validate", null],\
           ["bufferutil", null],\
