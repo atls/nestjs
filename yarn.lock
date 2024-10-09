@@ -2364,19 +2364,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@graphql-inspector/core@npm:3.3.0":
-  version: 3.3.0
-  resolution: "@graphql-inspector/core@npm:3.3.0"
-  dependencies:
-    dependency-graph: "npm:0.11.0"
-    object-inspect: "npm:1.10.3"
-    tslib: "npm:^2.0.0"
-  peerDependencies:
-    graphql: ^0.13.0 || ^14.0.0 || ^15.0.0 || ^16.0.0
-  checksum: 10c0/4a770985d66a389d00f7101d29bf91cb3e579ef2b2480c47fd6ecf48487131bd258c953e923996dc45e30dec84dccf0e031b1c16af7bd69203ab7220da21c860
-  languageName: node
-  linkType: hard
-
 "@graphql-mesh/cache-inmemory-lru@npm:0.5.12":
   version: 0.5.12
   resolution: "@graphql-mesh/cache-inmemory-lru@npm:0.5.12"
@@ -2500,22 +2487,6 @@ __metadata:
   peerDependencies:
     graphql: "*"
   checksum: 10c0/fcbb120d8d9bb75ec39a05819d164cc72b7703fbe9b14ff5df1fb1b4a7861ff8d11de4dcdfda8ffa06c46ebcd3516f9a1978ca0b73d80c2efe393f3b5a06bdcc
-  languageName: node
-  linkType: hard
-
-"@graphql-mesh/store@npm:*":
-  version: 1.0.0
-  resolution: "@graphql-mesh/store@npm:1.0.0"
-  dependencies:
-    "@graphql-inspector/core": "npm:3.3.0"
-  peerDependencies:
-    "@graphql-mesh/cross-helpers": ^0.3.4
-    "@graphql-mesh/types": ^1.0.0
-    "@graphql-mesh/utils": ^1.0.0
-    "@graphql-tools/utils": ^9.2.1
-    graphql: "*"
-    tslib: ^2.4.0
-  checksum: 10c0/cb31a73a48ee4a16ae1dd60e928fb2ea1ee58e4b3cc1788b799a3a3a04f791439f73ad770c5e01841b94de4a249472f25489b4312a1ba89142b80681e7b7e71d
   languageName: node
   linkType: hard
 
