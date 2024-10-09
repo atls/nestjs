@@ -1,5 +1,5 @@
 /* eslint-disable max-classes-per-file */
-import type { CheckName } from './batch-queue.interface.js'
+import type { CheckName } from '../batch-queue/batch-queue.interface.js'
 
 export class BaseQueueError extends Error {}
 

@@ -9,10 +9,10 @@ import { describe }                            from '@jest/globals'
 import { it }                                  from '@jest/globals'
 import { expect }                              from '@jest/globals'
 
-import { MaxQueueLengthExceededError }         from './batch-queue.errors.js'
-import { MaxTotalLengthOfQueuesExceededError } from './batch-queue.errors.js'
-import { MaxQueueCountError }                  from './batch-queue.errors.js'
-import { CheckFailedError }                    from './batch-queue.errors.js'
+import { MaxQueueLengthExceededError }         from '../errors/index.js'
+import { MaxTotalLengthOfQueuesExceededError } from '../errors/index.js'
+import { MaxQueueCountError }                  from '../errors/index.js'
+import { CheckFailedError }                    from '../errors/index.js'
 import { BatchQueue }                          from './batch-queue.js'
 
 describe('BatchQueue', () => {
