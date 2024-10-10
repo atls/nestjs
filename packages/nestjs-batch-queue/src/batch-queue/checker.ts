@@ -1,27 +1,19 @@
-import type { BatchQueue } from './batch-queue.js'
-import type { CheckName }  from './types/index.js'
-import type { Checks }     from './types/index.js'
-import type { CheckOnAdd } from './types/index.js'
+import type { CheckManager }        from './check-manager.js'
+import type { ChangeStateCallback } from './types/index.js'
+import type { CheckName }           from './types/index.js'
 
 export class Checker {
-  constructor(private batchQueue: BatchQueue<any>) {}
+  constructor(private checkManager: CheckManager) {}
 
-  /**
-   * Delegates to {@link BatchQueue.createCheck}
-   */
-  public createCheck(checkName: CheckName, initialState: boolean): Checks {
-    const checks = this.batchQueue.createCheck(checkName, initialState)
-    return checks
+  public createCheck(checkName: CheckName, initialState: boolean): void {
+    this.checkManager.createCheck(checkName, initialState)
   }
 
-  /**
-   * Delegates to {@link BatchQueue.createCheckOnAdd}
-   */
-  public createCheckOnAdd(
-    checkName: CheckName,
-    checkOnAdd: CheckOnAdd,
-    checkEveryItem: number
-  ): void {
-    this.batchQueue.createCheckOnAdd(checkName, checkOnAdd, checkEveryItem)
+  public async changeState(checkName: CheckName, state: boolean): Promise<void> {
+    await this.checkManager.changeState(checkName, state)
+  }
+
+  public handleChangeState(checkName: CheckName, changeStateCallback: ChangeStateCallback): void {
+    this.checkManager.handleChangeState(checkName, changeStateCallback)
   }
 }
