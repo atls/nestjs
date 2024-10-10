@@ -1,16 +1,7 @@
 /* eslint-disable max-classes-per-file */
-import type { CheckName } from '../batch-queue/index.js'
-
 export class BaseQueueError extends Error {}
 
-export class CheckFailedError extends BaseQueueError {
-  public failedChecks: Array<CheckName>
-
-  constructor(failedChecks: Array<CheckName>) {
-    super(`One or more checks failed: ${failedChecks.join(', ')}`)
-    this.failedChecks = failedChecks
-  }
-}
+export class CheckFailedError extends BaseQueueError {}
 
 export class MaxQueueCountError extends BaseQueueError {}
 
