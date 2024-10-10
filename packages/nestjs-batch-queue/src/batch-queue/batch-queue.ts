@@ -47,6 +47,16 @@ export class BatchQueue<T> {
     this.options = options
   }
 
+  /**
+   * Add a single item to the specified queue.
+   * If the queue reaches its length limit, it triggers processing of the queue.
+   *
+   * @param {AddCond<T>} addCond - The condition containing the queue name and the item to add.
+   * @throws {MaxQueueCountError} - Thrown if the maximum number of queues is exceeded.
+   * @throws {MaxQueueLengthExceededError} - Thrown if the queue length limit is exceeded.
+   * @throws {MaxTotalLengthOfQueuesExceededError} - Thrown if the total length of all queues exceeds the limit.
+   * @throws {CheckFailedError} - Thrown if a check fails during item addition.
+   */
   public async add(addCond: AddCond<T>): Promise<void> {
     await this.addMany({
       queueName: addCond.queueName,
@@ -54,6 +64,16 @@ export class BatchQueue<T> {
     })
   }
 
+  /**
+   * Adds multiple items to the specified queue.
+   * If the queue reaches its length limit, it triggers processing of the queue.
+   *
+   * @param {AddManyCond<T>} addManyCond - The condition containing the queue name and the items to add.
+   * @throws {MaxQueueCountError} - Thrown if the maximum number of queues is exceeded.
+   * @throws {MaxQueueLengthExceededError} - Thrown if the queue length limit is exceeded.
+   * @throws {MaxTotalLengthOfQueuesExceededError} - Thrown if the total length of all queues exceeds the limit.
+   * @throws {CheckFailedError} - Thrown if a check fails during item addition.
+   */
   public async addMany(addManyCond: AddManyCond<T>): Promise<void> {
     const unlock = await this.getMutex(addManyCond.queueName).lock()
     try {
@@ -93,10 +113,23 @@ export class BatchQueue<T> {
     }
   }
 
+  /**
+   * Sets a function to process batches from the queues.
+   *
+   * @param {ProcessorFn<T>} processorFn - A function that processes items in the queue.
+   */
   public processBatch(processorFn: ProcessorFn<T>): void {
     this.processorFn = processorFn
   }
 
+  /**
+   * Creates a new check for the batch queue.
+   * The check has an initial state and can be triggered to pass or fail.
+   *
+   * @param {CheckName} checkName - The name of the check.
+   * @param {boolean} initialState - The initial state of the check (true for OK, false for fail).
+   * @returns {Checks} - The object containing methods to pass (`checkOk`) or fail (`checkFail`) the check.
+   */
   public createCheck(checkName: CheckName, initialState: boolean): Checks {
     if (!this.checkStates.has(checkName)) {
       this.checkStates.set(checkName, { state: initialState })
@@ -131,6 +164,14 @@ export class BatchQueue<T> {
     return { checkOk, checkFail }
   }
 
+  /**
+   * Creates a check that is evaluated on adding items to the queue.
+   * The check can be configured to run after a specified number of items are added.
+   *
+   * @param {CheckName} checkName - The name of the check.
+   * @param {CheckOnAdd} checkOnAdd - The function to evaluate the check on item addition.
+   * @param {number} checkEveryItem - The interval at which the check should be triggered (number of items).
+   */
   public createCheckOnAdd(
     checkName: CheckName,
     checkOnAdd: CheckOnAdd,
@@ -143,10 +184,20 @@ export class BatchQueue<T> {
     checkState.onAddConfig = { checkOnAdd, checkEveryItem, currentItemCounter: 0 }
   }
 
+  /**
+   * Registers a callback to be invoked when total state change to OK.
+   *
+   * @param {OnChangeStateToOkCallback} callback - The callback function to be invoked when the total state changes to OK.
+   */
   public onChangeTotalStateToOk(callback: OnChangeStateToOkCallback): void {
     this.onOkCallbacks.push(callback)
   }
 
+  /**
+   * Registers a callback to be invoked when total state change to failed.
+   *
+   * @param {OnChangeStateToFailCallback} callback - The callback function to be invoked when the total state changes to failed.
+   */
   public onChangeTotalStateToFail(callback: OnChangeStateToFailCallback): void {
     this.onFailCallbacks.push(callback)
   }
