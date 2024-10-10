@@ -1,4 +1,4 @@
-import type { CheckManager }        from './check-manager.js'
+import type { CheckManager }        from '../check-manager/index.js'
 import type { CheckName }           from './types/index.js'
 import type { ChangeStateCallback } from './types/index.js'
 

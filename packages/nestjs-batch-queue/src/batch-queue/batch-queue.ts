@@ -1,5 +1,5 @@
+import type { CheckManager }                   from '../check-manager/index.js'
 import type { BatchQueueOptions }              from './batch-queue.interface.js'
-import type { CheckManager }                   from './check-manager.js'
 import type { QueueName }                      from './types/index.js'
 import type { ProcessorFn }                    from './types/index.js'
 import type { AddCond }                        from './types/index.js'

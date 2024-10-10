@@ -1,5 +1,5 @@
-import type { CheckName }           from './types/index.js'
-import type { ChangeStateCallback } from './types/index.js'
+import type { CheckName }           from '../batch-queue/types/index.js'
+import type { ChangeStateCallback } from '../batch-queue/types/index.js'
 
 export class CheckManager {
   private checkStates: Map<CheckName, boolean> = new Map()

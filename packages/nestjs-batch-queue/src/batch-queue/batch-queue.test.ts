@@ -1,4 +1,4 @@
-import type { CheckManager }                   from './check-manager.js'
+import type { CheckManager }                   from '../check-manager/index.js'
 import type { ProcessorFn }                    from './types/index.js'
 
 import { jest }                                from '@jest/globals'
