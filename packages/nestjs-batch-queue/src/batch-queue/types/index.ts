@@ -1,5 +1,5 @@
 export * from './batch-queue.types.js'
-export * from './checker.types.js'
 export * from './consumer.types.js'
 export * from './producer.types.js'
 export * from './state-handler.types.js'
+export * from './check-manager.types.js'
