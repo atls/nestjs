@@ -49,7 +49,7 @@ describe('grpc http proxy', () => {
       },
     })
 
-    app = testingModule.createNestApplication()
+    app = testingModule.createNestApplication() as INestApplication
 
     await service.init()
     await app.init()

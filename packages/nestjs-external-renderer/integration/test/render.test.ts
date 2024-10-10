@@ -32,7 +32,7 @@ describe('external renderer', () => {
       })
       .compile()
 
-    app = testingModule.createNestApplication()
+    app = testingModule.createNestApplication() as INestApplication
 
     await app.init()
     await app.listen(port, '0.0.0.0')

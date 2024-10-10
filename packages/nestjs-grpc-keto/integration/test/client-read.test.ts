@@ -80,7 +80,7 @@ describe('Keto read client', () => {
       })
       .compile()
 
-    app = testingModule.createNestApplication()
+    app = testingModule.createNestApplication() as INestApplication
 
     await app.init()
     await app.listen(port)

@@ -26,7 +26,7 @@ describe('grpc playground', () => {
       imports: [GrpcPlaygroundIntegrationModule],
     }).compile()
 
-    app = testingModule.createNestApplication()
+    app = testingModule.createNestApplication() as INestApplication
 
     await app.init()
 
