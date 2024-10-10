@@ -1,4 +1,4 @@
-import type { ChangeStateCallback } from '../batch-queue/types/index.js'
+import type { ChangeStateCallback } from './check-manager.types.js'
 
 import { describe }                 from '@jest/globals'
 import { it }                       from '@jest/globals'

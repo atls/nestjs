@@ -1,6 +1,6 @@
 import type { CheckManager }        from '../check-manager/index.js'
-import type { ChangeStateCallback } from './types/index.js'
-import type { CheckName }           from './types/index.js'
+import type { ChangeStateCallback } from '../check-manager/index.js'
+import type { CheckName }           from '../check-manager/index.js'
 
 export class Checker {
   constructor(private checkManager: CheckManager) {}
