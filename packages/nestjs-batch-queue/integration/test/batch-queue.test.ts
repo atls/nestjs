@@ -7,6 +7,7 @@ import type { Producer }             from '../../src/index.js'
 import type { Consumer }             from '../../src/index.js'
 import type { Checker }              from '../../src/index.js'
 import type { StateHandler }         from '../../src/index.js'
+import type { ChangeStateCallback }  from '../../src/index.js'
 
 import { Test }                      from '@nestjs/testing'
 import { describe }                  from '@jest/globals'
@@ -248,12 +249,10 @@ describe('external renderer', () => {
 
   it('should not consume batches when batch queue is unavailable', async () => {
     const checker: Checker = app.get(BATCH_QUEUE_CHECKER)
+    checker.createCheck('mock-memory-1', false)
     const stateHandler: StateHandler = app.get(BATCH_QUEUE_STATE_HANDLER)
-    const fnOk = jest.fn<() => Promise<void>>().mockResolvedValue(undefined)
-    const fnFail = jest.fn<() => Promise<void>>().mockResolvedValue(undefined)
-    stateHandler.onChangeTotalStateToOk(fnOk)
-    stateHandler.onChangeTotalStateToFail(fnFail)
-    const checks = checker.createCheck('mock-memory-1', false)
+    const fnChangeState = jest.fn() as ChangeStateCallback
+    stateHandler.handleChangeState('mock-memory-1', fnChangeState)
     const messages = []
     for (let i = 0; i < 10_000; i += 1) {
       messages.push(
@@ -265,19 +264,17 @@ describe('external renderer', () => {
     }
     await Promise.all(messages)
     expect(succesProduceCount).toBe(0)
-    expect(fnOk).toBeCalledTimes(0)
-    await checks.checkOk()
+    expect(fnChangeState).toBeCalledTimes(0)
+    await checker.changeState('mock-memory-1', true)
     await waitForConsumeCount(1, consumeBatchs)
   })
 
   it('should not consume batches when batch queue is unavailable and then recover', async () => {
     const checker: Checker = app.get(BATCH_QUEUE_CHECKER)
     const stateHandler: StateHandler = app.get(BATCH_QUEUE_STATE_HANDLER)
-    const fnOk = jest.fn<() => Promise<void>>().mockResolvedValue(undefined)
-    const fnFail = jest.fn<() => Promise<void>>().mockResolvedValue(undefined)
-    stateHandler.onChangeTotalStateToOk(fnOk)
-    stateHandler.onChangeTotalStateToFail(fnFail)
-    const checks = checker.createCheck('mock-memory-2', false)
+    const fnChangeState = jest.fn() as ChangeStateCallback
+    checker.createCheck('mock-memory-2', false)
+    stateHandler.handleChangeState('mock-memory-2', fnChangeState)
     const messages = []
     for (let i = 0; i < 12_000; i += 1) {
       messages.push(
@@ -290,30 +287,12 @@ describe('external renderer', () => {
     expect(succesProduceCount).toBe(0)
     await Promise.all(messages)
     expect(consumeBatchs.length).toBe(0)
-    await checks.checkOk()
-    expect(fnOk).toBeCalledTimes(1)
-    expect(fnFail).toBeCalledTimes(0)
+    await checker.changeState('mock-memory-2', true)
+    expect(fnChangeState).toBeCalledTimes(1)
+    expect(fnChangeState).toBeCalledWith(true)
     await waitForConsumeCount(2, consumeBatchs)
     expect(consumeBatchs.length).toBe(2)
     expect(consumeBatchs[0][1].length).toBe(10_000)
     expect(consumeBatchs[1][1].length).toBe(2_000)
-  })
-
-  it('should execute checkOnAdd successfully', async () => {
-    const checker: Checker = app.get(BATCH_QUEUE_CHECKER)
-    const checkFn = jest.fn<() => Promise<boolean>>().mockResolvedValue(true)
-    checker.createCheckOnAdd('check-1', checkFn, 5)
-    const messages = []
-    for (let i = 0; i < 5; i += 1) {
-      messages.push(
-        channelWrapper.sendToQueue(
-          'test-queue',
-          Buffer.from(JSON.stringify({ queueName: 'batch-queue', value: `test-7-${i}` }))
-        )
-      )
-    }
-    await Promise.all(messages)
-    await waitForConsumeCount(1, consumeBatchs)
-    expect(checkFn).toHaveBeenCalledTimes(1)
   })
 })
