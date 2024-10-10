@@ -1,9 +1,9 @@
 import type { CheckManager }                   from '../check-manager/index.js'
 import type { BatchQueueOptions }              from './batch-queue.interface.js'
-import type { QueueName }                      from './types/index.js'
-import type { ProcessorFn }                    from './types/index.js'
-import type { AddCond }                        from './types/index.js'
-import type { AddManyCond }                    from './types/index.js'
+import type { QueueName }                      from './batch-queue.types.js'
+import type { ProcessorFn }                    from './batch-queue.types.js'
+import type { AddCond }                        from './batch-queue.types.js'
+import type { AddManyCond }                    from './batch-queue.types.js'
 
 import { MaxQueueCountError }                  from '../errors/index.js'
 import { MaxQueueLengthExceededError }         from '../errors/index.js'

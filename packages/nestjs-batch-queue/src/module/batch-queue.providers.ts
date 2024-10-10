@@ -3,10 +3,6 @@ import type { Provider }                from '@nestjs/common'
 import type { BatchQueueModuleOptions } from './batch-queue-module-options.interface.js'
 
 import { BatchQueue }                   from '../batch-queue/index.js'
-import { Consumer }                     from '../batch-queue/index.js'
-import { Producer }                     from '../batch-queue/index.js'
-import { Checker }                      from '../batch-queue/index.js'
-import { StateHandler }                 from '../batch-queue/index.js'
 import { CheckManager }                 from '../check-manager/index.js'
 import { BATCH_QUEUE_MODULE_OPTIONS }   from '../constants/index.js'
 import { BATCH_QUEUE }                  from '../constants/index.js'
@@ -15,6 +11,10 @@ import { BATCH_QUEUE_CONSUMER }         from '../constants/index.js'
 import { BATCH_QUEUE_PRODUCER }         from '../constants/index.js'
 import { BATCH_QUEUE_CHECKER }          from '../constants/index.js'
 import { BATCH_QUEUE_STATE_HANDLER }    from '../constants/index.js'
+import { Consumer }                     from '../proxy-clases/index.js'
+import { Producer }                     from '../proxy-clases/index.js'
+import { Checker }                      from '../proxy-clases/index.js'
+import { StateHandler }                 from '../proxy-clases/index.js'
 
 export const createCheckManagerProvider = (): Provider => ({
   provide: BATCH_QUEUE_CHECK_MANAGER,

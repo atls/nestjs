@@ -1,5 +1,5 @@
-import type { BatchQueue } from './batch-queue.js'
-import type { QueueName }  from './types/index.js'
+import type { BatchQueue } from '../batch-queue/index.js'
+import type { QueueName }  from '../batch-queue/index.js'
 
 export class Producer<T> {
   constructor(private batchQueue: BatchQueue<T>) {}

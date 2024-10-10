@@ -1,5 +1,5 @@
 import type { CheckManager }                   from '../check-manager/index.js'
-import type { ProcessorFn }                    from './types/index.js'
+import type { ProcessorFn }                    from './batch-queue.types.js'
 
 import { jest }                                from '@jest/globals'
 import { beforeEach }                          from '@jest/globals'

@@ -1,5 +1,5 @@
-import { QueueName } from './batch-queue.types.js'
-
+export type QueueName = string
+export type ProcessorFn<T> = (queueName: QueueName, item: Array<T>) => Promise<void>
 export type AddCond<T> = {
   queueName: QueueName
   item: T

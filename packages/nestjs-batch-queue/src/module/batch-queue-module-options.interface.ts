@@ -2,7 +2,7 @@ import type { Type }              from '@nestjs/common'
 import type { ModuleMetadata }    from '@nestjs/common'
 
 import type { BatchQueueOptions } from '../batch-queue/index.js'
-import type { Consumer }          from '../batch-queue/index.js'
+import type { Consumer }          from '../proxy-clases/index.js'
 
 export interface BatchQueueModuleOptions {
   core: BatchQueueOptions
