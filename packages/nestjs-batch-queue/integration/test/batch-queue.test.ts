@@ -51,7 +51,7 @@ describe('external renderer', () => {
               maxQueueLength: 10_000,
               maxTotalQueueLength: 100_000,
               maxQueues: 20,
-              timeoutDuration: 1_000,
+              timeoutDuration: 2_000,
             },
           }),
           inject: [],
