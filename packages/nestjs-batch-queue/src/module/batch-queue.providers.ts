@@ -7,25 +7,36 @@ import { Consumer }                     from '../batch-queue/index.js'
 import { Producer }                     from '../batch-queue/index.js'
 import { Checker }                      from '../batch-queue/index.js'
 import { StateHandler }                 from '../batch-queue/index.js'
+import { CheckManager }                 from '../batch-queue/index.js'
 import { BATCH_QUEUE_MODULE_OPTIONS }   from '../constants/index.js'
 import { BATCH_QUEUE }                  from '../constants/index.js'
+import { BATCH_QUEUE_CHECK_MANAGER }    from '../constants/index.js'
 import { BATCH_QUEUE_CONSUMER }         from '../constants/index.js'
 import { BATCH_QUEUE_PRODUCER }         from '../constants/index.js'
 import { BATCH_QUEUE_CHECKER }          from '../constants/index.js'
 import { BATCH_QUEUE_STATE_HANDLER }    from '../constants/index.js'
 
+export const createCheckManagerProvider = (): Provider => ({
+  provide: BATCH_QUEUE_CHECK_MANAGER,
+  useValue: new CheckManager(),
+})
+
 export const createBatchQueueSyncProvider = (
   batchQueueModuleOptions: BatchQueueModuleOptions
 ): Provider => ({
   provide: BATCH_QUEUE,
-  useValue: new BatchQueue(batchQueueModuleOptions.core),
+  useFactory: (checkManager: CheckManager): BatchQueue<any> =>
+    new BatchQueue(batchQueueModuleOptions.core, checkManager),
+  inject: [BATCH_QUEUE_CHECK_MANAGER],
 })
 
 export const createBatchQueueAsyncProvider = (): Provider => ({
   provide: BATCH_QUEUE,
-  useFactory: (batchQueueModuleOptions: BatchQueueModuleOptions): BatchQueue<any> =>
-    new BatchQueue(batchQueueModuleOptions.core),
-  inject: [BATCH_QUEUE_MODULE_OPTIONS],
+  useFactory: (
+    batchQueueModuleOptions: BatchQueueModuleOptions,
+    checkManager: CheckManager
+  ): BatchQueue<any> => new BatchQueue(batchQueueModuleOptions.core, checkManager),
+  inject: [BATCH_QUEUE_MODULE_OPTIONS, BATCH_QUEUE_CHECK_MANAGER],
 })
 
 export const createBatchQueueConsumerProvider = (): Provider => ({
@@ -42,14 +53,14 @@ export const createBatchQueueProducerProvider = (): Provider => ({
 
 export const createBatchQueueCheckerProvider = (): Provider => ({
   provide: BATCH_QUEUE_CHECKER,
-  useFactory: (batchQueue: BatchQueue<any>): Checker => new Checker(batchQueue),
-  inject: [BATCH_QUEUE],
+  useFactory: (checkManager: CheckManager): Checker => new Checker(checkManager),
+  inject: [BATCH_QUEUE_CHECK_MANAGER],
 })
 
 export const createBatchQueueStateHandlerProvider = (): Provider => ({
   provide: BATCH_QUEUE_STATE_HANDLER,
-  useFactory: (batchQueue: BatchQueue<any>): StateHandler => new StateHandler(batchQueue),
-  inject: [BATCH_QUEUE],
+  useFactory: (checkManager: CheckManager): StateHandler => new StateHandler(checkManager),
+  inject: [BATCH_QUEUE_CHECK_MANAGER],
 })
 
 export const exportsProviders = [

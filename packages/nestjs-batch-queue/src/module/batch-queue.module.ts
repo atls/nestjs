@@ -8,6 +8,7 @@ import type { BatchQueueOptionsFactory }        from './batch-queue-module-optio
 import { Module }                               from '@nestjs/common'
 
 import { BATCH_QUEUE_MODULE_OPTIONS }           from '../constants/index.js'
+import { createCheckManagerProvider }           from './batch-queue.providers.js'
 import { createBatchQueueSyncProvider }         from './batch-queue.providers.js'
 import { createBatchQueueAsyncProvider }        from './batch-queue.providers.js'
 import { createBatchQueueConsumerProvider }     from './batch-queue.providers.js'
@@ -21,6 +22,7 @@ export class BatchQueueModule {
   static register = (options: BatchQueueModuleOptions): DynamicModule => ({
     module: BatchQueueModule,
     providers: [
+      createCheckManagerProvider(),
       createBatchQueueSyncProvider(options),
       createBatchQueueConsumerProvider(),
       createBatchQueueProducerProvider(),
@@ -41,6 +43,7 @@ export class BatchQueueModule {
 
   private static createAsyncProviders(options: BatchQueueModuleAsyncOptions): Array<Provider> {
     const providers: Array<Provider> = [
+      createCheckManagerProvider(),
       this.createAsyncOptionsProvider(options),
       createBatchQueueAsyncProvider(),
       createBatchQueueConsumerProvider(),
