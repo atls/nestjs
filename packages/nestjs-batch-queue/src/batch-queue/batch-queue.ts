@@ -195,9 +195,7 @@ export class BatchQueue<T> {
   }
 
   private startTimerIfNecessary(queueName: QueueName): void {
-    if (this.timers.has(queueName)) {
-      clearTimeout(this.timers.get(queueName))
-    }
+    if (this.timers.has(queueName)) return
 
     const timer = setTimeout(() => {
       this.triggerProcessing(queueName)
