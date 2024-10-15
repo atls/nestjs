@@ -348,7 +348,7 @@ const RAW_RUNTIME_STATE =
           ["@nestjs/common", "virtual:628b1e39b6b60948cbbca151c083e4c2a2ce8e7a195a56bb6ee0ec0a03e7ca411a2eecb0d55e842823d7aa3a2332b44271b3d80977837c637ffa8a69a63c39e9#npm:10.4.4"],\
           ["@nestjs/core", "virtual:628b1e39b6b60948cbbca151c083e4c2a2ce8e7a195a56bb6ee0ec0a03e7ca411a2eecb0d55e842823d7aa3a2332b44271b3d80977837c637ffa8a69a63c39e9#npm:10.4.4"],\
           ["@nestjs/testing", "virtual:628b1e39b6b60948cbbca151c083e4c2a2ce8e7a195a56bb6ee0ec0a03e7ca411a2eecb0d55e842823d7aa3a2332b44271b3d80977837c637ffa8a69a63c39e9#npm:10.4.4"],\
-          ["@types/node", "npm:22.5.5"],\
+          ["@types/node", "npm:22.7.5"],\
           ["reflect-metadata", "npm:0.2.2"],\
           ["rxjs", "npm:7.8.1"],\
           ["typescript", "patch:typescript@npm%3A5.4.2#optional!builtin<compat/typescript>::version=5.4.2&hash=5adc0c"]\
@@ -10612,6 +10612,14 @@ const RAW_RUNTIME_STATE =
         "packageLocation": "../.yarn/berry/cache/@types-node-npm-22.5.5-e8a43f7042-10c0.zip/node_modules/@types/node/",\
         "packageDependencies": [\
           ["@types/node", "npm:22.5.5"],\
+          ["undici-types", "npm:6.19.8"]\
+        ],\
+        "linkType": "HARD"\
+      }],\
+      ["npm:22.7.5", {\
+        "packageLocation": "../.yarn/berry/cache/@types-node-npm-22.7.5-0428b60a8c-10c0.zip/node_modules/@types/node/",\
+        "packageDependencies": [\
+          ["@types/node", "npm:22.7.5"],\
           ["undici-types", "npm:6.19.8"]\
         ],\
         "linkType": "HARD"\
