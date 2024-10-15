@@ -150,7 +150,7 @@ __metadata:
   dependencies:
     "@google-cloud/storage": "npm:7.13.0"
     "@jest/globals": "npm:29.7.0"
-    "@nestjs/common": "npm:10.4.1"
+    "@nestjs/common": "npm:10.4.4"
     "@nestjs/core": "npm:10.4.1"
     "@nestjs/testing": "npm:10.4.1"
     "@types/node": "npm:22.5.5"
@@ -4175,6 +4175,27 @@ __metadata:
     class-validator:
       optional: true
   checksum: 10c0/4b624893ad55f9fcf8638eca045d09dd091a8be2cd5061988e3a479178f95b9517aaa7c51ce136801d8b87bfe1494cd198dc0a68630bb8bcba100044915736e7
+  languageName: node
+  linkType: hard
+
+"@nestjs/common@npm:10.4.4":
+  version: 10.4.4
+  resolution: "@nestjs/common@npm:10.4.4"
+  dependencies:
+    iterare: "npm:1.2.1"
+    tslib: "npm:2.7.0"
+    uid: "npm:2.0.2"
+  peerDependencies:
+    class-transformer: "*"
+    class-validator: "*"
+    reflect-metadata: ^0.1.12 || ^0.2.0
+    rxjs: ^7.1.0
+  peerDependenciesMeta:
+    class-transformer:
+      optional: true
+    class-validator:
+      optional: true
+  checksum: 10c0/af9d0df92320752323cfa1144cf5eb47e6ec9df6378c7d6499e95994e3a440275621c48feab2d7bcce1c4f56cf29193651b7ea1c48d8771b3a70580c642687ba
   languageName: node
   linkType: hard
 
