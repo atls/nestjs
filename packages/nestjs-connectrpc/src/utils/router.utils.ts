@@ -1,16 +1,17 @@
-import type { ServiceType } from '@bufbuild/protobuf'
-import type { ConnectRouter } from '@connectrpc/connect'
-import type { ServiceImpl } from '@connectrpc/connect'
-import type { MessageHandler } from '@nestjs/microservices'
-import type { Observable } from 'rxjs'
+import type { ServiceType }         from '@bufbuild/protobuf'
+import type { ConnectRouter }       from '@connectrpc/connect'
+import type { ServiceImpl }         from '@connectrpc/connect'
+import type { MessageHandler }      from '@nestjs/microservices'
+import type { Observable }          from 'rxjs'
 
-import type { ConnectRpcPattern } from '../connectrpc.interfaces.js'
+import type { ConnectRpcPattern }   from '../connectrpc.interfaces.js'
 import type { CustomMetadataStore } from '../custom-metadata.storage.js'
 
-import { lastValueFrom } from 'rxjs'
-import { MethodType } from '../connectrpc.interfaces.js'
-import { toAsyncGenerator } from './async.utils.js'
-import { transformToObservable } from './async.utils.js'
+import { lastValueFrom }            from 'rxjs'
+
+import { MethodType }               from '../connectrpc.interfaces.js'
+import { toAsyncGenerator }         from './async.utils.js'
+import { transformToObservable }    from './async.utils.js'
 
 /**
  * Creates a JSON string pattern for a given service, method, and streaming type.
@@ -73,9 +74,14 @@ export const createServiceHandlersMap = (
             break
 
           case MethodType.RX_STREAMING:
-            serviceHandlersMap[service][rpc] = async function* (request: unknown, context: unknown) {
+            serviceHandlersMap[service][rpc] = async function* (
+              request: unknown,
+              context: unknown
+            ) {
               const streamOrValue = await handlerMetadata(request, context)
-              yield* toAsyncGenerator(streamOrValue as Observable<unknown> | AsyncGenerator<unknown>)
+              yield* toAsyncGenerator(
+                streamOrValue as Observable<unknown> | AsyncGenerator<unknown>
+              )
             }
             break
 

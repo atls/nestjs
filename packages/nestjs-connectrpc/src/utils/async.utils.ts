@@ -1,6 +1,9 @@
-import type { ResultOrDeferred } from '../connectrpc.interfaces.js'
-import { Observable, from, Subject } from 'rxjs'
-import { lastValueFrom } from 'rxjs'
+import type { ResultOrDeferred }     from '../connectrpc.interfaces.js'
+
+import { Observable }                from 'rxjs'
+import { from }          from 'rxjs'
+import { Subject } from 'rxjs'
+import { lastValueFrom }             from 'rxjs'
 
 /**
  * Type guard to check if a given input is an AsyncGenerator.
@@ -100,7 +103,7 @@ export const transformToObservable = <T>(resultOrDeferred: ResultOrDeferred<T>):
   }
   if (hasSubscribe(resultOrDeferred)) {
     return new Observable<T>((subscriber) => {
-      (resultOrDeferred as any).subscribe({
+      ;(resultOrDeferred as any).subscribe({
         next: (value: any) => subscriber.next(value as T),
         error: (error: any) => subscriber.error(error),
         complete: () => subscriber.complete(),
