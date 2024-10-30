@@ -12,7 +12,7 @@ import { METHOD_DECORATOR_KEY }            from './connectrpc.constants.js'
 import { STREAM_METHOD_DECORATOR_KEY }     from './connectrpc.constants.js'
 import { MethodType }                      from './connectrpc.interfaces.js'
 import { CustomMetadataStore }             from './custom-metadata.storage.js'
-import { createConnectRpcMethodMetadata }  from './router.utils.js'
+import { createConnectRpcMethodMetadata }  from './utils/router.utils.js'
 
 function isFunctionPropertyDescriptor(
   descriptor: PropertyDescriptor | undefined

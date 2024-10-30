@@ -9,8 +9,8 @@ import { isString }                     from '@nestjs/common/utils/shared.utils.
 
 import { HTTPServer }                   from './connectrpc.server.js'
 import { CustomMetadataStore }          from './custom-metadata.storage.js'
-import { addServicesToRouter }          from './router.utils.js'
-import { createServiceHandlersMap }     from './router.utils.js'
+import { addServicesToRouter }          from './utils/router.utils.js'
+import { createServiceHandlersMap }     from './utils/router.utils.js'
 
 export class ConnectRpcServer extends Server implements CustomTransportStrategy {
   private readonly customMetadataStore: CustomMetadataStore | null = null
