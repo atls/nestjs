@@ -67,26 +67,27 @@ export const createServiceHandlersMap = (
 
         switch (streaming) {
           case MethodType.NO_STREAMING:
-            serviceHandlersMap[service][rpc] = async (request: unknown, context: unknown) => {
+            serviceHandlersMap[service][rpc] = async (
+              request: unknown,
+              context: unknown
+            ): Promise<unknown> => {
               const resultOrDeferred = await handlerMetadata(request, context)
               return lastValueFrom(transformToObservable(resultOrDeferred))
             }
             break
 
           case MethodType.RX_STREAMING:
-            serviceHandlersMap[service][rpc] = async function* (
+            serviceHandlersMap[service][rpc] = async function* handleStream(
               request: unknown,
               context: unknown
-            ) {
+            ): AsyncGenerator {
               const streamOrValue = await handlerMetadata(request, context)
-              yield* toAsyncGenerator(
-                streamOrValue as Observable<unknown> | AsyncGenerator<unknown>
-              )
+              yield* toAsyncGenerator(streamOrValue as AsyncGenerator | Observable<unknown>)
             }
             break
 
           default:
-            throw new Error(`Unsupported streaming type: ${streaming}`)
+            throw new Error(`Unsupported streaming type: ${streaming as string}`)
         }
       }
     }

@@ -1,9 +1,9 @@
-import type { ResultOrDeferred }     from '../connectrpc.interfaces.js'
+import type { ResultOrDeferred } from '../connectrpc.interfaces.js'
 
-import { Observable }                from 'rxjs'
-import { from }          from 'rxjs'
-import { Subject } from 'rxjs'
-import { lastValueFrom }             from 'rxjs'
+import { Observable }            from 'rxjs'
+import { Subject }               from 'rxjs'
+import { from }                  from 'rxjs'
+import { lastValueFrom }         from 'rxjs'
 
 /**
  * Type guard to check if a given input is an AsyncGenerator.
@@ -15,19 +15,50 @@ export function isAsyncGenerator<T>(input: unknown): input is AsyncGenerator<T> 
 }
 
 /**
+ * Utility function to create an async iterator for a Subject.
+ * @param {Subject<T>} subject - The Subject to create an iterator from.
+ * @returns {AsyncIterableIterator<T>} - The async iterator.
+ */
+async function* asyncIterator<T>(subject: Subject<T>): AsyncIterableIterator<T> {
+  const nextValue = async (): Promise<T> =>
+    new Promise<T>((resolve, reject) => {
+      subject.subscribe({
+        next: (val) => {
+          resolve(val)
+        },
+        error: (err) => {
+          reject(err)
+        },
+        complete: () => {
+          resolve(null as PromiseLike<T> | T)
+        },
+      })
+    })
+
+  while (true) {
+    // eslint-disable-next-line no-await-in-loop
+    const item = await nextValue()
+    if (item === null) return
+    yield item
+  }
+}
+
+/**
  * Converts an Observable to an AsyncGenerator, yielding items emitted by the Observable.
  * @param {Observable<T>} observable - The Observable to convert.
  * @returns {AsyncGenerator<T>} - An AsyncGenerator that yields each emitted value from the Observable.
  */
 export async function* observableToAsyncGenerator<T>(observable: Observable<T>): AsyncGenerator<T> {
   const queue = new Subject<T>()
-  let didComplete = false
 
   const subscriber = observable.subscribe({
-    next: (value) => queue.next(value),
-    error: (error) => queue.error(error),
+    next: (value) => {
+      queue.next(value)
+    },
+    error: (error) => {
+      queue.error(error)
+    },
     complete: () => {
-      didComplete = true
       queue.complete()
     },
   })
@@ -38,29 +69,6 @@ export async function* observableToAsyncGenerator<T>(observable: Observable<T>):
     }
   } finally {
     subscriber.unsubscribe()
-  }
-}
-
-/**
- * Utility function to create an async iterator for a Subject.
- * @param {Subject<T>} subject - The Subject to create an iterator from.
- * @returns {AsyncIterableIterator<T>} - The async iterator.
- */
-async function* asyncIterator<T>(subject: Subject<T>): AsyncIterableIterator<T> {
-  const values: T[] = []
-  const nextValue = () =>
-    new Promise<T>((resolve, reject) => {
-      subject.subscribe({
-        next: (val) => resolve(val),
-        error: (err) => reject(err),
-        complete: () => resolve(null as any),
-      })
-    })
-
-  while (true) {
-    const item = await nextValue()
-    if (item === null) return
-    yield item
   }
 }
 
@@ -103,18 +111,25 @@ export const transformToObservable = <T>(resultOrDeferred: ResultOrDeferred<T>):
   }
   if (hasSubscribe(resultOrDeferred)) {
     return new Observable<T>((subscriber) => {
-      ;(resultOrDeferred as any).subscribe({
-        next: (value: any) => subscriber.next(value as T),
-        error: (error: any) => subscriber.error(error),
-        complete: () => subscriber.complete(),
+      // @ts-expect-error
+      resultOrDeferred.subscribe({
+        next: (value: any) => {
+          subscriber.next(value as T)
+        },
+        error: (error: any) => {
+          subscriber.error(error)
+        },
+        complete: () => {
+          subscriber.complete()
+        },
       })
     })
   }
   if (hasToPromise(resultOrDeferred)) {
-    return from(lastValueFrom(resultOrDeferred as any)) as Observable<T>
+    return from(lastValueFrom(resultOrDeferred as Observable<T>))
   }
-  return new Observable<T>((subscriber) => {
-    subscriber.next(resultOrDeferred as T)
+  return new Observable((subscriber) => {
+    subscriber.next(resultOrDeferred)
     subscriber.complete()
   })
 }

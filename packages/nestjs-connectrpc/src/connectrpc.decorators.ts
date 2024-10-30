@@ -1,21 +1,18 @@
-import type { ServiceType }                                                                 from '@bufbuild/protobuf'
+import type { ServiceType }                from '@bufbuild/protobuf'
 
-import type { ConstructorWithPrototype }                                                    from './connectrpc.interfaces.js'
+import type { ConstructorWithPrototype }   from './connectrpc.interfaces.js'
+import type { FunctionPropertyDescriptor } from './connectrpc.interfaces.js'
+import type { MethodKey }                  from './connectrpc.interfaces.js'
+import type { MethodKeys }                 from './connectrpc.interfaces.js'
 
-import type { FunctionPropertyDescriptor }                        from './connectrpc.interfaces.js'
+import { MessagePattern }                  from '@nestjs/microservices'
 
-import type { MethodKey }             from './connectrpc.interfaces.js'
-
-import type { MethodKeys } from './connectrpc.interfaces.js'
-
-import { MessagePattern }                                                                   from '@nestjs/microservices'
-
-import { CONNECTRPC_TRANSPORT }                                                             from './connectrpc.constants.js'
-import { METHOD_DECORATOR_KEY }                                       from './connectrpc.constants.js'
-import { STREAM_METHOD_DECORATOR_KEY }          from './connectrpc.constants.js'
-import { MethodType }                                                                       from './connectrpc.interfaces.js'
-import { CustomMetadataStore }                                                              from './custom-metadata.storage.js'
-import { createConnectRpcMethodMetadata }                                                   from './utils/router.utils.js'
+import { CONNECTRPC_TRANSPORT }            from './connectrpc.constants.js'
+import { METHOD_DECORATOR_KEY }            from './connectrpc.constants.js'
+import { STREAM_METHOD_DECORATOR_KEY }     from './connectrpc.constants.js'
+import { MethodType }                      from './connectrpc.interfaces.js'
+import { CustomMetadataStore }             from './custom-metadata.storage.js'
+import { createConnectRpcMethodMetadata }  from './utils/router.utils.js'
 
 /**
  * Type guard to check if a given descriptor is a function property descriptor.
@@ -39,7 +36,7 @@ export const ConnectRpcService = (serviceName: ServiceType): ClassDecorator =>
     const unaryMethodKeys: MethodKeys = Reflect.getMetadata(METHOD_DECORATOR_KEY, target) || []
     const streamMethodKeys: MethodKeys =
       Reflect.getMetadata(STREAM_METHOD_DECORATOR_KEY, target) || []
-    const allMethodKeys = [...unaryMethodKeys, ...streamMethodKeys] as MethodKey[]
+    const allMethodKeys = [...unaryMethodKeys, ...streamMethodKeys] as Array<MethodKey>
 
     allMethodKeys.forEach((methodImpl) => {
       const { key: functionName, methodType } = methodImpl
