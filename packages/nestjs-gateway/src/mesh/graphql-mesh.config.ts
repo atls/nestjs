@@ -2,8 +2,8 @@
 
 // @ts-expect-error
 import type { GetMeshOptions }          from '@graphql-mesh/runtime'
-// @ts-expect-error
 import type { MeshTransform }           from '@graphql-mesh/types'
+import type { MeshPubSub }              from '@graphql-mesh/types'
 
 import type { SourceOptions }           from '../module/index.js'
 import type { SourceTransformsOptions } from '../module/index.js'
@@ -87,7 +87,7 @@ export class GraphQLMeshConfig {
       options.merger ||
       new StitchingMerger({
         cache: this.cache,
-        pubsub: this.pubsub,
+        pubsub: this.pubsub as unknown as MeshPubSub,
         // eslint-disable-next-line @typescript-eslint/no-unsafe-call
         store: this.store.child(`StitchingMerger`),
         logger: this.logger,
@@ -185,11 +185,12 @@ export class GraphQLMeshConfig {
       transforms.push(
         new EncapsulateTransform({
           apiName,
-          syncImportFn: this.syncImportFn,
+          importFn: this.syncImportFn,
           baseDir: this.baseDir,
           config: config.encapsulate,
           cache: this.cache,
-          pubsub: this.pubsub,
+          pubsub: this.pubsub as unknown as MeshPubSub,
+          logger: this.logger,
         })
       )
     }
@@ -254,11 +255,12 @@ export class GraphQLMeshConfig {
       transforms.push(
         new ResolversCompositionTransform({
           apiName,
-          syncImportFn: this.syncImportFn,
+          importFn: this.syncImportFn,
           baseDir: this.baseDir,
           config: config.resolversComposition,
           cache: this.cache,
-          pubsub: this.pubsub,
+          pubsub: this.pubsub as unknown as MeshPubSub,
+          logger: this.logger,
         })
       )
     }
