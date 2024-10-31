@@ -24,7 +24,7 @@
     "@graphql-mesh/runtime": "0.18.7",
     "@graphql-mesh/store": "0.1.19",
     "@graphql-mesh/transform-cache": "0.9.21",
-    "@graphql-mesh/transform-encapsulate": "0.1.67",
+    "@graphql-mesh/transform-encapsulate": "0.102.11",
     "@graphql-mesh/transform-filter-schema": "0.10.28",
     "@graphql-mesh/transform-mock": "0.15.6",
     "@graphql-mesh/transform-naming-convention": "0.6.69",

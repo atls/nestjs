@@ -26,7 +26,6 @@ import InMemoryLRUCache                 from '@graphql-mesh/cache-inmemory-lru'
 import StitchingMerger                  from '@graphql-mesh/merger-stitching'
 // @ts-expect-error
 import CacheTransform                   from '@graphql-mesh/transform-cache'
-// @ts-expect-error
 import EncapsulateTransform             from '@graphql-mesh/transform-encapsulate'
 // @ts-expect-error
 import FilterTransform                  from '@graphql-mesh/transform-filter-schema'
@@ -186,7 +185,6 @@ export class GraphQLMeshConfig {
 
     if (config.encapsulate) {
       transforms.push(
-        // eslint-disable-next-line @typescript-eslint/no-unsafe-call
         new EncapsulateTransform({
           apiName,
           syncImportFn: this.syncImportFn,
