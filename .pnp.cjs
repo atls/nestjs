@@ -629,7 +629,7 @@ const RAW_RUNTIME_STATE =
           ["@nestjs/testing", "virtual:420937aa6e26d1616b79bbc33a8fd56103fa773427edcab7136fa7cf5d0ad09a5a82319fc41e971fc166c28e110a660630c2b86b00cbc0db5b9268e5d3f2e8aa#npm:10.4.1"],\
           ["@types/lodash", "npm:4.17.7"],\
           ["@types/long", "npm:4.0.2"],\
-          ["@types/node", "npm:22.5.5"],\
+          ["@types/node", "npm:22.8.5"],\
           ["@types/supertest", "npm:6.0.2"],\
           ["@types/ws", "npm:8.5.12"],\
           ["apollo-server-express", "virtual:420937aa6e26d1616b79bbc33a8fd56103fa773427edcab7136fa7cf5d0ad09a5a82319fc41e971fc166c28e110a660630c2b86b00cbc0db5b9268e5d3f2e8aa#npm:2.26.2"],\
@@ -10620,6 +10620,14 @@ const RAW_RUNTIME_STATE =
         "packageLocation": "../.yarn/berry/cache/@types-node-npm-22.7.5-0428b60a8c-10c0.zip/node_modules/@types/node/",\
         "packageDependencies": [\
           ["@types/node", "npm:22.7.5"],\
+          ["undici-types", "npm:6.19.8"]\
+        ],\
+        "linkType": "HARD"\
+      }],\
+      ["npm:22.8.5", {\
+        "packageLocation": "../.yarn/berry/cache/@types-node-npm-22.8.5-6fb0b9e585-10c0.zip/node_modules/@types/node/",\
+        "packageDependencies": [\
+          ["@types/node", "npm:22.8.5"],\
           ["undici-types", "npm:6.19.8"]\
         ],\
         "linkType": "HARD"\
