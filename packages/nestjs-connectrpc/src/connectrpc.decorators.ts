@@ -57,24 +57,33 @@ export const ConnectRpcService = (serviceName: ServiceType): ClassDecorator =>
     })
   }
 
+export const AddMethodMetadata = (
+  target: object,
+  key: string | symbol,
+  methodType: MethodType,
+  metadataKey: string | symbol
+): void => {
+  const metadata: MethodKey = {
+    key: key.toString(),
+    methodType,
+  }
+
+  const existingMethods =
+    (Reflect.getMetadata(metadataKey, target.constructor) as Set<MethodKey>) || new Set()
+
+  if (existingMethods.has(metadata)) return
+
+  existingMethods.add(metadata)
+  Reflect.defineMetadata(metadataKey, existingMethods, target.constructor)
+}
+
 /**
  * Decorator for unary RPC methods.
  * Registers the method as a unary RPC with no streaming.
  * @returns {MethodDecorator} - Method decorator function.
  */
 export const ConnectRpcMethod = (): MethodDecorator => (target: object, key: string | symbol) => {
-  const metadata: MethodKey = {
-    key: key.toString(),
-    methodType: MethodType.NO_STREAMING,
-  }
-
-  const existingMethods =
-    (Reflect.getMetadata(METHOD_DECORATOR_KEY, target.constructor) as Set<MethodKey>) || new Set()
-
-  if (existingMethods.has(metadata)) return
-
-  existingMethods.add(metadata)
-  Reflect.defineMetadata(METHOD_DECORATOR_KEY, existingMethods, target.constructor)
+  AddMethodMetadata(target, key, MethodType.NO_STREAMING, METHOD_DECORATOR_KEY)
 }
 
 /**
@@ -84,17 +93,5 @@ export const ConnectRpcMethod = (): MethodDecorator => (target: object, key: str
  */
 export const ConnectRpcStreamMethod = (): MethodDecorator =>
   (target: object, key: string | symbol) => {
-    const metadata: MethodKey = {
-      key: key.toString(),
-      methodType: MethodType.RX_STREAMING,
-    }
-
-    const existingMethods =
-      (Reflect.getMetadata(STREAM_METHOD_DECORATOR_KEY, target.constructor) as Set<MethodKey>) ||
-      new Set()
-
-    if (existingMethods.has(metadata)) return
-
-    existingMethods.add(metadata)
-    Reflect.defineMetadata(STREAM_METHOD_DECORATOR_KEY, existingMethods, target.constructor)
+    AddMethodMetadata(target, key, MethodType.RX_STREAMING, STREAM_METHOD_DECORATOR_KEY)
   }
