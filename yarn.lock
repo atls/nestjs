@@ -434,7 +434,7 @@ __metadata:
     graphql: "npm:16.9.0"
     graphql-compose: "npm:9.0.11"
     graphql-scalars: "npm:1.23.0"
-    graphql-subscriptions: "npm:1.2.1"
+    graphql-subscriptions: "npm:2.0.0"
     graphql-ws: "npm:5.16.0"
     lodash: "npm:4.17.21"
     long: "npm:5.2.3"

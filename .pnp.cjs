@@ -637,7 +637,7 @@ const RAW_RUNTIME_STATE =
           ["graphql", "npm:16.9.0"],\
           ["graphql-compose", "virtual:420937aa6e26d1616b79bbc33a8fd56103fa773427edcab7136fa7cf5d0ad09a5a82319fc41e971fc166c28e110a660630c2b86b00cbc0db5b9268e5d3f2e8aa#npm:9.0.11"],\
           ["graphql-scalars", "virtual:420937aa6e26d1616b79bbc33a8fd56103fa773427edcab7136fa7cf5d0ad09a5a82319fc41e971fc166c28e110a660630c2b86b00cbc0db5b9268e5d3f2e8aa#npm:1.23.0"],\
-          ["graphql-subscriptions", "virtual:420937aa6e26d1616b79bbc33a8fd56103fa773427edcab7136fa7cf5d0ad09a5a82319fc41e971fc166c28e110a660630c2b86b00cbc0db5b9268e5d3f2e8aa#npm:1.2.1"],\
+          ["graphql-subscriptions", "virtual:420937aa6e26d1616b79bbc33a8fd56103fa773427edcab7136fa7cf5d0ad09a5a82319fc41e971fc166c28e110a660630c2b86b00cbc0db5b9268e5d3f2e8aa#npm:2.0.0"],\
           ["graphql-ws", "virtual:e5d2e27d8d6ba8ae4d19bff7fc527f885e665226dacf6bc5c9839b3cf1b27af8d7836f07d10d1d329dffe8c7c3fde19aa1628ff758ebb71e113cf2bd99d38de8#npm:5.16.0"],\
           ["lodash", "npm:4.17.21"],\
           ["long", "npm:5.2.3"],\
@@ -3693,7 +3693,7 @@ const RAW_RUNTIME_STATE =
           ["ajv", "npm:8.6.2"],\
           ["cosmiconfig", "npm:7.0.0"],\
           ["graphql", "npm:16.9.0"],\
-          ["graphql-subscriptions", "virtual:420937aa6e26d1616b79bbc33a8fd56103fa773427edcab7136fa7cf5d0ad09a5a82319fc41e971fc166c28e110a660630c2b86b00cbc0db5b9268e5d3f2e8aa#npm:1.2.1"],\
+          ["graphql-subscriptions", "virtual:f46183c54038cb37080bc63d5e36bbc158a4d20b6c0519ac6be9900139efa37d92745632c8aab38de1f60dbfc55ec8bd5b760122f7baad43418c3109430f3f11#npm:1.2.1"],\
           ["param-case", "npm:3.0.4"]\
         ],\
         "packagePeers": [\
@@ -4375,7 +4375,7 @@ const RAW_RUNTIME_STATE =
           ["flatstr", "npm:1.0.12"],\
           ["graphql", "npm:16.9.0"],\
           ["graphql-jit", "virtual:5030403e753afd474d408a95e7ce92d5c6c5a487da4dad703c303299111c100f22da4e64dde0d7be95123f2b35bc889fcc1566469a3a2be10185b78a10253375#npm:0.5.2"],\
-          ["graphql-subscriptions", "virtual:420937aa6e26d1616b79bbc33a8fd56103fa773427edcab7136fa7cf5d0ad09a5a82319fc41e971fc166c28e110a660630c2b86b00cbc0db5b9268e5d3f2e8aa#npm:1.2.1"],\
+          ["graphql-subscriptions", "virtual:f46183c54038cb37080bc63d5e36bbc158a4d20b6c0519ac6be9900139efa37d92745632c8aab38de1f60dbfc55ec8bd5b760122f7baad43418c3109430f3f11#npm:1.2.1"],\
           ["is-url", "npm:1.2.4"],\
           ["js-yaml", "npm:4.1.0"],\
           ["lodash", "npm:4.17.21"],\
@@ -4405,7 +4405,7 @@ const RAW_RUNTIME_STATE =
           ["flatstr", "npm:1.0.12"],\
           ["graphql", "npm:16.9.0"],\
           ["graphql-jit", "virtual:5030403e753afd474d408a95e7ce92d5c6c5a487da4dad703c303299111c100f22da4e64dde0d7be95123f2b35bc889fcc1566469a3a2be10185b78a10253375#npm:0.5.2"],\
-          ["graphql-subscriptions", "virtual:420937aa6e26d1616b79bbc33a8fd56103fa773427edcab7136fa7cf5d0ad09a5a82319fc41e971fc166c28e110a660630c2b86b00cbc0db5b9268e5d3f2e8aa#npm:1.2.1"],\
+          ["graphql-subscriptions", "virtual:f46183c54038cb37080bc63d5e36bbc158a4d20b6c0519ac6be9900139efa37d92745632c8aab38de1f60dbfc55ec8bd5b760122f7baad43418c3109430f3f11#npm:1.2.1"],\
           ["is-url", "npm:1.2.4"],\
           ["js-yaml", "npm:4.1.0"],\
           ["lodash", "npm:4.17.21"],\
@@ -4435,7 +4435,7 @@ const RAW_RUNTIME_STATE =
           ["flatstr", "npm:1.0.12"],\
           ["graphql", "npm:16.9.0"],\
           ["graphql-jit", "virtual:d6f90cdf59115dd5b60a7ab3cd7911c1ef2430a2a5c83c3d675fa398fc52bd763479734c516b2c4aaa5a598a2f1643d1ec3d787f3b6d6d1fcbe38bdc476f1e3b#npm:0.6.0"],\
-          ["graphql-subscriptions", "virtual:420937aa6e26d1616b79bbc33a8fd56103fa773427edcab7136fa7cf5d0ad09a5a82319fc41e971fc166c28e110a660630c2b86b00cbc0db5b9268e5d3f2e8aa#npm:1.2.1"],\
+          ["graphql-subscriptions", "virtual:f46183c54038cb37080bc63d5e36bbc158a4d20b6c0519ac6be9900139efa37d92745632c8aab38de1f60dbfc55ec8bd5b760122f7baad43418c3109430f3f11#npm:1.2.1"],\
           ["is-url", "npm:1.2.4"],\
           ["js-yaml", "npm:4.1.0"],\
           ["lodash", "npm:4.17.21"],\
@@ -4465,7 +4465,7 @@ const RAW_RUNTIME_STATE =
           ["flatstr", "npm:1.0.12"],\
           ["graphql", "npm:16.9.0"],\
           ["graphql-jit", "virtual:5030403e753afd474d408a95e7ce92d5c6c5a487da4dad703c303299111c100f22da4e64dde0d7be95123f2b35bc889fcc1566469a3a2be10185b78a10253375#npm:0.5.2"],\
-          ["graphql-subscriptions", "virtual:420937aa6e26d1616b79bbc33a8fd56103fa773427edcab7136fa7cf5d0ad09a5a82319fc41e971fc166c28e110a660630c2b86b00cbc0db5b9268e5d3f2e8aa#npm:1.2.1"],\
+          ["graphql-subscriptions", "virtual:f46183c54038cb37080bc63d5e36bbc158a4d20b6c0519ac6be9900139efa37d92745632c8aab38de1f60dbfc55ec8bd5b760122f7baad43418c3109430f3f11#npm:1.2.1"],\
           ["is-url", "npm:1.2.4"],\
           ["js-yaml", "npm:4.1.0"],\
           ["lodash", "npm:4.17.21"],\
@@ -4495,7 +4495,7 @@ const RAW_RUNTIME_STATE =
           ["flatstr", "npm:1.0.12"],\
           ["graphql", "npm:16.9.0"],\
           ["graphql-jit", "virtual:5030403e753afd474d408a95e7ce92d5c6c5a487da4dad703c303299111c100f22da4e64dde0d7be95123f2b35bc889fcc1566469a3a2be10185b78a10253375#npm:0.5.2"],\
-          ["graphql-subscriptions", "virtual:420937aa6e26d1616b79bbc33a8fd56103fa773427edcab7136fa7cf5d0ad09a5a82319fc41e971fc166c28e110a660630c2b86b00cbc0db5b9268e5d3f2e8aa#npm:1.2.1"],\
+          ["graphql-subscriptions", "virtual:f46183c54038cb37080bc63d5e36bbc158a4d20b6c0519ac6be9900139efa37d92745632c8aab38de1f60dbfc55ec8bd5b760122f7baad43418c3109430f3f11#npm:1.2.1"],\
           ["is-url", "npm:1.2.4"],\
           ["js-yaml", "npm:4.1.0"],\
           ["lodash", "npm:4.17.21"],\
@@ -4526,7 +4526,7 @@ const RAW_RUNTIME_STATE =
           ["flatstr", "npm:1.0.12"],\
           ["graphql", "npm:16.9.0"],\
           ["graphql-jit", "virtual:fc0dec8ca35eab0f668ef7c9cc527cefd549b258f9d4e4851036304642a943e54e37c2f213efaec4dcf3a5ba7fea3c30a83d5942397c663cf12d81d077b9af58#npm:0.7.3"],\
-          ["graphql-subscriptions", "virtual:fc0dec8ca35eab0f668ef7c9cc527cefd549b258f9d4e4851036304642a943e54e37c2f213efaec4dcf3a5ba7fea3c30a83d5942397c663cf12d81d077b9af58#npm:2.0.0"],\
+          ["graphql-subscriptions", "virtual:420937aa6e26d1616b79bbc33a8fd56103fa773427edcab7136fa7cf5d0ad09a5a82319fc41e971fc166c28e110a660630c2b86b00cbc0db5b9268e5d3f2e8aa#npm:2.0.0"],\
           ["is-url", "npm:1.2.4"],\
           ["js-yaml", "npm:4.1.0"],\
           ["lodash", "npm:4.17.21"],\
@@ -11928,7 +11928,7 @@ const RAW_RUNTIME_STATE =
           ["cors", "npm:2.8.5"],\
           ["express", "npm:4.21.0"],\
           ["graphql", "npm:16.9.0"],\
-          ["graphql-subscriptions", "virtual:420937aa6e26d1616b79bbc33a8fd56103fa773427edcab7136fa7cf5d0ad09a5a82319fc41e971fc166c28e110a660630c2b86b00cbc0db5b9268e5d3f2e8aa#npm:1.2.1"],\
+          ["graphql-subscriptions", "virtual:f46183c54038cb37080bc63d5e36bbc158a4d20b6c0519ac6be9900139efa37d92745632c8aab38de1f60dbfc55ec8bd5b760122f7baad43418c3109430f3f11#npm:1.2.1"],\
           ["graphql-tools", "virtual:c354ad87037fcfa5fde220cb4eb26d3cfae1be69a51df34d7076b9ba199b8308ab7f12b922904249b64e9a3adc06ceb4ae4c34031d4776e44f1e1b2debd52efc#npm:4.0.8"],\
           ["parseurl", "npm:1.3.3"],\
           ["subscriptions-transport-ws", "virtual:c354ad87037fcfa5fde220cb4eb26d3cfae1be69a51df34d7076b9ba199b8308ab7f12b922904249b64e9a3adc06ceb4ae4c34031d4776e44f1e1b2debd52efc#npm:0.9.19"],\
@@ -16341,10 +16341,10 @@ const RAW_RUNTIME_STATE =
         ],\
         "linkType": "SOFT"\
       }],\
-      ["virtual:420937aa6e26d1616b79bbc33a8fd56103fa773427edcab7136fa7cf5d0ad09a5a82319fc41e971fc166c28e110a660630c2b86b00cbc0db5b9268e5d3f2e8aa#npm:1.2.1", {\
-        "packageLocation": "./.yarn/__virtual__/graphql-subscriptions-virtual-765f0b2723/2/.yarn/berry/cache/graphql-subscriptions-npm-1.2.1-6f6629f38d-10c0.zip/node_modules/graphql-subscriptions/",\
+      ["virtual:420937aa6e26d1616b79bbc33a8fd56103fa773427edcab7136fa7cf5d0ad09a5a82319fc41e971fc166c28e110a660630c2b86b00cbc0db5b9268e5d3f2e8aa#npm:2.0.0", {\
+        "packageLocation": "./.yarn/__virtual__/graphql-subscriptions-virtual-6756b36f8f/2/.yarn/berry/cache/graphql-subscriptions-npm-2.0.0-53564d1c84-10c0.zip/node_modules/graphql-subscriptions/",\
         "packageDependencies": [\
-          ["graphql-subscriptions", "virtual:420937aa6e26d1616b79bbc33a8fd56103fa773427edcab7136fa7cf5d0ad09a5a82319fc41e971fc166c28e110a660630c2b86b00cbc0db5b9268e5d3f2e8aa#npm:1.2.1"],\
+          ["graphql-subscriptions", "virtual:420937aa6e26d1616b79bbc33a8fd56103fa773427edcab7136fa7cf5d0ad09a5a82319fc41e971fc166c28e110a660630c2b86b00cbc0db5b9268e5d3f2e8aa#npm:2.0.0"],\
           ["@types/graphql", null],\
           ["graphql", "npm:16.9.0"],\
           ["iterall", "npm:1.3.0"]\
@@ -16369,10 +16369,10 @@ const RAW_RUNTIME_STATE =
         ],\
         "linkType": "HARD"\
       }],\
-      ["virtual:fc0dec8ca35eab0f668ef7c9cc527cefd549b258f9d4e4851036304642a943e54e37c2f213efaec4dcf3a5ba7fea3c30a83d5942397c663cf12d81d077b9af58#npm:2.0.0", {\
-        "packageLocation": "./.yarn/__virtual__/graphql-subscriptions-virtual-7f0702b1ec/2/.yarn/berry/cache/graphql-subscriptions-npm-2.0.0-53564d1c84-10c0.zip/node_modules/graphql-subscriptions/",\
+      ["virtual:f46183c54038cb37080bc63d5e36bbc158a4d20b6c0519ac6be9900139efa37d92745632c8aab38de1f60dbfc55ec8bd5b760122f7baad43418c3109430f3f11#npm:1.2.1", {\
+        "packageLocation": "./.yarn/__virtual__/graphql-subscriptions-virtual-adc9944a7a/2/.yarn/berry/cache/graphql-subscriptions-npm-1.2.1-6f6629f38d-10c0.zip/node_modules/graphql-subscriptions/",\
         "packageDependencies": [\
-          ["graphql-subscriptions", "virtual:fc0dec8ca35eab0f668ef7c9cc527cefd549b258f9d4e4851036304642a943e54e37c2f213efaec4dcf3a5ba7fea3c30a83d5942397c663cf12d81d077b9af58#npm:2.0.0"],\
+          ["graphql-subscriptions", "virtual:f46183c54038cb37080bc63d5e36bbc158a4d20b6c0519ac6be9900139efa37d92745632c8aab38de1f60dbfc55ec8bd5b760122f7baad43418c3109430f3f11#npm:1.2.1"],\
           ["@types/graphql", null],\
           ["graphql", "npm:16.9.0"],\
           ["iterall", "npm:1.3.0"]\

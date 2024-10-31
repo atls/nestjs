@@ -41,7 +41,7 @@
     "globby": "11.0.4",
     "graphql-compose": "9.0.11",
     "graphql-scalars": "1.23.0",
-    "graphql-subscriptions": "1.2.1",
+    "graphql-subscriptions": "2.0.0",
     "graphql-ws": "5.16.0",
     "lodash": "4.17.21",
     "long": "5.2.3",
