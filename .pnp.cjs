@@ -620,7 +620,7 @@ const RAW_RUNTIME_STATE =
           ["@graphql-mesh/types", "virtual:420937aa6e26d1616b79bbc33a8fd56103fa773427edcab7136fa7cf5d0ad09a5a82319fc41e971fc166c28e110a660630c2b86b00cbc0db5b9268e5d3f2e8aa#npm:0.45.2"],\
           ["@graphql-mesh/utils", "virtual:420937aa6e26d1616b79bbc33a8fd56103fa773427edcab7136fa7cf5d0ad09a5a82319fc41e971fc166c28e110a660630c2b86b00cbc0db5b9268e5d3f2e8aa#npm:0.13.7"],\
           ["@graphql-tools/utils", "virtual:420937aa6e26d1616b79bbc33a8fd56103fa773427edcab7136fa7cf5d0ad09a5a82319fc41e971fc166c28e110a660630c2b86b00cbc0db5b9268e5d3f2e8aa#npm:8.13.1"],\
-          ["@grpc/grpc-js", "npm:1.11.2"],\
+          ["@grpc/grpc-js", "npm:1.12.2"],\
           ["@grpc/proto-loader", "npm:0.7.13"],\
           ["@jest/globals", "npm:29.7.0"],\
           ["@nestjs/common", "virtual:420937aa6e26d1616b79bbc33a8fd56103fa773427edcab7136fa7cf5d0ad09a5a82319fc41e971fc166c28e110a660630c2b86b00cbc0db5b9268e5d3f2e8aa#npm:10.4.6"],\
@@ -5859,6 +5859,15 @@ const RAW_RUNTIME_STATE =
         ],\
         "linkType": "HARD"\
       }],\
+      ["npm:1.12.2", {\
+        "packageLocation": "../.yarn/berry/cache/@grpc-grpc-js-npm-1.12.2-733ec8eabe-10c0.zip/node_modules/@grpc/grpc-js/",\
+        "packageDependencies": [\
+          ["@grpc/grpc-js", "npm:1.12.2"],\
+          ["@grpc/proto-loader", "npm:0.7.13"],\
+          ["@js-sdsl/ordered-map", "npm:4.4.2"]\
+        ],\
+        "linkType": "HARD"\
+      }],\
       ["npm:1.9.6", {\
         "packageLocation": "../.yarn/berry/cache/@grpc-grpc-js-npm-1.9.6-81822e1f6a-10c0.zip/node_modules/@grpc/grpc-js/",\
         "packageDependencies": [\
@@ -7616,7 +7625,7 @@ const RAW_RUNTIME_STATE =
         "packageLocation": "./.yarn/__virtual__/@nestjs-microservices-virtual-48a31a63e5/2/.yarn/berry/cache/@nestjs-microservices-npm-10.4.6-87a14e792d-10c0.zip/node_modules/@nestjs/microservices/",\
         "packageDependencies": [\
           ["@nestjs/microservices", "virtual:420937aa6e26d1616b79bbc33a8fd56103fa773427edcab7136fa7cf5d0ad09a5a82319fc41e971fc166c28e110a660630c2b86b00cbc0db5b9268e5d3f2e8aa#npm:10.4.6"],\
-          ["@grpc/grpc-js", "npm:1.11.2"],\
+          ["@grpc/grpc-js", "npm:1.12.2"],\
           ["@nestjs/common", "virtual:420937aa6e26d1616b79bbc33a8fd56103fa773427edcab7136fa7cf5d0ad09a5a82319fc41e971fc166c28e110a660630c2b86b00cbc0db5b9268e5d3f2e8aa#npm:10.4.6"],\
           ["@nestjs/core", "virtual:420937aa6e26d1616b79bbc33a8fd56103fa773427edcab7136fa7cf5d0ad09a5a82319fc41e971fc166c28e110a660630c2b86b00cbc0db5b9268e5d3f2e8aa#npm:10.4.6"],\
           ["@nestjs/websockets", null],\

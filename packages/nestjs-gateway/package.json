@@ -35,7 +35,7 @@
     "@graphql-mesh/types": "0.45.2",
     "@graphql-mesh/utils": "0.13.7",
     "@graphql-tools/utils": "8.13.1",
-    "@grpc/grpc-js": "1.11.2",
+    "@grpc/grpc-js": "1.12.2",
     "@grpc/proto-loader": "0.7.13",
     "apollo-server-express": "2.26.2",
     "globby": "14.0.2",

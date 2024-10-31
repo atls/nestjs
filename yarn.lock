@@ -417,7 +417,7 @@ __metadata:
     "@graphql-mesh/types": "npm:0.45.2"
     "@graphql-mesh/utils": "npm:0.13.7"
     "@graphql-tools/utils": "npm:8.13.1"
-    "@grpc/grpc-js": "npm:1.11.2"
+    "@grpc/grpc-js": "npm:1.12.2"
     "@grpc/proto-loader": "npm:0.7.13"
     "@jest/globals": "npm:29.7.0"
     "@nestjs/common": "npm:10.4.6"
@@ -3682,6 +3682,16 @@ __metadata:
     "@grpc/proto-loader": "npm:^0.7.13"
     "@js-sdsl/ordered-map": "npm:^4.4.2"
   checksum: 10c0/d69a1db3726d7a09a54394971bd54c77dfc2e8f48b23384771a2074ecc947b240ea065b4f1d74300e76fd47d7914071460d98702bd1512b7a9d6085eac6a6012
+  languageName: node
+  linkType: hard
+
+"@grpc/grpc-js@npm:1.12.2":
+  version: 1.12.2
+  resolution: "@grpc/grpc-js@npm:1.12.2"
+  dependencies:
+    "@grpc/proto-loader": "npm:^0.7.13"
+    "@js-sdsl/ordered-map": "npm:^4.4.2"
+  checksum: 10c0/0370bdec80a5d73f0929c4b7a882af3b0ca85ed1fda361ce3986b705eb2aa9be59bba39a18b99cc05080d5c0819b319a56796dfde248375971ba64efd55fc9d6
   languageName: node
   linkType: hard
 
