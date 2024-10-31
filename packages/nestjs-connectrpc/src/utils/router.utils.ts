@@ -37,9 +37,9 @@ export const addServicesToRouter = (
 ): void => {
   for (const serviceName of Object.keys(serviceHandlersMap)) {
     const service = customMetadataStore.get(serviceName)
-    if (service) {
-      router.service(service, serviceHandlersMap[serviceName])
-    }
+    // eslint-disable-next-line no-continue
+    if (!service) continue
+    router.service(service, serviceHandlersMap[serviceName])
   }
 }
 
@@ -60,36 +60,34 @@ export const createServiceHandlersMap = (
     const { service, rpc, streaming } = parsedPattern
     const serviceMetadata = customMetadataStore.get(service)
 
-    if (serviceMetadata) {
-      const methodProto = serviceMetadata.methods[rpc]
-      if (methodProto) {
-        serviceHandlersMap[service] ??= {}
+    if (!serviceMetadata) return
+    const methodProto = serviceMetadata.methods[rpc]
+    if (!methodProto) return
+    serviceHandlersMap[service] ??= {}
 
-        switch (streaming) {
-          case MethodType.NO_STREAMING:
-            serviceHandlersMap[service][rpc] = async (
-              request: unknown,
-              context: unknown
-            ): Promise<unknown> => {
-              const resultOrDeferred = await handlerMetadata(request, context)
-              return lastValueFrom(transformToObservable(resultOrDeferred))
-            }
-            break
-
-          case MethodType.RX_STREAMING:
-            serviceHandlersMap[service][rpc] = async function* handleStream(
-              request: unknown,
-              context: unknown
-            ): AsyncGenerator {
-              const streamOrValue = await handlerMetadata(request, context)
-              yield* toAsyncGenerator(streamOrValue as AsyncGenerator | Observable<unknown>)
-            }
-            break
-
-          default:
-            throw new Error(`Unsupported streaming type: ${streaming as string}`)
+    switch (streaming) {
+      case MethodType.NO_STREAMING:
+        serviceHandlersMap[service][rpc] = async (
+          request: unknown,
+          context: unknown
+        ): Promise<unknown> => {
+          const resultOrDeferred = await handlerMetadata(request, context)
+          return lastValueFrom(transformToObservable(resultOrDeferred))
         }
-      }
+        break
+
+      case MethodType.RX_STREAMING:
+        serviceHandlersMap[service][rpc] = async function* handleStream(
+          request: unknown,
+          context: unknown
+        ): AsyncGenerator {
+          const streamOrValue = await handlerMetadata(request, context)
+          yield* toAsyncGenerator(streamOrValue as AsyncGenerator | Observable<unknown>)
+        }
+        break
+
+      default:
+        throw new Error(`Unsupported streaming type: ${streaming as string}`)
     }
   })
 

@@ -60,13 +60,12 @@ export class ConnectRpcServer extends Server implements CustomTransportStrategy 
 
   buildRouter() {
     return (router: ConnectRouter): void => {
-      if (this.customMetadataStore) {
-        const serviceHandlersMap = createServiceHandlersMap(
-          this.getHandlers(),
-          this.customMetadataStore
-        )
-        addServicesToRouter(router, serviceHandlersMap, this.customMetadataStore)
-      }
+      if (!this.customMetadataStore) return
+      const serviceHandlersMap = createServiceHandlersMap(
+        this.getHandlers(),
+        this.customMetadataStore
+      )
+      addServicesToRouter(router, serviceHandlersMap, this.customMetadataStore)
     }
   }
 }

@@ -42,18 +42,18 @@ export const ConnectRpcService = (serviceName: ServiceType): ClassDecorator =>
       const { key: functionName, methodType } = methodImpl
       const descriptor = Object.getOwnPropertyDescriptor(target.prototype, functionName)
 
-      if (descriptor && isFunctionPropertyDescriptor(descriptor)) {
-        const metadata = createConnectRpcMethodMetadata(
-          descriptor.value,
-          functionName,
-          serviceName.typeName,
-          functionName,
-          methodType
-        )
+      if (!descriptor || !isFunctionPropertyDescriptor(descriptor)) return
 
-        CustomMetadataStore.getInstance().set(serviceName.typeName, serviceName)
-        MessagePattern(metadata, CONNECTRPC_TRANSPORT)(target.prototype, functionName, descriptor)
-      }
+      const metadata = createConnectRpcMethodMetadata(
+        descriptor.value,
+        functionName,
+        serviceName.typeName,
+        functionName,
+        methodType
+      )
+
+      CustomMetadataStore.getInstance().set(serviceName.typeName, serviceName)
+      MessagePattern(metadata, CONNECTRPC_TRANSPORT)(target.prototype, functionName, descriptor)
     })
   }
 
@@ -71,10 +71,10 @@ export const ConnectRpcMethod = (): MethodDecorator => (target: object, key: str
   const existingMethods =
     (Reflect.getMetadata(METHOD_DECORATOR_KEY, target.constructor) as Set<MethodKey>) || new Set()
 
-  if (!existingMethods.has(metadata)) {
-    existingMethods.add(metadata)
-    Reflect.defineMetadata(METHOD_DECORATOR_KEY, existingMethods, target.constructor)
-  }
+  if (existingMethods.has(metadata)) return
+
+  existingMethods.add(metadata)
+  Reflect.defineMetadata(METHOD_DECORATOR_KEY, existingMethods, target.constructor)
 }
 
 /**
@@ -93,8 +93,8 @@ export const ConnectRpcStreamMethod = (): MethodDecorator =>
       (Reflect.getMetadata(STREAM_METHOD_DECORATOR_KEY, target.constructor) as Set<MethodKey>) ||
       new Set()
 
-    if (!existingMethods.has(metadata)) {
-      existingMethods.add(metadata)
-      Reflect.defineMetadata(STREAM_METHOD_DECORATOR_KEY, existingMethods, target.constructor)
-    }
+    if (existingMethods.has(metadata)) return
+
+    existingMethods.add(metadata)
+    Reflect.defineMetadata(STREAM_METHOD_DECORATOR_KEY, existingMethods, target.constructor)
   }
