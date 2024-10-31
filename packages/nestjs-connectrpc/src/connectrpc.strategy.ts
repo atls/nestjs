@@ -54,6 +54,7 @@ export class ConnectRpcServer extends Server implements CustomTransportStrategy 
       const modifiedCallback = callback
       modifiedCallback.isEventHandler = true
       this.messageHandlers.set(route, modifiedCallback)
+      return
     }
     this.messageHandlers.set(route, callback)
   }
