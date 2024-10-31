@@ -24,7 +24,6 @@ import StitchingMerger                  from '@graphql-mesh/merger-stitching'
 // @ts-expect-error
 import CacheTransform                   from '@graphql-mesh/transform-cache'
 import EncapsulateTransform             from '@graphql-mesh/transform-encapsulate'
-// @ts-expect-error
 import FilterTransform                  from '@graphql-mesh/transform-filter-schema'
 // @ts-expect-error
 import MockingTransform                 from '@graphql-mesh/transform-mock'
@@ -155,14 +154,8 @@ export class GraphQLMeshConfig {
 
     if (config.filterSchema) {
       transforms.push(
-        // eslint-disable-next-line @typescript-eslint/no-unsafe-call
-        FilterTransform({
-          apiName,
-          syncImportFn: this.syncImportFn,
-          baseDir: this.baseDir,
+        new FilterTransform({
           config: config.filterSchema,
-          cache: this.cache,
-          pubsub: this.pubsub,
         })
       )
     }
