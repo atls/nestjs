@@ -28,7 +28,6 @@ import EncapsulateTransform             from '@graphql-mesh/transform-encapsulat
 import FilterTransform                  from '@graphql-mesh/transform-filter-schema'
 // @ts-expect-error
 import MockingTransform                 from '@graphql-mesh/transform-mock'
-// @ts-expect-error
 import NamingConventionTransform        from '@graphql-mesh/transform-naming-convention'
 import PrefixTransform                  from '@graphql-mesh/transform-prefix'
 import RenameTransform                  from '@graphql-mesh/transform-rename'
@@ -254,14 +253,14 @@ export class GraphQLMeshConfig {
 
     if (config.namingConvention) {
       transforms.push(
-        // eslint-disable-next-line @typescript-eslint/no-unsafe-call
         new NamingConventionTransform({
           apiName,
-          syncImportFn: this.syncImportFn,
+          importFn: this.syncImportFn,
           baseDir: this.baseDir,
           config: config.namingConvention,
           cache: this.cache,
-          pubsub: this.pubsub,
+          pubsub: this.pubsub as unknown as MeshPubSub,
+          logger: this.logger,
         })
       )
     }

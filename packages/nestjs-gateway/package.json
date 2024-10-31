@@ -28,7 +28,7 @@
     "@graphql-mesh/transform-encapsulate": "0.102.11",
     "@graphql-mesh/transform-filter-schema": "0.10.28",
     "@graphql-mesh/transform-mock": "0.15.6",
-    "@graphql-mesh/transform-naming-convention": "0.6.69",
+    "@graphql-mesh/transform-naming-convention": "0.102.11",
     "@graphql-mesh/transform-prefix": "0.102.11",
     "@graphql-mesh/transform-rename": "0.102.11",
     "@graphql-mesh/transform-resolvers-composition": "0.102.11",

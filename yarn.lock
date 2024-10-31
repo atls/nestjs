@@ -420,7 +420,7 @@ __metadata:
     "@graphql-mesh/transform-encapsulate": "npm:0.102.11"
     "@graphql-mesh/transform-filter-schema": "npm:0.10.28"
     "@graphql-mesh/transform-mock": "npm:0.15.6"
-    "@graphql-mesh/transform-naming-convention": "npm:0.6.69"
+    "@graphql-mesh/transform-naming-convention": "npm:0.102.11"
     "@graphql-mesh/transform-prefix": "npm:0.102.11"
     "@graphql-mesh/transform-rename": "npm:0.102.11"
     "@graphql-mesh/transform-resolvers-composition": "npm:0.102.11"
@@ -2754,21 +2754,23 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@graphql-mesh/transform-naming-convention@npm:0.6.69":
-  version: 0.6.69
-  resolution: "@graphql-mesh/transform-naming-convention@npm:0.6.69"
+"@graphql-mesh/transform-naming-convention@npm:0.102.11":
+  version: 0.102.11
+  resolution: "@graphql-mesh/transform-naming-convention@npm:0.102.11"
   dependencies:
-    "@graphql-mesh/types": "npm:0.53.0"
-    "@graphql-mesh/utils": "npm:0.19.0"
-    "@graphql-tools/delegate": "npm:8.4.0"
-    "@graphql-tools/utils": "npm:8.5.0"
-    "@graphql-tools/wrap": "npm:8.3.0"
-    change-case: "npm:4.1.2"
-    lower-case: "npm:2.0.2"
-    upper-case: "npm:2.0.2"
+    "@graphql-tools/delegate": "npm:^10.0.28"
+    "@graphql-tools/wrap": "npm:^10.0.12"
+    change-case: "npm:^4.1.2"
+    graphql-scalars: "npm:^1.22.4"
+    lower-case: "npm:^2.0.2"
+    upper-case: "npm:^2.0.2"
   peerDependencies:
+    "@graphql-mesh/types": ^0.102.11
+    "@graphql-mesh/utils": ^0.102.11
+    "@graphql-tools/utils": ^10.5.5
     graphql: "*"
-  checksum: 10c0/778e9af61c1254a49322a7a5335c00cbf32790a5eaf17e8969e750baac8fe17f8267b25d08d3f178cd8841a3d22aa4a15ae3a9a2126ef06f733e3b80adf559b6
+    tslib: ^2.5.0
+  checksum: 10c0/d68e87a13710e6fd270e23dc1372ddac717f7ea464015f97446f701f1621e3410c6dcae29d856fc32411c7f0943b5e82a379564cb655b7be37f9c6541221cc37
   languageName: node
   linkType: hard
 
@@ -3402,7 +3404,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@graphql-tools/delegate@npm:8.8.1, @graphql-tools/delegate@npm:^8.1.0, @graphql-tools/delegate@npm:^8.4.0":
+"@graphql-tools/delegate@npm:8.8.1, @graphql-tools/delegate@npm:^8.1.0":
   version: 8.8.1
   resolution: "@graphql-tools/delegate@npm:8.8.1"
   dependencies:
@@ -4085,21 +4087,6 @@ __metadata:
   peerDependencies:
     graphql: ^14.0.0 || ^15.0.0
   checksum: 10c0/1b4bd7d277980a59ef5561c84bab8d91a9924d770756ac171b7d86c6093ed3fca7d5f31badfeae4476cc590de8ef59cf5f33772a46bd3b4748f73561a29c15d7
-  languageName: node
-  linkType: hard
-
-"@graphql-tools/wrap@npm:8.3.0":
-  version: 8.3.0
-  resolution: "@graphql-tools/wrap@npm:8.3.0"
-  dependencies:
-    "@graphql-tools/delegate": "npm:^8.4.0"
-    "@graphql-tools/schema": "npm:^8.3.0"
-    "@graphql-tools/utils": "npm:^8.5.0"
-    tslib: "npm:~2.3.0"
-    value-or-promise: "npm:1.0.11"
-  peerDependencies:
-    graphql: ^14.0.0 || ^15.0.0 || ^16.0.0
-  checksum: 10c0/23b0c5505f393b4a18c832d08c79cc52b6e89e38c115fb9c8ce0ce80454bb83815af4f9292b2fc957252950c5619020494a6f001f390f6a7e4ab97ad83aef459
   languageName: node
   linkType: hard
 
@@ -8745,7 +8732,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"change-case@npm:4.1.2":
+"change-case@npm:^4.1.2":
   version: 4.1.2
   resolution: "change-case@npm:4.1.2"
   dependencies:
@@ -13160,7 +13147,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"lower-case@npm:2.0.2, lower-case@npm:^2.0.2":
+"lower-case@npm:^2.0.2":
   version: 2.0.2
   resolution: "lower-case@npm:2.0.2"
   dependencies:
@@ -16712,7 +16699,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"upper-case@npm:2.0.2, upper-case@npm:^2.0.2":
+"upper-case@npm:^2.0.2":
   version: 2.0.2
   resolution: "upper-case@npm:2.0.2"
   dependencies:
