@@ -38,7 +38,6 @@ import NamingConventionTransform        from '@graphql-mesh/transform-naming-con
 import PrefixTransform                  from '@graphql-mesh/transform-prefix'
 // @ts-expect-error
 import RenameTransform                  from '@graphql-mesh/transform-rename'
-// @ts-expect-error
 import ResolversCompositionTransform    from '@graphql-mesh/transform-resolvers-composition'
 // @ts-expect-error
 import SnapshotTransform                from '@graphql-mesh/transform-snapshot'
@@ -257,7 +256,6 @@ export class GraphQLMeshConfig {
 
     if (config.resolversComposition) {
       transforms.push(
-        // eslint-disable-next-line @typescript-eslint/no-unsafe-call
         new ResolversCompositionTransform({
           apiName,
           syncImportFn: this.syncImportFn,
