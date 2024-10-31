@@ -655,6 +655,7 @@ const RAW_RUNTIME_STATE =
           ["reflect-metadata", "npm:0.2.2"],\
           ["rxjs", "npm:7.8.1"],\
           ["supertest", "npm:6.3.4"],\
+          ["tslib", "npm:2.8.0"],\
           ["ws", "virtual:420937aa6e26d1616b79bbc33a8fd56103fa773427edcab7136fa7cf5d0ad09a5a82319fc41e971fc166c28e110a660630c2b86b00cbc0db5b9268e5d3f2e8aa#npm:8.18.0"]\
         ],\
         "linkType": "SOFT"\
@@ -3805,7 +3806,7 @@ const RAW_RUNTIME_STATE =
           ["@types/graphql-tools__utils", null],\
           ["@types/tslib", null],\
           ["graphql", "npm:16.9.0"],\
-          ["tslib", null]\
+          ["tslib", "npm:2.8.0"]\
         ],\
         "packagePeers": [\
           "@graphql-mesh/store",\
@@ -3959,7 +3960,7 @@ const RAW_RUNTIME_STATE =
           ["@types/graphql-tools__utils", null],\
           ["@types/tslib", null],\
           ["graphql", "npm:16.9.0"],\
-          ["tslib", null]\
+          ["tslib", "npm:2.8.0"]\
         ],\
         "packagePeers": [\
           "@graphql-mesh/cross-helpers",\
@@ -4124,7 +4125,7 @@ const RAW_RUNTIME_STATE =
           ["graphql", "npm:16.9.0"],\
           ["json-pointer", "npm:0.6.2"],\
           ["lodash.get", "npm:4.4.2"],\
-          ["tslib", null]\
+          ["tslib", "npm:2.8.0"]\
         ],\
         "packagePeers": [\
           "@types/graphql",\
@@ -4186,7 +4187,7 @@ const RAW_RUNTIME_STATE =
           ["@types/graphql-tools__utils", null],\
           ["@types/tslib", null],\
           ["graphql", "npm:16.9.0"],\
-          ["tslib", null]\
+          ["tslib", "npm:2.8.0"]\
         ],\
         "packagePeers": [\
           "@graphql-mesh/types",\
@@ -4368,7 +4369,7 @@ const RAW_RUNTIME_STATE =
           ["@types/graphql-mesh__utils", null],\
           ["@types/tslib", null],\
           ["graphql", "npm:16.9.0"],\
-          ["tslib", null]\
+          ["tslib", "npm:2.8.0"]\
         ],\
         "packagePeers": [\
           "@graphql-mesh/types",\
@@ -4521,7 +4522,7 @@ const RAW_RUNTIME_STATE =
           ["@types/graphql-tools__utils", null],\
           ["@types/tslib", null],\
           ["graphql", "npm:16.9.0"],\
-          ["tslib", null]\
+          ["tslib", "npm:2.8.0"]\
         ],\
         "packagePeers": [\
           "@graphql-mesh/store",\
@@ -4752,7 +4753,7 @@ const RAW_RUNTIME_STATE =
           ["lodash.get", "npm:4.4.2"],\
           ["lodash.topath", "npm:4.5.2"],\
           ["tiny-lru", "npm:11.2.11"],\
-          ["tslib", null]\
+          ["tslib", "npm:2.8.0"]\
         ],\
         "packagePeers": [\
           "@graphql-mesh/cross-helpers",\
