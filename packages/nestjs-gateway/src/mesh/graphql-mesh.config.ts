@@ -9,9 +9,7 @@ import type { ImportFn }                from '@graphql-mesh/types'
 import type { SourceOptions }           from '../module/index.js'
 import type { SourceTransformsOptions } from '../module/index.js'
 
-// @ts-expect-error
 import { InMemoryStoreStorageAdapter }  from '@graphql-mesh/store'
-// @ts-expect-error
 import { MeshStore }                    from '@graphql-mesh/store'
 import { Inject }                       from '@nestjs/common'
 import { Injectable }                   from '@nestjs/common'
@@ -73,7 +71,6 @@ export class GraphQLMeshConfig {
     this.baseDir = process.cwd()
     // eslint-disable-next-line @typescript-eslint/no-unsafe-call
     this.cache = options.cache || new InMemoryLRUCache()
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-call
     this.store = new MeshStore(join(process.cwd(), '.mesh'), new InMemoryStoreStorageAdapter(), {
       readonly: false,
       validate: false,
@@ -88,7 +85,6 @@ export class GraphQLMeshConfig {
       new StitchingMerger({
         cache: this.cache,
         pubsub: this.pubsub as unknown as MeshPubSub,
-        // eslint-disable-next-line @typescript-eslint/no-unsafe-call
         store: this.store.child(`StitchingMerger`),
         logger: this.logger,
       })

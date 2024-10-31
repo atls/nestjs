@@ -414,7 +414,7 @@ __metadata:
     "@graphql-mesh/config": "npm:0.19.8"
     "@graphql-mesh/merger-stitching": "npm:0.102.11"
     "@graphql-mesh/runtime": "npm:0.18.7"
-    "@graphql-mesh/store": "npm:0.1.19"
+    "@graphql-mesh/store": "npm:0.102.11"
     "@graphql-mesh/transform-cache": "npm:0.9.21"
     "@graphql-mesh/transform-encapsulate": "npm:0.102.11"
     "@graphql-mesh/transform-filter-schema": "npm:0.10.28"
@@ -2345,19 +2345,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@graphql-inspector/core@npm:3.0.2":
-  version: 3.0.2
-  resolution: "@graphql-inspector/core@npm:3.0.2"
-  dependencies:
-    dependency-graph: "npm:0.11.0"
-    object-inspect: "npm:1.10.3"
-    tslib: "npm:^2.0.0"
-  peerDependencies:
-    graphql: ^0.13.0 || ^14.0.0 || ^15.0.0
-  checksum: 10c0/6d965a3f37d16e08ef2f29809110cef2353ce825b5e1321967c494fd9a367059092c323768fa302ca57e95fbcdd7571629b99943e8402b495d0a8219d1593e24
-  languageName: node
-  linkType: hard
-
 "@graphql-inspector/core@npm:3.1.2":
   version: 3.1.2
   resolution: "@graphql-inspector/core@npm:3.1.2"
@@ -2381,6 +2368,19 @@ __metadata:
   peerDependencies:
     graphql: ^0.13.0 || ^14.0.0 || ^15.0.0 || ^16.0.0
   checksum: 10c0/4a770985d66a389d00f7101d29bf91cb3e579ef2b2480c47fd6ecf48487131bd258c953e923996dc45e30dec84dccf0e031b1c16af7bd69203ab7220da21c860
+  languageName: node
+  linkType: hard
+
+"@graphql-inspector/core@npm:6.1.0":
+  version: 6.1.0
+  resolution: "@graphql-inspector/core@npm:6.1.0"
+  dependencies:
+    dependency-graph: "npm:1.0.0"
+    object-inspect: "npm:1.13.1"
+    tslib: "npm:2.6.2"
+  peerDependencies:
+    graphql: ^14.0.0 || ^15.0.0 || ^16.0.0
+  checksum: 10c0/8ac831bafa56fd236a43c52eebbd070b20aa0eccf1bfacbc557fda16bcbca326199ac5bca8a8c3b06ffe70802fd59915ca22e468042054f9c9e883c7b84df3eb
   languageName: node
   linkType: hard
 
@@ -2545,19 +2545,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@graphql-mesh/store@npm:0.1.19":
-  version: 0.1.19
-  resolution: "@graphql-mesh/store@npm:0.1.19"
-  dependencies:
-    "@graphql-inspector/core": "npm:3.0.2"
-    "@graphql-mesh/utils": "npm:0.19.0"
-    "@graphql-tools/utils": "npm:8.5.0"
-  peerDependencies:
-    graphql: "*"
-  checksum: 10c0/6de70bdd39bc5ab22de7641cc529cb85098040cf4733191868139a51745e62df57ca98773790017bd0106a29925112c9d26d013d3ca4afaeda72df348f9f375a
-  languageName: node
-  linkType: hard
-
 "@graphql-mesh/store@npm:0.1.6":
   version: 0.1.6
   resolution: "@graphql-mesh/store@npm:0.1.6"
@@ -2568,6 +2555,22 @@ __metadata:
   peerDependencies:
     graphql: "*"
   checksum: 10c0/1b3db5b223baeddac9563755eed35322af945f1f1691bd8b92488bfb7e2d32b98597321c91190448ccdca479e81447717036b5445d7215c793f84b8f77c5f408
+  languageName: node
+  linkType: hard
+
+"@graphql-mesh/store@npm:0.102.11":
+  version: 0.102.11
+  resolution: "@graphql-mesh/store@npm:0.102.11"
+  dependencies:
+    "@graphql-inspector/core": "npm:6.1.0"
+  peerDependencies:
+    "@graphql-mesh/cross-helpers": ^0.4.7
+    "@graphql-mesh/types": ^0.102.11
+    "@graphql-mesh/utils": ^0.102.11
+    "@graphql-tools/utils": ^10.5.5
+    graphql: "*"
+    tslib: ^2.4.0
+  checksum: 10c0/5941068283abd768c9f33fcfe3bcf9f438959627d47874ae293ad4379a950523d4f096bd635911a1a7a65020d851726e49b01fbcb1eda98d733be72da5c1c431
   languageName: node
   linkType: hard
 
@@ -9505,6 +9508,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"dependency-graph@npm:1.0.0":
+  version: 1.0.0
+  resolution: "dependency-graph@npm:1.0.0"
+  checksum: 10c0/10d1e248ab68a33654335559bae5ec142c51959cbff1cba8b35cdccfdc12eb8d136227df85c31b71b9ee9fed1b2bfbd01721661b4f927e12d890d13c4230788f
+  languageName: node
+  linkType: hard
+
 "deprecated-decorator@npm:^0.1.6":
   version: 0.1.6
   resolution: "deprecated-decorator@npm:0.1.6"
@@ -13899,6 +13909,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"object-inspect@npm:1.13.1":
+  version: 1.13.1
+  resolution: "object-inspect@npm:1.13.1"
+  checksum: 10c0/fad603f408e345c82e946abdf4bfd774260a5ed3e5997a0b057c44153ac32c7271ff19e3a5ae39c858da683ba045ccac2f65245c12763ce4e8594f818f4a648d
+  languageName: node
+  linkType: hard
+
 "object-inspect@npm:^1.13.1":
   version: 1.13.2
   resolution: "object-inspect@npm:1.13.2"
@@ -16270,6 +16287,13 @@ __metadata:
   version: 2.6.0
   resolution: "tslib@npm:2.6.0"
   checksum: 10c0/8d18020a8b9e70ecc529a744c883c095f177805efdbc9786bd50bd82a46c17547923133c5444fbcaf1f7f1c44e0e29c89f73ecf6d8fd1039668024a073a81dc6
+  languageName: node
+  linkType: hard
+
+"tslib@npm:2.6.2":
+  version: 2.6.2
+  resolution: "tslib@npm:2.6.2"
+  checksum: 10c0/e03a8a4271152c8b26604ed45535954c0a45296e32445b4b87f8a5abdb2421f40b59b4ca437c4346af0f28179780d604094eb64546bee2019d903d01c6c19bdb
   languageName: node
   linkType: hard
 
