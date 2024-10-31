@@ -22,7 +22,6 @@ import { getDefaultSyncImport }         from '@graphql-mesh/utils'
 import { resolveAdditionalResolvers }   from '@graphql-mesh/utils'
 // @ts-expect-error
 import InMemoryLRUCache                 from '@graphql-mesh/cache-inmemory-lru'
-// @ts-expect-error
 import StitchingMerger                  from '@graphql-mesh/merger-stitching'
 // @ts-expect-error
 import CacheTransform                   from '@graphql-mesh/transform-cache'
@@ -86,7 +85,6 @@ export class GraphQLMeshConfig {
 
     this.merger =
       options.merger ||
-      // eslint-disable-next-line @typescript-eslint/no-unsafe-call
       new StitchingMerger({
         cache: this.cache,
         pubsub: this.pubsub,
