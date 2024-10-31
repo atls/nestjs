@@ -21,7 +21,6 @@ import { resolveAdditionalResolvers }   from '@graphql-mesh/utils'
 // @ts-expect-error
 import InMemoryLRUCache                 from '@graphql-mesh/cache-inmemory-lru'
 import StitchingMerger                  from '@graphql-mesh/merger-stitching'
-// @ts-expect-error
 import CacheTransform                   from '@graphql-mesh/transform-cache'
 import EncapsulateTransform             from '@graphql-mesh/transform-encapsulate'
 import FilterTransform                  from '@graphql-mesh/transform-filter-schema'
@@ -190,14 +189,14 @@ export class GraphQLMeshConfig {
 
     if (config.cache) {
       transforms.push(
-        // eslint-disable-next-line @typescript-eslint/no-unsafe-call
         new CacheTransform({
           apiName,
-          syncImportFn: this.syncImportFn,
+          importFn: this.syncImportFn,
           baseDir: this.baseDir,
           config: config.cache,
           cache: this.cache,
-          pubsub: this.pubsub,
+          pubsub: this.pubsub as unknown as MeshPubSub,
+          logger: this.logger,
         })
       )
     }
