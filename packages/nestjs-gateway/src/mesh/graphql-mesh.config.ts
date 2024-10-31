@@ -30,7 +30,6 @@ import FilterTransform                  from '@graphql-mesh/transform-filter-sch
 import MockingTransform                 from '@graphql-mesh/transform-mock'
 // @ts-expect-error
 import NamingConventionTransform        from '@graphql-mesh/transform-naming-convention'
-// @ts-expect-error
 import PrefixTransform                  from '@graphql-mesh/transform-prefix'
 import RenameTransform                  from '@graphql-mesh/transform-rename'
 import ResolversCompositionTransform    from '@graphql-mesh/transform-resolvers-composition'
@@ -185,14 +184,14 @@ export class GraphQLMeshConfig {
 
     if (config.prefix) {
       transforms.push(
-        // eslint-disable-next-line @typescript-eslint/no-unsafe-call
         new PrefixTransform({
           apiName,
-          syncImportFn: this.syncImportFn,
+          importFn: this.syncImportFn,
           baseDir: this.baseDir,
           config: config.prefix,
           cache: this.cache,
-          pubsub: this.pubsub,
+          pubsub: this.pubsub as unknown as MeshPubSub,
+          logger: this.logger,
         })
       )
     }
