@@ -33,7 +33,7 @@
     "@graphql-mesh/transform-resolvers-composition": "0.102.11",
     "@graphql-mesh/transform-snapshot": "0.14.65",
     "@graphql-mesh/types": "0.102.11",
-    "@graphql-mesh/utils": "0.13.7",
+    "@graphql-mesh/utils": "0.102.11",
     "@graphql-tools/utils": "10.5.5",
     "@grpc/grpc-js": "1.12.2",
     "@grpc/proto-loader": "0.7.13",

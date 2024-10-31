@@ -4,6 +4,7 @@
 import type { GetMeshOptions }          from '@graphql-mesh/runtime'
 import type { MeshTransform }           from '@graphql-mesh/types'
 import type { MeshPubSub }              from '@graphql-mesh/types'
+import type { ImportFn }                from '@graphql-mesh/types'
 
 import type { SourceOptions }           from '../module/index.js'
 import type { SourceTransformsOptions } from '../module/index.js'
@@ -18,7 +19,6 @@ import { Injectable }                   from '@nestjs/common'
 import { resolveAdditionalTypeDefs }    from '@graphql-mesh/config'
 // @ts-expect-error
 import { getDefaultSyncImport }         from '@graphql-mesh/utils'
-// @ts-expect-error
 import { resolveAdditionalResolvers }   from '@graphql-mesh/utils'
 // @ts-expect-error
 import InMemoryLRUCache                 from '@graphql-mesh/cache-inmemory-lru'
@@ -100,12 +100,11 @@ export class GraphQLMeshConfig {
       this.baseDir,
       this.options.additionalTypeDefs
     )
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-call
     const additionalResolvers = await resolveAdditionalResolvers(
       this.baseDir,
       this.options.additionalResolvers || [],
-      this.syncImportFn,
-      this.pubsub
+      this.syncImportFn as ImportFn,
+      this.pubsub as unknown as MeshPubSub
     )
 
     return {

@@ -395,6 +395,7 @@ module.exports = {
               },
             }
             if (method.responseStream) {
+              // @ts-expect-error
               const clientMethod: ClientMethod = (input: unknown = {}, metaData?: Metadata) => {
                 const responseStream = client[methodName](
                   input,
