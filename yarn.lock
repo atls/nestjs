@@ -422,7 +422,7 @@ __metadata:
     "@jest/globals": "npm:29.7.0"
     "@nestjs/common": "npm:10.4.1"
     "@nestjs/core": "npm:10.4.1"
-    "@nestjs/microservices": "npm:10.4.1"
+    "@nestjs/microservices": "npm:10.4.6"
     "@nestjs/testing": "npm:10.4.6"
     "@types/lodash": "npm:4.17.13"
     "@types/long": "npm:4.0.2"
@@ -4443,6 +4443,49 @@ __metadata:
     nats:
       optional: true
   checksum: 10c0/d5e50e27bf75ea2d460b9efa2a5c1f831be15ccdeffca120d266c1247347940f63d3dea892406812cfe64ac6a3d1c5e02b9d468effbde4df2514154bf4191a3e
+  languageName: node
+  linkType: hard
+
+"@nestjs/microservices@npm:10.4.6":
+  version: 10.4.6
+  resolution: "@nestjs/microservices@npm:10.4.6"
+  dependencies:
+    iterare: "npm:1.2.1"
+    tslib: "npm:2.7.0"
+  peerDependencies:
+    "@grpc/grpc-js": "*"
+    "@nestjs/common": ^10.0.0
+    "@nestjs/core": ^10.0.0
+    "@nestjs/websockets": ^10.0.0
+    amqp-connection-manager: "*"
+    amqplib: "*"
+    cache-manager: "*"
+    ioredis: "*"
+    kafkajs: "*"
+    mqtt: "*"
+    nats: "*"
+    reflect-metadata: ^0.1.12 || ^0.2.0
+    rxjs: ^7.1.0
+  peerDependenciesMeta:
+    "@grpc/grpc-js":
+      optional: true
+    "@nestjs/websockets":
+      optional: true
+    amqp-connection-manager:
+      optional: true
+    amqplib:
+      optional: true
+    cache-manager:
+      optional: true
+    ioredis:
+      optional: true
+    kafkajs:
+      optional: true
+    mqtt:
+      optional: true
+    nats:
+      optional: true
+  checksum: 10c0/c341a566599323048a321539e57e07656c376896330fc5c24979d21469e9603bbbaa37ca8fff1255077957d8db821f985b730bce85e5c645261d9b3853d79ea5
   languageName: node
   linkType: hard
 
