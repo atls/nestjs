@@ -31,7 +31,7 @@
     "@graphql-mesh/transform-prefix": "0.6.59",
     "@graphql-mesh/transform-rename": "0.9.18",
     "@graphql-mesh/transform-resolvers-composition": "0.10.19",
-    "@graphql-mesh/transform-snapshot": "0.10.20",
+    "@graphql-mesh/transform-snapshot": "0.14.65",
     "@graphql-mesh/types": "0.45.2",
     "@graphql-mesh/utils": "0.13.7",
     "@graphql-tools/utils": "10.5.5",
