@@ -422,7 +422,7 @@ __metadata:
     "@graphql-mesh/transform-mock": "npm:0.15.6"
     "@graphql-mesh/transform-naming-convention": "npm:0.6.69"
     "@graphql-mesh/transform-prefix": "npm:0.6.59"
-    "@graphql-mesh/transform-rename": "npm:0.9.18"
+    "@graphql-mesh/transform-rename": "npm:0.102.11"
     "@graphql-mesh/transform-resolvers-composition": "npm:0.102.11"
     "@graphql-mesh/transform-snapshot": "npm:0.14.65"
     "@graphql-mesh/types": "npm:0.102.11"
@@ -2787,18 +2787,20 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@graphql-mesh/transform-rename@npm:0.9.18":
-  version: 0.9.18
-  resolution: "@graphql-mesh/transform-rename@npm:0.9.18"
+"@graphql-mesh/transform-rename@npm:0.102.11":
+  version: 0.102.11
+  resolution: "@graphql-mesh/transform-rename@npm:0.102.11"
   dependencies:
-    "@graphql-mesh/types": "npm:0.53.0"
-    "@graphql-mesh/utils": "npm:0.19.0"
-    "@graphql-tools/delegate": "npm:8.4.0"
-    "@graphql-tools/utils": "npm:8.5.0"
-    "@graphql-tools/wrap": "npm:8.3.0"
+    "@graphql-tools/delegate": "npm:^10.0.28"
+    "@graphql-tools/wrap": "npm:^10.0.12"
+    graphql-scalars: "npm:^1.22.4"
   peerDependencies:
+    "@graphql-mesh/types": ^0.102.11
+    "@graphql-mesh/utils": ^0.102.11
+    "@graphql-tools/utils": ^10.5.5
     graphql: "*"
-  checksum: 10c0/50afcf9d73be9661471b8c8bc2608e551a846c669a904110c5d586a7f27604a0b5e1463619376f96642fb7534fcf41c67798570492fafd834dba852bf0f42550
+    tslib: ^2.4.0
+  checksum: 10c0/f1683e6af8b3d8c9f01e3b2f627bc8e9f29334d059d2f6c73e78950fb55960636d60f79a7ef57a8a85c8cea8970db0f361a6701801b4de4779ce62999c598b4f
   languageName: node
   linkType: hard
 
@@ -11382,7 +11384,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"graphql-scalars@npm:1.23.0":
+"graphql-scalars@npm:1.23.0, graphql-scalars@npm:^1.22.4":
   version: 1.23.0
   resolution: "graphql-scalars@npm:1.23.0"
   dependencies:

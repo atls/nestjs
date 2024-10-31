@@ -32,7 +32,6 @@ import MockingTransform                 from '@graphql-mesh/transform-mock'
 import NamingConventionTransform        from '@graphql-mesh/transform-naming-convention'
 // @ts-expect-error
 import PrefixTransform                  from '@graphql-mesh/transform-prefix'
-// @ts-expect-error
 import RenameTransform                  from '@graphql-mesh/transform-rename'
 import ResolversCompositionTransform    from '@graphql-mesh/transform-resolvers-composition'
 // @ts-expect-error
@@ -150,14 +149,8 @@ export class GraphQLMeshConfig {
 
     if (config.rename) {
       transforms.push(
-        // eslint-disable-next-line @typescript-eslint/no-unsafe-call
         new RenameTransform({
-          apiName,
-          syncImportFn: this.syncImportFn,
-          baseDir: this.baseDir,
           config: config.rename,
-          cache: this.cache,
-          pubsub: this.pubsub,
         })
       )
     }

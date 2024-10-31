@@ -624,7 +624,7 @@ const RAW_RUNTIME_STATE =
           ["@graphql-mesh/transform-mock", "virtual:420937aa6e26d1616b79bbc33a8fd56103fa773427edcab7136fa7cf5d0ad09a5a82319fc41e971fc166c28e110a660630c2b86b00cbc0db5b9268e5d3f2e8aa#npm:0.15.6"],\
           ["@graphql-mesh/transform-naming-convention", "virtual:420937aa6e26d1616b79bbc33a8fd56103fa773427edcab7136fa7cf5d0ad09a5a82319fc41e971fc166c28e110a660630c2b86b00cbc0db5b9268e5d3f2e8aa#npm:0.6.69"],\
           ["@graphql-mesh/transform-prefix", "virtual:420937aa6e26d1616b79bbc33a8fd56103fa773427edcab7136fa7cf5d0ad09a5a82319fc41e971fc166c28e110a660630c2b86b00cbc0db5b9268e5d3f2e8aa#npm:0.6.59"],\
-          ["@graphql-mesh/transform-rename", "virtual:420937aa6e26d1616b79bbc33a8fd56103fa773427edcab7136fa7cf5d0ad09a5a82319fc41e971fc166c28e110a660630c2b86b00cbc0db5b9268e5d3f2e8aa#npm:0.9.18"],\
+          ["@graphql-mesh/transform-rename", "virtual:420937aa6e26d1616b79bbc33a8fd56103fa773427edcab7136fa7cf5d0ad09a5a82319fc41e971fc166c28e110a660630c2b86b00cbc0db5b9268e5d3f2e8aa#npm:0.102.11"],\
           ["@graphql-mesh/transform-resolvers-composition", "virtual:420937aa6e26d1616b79bbc33a8fd56103fa773427edcab7136fa7cf5d0ad09a5a82319fc41e971fc166c28e110a660630c2b86b00cbc0db5b9268e5d3f2e8aa#npm:0.102.11"],\
           ["@graphql-mesh/transform-snapshot", "virtual:420937aa6e26d1616b79bbc33a8fd56103fa773427edcab7136fa7cf5d0ad09a5a82319fc41e971fc166c28e110a660630c2b86b00cbc0db5b9268e5d3f2e8aa#npm:0.14.65"],\
           ["@graphql-mesh/types", "virtual:420937aa6e26d1616b79bbc33a8fd56103fa773427edcab7136fa7cf5d0ad09a5a82319fc41e971fc166c28e110a660630c2b86b00cbc0db5b9268e5d3f2e8aa#npm:0.102.11"],\
@@ -4322,28 +4322,42 @@ const RAW_RUNTIME_STATE =
       }]\
     ]],\
     ["@graphql-mesh/transform-rename", [\
-      ["npm:0.9.18", {\
-        "packageLocation": "../.yarn/berry/cache/@graphql-mesh-transform-rename-npm-0.9.18-a7a190711b-10c0.zip/node_modules/@graphql-mesh/transform-rename/",\
+      ["npm:0.102.11", {\
+        "packageLocation": "../.yarn/berry/cache/@graphql-mesh-transform-rename-npm-0.102.11-9d3b17eddc-10c0.zip/node_modules/@graphql-mesh/transform-rename/",\
         "packageDependencies": [\
-          ["@graphql-mesh/transform-rename", "npm:0.9.18"]\
+          ["@graphql-mesh/transform-rename", "npm:0.102.11"]\
         ],\
         "linkType": "SOFT"\
       }],\
-      ["virtual:420937aa6e26d1616b79bbc33a8fd56103fa773427edcab7136fa7cf5d0ad09a5a82319fc41e971fc166c28e110a660630c2b86b00cbc0db5b9268e5d3f2e8aa#npm:0.9.18", {\
-        "packageLocation": "./.yarn/__virtual__/@graphql-mesh-transform-rename-virtual-320602a4a2/2/.yarn/berry/cache/@graphql-mesh-transform-rename-npm-0.9.18-a7a190711b-10c0.zip/node_modules/@graphql-mesh/transform-rename/",\
+      ["virtual:420937aa6e26d1616b79bbc33a8fd56103fa773427edcab7136fa7cf5d0ad09a5a82319fc41e971fc166c28e110a660630c2b86b00cbc0db5b9268e5d3f2e8aa#npm:0.102.11", {\
+        "packageLocation": "./.yarn/__virtual__/@graphql-mesh-transform-rename-virtual-b4ef00e935/2/.yarn/berry/cache/@graphql-mesh-transform-rename-npm-0.102.11-9d3b17eddc-10c0.zip/node_modules/@graphql-mesh/transform-rename/",\
         "packageDependencies": [\
-          ["@graphql-mesh/transform-rename", "virtual:420937aa6e26d1616b79bbc33a8fd56103fa773427edcab7136fa7cf5d0ad09a5a82319fc41e971fc166c28e110a660630c2b86b00cbc0db5b9268e5d3f2e8aa#npm:0.9.18"],\
-          ["@graphql-mesh/types", "virtual:c04e0e52097bd45ee41cc8aee72d0e02b5c42fb8d25a9e0dbc9f1a47e6b1bad1cbe6d427392ff95852ecef4fe2db952788a874e53855f6e19754e2ec597bfdef#npm:0.53.0"],\
-          ["@graphql-mesh/utils", "virtual:c04e0e52097bd45ee41cc8aee72d0e02b5c42fb8d25a9e0dbc9f1a47e6b1bad1cbe6d427392ff95852ecef4fe2db952788a874e53855f6e19754e2ec597bfdef#npm:0.19.0"],\
-          ["@graphql-tools/delegate", "virtual:caeb6bb968329e627a8ad40a3414e7d6838c1a18d27a5edb9fe084f5d4fa5c43b2c8d5ef38f75611df2028cd118c8af27a1983151296e3e641b619dfade4edb6#npm:8.4.0"],\
-          ["@graphql-tools/utils", "virtual:c04e0e52097bd45ee41cc8aee72d0e02b5c42fb8d25a9e0dbc9f1a47e6b1bad1cbe6d427392ff95852ecef4fe2db952788a874e53855f6e19754e2ec597bfdef#npm:8.5.0"],\
-          ["@graphql-tools/wrap", "virtual:cbeea77dba85e501d4fecb46f38df53c9939127d06423300dbbf5326deeb5c4d4b6134b36b4be330b9fe033a979f802be229ce3dad3d719b1cf1fb0d40785c4c#npm:8.3.0"],\
+          ["@graphql-mesh/transform-rename", "virtual:420937aa6e26d1616b79bbc33a8fd56103fa773427edcab7136fa7cf5d0ad09a5a82319fc41e971fc166c28e110a660630c2b86b00cbc0db5b9268e5d3f2e8aa#npm:0.102.11"],\
+          ["@graphql-mesh/types", "virtual:420937aa6e26d1616b79bbc33a8fd56103fa773427edcab7136fa7cf5d0ad09a5a82319fc41e971fc166c28e110a660630c2b86b00cbc0db5b9268e5d3f2e8aa#npm:0.102.11"],\
+          ["@graphql-mesh/utils", "virtual:420937aa6e26d1616b79bbc33a8fd56103fa773427edcab7136fa7cf5d0ad09a5a82319fc41e971fc166c28e110a660630c2b86b00cbc0db5b9268e5d3f2e8aa#npm:0.102.11"],\
+          ["@graphql-tools/delegate", "virtual:3c119efd787559f9ee70750f32c1b18cf5834a91948ad8972168cf87690c3923222d233baa496a6af5020c916e9c3b83b1b7a3ca6d20d239402d761e14504998#npm:10.0.29"],\
+          ["@graphql-tools/utils", "virtual:420937aa6e26d1616b79bbc33a8fd56103fa773427edcab7136fa7cf5d0ad09a5a82319fc41e971fc166c28e110a660630c2b86b00cbc0db5b9268e5d3f2e8aa#npm:10.5.5"],\
+          ["@graphql-tools/wrap", "virtual:ed94f85e14bd989d6ca96555d8d95648d1319c67c9cdaafc380c9f70abf777f37546482c39103c3ef80bc6b95bf5d01b737b024e104dfab034438c0bbbc4e31d#npm:10.0.13"],\
           ["@types/graphql", null],\
-          ["graphql", "npm:16.9.0"]\
+          ["@types/graphql-mesh__types", null],\
+          ["@types/graphql-mesh__utils", null],\
+          ["@types/graphql-tools__utils", null],\
+          ["@types/tslib", null],\
+          ["graphql", "npm:16.9.0"],\
+          ["graphql-scalars", "virtual:420937aa6e26d1616b79bbc33a8fd56103fa773427edcab7136fa7cf5d0ad09a5a82319fc41e971fc166c28e110a660630c2b86b00cbc0db5b9268e5d3f2e8aa#npm:1.23.0"],\
+          ["tslib", "npm:2.8.0"]\
         ],\
         "packagePeers": [\
+          "@graphql-mesh/types",\
+          "@graphql-mesh/utils",\
+          "@graphql-tools/utils",\
+          "@types/graphql-mesh__types",\
+          "@types/graphql-mesh__utils",\
+          "@types/graphql-tools__utils",\
           "@types/graphql",\
-          "graphql"\
+          "@types/tslib",\
+          "graphql",\
+          "tslib"\
         ],\
         "linkType": "HARD"\
       }]\
