@@ -54,7 +54,7 @@
     "@nestjs/core": "10.4.1",
     "@nestjs/microservices": "10.4.1",
     "@nestjs/testing": "10.4.1",
-    "@types/lodash": "4.17.7",
+    "@types/lodash": "4.17.13",
     "@types/node": "22.8.5",
     "@types/supertest": "6.0.2",
     "@types/ws": "8.5.12",
