@@ -614,6 +614,7 @@ const RAW_RUNTIME_STATE =
           ["@atls/logger", "npm:0.0.2"],\
           ["@graphql-mesh/cache-inmemory-lru", "virtual:420937aa6e26d1616b79bbc33a8fd56103fa773427edcab7136fa7cf5d0ad09a5a82319fc41e971fc166c28e110a660630c2b86b00cbc0db5b9268e5d3f2e8aa#npm:0.6.18"],\
           ["@graphql-mesh/config", "virtual:420937aa6e26d1616b79bbc33a8fd56103fa773427edcab7136fa7cf5d0ad09a5a82319fc41e971fc166c28e110a660630c2b86b00cbc0db5b9268e5d3f2e8aa#npm:0.19.8"],\
+          ["@graphql-mesh/cross-helpers", "virtual:420937aa6e26d1616b79bbc33a8fd56103fa773427edcab7136fa7cf5d0ad09a5a82319fc41e971fc166c28e110a660630c2b86b00cbc0db5b9268e5d3f2e8aa#npm:0.4.7"],\
           ["@graphql-mesh/merger-stitching", "virtual:420937aa6e26d1616b79bbc33a8fd56103fa773427edcab7136fa7cf5d0ad09a5a82319fc41e971fc166c28e110a660630c2b86b00cbc0db5b9268e5d3f2e8aa#npm:0.102.11"],\
           ["@graphql-mesh/runtime", "virtual:420937aa6e26d1616b79bbc33a8fd56103fa773427edcab7136fa7cf5d0ad09a5a82319fc41e971fc166c28e110a660630c2b86b00cbc0db5b9268e5d3f2e8aa#npm:0.18.7"],\
           ["@graphql-mesh/store", "virtual:420937aa6e26d1616b79bbc33a8fd56103fa773427edcab7136fa7cf5d0ad09a5a82319fc41e971fc166c28e110a660630c2b86b00cbc0db5b9268e5d3f2e8aa#npm:0.102.11"],\
@@ -3744,6 +3745,31 @@ const RAW_RUNTIME_STATE =
           ["react-native-path", "npm:0.0.5"]\
         ],\
         "linkType": "HARD"\
+      }],\
+      ["npm:0.4.7", {\
+        "packageLocation": "../.yarn/berry/cache/@graphql-mesh-cross-helpers-npm-0.4.7-352c7341ed-10c0.zip/node_modules/@graphql-mesh/cross-helpers/",\
+        "packageDependencies": [\
+          ["@graphql-mesh/cross-helpers", "npm:0.4.7"]\
+        ],\
+        "linkType": "SOFT"\
+      }],\
+      ["virtual:420937aa6e26d1616b79bbc33a8fd56103fa773427edcab7136fa7cf5d0ad09a5a82319fc41e971fc166c28e110a660630c2b86b00cbc0db5b9268e5d3f2e8aa#npm:0.4.7", {\
+        "packageLocation": "./.yarn/__virtual__/@graphql-mesh-cross-helpers-virtual-c41bee88cf/2/.yarn/berry/cache/@graphql-mesh-cross-helpers-npm-0.4.7-352c7341ed-10c0.zip/node_modules/@graphql-mesh/cross-helpers/",\
+        "packageDependencies": [\
+          ["@graphql-mesh/cross-helpers", "virtual:420937aa6e26d1616b79bbc33a8fd56103fa773427edcab7136fa7cf5d0ad09a5a82319fc41e971fc166c28e110a660630c2b86b00cbc0db5b9268e5d3f2e8aa#npm:0.4.7"],\
+          ["@graphql-tools/utils", "virtual:420937aa6e26d1616b79bbc33a8fd56103fa773427edcab7136fa7cf5d0ad09a5a82319fc41e971fc166c28e110a660630c2b86b00cbc0db5b9268e5d3f2e8aa#npm:10.5.5"],\
+          ["@types/graphql", null],\
+          ["@types/graphql-tools__utils", null],\
+          ["graphql", "npm:16.9.0"],\
+          ["path-browserify", "npm:1.0.1"]\
+        ],\
+        "packagePeers": [\
+          "@graphql-tools/utils",\
+          "@types/graphql-tools__utils",\
+          "@types/graphql",\
+          "graphql"\
+        ],\
+        "linkType": "HARD"\
       }]\
     ]],\
     ["@graphql-mesh/merger-stitching", [\
@@ -3922,7 +3948,7 @@ const RAW_RUNTIME_STATE =
         "packageDependencies": [\
           ["@graphql-mesh/store", "virtual:420937aa6e26d1616b79bbc33a8fd56103fa773427edcab7136fa7cf5d0ad09a5a82319fc41e971fc166c28e110a660630c2b86b00cbc0db5b9268e5d3f2e8aa#npm:0.102.11"],\
           ["@graphql-inspector/core", "virtual:97e3f5591661fb9149ea097657a81fc04a7a9f3e6a15af11f88564613d528a8fc6ae8577421dd7c74acf19dc537cfbe6595f9a81cdb40da1d940c36ef4c957f3#npm:6.1.0"],\
-          ["@graphql-mesh/cross-helpers", null],\
+          ["@graphql-mesh/cross-helpers", "virtual:420937aa6e26d1616b79bbc33a8fd56103fa773427edcab7136fa7cf5d0ad09a5a82319fc41e971fc166c28e110a660630c2b86b00cbc0db5b9268e5d3f2e8aa#npm:0.4.7"],\
           ["@graphql-mesh/types", "virtual:420937aa6e26d1616b79bbc33a8fd56103fa773427edcab7136fa7cf5d0ad09a5a82319fc41e971fc166c28e110a660630c2b86b00cbc0db5b9268e5d3f2e8aa#npm:0.102.11"],\
           ["@graphql-mesh/utils", "virtual:420937aa6e26d1616b79bbc33a8fd56103fa773427edcab7136fa7cf5d0ad09a5a82319fc41e971fc166c28e110a660630c2b86b00cbc0db5b9268e5d3f2e8aa#npm:0.102.11"],\
           ["@graphql-tools/utils", "virtual:420937aa6e26d1616b79bbc33a8fd56103fa773427edcab7136fa7cf5d0ad09a5a82319fc41e971fc166c28e110a660630c2b86b00cbc0db5b9268e5d3f2e8aa#npm:10.5.5"],\
@@ -4708,7 +4734,7 @@ const RAW_RUNTIME_STATE =
         "packageLocation": "./.yarn/__virtual__/@graphql-mesh-utils-virtual-4a0850e34e/2/.yarn/berry/cache/@graphql-mesh-utils-npm-0.102.11-c36824e1a1-10c0.zip/node_modules/@graphql-mesh/utils/",\
         "packageDependencies": [\
           ["@graphql-mesh/utils", "virtual:420937aa6e26d1616b79bbc33a8fd56103fa773427edcab7136fa7cf5d0ad09a5a82319fc41e971fc166c28e110a660630c2b86b00cbc0db5b9268e5d3f2e8aa#npm:0.102.11"],\
-          ["@graphql-mesh/cross-helpers", null],\
+          ["@graphql-mesh/cross-helpers", "virtual:420937aa6e26d1616b79bbc33a8fd56103fa773427edcab7136fa7cf5d0ad09a5a82319fc41e971fc166c28e110a660630c2b86b00cbc0db5b9268e5d3f2e8aa#npm:0.4.7"],\
           ["@graphql-mesh/string-interpolation", "virtual:4a0850e34ea87628e2411ed4e2e83b4e6534e5b6b4164ba8cce44cab3147d51cefa987fb183395feb9ed0b89bfb35e9338954d927f3a39444ae161502d5d1ec8#npm:0.5.6"],\
           ["@graphql-mesh/types", "virtual:420937aa6e26d1616b79bbc33a8fd56103fa773427edcab7136fa7cf5d0ad09a5a82319fc41e971fc166c28e110a660630c2b86b00cbc0db5b9268e5d3f2e8aa#npm:0.102.11"],\
           ["@graphql-tools/delegate", "virtual:3c119efd787559f9ee70750f32c1b18cf5834a91948ad8972168cf87690c3923222d233baa496a6af5020c916e9c3b83b1b7a3ca6d20d239402d761e14504998#npm:10.0.29"],\

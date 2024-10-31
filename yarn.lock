@@ -412,6 +412,7 @@ __metadata:
     "@atls/logger": "npm:0.0.2"
     "@graphql-mesh/cache-inmemory-lru": "npm:0.6.18"
     "@graphql-mesh/config": "npm:0.19.8"
+    "@graphql-mesh/cross-helpers": "npm:0.4.7"
     "@graphql-mesh/merger-stitching": "npm:0.102.11"
     "@graphql-mesh/runtime": "npm:0.18.7"
     "@graphql-mesh/store": "npm:0.102.11"
@@ -2466,6 +2467,18 @@ __metadata:
     react-native-fs: "npm:2.20.0"
     react-native-path: "npm:0.0.5"
   checksum: 10c0/ae839f023782039fd4f9001983fef3e02e74833391b07aa4e0988d2e189c7ca7ef309704543f8cdfdeea28f7d36424757e9ce6f34413349392861f684835edc5
+  languageName: node
+  linkType: hard
+
+"@graphql-mesh/cross-helpers@npm:0.4.7":
+  version: 0.4.7
+  resolution: "@graphql-mesh/cross-helpers@npm:0.4.7"
+  dependencies:
+    path-browserify: "npm:1.0.1"
+  peerDependencies:
+    "@graphql-tools/utils": ^10.5.5
+    graphql: "*"
+  checksum: 10c0/31b3543bdf27461ee98139df9778ec5cdf2adee49960d54e95f4344bb9987f514801138a0cd0daace3fd3f0d74f2e0a8a9630d0477b01e8033b284380aef530d
   languageName: node
   linkType: hard
 
