@@ -255,6 +255,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@atls/grpc-error-status@npm:0.1.5":
+  version: 0.1.5
+  resolution: "@atls/grpc-error-status@npm:0.1.5"
+  dependencies:
+    "@grpc/grpc-js": "npm:1.12.2"
+    google-protobuf: "npm:3.21.4"
+  checksum: 10c0/524261e7bbb913a4c6e4cbe9b3e6eacebc0809752c12c437c45e5566b069c09f447bdfd28f8a1376e0dd9a0300492dd0de98cdc5c75f7155a563d8d3edd1bca2
+  languageName: node
+  linkType: hard
+
 "@atls/grpc-keto@workspace:packages/nestjs-grpc-keto":
   version: 0.0.0-use.local
   resolution: "@atls/grpc-keto@workspace:packages/nestjs-grpc-keto"
@@ -398,7 +408,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@atls/nestjs-gateway@workspace:packages/nestjs-gateway"
   dependencies:
-    "@atls/grpc-error-status": "npm:0.0.3"
+    "@atls/grpc-error-status": "npm:0.1.5"
     "@atls/logger": "npm:0.0.2"
     "@graphql-mesh/cache-inmemory-lru": "npm:0.5.59"
     "@graphql-mesh/config": "npm:0.19.8"

@@ -473,6 +473,15 @@ const RAW_RUNTIME_STATE =
           ["google-protobuf", "npm:3.21.4"]\
         ],\
         "linkType": "HARD"\
+      }],\
+      ["npm:0.1.5", {\
+        "packageLocation": "../.yarn/berry/cache/@atls-grpc-error-status-npm-0.1.5-a600eaef5c-10c0.zip/node_modules/@atls/grpc-error-status/",\
+        "packageDependencies": [\
+          ["@atls/grpc-error-status", "npm:0.1.5"],\
+          ["@grpc/grpc-js", "npm:1.12.2"],\
+          ["google-protobuf", "npm:3.21.4"]\
+        ],\
+        "linkType": "HARD"\
       }]\
     ]],\
     ["@atls/grpc-keto", [\
@@ -601,7 +610,7 @@ const RAW_RUNTIME_STATE =
         "packageLocation": "./packages/nestjs-gateway/",\
         "packageDependencies": [\
           ["@atls/nestjs-gateway", "workspace:packages/nestjs-gateway"],\
-          ["@atls/grpc-error-status", "npm:0.0.3"],\
+          ["@atls/grpc-error-status", "npm:0.1.5"],\
           ["@atls/logger", "npm:0.0.2"],\
           ["@graphql-mesh/cache-inmemory-lru", "virtual:420937aa6e26d1616b79bbc33a8fd56103fa773427edcab7136fa7cf5d0ad09a5a82319fc41e971fc166c28e110a660630c2b86b00cbc0db5b9268e5d3f2e8aa#npm:0.5.59"],\
           ["@graphql-mesh/config", "virtual:420937aa6e26d1616b79bbc33a8fd56103fa773427edcab7136fa7cf5d0ad09a5a82319fc41e971fc166c28e110a660630c2b86b00cbc0db5b9268e5d3f2e8aa#npm:0.19.8"],\
