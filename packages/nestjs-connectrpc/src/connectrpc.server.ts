@@ -31,9 +31,7 @@ export class HTTPServer {
   }
 
   async listen(): Promise<void> {
-    return new Promise((resolve, reject) => {
-      this.startServer(resolve, reject)
-    })
+    await this.startServer()
   }
 
   createHttpServer(): http.Server {
@@ -75,8 +73,8 @@ export class HTTPServer {
     )
   }
 
-  startServer(resolve: () => void, reject: (error: Error) => void): void {
-    try {
+  async startServer(): Promise<void> {
+    return new Promise((resolve, reject) => {
       switch (this.options.protocol) {
         case ServerProtocol.HTTP: {
           this.server = this.createHttpServer()
@@ -95,7 +93,8 @@ export class HTTPServer {
           break
         }
         default: {
-          throw new Error('Invalid protocol option')
+          reject(new Error('Invalid protocol option'))
+          return
         }
       }
 
@@ -103,13 +102,7 @@ export class HTTPServer {
         if (this.options.callback) this.options.callback()
         resolve()
       })
-    } catch (error) {
-      if (error instanceof Error) {
-        reject(error)
-      } else {
-        reject(new Error('Unknown error occurred'))
-      }
-    }
+    })
   }
 
   async close(callback?: () => void): Promise<void> {
