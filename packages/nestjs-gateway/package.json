@@ -26,7 +26,7 @@
     "@graphql-mesh/transform-cache": "0.9.21",
     "@graphql-mesh/transform-encapsulate": "0.1.67",
     "@graphql-mesh/transform-filter-schema": "0.10.28",
-    "@graphql-mesh/transform-mock": "0.10.21",
+    "@graphql-mesh/transform-mock": "0.15.6",
     "@graphql-mesh/transform-naming-convention": "0.6.69",
     "@graphql-mesh/transform-prefix": "0.6.59",
     "@graphql-mesh/transform-rename": "0.9.18",
