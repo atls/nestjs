@@ -628,7 +628,6 @@ const RAW_RUNTIME_STATE =
           ["@nestjs/microservices", "virtual:420937aa6e26d1616b79bbc33a8fd56103fa773427edcab7136fa7cf5d0ad09a5a82319fc41e971fc166c28e110a660630c2b86b00cbc0db5b9268e5d3f2e8aa#npm:10.4.6"],\
           ["@nestjs/testing", "virtual:420937aa6e26d1616b79bbc33a8fd56103fa773427edcab7136fa7cf5d0ad09a5a82319fc41e971fc166c28e110a660630c2b86b00cbc0db5b9268e5d3f2e8aa#npm:10.4.6"],\
           ["@types/lodash", "npm:4.17.13"],\
-          ["@types/long", "npm:4.0.2"],\
           ["@types/node", "npm:22.8.5"],\
           ["@types/supertest", "npm:6.0.2"],\
           ["@types/ws", "npm:8.5.12"],\
@@ -641,7 +640,7 @@ const RAW_RUNTIME_STATE =
           ["graphql-subscriptions", "virtual:420937aa6e26d1616b79bbc33a8fd56103fa773427edcab7136fa7cf5d0ad09a5a82319fc41e971fc166c28e110a660630c2b86b00cbc0db5b9268e5d3f2e8aa#npm:1.2.1"],\
           ["graphql-ws", "virtual:e5d2e27d8d6ba8ae4d19bff7fc527f885e665226dacf6bc5c9839b3cf1b27af8d7836f07d10d1d329dffe8c7c3fde19aa1628ff758ebb71e113cf2bd99d38de8#npm:5.16.0"],\
           ["lodash", "npm:4.17.21"],\
-          ["long", "npm:4.0.0"],\
+          ["long", "npm:5.2.3"],\
           ["protobufjs", "npm:7.4.0"],\
           ["reflect-metadata", "npm:0.2.2"],\
           ["rxjs", "npm:7.8.1"],\
