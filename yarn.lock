@@ -416,7 +416,7 @@ __metadata:
     "@graphql-mesh/transform-snapshot": "npm:0.10.20"
     "@graphql-mesh/types": "npm:0.45.2"
     "@graphql-mesh/utils": "npm:0.13.7"
-    "@graphql-tools/utils": "npm:8.13.1"
+    "@graphql-tools/utils": "npm:10.5.5"
     "@grpc/grpc-js": "npm:1.12.2"
     "@grpc/proto-loader": "npm:0.7.13"
     "@jest/globals": "npm:29.7.0"
@@ -3474,6 +3474,20 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@graphql-tools/utils@npm:10.5.5":
+  version: 10.5.5
+  resolution: "@graphql-tools/utils@npm:10.5.5"
+  dependencies:
+    "@graphql-typed-document-node/core": "npm:^3.1.1"
+    cross-inspect: "npm:1.0.1"
+    dset: "npm:^3.1.2"
+    tslib: "npm:^2.4.0"
+  peerDependencies:
+    graphql: ^14.0.0 || ^15.0.0 || ^16.0.0 || ^17.0.0
+  checksum: 10c0/826f853dd51681165513e92e2d1c85f605bcc42fb2383db2c9645f82821f07866a65e4b2a293c5e4717b38f74c6f4d798500c61b5a68e4cb7dd707189b18cdb6
+  languageName: node
+  linkType: hard
+
 "@graphql-tools/utils@npm:8.1.0":
   version: 8.1.0
   resolution: "@graphql-tools/utils@npm:8.1.0"
@@ -3504,17 +3518,6 @@ __metadata:
   peerDependencies:
     graphql: ^14.0.0 || ^15.0.0
   checksum: 10c0/dcf040a6db99819f795c89036dfb0dafc199c6eaecf32be7dce45685091439af6cfedbd4394bfb65cee93ab695992f01875021fe8b020eb73cc3967a37839232
-  languageName: node
-  linkType: hard
-
-"@graphql-tools/utils@npm:8.13.1, @graphql-tools/utils@npm:^8.0.0, @graphql-tools/utils@npm:^8.1.1, @graphql-tools/utils@npm:^8.1.2, @graphql-tools/utils@npm:^8.2.0, @graphql-tools/utils@npm:^8.2.3, @graphql-tools/utils@npm:^8.3.0, @graphql-tools/utils@npm:^8.4.0, @graphql-tools/utils@npm:^8.5.0, @graphql-tools/utils@npm:^8.6.2":
-  version: 8.13.1
-  resolution: "@graphql-tools/utils@npm:8.13.1"
-  dependencies:
-    tslib: "npm:^2.4.0"
-  peerDependencies:
-    graphql: ^14.0.0 || ^15.0.0 || ^16.0.0 || ^17.0.0
-  checksum: 10c0/f9bab1370aa91e706abec4c8ea980e15293cb78bd4effba53ad2365dc39d81148db7667b3ef89b35f0a0b0ad58081ffdac4264b7125c69fa8393590ae5025745
   languageName: node
   linkType: hard
 
@@ -3573,6 +3576,17 @@ __metadata:
   peerDependencies:
     graphql: ^14.0.0 || ^15.0.0 || ^16.0.0 || ^17.0.0
   checksum: 10c0/006d499d87eb5ee4680c43b6848de8a84e51c948d1ca18f98a062a405cf79472b14b93b97a77a1416d7e635f82e60583d432b3c0c2eaaf29eee322e18b8f651f
+  languageName: node
+  linkType: hard
+
+"@graphql-tools/utils@npm:^8.0.0, @graphql-tools/utils@npm:^8.1.1, @graphql-tools/utils@npm:^8.1.2, @graphql-tools/utils@npm:^8.2.0, @graphql-tools/utils@npm:^8.2.3, @graphql-tools/utils@npm:^8.3.0, @graphql-tools/utils@npm:^8.4.0, @graphql-tools/utils@npm:^8.5.0, @graphql-tools/utils@npm:^8.6.2":
+  version: 8.13.1
+  resolution: "@graphql-tools/utils@npm:8.13.1"
+  dependencies:
+    tslib: "npm:^2.4.0"
+  peerDependencies:
+    graphql: ^14.0.0 || ^15.0.0 || ^16.0.0 || ^17.0.0
+  checksum: 10c0/f9bab1370aa91e706abec4c8ea980e15293cb78bd4effba53ad2365dc39d81148db7667b3ef89b35f0a0b0ad58081ffdac4264b7125c69fa8393590ae5025745
   languageName: node
   linkType: hard
 
