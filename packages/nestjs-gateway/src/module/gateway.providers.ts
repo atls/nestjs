@@ -30,7 +30,7 @@ export const createGatewayExportsProvider = (): Array<Provider> => [
     provide: PubSub,
     useFactory: (options: GatewayModuleOptions): PubSub => {
       if (options.pubsub) {
-        // eslint-disable-next-line @typescript-eslint/no-unsafe-return
+        // @ts-expect-error
         return options.pubsub
       }
 

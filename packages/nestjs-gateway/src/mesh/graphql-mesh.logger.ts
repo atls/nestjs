@@ -1,4 +1,3 @@
-// @ts-expect-error
 import type { Logger as MeshLogger } from '@graphql-mesh/types'
 
 import { Logger }                    from '@atls/logger'
