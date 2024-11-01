@@ -35,12 +35,12 @@ import { Message }                                         from 'protobufjs'
 import { Constructor }                                     from 'protobufjs'
 import { IFileDescriptorSet }                              from 'protobufjs/ext/descriptor'
 import { promises as fsPromises }                          from 'fs'
+import { globby }                                          from 'globby'
 import { specifiedDirectives }                             from 'graphql'
 import { isAbsolute }                                      from 'path'
 import { join }                                            from 'path'
 import { promisify }                                       from 'util'
 import _                                                   from 'lodash'
-import globby                                              from 'globby'
 import protobufjs                                          from 'protobufjs'
 import descriptor                                          from 'protobufjs/ext/descriptor/index.js'
 
@@ -113,12 +113,16 @@ module.exports = {
           }
         }
       }
+      // @ts-expect-error
       if (this.config.descriptorSetFilePath) {
         let fileName: string
         let options: LoadOptions
+        // @ts-expect-error
         if (typeof this.config.descriptorSetFilePath === 'object') {
+          // @ts-expect-error
           fileName = this.config.descriptorSetFilePath.file
           options = {
+            // @ts-expect-error
             ...this.config.descriptorSetFilePath.load,
             // @ts-ignore
             includeDirs: this.config.descriptorSetFilePath.load.includeDirs?.map((includeDir) =>
@@ -131,6 +135,7 @@ module.exports = {
             addIncludePathResolver(root, options.includeDirs)
           }
         } else {
+          // @ts-expect-error
           fileName = this.config.descriptorSetFilePath
         }
         const absoluteFilePath = isAbsolute(fileName) ? fileName : join(this.baseDir, fileName)
@@ -151,13 +156,17 @@ module.exports = {
         appendRoot(rootFromDescriptor)
       }
 
+      // @ts-expect-error
       if (this.config.protoFilePath) {
         let protoRoot = new Root()
         let fileGlob: string
         let options: LoadOptions = {}
+        // @ts-expect-error
         if (typeof this.config.protoFilePath === 'object') {
+          // @ts-expect-error
           fileGlob = this.config.protoFilePath.file
           options = {
+            // @ts-expect-error
             ...this.config.protoFilePath.load,
             // @ts-ignore
             includeDirs: this.config.protoFilePath.load.includeDirs?.map((includeDir) =>
@@ -170,6 +179,7 @@ module.exports = {
             addIncludePathResolver(protoRoot, options.includeDirs)
           }
         } else {
+          // @ts-expect-error
           fileGlob = this.config.protoFilePath
         }
 
@@ -385,6 +395,7 @@ module.exports = {
               },
             }
             if (method.responseStream) {
+              // @ts-expect-error
               const clientMethod: ClientMethod = (input: unknown = {}, metaData?: Metadata) => {
                 const responseStream = client[methodName](
                   input,
