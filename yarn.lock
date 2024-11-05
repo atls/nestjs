@@ -335,6 +335,32 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@atls/nestjs-connectrpc@workspace:packages/nestjs-connectrpc":
+  version: 0.0.0-use.local
+  resolution: "@atls/nestjs-connectrpc@workspace:packages/nestjs-connectrpc"
+  dependencies:
+    "@bufbuild/protobuf": "npm:1.10.0"
+    "@connectrpc/connect": "npm:1.6.1"
+    "@connectrpc/connect-node": "npm:1.6.1"
+    "@nestjs/common": "npm:10.0.5"
+    "@nestjs/core": "npm:10.0.5"
+    "@nestjs/microservices": "npm:10.2.4"
+    "@nestjs/platform-express": "npm:10.2.4"
+    reflect-metadata: "npm:0.2.2"
+    rxjs: "npm:7.8.1"
+  peerDependencies:
+    "@bufbuild/protobuf": ^1
+    "@connectrpc/connect": ^1
+    "@connectrpc/connect-node": ^1
+    "@nestjs/common": ^10
+    "@nestjs/core": ^10
+    "@nestjs/microservices": ^10
+    "@nestjs/platform-express": ^10
+    reflect-metadata: ^0.2
+    rxjs: ^7
+  languageName: unknown
+  linkType: soft
+
 "@atls/nestjs-cqrs@workspace:packages/nestjs-cqrs":
   version: 0.0.0-use.local
   resolution: "@atls/nestjs-cqrs@workspace:packages/nestjs-cqrs"
@@ -2121,6 +2147,34 @@ __metadata:
   version: 0.2.3
   resolution: "@bcoe/v8-coverage@npm:0.2.3"
   checksum: 10c0/6b80ae4cb3db53f486da2dc63b6e190a74c8c3cca16bb2733f234a0b6a9382b09b146488ae08e2b22cf00f6c83e20f3e040a2f7894f05c045c946d6a090b1d52
+  languageName: node
+  linkType: hard
+
+"@bufbuild/protobuf@npm:1.10.0":
+  version: 1.10.0
+  resolution: "@bufbuild/protobuf@npm:1.10.0"
+  checksum: 10c0/5487b9c2e63846d0e3bde4d025cc77ae44a22166a5d6c184df0da5581e1ab6d66dd115af0ccad814576dcd011bb1b93989fb0ac1eb4ae452979bb8b186693ba0
+  languageName: node
+  linkType: hard
+
+"@connectrpc/connect-node@npm:1.6.1":
+  version: 1.6.1
+  resolution: "@connectrpc/connect-node@npm:1.6.1"
+  dependencies:
+    undici: "npm:^5.28.4"
+  peerDependencies:
+    "@bufbuild/protobuf": ^1.10.0
+    "@connectrpc/connect": 1.6.1
+  checksum: 10c0/9891bbbe5ec155d16141e378c120dd6d4c47e1517656d4676aca762d70426a9eb3d9ec92595a7cfc4f5cbe40ff5be572d0c3d9010058107854e7f62ee05fb46e
+  languageName: node
+  linkType: hard
+
+"@connectrpc/connect@npm:1.6.1":
+  version: 1.6.1
+  resolution: "@connectrpc/connect@npm:1.6.1"
+  peerDependencies:
+    "@bufbuild/protobuf": ^1.10.0
+  checksum: 10c0/35c6fd3e33c3a1ff9dce230b059ecd7991ef0dc60c16fb898e5c46b930a01077ac0b34d53d6742cc8ed079f20f8eacc7c77a8620aeec9efaf68950494f387011
   languageName: node
   linkType: hard
 
@@ -4753,6 +4807,49 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@nestjs/microservices@npm:10.2.4":
+  version: 10.2.4
+  resolution: "@nestjs/microservices@npm:10.2.4"
+  dependencies:
+    iterare: "npm:1.2.1"
+    tslib: "npm:2.6.2"
+  peerDependencies:
+    "@grpc/grpc-js": "*"
+    "@nestjs/common": ^10.0.0
+    "@nestjs/core": ^10.0.0
+    "@nestjs/websockets": ^10.0.0
+    amqp-connection-manager: "*"
+    amqplib: "*"
+    cache-manager: "*"
+    ioredis: "*"
+    kafkajs: "*"
+    mqtt: "*"
+    nats: "*"
+    reflect-metadata: ^0.1.12
+    rxjs: ^7.1.0
+  peerDependenciesMeta:
+    "@grpc/grpc-js":
+      optional: true
+    "@nestjs/websockets":
+      optional: true
+    amqp-connection-manager:
+      optional: true
+    amqplib:
+      optional: true
+    cache-manager:
+      optional: true
+    ioredis:
+      optional: true
+    kafkajs:
+      optional: true
+    mqtt:
+      optional: true
+    nats:
+      optional: true
+  checksum: 10c0/ef25bace3239d5afa6e19976794aadb5f8f0ee9a3eb1ebd2ddf670b385bacd81d707465086e18d134d1dad9042baef157482efa5645d6cff202ec998a75793c3
+  languageName: node
+  linkType: hard
+
 "@nestjs/microservices@npm:10.4.1":
   version: 10.4.1
   resolution: "@nestjs/microservices@npm:10.4.1"
@@ -4852,6 +4949,22 @@ __metadata:
     "@nestjs/common": ^10.0.0
     "@nestjs/core": ^10.0.0
   checksum: 10c0/7ca0b011eff3e3a3efbc0e0df9e874943f5acced3966350202d01e0e3bb65ea37de7cfb6d60bd3150f679a733ee33273fcbdc65146d18964b7e58116ed0d873a
+  languageName: node
+  linkType: hard
+
+"@nestjs/platform-express@npm:10.2.4":
+  version: 10.2.4
+  resolution: "@nestjs/platform-express@npm:10.2.4"
+  dependencies:
+    body-parser: "npm:1.20.2"
+    cors: "npm:2.8.5"
+    express: "npm:4.18.2"
+    multer: "npm:1.4.4-lts.1"
+    tslib: "npm:2.6.2"
+  peerDependencies:
+    "@nestjs/common": ^10.0.0
+    "@nestjs/core": ^10.0.0
+  checksum: 10c0/b94a6e0899d80e506aa93d4ea9b80501a5888269d418308c9212efa65901257abec696b0c80cef941e77fff80a005843f28c6ec75d7a7bd3951811e91d7e91c8
   languageName: node
   linkType: hard
 
@@ -8194,6 +8307,26 @@ __metadata:
   languageName: node
   linkType: hard
 
+"body-parser@npm:1.20.1":
+  version: 1.20.1
+  resolution: "body-parser@npm:1.20.1"
+  dependencies:
+    bytes: "npm:3.1.2"
+    content-type: "npm:~1.0.4"
+    debug: "npm:2.6.9"
+    depd: "npm:2.0.0"
+    destroy: "npm:1.2.0"
+    http-errors: "npm:2.0.0"
+    iconv-lite: "npm:0.4.24"
+    on-finished: "npm:2.4.1"
+    qs: "npm:6.11.0"
+    raw-body: "npm:2.5.1"
+    type-is: "npm:~1.6.18"
+    unpipe: "npm:1.0.0"
+  checksum: 10c0/a202d493e2c10a33fb7413dac7d2f713be579c4b88343cd814b6df7a38e5af1901fc31044e04de176db56b16d9772aa25a7723f64478c20f4d91b1ac223bf3b8
+  languageName: node
+  linkType: hard
+
 "body-parser@npm:1.20.2":
   version: 1.20.2
   resolution: "body-parser@npm:1.20.2"
@@ -10227,6 +10360,45 @@ __metadata:
   version: 3.1.1
   resolution: "exponential-backoff@npm:3.1.1"
   checksum: 10c0/160456d2d647e6019640bd07111634d8c353038d9fa40176afb7cd49b0548bdae83b56d05e907c2cce2300b81cae35d800ef92fefb9d0208e190fa3b7d6bb579
+  languageName: node
+  linkType: hard
+
+"express@npm:4.18.2":
+  version: 4.18.2
+  resolution: "express@npm:4.18.2"
+  dependencies:
+    accepts: "npm:~1.3.8"
+    array-flatten: "npm:1.1.1"
+    body-parser: "npm:1.20.1"
+    content-disposition: "npm:0.5.4"
+    content-type: "npm:~1.0.4"
+    cookie: "npm:0.5.0"
+    cookie-signature: "npm:1.0.6"
+    debug: "npm:2.6.9"
+    depd: "npm:2.0.0"
+    encodeurl: "npm:~1.0.2"
+    escape-html: "npm:~1.0.3"
+    etag: "npm:~1.8.1"
+    finalhandler: "npm:1.2.0"
+    fresh: "npm:0.5.2"
+    http-errors: "npm:2.0.0"
+    merge-descriptors: "npm:1.0.1"
+    methods: "npm:~1.1.2"
+    on-finished: "npm:2.4.1"
+    parseurl: "npm:~1.3.3"
+    path-to-regexp: "npm:0.1.7"
+    proxy-addr: "npm:~2.0.7"
+    qs: "npm:6.11.0"
+    range-parser: "npm:~1.2.1"
+    safe-buffer: "npm:5.2.1"
+    send: "npm:0.18.0"
+    serve-static: "npm:1.15.0"
+    setprototypeof: "npm:1.2.0"
+    statuses: "npm:2.0.1"
+    type-is: "npm:~1.6.18"
+    utils-merge: "npm:1.0.1"
+    vary: "npm:~1.1.2"
+  checksum: 10c0/75af556306b9241bc1d7bdd40c9744b516c38ce50ae3210658efcbf96e3aed4ab83b3432f06215eae5610c123bc4136957dc06e50dfc50b7d4d775af56c4c59c
   languageName: node
   linkType: hard
 
@@ -14400,6 +14572,18 @@ __metadata:
   version: 1.2.1
   resolution: "range-parser@npm:1.2.1"
   checksum: 10c0/96c032ac2475c8027b7a4e9fe22dc0dfe0f6d90b85e496e0f016fbdb99d6d066de0112e680805075bd989905e2123b3b3d002765149294dce0c1f7f01fcc2ea0
+  languageName: node
+  linkType: hard
+
+"raw-body@npm:2.5.1":
+  version: 2.5.1
+  resolution: "raw-body@npm:2.5.1"
+  dependencies:
+    bytes: "npm:3.1.2"
+    http-errors: "npm:2.0.0"
+    iconv-lite: "npm:0.4.24"
+    unpipe: "npm:1.0.0"
+  checksum: 10c0/5dad5a3a64a023b894ad7ab4e5c7c1ce34d3497fc7138d02f8c88a3781e68d8a55aa7d4fd3a458616fa8647cc228be314a1c03fb430a07521de78b32c4dd09d2
   languageName: node
   linkType: hard
 
