@@ -73,7 +73,8 @@ export class HTTPServer {
     )
   }
 
-  async startServer(): Promise<void> {
+  // eslint-disable-next-line @typescript-eslint/promise-function-async
+  startServer(): Promise<void> {
     return new Promise((resolve, reject) => {
       switch (this.options.protocol) {
         case ServerProtocol.HTTP: {
