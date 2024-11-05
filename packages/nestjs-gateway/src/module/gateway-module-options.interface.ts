@@ -1,10 +1,6 @@
-// @ts-expect-error
 import type { MeshPubSub }        from '@graphql-mesh/types'
-// @ts-expect-error
 import type { KeyValueCache }     from '@graphql-mesh/types'
-// @ts-expect-error
 import type { MeshMerger }        from '@graphql-mesh/types'
-// @ts-expect-error
 import type { YamlConfig }        from '@graphql-mesh/types'
 import type { ChannelOptions }    from '@grpc/grpc-js'
 import type { ModuleMetadata }    from '@nestjs/common/interfaces'
@@ -47,11 +43,8 @@ export interface GatewayModuleOptions {
   limit?: number | string
   grpcChannelOptions?: Partial<ChannelOptions>
   additionalResolvers?: Array<
-    // eslint-disable-next-line @typescript-eslint/no-redundant-type-constituents
     | YamlConfig.AdditionalStitchingBatchResolverObject
-    // eslint-disable-next-line @typescript-eslint/no-redundant-type-constituents
     | YamlConfig.AdditionalStitchingResolverObject
-    // eslint-disable-next-line @typescript-eslint/no-redundant-type-constituents
     | YamlConfig.AdditionalSubscriptionObject
     | string
   >

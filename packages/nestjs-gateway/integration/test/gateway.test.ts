@@ -119,7 +119,7 @@ describe('gateway', () => {
       })
       .compile()
 
-    app = testingModule.createNestApplication() as INestApplication
+    app = testingModule.createNestApplication()
 
     service = testingModule.createNestMicroservice({
       transport: Transport.GRPC,
