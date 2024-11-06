@@ -1,6 +1,6 @@
 {
   "name": "@atls/nestjs-grpc-playground",
-  "version": "0.0.21",
+  "version": "0.0.22",
   "license": "BSD-3-Clause",
   "type": "module",
   "exports": {
