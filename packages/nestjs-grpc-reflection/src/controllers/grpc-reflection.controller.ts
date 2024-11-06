@@ -36,7 +36,7 @@ export class GrpcReflectionController {
             validHost: '',
             originalRequest: reflectionRequest,
             fileDescriptorResponse: {
-              fileDescriptorProto: [fileDescriptorProto],
+              fileDescriptorProto: [fileDescriptorProto as unknown as Uint8Array],
             },
           })
         } else {
