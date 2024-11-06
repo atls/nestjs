@@ -7,7 +7,8 @@
     ".": "./src/index.ts",
     "./proto": {
       "import": "./proto/index.js",
-      "require": "./proto/index.js"
+      "require": "./proto/index.js",
+      "types": "./proto/index.d.ts"
     }
   },
   "main": "src/index.ts",
