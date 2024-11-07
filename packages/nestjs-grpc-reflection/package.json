@@ -59,6 +59,11 @@
         "import": "./dist/index.js",
         "types": "./dist/index.d.ts",
         "default": "./dist/index.js"
+      },
+      "./proto": {
+        "import": "./proto/index.js",
+        "require": "./proto/index.js",
+        "types": "./proto/index.d.ts"
       }
     },
     "main": "dist/index.js",
