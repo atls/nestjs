@@ -1,0 +1,59 @@
+name: Bug
+description: Когда что-то сломалось
+labels: ['bug']
+assignees:
+  - TorinAsakura
+body:
+  - type: textarea
+    id: bug-description
+    attributes:
+      label: Локализация бага
+      description: 'Например: после нажатия на кнопку не отправляется сообщение'
+    validations:
+      required: true
+
+  - type: textarea
+    id: reproduce
+    attributes:
+      label: Воспроизведение
+      description: 'Шаги для воспроизведения'
+      placeholder: |
+        1. Переходим на экран
+        2. Вводим сообщение
+        3. Жмём кнопку
+        4. Видим ошибку
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected-behavior
+    attributes:
+      label: Ожидаемое поведение
+      placeholder: 'Например: после нажатия на кнопку сообщение отправилось'
+    validations:
+      required: true
+
+  - type: textarea
+    id: logs
+    attributes:
+      label: Приложи логи
+      description: Прикладываем логи — если ошибка относится к системной части и скриншот не поможет в анализе и решение проблемы. После вставки, логи будут отформатированы.
+      render: bash
+
+  - type: textarea
+    id: assets
+    attributes:
+      label: Медиа
+      description: Прикладываем скриншоты – если ошибка относится к визуальной части и сбор логов не приемлем.
+
+  - type: textarea
+    id: env
+    attributes:
+      label: Данные окружения
+      placeholder: |
+        - OS и версия [например: iOS@18.2, Android@11.1.0, Windows@11.1]
+        - Браузер и версия [например: Chrome@64, Safari@13]
+        - Сервер (например: Server1 => Debian@11, Clickhouse@4.7)
+        - Один из сервисов (например: recommender@1.2)
+    validations:
+      required: true
