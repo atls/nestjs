@@ -1,0 +1,12 @@
+name: Checks
+
+on:
+  pull_request:
+
+jobs:
+  check:
+    name: Checks
+    uses: atls/shared/.github/workflows/checks.yaml@master
+    permissions: write-all
+    with:
+      node-version: '22'
