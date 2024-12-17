@@ -2,10 +2,6 @@ blank_issues_enabled: false
 contact_links:
   - name: Конвенция
     url: https://github.com/atls/convention
-    about: О процессах и не только
+    about: О наших релизах
   - name: Telegram
-    url: https://t.me/atls_lab
-    about: Складируем полезные статьи
-  - name: Сайт
-    url: https://atls.team
-    about: Сайт команды
+    url: https://t.me/atls
