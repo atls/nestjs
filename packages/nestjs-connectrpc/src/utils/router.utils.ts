@@ -72,6 +72,7 @@ export const createServiceHandlersMap = (
           context: unknown
         ): Promise<unknown> => {
           const resultOrDeferred = await handlerMetadata(request, context)
+          // eslint-disable-next-line @typescript-eslint/no-unsafe-return
           return lastValueFrom(transformToObservable(resultOrDeferred))
         }
         break

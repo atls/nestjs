@@ -19,7 +19,7 @@ export class GraphQLMesh {
       this.mesh = await getMesh(await this.config.create())
     }
 
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-return
+     
     return this.mesh
   }
 }

@@ -28,7 +28,7 @@ export class DataLoaderInterceptor implements NestInterceptor {
             ctx[type] = this.moduleRef
               .get<NestDataLoader>(type, { strict: false })
               .generateDataLoader()
-          } catch (e) {
+          } catch {
             throw new InternalServerErrorException(`The loader ${type} is not provided`)
           }
         }
