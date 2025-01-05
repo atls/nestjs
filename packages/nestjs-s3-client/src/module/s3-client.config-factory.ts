@@ -1,6 +1,6 @@
 import type { S3ClientConfig }        from '@aws-sdk/client-s3'
 
-// eslint-disable-next-line @typescript-eslint/consistent-type-imports
+ 
 import type { S3ClientModuleOptions } from './s3-client.module.interfaces.js'
 
 import { Inject }                     from '@nestjs/common'

@@ -1,4 +1,4 @@
-export * from './batch-queue-module-options.interface.js'
+export type * from './batch-queue-module-options.interface.js'
 export * from '../constants/index.js'
 export * from './batch-queue.module.js'
 export * from './batch-queue.providers.js'

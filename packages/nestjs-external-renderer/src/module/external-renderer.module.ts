@@ -48,7 +48,9 @@ export class ExternalRendererModule {
     return [
       this.createAsyncOptionsProvider(options),
       {
+        // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
         provide: options.useClass!,
+        // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
         useClass: options.useClass!,
       },
     ]
@@ -67,6 +69,7 @@ export class ExternalRendererModule {
       provide: EXTERNAL_RENDERER_MODULE_OPTIONS,
       useFactory: async (optionsFactory: ExternalRendererOptionsFactory) =>
         optionsFactory.createExternalRendererOptions(),
+        // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
       inject: [options.useExisting! || options.useClass!],
     }
   }
