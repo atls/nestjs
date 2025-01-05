@@ -11,5 +11,4 @@
  * @typedef {string} ProtoFile - Represents the imported `.proto` file as a string
  */
 // eslint-disable-next-line @typescript-eslint/prefer-ts-expect-error
-// @ts-ignore
 declare module '*.proto'

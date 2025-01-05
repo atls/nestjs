@@ -1,6 +1,6 @@
 import type { SignUrlOptions }  from '../storage/index.js'
 import type { SignedUrl }       from '../storage/index.js'
-// eslint-disable-next-line @typescript-eslint/consistent-type-imports
+ 
 import type { AbstractStorage } from '../storage/index.js'
 
 import { Inject }               from '@nestjs/common'

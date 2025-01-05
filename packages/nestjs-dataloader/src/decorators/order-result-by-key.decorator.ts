@@ -5,8 +5,8 @@ export const OrderResultByKey = (key = 'id', defaultValue = undefined) =>
   (target: any, propertyKey: string, descriptor: PropertyDescriptor): PropertyDescriptor => {
     const original = descriptor.value
 
-    // @ts-expect-error
-    // eslint-disable-next-line func-names
+    // @ts-expect-error unsafe assign
+    // eslint-disable-next-line func-names, @typescript-eslint/no-explicit-any
     descriptor.value = async function (keys, ...args): Promise<any> {
       // eslint-disable-next-line @typescript-eslint/no-unsafe-call
       const method = original.bind(this)
@@ -15,7 +15,7 @@ export const OrderResultByKey = (key = 'id', defaultValue = undefined) =>
 
       // eslint-disable-next-line @typescript-eslint/no-unsafe-call
       const resultByKey = result.reduce(
-        // @ts-expect-error
+        // @ts-expect-error unsafe method
         // eslint-disable-next-line @typescript-eslint/no-unsafe-return
         (res, item) => ({
           ...res,
@@ -24,7 +24,7 @@ export const OrderResultByKey = (key = 'id', defaultValue = undefined) =>
         {}
       )
 
-      // @ts-expect-error
+      // @ts-expect-error unsafe method
       // eslint-disable-next-line @typescript-eslint/no-unsafe-return, @typescript-eslint/no-unsafe-call
       return keys.map((itemKey) => resultByKey[itemKey] || defaultValue)
     }

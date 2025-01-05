@@ -11,7 +11,7 @@ export class SignedUrlModule {
   static gcs(): DynamicModule {
     const storageProvider = {
       provide: STORAGE,
-      useFactory: () => new GcsStorage(),
+      useFactory: (): GcsStorage => new GcsStorage(),
     }
 
     return {

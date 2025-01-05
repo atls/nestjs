@@ -10,7 +10,7 @@ export class RenderController {
   }
 
   @Post('params')
-  // @ts-expect-error
+  // @ts-expect-error unsafe method
   // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types, @typescript-eslint/explicit-function-return-type
   params(@Body() body) {
     // eslint-disable-next-line @typescript-eslint/no-unsafe-return
