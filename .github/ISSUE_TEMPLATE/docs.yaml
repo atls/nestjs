@@ -1,0 +1,44 @@
+name: Docs
+description: Задача по документированию
+title: '[Docs]'
+labels: ['docs']
+assignees:
+  - TorinAsakura
+body:
+  - type: input
+    id: scope
+    attributes:
+      label: В каком месте произошли изменения?
+      placeholder: 'Например: Изменился алгоритм library@1.1.1; или: в framework@iOS_SDK-v1.1.1 изменился принимаемый тип данных'
+    validations:
+      required: true
+
+  - type: textarea
+    id: description
+    attributes:
+      label: О чём будем писать
+      placeholder: Подробное описание того, что собрались описывать
+    validations:
+      required: false
+
+  - type: dropdown
+    id: breaking-change
+    attributes:
+      label: Ломается ли обратная совместимость?
+      description: Если после обновления клиенту придётся менять старый код для сохранения работоспособности
+      options:
+        - Да
+        - Нет
+      default: 0
+    validations:
+      required: true
+
+  - type: input
+    id: backlink
+    attributes:
+      label: Ссылка на задачу-инициатора
+      placeholder: Не будь мудаком и приложи ссылку
+    validations:
+      required: true
+
+projects: ["atls/11"]
