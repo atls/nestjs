@@ -1,0 +1,7 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Конвенция
+    url: https://github.com/atls/convention
+    about: О наших релизах
+  - name: Telegram
+    url: https://t.me/atls
