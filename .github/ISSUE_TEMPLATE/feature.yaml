@@ -1,0 +1,47 @@
+name: Feature
+description: Изменение несущее новые возможности
+labels: ['feature']
+assignees:
+  - TorinAsakura
+body:
+  - type: input
+    id: motivation
+    attributes:
+      label: С чем связан запрос на фичу?
+      placeholder: Клиентам необходимо выводить чуть больше данных, чем сейчас
+    validations:
+      required: true
+
+  - type: textarea
+    id: poc
+    attributes:
+      label: Расскажите как вы это себе видите
+      placeholder: Добавить дополнительный блок с необходимыми данными
+    validations:
+      required: true
+
+  - type: textarea
+    id: rc
+    attributes:
+      label: Критерии готовности выполнения задачи
+      placeholder: |
+        По каким критериям оцениваем готовность задачи
+        - инициализация:
+          - приложение работает в среде
+        - работа с данными:
+          - на входе - JSON объект товара
+          - на выходе - JSON объект товара с ценой в другой валюте
+        - Артефакты:
+          - запись в лог
+    validations:
+      required: true
+
+  - type: input
+    id: materials
+    attributes:
+      label: Материалы
+      placeholder: Ссылка на фигму, любой другой материал для старта
+    validations:
+      required: true
+
+projects: ["atls/11"]
