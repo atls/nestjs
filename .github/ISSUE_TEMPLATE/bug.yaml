@@ -58,4 +58,4 @@ body:
     validations:
       required: true
 
-projects: ["atls/11"]
+projects: ['atls/11']
