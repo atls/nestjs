@@ -78,7 +78,6 @@ export class KetoWriteClientService {
     // eslint-disable-next-line @typescript-eslint/no-unsafe-call
     delta.setAction(action).setRelationTuple(tuple)
 
-     
     return delta
   }
 }

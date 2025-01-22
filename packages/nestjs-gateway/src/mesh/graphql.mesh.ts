@@ -19,7 +19,6 @@ export class GraphQLMesh {
       this.mesh = await getMesh(await this.config.create())
     }
 
-     
     return this.mesh
   }
 }

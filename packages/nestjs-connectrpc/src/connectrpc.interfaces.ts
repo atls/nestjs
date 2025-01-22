@@ -1,8 +1,8 @@
-import type * as http from 'http'
-import type * as http2 from 'http2'
-import type * as https from 'https'
+import type * as http                from 'http'
+import type * as http2               from 'http2'
+import type * as https               from 'https'
 import type { ConnectRouterOptions } from '@connectrpc/connect'
-import type { Observable } from 'rxjs'
+import type { Observable }           from 'rxjs'
 
 export interface ConnectRpcPattern {
   service: string
@@ -48,17 +48,9 @@ export interface Http2InsecureOptions extends BaseServerOptions {
   serverOptions?: http2.ServerOptions
 }
 
-export type ServerTypeOptions =
-  | Http2InsecureOptions
-  | Http2Options
-  | HttpOptions
-  | HttpsOptions
+export type ServerTypeOptions = Http2InsecureOptions | Http2Options | HttpOptions | HttpsOptions
 
-export type ServerInstance =
-  | http.Server
-  | http2.Http2Server
-  | https.Server
-  | null
+export type ServerInstance = http.Server | http2.Http2Server | https.Server | null
 
 export interface ConstructorWithPrototype {
   prototype: Record<string, PropertyDescriptor>

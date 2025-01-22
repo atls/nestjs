@@ -1,6 +1,5 @@
 import type { S3ClientConfig }        from '@aws-sdk/client-s3'
 
- 
 import type { S3ClientModuleOptions } from './s3-client.module.interfaces.js'
 
 import { Inject }                     from '@nestjs/common'
