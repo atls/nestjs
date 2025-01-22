@@ -323,7 +323,7 @@ __metadata:
   dependencies:
     "@atls/core-errors": "npm:^0.0.4"
     "@atls/guard-clause": "npm:^0.0.1"
-    "@atls/nestjs-connectrpc": "workspace:0.0.1"
+    "@atls/nestjs-connectrpc": "workspace:0.0.2"
     "@atls/nestjs-validation": "workspace:0.0.1"
     "@atls/protobuf-rpc": "npm:^0.0.1"
     "@bufbuild/buf": "npm:^1.42.0"
@@ -358,7 +358,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@atls/nestjs-connectrpc@workspace:0.0.1, @atls/nestjs-connectrpc@workspace:packages/nestjs-connectrpc":
+"@atls/nestjs-connectrpc@workspace:0.0.2, @atls/nestjs-connectrpc@workspace:packages/nestjs-connectrpc":
   version: 0.0.0-use.local
   resolution: "@atls/nestjs-connectrpc@workspace:packages/nestjs-connectrpc"
   dependencies:
