@@ -1,18 +1,20 @@
 import type { GuardErrors }       from '@atls/guard-clause'
 
-import { Code }                   from '@connectrpc/connect'
-import { ConnectError }           from '@connectrpc/connect'
 import { ValidationError }        from '@atls/protobuf-rpc'
 import { ValidationErrorMessage } from '@atls/protobuf-rpc'
+import { Code }                   from '@connectrpc/connect'
+import { ConnectError }           from '@connectrpc/connect'
 import { RpcException }           from '@nestjs/microservices'
 
 export const guardExceptionFactory = (errors: GuardErrors): RpcException => {
   const validationErrors: Array<ValidationError> = errors.errors.map(
     (error) =>
+      // @ts-expect-error types
       new ValidationError({
         id: error.code,
         property: error.parameter,
         messages: [
+          // @ts-expect-error types
           new ValidationErrorMessage({
             id: error.code,
             constraint: error.message,
@@ -22,6 +24,7 @@ export const guardExceptionFactory = (errors: GuardErrors): RpcException => {
   )
 
   return new RpcException(
+    // @ts-expect-error types
     new ConnectError('Request validation failed', Code.InvalidArgument, undefined, validationErrors)
   )
 }

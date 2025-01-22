@@ -121,7 +121,6 @@ export class RelationTupleConverter {
     // eslint-disable-next-line @typescript-eslint/no-unsafe-call
     subjectSet.setRelation(relation)
 
-     
     return subjectSet
   }
 

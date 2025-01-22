@@ -4,6 +4,9 @@
 
 import type { INestMicroservice }        from '@nestjs/common'
 
+import { readFileSync }                  from 'node:fs'
+import { join }                          from 'node:path'
+
 import { Metadata }                      from '@grpc/grpc-js'
 import { ClientsModule }                 from '@nestjs/microservices'
 import { Transport }                     from '@nestjs/microservices'
@@ -14,9 +17,7 @@ import { beforeAll }                     from '@jest/globals'
 import { it }                            from '@jest/globals'
 import { expect }                        from '@jest/globals'
 import { afterAll }                      from '@jest/globals'
-import { readFileSync }                  from 'node:fs'
 import { sign }                          from 'jsonwebtoken'
-import { join }                          from 'node:path'
 import getPort                           from 'get-port'
 
 import { GrpcIdentityIntegrationModule } from './src/index.js'

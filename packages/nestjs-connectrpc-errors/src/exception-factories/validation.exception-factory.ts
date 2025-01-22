@@ -2,10 +2,10 @@
 
 import type { ValidationError as ValError } from '@nestjs/common'
 
-import { Code }                             from '@connectrpc/connect'
-import { ConnectError }                     from '@connectrpc/connect'
 import { ValidationError }                  from '@atls/protobuf-rpc'
 import { ValidationErrorMessage }           from '@atls/protobuf-rpc'
+import { Code }                             from '@connectrpc/connect'
+import { ConnectError }                     from '@connectrpc/connect'
 import { RpcException }                     from '@nestjs/microservices'
 
 const traverseErrors = (
@@ -29,6 +29,7 @@ export const validationExceptionFactory = (errors: Array<ValError>): RpcExceptio
 
   traverseErrors(errors, (error, id, property) => {
     const messages = Object.keys(error.constraints || {}).map((constraintId) => {
+      // @ts-expect-error types
       const validationErrorMessage = new ValidationErrorMessage({
         id: constraintId,
         constraint: error.constraints![constraintId],
@@ -38,6 +39,7 @@ export const validationExceptionFactory = (errors: Array<ValError>): RpcExceptio
     })
 
     validationErrors.push(
+      // @ts-expect-error types
       new ValidationError({
         id,
         property,
@@ -47,6 +49,7 @@ export const validationExceptionFactory = (errors: Array<ValError>): RpcExceptio
   })
 
   return new RpcException(
+    // @ts-expect-error types
     new ConnectError('Request validation failed', Code.InvalidArgument, undefined, validationErrors)
   )
 }

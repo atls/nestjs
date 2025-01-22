@@ -1,8 +1,8 @@
 import type { PromiseClient }                from '@connectrpc/connect'
 import type { INestMicroservice }            from '@nestjs/common'
 
-import { ConnectError }                      from '@connectrpc/connect'
 import { ValidationError }                   from '@atls/protobuf-rpc'
+import { ConnectError }                      from '@connectrpc/connect'
 import { Test }                              from '@nestjs/testing'
 import { createPromiseClient }               from '@connectrpc/connect'
 import { createGrpcTransport }               from '@connectrpc/connect-node'
@@ -64,6 +64,7 @@ describe('grpc error', () => {
         expect(
           // @ts-expect-error
           error.details.map((detail: { value: Uint8Array }) =>
+            // @ts-expect-error
             ValidationError.fromBinary(detail.value))
         ).toEqual(
           expect.arrayContaining([
