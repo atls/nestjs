@@ -1,0 +1,9 @@
+version: v1
+
+plugins:
+  - name: es
+    opt: target=ts+dts
+    out: integration/gen
+  - name: connect-es
+    opt: target=ts+dts
+    out: integration/gen
