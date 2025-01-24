@@ -664,13 +664,14 @@ __metadata:
   resolution: "@atls/nestjs-grpc-reflection@workspace:packages/nestjs-grpc-reflection"
   dependencies:
     "@atls/nestjs-proto-types": "workspace:*"
-    "@grpc/grpc-js": "npm:1.11.2"
+    "@bufbuild/protobuf": "npm:2.2.3"
+    "@grpc/grpc-js": "npm:1.12.5"
     "@grpc/proto-loader": "npm:0.7.13"
     "@jest/globals": "npm:29.7.0"
-    "@nestjs/common": "npm:10.4.1"
-    "@nestjs/core": "npm:10.4.1"
-    "@nestjs/microservices": "npm:10.4.1"
-    "@nestjs/testing": "npm:10.4.1"
+    "@nestjs/common": "npm:10.4.15"
+    "@nestjs/core": "npm:10.4.15"
+    "@nestjs/microservices": "npm:10.4.15"
+    "@nestjs/testing": "npm:10.4.15"
     "@types/google-protobuf": "npm:3.15.12"
     "@types/long": "npm:5.0.0"
     get-port: "npm:7.1.0"
@@ -680,7 +681,7 @@ __metadata:
     reflect-metadata: "npm:0.2.2"
     rxjs: "npm:7.8.1"
     supertest: "npm:6.3.4"
-    ts-proto: "npm:1.156.7"
+    ts-proto: "npm:2.6.0"
   peerDependencies:
     "@nestjs/common": 10
     "@nestjs/core": 10
@@ -2264,6 +2265,13 @@ __metadata:
   version: 1.10.0
   resolution: "@bufbuild/protobuf@npm:1.10.0"
   checksum: 10c0/5487b9c2e63846d0e3bde4d025cc77ae44a22166a5d6c184df0da5581e1ab6d66dd115af0ccad814576dcd011bb1b93989fb0ac1eb4ae452979bb8b186693ba0
+  languageName: node
+  linkType: hard
+
+"@bufbuild/protobuf@npm:2.2.3, @bufbuild/protobuf@npm:^2.0.0":
+  version: 2.2.3
+  resolution: "@bufbuild/protobuf@npm:2.2.3"
+  checksum: 10c0/546c38b924c4a8dd79ec457928cfb99a5aab2945d11f15f4f06894bdc148ea37a1ae8b78cf17de9bb5354cbb896f6af4099073690b5b2089e1b196cec963d6ec
   languageName: node
   linkType: hard
 
@@ -4210,6 +4218,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@grpc/grpc-js@npm:1.12.5":
+  version: 1.12.5
+  resolution: "@grpc/grpc-js@npm:1.12.5"
+  dependencies:
+    "@grpc/proto-loader": "npm:^0.7.13"
+    "@js-sdsl/ordered-map": "npm:^4.4.2"
+  checksum: 10c0/1e539d98951e6ff6611e3cedc8eec343625fdab76c7683aa7fca605b3de17d8aabaf2f78d7e95400e68dc8e249cda498781e9a3481bb6b713fc167da3fe59a8e
+  languageName: node
+  linkType: hard
+
 "@grpc/grpc-js@npm:1.9.6":
   version: 1.9.6
   resolution: "@grpc/grpc-js@npm:1.9.6"
@@ -4596,6 +4614,27 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@nestjs/common@npm:10.4.15":
+  version: 10.4.15
+  resolution: "@nestjs/common@npm:10.4.15"
+  dependencies:
+    iterare: "npm:1.2.1"
+    tslib: "npm:2.8.1"
+    uid: "npm:2.0.2"
+  peerDependencies:
+    class-transformer: "*"
+    class-validator: "*"
+    reflect-metadata: ^0.1.12 || ^0.2.0
+    rxjs: ^7.1.0
+  peerDependenciesMeta:
+    class-transformer:
+      optional: true
+    class-validator:
+      optional: true
+  checksum: 10c0/9566993fd3f805df2be632f5a16ca90d81b0deeb50e1e7cde4a49d4948c0d8d7db58b42ded70f35061e95e91a40d2adcd9e19cb2771090114eb737f62d2ea4c6
+  languageName: node
+  linkType: hard
+
 "@nestjs/common@npm:10.4.4":
   version: 10.4.4
   resolution: "@nestjs/common@npm:10.4.4"
@@ -4712,6 +4751,34 @@ __metadata:
     "@nestjs/websockets":
       optional: true
   checksum: 10c0/57be2fc7617041558e90a92ec7c6f1011ed2bab8bfe5c5c02db5f5a03115e5e7347c06be0117767ce7d6c748fbe81ff075fc50190c998d30bbf25fd20e6f4ab8
+  languageName: node
+  linkType: hard
+
+"@nestjs/core@npm:10.4.15":
+  version: 10.4.15
+  resolution: "@nestjs/core@npm:10.4.15"
+  dependencies:
+    "@nuxtjs/opencollective": "npm:0.3.2"
+    fast-safe-stringify: "npm:2.1.1"
+    iterare: "npm:1.2.1"
+    path-to-regexp: "npm:3.3.0"
+    tslib: "npm:2.8.1"
+    uid: "npm:2.0.2"
+  peerDependencies:
+    "@nestjs/common": ^10.0.0
+    "@nestjs/microservices": ^10.0.0
+    "@nestjs/platform-express": ^10.0.0
+    "@nestjs/websockets": ^10.0.0
+    reflect-metadata: ^0.1.12 || ^0.2.0
+    rxjs: ^7.1.0
+  peerDependenciesMeta:
+    "@nestjs/microservices":
+      optional: true
+    "@nestjs/platform-express":
+      optional: true
+    "@nestjs/websockets":
+      optional: true
+  checksum: 10c0/68958efca25b28ea38bcfc810751c626a913a848d9ec86aab0a6021e708632b95585f0da5d5c2b0513bb64cacfc97d391b45ec002b718a8e90fdda1b4354bed1
   languageName: node
   linkType: hard
 
@@ -4956,6 +5023,49 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@nestjs/microservices@npm:10.4.15, @nestjs/microservices@npm:^10.0.5":
+  version: 10.4.15
+  resolution: "@nestjs/microservices@npm:10.4.15"
+  dependencies:
+    iterare: "npm:1.2.1"
+    tslib: "npm:2.8.1"
+  peerDependencies:
+    "@grpc/grpc-js": "*"
+    "@nestjs/common": ^10.0.0
+    "@nestjs/core": ^10.0.0
+    "@nestjs/websockets": ^10.0.0
+    amqp-connection-manager: "*"
+    amqplib: "*"
+    cache-manager: "*"
+    ioredis: "*"
+    kafkajs: "*"
+    mqtt: "*"
+    nats: "*"
+    reflect-metadata: ^0.1.12 || ^0.2.0
+    rxjs: ^7.1.0
+  peerDependenciesMeta:
+    "@grpc/grpc-js":
+      optional: true
+    "@nestjs/websockets":
+      optional: true
+    amqp-connection-manager:
+      optional: true
+    amqplib:
+      optional: true
+    cache-manager:
+      optional: true
+    ioredis:
+      optional: true
+    kafkajs:
+      optional: true
+    mqtt:
+      optional: true
+    nats:
+      optional: true
+  checksum: 10c0/be5cc7daa0b80e894037f437e0a094ed7e05616d962abce574ff4d1024c5865ff4e68ba3ab4f5fa1d265a9b5cc30677b8812f3340cbab848f87525dbc049570b
+  languageName: node
+  linkType: hard
+
 "@nestjs/microservices@npm:10.4.6":
   version: 10.4.6
   resolution: "@nestjs/microservices@npm:10.4.6"
@@ -4996,49 +5106,6 @@ __metadata:
     nats:
       optional: true
   checksum: 10c0/c341a566599323048a321539e57e07656c376896330fc5c24979d21469e9603bbbaa37ca8fff1255077957d8db821f985b730bce85e5c645261d9b3853d79ea5
-  languageName: node
-  linkType: hard
-
-"@nestjs/microservices@npm:^10.0.5":
-  version: 10.4.15
-  resolution: "@nestjs/microservices@npm:10.4.15"
-  dependencies:
-    iterare: "npm:1.2.1"
-    tslib: "npm:2.8.1"
-  peerDependencies:
-    "@grpc/grpc-js": "*"
-    "@nestjs/common": ^10.0.0
-    "@nestjs/core": ^10.0.0
-    "@nestjs/websockets": ^10.0.0
-    amqp-connection-manager: "*"
-    amqplib: "*"
-    cache-manager: "*"
-    ioredis: "*"
-    kafkajs: "*"
-    mqtt: "*"
-    nats: "*"
-    reflect-metadata: ^0.1.12 || ^0.2.0
-    rxjs: ^7.1.0
-  peerDependenciesMeta:
-    "@grpc/grpc-js":
-      optional: true
-    "@nestjs/websockets":
-      optional: true
-    amqp-connection-manager:
-      optional: true
-    amqplib:
-      optional: true
-    cache-manager:
-      optional: true
-    ioredis:
-      optional: true
-    kafkajs:
-      optional: true
-    mqtt:
-      optional: true
-    nats:
-      optional: true
-  checksum: 10c0/be5cc7daa0b80e894037f437e0a094ed7e05616d962abce574ff4d1024c5865ff4e68ba3ab4f5fa1d265a9b5cc30677b8812f3340cbab848f87525dbc049570b
   languageName: node
   linkType: hard
 
@@ -5109,6 +5176,25 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@nestjs/testing@npm:10.4.15, @nestjs/testing@npm:^10.0.5":
+  version: 10.4.15
+  resolution: "@nestjs/testing@npm:10.4.15"
+  dependencies:
+    tslib: "npm:2.8.1"
+  peerDependencies:
+    "@nestjs/common": ^10.0.0
+    "@nestjs/core": ^10.0.0
+    "@nestjs/microservices": ^10.0.0
+    "@nestjs/platform-express": ^10.0.0
+  peerDependenciesMeta:
+    "@nestjs/microservices":
+      optional: true
+    "@nestjs/platform-express":
+      optional: true
+  checksum: 10c0/6d6b76791677bf6b0ae6c82f2a4b43fda489169fde7858037dd3483cc17b8885d353e9b7c51f5736cad86526afc2c2ebd0b6a1e88f5daa0be87a1546f4a6e511
+  languageName: node
+  linkType: hard
+
 "@nestjs/testing@npm:10.4.4":
   version: 10.4.4
   resolution: "@nestjs/testing@npm:10.4.4"
@@ -5144,25 +5230,6 @@ __metadata:
     "@nestjs/platform-express":
       optional: true
   checksum: 10c0/929245ed047ec152dcf938dd7ff20ce5454c798c36fc4c3f90f8729875142b87f319778355d796d1cd6751e643e324485124a4a29552025db7f678402d6b8aed
-  languageName: node
-  linkType: hard
-
-"@nestjs/testing@npm:^10.0.5":
-  version: 10.4.15
-  resolution: "@nestjs/testing@npm:10.4.15"
-  dependencies:
-    tslib: "npm:2.8.1"
-  peerDependencies:
-    "@nestjs/common": ^10.0.0
-    "@nestjs/core": ^10.0.0
-    "@nestjs/microservices": ^10.0.0
-    "@nestjs/platform-express": ^10.0.0
-  peerDependenciesMeta:
-    "@nestjs/microservices":
-      optional: true
-    "@nestjs/platform-express":
-      optional: true
-  checksum: 10c0/6d6b76791677bf6b0ae6c82f2a4b43fda489169fde7858037dd3483cc17b8885d353e9b7c51f5736cad86526afc2c2ebd0b6a1e88f5daa0be87a1546f4a6e511
   languageName: node
   linkType: hard
 
@@ -13076,7 +13143,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"long@npm:*, long@npm:5.2.3, long@npm:^5.0.0, long@npm:^5.2.3":
+"long@npm:*, long@npm:5.2.3, long@npm:^5.0.0":
   version: 5.2.3
   resolution: "long@npm:5.2.3"
   checksum: 10c0/6a0da658f5ef683b90330b1af76f06790c623e148222da9d75b60e266bbf88f803232dd21464575681638894a84091616e7f89557aa087fd14116c0f4e0e43d9
@@ -14460,7 +14527,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"protobufjs@npm:7.4.0, protobufjs@npm:^7.2.4, protobufjs@npm:^7.2.5":
+"protobufjs@npm:7.4.0, protobufjs@npm:^7.2.5":
   version: 7.4.0
   resolution: "protobufjs@npm:7.4.0"
   dependencies:
@@ -16328,7 +16395,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ts-poet@npm:^6.5.0":
+"ts-poet@npm:^6.7.0":
   version: 6.9.0
   resolution: "ts-poet@npm:6.9.0"
   dependencies:
@@ -16337,27 +16404,26 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ts-proto-descriptors@npm:1.15.0":
-  version: 1.15.0
-  resolution: "ts-proto-descriptors@npm:1.15.0"
+"ts-proto-descriptors@npm:2.0.0":
+  version: 2.0.0
+  resolution: "ts-proto-descriptors@npm:2.0.0"
   dependencies:
-    long: "npm:^5.2.3"
-    protobufjs: "npm:^7.2.4"
-  checksum: 10c0/313c7eb5d8ed252f98d15929f93f6b2651446e3753a65c79c1337aeefaa2ce92c71eb5cf353083aa69af419d62583798bef06df01e48ef4694583cc5b3f99a4e
+    "@bufbuild/protobuf": "npm:^2.0.0"
+  checksum: 10c0/a4f47a6db7de6b328a5b22bb0bed2a0dac929c28002567613db7980e0a8392b9148530e432a602a8c6b2cfda9909be9568a2e5c545f5624bb5d5eba52031c059
   languageName: node
   linkType: hard
 
-"ts-proto@npm:1.156.7":
-  version: 1.156.7
-  resolution: "ts-proto@npm:1.156.7"
+"ts-proto@npm:2.6.0":
+  version: 2.6.0
+  resolution: "ts-proto@npm:2.6.0"
   dependencies:
+    "@bufbuild/protobuf": "npm:^2.0.0"
     case-anything: "npm:^2.1.13"
-    protobufjs: "npm:^7.2.4"
-    ts-poet: "npm:^6.5.0"
-    ts-proto-descriptors: "npm:1.15.0"
+    ts-poet: "npm:^6.7.0"
+    ts-proto-descriptors: "npm:2.0.0"
   bin:
     protoc-gen-ts_proto: protoc-gen-ts_proto
-  checksum: 10c0/b9a55ef9a8886d38bac31c99ae369d838a5829f7b47adde01c186814b9e6f985579928d2165d84c91b6baaac54006e50866d979fd6d221675648ae432e4004c5
+  checksum: 10c0/83a378dce4d929a06e9039dd2b0b016d5f800ffdfe80dc94e427ae89f5b9bd63d0de528436bd86029170aa84dba5d4458404cb242ff42abeb5f49074fabf86f1
   languageName: node
   linkType: hard
 
