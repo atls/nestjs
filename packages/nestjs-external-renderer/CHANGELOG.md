@@ -1,5 +1,17 @@
 
 
+## [0.0.10](https://github.com/atls/nestjs/compare/@atls/nestjs-external-renderer@0.0.8...@atls/nestjs-external-renderer@0.0.10) (2025-01-24)
+
+
+### Features
+
+
+* **nestjs:** update grpc reflection ([#341](https://github.com/atls/nestjs/issues/341)) ([3f78e26](https://github.com/atls/nestjs/commit/3f78e26340b9ba64eab425160e8cea7ba83a3538))
+
+
+
+
+
 ## [0.0.8](https://github.com/atls/nestjs/compare/@atls/nestjs-external-renderer@0.0.8...@atls/nestjs-external-renderer@0.0.8) (2025-01-24)
 
 
