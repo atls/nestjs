@@ -612,6 +612,7 @@ const RAW_RUNTIME_STATE =
           ["@nestjs/microservices", "virtual:7c4464973bd8ce1f9c1cda98eb9c49c1dca46b75b86a927a752d6c3d7263d9b85347181d21a40d00d98627c4024f2c5e455a4894666e2307f3b2cdb59c4e7931#npm:10.4.15"],\
           ["@nestjs/platform-express", "virtual:7c4464973bd8ce1f9c1cda98eb9c49c1dca46b75b86a927a752d6c3d7263d9b85347181d21a40d00d98627c4024f2c5e455a4894666e2307f3b2cdb59c4e7931#npm:10.4.15"],\
           ["@nestjs/testing", "virtual:7c4464973bd8ce1f9c1cda98eb9c49c1dca46b75b86a927a752d6c3d7263d9b85347181d21a40d00d98627c4024f2c5e455a4894666e2307f3b2cdb59c4e7931#npm:10.4.15"],\
+          ["@types/node", "npm:22.5.5"],\
           ["class-transformer", "npm:0.5.1"],\
           ["class-validator", "npm:0.14.1"],\
           ["get-port", "npm:7.1.0"],\
