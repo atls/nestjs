@@ -1,5 +1,12 @@
 
 
+## [0.0.10](https://github.com/atls/nestjs/compare/@atls/nestjs-proto-types@0.0.8...@atls/nestjs-proto-types@0.0.10) (2025-01-24)
+
+
+
+
+
+
 ## 0.0.8 (2025-01-24)
 
 
