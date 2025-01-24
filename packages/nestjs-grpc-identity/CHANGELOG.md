@@ -1,3 +1,15 @@
+
+
+## [0.0.13](https://github.com/atls/nestjs/compare/@atls/nestjs-grpc-identity@0.0.12...@atls/nestjs-grpc-identity@0.0.13) (2025-01-24)
+
+
+### Features
+
+
+* **nestjs:** update grpc reflection ([#341](https://github.com/atls/nestjs/issues/341)) ([3f78e26](https://github.com/atls/nestjs/commit/3f78e26340b9ba64eab425160e8cea7ba83a3538))
+
+
+
 ## 0.0.12 (2025-01-22)
 
 ### Features

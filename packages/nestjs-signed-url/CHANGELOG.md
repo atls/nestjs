@@ -1,3 +1,15 @@
+
+
+## [0.1.45](https://github.com/atls/nestjs/compare/@atlantis-lab/nestjs-signed-url@0.1.44...@atlantis-lab/nestjs-signed-url@0.1.45) (2025-01-24)
+
+
+### Features
+
+
+* **nestjs:** update grpc reflection ([#341](https://github.com/atls/nestjs/issues/341)) ([3f78e26](https://github.com/atls/nestjs/commit/3f78e26340b9ba64eab425160e8cea7ba83a3538))
+
+
+
 ## 0.1.44 (2025-01-22)
 
 ### Features

@@ -23,7 +23,7 @@
     "@atls/protobuf-rpc": "^0.0.1"
   },
   "devDependencies": {
-    "@atls/nestjs-connectrpc": "workspace:0.0.2",
+    "@atls/nestjs-connectrpc": "workspace:0.0.3",
     "@atls/nestjs-validation": "workspace:0.0.1",
     "@bufbuild/buf": "^1.42.0",
     "@bufbuild/protobuf": "^1.10.0",
