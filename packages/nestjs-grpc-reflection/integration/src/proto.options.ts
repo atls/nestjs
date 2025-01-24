@@ -6,9 +6,9 @@ import path                 from 'path'
 export const serverOptions: GrpcOptions = {
   transport: Transport.GRPC,
   options: {
-    package: ['grpc.reflection.v1alpha', 'test'],
+    package: ['grpc.reflection.v1', 'test'],
     protoPath: [
-      path.join(__dirname, '../../proto/grpc/reflection/v1alpha/reflection.proto'),
+      path.join(__dirname, '../../proto/grpc/reflection/v1/reflection.proto'),
       path.join(__dirname, 'test1_service.proto'),
       path.join(__dirname, 'test2_service.proto'),
     ],

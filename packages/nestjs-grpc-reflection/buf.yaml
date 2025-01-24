@@ -1,11 +1,11 @@
-version: v1beta1
-
-build:
-  roots:
-    - proto
+version: v1
 
 lint:
   use:
     - DEFAULT
   ignore:
     - grpc
+
+breaking:
+  use:
+    - FILE

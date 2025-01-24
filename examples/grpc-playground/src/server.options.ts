@@ -11,7 +11,7 @@ import playground           from '../proto/examples/playground/v1/playground.pro
 export const serverOptions: GrpcOptions = {
   transport: Transport.GRPC,
   options: {
-    package: ['grpc.reflection.v1alpha', 'examples.playground.v1'],
+    package: ['grpc.reflection.v1', 'examples.playground.v1'],
     protoPath: [reflection, playground],
     url: '0.0.0.0:50051',
     loader: {

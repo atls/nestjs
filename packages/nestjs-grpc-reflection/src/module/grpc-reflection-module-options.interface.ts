@@ -16,5 +16,6 @@ export interface GrpcReflectionModuleAsyncOptions extends Pick<ModuleMetadata, '
   useFactory?: (
     ...args: Array<any>
   ) => GrpcReflectionModuleOptions | Promise<GrpcReflectionModuleOptions>
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   inject?: Array<any>
 }

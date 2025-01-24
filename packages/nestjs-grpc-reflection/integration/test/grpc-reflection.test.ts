@@ -15,8 +15,7 @@ import { beforeAll }                       from '@jest/globals'
 import { it }                              from '@jest/globals'
 import { expect }                          from '@jest/globals'
 import { afterAll }                        from '@jest/globals'
-// @ts-expect-error
-import { FileDescriptorProto }             from 'google-protobuf/google/protobuf/descriptor_pb'
+import { FileDescriptorProto }             from 'google-protobuf/google/protobuf/descriptor_pb.js'
 import { ReplaySubject }                   from 'rxjs'
 import getPort                             from 'get-port'
 import path                                from 'path'
@@ -40,11 +39,8 @@ describe('grpc reflection', () => {
             transport: Transport.GRPC,
             options: {
               url: `0.0.0.0:${servicePort}`,
-              package: 'grpc.reflection.v1alpha',
-              protoPath: path.join(
-                __dirname,
-                '../../proto/grpc/reflection/v1alpha/reflection.proto'
-              ),
+              package: 'grpc.reflection.v1',
+              protoPath: path.join(__dirname, '../../proto/grpc/reflection/v1/reflection.proto'),
               loader: {
                 arrays: true,
                 keepCase: false,
@@ -96,7 +92,7 @@ describe('grpc reflection', () => {
     expect(response?.listServicesResponse?.service).toEqual(
       expect.arrayContaining([
         expect.objectContaining({
-          name: 'grpc.reflection.v1alpha.ServerReflection',
+          name: 'grpc.reflection.v1.ServerReflection',
         }),
       ])
     )
@@ -110,18 +106,20 @@ describe('grpc reflection', () => {
       listServices: undefined,
       fileByFilename: undefined,
       allExtensionNumbersOfType: undefined,
-      fileContainingSymbol: 'grpc.reflection.v1alpha.ServerReflection',
+      fileContainingSymbol: 'grpc.reflection.v1.ServerReflection',
     })
 
     request.complete()
 
     const response = await serverReflection.serverReflectionInfo(request.asObservable()).toPromise()
 
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-call
-    const descriptor = FileDescriptorProto.deserializeBinary(
-      response?.fileDescriptorResponse?.fileDescriptorProto[0]
-    )
+    if (response?.fileDescriptorResponse) {
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-call
+      const descriptor = FileDescriptorProto.deserializeBinary(
+        response?.fileDescriptorResponse?.fileDescriptorProto[0]
+      )
 
-    expect(descriptor.array).toContain('grpc_reflection_v1alpha.proto')
+      expect(descriptor.toArray()).toContain('grpc_reflection_v1.proto')
+    }
   })
 })

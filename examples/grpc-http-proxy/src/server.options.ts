@@ -11,7 +11,7 @@ import echo                 from '../proto/examples/echo/v1/echo.proto'
 export const serverOptions: GrpcOptions = {
   transport: Transport.GRPC,
   options: {
-    package: ['grpc.reflection.v1alpha', 'examples.echo.v1'],
+    package: ['grpc.reflection.v1', 'examples.echo.v1'],
     protoPath: [reflection, echo],
     url: '0.0.0.0:50051',
     loader: {
