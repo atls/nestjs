@@ -1,5 +1,17 @@
 
 
+## [1.0.6](https://github.com/atls/nestjs/compare/@atls/nestjs-grpc-reflection@1.0.4...@atls/nestjs-grpc-reflection@1.0.6) (2025-01-24)
+
+
+### Bug Fixes
+
+
+* **nestjs:** grpc reflection ([#346](https://github.com/atls/nestjs/issues/346)) ([0a06d33](https://github.com/atls/nestjs/commit/0a06d3339b932207db6176683d8eea80e4f781df))
+
+
+
+
+
 ## [1.0.4](https://github.com/atls/nestjs/compare/@atls/nestjs-grpc-reflection@1.0.3...@atls/nestjs-grpc-reflection@1.0.4) (2025-01-24)
 
 
