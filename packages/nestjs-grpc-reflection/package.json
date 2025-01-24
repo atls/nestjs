@@ -1,13 +1,13 @@
 {
   "name": "@atls/nestjs-grpc-reflection",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "license": "BSD-3-Clause",
   "type": "module",
   "exports": {
     ".": "./src/index.ts",
     "./proto": {
-      "import": "./proto/index.js",
-      "require": "./proto/index.js",
+      "import": "./proto/index.cjs",
+      "require": "./proto/index.cjs",
       "types": "./proto/index.d.ts"
     }
   },
@@ -62,8 +62,8 @@
         "default": "./dist/index.js"
       },
       "./proto": {
-        "import": "./proto/index.js",
-        "require": "./proto/index.js",
+        "import": "./proto/index.cjs",
+        "require": "./proto/index.cjs",
         "types": "./proto/index.d.ts"
       }
     },
