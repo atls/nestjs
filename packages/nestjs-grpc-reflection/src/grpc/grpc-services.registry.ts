@@ -10,7 +10,7 @@ export class GrpcServicesRegistry {
   getServiceNameFromServiceDefinition(serviceDefinition: ServiceDefinition): string {
     const methodDefinition = Object.values(serviceDefinition).shift()
 
-    return methodDefinition!.path.split('/')[1]
+    return methodDefinition?.path.split('/')[1] || ''
   }
 
   addService(service: ServiceDefinition): void {
@@ -28,13 +28,12 @@ export class GrpcServicesRegistry {
   getFileDescriptorProtoByFileContainingSymbol(
     fileContainingSymbol: string
   ): FileDescriptorProto | undefined {
-    // @ts-expect-error
+    // @ts-expect-error correct return type
     return this.services.reduce<FileDescriptorProto | undefined>((fileDescriptorProto, service) => {
       if (fileDescriptorProto) {
         return fileDescriptorProto
       }
-
-      // @ts-expect-error
+      // @ts-expect-error correct return type
       return Object.values(service).reduce<FileDescriptorProto | undefined>((
         descriptor,
         method
@@ -47,7 +46,9 @@ export class GrpcServicesRegistry {
           return method.requestType.fileDescriptorProtos.find((fdp) => {
             const fileDescriptor = FileDescriptorProto.deserializeBinary(fdp)
 
-            return fileContainingSymbol.includes(fileDescriptor.getPackage()!)
+            const filePackage = fileDescriptor.getPackage()
+
+            return filePackage ? fileContainingSymbol.includes(filePackage) : false
           })
         }
 
