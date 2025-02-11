@@ -4,11 +4,13 @@ import { AssertionError }                 from 'node:assert'
 
 import { Catch }                          from '@nestjs/common'
 import { InternalServerErrorException }   from '@nestjs/common'
+import { NotFoundException }              from '@nestjs/common'
 import { BaseRpcExceptionFilter }         from '@nestjs/microservices'
 import { Observable }                     from 'rxjs'
 
 import { assertionExceptionFactory }      from '../exception-factories/index.js'
 import { internalServerExceptionFactory } from '../exception-factories/index.js'
+import { notFoundExceptionFactory }       from '../exception-factories/index.js'
 
 @Catch()
 export class GrpcExceptionsFilter extends BaseRpcExceptionFilter {
@@ -20,6 +22,10 @@ export class GrpcExceptionsFilter extends BaseRpcExceptionFilter {
 
     if (exception instanceof InternalServerErrorException) {
       return super.catch(internalServerExceptionFactory(exception), host)
+    }
+
+    if (exception instanceof NotFoundException) {
+      return super.catch(notFoundExceptionFactory(exception), host)
     }
 
     return super.catch(exception, host)
