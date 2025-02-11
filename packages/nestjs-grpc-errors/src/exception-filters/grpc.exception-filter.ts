@@ -1,18 +1,25 @@
-import type { ArgumentsHost }        from '@nestjs/common'
+import type { ArgumentsHost }             from '@nestjs/common'
 
-import { AssertionError }            from 'node:assert'
+import { AssertionError }                 from 'node:assert'
 
-import { Catch }                     from '@nestjs/common'
-import { BaseRpcExceptionFilter }    from '@nestjs/microservices'
+import { Catch }                          from '@nestjs/common'
+import { InternalServerErrorException }   from '@nestjs/common'
+import { BaseRpcExceptionFilter }         from '@nestjs/microservices'
+import { Observable }                     from 'rxjs'
 
-import { assertionExceptionFactory } from '../exception-factories/index.js'
+import { assertionExceptionFactory }      from '../exception-factories/index.js'
+import { internalServerExceptionFactory } from '../exception-factories/index.js'
 
 @Catch()
 export class GrpcExceptionsFilter extends BaseRpcExceptionFilter {
-  // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types, @typescript-eslint/explicit-function-return-type
-  override catch(exception: any, host: ArgumentsHost) {
+  // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types, @typescript-eslint/no-explicit-any
+  override catch(exception: any, host: ArgumentsHost): Observable<any> {
     if (exception instanceof AssertionError) {
       return super.catch(assertionExceptionFactory(exception), host)
+    }
+
+    if (exception instanceof InternalServerErrorException) {
+      return super.catch(internalServerExceptionFactory(exception), host)
     }
 
     return super.catch(exception, host)
