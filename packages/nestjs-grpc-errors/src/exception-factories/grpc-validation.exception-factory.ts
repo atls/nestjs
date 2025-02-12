@@ -1,14 +1,14 @@
 import type { ValidationError } from '@nestjs/common'
 
-import { BadRequest }           from '@atls/grpc-error-status'
-import { ErrorStatus }          from '@atls/grpc-error-status'
+import * as grpcErrorStatus     from '@atls/grpc-error-status'
 import { RpcException }         from '@nestjs/microservices'
 import { status }               from '@grpc/grpc-js'
 
+const { BadRequest, ErrorStatus } = grpcErrorStatus
+
 const traverseErrors = (
-  // eslint-disable-next-line @typescript-eslint/default-param-last
   errors: Array<ValidationError> = [],
-  callback: (error: ValidationError, string: string) => void,
+  callback: (error: ValidationError, string: string) => void = () => undefined,
   path: Array<string> = []
 ): void => {
   errors.forEach((error) => {
