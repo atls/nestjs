@@ -1,5 +1,12 @@
 
 
+## [0.0.32](https://github.com/atls/nestjs/compare/@atls/nestjs-grpc-playground@0.0.31...@atls/nestjs-grpc-playground@0.0.32) (2025-02-12)
+
+
+
+
+
+
 ## [0.0.31](https://github.com/atls/nestjs/compare/@atls/nestjs-grpc-playground@0.0.30...@atls/nestjs-grpc-playground@0.0.31) (2025-01-24)
 
 
