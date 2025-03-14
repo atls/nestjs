@@ -8,10 +8,10 @@
     "examples/**/*"
   ],
   "devDependencies": {
-    "@atls/code-runtime": "2.1.2",
+    "@atls/code-runtime": "2.1.7",
     "@types/node": "22.5.5",
     "typescript": "5.4.2"
   },
-  "packageManager": "yarn@4.6.0",
+  "packageManager": "yarn@4.7.0",
   "typecheckSkipLibCheck": true
 }
