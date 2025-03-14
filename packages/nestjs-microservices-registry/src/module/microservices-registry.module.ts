@@ -28,6 +28,7 @@ export class MicroservisesRegistryModule {
     }
   }
 
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   static connect(options: any): DynamicModule {
     return {
       module: MicroservisesRegistryModule,
