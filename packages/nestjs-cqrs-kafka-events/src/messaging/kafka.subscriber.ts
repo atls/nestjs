@@ -10,6 +10,7 @@ import { parse }                from 'telejson'
 export class KafkaSubscriber implements IMessageSource, OnModuleDestroy {
   private readonly kafkaConsumer: Consumer
 
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   private bridge!: Subject<any>
 
   constructor(kafka: Kafka, groupId: string) {
@@ -32,7 +33,7 @@ export class KafkaSubscriber implements IMessageSource, OnModuleDestroy {
         if (this.bridge) {
           for (const Event of events) {
             if (Event.name === topic) {
-              const parsedJson = parse(message.value!.toString())
+              const parsedJson = parse((message.value || '').toString())
               const receivedEvent: IEvent = Object.assign(new Event(), parsedJson)
 
               this.bridge.next(receivedEvent)
@@ -43,7 +44,7 @@ export class KafkaSubscriber implements IMessageSource, OnModuleDestroy {
     })
   }
 
-  bridgeEventsTo<T extends IEvent>(subject: Subject<T>): any {
+  bridgeEventsTo<T extends IEvent>(subject: Subject<T>): void {
     this.bridge = subject
   }
 }

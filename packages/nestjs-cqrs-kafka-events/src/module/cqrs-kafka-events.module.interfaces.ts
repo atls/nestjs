@@ -18,5 +18,6 @@ export interface CqrsKafkaEventsModuleAsyncOptions extends Pick<ModuleMetadata, 
   useFactory?: (
     ...args: Array<any>
   ) => CqrsKafkaEventsModuleOptions | Promise<CqrsKafkaEventsModuleOptions>
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   inject?: Array<any>
 }

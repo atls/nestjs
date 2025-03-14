@@ -106,7 +106,9 @@ export class CqrsKafkaEventsModule implements OnModuleInit {
     return [
       this.createAsyncOptionsProvider(options),
       {
+        // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
         provide: options.useClass!,
+        // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
         useClass: options.useClass!,
       },
     ]
@@ -127,6 +129,7 @@ export class CqrsKafkaEventsModule implements OnModuleInit {
         optionsFactory: CqrsKafkaEventsOptionsFactory
       ): CqrsKafkaEventsModuleOptions | Promise<CqrsKafkaEventsModuleOptions> =>
         optionsFactory.createCqrsKafkaEventsOptions(),
+      // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
       inject: [options.useExisting! || options.useClass!],
     }
   }
@@ -134,9 +137,8 @@ export class CqrsKafkaEventsModule implements OnModuleInit {
   async onModuleInit(): Promise<void> {
     await this.kafkaPublisher.connect()
     await this.kafkaSubscriber.connect(
-      this.explorerService
-        .explore()
-        .events!.map(
+      (this.explorerService.explore().events || [])
+        .map(
           (handler) => Reflect.getMetadata(EVENTS_HANDLER_METADATA, handler) as FunctionConstructor
         )
         .flat()
