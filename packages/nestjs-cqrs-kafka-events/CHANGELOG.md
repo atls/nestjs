@@ -1,5 +1,12 @@
 
 
+## [0.0.1](https://github.com/atls/nestjs/compare/@atls/nestjs-cqrs-kafka-events@0.0.0...@atls/nestjs-cqrs-kafka-events@0.0.1) (2025-03-14)
+
+
+
+
+
+
 # 0.0.0 (2025-03-14)
 
 
