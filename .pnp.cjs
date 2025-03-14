@@ -107,6 +107,10 @@ const RAW_RUNTIME_STATE =
       "reference": "workspace:packages/nestjs-logger"\
     },\
     {\
+      "name": "@atls/nestjs-microservices-registry",\
+      "reference": "workspace:packages/nestjs-microservices-registry"\
+    },\
+    {\
       "name": "@atls/nestjs-mikro-orm-config",\
       "reference": "workspace:packages/nestjs-mikro-orm-config"\
     },\
@@ -171,6 +175,7 @@ const RAW_RUNTIME_STATE =
     ["@atls/nestjs-keto", ["workspace:packages/nestjs-keto"]],\
     ["@atls/nestjs-kratos", ["workspace:packages/nestjs-kratos"]],\
     ["@atls/nestjs-logger", ["workspace:packages/nestjs-logger"]],\
+    ["@atls/nestjs-microservices-registry", ["workspace:packages/nestjs-microservices-registry"]],\
     ["@atls/nestjs-mikro-orm-config", ["workspace:packages/nestjs-mikro-orm-config"]],\
     ["@atls/nestjs-mikro-orm-request-context", ["workspace:packages/nestjs-mikro-orm-request-context"]],\
     ["@atls/nestjs-proto-types", ["workspace:packages/nestjs-proto-types"]],\
@@ -1460,6 +1465,20 @@ const RAW_RUNTIME_STATE =
           ["rxjs", "npm:7.8.1"],\
           ["supertest", "npm:6.3.4"],\
           ["typeorm", "virtual:5fdc09c7fdc30e48d390ab6ffff8ef725f2a327d08c70586e3df1d71e2657ff8df407f90899951495c83561309126b92db55566d67cf317480e9e55fd8e5b605#npm:0.3.20"]\
+        ],\
+        "linkType": "SOFT"\
+      }]\
+    ]],\
+    ["@atls/nestjs-microservices-registry", [\
+      ["workspace:packages/nestjs-microservices-registry", {\
+        "packageLocation": "./packages/nestjs-microservices-registry/",\
+        "packageDependencies": [\
+          ["@atls/nestjs-microservices-registry", "workspace:packages/nestjs-microservices-registry"],\
+          ["@nestjs/common", "virtual:773e124e6d7d5c23e2706ffde057b7c1d13d30452fb17121aed2189489091a233a955fdd9b958f8fa713a6cdbe245c696fcd7e05eb8d3e4a938f0a00ad757325#npm:10.4.15"],\
+          ["@nestjs/core", "virtual:773e124e6d7d5c23e2706ffde057b7c1d13d30452fb17121aed2189489091a233a955fdd9b958f8fa713a6cdbe245c696fcd7e05eb8d3e4a938f0a00ad757325#npm:10.4.15"],\
+          ["fast-hash-code", "npm:2.1.0"],\
+          ["reflect-metadata", "npm:0.2.2"],\
+          ["rxjs", "npm:7.8.1"]\
         ],\
         "linkType": "SOFT"\
       }]\
@@ -17066,6 +17085,15 @@ const RAW_RUNTIME_STATE =
           ["glob-parent", "npm:5.1.2"],\
           ["merge2", "npm:1.4.1"],\
           ["micromatch", "npm:4.0.8"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["fast-hash-code", [\
+      ["npm:2.1.0", {\
+        "packageLocation": "../.yarn/berry/cache/fast-hash-code-npm-2.1.0-c414f569c8-10c0.zip/node_modules/fast-hash-code/",\
+        "packageDependencies": [\
+          ["fast-hash-code", "npm:2.1.0"]\
         ],\
         "linkType": "HARD"\
       }]\
