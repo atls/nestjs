@@ -4,8 +4,10 @@ import type { INestApplication }             from '@nestjs/common'
 import type { NestHybridApplicationOptions } from '@nestjs/common'
 
 export class MicroservisesRegistry {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   static #instances: Set<any> = new Set()
 
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   public static add(options: any): void {
     this.#instances.add(options)
   }
