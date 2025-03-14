@@ -107,6 +107,10 @@ const RAW_RUNTIME_STATE =
       "reference": "workspace:packages/nestjs-mikro-orm-config"\
     },\
     {\
+      "name": "@atls/nestjs-mikro-orm-request-context",\
+      "reference": "workspace:packages/nestjs-mikro-orm-request-context"\
+    },\
+    {\
       "name": "@atls/nestjs-proto-types",\
       "reference": "workspace:packages/nestjs-proto-types"\
     },\
@@ -163,6 +167,7 @@ const RAW_RUNTIME_STATE =
     ["@atls/nestjs-kratos", ["workspace:packages/nestjs-kratos"]],\
     ["@atls/nestjs-logger", ["workspace:packages/nestjs-logger"]],\
     ["@atls/nestjs-mikro-orm-config", ["workspace:packages/nestjs-mikro-orm-config"]],\
+    ["@atls/nestjs-mikro-orm-request-context", ["workspace:packages/nestjs-mikro-orm-request-context"]],\
     ["@atls/nestjs-proto-types", ["workspace:packages/nestjs-proto-types"]],\
     ["@atls/nestjs-redis", ["virtual:aa86a8b1e4af9c7ed2d40753369461968e36be23b2875d3c89dbac92602aff336fbb024f39404040b429227b7fc2a1f6e029467aba212068d84f7a25c2e5afcc#workspace:packages/nestjs-redis", "workspace:packages/nestjs-redis"]],\
     ["@atls/nestjs-s3-client", ["workspace:packages/nestjs-s3-client"]],\
@@ -1419,6 +1424,20 @@ const RAW_RUNTIME_STATE =
           ["@atls/mikro-orm-logger", "virtual:972bda4d89b0d39cd3cd5312ac8da4f1e1a5df974f99421cc785768725a677c16cc0000ed540e16a9d00b9596eb0bf74c1c7754ecf068f07432d2b5bbfc968cf#npm:0.0.1"],\
           ["@mikro-orm/core", "virtual:972bda4d89b0d39cd3cd5312ac8da4f1e1a5df974f99421cc785768725a677c16cc0000ed540e16a9d00b9596eb0bf74c1c7754ecf068f07432d2b5bbfc968cf#npm:5.7.12"],\
           ["@mikro-orm/nestjs", "virtual:972bda4d89b0d39cd3cd5312ac8da4f1e1a5df974f99421cc785768725a677c16cc0000ed540e16a9d00b9596eb0bf74c1c7754ecf068f07432d2b5bbfc968cf#npm:5.2.0"],\
+          ["@nestjs/common", "virtual:648c68c35811325b322f076db385dc59f68f30bef81445d78151df0a3ea0d4065e47b943cf5d70cd0f1373bda966ec3fc1243f9ee65c9dabb966db8a62ec7194#npm:10.0.5"],\
+          ["@nestjs/core", "virtual:972bda4d89b0d39cd3cd5312ac8da4f1e1a5df974f99421cc785768725a677c16cc0000ed540e16a9d00b9596eb0bf74c1c7754ecf068f07432d2b5bbfc968cf#npm:10.0.5"],\
+          ["reflect-metadata", "npm:0.2.2"],\
+          ["rxjs", "npm:7.8.1"]\
+        ],\
+        "linkType": "SOFT"\
+      }]\
+    ]],\
+    ["@atls/nestjs-mikro-orm-request-context", [\
+      ["workspace:packages/nestjs-mikro-orm-request-context", {\
+        "packageLocation": "./packages/nestjs-mikro-orm-request-context/",\
+        "packageDependencies": [\
+          ["@atls/nestjs-mikro-orm-request-context", "workspace:packages/nestjs-mikro-orm-request-context"],\
+          ["@mikro-orm/core", "virtual:972bda4d89b0d39cd3cd5312ac8da4f1e1a5df974f99421cc785768725a677c16cc0000ed540e16a9d00b9596eb0bf74c1c7754ecf068f07432d2b5bbfc968cf#npm:5.7.12"],\
           ["@nestjs/common", "virtual:648c68c35811325b322f076db385dc59f68f30bef81445d78151df0a3ea0d4065e47b943cf5d70cd0f1373bda966ec3fc1243f9ee65c9dabb966db8a62ec7194#npm:10.0.5"],\
           ["@nestjs/core", "virtual:972bda4d89b0d39cd3cd5312ac8da4f1e1a5df974f99421cc785768725a677c16cc0000ed540e16a9d00b9596eb0bf74c1c7754ecf068f07432d2b5bbfc968cf#npm:10.0.5"],\
           ["reflect-metadata", "npm:0.2.2"],\
