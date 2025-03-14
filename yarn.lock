@@ -857,10 +857,10 @@ __metadata:
   dependencies:
     "@atls/logger": "npm:0.0.3"
     "@atls/mikro-orm-logger": "npm:0.0.1"
-    "@mikro-orm/core": "npm:^5.7.12"
-    "@mikro-orm/nestjs": "npm:^5.2.0"
-    "@nestjs/common": "npm:^10.0.5"
-    "@nestjs/core": "npm:^10.0.5"
+    "@mikro-orm/core": "npm:5.7.12"
+    "@mikro-orm/nestjs": "npm:5.2.0"
+    "@nestjs/common": "npm:10.0.5"
+    "@nestjs/core": "npm:10.0.5"
     reflect-metadata: "npm:^0.2.2"
     rxjs: "npm:^7.8.1"
   peerDependencies:
@@ -4680,16 +4680,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@mikro-orm/core@npm:^5.7.12":
-  version: 5.9.8
-  resolution: "@mikro-orm/core@npm:5.9.8"
+"@mikro-orm/core@npm:5.7.12":
+  version: 5.7.12
+  resolution: "@mikro-orm/core@npm:5.7.12"
   dependencies:
     acorn-loose: "npm:8.3.0"
     acorn-walk: "npm:8.2.0"
-    dotenv: "npm:16.3.1"
+    dotenv: "npm:16.1.4"
     fs-extra: "npm:11.1.1"
     globby: "npm:11.1.0"
-    mikro-orm: "npm:5.9.8"
+    mikro-orm: "npm:~5.7.12"
     reflect-metadata: "npm:0.1.13"
   peerDependencies:
     "@mikro-orm/better-sqlite": ^5.0.0
@@ -4723,18 +4723,18 @@ __metadata:
       optional: true
     "@mikro-orm/sqlite":
       optional: true
-  checksum: 10c0/b0392457f936b8a8449b608b4b79283fb1460ca3d0bb039bc73516a6149a807d7934985a029b23d9d0546df7ebd9f43a10cff264fae7a4739187064fa4d6b89c
+  checksum: 10c0/1458e1bf069870dbf6d2a110a5c80537401e18415a491967d6ae77b9b195ed50c5e829c3409f7839163dd4bfc1b833c8f0de0466a50a798f2ddd64df5e6296fa
   languageName: node
   linkType: hard
 
-"@mikro-orm/nestjs@npm:^5.2.0":
-  version: 5.2.3
-  resolution: "@mikro-orm/nestjs@npm:5.2.3"
+"@mikro-orm/nestjs@npm:5.2.0":
+  version: 5.2.0
+  resolution: "@mikro-orm/nestjs@npm:5.2.0"
   peerDependencies:
     "@mikro-orm/core": ^5.0.0 || ^6.0.0-dev.0
     "@nestjs/common": ^8.0.0 || ^9.0.0 || ^10.0.0
     "@nestjs/core": ^8.0.0 || ^9.0.0 || ^10.0.0
-  checksum: 10c0/3b4a6721adb993ef7e8f90a52455c7ce0f169499c3fc37ae20fb75ed153547bf132bdc57a09cb6c49d425520c89929da112473f771652d17f1a1e70271ed0a15
+  checksum: 10c0/2583ab315d01b352a93b0b7e7466a6b2231b3adae6859747990a2964253dc727ccf05b5b04047771b5dad7a6e1d2a8064509967c76ba9661833b24ac65a111f7
   languageName: node
   linkType: hard
 
@@ -9916,10 +9916,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"dotenv@npm:16.3.1":
-  version: 16.3.1
-  resolution: "dotenv@npm:16.3.1"
-  checksum: 10c0/b95ff1bbe624ead85a3cd70dbd827e8e06d5f05f716f2d0cbc476532d54c7c9469c3bc4dd93ea519f6ad711cb522c00ac9a62b6eb340d5affae8008facc3fbd7
+"dotenv@npm:16.1.4":
+  version: 16.1.4
+  resolution: "dotenv@npm:16.1.4"
+  checksum: 10c0/47cf5ce136bf2a5e8402fc9855d95848973cfee423fe0adf1a7cd565c842c51e5b8c95889b075140c26b092b74dd2a319970ff496cd7159ab3f1fc58edfc0ede
   languageName: node
   linkType: hard
 
@@ -13699,10 +13699,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"mikro-orm@npm:5.9.8":
-  version: 5.9.8
-  resolution: "mikro-orm@npm:5.9.8"
-  checksum: 10c0/0002f3703a6f301e7ee03baa813cc59cf63750bc5977d7ed7f932b58ee0a86d0e0940e5130ec68ea16fb80ba21a4a076037cba85004290902b5a98a38e52ecf8
+"mikro-orm@npm:~5.7.12":
+  version: 5.7.14
+  resolution: "mikro-orm@npm:5.7.14"
+  checksum: 10c0/1a72b863e130b86f2cc9aa6828b49546cde1dfc7f6ba9b8035c88dc6fff9f60d038cada2dc4332304c6bdc197dece709a6fad845490ab2584546852278b62f6d
   languageName: node
   linkType: hard
 
