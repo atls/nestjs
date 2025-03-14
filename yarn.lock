@@ -424,6 +424,26 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@atls/nestjs-cqrs-kafka-events@workspace:packages/nestjs-cqrs-kafka-events":
+  version: 0.0.0-use.local
+  resolution: "@atls/nestjs-cqrs-kafka-events@workspace:packages/nestjs-cqrs-kafka-events"
+  dependencies:
+    "@atls/nestjs-kafka": "workspace:0.0.2"
+    "@nestjs/common": "npm:10.4.15"
+    "@nestjs/core": "npm:10.4.15"
+    "@nestjs/cqrs": "npm:10.2.8"
+    reflect-metadata: "npm:0.2.2"
+    rxjs: "npm:^7.8.1"
+    telejson: "npm:7.2.0"
+  peerDependencies:
+    "@nestjs/common": ^10
+    "@nestjs/core": ^10
+    "@nestjs/cqrs": ^10
+    reflect-metadata: ^0.2
+    rxjs: ^7
+  languageName: unknown
+  linkType: soft
+
 "@atls/nestjs-cqrs@workspace:packages/nestjs-cqrs":
   version: 0.0.0-use.local
   resolution: "@atls/nestjs-cqrs@workspace:packages/nestjs-cqrs"
@@ -755,7 +775,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@atls/nestjs-kafka@workspace:packages/nestjs-kafka":
+"@atls/nestjs-kafka@workspace:0.0.2, @atls/nestjs-kafka@workspace:packages/nestjs-kafka":
   version: 0.0.0-use.local
   resolution: "@atls/nestjs-kafka@workspace:packages/nestjs-kafka"
   dependencies:
@@ -5076,6 +5096,20 @@ __metadata:
     "@nestjs/websockets":
       optional: true
   checksum: 10c0/86f6ea196ee944e121e7f0b80bdcc796abccc266be48ab169114fc059d9633ccc8ffe646bc4e87933c503a34ffa782bf1f3efe848ae668f88aa7fa6f04568aa8
+  languageName: node
+  linkType: hard
+
+"@nestjs/cqrs@npm:10.2.8":
+  version: 10.2.8
+  resolution: "@nestjs/cqrs@npm:10.2.8"
+  dependencies:
+    uuid: "npm:11.0.2"
+  peerDependencies:
+    "@nestjs/common": ^9.0.0 || ^10.0.0
+    "@nestjs/core": ^9.0.0 || ^10.0.0
+    reflect-metadata: ^0.1.13 || ^0.2.0
+    rxjs: ^7.2.0
+  checksum: 10c0/fb56a282d07d5eb8c1619e1dac777f094496f37d7b9aee94c942dde27d6e1516559aaa762d737c3a60dee7a7bae6a7adffa2ba6cf6296bcf60f762517d52d0cb
   languageName: node
   linkType: hard
 
@@ -16482,7 +16516,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"telejson@npm:^7.1.0":
+"telejson@npm:7.2.0, telejson@npm:^7.1.0":
   version: 7.2.0
   resolution: "telejson@npm:7.2.0"
   dependencies:
@@ -17408,6 +17442,15 @@ __metadata:
   version: 1.0.1
   resolution: "utils-merge@npm:1.0.1"
   checksum: 10c0/02ba649de1b7ca8854bfe20a82f1dfbdda3fb57a22ab4a8972a63a34553cf7aa51bc9081cf7e001b035b88186d23689d69e71b510e610a09a4c66f68aa95b672
+  languageName: node
+  linkType: hard
+
+"uuid@npm:11.0.2":
+  version: 11.0.2
+  resolution: "uuid@npm:11.0.2"
+  bin:
+    uuid: dist/esm/bin/uuid
+  checksum: 10c0/bd0670a0d6f77f1932da7544c51c32ceb467f3835382df2265f3275c4981d32c136a08a4369fb027ecfffd0b2ae48f19a28266ef636c7347264d5720e85d5ba0
   languageName: node
   linkType: hard
 
