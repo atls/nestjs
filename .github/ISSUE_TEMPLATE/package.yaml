@@ -1,0 +1,36 @@
+name: Package
+description: Создание пакета
+title: '[Package] '
+type: Package
+assignees:
+  - TorinAsakura
+body:
+  - type: input
+    id: package-name
+    attributes:
+      label: Название пакета
+    validations:
+      required: true
+
+  - type: textarea
+    id: specs
+    attributes:
+      label: Для чего нужен пакет?
+      placeholder: Описание фич пакета, модулей
+    validations:
+      required: true
+
+  - type: textarea
+    id: how-to
+    attributes:
+      label: Пример использования
+    validations:
+      required: true
+
+  - type: input
+    id: materials
+    attributes:
+      label: Материалы
+      placeholder: Ссылка на репу, статью
+
+projects: ['atls/11']
