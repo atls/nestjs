@@ -59,6 +59,10 @@ const RAW_RUNTIME_STATE =
       "reference": "workspace:packages/nestjs-gateway"\
     },\
     {\
+      "name": "@atls/nestjs-gcs-client",\
+      "reference": "workspace:packages/nestjs-gcs-client"\
+    },\
+    {\
       "name": "@atls/nestjs-graphql-redis-subscriptions",\
       "reference": "workspace:packages/nestjs-graphql-redis-subscriptions"\
     },\
@@ -164,6 +168,7 @@ const RAW_RUNTIME_STATE =
     ["@atls/nestjs-dataloader", ["workspace:packages/nestjs-dataloader"]],\
     ["@atls/nestjs-external-renderer", ["workspace:packages/nestjs-external-renderer"]],\
     ["@atls/nestjs-gateway", ["workspace:packages/nestjs-gateway"]],\
+    ["@atls/nestjs-gcs-client", ["workspace:packages/nestjs-gcs-client"]],\
     ["@atls/nestjs-graphql-redis-subscriptions", ["workspace:packages/nestjs-graphql-redis-subscriptions"]],\
     ["@atls/nestjs-grpc-errors", ["workspace:packages/nestjs-grpc-errors"]],\
     ["@atls/nestjs-grpc-http-proxy", ["virtual:77887786a24289fa840c9acd370d634accbe79bcf317ecf5401844ffff73b8a593879dd9cce463873637e6414a631dfdb1a2473704bf332d823bcfffac8c2469#workspace:packages/nestjs-grpc-http-proxy", "virtual:80857f29dff653ed1b21e1b78c415c79278e1a3708fec8563133922c0b3b287990dd6895d3d76575acec38e5f7e5fa8985f270e2d46a7eb121f744d431d0761f#workspace:packages/nestjs-grpc-http-proxy", "virtual:ae612755b7b7524f0abe0e8f8a9db7ce3c40babcf859fc76be80f623f21186ae03161e438d67e313be3df3064d77d055596efe3c17a2ac659a9ce043f3f557d0#workspace:packages/nestjs-grpc-http-proxy", "workspace:packages/nestjs-grpc-http-proxy"]],\
@@ -819,6 +824,20 @@ const RAW_RUNTIME_STATE =
           ["supertest", "npm:6.3.4"],\
           ["tslib", "npm:2.8.0"],\
           ["ws", "virtual:420937aa6e26d1616b79bbc33a8fd56103fa773427edcab7136fa7cf5d0ad09a5a82319fc41e971fc166c28e110a660630c2b86b00cbc0db5b9268e5d3f2e8aa#npm:8.18.0"]\
+        ],\
+        "linkType": "SOFT"\
+      }]\
+    ]],\
+    ["@atls/nestjs-gcs-client", [\
+      ["workspace:packages/nestjs-gcs-client", {\
+        "packageLocation": "./packages/nestjs-gcs-client/",\
+        "packageDependencies": [\
+          ["@atls/nestjs-gcs-client", "workspace:packages/nestjs-gcs-client"],\
+          ["@google-cloud/storage", "npm:7.0.1"],\
+          ["@nestjs/common", "virtual:773e124e6d7d5c23e2706ffde057b7c1d13d30452fb17121aed2189489091a233a955fdd9b958f8fa713a6cdbe245c696fcd7e05eb8d3e4a938f0a00ad757325#npm:10.4.15"],\
+          ["@nestjs/core", "virtual:773e124e6d7d5c23e2706ffde057b7c1d13d30452fb17121aed2189489091a233a955fdd9b958f8fa713a6cdbe245c696fcd7e05eb8d3e4a938f0a00ad757325#npm:10.4.15"],\
+          ["reflect-metadata", "npm:0.2.2"],\
+          ["rxjs", "npm:7.8.1"]\
         ],\
         "linkType": "SOFT"\
       }]\
@@ -3872,6 +3891,15 @@ const RAW_RUNTIME_STATE =
       }]\
     ]],\
     ["@google-cloud/paginator", [\
+      ["npm:3.0.7", {\
+        "packageLocation": "../.yarn/berry/cache/@google-cloud-paginator-npm-3.0.7-b5e7c7f423-10c0.zip/node_modules/@google-cloud/paginator/",\
+        "packageDependencies": [\
+          ["@google-cloud/paginator", "npm:3.0.7"],\
+          ["arrify", "npm:2.0.1"],\
+          ["extend", "npm:3.0.2"]\
+        ],\
+        "linkType": "HARD"\
+      }],\
       ["npm:5.0.2", {\
         "packageLocation": "../.yarn/berry/cache/@google-cloud-paginator-npm-5.0.2-7d2d8fc828-10c0.zip/node_modules/@google-cloud/paginator/",\
         "packageDependencies": [\
@@ -3883,6 +3911,13 @@ const RAW_RUNTIME_STATE =
       }]\
     ]],\
     ["@google-cloud/projectify", [\
+      ["npm:3.0.0", {\
+        "packageLocation": "../.yarn/berry/cache/@google-cloud-projectify-npm-3.0.0-ba9df71402-10c0.zip/node_modules/@google-cloud/projectify/",\
+        "packageDependencies": [\
+          ["@google-cloud/projectify", "npm:3.0.0"]\
+        ],\
+        "linkType": "HARD"\
+      }],\
       ["npm:4.0.0", {\
         "packageLocation": "../.yarn/berry/cache/@google-cloud-projectify-npm-4.0.0-013ddf774f-10c0.zip/node_modules/@google-cloud/projectify/",\
         "packageDependencies": [\
@@ -3892,6 +3927,13 @@ const RAW_RUNTIME_STATE =
       }]\
     ]],\
     ["@google-cloud/promisify", [\
+      ["npm:3.0.1", {\
+        "packageLocation": "../.yarn/berry/cache/@google-cloud-promisify-npm-3.0.1-17dfc5a8e5-10c0.zip/node_modules/@google-cloud/promisify/",\
+        "packageDependencies": [\
+          ["@google-cloud/promisify", "npm:3.0.1"]\
+        ],\
+        "linkType": "HARD"\
+      }],\
       ["npm:4.0.0", {\
         "packageLocation": "../.yarn/berry/cache/@google-cloud-promisify-npm-4.0.0-abe4f29539-10c0.zip/node_modules/@google-cloud/promisify/",\
         "packageDependencies": [\
@@ -3901,6 +3943,30 @@ const RAW_RUNTIME_STATE =
       }]\
     ]],\
     ["@google-cloud/storage", [\
+      ["npm:7.0.1", {\
+        "packageLocation": "../.yarn/berry/cache/@google-cloud-storage-npm-7.0.1-c18729b1ec-10c0.zip/node_modules/@google-cloud/storage/",\
+        "packageDependencies": [\
+          ["@google-cloud/storage", "npm:7.0.1"],\
+          ["@google-cloud/paginator", "npm:3.0.7"],\
+          ["@google-cloud/projectify", "npm:3.0.0"],\
+          ["@google-cloud/promisify", "npm:3.0.1"],\
+          ["abort-controller", "npm:3.0.0"],\
+          ["async-retry", "npm:1.3.3"],\
+          ["compressible", "npm:2.0.18"],\
+          ["duplexify", "npm:4.1.3"],\
+          ["ent", "npm:2.2.2"],\
+          ["fast-xml-parser", "npm:4.5.3"],\
+          ["gaxios", "npm:6.7.1"],\
+          ["google-auth-library", "npm:9.15.1"],\
+          ["mime", "npm:3.0.0"],\
+          ["mime-types", "npm:2.1.35"],\
+          ["p-limit", "npm:3.1.0"],\
+          ["retry-request", "npm:6.0.0"],\
+          ["teeny-request", "npm:9.0.0"],\
+          ["uuid", "npm:8.3.2"]\
+        ],\
+        "linkType": "HARD"\
+      }],\
       ["npm:7.13.0", {\
         "packageLocation": "../.yarn/berry/cache/@google-cloud-storage-npm-7.13.0-afdd7e7013-10c0.zip/node_modules/@google-cloud/storage/",\
         "packageDependencies": [\
@@ -14969,6 +15035,16 @@ const RAW_RUNTIME_STATE =
         "linkType": "HARD"\
       }]\
     ]],\
+    ["compressible", [\
+      ["npm:2.0.18", {\
+        "packageLocation": "../.yarn/berry/cache/compressible-npm-2.0.18-ee5ab04d88-10c0.zip/node_modules/compressible/",\
+        "packageDependencies": [\
+          ["compressible", "npm:2.0.18"],\
+          ["mime-db", "npm:1.53.0"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
     ["concat-map", [\
       ["npm:0.0.1", {\
         "packageLocation": "../.yarn/berry/cache/concat-map-npm-0.0.1-85a921b7ee-10c0.zip/node_modules/concat-map/",\
@@ -15930,6 +16006,19 @@ const RAW_RUNTIME_STATE =
           ["enhanced-resolve", "npm:5.18.0"],\
           ["graceful-fs", "npm:4.2.11"],\
           ["tapable", "npm:2.2.1"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["ent", [\
+      ["npm:2.2.2", {\
+        "packageLocation": "../.yarn/berry/cache/ent-npm-2.2.2-3dff4b3220-10c0.zip/node_modules/ent/",\
+        "packageDependencies": [\
+          ["ent", "npm:2.2.2"],\
+          ["call-bound", "npm:1.0.3"],\
+          ["es-errors", "npm:1.3.0"],\
+          ["punycode", "npm:1.4.1"],\
+          ["safe-regex-test", "npm:1.1.0"]\
         ],\
         "linkType": "HARD"\
       }]\
@@ -17181,6 +17270,14 @@ const RAW_RUNTIME_STATE =
           ["strnum", "npm:1.0.5"]\
         ],\
         "linkType": "HARD"\
+      }],\
+      ["npm:4.5.3", {\
+        "packageLocation": "../.yarn/berry/cache/fast-xml-parser-npm-4.5.3-4c572a6316-10c0.zip/node_modules/fast-xml-parser/",\
+        "packageDependencies": [\
+          ["fast-xml-parser", "npm:4.5.3"],\
+          ["strnum", "npm:1.1.2"]\
+        ],\
+        "linkType": "HARD"\
       }]\
     ]],\
     ["fastq", [\
@@ -17920,6 +18017,19 @@ const RAW_RUNTIME_STATE =
         "packageLocation": "../.yarn/berry/cache/google-auth-library-npm-9.14.2-82111b25da-10c0.zip/node_modules/google-auth-library/",\
         "packageDependencies": [\
           ["google-auth-library", "npm:9.14.2"],\
+          ["base64-js", "npm:1.5.1"],\
+          ["ecdsa-sig-formatter", "npm:1.0.11"],\
+          ["gaxios", "npm:6.7.1"],\
+          ["gcp-metadata", "npm:6.1.0"],\
+          ["gtoken", "npm:7.1.0"],\
+          ["jws", "npm:4.0.0"]\
+        ],\
+        "linkType": "HARD"\
+      }],\
+      ["npm:9.15.1", {\
+        "packageLocation": "../.yarn/berry/cache/google-auth-library-npm-9.15.1-04a025e628-10c0.zip/node_modules/google-auth-library/",\
+        "packageDependencies": [\
+          ["google-auth-library", "npm:9.15.1"],\
           ["base64-js", "npm:1.5.1"],\
           ["ecdsa-sig-formatter", "npm:1.0.11"],\
           ["gaxios", "npm:6.7.1"],\
@@ -20235,6 +20345,13 @@ const RAW_RUNTIME_STATE =
           ["mime-db", "npm:1.52.0"]\
         ],\
         "linkType": "HARD"\
+      }],\
+      ["npm:1.53.0", {\
+        "packageLocation": "../.yarn/berry/cache/mime-db-npm-1.53.0-14fcdba2be-10c0.zip/node_modules/mime-db/",\
+        "packageDependencies": [\
+          ["mime-db", "npm:1.53.0"]\
+        ],\
+        "linkType": "HARD"\
       }]\
     ]],\
     ["mime-types", [\
@@ -21572,6 +21689,13 @@ const RAW_RUNTIME_STATE =
       }]\
     ]],\
     ["punycode", [\
+      ["npm:1.4.1", {\
+        "packageLocation": "../.yarn/berry/cache/punycode-npm-1.4.1-be4c23e6d2-10c0.zip/node_modules/punycode/",\
+        "packageDependencies": [\
+          ["punycode", "npm:1.4.1"]\
+        ],\
+        "linkType": "HARD"\
+      }],\
       ["npm:2.3.1", {\
         "packageLocation": "../.yarn/berry/cache/punycode-npm-2.3.1-97543c420d-10c0.zip/node_modules/punycode/",\
         "packageDependencies": [\
@@ -22038,6 +22162,15 @@ const RAW_RUNTIME_STATE =
       }]\
     ]],\
     ["retry-request", [\
+      ["npm:6.0.0", {\
+        "packageLocation": "../.yarn/berry/cache/retry-request-npm-6.0.0-588a2f977d-10c0.zip/node_modules/retry-request/",\
+        "packageDependencies": [\
+          ["retry-request", "npm:6.0.0"],\
+          ["debug", "virtual:1b9e2a314c35921e1b14ca2d2c7664f165a5c0f3f02ca1e30357c6546941724b55e5624ce0d5b4790874f2259ae08ae26d9f95d2cdbb84aae50aa451a2a572cd#npm:4.3.7"],\
+          ["extend", "npm:3.0.2"]\
+        ],\
+        "linkType": "HARD"\
+      }],\
       ["npm:7.0.2", {\
         "packageLocation": "../.yarn/berry/cache/retry-request-npm-7.0.2-a41087680c-10c0.zip/node_modules/retry-request/",\
         "packageDependencies": [\
@@ -22985,6 +23118,13 @@ const RAW_RUNTIME_STATE =
         "packageLocation": "../.yarn/berry/cache/strnum-npm-1.0.5-9ba11d2a0a-10c0.zip/node_modules/strnum/",\
         "packageDependencies": [\
           ["strnum", "npm:1.0.5"]\
+        ],\
+        "linkType": "HARD"\
+      }],\
+      ["npm:1.1.2", {\
+        "packageLocation": "../.yarn/berry/cache/strnum-npm-1.1.2-67427480d6-10c0.zip/node_modules/strnum/",\
+        "packageDependencies": [\
+          ["strnum", "npm:1.1.2"]\
         ],\
         "linkType": "HARD"\
       }]\
