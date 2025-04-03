@@ -1,9 +1,12 @@
-version: v1
+version: v2
 
 plugins:
-  - name: es
-    opt: target=ts+dts
+  - local: protoc-gen-es
+    opt: target=ts
     out: integration/gen
-  - name: connect-es
-    opt: target=ts+dts
+  - local: protoc-gen-connect-es
+    opt: target=ts
     out: integration/gen
+  - local: protoc-gen-interfaces
+    opt: target=ts
+    out: integration/gen/interfaces
