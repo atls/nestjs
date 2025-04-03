@@ -29,17 +29,15 @@ export const validationExceptionFactory = (errors: Array<ValError>): RpcExceptio
 
   traverseErrors(errors, (error, id, property) => {
     const messages = Object.keys(error.constraints || {}).map((constraintId) => {
-      // @ts-expect-error types
       const validationErrorMessage = new ValidationErrorMessage({
         id: constraintId,
-        constraint: error.constraints![constraintId],
+        constraint: error.constraints?.[constraintId],
       })
 
       return validationErrorMessage
     })
 
     validationErrors.push(
-      // @ts-expect-error types
       new ValidationError({
         id,
         property,
@@ -49,7 +47,6 @@ export const validationExceptionFactory = (errors: Array<ValError>): RpcExceptio
   })
 
   return new RpcException(
-    // @ts-expect-error types
     new ConnectError('Request validation failed', Code.InvalidArgument, undefined, validationErrors)
   )
 }

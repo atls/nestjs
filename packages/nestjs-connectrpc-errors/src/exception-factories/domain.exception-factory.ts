@@ -6,10 +6,8 @@ import { ConnectError }     from '@connectrpc/connect'
 import { RpcException }     from '@nestjs/microservices'
 
 export const domainExceptionFactory = (error: DomainError): RpcException => {
-  // @ts-expect-error types
   const logicalError = new LogicalError({
-    // @ts-expect-error types
-    id: error.id,
+    id: error.name,
     message: error.message,
   })
 

@@ -17,6 +17,7 @@ import { domainExceptionFactory }     from '../exception-factories/index.js'
 
 @Catch()
 export class ConnectRpcExceptionsFilter extends BaseRpcExceptionFilter {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   override catch(exception: unknown, host: ArgumentsHost): Observable<any> {
     if (exception instanceof AssertionError) {
       return super.catch(assertionExceptionFactory(exception), host)
