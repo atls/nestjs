@@ -1,31 +1,32 @@
 name: Feature
 description: Изменение несущее новые возможности
-labels: ['feature']
+title: '[Feature] '
+type: 'feature'
 assignees:
   - TorinAsakura
 body:
   - type: input
     id: motivation
     attributes:
-      label: С чем связан запрос на фичу?
-      placeholder: Клиентам необходимо выводить чуть больше данных, чем сейчас
+      label: С чем связан запрос?
+      placeholder: Подумай, а нужна ли вообще таска
     validations:
       required: true
 
   - type: textarea
-    id: poc
+    id: plan
     attributes:
-      label: Расскажите как вы это себе видите
-      placeholder: Добавить дополнительный блок с необходимыми данными
+      label: Опиши план реализации
+      placeholder: Расскажи в паре предложений как ты это будешь реализовывать
     validations:
       required: true
 
   - type: textarea
-    id: rc
+    id: dod
     attributes:
       label: Критерии готовности выполнения задачи
       placeholder: |
-        По каким критериям оцениваем готовность задачи
+        По каким критериям оцениваем готовность задачи, например:
         - инициализация:
           - приложение работает в среде
         - работа с данными:
@@ -33,14 +34,6 @@ body:
           - на выходе - JSON объект товара с ценой в другой валюте
         - Артефакты:
           - запись в лог
-    validations:
-      required: true
-
-  - type: input
-    id: materials
-    attributes:
-      label: Материалы
-      placeholder: Ссылка на фигму, любой другой материал для старта
     validations:
       required: true
 
