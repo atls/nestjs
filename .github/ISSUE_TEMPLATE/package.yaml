@@ -1,7 +1,7 @@
 name: Package
 description: Создание пакета
 title: '[Package] '
-type: Package
+type: 'Package'
 assignees:
   - TorinAsakura
 body:
