@@ -1,0 +1,23 @@
+name: Management
+description: Менеджерское болото
+title: '[Management] '
+type: 'Management'
+projects: ['atls/11']
+assignees:
+  - TorinAsakura
+body:
+  - type: input
+    id: motivation
+    attributes:
+      label: Что делаем?
+    validations:
+      required: true
+
+  - type: textarea
+    id: subj
+    attributes:
+      label: Что изменится?
+    validations:
+      required: true
+
+projects: ['atls/11']
