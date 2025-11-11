@@ -1,0 +1,21 @@
+name: Publish to registry
+
+on:
+  pull_request:
+    types:
+      - closed
+    branches:
+      - master
+    paths-ignore:
+      - '.github/**'
+
+jobs:
+  publish:
+    if: github.event.pull_request.merged == true
+    uses: atls/shared/.github/workflows/publish.yaml@master
+    permissions: write-all
+    with:
+      appId: ${{ vars.ATLANTIS_SUPER_BOT_APP_ID }}
+    secrets:
+      appPrivateKey: ${{ secrets.ATLANTIS_SUPER_BOT_PRIVATE_KEY }}
+      npmAuthToken: ${{ secrets.NPM_TOKEN }}
