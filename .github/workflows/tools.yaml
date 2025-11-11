@@ -1,0 +1,10 @@
+name: Update tools
+
+on:
+  workflow_dispatch:
+
+jobs:
+  update-tools:
+    name: Update tools
+    uses: atls/shared/.github/workflows/tools.yaml@master
+    permissions: write-all
