@@ -14,8 +14,8 @@ export interface KetoOptionsFactory {
 export interface KetoModuleAsyncOptions extends Pick<ModuleMetadata, 'imports'> {
   useExisting?: Type<KetoOptionsFactory>
   useClass?: Type<KetoOptionsFactory>
-  useFactory?: (...args: Array<any>) => KetoModuleOptions | Promise<KetoModuleOptions>
-  inject?: Array<any>
+  useFactory?: (...args: Array<unknown>) => KetoModuleOptions | Promise<KetoModuleOptions>
+  inject?: Array<unknown>
   global?: boolean
 }
 

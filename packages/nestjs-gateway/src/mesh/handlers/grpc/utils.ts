@@ -5,7 +5,7 @@ import type { SchemaComposer }       from 'graphql-compose'
 import type { Root }                 from 'protobufjs'
 
 import { Metadata }                  from '@grpc/grpc-js'
-// @ts-expect-error
+// @ts-expect-error jsonFlatStringify types are missing in the published package
 import { jsonFlatStringify }         from '@graphql-mesh/utils'
 import { existsSync }                from 'fs'
 import { isAbsolute }                from 'path'
@@ -47,6 +47,7 @@ export function addIncludePathResolver(root: Root, includePaths: Array<string>):
     }
     for (const directory of includePaths) {
       const fullPath: string = join(directory, target)
+      // eslint-disable-next-line n/no-sync -- root.resolvePath API is synchronous, so the file check must match
       if (existsSync(fullPath)) {
         return fullPath
       }

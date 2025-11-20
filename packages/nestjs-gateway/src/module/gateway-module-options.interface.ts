@@ -9,6 +9,8 @@ import type { PlaygroundConfig }  from 'apollo-server-express'
 
 import type { GatewaySourceType } from '../enums/index.js'
 
+type CorsOptions = Record<string, unknown>
+
 export interface SourceTransformsOptions {
   rename?: YamlConfig.Transform['rename']
   encapsulate?: YamlConfig.Transform['encapsulate']
@@ -32,14 +34,13 @@ export interface GatewayModuleOptions {
   path?: string
   playground?: PlaygroundConfig
   introspection?: boolean
-  // eslint-disable-next-line @typescript-eslint/no-redundant-type-constituents
-  cors?: any | boolean
+  cors?: CorsOptions | boolean
   pubsub?: MeshPubSub
   cache?: KeyValueCache
   merger?: MeshMerger
   sources?: Array<SourceOptions>
   transforms?: SourceTransformsOptions
-  additionalTypeDefs?: any
+  additionalTypeDefs?: Array<string> | string
   limit?: number | string
   grpcChannelOptions?: Partial<ChannelOptions>
   additionalResolvers?: Array<
@@ -57,6 +58,6 @@ export interface GatewayOptionsFactory {
 export interface GatewayModuleAsyncOptions extends Pick<ModuleMetadata, 'imports'> {
   useExisting?: Type<GatewayOptionsFactory>
   useClass?: Type<GatewayOptionsFactory>
-  useFactory?: (...args: Array<any>) => GatewayModuleOptions | Promise<GatewayModuleOptions>
-  inject?: Array<any>
+  useFactory?: (...args: Array<unknown>) => GatewayModuleOptions | Promise<GatewayModuleOptions>
+  inject?: Array<unknown>
 }
