@@ -14,14 +14,16 @@ export const Loader: (type: string) => ParameterDecorator = createParamDecorator
   context: ExecutionContext
 ) => {
   const graphqlExecutionContext: GraphQLExecutionContext = GqlExecutionContext.create(context)
-  const ctx: any = graphqlExecutionContext.getContext()
+  const ctx = graphqlExecutionContext.getContext<Record<string, unknown>>()
 
-  if (ctx[GET_LOADER_CONTEXT_KEY] === undefined) {
+  const loaderFactory = ctx[GET_LOADER_CONTEXT_KEY]
+
+  if (loaderFactory === undefined || typeof loaderFactory !== 'function') {
     throw new InternalServerErrorException(`
         You should provide interceptor ${DataLoaderInterceptor.name} globaly with ${APP_INTERCEPTOR}
       `)
   }
 
   // eslint-disable-next-line @typescript-eslint/no-unsafe-call, @typescript-eslint/no-unsafe-return
-  return ctx[GET_LOADER_CONTEXT_KEY](type)
+  return loaderFactory(type)
 })

@@ -10,27 +10,39 @@ export class EntityToDocumentMapper {
     private readonly registry: TypesenseMetadataRegistry
   ) {}
 
-  // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
-  async insert(entity: any): Promise<void> {
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
-    const schema = this.registry.getSchemaByTarget(entity.constructor)
+  async insert<T extends Record<string, unknown> & { id?: number | string }>(
+    entity: T
+  ): Promise<void> {
+    const target = entity.constructor as new (...args: Array<unknown>) => object
+    const schema = this.registry.getSchemaByTarget(target)
+
+    if (!schema) {
+      throw new Error(`Typesense schema not found for entity ${target.name}`)
+    }
+
     const document = this.buildDocument(entity)
 
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
-    await this.typesense.collections(schema!.name).documents().create(document)
+    await this.typesense.collections(schema.name).documents().create(document)
   }
 
-  // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
-  async update(entity: any): Promise<void> {
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
-    const schema = this.registry.getSchemaByTarget(entity.constructor)
+  async update<T extends Record<string, unknown> & { id?: number | string }>(
+    entity: T
+  ): Promise<void> {
+    const target = entity.constructor as new (...args: Array<unknown>) => object
+    const schema = this.registry.getSchemaByTarget(target)
+
+    if (!schema) {
+      throw new Error(`Typesense schema not found for entity ${target.name}`)
+    }
+
     const document = this.buildDocument(entity)
 
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
-    await this.typesense.collections(schema!.name).documents().update(document, {})
+    await this.typesense.collections(schema.name).documents().update(document, {})
   }
 
-  private buildDocument(entity: any): any {
+  private buildDocument(
+    entity: Record<string, unknown> & { id?: number | string }
+  ): Record<string, unknown> {
     return {
       ...entity,
       ...(entity.id ? { id: String(entity.id) } : {}),

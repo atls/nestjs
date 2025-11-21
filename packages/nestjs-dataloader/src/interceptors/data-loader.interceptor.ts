@@ -15,14 +15,16 @@ import { GET_LOADER_CONTEXT_KEY }       from '../constants.js'
 
 @Injectable()
 export class DataLoaderInterceptor implements NestInterceptor {
+  private readonly loaderFactorySymbol = GET_LOADER_CONTEXT_KEY
+
   constructor(private readonly moduleRef: ModuleRef) {}
 
-  intercept(context: ExecutionContext, next: CallHandler): Observable<any> {
+  intercept(context: ExecutionContext, next: CallHandler): Observable<unknown> {
     const graphqlExecutionContext: GraphQLExecutionContext = GqlExecutionContext.create(context)
-    const ctx: any = graphqlExecutionContext.getContext()
+    const ctx = graphqlExecutionContext.getContext<Record<string, unknown>>()
 
     if (ctx[GET_LOADER_CONTEXT_KEY] === undefined) {
-      ctx[GET_LOADER_CONTEXT_KEY] = (type: string): NestDataLoader => {
+      ctx[this.loaderFactorySymbol] = (type: string): NestDataLoader => {
         if (ctx[type] === undefined) {
           try {
             ctx[type] = this.moduleRef
@@ -33,8 +35,7 @@ export class DataLoaderInterceptor implements NestInterceptor {
           }
         }
 
-        // eslint-disable-next-line @typescript-eslint/no-unsafe-return
-        return ctx[type]
+        return ctx[type] as NestDataLoader
       }
     }
 

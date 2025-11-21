@@ -11,23 +11,29 @@ import { Observable }            from 'rxjs'
 export class MikroORMRequestContextInterceptor implements NestInterceptor {
   constructor(private readonly orm: MikroORM) {}
 
-  intercept(_: ExecutionContext, next: CallHandler): Observable<any> {
-    return new Observable((subscriber) => {
+  intercept<T>(_: ExecutionContext, next: CallHandler): Observable<T> {
+    return new Observable<T>((subscriber) => {
       RequestContext.createAsync(
         this.orm.em,
         async () =>
           new Promise<void>((resolve) => {
-            next.handle().subscribe(
-              (result) => {
+            const stream = next.handle() as Observable<T>
+
+            stream.subscribe({
+              next: (result) => {
                 subscriber.next(result)
                 subscriber.complete()
                 resolve()
               },
-              (error) => {
+              error: (error: unknown) => {
                 subscriber.error(error)
                 resolve()
-              }
-            )
+              },
+              complete: () => {
+                subscriber.complete()
+                resolve()
+              },
+            })
           })
       )
     })

@@ -1,5 +1,6 @@
 import type { DynamicModule }                   from '@nestjs/common'
 import type { Provider }                        from '@nestjs/common'
+import type { Type }                            from '@nestjs/common'
 
 import type { GrpcHttpProxyModuleAsyncOptions } from './grpc-http-proxy-module-options.interface.js'
 import type { GrpcHttpProxyModuleOptions }      from './grpc-http-proxy-module-options.interface.js'
@@ -46,11 +47,17 @@ export class GrpcHttpProxyModule {
       return [this.createAsyncOptionsProvider(options)]
     }
 
+    if (!options.useClass) {
+      throw new Error(
+        'Invalid async options: expected useClass when no factory or existing provider is supplied'
+      )
+    }
+
     return [
       this.createAsyncOptionsProvider(options),
       {
-        provide: options.useClass!,
-        useClass: options.useClass!,
+        provide: options.useClass,
+        useClass: options.useClass,
       },
     ]
   }
@@ -64,11 +71,21 @@ export class GrpcHttpProxyModule {
       }
     }
 
+    const inject: Array<Type<GrpcHttpProxyOptionsFactory>> = []
+
+    if (options.useExisting) {
+      inject.push(options.useExisting)
+    } else if (options.useClass) {
+      inject.push(options.useClass)
+    } else {
+      throw new Error('Invalid async options: expected either useExisting or useClass provider')
+    }
+
     return {
       provide: GRPC_HTTP_PROXY_MODULE_OPTIONS,
       useFactory: async (optionsFactory: GrpcHttpProxyOptionsFactory) =>
         optionsFactory.createGrpcHttpProxyOptions(),
-      inject: [options.useExisting! || options.useClass!],
+      inject,
     }
   }
 }

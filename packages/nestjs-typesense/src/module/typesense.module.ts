@@ -1,5 +1,6 @@
 import type { DynamicModule }               from '@nestjs/common'
 import type { Provider }                    from '@nestjs/common'
+import type { Type }                        from '@nestjs/common'
 
 import type { TypesenseModuleAsyncOptions } from './typesense-module.interface.js'
 import type { TypesenseModuleOptions }      from './typesense-module.interface.js'
@@ -48,11 +49,17 @@ export class TypesenseModule {
       return [this.createAsyncOptionsProvider(options)]
     }
 
+    if (!options.useClass) {
+      throw new Error(
+        'Invalid async options: expected useClass when no factory or existing provider is supplied'
+      )
+    }
+
     return [
       this.createAsyncOptionsProvider(options),
       {
-        provide: options.useClass!,
-        useClass: options.useClass!,
+        provide: options.useClass,
+        useClass: options.useClass,
       },
     ]
   }
@@ -66,11 +73,21 @@ export class TypesenseModule {
       }
     }
 
+    const inject: Array<Type<TypesenseOptionsFactory>> = []
+
+    if (options.useExisting) {
+      inject.push(options.useExisting)
+    } else if (options.useClass) {
+      inject.push(options.useClass)
+    } else {
+      throw new Error('Invalid async options: expected either useExisting or useClass provider')
+    }
+
     return {
       provide: TYPESENSE_MODULE_OPTIONS,
       useFactory: async (optionsFactory: TypesenseOptionsFactory) =>
         optionsFactory.createTypesenseOptions(),
-      inject: [options.useExisting! || options.useClass!],
+      inject,
     }
   }
 }

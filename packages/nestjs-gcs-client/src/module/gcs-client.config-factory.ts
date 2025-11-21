@@ -1,6 +1,5 @@
 import type { StorageOptions }         from '@google-cloud/storage'
 
-// eslint-disable-next-line @typescript-eslint/consistent-type-imports
 import type { GcsClientModuleOptions } from './gcs-client.module.interfaces.js'
 
 import { Injectable }                  from '@nestjs/common'

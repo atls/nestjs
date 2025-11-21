@@ -113,10 +113,10 @@ export const transformToObservable = <T>(resultOrDeferred: ResultOrDeferred<T>):
     return new Observable<T>((subscriber) => {
       // @ts-expect-error undefined method
       resultOrDeferred.subscribe({
-        next: (value: any) => {
+        next: (value: unknown) => {
           subscriber.next(value as T)
         },
-        error: (error: any) => {
+        error: (error: unknown) => {
           subscriber.error(error)
         },
         complete: () => {
