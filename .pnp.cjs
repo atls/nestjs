@@ -1729,6 +1729,7 @@ const RAW_RUNTIME_STATE =
           ["@types/class-validator", null],\
           ["@types/nestjs__common", null],\
           ["@types/nestjs__core", null],\
+          ["@types/node", "npm:22.5.5"],\
           ["@types/reflect-metadata", null],\
           ["@types/rxjs", null],\
           ["class-transformer", "npm:0.5.1"],\
@@ -1758,6 +1759,7 @@ const RAW_RUNTIME_STATE =
           ["@atls/nestjs-validation", "workspace:packages/nestjs-validation"],\
           ["@nestjs/common", "virtual:82c048b5d29d98effb158530a6945e2dff634e60027727e8e466d7eb17aae4f7dab78b4f8b6e9b66564a6323d8f832ee9648588d0bee432ff101abcba1b0b492#npm:10.4.3"],\
           ["@nestjs/core", "virtual:82c048b5d29d98effb158530a6945e2dff634e60027727e8e466d7eb17aae4f7dab78b4f8b6e9b66564a6323d8f832ee9648588d0bee432ff101abcba1b0b492#npm:10.4.3"],\
+          ["@types/node", "npm:22.5.5"],\
           ["class-transformer", "npm:0.5.1"],\
           ["class-validator", "npm:0.14.1"],\
           ["reflect-metadata", "npm:0.1.14"],\

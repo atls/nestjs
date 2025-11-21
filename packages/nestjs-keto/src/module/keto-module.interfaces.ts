@@ -1,5 +1,6 @@
-import type { Type }                    from '@nestjs/common/interfaces'
-import type { ModuleMetadata }          from '@nestjs/common/interfaces'
+import type { FactoryProvider }         from '@nestjs/common'
+import type { ModuleMetadata }          from '@nestjs/common'
+import type { Type }                    from '@nestjs/common'
 import type { ConfigurationParameters } from '@ory/keto-client'
 import type { SubjectSet }              from '@ory/keto-client'
 
@@ -15,7 +16,7 @@ export interface KetoModuleAsyncOptions extends Pick<ModuleMetadata, 'imports'> 
   useExisting?: Type<KetoOptionsFactory>
   useClass?: Type<KetoOptionsFactory>
   useFactory?: (...args: Array<unknown>) => KetoModuleOptions | Promise<KetoModuleOptions>
-  inject?: Array<unknown>
+  inject?: FactoryProvider['inject']
   global?: boolean
 }
 

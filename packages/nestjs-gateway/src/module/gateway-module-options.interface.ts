@@ -3,8 +3,9 @@ import type { KeyValueCache }     from '@graphql-mesh/types'
 import type { MeshMerger }        from '@graphql-mesh/types'
 import type { YamlConfig }        from '@graphql-mesh/types'
 import type { ChannelOptions }    from '@grpc/grpc-js'
-import type { ModuleMetadata }    from '@nestjs/common/interfaces'
-import type { Type }              from '@nestjs/common/interfaces'
+import type { FactoryProvider }   from '@nestjs/common'
+import type { ModuleMetadata }    from '@nestjs/common'
+import type { Type }              from '@nestjs/common'
 import type { PlaygroundConfig }  from 'apollo-server-express'
 
 import type { GatewaySourceType } from '../enums/index.js'
@@ -59,5 +60,5 @@ export interface GatewayModuleAsyncOptions extends Pick<ModuleMetadata, 'imports
   useExisting?: Type<GatewayOptionsFactory>
   useClass?: Type<GatewayOptionsFactory>
   useFactory?: (...args: Array<unknown>) => GatewayModuleOptions | Promise<GatewayModuleOptions>
-  inject?: Array<unknown>
+  inject?: FactoryProvider['inject']
 }
