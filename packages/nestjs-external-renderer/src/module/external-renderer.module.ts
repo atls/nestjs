@@ -1,5 +1,6 @@
 import type { DynamicModule }                      from '@nestjs/common'
 import type { Provider }                           from '@nestjs/common'
+import type { Type }                               from '@nestjs/common'
 
 import type { ExternalRendererModuleAsyncOptions } from './external-renderer-module-options.interface.js'
 import type { ExternalRendererModuleOptions }      from './external-renderer-module-options.interface.js'
@@ -45,13 +46,17 @@ export class ExternalRendererModule {
       return [this.createAsyncOptionsProvider(options)]
     }
 
+    if (!options.useClass) {
+      throw new Error(
+        'Invalid async options: expected useClass when no factory or existing provider is supplied'
+      )
+    }
+
     return [
       this.createAsyncOptionsProvider(options),
       {
-        // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-        provide: options.useClass!,
-        // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-        useClass: options.useClass!,
+        provide: options.useClass,
+        useClass: options.useClass,
       },
     ]
   }
@@ -65,12 +70,21 @@ export class ExternalRendererModule {
       }
     }
 
+    const inject: Array<Type<ExternalRendererOptionsFactory>> = []
+
+    if (options.useExisting) {
+      inject.push(options.useExisting)
+    } else if (options.useClass) {
+      inject.push(options.useClass)
+    } else {
+      throw new Error('Invalid async options: expected either useExisting or useClass provider')
+    }
+
     return {
       provide: EXTERNAL_RENDERER_MODULE_OPTIONS,
       useFactory: async (optionsFactory: ExternalRendererOptionsFactory) =>
         optionsFactory.createExternalRendererOptions(),
-      // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-      inject: [options.useExisting! || options.useClass!],
+      inject,
     }
   }
 }

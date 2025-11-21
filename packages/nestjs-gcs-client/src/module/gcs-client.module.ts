@@ -1,5 +1,6 @@
 import type { DynamicModule }               from '@nestjs/common'
 import type { Provider }                    from '@nestjs/common'
+import type { Type }                        from '@nestjs/common'
 
 import type { GcsClientModuleOptions }      from './gcs-client.module.interfaces.js'
 import type { GcsClientModuleAsyncOptions } from './gcs-client.module.interfaces.js'
@@ -42,11 +43,17 @@ export class GcsClientModule {
       return [this.createAsyncOptionsProvider(options)]
     }
 
+    if (!options.useClass) {
+      throw new Error(
+        'Invalid async options: expected useClass when no factory or existing provider is supplied'
+      )
+    }
+
     return [
       this.createAsyncOptionsProvider(options),
       {
-        provide: options.useClass!,
-        useClass: options.useClass!,
+        provide: options.useClass,
+        useClass: options.useClass,
       },
     ]
   }
@@ -60,13 +67,23 @@ export class GcsClientModule {
       }
     }
 
+    const inject: Array<Type<GcsClientOptionsFactory>> = []
+
+    if (options.useExisting) {
+      inject.push(options.useExisting)
+    } else if (options.useClass) {
+      inject.push(options.useClass)
+    } else {
+      throw new Error('Invalid async options: expected either useExisting or useClass provider')
+    }
+
     return {
       provide: GCS_CLIENT_MODULE_OPTIONS,
       useFactory: (
         optionsFactory: GcsClientOptionsFactory
       ): GcsClientModuleOptions | Promise<GcsClientModuleOptions> =>
         optionsFactory.createGcsClientOptions(),
-      inject: [options.useExisting! || options.useClass!],
+      inject,
     }
   }
 }
