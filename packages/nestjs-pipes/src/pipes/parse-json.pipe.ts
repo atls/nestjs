@@ -1,3 +1,4 @@
+import type { HttpException }       from '@nestjs/common'
 import type { PipeTransform }       from '@nestjs/common'
 import type { ErrorHttpStatusCode } from '@nestjs/common/utils/http-error-by-code.util.js'
 
@@ -9,22 +10,25 @@ import { isNil }                    from '@nestjs/common/utils/shared.utils.js'
 
 export interface ParseJsonPipeOptions {
   errorHttpStatusCode?: ErrorHttpStatusCode
-  exceptionFactory?: (error: string) => any
+  exceptionFactory?: (error: string) => HttpException
   optional?: boolean
 }
 
 @Injectable()
 export class ParseJsonPipe implements PipeTransform {
-  protected exceptionFactory: (error: string) => any
+  protected exceptionFactory: (error: string) => HttpException
 
   constructor(@Optional() protected readonly options: ParseJsonPipeOptions = {}) {
     const { exceptionFactory, errorHttpStatusCode = HttpStatus.BAD_REQUEST } = options
 
-    this.exceptionFactory =
-      exceptionFactory || ((error): unknown => new HttpErrorByCode[errorHttpStatusCode](error))
+    const ExceptionCtor = HttpErrorByCode[errorHttpStatusCode] as new (
+      message: string
+    ) => HttpException
+
+    this.exceptionFactory = exceptionFactory || ((error): HttpException => new ExceptionCtor(error))
   }
 
-  transform(value: unknown): any {
+  transform(value: unknown): unknown {
     if (isNil(value) && this.options?.optional) {
       return value
     }

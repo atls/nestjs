@@ -20,6 +20,7 @@ export class TypeOrmListenersBuilder implements OnModuleInit {
   constructor(
     private readonly registry: TypesenseMetadataRegistry,
     private readonly mapper: EntityToDocumentMapper,
+    // eslint-disable-next-line @typescript-eslint/no-deprecated
     private readonly connection: Connection
   ) {}
 
@@ -32,6 +33,7 @@ export class TypeOrmListenersBuilder implements OnModuleInit {
       const Subscriber = class EntitySubscriber implements EntitySubscriberInterface {
         constructor(
           private readonly mapper: EntityToDocumentMapper,
+          // eslint-disable-next-line @typescript-eslint/no-deprecated
           connection: Connection
         ) {
           connection.subscribers.push(this)
@@ -42,11 +44,15 @@ export class TypeOrmListenersBuilder implements OnModuleInit {
           return target
         }
 
-        afterInsert(event: InsertEvent<any>): void {
+        afterInsert(event: InsertEvent<Record<string, unknown>>): void {
           this.mapper.insert(event.entity)
         }
 
-        afterUpdate(event: UpdateEvent<any>): void {
+        afterUpdate(event: UpdateEvent<Record<string, unknown>>): void {
+          if (!event.entity) {
+            return
+          }
+
           this.mapper.update(event.entity)
         }
       }

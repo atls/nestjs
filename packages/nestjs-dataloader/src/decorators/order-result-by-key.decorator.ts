@@ -1,33 +1,33 @@
 /* eslint-disable no-param-reassign */
 
-export const OrderResultByKey = (key = 'id', defaultValue = undefined) =>
-  // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
-  (target: any, propertyKey: string, descriptor: PropertyDescriptor): PropertyDescriptor => {
+type OrderableItem = Record<PropertyKey, unknown>
+
+export const OrderResultByKey = (key: PropertyKey = 'id', defaultValue?: OrderableItem) =>
+  (target: object, propertyKey: string, descriptor: PropertyDescriptor): PropertyDescriptor => {
     const original = descriptor.value
 
-    // @ts-expect-error unsafe assign
-    // eslint-disable-next-line func-names, @typescript-eslint/no-explicit-any
-    descriptor.value = async function (keys, ...args): Promise<any> {
+    const orderedResolver = async function orderResultByKeyResolver(
+      this: unknown,
+      keys: Array<PropertyKey>,
+      ...args: Array<unknown>
+    ): Promise<Array<unknown>> {
       // eslint-disable-next-line @typescript-eslint/no-unsafe-call
       const method = original.bind(this)
       // eslint-disable-next-line @typescript-eslint/no-unsafe-call
-      const result = await method(keys, ...args)
+      const result = (await method(keys, ...args)) as Array<OrderableItem>
 
-      // eslint-disable-next-line @typescript-eslint/no-unsafe-call
-      const resultByKey = result.reduce(
-        // @ts-expect-error unsafe method
-        // eslint-disable-next-line @typescript-eslint/no-unsafe-return
+      const resultByKey = result.reduce<Record<PropertyKey, OrderableItem>>(
         (res, item) => ({
           ...res,
-          [item[key]]: item,
+          [item[key] as PropertyKey]: item,
         }),
         {}
       )
 
-      // @ts-expect-error unsafe method
-      // eslint-disable-next-line @typescript-eslint/no-unsafe-return, @typescript-eslint/no-unsafe-call
-      return keys.map((itemKey) => resultByKey[itemKey] || defaultValue)
+      return keys.map((itemKey) => resultByKey[itemKey] ?? defaultValue)
     }
+
+    descriptor.value = orderedResolver
 
     return descriptor
   }

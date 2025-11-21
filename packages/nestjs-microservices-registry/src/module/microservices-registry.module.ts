@@ -1,11 +1,12 @@
-/* eslint-disable @typescript-eslint/explicit-module-boundary-types */
+import type { DynamicModule }                from '@nestjs/common'
+import type { NestHybridApplicationOptions } from '@nestjs/common'
 
-import type { DynamicModule }    from '@nestjs/common'
+import { Module }                            from '@nestjs/common'
+import { fastHashCode as hash }              from 'fast-hash-code'
 
-import { Module }                from '@nestjs/common'
-import { fastHashCode as hash }  from 'fast-hash-code'
+import { MicroservisesRegistry }             from '../registry/index.js'
 
-import { MicroservisesRegistry } from '../registry/index.js'
+type MicroserviceOptions = Record<string, unknown>
 
 @Module({})
 export class MicroservisesRegistryModule {
@@ -28,15 +29,17 @@ export class MicroservisesRegistryModule {
     }
   }
 
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  static connect(options: any): DynamicModule {
+  static connect(
+    options: MicroserviceOptions,
+    hybridOptions: NestHybridApplicationOptions = {}
+  ): DynamicModule {
     return {
       module: MicroservisesRegistryModule,
       providers: [
         {
           provide: String(hash(JSON.stringify(options))),
           useFactory: (registry: typeof MicroservisesRegistry): void => {
-            registry.add(options)
+            registry.add(options, hybridOptions)
           },
           inject: [MicroservisesRegistry],
         },

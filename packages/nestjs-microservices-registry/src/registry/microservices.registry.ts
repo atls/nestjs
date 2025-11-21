@@ -1,21 +1,27 @@
-/* eslint-disable @typescript-eslint/explicit-module-boundary-types */
-
 import type { INestApplication }             from '@nestjs/common'
 import type { NestHybridApplicationOptions } from '@nestjs/common'
+type MicroserviceOptions = Record<string, unknown>
+
+type RegistryEntry = {
+  options: MicroserviceOptions
+  hybridOptions: NestHybridApplicationOptions
+}
 
 export class MicroservisesRegistry {
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  static #instances: Set<any> = new Set()
+  static #instances: Set<RegistryEntry> = new Set()
 
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  public static add(options: any): void {
-    this.#instances.add(options)
+  public static add(
+    options: MicroserviceOptions,
+    hybridOptions: NestHybridApplicationOptions
+  ): void {
+    this.#instances.add({ options, hybridOptions })
   }
 
   public static connect(
     app: INestApplication,
     hybridAppOptions: NestHybridApplicationOptions = {}
   ): void {
-    this.#instances.forEach((options) => app.connectMicroservice(options, hybridAppOptions))
+    this.#instances.forEach(({ options, hybridOptions }) =>
+      app.connectMicroservice(options, hybridOptions ?? hybridAppOptions))
   }
 }
