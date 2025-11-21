@@ -14474,7 +14474,7 @@ __metadata:
   dependencies:
     "@atls/code-runtime": "npm:2.1.15"
     "@types/node": "npm:22.5.5"
-    typescript: "npm:5.4.2"
+    typescript: "npm:5.5.4"
   languageName: unknown
   linkType: soft
 
