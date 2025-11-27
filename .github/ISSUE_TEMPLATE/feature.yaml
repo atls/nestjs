@@ -36,5 +36,3 @@ body:
           - запись в лог
     validations:
       required: true
-
-projects: ['atls/11']
