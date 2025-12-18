@@ -8,11 +8,11 @@
     "examples/**/*"
   ],
   "devDependencies": {
-    "@atls/code-runtime": "2.1.7",
+    "@atls/code-runtime": "2.1.16",
     "@types/node": "22.5.5",
-    "typescript": "5.4.2"
+    "typescript": "5.5.4"
   },
-  "packageManager": "yarn@4.7.0",
+  "packageManager": "yarn@4.12.0",
   "formatterIgnorePatterns": [
     "**/*/CHANGELOG.md"
   ],
