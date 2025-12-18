@@ -944,6 +944,22 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@atls/nestjs-pipes@workspace:packages/nestjs-pipes":
+  version: 0.0.0-use.local
+  resolution: "@atls/nestjs-pipes@workspace:packages/nestjs-pipes"
+  dependencies:
+    "@nestjs/common": "npm:10.0.5"
+    "@nestjs/core": "npm:10.0.5"
+    reflect-metadata: "npm:0.2.2"
+    rxjs: "npm:7.8.1"
+  peerDependencies:
+    "@nestjs/common": ^10
+    "@nestjs/core": ^10
+    reflect-metadata: ^0.2
+    rxjs: ^7
+  languageName: unknown
+  linkType: soft
+
 "@atls/nestjs-proto-types@workspace:*, @atls/nestjs-proto-types@workspace:packages/nestjs-proto-types":
   version: 0.0.0-use.local
   resolution: "@atls/nestjs-proto-types@workspace:packages/nestjs-proto-types"
