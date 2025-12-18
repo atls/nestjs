@@ -32,5 +32,3 @@ body:
     attributes:
       label: Материалы
       placeholder: Ссылка на репу, статью
-
-projects: ['atls/11']
