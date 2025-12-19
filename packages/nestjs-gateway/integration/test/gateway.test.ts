@@ -1,6 +1,8 @@
 import type { INestApplication }    from '@nestjs/common'
 import type { INestMicroservice }   from '@nestjs/common'
 
+import path                         from 'node:path'
+
 import { Transport }                from '@nestjs/microservices'
 import { Test }                     from '@nestjs/testing'
 import { describe }                 from '@jest/globals'
@@ -15,7 +17,6 @@ import { printSchema }              from 'graphql'
 import { getIntrospectionQuery }    from 'graphql'
 import { createClient }             from 'graphql-ws'
 import getPort                      from 'get-port'
-import path                         from 'path'
 import request                      from 'supertest'
 
 import { GatewaySourceType }        from '../../src/index.js'
@@ -239,8 +240,7 @@ describe('gateway', () => {
     })
 
     const event = new Promise((resolve, reject) => {
-      // @ts-expect-error
-      let result
+      let result: { id: string } | undefined
 
       client.subscribe(
         {
@@ -251,11 +251,13 @@ describe('gateway', () => {
           }`,
         },
         {
-          // eslint-disable-next-line
-          next: (data) => (result = data),
+          next: (data) => (result = data as { id: string }),
           error: reject,
           complete: () => {
-            // @ts-expect-error
+            if (!result) {
+              reject(new Error('Subscription result missing'))
+              return
+            }
             resolve(result)
           },
         }

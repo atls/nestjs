@@ -3,7 +3,7 @@ import type { Schema } from './schema.metadata.js'
 import { Logger }      from '@atls/logger'
 import { Injectable }  from '@nestjs/common'
 
-type Constructor = new (...args: Array<any>) => object
+type Constructor = new (...args: Array<unknown>) => object
 
 @Injectable()
 export class TypesenseMetadataRegistry {

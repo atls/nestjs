@@ -23,14 +23,17 @@ export class TypesenseMetadataExplorer implements OnModuleInit {
   }
 
   explore(): void {
-    this.discoveryService.getProviders().forEach((wrapper: InstanceWrapper) => {
+    this.discoveryService.getProviders().forEach((wrapper: InstanceWrapper<unknown>) => {
       const { instance } = wrapper
 
-      if (!instance || !Object.getPrototypeOf(instance)) {
+      if (!instance || (typeof instance !== 'object' && typeof instance !== 'function')) {
         return
       }
 
-      // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
+      if (!Object.getPrototypeOf(instance)) {
+        return
+      }
+
       this.lookupSchema(instance)
     })
   }
@@ -39,8 +42,8 @@ export class TypesenseMetadataExplorer implements OnModuleInit {
     const metadata = this.metadataAccessor.getTypesenseMetadata(instance)
 
     if (metadata) {
-      // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
-      this.metadataRegistry.addSchema((instance as any).constructor, metadata)
+      const constructor = instance.constructor as new (...args: Array<unknown>) => object
+      this.metadataRegistry.addSchema(constructor, metadata)
     }
   }
 }

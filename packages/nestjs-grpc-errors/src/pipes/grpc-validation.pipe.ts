@@ -6,10 +6,11 @@ import { grpcValidationExceptionFactory } from '../exception-factories/index.js'
 
 export class GrpcValidationPipe extends ValidationPipe {
   constructor(options?: ValidationPipeOptions) {
+    const resolvedOptions = options ?? {}
     super({
-      ...(options || {}),
-      transform: typeof options?.transform === `undefined` ? true : options?.transform,
-      exceptionFactory: grpcValidationExceptionFactory || options?.exceptionFactory,
+      ...resolvedOptions,
+      transform: options?.transform ?? true,
+      exceptionFactory: options?.exceptionFactory ?? grpcValidationExceptionFactory,
     })
   }
 }

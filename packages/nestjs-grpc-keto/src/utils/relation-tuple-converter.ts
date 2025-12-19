@@ -1,8 +1,5 @@
-// @ts-expect-error
 import { CheckRequest }                      from '@ory/keto-grpc-client/ory/keto/relation_tuples/v1alpha2/check_service_pb'
-// @ts-expect-error
 import { SubjectSet }                        from '@ory/keto-grpc-client/ory/keto/relation_tuples/v1alpha2/relation_tuples_pb'
-// @ts-expect-error
 import { Subject }                           from '@ory/keto-grpc-client/ory/keto/relation_tuples/v1alpha2/relation_tuples_pb'
 
 import { KetoRelationTupleInvalidException } from '../exceptions/index.js'
@@ -18,7 +15,6 @@ export class RelationTupleConverter {
     private readonly tuple: Tuple,
     private readonly replacement: string = ''
   ) {
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-call
     this.checkRequest = new CheckRequest()
 
     this.convertToString()
@@ -29,7 +25,6 @@ export class RelationTupleConverter {
   }
 
   private get subject(): Subject {
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-return, @typescript-eslint/no-unsafe-call
     return new Subject()
   }
 
@@ -38,24 +33,23 @@ export class RelationTupleConverter {
       throw new KetoRelationTupleInvalidException()
     }
 
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-call
     this.checkRequest.setNamespace(this.getNamespace())
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-call
+
     this.checkRequest.setObject(this.getObject())
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-call
+
     this.checkRequest.setRelation(this.getRelation())
 
     const { subject } = this
 
     if (this.isSubjectSet()) {
       const subjectSet = this.getSubjectSet()
-      // eslint-disable-next-line @typescript-eslint/no-unsafe-call
+
       this.checkRequest.setSubject(subject.setSet(subjectSet))
     } else {
       const { subjectId } = this
-      // eslint-disable-next-line @typescript-eslint/no-unsafe-call
+
       subject.setId(subjectId)
-      // eslint-disable-next-line @typescript-eslint/no-unsafe-call
+
       this.checkRequest.setSubject(subject)
     }
 
@@ -111,14 +105,12 @@ export class RelationTupleConverter {
     const object = this.getObject()
     const relation = this.getRelation()
 
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-call
     const subjectSet = new SubjectSet()
 
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-call
     subjectSet.setNamespace(namespace)
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-call
+
     subjectSet.setObject(object)
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-call
+
     subjectSet.setRelation(relation)
 
     return subjectSet

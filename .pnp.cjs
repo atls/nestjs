@@ -1103,6 +1103,7 @@ const RAW_RUNTIME_STATE =
           ["@nestjs/core", "virtual:51dcb3fe3f47cfb6224dcab5ae8c7e50b5682560d9d6abdf449cb9fd665402b311244dcf35352838e6165320fb5bb25ae45a36f802c2a93ab14064614bee36b9#npm:10.4.1"],\
           ["@nestjs/microservices", "virtual:51dcb3fe3f47cfb6224dcab5ae8c7e50b5682560d9d6abdf449cb9fd665402b311244dcf35352838e6165320fb5bb25ae45a36f802c2a93ab14064614bee36b9#npm:10.4.1"],\
           ["@nestjs/testing", "virtual:51dcb3fe3f47cfb6224dcab5ae8c7e50b5682560d9d6abdf449cb9fd665402b311244dcf35352838e6165320fb5bb25ae45a36f802c2a93ab14064614bee36b9#npm:10.4.1"],\
+          ["@types/express", "npm:4.17.21"],\
           ["@types/nestjs__common", null],\
           ["@types/nestjs__core", null],\
           ["@types/nestjs__microservices", null],\
@@ -1141,6 +1142,7 @@ const RAW_RUNTIME_STATE =
           ["@nestjs/core", "virtual:80857f29dff653ed1b21e1b78c415c79278e1a3708fec8563133922c0b3b287990dd6895d3d76575acec38e5f7e5fa8985f270e2d46a7eb121f744d431d0761f#npm:10.4.1"],\
           ["@nestjs/microservices", "virtual:80857f29dff653ed1b21e1b78c415c79278e1a3708fec8563133922c0b3b287990dd6895d3d76575acec38e5f7e5fa8985f270e2d46a7eb121f744d431d0761f#npm:10.4.1"],\
           ["@nestjs/testing", "virtual:80857f29dff653ed1b21e1b78c415c79278e1a3708fec8563133922c0b3b287990dd6895d3d76575acec38e5f7e5fa8985f270e2d46a7eb121f744d431d0761f#npm:10.4.1"],\
+          ["@types/express", "npm:4.17.21"],\
           ["@types/node-fetch", "npm:2.6.11"],\
           ["@types/supertest", "npm:6.0.2"],\
           ["get-port", "npm:7.1.0"],\

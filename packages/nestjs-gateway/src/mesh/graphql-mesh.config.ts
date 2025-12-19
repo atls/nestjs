@@ -1,6 +1,4 @@
-/* eslint-disable no-else-return */
-
-// @ts-expect-error
+// @ts-expect-error import exists
 import type { GetMeshOptions }          from '@graphql-mesh/runtime'
 import type { MeshTransform }           from '@graphql-mesh/types'
 import type { MeshPubSub }              from '@graphql-mesh/types'
@@ -9,33 +7,33 @@ import type { ImportFn }                from '@graphql-mesh/types'
 import type { SourceOptions }           from '../module/index.js'
 import type { SourceTransformsOptions } from '../module/index.js'
 
+import { join }                         from 'node:path'
+
 import { InMemoryStoreStorageAdapter }  from '@graphql-mesh/store'
 import { MeshStore }                    from '@graphql-mesh/store'
 import { Inject }                       from '@nestjs/common'
 import { Injectable }                   from '@nestjs/common'
-// @ts-expect-error
+// @ts-expect-error import exists
 import { resolveAdditionalTypeDefs }    from '@graphql-mesh/config'
-// @ts-expect-error
+// @ts-expect-error import exists
 import { getDefaultSyncImport }         from '@graphql-mesh/utils'
 import { resolveAdditionalResolvers }   from '@graphql-mesh/utils'
-// @ts-expect-error
+// @ts-expect-error import exists
 import InMemoryLRUCache                 from '@graphql-mesh/cache-inmemory-lru'
 import StitchingMerger                  from '@graphql-mesh/merger-stitching'
 import CacheTransform                   from '@graphql-mesh/transform-cache'
 import EncapsulateTransform             from '@graphql-mesh/transform-encapsulate'
 import FilterTransform                  from '@graphql-mesh/transform-filter-schema'
-// @ts-expect-error
+// @ts-expect-error import exists
 import MockingTransform                 from '@graphql-mesh/transform-mock'
 import NamingConventionTransform        from '@graphql-mesh/transform-naming-convention'
 import PrefixTransform                  from '@graphql-mesh/transform-prefix'
 import RenameTransform                  from '@graphql-mesh/transform-rename'
 import ResolversCompositionTransform    from '@graphql-mesh/transform-resolvers-composition'
-// @ts-expect-error
+// @ts-expect-error import exists
 import SnapshotTransform                from '@graphql-mesh/transform-snapshot'
 import { PubSub }                       from 'graphql-subscriptions'
-import { join }                         from 'path'
 
-import { GatewaySourceType }            from '../enums/index.js'
 import { GATEWAY_MODULE_OPTIONS }       from '../module/index.js'
 import { GatewayModuleOptions }         from '../module/index.js'
 import { GraphQLMeshLogger }            from './graphql-mesh.logger.js'
@@ -109,7 +107,6 @@ export class GraphQLMeshConfig {
     }
   }
 
-  // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types, @typescript-eslint/explicit-function-return-type
   protected createSources() {
     return (this.options.sources || []).map((source) => ({
       name: source.name,
@@ -118,30 +115,23 @@ export class GraphQLMeshConfig {
     }))
   }
 
-  // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types, @typescript-eslint/explicit-function-return-type
   protected createHandler(source: SourceOptions) {
-    if (source.type === GatewaySourceType.GRPC) {
-      return new GrpcHandler({
-        // @ts-expect-error
-        name: source.name,
-        config: source.handler,
-        cache: this.cache,
-        pubsub: this.pubsub,
-        store: this.store,
-        baseDir: this.baseDir,
-        logger: this.logger,
-        importFn: null,
-        channelOptions: this.options.grpcChannelOptions,
-      })
-    } else {
-      // eslint-disable-next-line @typescript-eslint/restrict-template-expressions
-      throw new Error(`Unknown source type: ${source.type}`)
-    }
+    return new GrpcHandler({
+      // @ts-expect-error correct options
+      name: source.name,
+      config: source.handler,
+      cache: this.cache,
+      pubsub: this.pubsub,
+      store: this.store,
+      baseDir: this.baseDir,
+      logger: this.logger,
+      importFn: null,
+      channelOptions: this.options.grpcChannelOptions,
+    })
   }
 
-  // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types, @typescript-eslint/explicit-function-return-type
   protected createTransforms(apiName: string, config: SourceTransformsOptions = {}) {
-    const transforms: Array<any> = []
+    const transforms: Array<MeshTransform> = []
 
     if (config.rename) {
       transforms.push(
@@ -202,31 +192,29 @@ export class GraphQLMeshConfig {
     }
 
     if (config.snapshot) {
-      transforms.push(
-        // eslint-disable-next-line @typescript-eslint/no-unsafe-call
-        new SnapshotTransform({
-          apiName,
-          syncImportFn: this.syncImportFn,
-          baseDir: this.baseDir,
-          config: config.snapshot,
-          cache: this.cache,
-          pubsub: this.pubsub,
-        })
-      )
+      const snapshotConfig = config.snapshot as Record<string, unknown>
+      const snapshotTransform = new SnapshotTransform({
+        apiName,
+        syncImportFn: this.syncImportFn,
+        baseDir: this.baseDir,
+        config: snapshotConfig,
+        cache: this.cache,
+        pubsub: this.pubsub as unknown as MeshPubSub,
+      }) as unknown as MeshTransform
+      transforms.push(snapshotTransform)
     }
 
     if (config.mock) {
-      transforms.push(
-        // eslint-disable-next-line @typescript-eslint/no-unsafe-call
-        new MockingTransform({
-          apiName,
-          syncImportFn: this.syncImportFn,
-          baseDir: this.baseDir,
-          config: config.mock,
-          cache: this.cache,
-          pubsub: this.pubsub,
-        })
-      )
+      const mockConfig = config.mock as Record<string, unknown>
+      const mockTransform = new MockingTransform({
+        apiName,
+        syncImportFn: this.syncImportFn,
+        baseDir: this.baseDir,
+        config: mockConfig,
+        cache: this.cache,
+        pubsub: this.pubsub as unknown as MeshPubSub,
+      }) as unknown as MeshTransform
+      transforms.push(mockTransform)
     }
 
     if (config.resolversComposition) {
@@ -257,7 +245,6 @@ export class GraphQLMeshConfig {
       )
     }
 
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-return
     return transforms
   }
 }

@@ -1,4 +1,3 @@
-import type { CheckManager }                   from '../check-manager/index.js'
 import type { ProcessorFn }                    from './batch-queue.types.js'
 
 import { jest }                                from '@jest/globals'
@@ -8,6 +7,7 @@ import { describe }                            from '@jest/globals'
 import { it }                                  from '@jest/globals'
 import { expect }                              from '@jest/globals'
 
+import { CheckManager }                        from '../check-manager/index.js'
 import { MaxQueueLengthExceededError }         from '../errors/index.js'
 import { MaxTotalLengthOfQueuesExceededError } from '../errors/index.js'
 import { MaxQueueCountError }                  from '../errors/index.js'
@@ -32,15 +32,11 @@ describe('BatchQueue', () => {
   })
 
   beforeEach(() => {
-    // @ts-expect-error
-    processorFnMock = jest.fn()
+    processorFnMock = jest.fn<ReturnType<ProcessorFn<string>>, Parameters<ProcessorFn<string>>>()
   })
 
   beforeEach(() => {
-    // @ts-expect-error
-    checkManager = {
-      getState: jest.fn().mockReturnValue(true) as CheckManager['getState'],
-    }
+    checkManager = new CheckManager()
     batchQueue = new BatchQueue<string>(defaultOptions, checkManager)
   })
 
@@ -95,13 +91,13 @@ describe('BatchQueue', () => {
   it('should throw CheckFailedError if checks are not passing before adding items', async () => {
     batchQueue.processBatch(processorFnMock)
 
-    checkManager.getState = jest.fn().mockReturnValue(false) as CheckManager['getState']
+    const getStateSpy = jest.spyOn(checkManager, 'getState').mockReturnValue(false)
 
     await expect(batchQueue.addMany({ queueName: 'testQueue', items: ['item1'] })).rejects.toThrow(
       CheckFailedError
     )
 
-    checkManager.getState = jest.fn().mockReturnValue(true) as CheckManager['getState']
+    getStateSpy.mockReturnValue(true)
 
     await expect(
       batchQueue.addMany({ queueName: 'testQueue', items: ['item2'] })

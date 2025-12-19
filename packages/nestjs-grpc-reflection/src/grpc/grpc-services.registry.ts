@@ -28,32 +28,22 @@ export class GrpcServicesRegistry {
   getFileDescriptorProtoByFileContainingSymbol(
     fileContainingSymbol: string
   ): google.FileDescriptorProto | undefined {
-    // @ts-expect-error correct return type
-    return this.services.reduce<FileDescriptorProto | undefined>((fileDescriptorProto, service) => {
-      if (fileDescriptorProto) {
-        return fileDescriptorProto
+    for (const service of this.services) {
+      for (const method of Object.values(service)) {
+        if (!method.path.includes(fileContainingSymbol)) {
+          continue
+        }
+        const match = method.requestType.fileDescriptorProtos.find((fdp) => {
+          const fileDescriptor = google.FileDescriptorProto.deserializeBinary(fdp)
+          const filePackage = fileDescriptor.getPackage()
+          return filePackage ? fileContainingSymbol.includes(filePackage) : false
+        })
+        if (match) {
+          return match as unknown as google.FileDescriptorProto
+        }
       }
-      // @ts-expect-error correct return type
-      return Object.values(service).reduce<FileDescriptorProto | undefined>((
-        descriptor,
-        method
-      ) => {
-        if (descriptor) {
-          return descriptor
-        }
+    }
 
-        if (method.path.includes(fileContainingSymbol)) {
-          return method.requestType.fileDescriptorProtos.find((fdp) => {
-            const fileDescriptor = google.FileDescriptorProto.deserializeBinary(fdp)
-
-            const filePackage = fileDescriptor.getPackage()
-
-            return filePackage ? fileContainingSymbol.includes(filePackage) : false
-          })
-        }
-
-        return undefined
-      }, undefined)
-    }, undefined)
+    return undefined
   }
 }

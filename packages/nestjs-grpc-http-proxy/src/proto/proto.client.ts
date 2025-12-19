@@ -1,62 +1,89 @@
-import type { ServiceError } from '@grpc/grpc-js'
-import type { Client }       from '@grpc/grpc-js'
+import type { ChannelCredentials } from '@grpc/grpc-js'
+import type { Client }             from '@grpc/grpc-js'
+import type { ServiceError }       from '@grpc/grpc-js'
 
-// @ts-nocheck
-import { Metadata }          from '@grpc/grpc-js'
-import { credentials }       from '@grpc/grpc-js'
+import { Metadata }                from '@grpc/grpc-js'
+import { credentials }             from '@grpc/grpc-js'
+
+type ServiceClientConstructor = new (
+  address: string,
+  creds: ChannelCredentials,
+  options: Record<string, unknown>
+) => Client
+
+type ClientStreamCall = {
+  write: (data: unknown) => void
+  on: (event: 'data' | 'end' | 'error', handler: (data?: unknown) => void) => void
+  end: () => void
+}
+
+type ClientRequestStreamMethod = ((metadata: Metadata) => ClientStreamCall) & {
+  requestStream: true
+}
+
+type ClientUnaryMethod = (
+  request: unknown,
+  metadata: Metadata,
+  callback: (error: ServiceError | null, response: unknown) => void
+) => void
+
+type ClientMethod = ClientRequestStreamMethod | ClientUnaryMethod
+
+const getClientMethod = (client: Client, method: string): ClientMethod => {
+  const candidate = (client as unknown as Record<string, unknown>)[method]
+  if (typeof candidate !== 'function') {
+    throw new Error(`Unknown gRPC method: ${method}`)
+  }
+  return candidate as ClientMethod
+}
 
 export class ProtoClient {
   constructor(private readonly client: Client) {}
 
-  // @ts-expect-error
-  // eslint-disable-next-line @typescript-eslint/default-param-last, @typescript-eslint/explicit-module-boundary-types
-  static create(url: string = '0.0.0.0:50051', ServiceClient): ProtoClient {
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-argument, @typescript-eslint/no-unsafe-call
+  static create(
+    ServiceClient: ServiceClientConstructor,
+    url: string = '0.0.0.0:50051'
+  ): ProtoClient {
     return new ProtoClient(new ServiceClient(url, credentials.createInsecure(), {}))
   }
 
-  // @ts-expect-error
-  // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types, @typescript-eslint/explicit-function-return-type
-  async call(method: string, request, meta = {}) {
+  async call(
+    method: string,
+    request: unknown,
+    meta: Record<string, Buffer | string | null> = {}
+  ): Promise<unknown> {
     const metadata = new Metadata()
 
     Object.keys(meta).forEach((key) => {
-      // @ts-expect-error
-      // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
-      if (meta[key]) metadata.add(key, meta[key])
+      const value = meta[key]
+      if (typeof value === 'string' || value instanceof Buffer) {
+        metadata.add(key, value)
+      }
     })
 
     return new Promise((resolve, reject) => {
-      // @ts-expect-error
-      if (this.client[method].requestStream) {
-        // @ts-expect-error
-        // eslint-disable-next-line @typescript-eslint/no-unsafe-call
-        const call = this.client[method](metadata)
+      const methodImpl = getClientMethod(this.client, method)
+      if ('requestStream' in methodImpl && methodImpl.requestStream) {
+        const call = methodImpl(metadata)
 
-        // eslint-disable-next-line @typescript-eslint/no-unsafe-call
         call.write(request)
 
-        // @ts-expect-error
-        let response
+        let response: unknown
 
-        // @ts-expect-error
-        // eslint-disable-next-line @typescript-eslint/no-unsafe-call
         call.on('data', (data) => {
           response = data
 
-          // eslint-disable-next-line @typescript-eslint/no-unsafe-call
           call.end()
         })
 
-        // eslint-disable-next-line @typescript-eslint/no-unsafe-call
         call.on('end', () => {
-          // @ts-expect-error
           resolve(response)
         })
       } else {
-        // @ts-expect-error
-        // eslint-disable-next-line @typescript-eslint/no-unsafe-call
-        this.client[method](request, metadata, (error: ServiceError, response) => {
+        methodImpl(request as Metadata, metadata, (
+          error: ServiceError | null,
+          response: unknown
+        ) => {
           if (error) {
             reject(error)
           } else {

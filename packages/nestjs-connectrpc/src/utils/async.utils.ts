@@ -20,8 +20,8 @@ export function isAsyncGenerator<T>(input: unknown): input is AsyncGenerator<T> 
  * @returns {AsyncIterableIterator<T>} - The async iterator.
  */
 async function* asyncIterator<T>(subject: Subject<T>): AsyncIterableIterator<T> {
-  const nextValue = async (): Promise<T> =>
-    new Promise<T>((resolve, reject) => {
+  const nextValue = async (): Promise<T | null> =>
+    new Promise<T | null>((resolve, reject) => {
       subject.subscribe({
         next: (val) => {
           resolve(val)
@@ -30,7 +30,7 @@ async function* asyncIterator<T>(subject: Subject<T>): AsyncIterableIterator<T> 
           reject(err)
         },
         complete: () => {
-          resolve(null as PromiseLike<T> | T)
+          resolve(null)
         },
       })
     })
@@ -80,12 +80,18 @@ export async function* observableToAsyncGenerator<T>(observable: Observable<T>):
 export const isObservable = <T>(object: unknown): object is Observable<T> =>
   object instanceof Observable
 
+type Subscriber = (observer: {
+  next?: (value: unknown) => void
+  error?: (error: unknown) => void
+  complete?: () => void
+}) => unknown
+
 /**
  * Type guard to check if a given object has a subscribe method.
  * @param {unknown} object - The object to check.
  * @returns {boolean} - True if the object has a subscribe method, otherwise false.
  */
-export const hasSubscribe = (object: unknown): object is { subscribe: () => void } =>
+export const hasSubscribe = (object: unknown): object is { subscribe: Subscriber } =>
   typeof object === 'object' &&
   object !== null &&
   typeof (object as { subscribe?: () => void }).subscribe === 'function'
@@ -110,13 +116,14 @@ export const transformToObservable = <T>(resultOrDeferred: ResultOrDeferred<T>):
     return resultOrDeferred as Observable<T>
   }
   if (hasSubscribe(resultOrDeferred)) {
+    resultOrDeferred
+
     return new Observable<T>((subscriber) => {
-      // @ts-expect-error undefined method
-      resultOrDeferred.subscribe({
-        next: (value: any) => {
+      ;(resultOrDeferred.subscribe as Subscriber)({
+        next: (value) => {
           subscriber.next(value as T)
         },
-        error: (error: any) => {
+        error: (error) => {
           subscriber.error(error)
         },
         complete: () => {

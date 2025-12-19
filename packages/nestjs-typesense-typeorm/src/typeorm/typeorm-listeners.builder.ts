@@ -7,7 +7,7 @@ import type { UpdateEvent }               from 'typeorm'
 
 import { Logger }                         from '@atls/logger'
 import { Injectable }                     from '@nestjs/common'
-import { Connection }                     from 'typeorm'
+import { DataSource }                     from 'typeorm'
 
 import { TypesenseMetadataRegistry }      from '@atls/nestjs-typesense'
 
@@ -20,7 +20,7 @@ export class TypeOrmListenersBuilder implements OnModuleInit {
   constructor(
     private readonly registry: TypesenseMetadataRegistry,
     private readonly mapper: EntityToDocumentMapper,
-    private readonly connection: Connection
+    private readonly connection: DataSource
   ) {}
 
   onModuleInit(): void {
@@ -32,22 +32,21 @@ export class TypeOrmListenersBuilder implements OnModuleInit {
       const Subscriber = class EntitySubscriber implements EntitySubscriberInterface {
         constructor(
           private readonly mapper: EntityToDocumentMapper,
-          connection: Connection
+          connection: DataSource
         ) {
           connection.subscribers.push(this)
         }
 
-        // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
         listenTo() {
           return target
         }
 
-        afterInsert(event: InsertEvent<any>): void {
-          this.mapper.insert(event.entity)
+        afterInsert(event: InsertEvent<unknown>): void {
+          this.mapper.insert(event.entity as Record<string, unknown> & { id?: number | string })
         }
 
-        afterUpdate(event: UpdateEvent<any>): void {
-          this.mapper.update(event.entity)
+        afterUpdate(event: UpdateEvent<unknown>): void {
+          this.mapper.update(event.entity as Record<string, unknown> & { id?: number | string })
         }
       }
 

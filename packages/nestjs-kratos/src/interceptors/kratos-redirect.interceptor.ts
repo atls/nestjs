@@ -17,16 +17,16 @@ import { KratosBrowserUrlFlow }            from '../urls/index.js'
 export class KratosRedirectInterceptor implements NestInterceptor {
   constructor(private readonly redirectTo: KratosBrowserUrlFlow) {}
 
-  intercept(context: ExecutionContext, next: CallHandler): Observable<any> {
+  intercept(context: ExecutionContext, next: CallHandler): Observable<unknown> {
     return next.handle().pipe(
-      catchError((error) => {
-        const status: number | undefined = error.response?.status
+      catchError((error: { response?: { status?: number } }) => {
+        const status = error.response?.status
         if (error.response && [403, 404, 410].includes(status!)) {
-          return throwError(new KratosRedirectRequiredException(this.redirectTo))
+          return throwError(() => new KratosRedirectRequiredException(this.redirectTo))
         } else if (error instanceof KratosFlowRequiredException) {
-          return throwError(new KratosRedirectRequiredException(this.redirectTo))
+          return throwError(() => new KratosRedirectRequiredException(this.redirectTo))
         } else {
-          return throwError(error)
+          return throwError(() => error)
         }
       })
     )

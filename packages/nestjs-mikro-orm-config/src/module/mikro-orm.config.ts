@@ -1,3 +1,7 @@
+import type { EntityClass }                     from '@mikro-orm/core'
+import type { EntityClassGroup }                from '@mikro-orm/core'
+import type { EntitySchema }                    from '@mikro-orm/core'
+import type { MigrationObject }                 from '@mikro-orm/core'
 import type { MikroOrmOptionsFactory }          from '@mikro-orm/nestjs'
 import type { MikroOrmModuleOptions }           from '@mikro-orm/nestjs'
 
@@ -22,26 +26,54 @@ export class MikroORMConfig implements MikroOrmOptionsFactory {
   ) {}
 
   createMikroOrmOptions(): MikroOrmModuleOptions {
+    const {
+      driver,
+      port,
+      host,
+      database,
+      username,
+      password,
+      debug,
+      entities,
+      migrationsList,
+      migrationsTableName,
+    } = this.options
+
+    let resolvedEntities: Array<EntityClass<any> | EntityClassGroup<any> | EntitySchema | string> =
+      []
+    if (Array.isArray(entities)) {
+      resolvedEntities = entities as Array<
+        EntityClass<any> | EntityClassGroup<any> | EntitySchema | string
+      >
+    } else if (entities) {
+      resolvedEntities = Object.values(entities) as Array<
+        EntityClass<any> | EntityClassGroup<any> | EntitySchema | string
+      >
+    }
+
+    let resolvedMigrationsList: Array<MigrationObject> = []
+    if (Array.isArray(migrationsList)) {
+      resolvedMigrationsList = migrationsList
+    } else if (migrationsList) {
+      resolvedMigrationsList = Object.keys(migrationsList).map((name) => ({
+        name,
+        class: migrationsList[name],
+      }))
+    }
+
     return MikroORMConfigBuilder.build({
-      driver: this.options.driver,
-      port: this.port || this.options?.port,
-      host: this.host || this.options?.host,
-      dbName: this.options?.database,
-      user: this.options?.username,
-      password: this.options?.password,
-      debug: this.options?.debug,
-      entities: Array.isArray(this.options.entities)
-        ? this.options.entities
-        : Object.values(this.options.entities!),
+      driver,
+      port: this.port || port,
+      host: this.host || host,
+      dbName: database,
+      user: username,
+      password,
+      debug,
+      entities: resolvedEntities,
       migrations: {
         disableForeignKeys: false,
-        tableName: this.options.migrationsTableName,
-        migrationsList: Array.isArray(this.options.migrationsList)
-          ? this.options.migrationsList
-          : Object.keys(this.options.migrationsList!).map((name) => ({
-              name,
-              class: (this.options.migrationsList! as any)[name],
-            })),
+        tableName: migrationsTableName,
+        migrationsList: resolvedMigrationsList,
       },
     })
   }

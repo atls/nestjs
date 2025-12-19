@@ -13,19 +13,24 @@ import { GqlExecutionContext }          from '@nestjs/graphql'
 
 import { GET_LOADER_CONTEXT_KEY }       from '../constants.js'
 
+type LoaderContext = Record<string, (type: string) => NestDataLoader | undefined> &
+  Record<string, unknown>
+
 @Injectable()
 export class DataLoaderInterceptor implements NestInterceptor {
   constructor(private readonly moduleRef: ModuleRef) {}
 
-  intercept(context: ExecutionContext, next: CallHandler): Observable<any> {
+  intercept(context: ExecutionContext, next: CallHandler): Observable<unknown> {
     const graphqlExecutionContext: GraphQLExecutionContext = GqlExecutionContext.create(context)
-    const ctx: any = graphqlExecutionContext.getContext()
+    const ctx = graphqlExecutionContext.getContext<LoaderContext>()
+    const loaders = ctx as LoaderContext & Record<string, NestDataLoader | undefined>
 
     if (ctx[GET_LOADER_CONTEXT_KEY] === undefined) {
       ctx[GET_LOADER_CONTEXT_KEY] = (type: string): NestDataLoader => {
-        if (ctx[type] === undefined) {
+        if (loaders[type] === undefined) {
           try {
-            ctx[type] = this.moduleRef
+            // @ts-expect-error Type 'NestDataLoader' is not assignable to return type generateDataLoader
+            loaders[type] = this.moduleRef
               .get<NestDataLoader>(type, { strict: false })
               .generateDataLoader()
           } catch {
@@ -33,8 +38,7 @@ export class DataLoaderInterceptor implements NestInterceptor {
           }
         }
 
-        // eslint-disable-next-line @typescript-eslint/no-unsafe-return
-        return ctx[type]
+        return loaders[type]
       }
     }
 

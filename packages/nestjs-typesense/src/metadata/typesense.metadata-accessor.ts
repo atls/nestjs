@@ -6,32 +6,30 @@ import { Reflector }       from '@nestjs/core'
 import { SCHEMA_METADATA } from '../decorators/index.js'
 import { FIELD_METADATA }  from '../decorators/index.js'
 
-type Constructor<T> = new (...args: Array<any>) => T
+type Constructor<T> = new (...args: Array<unknown>) => T
 
 @Injectable()
 export class TypesenseMetadataAccessor {
   constructor(private readonly reflector: Reflector) {}
 
-  getTypesenseMetadata(target: Constructor<any> | object): Schema | undefined {
-    if (target.constructor) {
-      const schema = this.reflector.get(SCHEMA_METADATA, target.constructor)
-      const fields = this.reflector.get(FIELD_METADATA, target.constructor)
+  getTypesenseMetadata(target: Constructor<unknown> | object): Schema | undefined {
+    const constructor = typeof target === 'function' ? target : target.constructor
 
-      if (!schema) {
-        return undefined
-      }
+    const schema = this.reflector.get(SCHEMA_METADATA, constructor)
+    const fields = this.reflector.get(FIELD_METADATA, constructor)
 
-      if (!(fields || schema.auto)) {
-        return undefined
-      }
-
-      return {
-        name: schema.name,
-        defaultSortingField: schema.defaultSortingField,
-        fields: [...(schema.auto ? [{ name: '.*', type: 'auto' }] : []), ...(fields || [])],
-      }
+    if (!schema) {
+      return undefined
     }
 
-    return undefined
+    if (!(fields || schema.auto)) {
+      return undefined
+    }
+
+    return {
+      name: schema.name,
+      defaultSortingField: schema.defaultSortingField,
+      fields: [...(schema.auto ? [{ name: '.*', type: 'auto' }] : []), ...(fields || [])],
+    }
   }
 }

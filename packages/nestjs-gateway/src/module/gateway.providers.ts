@@ -1,8 +1,10 @@
+import type { MeshPubSub }           from '@graphql-mesh/types'
 import type { Provider }             from '@nestjs/common'
 
 import type { GatewayModuleOptions } from './gateway-module-options.interface.js'
 
-import { EventEmitter }              from 'events'
+import { EventEmitter }              from 'node:events'
+
 import { PubSub }                    from 'graphql-subscriptions'
 
 import { GraphQLMeshHandler }        from '../mesh/index.js'
@@ -28,9 +30,8 @@ export const createGatewayProvider = (): Array<Provider> => [
 export const createGatewayExportsProvider = (): Array<Provider> => [
   {
     provide: PubSub,
-    useFactory: (options: GatewayModuleOptions): PubSub => {
+    useFactory: (options: GatewayModuleOptions): MeshPubSub => {
       if (options.pubsub) {
-        // @ts-expect-error
         return options.pubsub
       }
 

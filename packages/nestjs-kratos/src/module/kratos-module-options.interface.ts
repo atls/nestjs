@@ -1,5 +1,7 @@
-import type { ModuleMetadata } from '@nestjs/common/interfaces'
-import type { Type }           from '@nestjs/common/interfaces'
+import type { ModuleMetadata }            from '@nestjs/common/interfaces'
+import type { Type }                      from '@nestjs/common/interfaces'
+import type { InjectionToken }            from '@nestjs/common/interfaces'
+import type { OptionalFactoryDependency } from '@nestjs/common/interfaces'
 
 export interface KratosModuleOptions {
   public: string
@@ -16,7 +18,7 @@ export interface KratosOptionsFactory {
 export interface KratosModuleAsyncOptions extends Pick<ModuleMetadata, 'imports'> {
   useExisting?: Type<KratosOptionsFactory>
   useClass?: Type<KratosOptionsFactory>
-  useFactory?: (...args: Array<any>) => KratosModuleOptions | Promise<KratosModuleOptions>
-  inject?: Array<any>
+  useFactory?: (...args: Array<unknown>) => KratosModuleOptions | Promise<KratosModuleOptions>
+  inject?: Array<InjectionToken | OptionalFactoryDependency>
   global?: boolean
 }

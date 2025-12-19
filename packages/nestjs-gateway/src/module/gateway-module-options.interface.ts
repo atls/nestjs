@@ -1,13 +1,15 @@
-import type { MeshPubSub }        from '@graphql-mesh/types'
-import type { KeyValueCache }     from '@graphql-mesh/types'
-import type { MeshMerger }        from '@graphql-mesh/types'
-import type { YamlConfig }        from '@graphql-mesh/types'
-import type { ChannelOptions }    from '@grpc/grpc-js'
-import type { ModuleMetadata }    from '@nestjs/common/interfaces'
-import type { Type }              from '@nestjs/common/interfaces'
-import type { PlaygroundConfig }  from 'apollo-server-express'
+import type { MeshPubSub }                from '@graphql-mesh/types'
+import type { KeyValueCache }             from '@graphql-mesh/types'
+import type { MeshMerger }                from '@graphql-mesh/types'
+import type { YamlConfig }                from '@graphql-mesh/types'
+import type { ChannelOptions }            from '@grpc/grpc-js'
+import type { InjectionToken }            from '@nestjs/common/interfaces'
+import type { ModuleMetadata }            from '@nestjs/common/interfaces'
+import type { OptionalFactoryDependency } from '@nestjs/common/interfaces'
+import type { Type }                      from '@nestjs/common/interfaces'
+import type { PlaygroundConfig }          from 'apollo-server-express'
 
-import type { GatewaySourceType } from '../enums/index.js'
+import type { GatewaySourceType }         from '../enums/index.js'
 
 export interface SourceTransformsOptions {
   rename?: YamlConfig.Transform['rename']
@@ -32,14 +34,13 @@ export interface GatewayModuleOptions {
   path?: string
   playground?: PlaygroundConfig
   introspection?: boolean
-  // eslint-disable-next-line @typescript-eslint/no-redundant-type-constituents
-  cors?: any | boolean
+  cors?: unknown
   pubsub?: MeshPubSub
   cache?: KeyValueCache
   merger?: MeshMerger
   sources?: Array<SourceOptions>
   transforms?: SourceTransformsOptions
-  additionalTypeDefs?: any
+  additionalTypeDefs?: unknown
   limit?: number | string
   grpcChannelOptions?: Partial<ChannelOptions>
   additionalResolvers?: Array<
@@ -57,6 +58,6 @@ export interface GatewayOptionsFactory {
 export interface GatewayModuleAsyncOptions extends Pick<ModuleMetadata, 'imports'> {
   useExisting?: Type<GatewayOptionsFactory>
   useClass?: Type<GatewayOptionsFactory>
-  useFactory?: (...args: Array<any>) => GatewayModuleOptions | Promise<GatewayModuleOptions>
-  inject?: Array<any>
+  useFactory?: (...args: Array<unknown>) => GatewayModuleOptions | Promise<GatewayModuleOptions>
+  inject?: Array<InjectionToken | OptionalFactoryDependency>
 }

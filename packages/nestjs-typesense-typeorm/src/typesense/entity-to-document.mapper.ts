@@ -10,27 +10,29 @@ export class EntityToDocumentMapper {
     private readonly registry: TypesenseMetadataRegistry
   ) {}
 
-  // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
-  async insert(entity: any): Promise<void> {
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
-    const schema = this.registry.getSchemaByTarget(entity.constructor)
+  async insert(entity: Record<string, unknown> & { id?: number | string }): Promise<void> {
+    const schema = this.registry.getSchemaByTarget(entity.constructor as any)
+    if (!schema) {
+      return
+    }
     const document = this.buildDocument(entity)
 
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
-    await this.typesense.collections(schema!.name).documents().create(document)
+    await this.typesense.collections(schema.name).documents().create(document)
   }
 
-  // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
-  async update(entity: any): Promise<void> {
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
-    const schema = this.registry.getSchemaByTarget(entity.constructor)
+  async update(entity: Record<string, unknown> & { id?: number | string }): Promise<void> {
+    const schema = this.registry.getSchemaByTarget(entity.constructor as any)
+    if (!schema) {
+      return
+    }
     const document = this.buildDocument(entity)
 
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
-    await this.typesense.collections(schema!.name).documents().update(document, {})
+    await this.typesense.collections(schema.name).documents().update(document, {})
   }
 
-  private buildDocument(entity: any): any {
+  private buildDocument(
+    entity: Record<string, unknown> & { id?: number | string }
+  ): Record<string, unknown> {
     return {
       ...entity,
       ...(entity.id ? { id: String(entity.id) } : {}),

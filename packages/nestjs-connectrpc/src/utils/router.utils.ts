@@ -37,7 +37,7 @@ export const addServicesToRouter = (
 ): void => {
   for (const serviceName of Object.keys(serviceHandlersMap)) {
     const service = customMetadataStore.get(serviceName)
-    // eslint-disable-next-line no-continue
+
     if (!service) continue
     router.service(service, serviceHandlersMap[serviceName])
   }
@@ -61,8 +61,7 @@ export const createServiceHandlersMap = (
     const serviceMetadata = customMetadataStore.get(service)
 
     if (!serviceMetadata) return
-    const methodProto = serviceMetadata.methods[rpc]
-    if (!methodProto) return
+    if (!(rpc in serviceMetadata.methods)) return
     serviceHandlersMap[service] ??= {}
 
     switch (streaming) {

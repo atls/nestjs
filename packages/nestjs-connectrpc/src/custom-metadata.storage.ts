@@ -1,7 +1,7 @@
 import type { ServiceType } from '@bufbuild/protobuf'
 
 export class CustomMetadataStore {
-  private static instance: CustomMetadataStore
+  private static instance: CustomMetadataStore | undefined
 
   private customMetadata: Map<string, ServiceType> = new Map()
 
