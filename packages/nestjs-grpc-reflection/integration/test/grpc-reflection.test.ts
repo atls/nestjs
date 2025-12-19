@@ -7,6 +7,8 @@ import type { INestMicroservice }          from '@nestjs/common'
 import type { ServerReflectionClient }     from '../../src/index.js'
 import type { ServerReflectionRequest }    from '../../src/index.js'
 
+import path                                from 'node:path'
+
 import { ClientsModule }                   from '@nestjs/microservices'
 import { Transport }                       from '@nestjs/microservices'
 import { Test }                            from '@nestjs/testing'
@@ -17,8 +19,8 @@ import { expect }                          from '@jest/globals'
 import { afterAll }                        from '@jest/globals'
 import { FileDescriptorProto }             from 'google-protobuf/google/protobuf/descriptor_pb.js'
 import { ReplaySubject }                   from 'rxjs'
+import { lastValueFrom }                   from 'rxjs'
 import getPort                             from 'get-port'
-import path                                from 'path'
 
 import { GrpcReflectionIntegrationModule } from '../src/index.js'
 import { serverOptions }                   from '../src/index.js'
@@ -87,9 +89,11 @@ describe('grpc reflection', () => {
 
     request.complete()
 
-    const response = await serverReflection.serverReflectionInfo(request.asObservable()).toPromise()
+    const response = await lastValueFrom(
+      serverReflection.serverReflectionInfo(request.asObservable())
+    )
 
-    expect(response?.listServicesResponse?.service).toEqual(
+    expect(response.listServicesResponse?.service).toEqual(
       expect.arrayContaining([
         expect.objectContaining({
           name: 'grpc.reflection.v1.ServerReflection',
@@ -111,15 +115,18 @@ describe('grpc reflection', () => {
 
     request.complete()
 
-    const response = await serverReflection.serverReflectionInfo(request.asObservable()).toPromise()
+    const response = await lastValueFrom(
+      serverReflection.serverReflectionInfo(request.asObservable())
+    )
 
-    if (response?.fileDescriptorResponse) {
-      // eslint-disable-next-line @typescript-eslint/no-unsafe-call
-      const descriptor = FileDescriptorProto.deserializeBinary(
-        response?.fileDescriptorResponse?.fileDescriptorProto[0]
-      )
-
-      expect(descriptor.toArray()).toContain('grpc_reflection_v1.proto')
+    if (!response.fileDescriptorResponse) {
+      return
     }
+
+    const descriptor = FileDescriptorProto.deserializeBinary(
+      response.fileDescriptorResponse.fileDescriptorProto[0]
+    )
+
+    expect(descriptor.toArray()).toContain('grpc_reflection_v1.proto')
   })
 })

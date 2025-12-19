@@ -26,7 +26,6 @@ export class MoviesController {
   }
 
   @GrpcMethod('ExampleService', 'GetMetadata')
-  // eslint-disable-next-line @typescript-eslint/explicit-function-return-type, @typescript-eslint/explicit-module-boundary-types
   getMetadata(_: unknown, metadata: Metadata) {
     return metadata.getMap()
   }

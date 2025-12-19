@@ -24,7 +24,6 @@ export type FieldType =
 
 export const FIELD_METADATA = '__fieldMetadata__'
 
-// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types, @typescript-eslint/explicit-function-return-type
 export const Field = (type: FieldType, options: FieldMetadata = {}) =>
   applyDecorators((target: object, key: string | symbol, descriptor: PropertyDescriptor) => {
     const exists = Reflect.getMetadata(FIELD_METADATA, target.constructor) || []

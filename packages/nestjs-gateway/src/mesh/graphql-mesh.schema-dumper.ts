@@ -3,14 +3,15 @@
 
 import type { OnModuleInit }         from '@nestjs/common'
 
+import { promises as fs }            from 'node:fs'
+import { join }                      from 'node:path'
+
 import { Injectable }                from '@nestjs/common'
 import { printSchemaWithDirectives } from '@graphql-tools/utils'
-import { promises as fs }            from 'fs'
-import { join }                      from 'path'
 
 import { GraphQLMesh }               from './graphql.mesh.js'
 
-declare const __non_webpack_require__: any
+declare const __non_webpack_require__: NodeRequire | undefined
 
 @Injectable()
 export class GraphQLMeshSchemaDumper implements OnModuleInit {

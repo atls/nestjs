@@ -1,5 +1,7 @@
-import type { ModuleMetadata } from '@nestjs/common/interfaces'
-import type { Type }           from '@nestjs/common/interfaces'
+import type { InjectionToken }            from '@nestjs/common/interfaces'
+import type { ModuleMetadata }            from '@nestjs/common/interfaces'
+import type { OptionalFactoryDependency } from '@nestjs/common/interfaces'
+import type { Type }                      from '@nestjs/common/interfaces'
 
 export interface GcsClientModuleOptions {
   apiEndpoint?: string
@@ -13,6 +15,6 @@ export interface GcsClientOptionsFactory {
 export interface GcsClientModuleAsyncOptions extends Pick<ModuleMetadata, 'imports'> {
   useExisting?: Type<GcsClientOptionsFactory>
   useClass?: Type<GcsClientOptionsFactory>
-  useFactory?: (...args: Array<any>) => GcsClientModuleOptions | Promise<GcsClientModuleOptions>
-  inject?: Array<any>
+  useFactory?: (...args: Array<unknown>) => GcsClientModuleOptions | Promise<GcsClientModuleOptions>
+  inject?: Array<InjectionToken | OptionalFactoryDependency>
 }

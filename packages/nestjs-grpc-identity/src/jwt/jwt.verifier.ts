@@ -13,13 +13,20 @@ export class JwtVerifier {
     try {
       const dtoken = decode(token, { complete: true })
 
-      const key = await this.jwksClient.getSigningKey(dtoken?.header?.kid)
+      if (!dtoken || typeof dtoken !== 'object' || !('header' in dtoken) || !dtoken.header.kid) {
+        return null
+      }
 
-      // @ts-expect-error
-      // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
-      const decoded = verify(token, key.publicKey || key.rsaPublicKey)
+      const key = await this.jwksClient.getSigningKey(dtoken.header.kid)
+      const publicKey = key.getPublicKey()
 
-      if (decoded?.sub) {
+      if (!publicKey) {
+        return null
+      }
+
+      const decoded = verify(token, publicKey)
+
+      if (decoded && typeof decoded === 'object' && 'sub' in decoded) {
         return decoded
       }
 

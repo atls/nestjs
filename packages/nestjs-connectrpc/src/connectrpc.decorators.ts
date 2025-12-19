@@ -69,7 +69,8 @@ export const AddMethodMetadata = (
   }
 
   const existingMethods =
-    (Reflect.getMetadata(metadataKey, target.constructor) as Set<MethodKey>) || new Set()
+    (Reflect.getMetadata(metadataKey, target.constructor) as Set<MethodKey> | undefined) ??
+    new Set()
 
   if (existingMethods.has(metadata)) return
 

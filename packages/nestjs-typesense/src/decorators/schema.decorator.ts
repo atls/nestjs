@@ -11,11 +11,13 @@ export interface SchemaMetadata {
 export const SCHEMA_METADATA = '__schemaMetadata__'
 
 export const Schema = (options: SchemaMetadata = {}): ClassDecorator =>
-  applyDecorators((target: object, key: string | symbol, descriptor: PropertyDescriptor) =>
-    SetMetadata(SCHEMA_METADATA, {
+  applyDecorators((target: object, key: string | symbol, descriptor: PropertyDescriptor) => {
+    const targetName = typeof target === 'function' && 'name' in target ? String(target.name) : ''
+
+    return SetMetadata(SCHEMA_METADATA, {
       name:
         options.name ||
-        // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
-        decamelize((target as any).name, { separator: '-', preserveConsecutiveUppercase: false }),
+        decamelize(targetName, { separator: '-', preserveConsecutiveUppercase: false }),
       defaultSortingField: options.defaultSortingField,
-    })(target, key, descriptor))
+    })(target, key, descriptor)
+  })

@@ -1,8 +1,10 @@
-import type { Type }              from '@nestjs/common'
-import type { ModuleMetadata }    from '@nestjs/common'
+import type { InjectionToken }            from '@nestjs/common'
+import type { OptionalFactoryDependency } from '@nestjs/common'
+import type { Type }                      from '@nestjs/common'
+import type { ModuleMetadata }            from '@nestjs/common'
 
-import type { BatchQueueOptions } from '../batch-queue/index.js'
-import type { Consumer }          from '../proxy-clases/index.js'
+import type { BatchQueueOptions }         from '../batch-queue/index.js'
+import type { Consumer }                  from '../proxy-clases/index.js'
 
 export interface BatchQueueModuleOptions {
   core: BatchQueueOptions
@@ -19,6 +21,8 @@ export interface BatchQueueConsumerFactory {
 export interface BatchQueueModuleAsyncOptions extends Pick<ModuleMetadata, 'imports'> {
   useExisting?: Type<BatchQueueOptionsFactory>
   useClass?: Type<BatchQueueOptionsFactory>
-  useFactory?: (...args: Array<any>) => BatchQueueModuleOptions | Promise<BatchQueueModuleOptions>
-  inject?: Array<any>
+  useFactory?: (
+    ...args: Array<unknown>
+  ) => BatchQueueModuleOptions | Promise<BatchQueueModuleOptions>
+  inject?: Array<InjectionToken | OptionalFactoryDependency>
 }

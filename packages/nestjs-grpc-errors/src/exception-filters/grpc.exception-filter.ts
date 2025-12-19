@@ -14,7 +14,7 @@ import { notFoundExceptionFactory }       from '../exception-factories/index.js'
 
 @Catch()
 export class GrpcExceptionsFilter extends BaseRpcExceptionFilter {
-  // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types, @typescript-eslint/no-explicit-any
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   override catch(exception: any, host: ArgumentsHost): Observable<any> {
     if (exception instanceof AssertionError) {
       return super.catch(assertionExceptionFactory(exception), host)

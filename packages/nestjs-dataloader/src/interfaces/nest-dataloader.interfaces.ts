@@ -1,5 +1,5 @@
 import type DataLoader from 'dataloader'
 
 export interface NestDataLoader {
-  generateDataLoader: () => DataLoader<any, any>
+  generateDataLoader: () => DataLoader<unknown, unknown>
 }

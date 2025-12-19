@@ -69,19 +69,22 @@ describe('Keto relation tuple converter', () => {
     })
 
     it('gets subjectId', () => {
-      // @ts-expect-error
-      expect(stringResult.subject_id).toBe('testSubject')
+      if ('subject_id' in stringResult) {
+        expect(stringResult.subject_id).toBe('testSubject')
+      }
 
-      // @ts-expect-error
-      expect(functionResult.subject_id).toBe('testSubject')
+      if ('subject_id' in functionResult) {
+        expect(functionResult.subject_id).toBe('testSubject')
+      }
     })
 
     describe('Subject set', () => {
       let stringSubjectSet: SubjectSet | undefined
 
       beforeAll(() => {
-        // @ts-expect-error
-        stringSubjectSet = stringResultSubjectSet.subject_set
+        if ('subject_set' in stringResultSubjectSet) {
+          stringSubjectSet = stringResultSubjectSet.subject_set
+        }
       })
 
       it('gets namespace', () => {

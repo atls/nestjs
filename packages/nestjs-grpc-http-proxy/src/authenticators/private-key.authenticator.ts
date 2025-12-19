@@ -3,7 +3,8 @@ import type { Response }      from 'express'
 
 import type { Authenticator } from './authenticator.interface.js'
 
-import { promises as fs }     from 'fs'
+import { promises as fs }     from 'node:fs'
+
 import { sign }               from 'jsonwebtoken'
 import { v4 as uuid }         from 'uuid'
 import cookie                 from 'cookie'

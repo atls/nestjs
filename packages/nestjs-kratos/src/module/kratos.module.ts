@@ -20,7 +20,7 @@ export class KratosModule {
     const providers = createKratosProvider()
 
     return {
-      global: options?.global ?? true,
+      global: options.global ?? true,
       module: KratosModule,
       providers: [...optionsProviders, ...providers, ...exportsProviders],
       exports: exportsProviders,
@@ -32,7 +32,7 @@ export class KratosModule {
     const providers = createKratosProvider()
 
     return {
-      global: options?.global ?? true,
+      global: options.global ?? true,
       module: KratosModule,
       imports: options.imports || [],
       providers: [...this.createAsyncProviders(options), ...providers, ...exportsProviders],
@@ -45,11 +45,15 @@ export class KratosModule {
       return [this.createAsyncOptionsProvider(options)]
     }
 
+    if (!options.useClass) {
+      throw new Error('KratosModule requires useClass when useExisting/useFactory not provided')
+    }
+
     return [
       this.createAsyncOptionsProvider(options),
       {
-        provide: options.useClass!,
-        useClass: options.useClass!,
+        provide: options.useClass,
+        useClass: options.useClass,
       },
     ]
   }
@@ -63,11 +67,16 @@ export class KratosModule {
       }
     }
 
+    const injectTarget = options.useExisting ?? options.useClass
+    if (!injectTarget) {
+      throw new Error('KratosModule requires useExisting, useClass, or useFactory')
+    }
+
     return {
       provide: KRATOS_MODULE_OPTIONS,
       useFactory: async (optionsFactory: KratosOptionsFactory) =>
         optionsFactory.createKratosOptions(),
-      inject: [options.useExisting! || options.useClass!],
+      inject: [injectTarget],
     }
   }
 }

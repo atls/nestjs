@@ -1,5 +1,3 @@
-/* eslint-disable @typescript-eslint/explicit-module-boundary-types */
-
 import type { DynamicModule }    from '@nestjs/common'
 
 import { Module }                from '@nestjs/common'

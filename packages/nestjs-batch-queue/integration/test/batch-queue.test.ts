@@ -75,8 +75,8 @@ describe('external renderer', () => {
 
     channelWrapper.consume('test-queue', (msg) => {
       ;(async (): Promise<void> => {
-        const producer: Producer<any> = app.get(BATCH_QUEUE_PRODUCER)
-        const parsed: { queueName: string; value: any } = JSON.parse(msg.content.toString())
+        const producer: Producer<string> = app.get(BATCH_QUEUE_PRODUCER)
+        const parsed: { queueName: string; value: string } = JSON.parse(msg.content.toString())
         try {
           await producer.produce(parsed.queueName, parsed.value)
           succesProduceCount += 1
@@ -169,7 +169,7 @@ describe('external renderer', () => {
   })
 
   it('handle multiple queues', async () => {
-    const messages: Array<Promise<any>> = []
+    const messages: Array<Promise<unknown>> = []
     const queues: Array<string> = ['queue-one', 'queue-two', 'queue-three']
     const expectedResults: Record<string, Array<string>> = {
       'queue-one': [],

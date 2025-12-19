@@ -2,7 +2,7 @@ import type { BatchQueue }  from '../batch-queue/index.js'
 import type { ProcessorFn } from '../batch-queue/index.js'
 
 export class Consumer {
-  constructor(private batchQueue: BatchQueue<any>) {}
+  constructor(private batchQueue: BatchQueue<unknown>) {}
 
   /**
    * Delegates to {@link BatchQueue.processBatch}

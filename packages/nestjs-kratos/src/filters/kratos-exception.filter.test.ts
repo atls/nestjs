@@ -24,18 +24,17 @@ describe('KratosExceptionFilter', () => {
     }
 
     const argumentHost = {
-      // eslint-disable-next-line @typescript-eslint/explicit-function-return-type, @typescript-eslint/no-unsafe-return
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-return
       getResponse: () => response as any,
-      // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
+
       getRequest: () => ({
-        // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
         header: () => undefined,
         query: {},
       }),
+      getNext: () => undefined,
     }
 
     const host = {
-      // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
       switchToHttp: () => argumentHost as HttpArgumentsHost,
     }
 
@@ -52,14 +51,14 @@ describe('KratosExceptionFilter', () => {
       })
     )
 
-    const response = {
+    const response: { redirect: jest.Mock } = {
       redirect: jest.fn(),
     }
 
     const argumentHost = {
-      // eslint-disable-next-line @typescript-eslint/no-unsafe-return, @typescript-eslint/explicit-function-return-type
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-return
       getResponse: () => response as any,
-      // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
+
       getRequest: () => ({
         path: '/',
         query: {
@@ -77,10 +76,10 @@ describe('KratosExceptionFilter', () => {
           return undefined
         },
       }),
+      getNext: () => undefined,
     }
 
     const host = {
-      // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
       switchToHttp: () => argumentHost as HttpArgumentsHost,
     }
 

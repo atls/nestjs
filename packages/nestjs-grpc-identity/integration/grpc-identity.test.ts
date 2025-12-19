@@ -3,8 +3,9 @@
  */
 
 import type { INestMicroservice }        from '@nestjs/common'
+import type { ClientGrpc }               from '@nestjs/microservices'
 
-import { readFileSync }                  from 'node:fs'
+import { readFile }                      from 'node:fs/promises'
 import { join }                          from 'node:path'
 
 import { Metadata }                      from '@grpc/grpc-js'
@@ -24,8 +25,15 @@ import { GrpcIdentityIntegrationModule } from './src/index.js'
 import { serverOptions }                 from './src/index.js'
 
 describe('grpc identity', () => {
+  type TestServiceClient = {
+    test: (
+      request: { id: string },
+      metadata: Metadata
+    ) => { toPromise: () => Promise<{ id: string }> }
+  }
+
   let service: INestMicroservice
-  let client: any
+  let client: TestServiceClient
 
   beforeAll(async () => {
     const servicePort = await getPort()
@@ -65,8 +73,8 @@ describe('grpc identity', () => {
     await service.init()
     await service.listen()
 
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-call
-    client = service.get('client').getService('TestService')
+    const grpcClient = service.get<ClientGrpc>('client')
+    client = grpcClient.getService<TestServiceClient>('TestService')
   })
 
   afterAll(async () => {
@@ -74,7 +82,7 @@ describe('grpc identity', () => {
   })
 
   it(`check success`, async () => {
-    const privateKey = readFileSync(join(__dirname, 'src/.jwks.pem'), 'utf-8')
+    const privateKey = await readFile(join(__dirname, 'src/.jwks.pem'), 'utf-8')
 
     const token = sign({ sub: 'test' }, privateKey, { algorithm: 'RS256' })
 
@@ -82,7 +90,6 @@ describe('grpc identity', () => {
 
     metadata.add('authorization', `Bearer ${token}`)
 
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-call
     const result = await client.test({ id: 'test' }, metadata).toPromise()
 
     expect(result.id).toBe('test')
@@ -96,10 +103,14 @@ describe('grpc identity', () => {
 
       metadata.add('authorization', `Bearer test`)
 
-      // eslint-disable-next-line @typescript-eslint/no-unsafe-call
       await client.test({ id: 'test' }, metadata).toPromise()
     } catch (error) {
-      expect((error as any).code).toBe(status.UNAUTHENTICATED)
+      if (error instanceof Error) {
+        const grpcError = error as Error & { code?: number }
+        expect(grpcError.code).toBe(status.UNAUTHENTICATED)
+      } else {
+        throw error
+      }
     }
   })
 })

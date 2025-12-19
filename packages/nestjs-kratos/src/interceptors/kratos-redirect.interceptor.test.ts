@@ -5,6 +5,7 @@ import { describe }                        from '@jest/globals'
 import { it }                              from '@jest/globals'
 import { expect }                          from '@jest/globals'
 import { throwError }                      from 'rxjs'
+import { lastValueFrom }                   from 'rxjs'
 
 import { KratosRedirectRequiredException } from '../exceptions/index.js'
 import { KratosFlowRequiredException }     from '../exceptions/index.js'
@@ -15,11 +16,11 @@ describe('KratosRedirectInterceptor', () => {
     const target = new KratosRedirectInterceptor('login')
 
     const handler: CallHandler = {
-      handle: () => throwError(new Error()),
+      handle: () => throwError(() => new Error('test')),
     }
 
     await expect(
-      target.intercept(new ExecutionContextHost([]), handler).toPromise()
+      lastValueFrom(target.intercept(new ExecutionContextHost([]), handler))
     ).rejects.not.toThrowError(KratosRedirectRequiredException)
   })
 
@@ -28,18 +29,18 @@ describe('KratosRedirectInterceptor', () => {
 
     const handler: CallHandler = {
       handle: () => {
-        const error: any = new Error()
+        const error: Error & { response?: { status: number } } = new Error()
 
         error.response = {
           status: 410,
         }
 
-        return throwError(error)
+        return throwError(() => error)
       },
     }
 
     await expect(
-      target.intercept(new ExecutionContextHost([]), handler).toPromise()
+      lastValueFrom(target.intercept(new ExecutionContextHost([]), handler))
     ).rejects.toThrowError(KratosRedirectRequiredException)
   })
 
@@ -48,18 +49,18 @@ describe('KratosRedirectInterceptor', () => {
 
     const handler: CallHandler = {
       handle: () => {
-        const error: any = new Error()
+        const error: Error & { response?: { status: number } } = new Error()
 
         error.response = {
           status: 404,
         }
 
-        return throwError(error)
+        return throwError(() => error)
       },
     }
 
     await expect(
-      target.intercept(new ExecutionContextHost([]), handler).toPromise()
+      lastValueFrom(target.intercept(new ExecutionContextHost([]), handler))
     ).rejects.toThrowError(KratosRedirectRequiredException)
   })
 
@@ -68,18 +69,18 @@ describe('KratosRedirectInterceptor', () => {
 
     const handler: CallHandler = {
       handle: () => {
-        const error: any = new Error()
+        const error: Error & { response?: { status: number } } = new Error()
 
         error.response = {
           status: 403,
         }
 
-        return throwError(error)
+        return throwError(() => error)
       },
     }
 
     await expect(
-      target.intercept(new ExecutionContextHost([]), handler).toPromise()
+      lastValueFrom(target.intercept(new ExecutionContextHost([]), handler))
     ).rejects.toThrowError(KratosRedirectRequiredException)
   })
 
@@ -87,11 +88,11 @@ describe('KratosRedirectInterceptor', () => {
     const target = new KratosRedirectInterceptor('login')
 
     const handler: CallHandler = {
-      handle: () => throwError(new KratosFlowRequiredException()),
+      handle: () => throwError(() => new KratosFlowRequiredException()),
     }
 
     await expect(
-      target.intercept(new ExecutionContextHost([]), handler).toPromise()
+      lastValueFrom(target.intercept(new ExecutionContextHost([]), handler))
     ).rejects.toThrowError(KratosRedirectRequiredException)
   })
 })

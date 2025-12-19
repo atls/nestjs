@@ -46,11 +46,17 @@ export class GrpcHttpProxyModule {
       return [this.createAsyncOptionsProvider(options)]
     }
 
+    if (!options.useClass) {
+      throw new Error(
+        'GrpcHttpProxyModule requires useClass when useExisting/useFactory not provided'
+      )
+    }
+
     return [
       this.createAsyncOptionsProvider(options),
       {
-        provide: options.useClass!,
-        useClass: options.useClass!,
+        provide: options.useClass,
+        useClass: options.useClass,
       },
     ]
   }
@@ -64,11 +70,16 @@ export class GrpcHttpProxyModule {
       }
     }
 
+    const injectTarget = options.useExisting ?? options.useClass
+    if (!injectTarget) {
+      throw new Error('GrpcHttpProxyModule requires useExisting, useClass, or useFactory')
+    }
+
     return {
       provide: GRPC_HTTP_PROXY_MODULE_OPTIONS,
       useFactory: async (optionsFactory: GrpcHttpProxyOptionsFactory) =>
         optionsFactory.createGrpcHttpProxyOptions(),
-      inject: [options.useExisting! || options.useClass!],
+      inject: [injectTarget],
     }
   }
 }

@@ -2,7 +2,11 @@
  * @jest-environment node
  */
 
+import type { ServiceError }           from '@grpc/grpc-js'
 import type { INestMicroservice }      from '@nestjs/common'
+import type { ClientGrpc }             from '@nestjs/microservices'
+
+import { join }                        from 'node:path'
 
 import { ErrorStatus }                 from '@atls/grpc-error-status'
 import { ClientsModule }               from '@nestjs/microservices'
@@ -13,16 +17,20 @@ import { it }                          from '@jest/globals'
 import { beforeAll }                   from '@jest/globals'
 import { expect }                      from '@jest/globals'
 import { afterAll }                    from '@jest/globals'
-import { join }                        from 'path'
 import getPort                         from 'get-port'
 
 import { GrpcErrorsIntegrationModule } from '../src/index.js'
 import { serverOptions }               from '../src/index.js'
 
 describe('grpc error', () => {
+  type TestServiceClient = {
+    testValidation: (request: { id: string; child: { id: string } }) => {
+      toPromise: () => Promise<unknown>
+    }
+  }
+
   let service: INestMicroservice
-  // @ts-expect-error
-  let testClient
+  let testClient: TestServiceClient
 
   beforeAll(async () => {
     const servicePort = await getPort()
@@ -63,8 +71,8 @@ describe('grpc error', () => {
 
     await service.listen()
 
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-call
-    testClient = service.get('client').getService('TestService')
+    const grpcClient = service.get<ClientGrpc>('client')
+    testClient = grpcClient.getService<TestServiceClient>('TestService')
   })
 
   afterAll(async () => {
@@ -75,12 +83,10 @@ describe('grpc error', () => {
     expect.assertions(1)
 
     try {
-      // @ts-expect-error
-      // eslint-disable-next-line @typescript-eslint/no-unsafe-call
       await testClient.testValidation({ id: 'test', child: { id: 'test' } }).toPromise()
     } catch (error) {
-      // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
-      expect(ErrorStatus.fromServiceError(error as any).toObject()).toEqual(
+      // @ts-expect-error type mismatch
+      expect(ErrorStatus.fromServiceError(error as ServiceError).toObject()).toEqual(
         expect.objectContaining({
           details: expect.arrayContaining([
             expect.objectContaining({

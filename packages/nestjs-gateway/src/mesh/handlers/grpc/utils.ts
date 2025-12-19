@@ -4,12 +4,13 @@ import type { ClientUnaryCall }      from '@grpc/grpc-js'
 import type { SchemaComposer }       from 'graphql-compose'
 import type { Root }                 from 'protobufjs'
 
+import { existsSync }                from 'node:fs'
+import { isAbsolute }                from 'node:path'
+import { join }                      from 'node:path'
+
 import { Metadata }                  from '@grpc/grpc-js'
-// @ts-expect-error
+// @ts-expect-error import exists
 import { jsonFlatStringify }         from '@graphql-mesh/utils'
-import { existsSync }                from 'fs'
-import { isAbsolute }                from 'path'
-import { join }                      from 'path'
 import _                             from 'lodash'
 
 import { getGraphQLScalar }          from './scalars.js'
@@ -40,13 +41,14 @@ export function getTypeName(
 
 export function addIncludePathResolver(root: Root, includePaths: Array<string>): void {
   const originalResolvePath = root.resolvePath
-  // eslint-disable-next-line no-param-reassign
+
   root.resolvePath = (origin: string, target: string): string | null => {
     if (isAbsolute(target)) {
       return target
     }
     for (const directory of includePaths) {
       const fullPath: string = join(directory, target)
+      // eslint-disable-next-line n/no-sync
       if (existsSync(fullPath)) {
         return fullPath
       }
@@ -64,26 +66,27 @@ export function addMetaDataToCall(
   call: ClientMethod,
   input: unknown,
   context: Record<string, unknown>,
-  metaData: Record<string, Array<string> | Buffer | string>
+  metaData?: Record<string, Array<string> | Buffer | string>
 ): AsyncIterator<ClientReadableStream<unknown>> | Promise<ClientUnaryCall> {
-  if (metaData) {
-    const meta = new Metadata()
-    for (const [key, value] of Object.entries(metaData)) {
-      let metaValue: unknown = value
-      if (Array.isArray(value)) {
-        // Extract data from context
-        metaValue = _.get(context, value)
-      }
-      // Ensure that the metadata is compatible with what node-grpc expects
-      if (typeof metaValue !== 'string' && !(metaValue instanceof Buffer)) {
-        // eslint-disable-next-line @typescript-eslint/no-unsafe-call
-        metaValue = jsonFlatStringify(metaValue)
-      }
+  if (!metaData) {
+    return call(input)
+  }
 
-      meta.add(key, metaValue as MetadataValue)
+  const meta = new Metadata()
+  for (const [key, value] of Object.entries(metaData)) {
+    let metaValue: unknown = value
+    if (Array.isArray(value)) {
+      // Extract data from context
+      metaValue = _.get(context, value)
+    }
+    // Ensure that the metadata is compatible with what node-grpc expects
+    if (typeof metaValue !== 'string' && !(metaValue instanceof Buffer)) {
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-call
+      metaValue = jsonFlatStringify(metaValue)
     }
 
-    return call(input, meta)
+    meta.add(key, metaValue as MetadataValue)
   }
-  return call(input)
+
+  return call(input, meta)
 }

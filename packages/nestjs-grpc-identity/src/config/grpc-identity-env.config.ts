@@ -1,7 +1,7 @@
 import type { GrpcIdentityOptionsFactory } from '../module/index.js'
 import type { GrpcIdentityModuleOptions }  from '../module/index.js'
 
-import { promises as fs }                  from 'fs'
+import { promises as fs }                  from 'node:fs'
 
 export class GrpcIdentityEnvConfig implements GrpcIdentityOptionsFactory {
   getJwksOptions(): GrpcIdentityModuleOptions['jwks'] {
@@ -11,16 +11,17 @@ export class GrpcIdentityEnvConfig implements GrpcIdentityOptionsFactory {
       throw new Error(`Identity JwksUri configuration not found.`)
     }
 
-    const options = {
+    const options: GrpcIdentityModuleOptions['jwks'] & {
+      fetcher?: (uri: string) => Promise<unknown>
+    } = {
       jwksUri,
       rateLimit: true,
       cache: true,
     }
 
     if (!jwksUri.startsWith('http')) {
-      // @ts-expect-error
-      // eslint-disable-next-line @typescript-eslint/explicit-function-return-type, @typescript-eslint/no-unsafe-return, @typescript-eslint/no-unsafe-argument
-      options.fetcher = async (uri) => JSON.parse(await fs.readFile(uri, 'utf-8'))
+      options.fetcher = async (uri: string): Promise<{ keys: any }> =>
+        JSON.parse(await fs.readFile(uri, 'utf-8'))
     }
 
     return options

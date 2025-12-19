@@ -1,24 +1,27 @@
-import type { OnModuleInit }      from '@nestjs/common'
-import type { OnModuleDestroy }   from '@nestjs/common'
+import type { OnModuleInit }          from '@nestjs/common'
+import type { OnModuleDestroy }       from '@nestjs/common'
+import type { GraphQLError }          from 'graphql'
+import type { GraphQLFormattedError } from 'graphql'
+import type { IncomingMessage }       from 'node:http'
+import type { Socket }                from 'node:net'
 
-import { Inject }                 from '@nestjs/common'
-import { Injectable }             from '@nestjs/common'
-import { HttpAdapterHost }        from '@nestjs/core'
-import { ApolloServer }           from 'apollo-server-express'
-// @ts-expect-error
-import { Server }                 from 'ws'
-import { useServer }              from 'graphql-ws/lib/use/ws'
+import { Inject }                     from '@nestjs/common'
+import { Injectable }                 from '@nestjs/common'
+import { HttpAdapterHost }            from '@nestjs/core'
+import { ApolloServer }               from 'apollo-server-express'
+import { WebSocketServer }            from 'ws'
+import { useServer }                  from 'graphql-ws/lib/use/ws'
 
-import { GATEWAY_MODULE_OPTIONS } from '../module/index.js'
-import { GatewayModuleOptions }   from '../module/index.js'
-import { GraphQLMesh }            from './graphql.mesh.js'
-import { formatError }            from './format.error.js'
+import { GATEWAY_MODULE_OPTIONS }     from '../module/index.js'
+import { GatewayModuleOptions }       from '../module/index.js'
+import { GraphQLMesh }                from './graphql.mesh.js'
+import { formatError }                from './format.error.js'
 
 @Injectable()
 export class GraphQLMeshHandler implements OnModuleInit, OnModuleDestroy {
   private apolloServer!: ApolloServer
 
-  private wss?: Server
+  private wss?: WebSocketServer
 
   constructor(
     private readonly adapterHost: HttpAdapterHost,
@@ -32,6 +35,7 @@ export class GraphQLMeshHandler implements OnModuleInit, OnModuleDestroy {
 
     if (this.adapterHost.httpAdapter.getType() === 'express') {
       const app = this.adapterHost.httpAdapter.getInstance()
+      const buildContext = contextBuilder as (req: IncomingMessage) => Promise<unknown> | unknown
 
       const { path = '/', playground, introspection, cors } = this.options
 
@@ -40,8 +44,8 @@ export class GraphQLMeshHandler implements OnModuleInit, OnModuleDestroy {
         introspection: introspection === undefined ? Boolean(playground) : introspection,
         context: contextBuilder,
         playground,
-        // @ts-expect-error
-        formatError,
+        formatError: (error: GraphQLError): GraphQLFormattedError =>
+          formatError(error as { extensions?: Record<string, unknown> }) as GraphQLFormattedError,
       })
 
       apolloServer.applyMiddleware({
@@ -55,10 +59,8 @@ export class GraphQLMeshHandler implements OnModuleInit, OnModuleDestroy {
 
       this.apolloServer = apolloServer
 
-      // eslint-disable-next-line @typescript-eslint/no-unsafe-call
       if (schema.getSubscriptionType()) {
-        // eslint-disable-next-line @typescript-eslint/no-unsafe-call
-        this.wss = new Server({
+        this.wss = new WebSocketServer({
           noServer: true,
           path,
         })
@@ -78,26 +80,25 @@ export class GraphQLMeshHandler implements OnModuleInit, OnModuleDestroy {
                 (connectionParams.headers ?? {}) as Record<string, unknown>
               )) {
                 if (!(key.toLowerCase() in request.headers)) {
-                  // @ts-expect-error
-                  request.headers[key.toLowerCase()] = value
+                  request.headers[key.toLowerCase()] = value as string
                 }
               }
 
-              // eslint-disable-next-line @typescript-eslint/no-unsafe-call, @typescript-eslint/no-unsafe-return
-              return contextBuilder(request)
+              return buildContext(request)
             },
           },
           this.wss
         )
 
-        // @ts-expect-error
-        // eslint-disable-next-line @typescript-eslint/no-unsafe-call
-        this.adapterHost.httpAdapter.getHttpServer().on('upgrade', (req, socket, head) => {
-          // @ts-expect-error
-          // eslint-disable-next-line @typescript-eslint/no-unsafe-call
-          this.wss.handleUpgrade(req, socket, head, (ws) => {
-            // eslint-disable-next-line @typescript-eslint/no-unsafe-call
-            this.wss.emit('connection', ws, req)
+        const httpServer = this.adapterHost.httpAdapter.getHttpServer() as {
+          on: (
+            event: 'upgrade',
+            handler: (req: IncomingMessage, socket: Socket, head: Buffer) => void
+          ) => void
+        }
+        httpServer.on('upgrade', (req, socket, head) => {
+          this.wss?.handleUpgrade(req, socket, head, (ws) => {
+            this.wss?.emit('connection', ws, req)
           })
         })
       }
@@ -107,11 +108,10 @@ export class GraphQLMeshHandler implements OnModuleInit, OnModuleDestroy {
   }
 
   async onModuleDestroy(): Promise<void> {
-    await this.apolloServer?.stop()
+    await this.apolloServer.stop()
 
     if (this.wss) {
       for (const client of this.wss.clients) {
-        // eslint-disable-next-line @typescript-eslint/no-unsafe-call
         client.close(1001, 'Going away')
       }
     }

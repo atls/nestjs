@@ -17,7 +17,5 @@ export type MethodConfig = UiContainer
 export const methodConfig = (flow: MethodConfigFlow, key: string): MethodConfig | null => {
   if (flow.active && flow.active !== key) return null
 
-  if (!flow.ui) return null
-
   return flow.ui
 }

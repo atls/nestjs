@@ -21,13 +21,15 @@ export class ProtoRegistry implements OnApplicationBootstrap {
   ) {}
 
   async onApplicationBootstrap(): Promise<void> {
-    const protoPaths = Array.isArray(this.options.options.protoPath)
-      ? this.options.options.protoPath
-      : [this.options.options.protoPath]
+    const protoPathOption = this.options.options.protoPath
+    if (!protoPathOption) {
+      throw new Error('GrpcHttpProxyModule requires protoPath')
+    }
+
+    const protoPaths = Array.isArray(protoPathOption) ? protoPathOption : [protoPathOption]
 
     this.definitions = await Promise.all(
-      // @ts-expect-error
-      protoPaths.map(async (protoPath: string) => {
+      protoPaths.map(async (protoPath) => {
         const packageDefinition = await load(protoPath, this.options.options.loader)
 
         return loadPackageDefinition(packageDefinition)

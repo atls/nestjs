@@ -18,7 +18,7 @@ export class KetoModule {
     const exportsProvider = createKetoExportsProvider()
 
     return {
-      global: options?.global ?? true,
+      global: options.global ?? true,
       module: KetoModule,
       providers: [...optionsProvider, ...exportsProvider],
       exports: exportsProvider,
@@ -29,7 +29,7 @@ export class KetoModule {
     const exportsProvider = createKetoExportsProvider()
 
     return {
-      global: options?.global ?? true,
+      global: options.global ?? true,
       module: KetoModule,
       imports: options.imports || [],
       providers: [...this.createAsyncProviders(options), ...exportsProvider],
@@ -42,11 +42,15 @@ export class KetoModule {
       return [this.createAsyncOptionsProvider(options)]
     }
 
+    if (!options.useClass) {
+      throw new Error('KetoModule requires useClass when useExisting/useFactory not provided')
+    }
+
     return [
       this.createAsyncOptionsProvider(options),
       {
-        provide: options.useClass!,
-        useClass: options.useClass!,
+        provide: options.useClass,
+        useClass: options.useClass,
       },
     ]
   }
@@ -60,10 +64,15 @@ export class KetoModule {
       }
     }
 
+    const injectTarget = options.useExisting ?? options.useClass
+    if (!injectTarget) {
+      throw new Error('KetoModule requires useExisting, useClass, or useFactory')
+    }
+
     return {
       provide: KETO_MODULE_CONFIGURATION,
       useFactory: async (optionsFactory: KetoOptionsFactory) => optionsFactory.createKetoOptions(),
-      inject: [options.useExisting! || options.useClass!],
+      inject: [injectTarget],
     }
   }
 }

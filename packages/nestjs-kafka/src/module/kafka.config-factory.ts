@@ -16,11 +16,13 @@ export class KafkaConfigFactory {
   ) {}
 
   createKafkaOptions(): KafkaConfig {
+    const fallbackBrokers = process.env.KAFKA_BROKERS
+      ? process.env.KAFKA_BROKERS.split(',')
+      : ['localhost:29092']
+
     return {
       clientId: this.clientId || process.env.KAFKA_CLIENT_ID,
-      brokers:
-        this.brokers ||
-        (process.env.KAFKA_BROKERS ? process.env.KAFKA_BROKERS.split(',') : ['localhost:29092']),
+      brokers: this.brokers.length > 0 ? this.brokers : fallbackBrokers,
     }
   }
 }

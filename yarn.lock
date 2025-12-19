@@ -711,6 +711,7 @@ __metadata:
     "@nestjs/core": "npm:10.4.1"
     "@nestjs/microservices": "npm:10.4.1"
     "@nestjs/testing": "npm:10.4.1"
+    "@types/express": "npm:4.17.21"
     "@types/node-fetch": "npm:2.6.11"
     "@types/supertest": "npm:6.0.2"
     get-port: "npm:7.1.0"
