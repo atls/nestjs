@@ -251,7 +251,9 @@ describe('gateway', () => {
           }`,
         },
         {
-          next: (data) => (result = data as { id: string }),
+          next: (data) => {
+            result = data as { id: string }
+          },
           error: reject,
           complete: () => {
             if (!result) {

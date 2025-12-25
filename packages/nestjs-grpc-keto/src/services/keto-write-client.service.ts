@@ -9,7 +9,8 @@ import { KetoGeneralException }          from '../exceptions/index.js'
 import { KETO_WRITE_NATIVE_CLIENT }      from '../module/index.js'
 import { KetoWriteNativeClientService }  from './keto-write-native-client.service.js'
 
-import Action = RelationTupleDelta.Action
+type RelationTupleDeltaAction =
+  (typeof RelationTupleDelta.Action)[keyof typeof RelationTupleDelta.Action]
 
 @Injectable()
 export class KetoWriteClientService {
@@ -22,7 +23,7 @@ export class KetoWriteClientService {
     try {
       const relationRequest = new TransactRelationTuplesRequest()
 
-      const delta = this.convertDeltaToTuple(tuple, Action.ACTION_INSERT)
+      const delta = this.convertDeltaToTuple(tuple, RelationTupleDelta.Action.ACTION_INSERT)
 
       relationRequest.addRelationTupleDeltas(delta)
 
@@ -42,7 +43,7 @@ export class KetoWriteClientService {
     try {
       const relationRequest = new TransactRelationTuplesRequest()
 
-      const delta = this.convertDeltaToTuple(tuple, Action.ACTION_DELETE)
+      const delta = this.convertDeltaToTuple(tuple, RelationTupleDelta.Action.ACTION_DELETE)
 
       relationRequest.addRelationTupleDeltas(delta)
 
@@ -58,7 +59,10 @@ export class KetoWriteClientService {
     }
   }
 
-  private convertDeltaToTuple(tuple: RelationTuple, action: Action): RelationTupleDelta {
+  private convertDeltaToTuple(
+    tuple: RelationTuple,
+    action: RelationTupleDeltaAction
+  ): RelationTupleDelta {
     const delta = new RelationTupleDelta()
 
     delta.setAction(action).setRelationTuple(tuple)

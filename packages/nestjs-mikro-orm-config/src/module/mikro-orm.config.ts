@@ -1,3 +1,4 @@
+import type { AnyEntity }                       from '@mikro-orm/core'
 import type { EntityClass }                     from '@mikro-orm/core'
 import type { EntityClassGroup }                from '@mikro-orm/core'
 import type { EntitySchema }                    from '@mikro-orm/core'
@@ -39,15 +40,16 @@ export class MikroORMConfig implements MikroOrmOptionsFactory {
       migrationsTableName,
     } = this.options
 
-    let resolvedEntities: Array<EntityClass<any> | EntityClassGroup<any> | EntitySchema | string> =
-      []
+    let resolvedEntities: Array<
+      EntityClass<AnyEntity> | EntityClassGroup<AnyEntity> | EntitySchema | string
+    > = []
     if (Array.isArray(entities)) {
       resolvedEntities = entities as Array<
-        EntityClass<any> | EntityClassGroup<any> | EntitySchema | string
+        EntityClass<AnyEntity> | EntityClassGroup<AnyEntity> | EntitySchema | string
       >
     } else if (entities) {
       resolvedEntities = Object.values(entities) as Array<
-        EntityClass<any> | EntityClassGroup<any> | EntitySchema | string
+        EntityClass<AnyEntity> | EntityClassGroup<AnyEntity> | EntitySchema | string
       >
     }
 

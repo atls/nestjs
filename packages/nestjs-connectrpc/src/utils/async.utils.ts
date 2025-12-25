@@ -116,8 +116,6 @@ export const transformToObservable = <T>(resultOrDeferred: ResultOrDeferred<T>):
     return resultOrDeferred as Observable<T>
   }
   if (hasSubscribe(resultOrDeferred)) {
-    resultOrDeferred
-
     return new Observable<T>((subscriber) => {
       ;(resultOrDeferred.subscribe as Subscriber)({
         next: (value) => {

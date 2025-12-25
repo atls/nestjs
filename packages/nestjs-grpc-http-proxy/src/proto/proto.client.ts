@@ -63,7 +63,7 @@ export class ProtoClient {
 
     return new Promise((resolve, reject) => {
       const methodImpl = getClientMethod(this.client, method)
-      if ('requestStream' in methodImpl && methodImpl.requestStream) {
+      if ('requestStream' in methodImpl) {
         const call = methodImpl(metadata)
 
         call.write(request)
