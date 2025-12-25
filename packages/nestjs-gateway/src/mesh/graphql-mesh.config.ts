@@ -39,6 +39,8 @@ import { GatewayModuleOptions }         from '../module/index.js'
 import { GraphQLMeshLogger }            from './graphql-mesh.logger.js'
 import GrpcHandler                      from './handlers/grpc/grpc.handler.js'
 
+type MeshTransformConstructor = new (options: Record<string, unknown>) => MeshTransform
+
 @Injectable()
 export class GraphQLMeshConfig {
   private syncImportFn
@@ -193,7 +195,8 @@ export class GraphQLMeshConfig {
 
     if (config.snapshot) {
       const snapshotConfig = config.snapshot as Record<string, unknown>
-      const snapshotTransform = new SnapshotTransform({
+      const SnapshotTransformCtor = SnapshotTransform as unknown as MeshTransformConstructor
+      const snapshotTransform = new SnapshotTransformCtor({
         apiName,
         syncImportFn: this.syncImportFn,
         baseDir: this.baseDir,
@@ -206,7 +209,8 @@ export class GraphQLMeshConfig {
 
     if (config.mock) {
       const mockConfig = config.mock as Record<string, unknown>
-      const mockTransform = new MockingTransform({
+      const MockingTransformCtor = MockingTransform as unknown as MeshTransformConstructor
+      const mockTransform = new MockingTransformCtor({
         apiName,
         syncImportFn: this.syncImportFn,
         baseDir: this.baseDir,

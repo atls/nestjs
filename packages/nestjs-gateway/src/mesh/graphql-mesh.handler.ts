@@ -2,6 +2,7 @@ import type { OnModuleInit }          from '@nestjs/common'
 import type { OnModuleDestroy }       from '@nestjs/common'
 import type { GraphQLError }          from 'graphql'
 import type { GraphQLFormattedError } from 'graphql'
+import type { GraphQLSchema }         from 'graphql'
 import type { IncomingMessage }       from 'node:http'
 import type { Socket }                from 'node:net'
 
@@ -32,10 +33,11 @@ export class GraphQLMeshHandler implements OnModuleInit, OnModuleDestroy {
 
   async onModuleInit(): Promise<void> {
     const { schema, contextBuilder, subscribe, execute } = await this.mesh.getInstance()
+    const meshSchema = schema as GraphQLSchema
 
     if (this.adapterHost.httpAdapter.getType() === 'express') {
       const app = this.adapterHost.httpAdapter.getInstance()
-      const buildContext = contextBuilder as (req: IncomingMessage) => Promise<unknown> | unknown
+      const buildContext = contextBuilder as (req: IncomingMessage) => unknown
 
       const { path = '/', playground, introspection, cors } = this.options
 
@@ -59,7 +61,7 @@ export class GraphQLMeshHandler implements OnModuleInit, OnModuleDestroy {
 
       this.apolloServer = apolloServer
 
-      if (schema.getSubscriptionType()) {
+      if (meshSchema.getSubscriptionType()) {
         this.wss = new WebSocketServer({
           noServer: true,
           path,

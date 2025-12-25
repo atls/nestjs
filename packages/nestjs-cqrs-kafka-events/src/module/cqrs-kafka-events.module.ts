@@ -127,6 +127,11 @@ export class CqrsKafkaEventsModule implements OnModuleInit {
       }
     }
 
+    const injectTarget = options.useExisting ?? options.useClass
+    if (!injectTarget) {
+      throw new Error('CqrsKafkaEventsModule requires useExisting, useClass, or useFactory')
+    }
+
     return {
       provide: CQRS_KAFKA_EVENTS_MODULE_OPTIONS,
       useFactory: (
@@ -134,7 +139,7 @@ export class CqrsKafkaEventsModule implements OnModuleInit {
       ): CqrsKafkaEventsModuleOptions | Promise<CqrsKafkaEventsModuleOptions> =>
         optionsFactory.createCqrsKafkaEventsOptions(),
 
-      inject: [options.useExisting! || options.useClass!],
+      inject: [injectTarget],
     }
   }
 

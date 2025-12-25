@@ -3,6 +3,8 @@ import { Client }                    from 'typesense'
 
 import { TypesenseMetadataRegistry } from '@atls/nestjs-typesense'
 
+type Constructor = new (...args: Array<unknown>) => object
+
 @Injectable()
 export class EntityToDocumentMapper {
   constructor(
@@ -11,7 +13,8 @@ export class EntityToDocumentMapper {
   ) {}
 
   async insert(entity: Record<string, unknown> & { id?: number | string }): Promise<void> {
-    const schema = this.registry.getSchemaByTarget(entity.constructor as any)
+    const target = entity.constructor as unknown as Constructor
+    const schema = this.registry.getSchemaByTarget(target)
     if (!schema) {
       return
     }
@@ -21,7 +24,8 @@ export class EntityToDocumentMapper {
   }
 
   async update(entity: Record<string, unknown> & { id?: number | string }): Promise<void> {
-    const schema = this.registry.getSchemaByTarget(entity.constructor as any)
+    const target = entity.constructor as unknown as Constructor
+    const schema = this.registry.getSchemaByTarget(target)
     if (!schema) {
       return
     }

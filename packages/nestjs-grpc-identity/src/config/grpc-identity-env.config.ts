@@ -20,8 +20,11 @@ export class GrpcIdentityEnvConfig implements GrpcIdentityOptionsFactory {
     }
 
     if (!jwksUri.startsWith('http')) {
-      options.fetcher = async (uri: string): Promise<{ keys: any }> =>
-        JSON.parse(await fs.readFile(uri, 'utf-8'))
+      options.fetcher = async (uri: string): Promise<{ keys: Record<string, unknown> }> => {
+        const parsed = JSON.parse(await fs.readFile(uri, 'utf-8')) as unknown
+
+        return parsed as { keys: Record<string, unknown> }
+      }
     }
 
     return options

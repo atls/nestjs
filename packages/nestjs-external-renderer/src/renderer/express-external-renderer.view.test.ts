@@ -1,25 +1,30 @@
-import { jest }                        from '@jest/globals'
-import { expect }                      from '@jest/globals'
-import { it }                          from '@jest/globals'
-import { describe }                    from '@jest/globals'
-import { beforeAll }                   from '@jest/globals'
-import { afterEach }                   from '@jest/globals'
-import { Response }                    from 'node-fetch'
-import fetchMock                       from 'jest-fetch-mock'
+import { jest }                             from '@jest/globals'
+import { expect }                           from '@jest/globals'
+import { it }                               from '@jest/globals'
+import { describe }                         from '@jest/globals'
+import { beforeAll }                        from '@jest/globals'
+import { afterEach }                        from '@jest/globals'
+import { Response }                         from 'node-fetch'
+import fetchMock                            from 'jest-fetch-mock'
 
-import { ExpressExternalRendererView } from './express-external-renderer.view.js'
+import { ExpressExternalRendererView }      from './express-external-renderer.view.js'
+import type { ExpressExternalRendererViewParams } from './express-external-renderer.view.js'
 
 fetchMock.default.enableMocks()
 
+type FetchResponse = Awaited<ReturnType<typeof fetch>>
+
+const fetchMocked = fetch as jest.MockedFunction<typeof fetch>
+
 describe('ExpressExternalRendererView', () => {
-  let render: any
+  let render: (params?: ExpressExternalRendererViewParams) => Promise<void>
 
   beforeAll(async () => {
     const view = new ExpressExternalRendererView('/test', {
       root: `http://localhost:3000`,
     })
 
-    render = async (params = {}): Promise<void> =>
+    render = async (params: ExpressExternalRendererViewParams = {}): Promise<void> =>
       new Promise((resolve) => {
         view.render(params, resolve)
       })
@@ -30,9 +35,8 @@ describe('ExpressExternalRendererView', () => {
   })
 
   it('pass querie variables', async () => {
-    ;(fetch as jest.Mock).mockImplementation(async () => Promise.resolve(new Response('')))
+    fetchMocked.mockResolvedValue(new Response('') as unknown as FetchResponse)
 
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-call
     await render({
       query: {
         foo: 'bar',
@@ -50,11 +54,8 @@ describe('ExpressExternalRendererView', () => {
   })
 
   it('pass data', async () => {
-    // @ts-expect-error
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-call
-    fetch.mockReturnValue(Promise.resolve(new Response('')))
+    fetchMocked.mockResolvedValue(new Response('') as unknown as FetchResponse)
 
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-call
     await render({
       data: {
         foo: 'bar',
@@ -72,11 +73,8 @@ describe('ExpressExternalRendererView', () => {
   })
 
   it('pass headers', async () => {
-    // @ts-expect-error
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-call
-    fetch.mockReturnValue(Promise.resolve(new Response('')))
+    fetchMocked.mockResolvedValue(new Response('') as unknown as FetchResponse)
 
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-call
     await render({
       headers: {
         foo: 'bar',

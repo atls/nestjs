@@ -1,7 +1,6 @@
 import type { ExecutionContext }        from '@nestjs/common'
 import type { GraphQLExecutionContext } from '@nestjs/graphql'
-
-import type { NestDataLoader }          from '../interfaces/index.js'
+import type DataLoader                 from 'dataloader'
 
 import { InternalServerErrorException } from '@nestjs/common'
 import { APP_INTERCEPTOR }              from '@nestjs/core'
@@ -11,8 +10,9 @@ import { createParamDecorator }         from '@nestjs/common'
 import { GET_LOADER_CONTEXT_KEY }       from '../constants.js'
 import { DataLoaderInterceptor }        from '../interceptors/index.js'
 
-type LoaderContext = Record<string, (type: string) => NestDataLoader | undefined> &
-  Record<string, unknown>
+type LoaderContext = Record<string, unknown> & {
+  GET_LOADER_CONTEXT_KEY?: (type: string) => DataLoader<unknown, unknown>
+}
 
 export const Loader: (type: string) => ParameterDecorator = createParamDecorator((
   type: string,
@@ -27,11 +27,9 @@ export const Loader: (type: string) => ParameterDecorator = createParamDecorator
       `)
   }
 
-  const getLoader = ctx[GET_LOADER_CONTEXT_KEY]
-
-  if (!getLoader) {
-    throw new InternalServerErrorException(`Loader context is missing`)
-  }
+  const getLoader = ctx[GET_LOADER_CONTEXT_KEY] as (
+    type: string
+  ) => DataLoader<unknown, unknown>
 
   return getLoader(type)
 })

@@ -1,3 +1,4 @@
+/* eslint-disable max-classes-per-file */
 declare module '@ory/keto-grpc-client/ory/keto/relation_tuples/v1alpha2/relation_tuples_pb' {
   export class SubjectSet {
     setNamespace(value: string): void

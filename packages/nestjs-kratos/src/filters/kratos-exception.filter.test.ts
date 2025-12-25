@@ -19,13 +19,12 @@ describe('KratosExceptionFilter', () => {
       })
     )
 
-    const response = {
+    const response: { redirect: jest.Mock } = {
       redirect: jest.fn(),
     }
 
     const argumentHost = {
-      // eslint-disable-next-line @typescript-eslint/no-unsafe-return
-      getResponse: () => response as any,
+      getResponse: () => response,
 
       getRequest: () => ({
         header: () => undefined,
@@ -56,8 +55,7 @@ describe('KratosExceptionFilter', () => {
     }
 
     const argumentHost = {
-      // eslint-disable-next-line @typescript-eslint/no-unsafe-return
-      getResponse: () => response as any,
+      getResponse: () => response,
 
       getRequest: () => ({
         path: '/',
