@@ -1,6 +1,6 @@
 import type { ExecutionContext }        from '@nestjs/common'
 import type { GraphQLExecutionContext } from '@nestjs/graphql'
-import type DataLoader                 from 'dataloader'
+import type DataLoader                  from 'dataloader'
 
 import { InternalServerErrorException } from '@nestjs/common'
 import { APP_INTERCEPTOR }              from '@nestjs/core'
@@ -27,9 +27,7 @@ export const Loader: (type: string) => ParameterDecorator = createParamDecorator
       `)
   }
 
-  const getLoader = ctx[GET_LOADER_CONTEXT_KEY] as (
-    type: string
-  ) => DataLoader<unknown, unknown>
+  const getLoader = ctx[GET_LOADER_CONTEXT_KEY] as (type: string) => DataLoader<unknown, unknown>
 
   return getLoader(type)
 })

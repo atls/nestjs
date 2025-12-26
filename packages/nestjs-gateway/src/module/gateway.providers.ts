@@ -39,7 +39,7 @@ export const createGatewayExportsProvider = (): Array<Provider> => [
 
       eventEmitter.setMaxListeners(Infinity)
 
-      return new PubSub({ eventEmitter })
+      return new PubSub({ eventEmitter }) as unknown as MeshPubSub
     },
     inject: [GATEWAY_MODULE_OPTIONS],
   },

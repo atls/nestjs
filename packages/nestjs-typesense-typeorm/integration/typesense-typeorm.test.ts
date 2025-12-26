@@ -2,13 +2,13 @@ import type { INestApplication }             from '@nestjs/common'
 import type { StartedTestContainer }         from 'testcontainers'
 import type { Repository }                   from 'typeorm'
 
+import assert                                from 'node:assert/strict'
+import { after }                             from 'node:test'
+import { before }                            from 'node:test'
+import { describe }                          from 'node:test'
+import { it }                                from 'node:test'
+
 import { Test }                              from '@nestjs/testing'
-import { jest }                              from '@jest/globals'
-import { describe }                          from '@jest/globals'
-import { beforeAll }                         from '@jest/globals'
-import { it }                                from '@jest/globals'
-import { expect }                            from '@jest/globals'
-import { afterAll }                          from '@jest/globals'
 import { getRepositoryToken }                from '@nestjs/typeorm'
 import { GenericContainer }                  from 'testcontainers'
 import { Wait }                              from 'testcontainers'
@@ -19,15 +19,13 @@ import { TYPESENSE_MODULE_OPTIONS }          from '@atls/nestjs-typesense'
 import { TypesenseTypeOrmIntegrationModule } from './src/index.js'
 import { TestEntity }                        from './src/test.entity.js'
 
-jest.setTimeout(30000)
-
-describe('typesense-typeorm', () => {
+describe('typesense-typeorm', { timeout: 30000 }, () => {
   let typesense: StartedTestContainer
   let repository: Repository<TestEntity>
   let client: Client
   let app: INestApplication
 
-  beforeAll(async () => {
+  before(async () => {
     typesense = await new GenericContainer('typesense/typesense:27.0')
       .withWaitStrategy(Wait.forLogMessage('Peer refresh succeeded!'))
       .withEnvironment({
@@ -53,7 +51,7 @@ describe('typesense-typeorm', () => {
       })
       .compile()
 
-    app = testModule.createNestApplication() as INestApplication
+    app = testModule.createNestApplication()
 
     await app.init()
 
@@ -61,7 +59,7 @@ describe('typesense-typeorm', () => {
     client = testModule.get(Client)
   })
 
-  afterAll(async () => {
+  after(async () => {
     await app.close()
     await typesense.stop()
   })
@@ -84,7 +82,7 @@ describe('typesense-typeorm', () => {
       filter_by: 'employees:>1000',
     })
 
-    expect(result.found).toBe(1)
+    assert.strictEqual(result.found, 1)
   })
 
   it(`find after update`, async () => {
@@ -109,6 +107,6 @@ describe('typesense-typeorm', () => {
       filter_by: 'employees:>1000',
     })
 
-    expect(result.found).toBe(2)
+    assert.strictEqual(result.found, 2)
   })
 })

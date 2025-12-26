@@ -1,11 +1,12 @@
-import type { Request }                   from 'express'
-import type { Response }                  from 'express'
+import type { Request }                    from 'express'
+import type { Response }                   from 'express'
 
-import { Injectable }                     from '@nestjs/common'
-import { Inject }                         from '@nestjs/common'
+import type { GrpcHttpProxyModuleOptions } from '../module/index.js'
 
-import { GrpcHttpProxyModuleOptions }     from '../module/index.js'
-import { GRPC_HTTP_PROXY_MODULE_OPTIONS } from '../module/index.js'
+import { Injectable }                      from '@nestjs/common'
+import { Inject }                          from '@nestjs/common'
+
+import { GRPC_HTTP_PROXY_MODULE_OPTIONS }  from '../module/index.js'
 
 @Injectable()
 export class AuthenticationService {

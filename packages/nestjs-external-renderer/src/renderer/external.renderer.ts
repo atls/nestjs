@@ -1,12 +1,13 @@
-import type { OnModuleInit }                from '@nestjs/common'
+import type { OnModuleInit }                  from '@nestjs/common'
 
-import { Inject }                           from '@nestjs/common'
-import { Injectable }                       from '@nestjs/common'
-import { HttpAdapterHost }                  from '@nestjs/core'
+import type { ExternalRendererModuleOptions } from '../module/index.js'
 
-import { EXTERNAL_RENDERER_MODULE_OPTIONS } from '../module/index.js'
-import { ExternalRendererModuleOptions }    from '../module/index.js'
-import { ExpressExternalRendererView }      from './express-external-renderer.view.js'
+import { Inject }                             from '@nestjs/common'
+import { Injectable }                         from '@nestjs/common'
+import { HttpAdapterHost }                    from '@nestjs/core'
+
+import { EXTERNAL_RENDERER_MODULE_OPTIONS }   from '../module/index.js'
+import { ExpressExternalRendererView }        from './express-external-renderer.view.js'
 
 type ExpressResponse = {
   render: (

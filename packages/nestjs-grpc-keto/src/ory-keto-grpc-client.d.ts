@@ -88,3 +88,32 @@ declare module '@ory/keto-grpc-client/ory/keto/relation_tuples/v1alpha2/write_se
     ): void
   }
 }
+
+declare module '@ory/keto-grpc-client/ory/keto/relation_tuples/v1alpha2/relation_tuples_pb.js' {
+  import * as mod from '@ory/keto-grpc-client/ory/keto/relation_tuples/v1alpha2/relation_tuples_pb'
+
+  export default mod
+  export * from '@ory/keto-grpc-client/ory/keto/relation_tuples/v1alpha2/relation_tuples_pb'
+}
+
+declare module '@ory/keto-grpc-client/ory/keto/relation_tuples/v1alpha2/check_service_pb.js' {
+  import * as mod from '@ory/keto-grpc-client/ory/keto/relation_tuples/v1alpha2/check_service_pb'
+
+  export default mod
+  export * from '@ory/keto-grpc-client/ory/keto/relation_tuples/v1alpha2/check_service_pb'
+}
+
+declare module '@ory/keto-grpc-client/ory/keto/relation_tuples/v1alpha2/check_service_grpc_pb.js' {
+  export * from '@ory/keto-grpc-client/ory/keto/relation_tuples/v1alpha2/check_service_grpc_pb'
+}
+
+declare module '@ory/keto-grpc-client/ory/keto/relation_tuples/v1alpha2/write_service_pb.js' {
+  import * as mod from '@ory/keto-grpc-client/ory/keto/relation_tuples/v1alpha2/write_service_pb'
+
+  export default mod
+  export * from '@ory/keto-grpc-client/ory/keto/relation_tuples/v1alpha2/write_service_pb'
+}
+
+declare module '@ory/keto-grpc-client/ory/keto/relation_tuples/v1alpha2/write_service_grpc_pb.js' {
+  export * from '@ory/keto-grpc-client/ory/keto/relation_tuples/v1alpha2/write_service_grpc_pb'
+}

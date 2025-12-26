@@ -1,4 +1,4 @@
-import type { CheckRequest }      from '@ory/keto-grpc-client/ory/keto/relation_tuples/v1alpha2/check_service_pb'
+import type { CheckRequest }      from '@ory/keto-grpc-client/ory/keto/relation_tuples/v1alpha2/check_service_pb.js'
 
 import { Inject }                 from '@nestjs/common'
 import { Injectable }             from '@nestjs/common'

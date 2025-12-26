@@ -1,9 +1,10 @@
 import type { CallHandler }                from '@nestjs/common'
 
+import assert                              from 'node:assert/strict'
+import { describe }                        from 'node:test'
+import { it }                              from 'node:test'
+
 import { ExecutionContextHost }            from '@nestjs/core/helpers/execution-context-host.js'
-import { describe }                        from '@jest/globals'
-import { it }                              from '@jest/globals'
-import { expect }                          from '@jest/globals'
 import { throwError }                      from 'rxjs'
 import { lastValueFrom }                   from 'rxjs'
 
@@ -19,9 +20,12 @@ describe('KratosRedirectInterceptor', () => {
       handle: () => throwError(() => new Error('test')),
     }
 
-    await expect(
-      lastValueFrom(target.intercept(new ExecutionContextHost([]), handler))
-    ).rejects.not.toThrowError(KratosRedirectRequiredException)
+    await assert.rejects(lastValueFrom(target.intercept(new ExecutionContextHost([]), handler)), (
+      error
+    ) => {
+      assert.ok(!(error instanceof KratosRedirectRequiredException))
+      return true
+    })
   })
 
   it('self service request 410 status error', async () => {
@@ -39,9 +43,10 @@ describe('KratosRedirectInterceptor', () => {
       },
     }
 
-    await expect(
-      lastValueFrom(target.intercept(new ExecutionContextHost([]), handler))
-    ).rejects.toThrowError(KratosRedirectRequiredException)
+    await assert.rejects(
+      lastValueFrom(target.intercept(new ExecutionContextHost([]), handler)),
+      KratosRedirectRequiredException
+    )
   })
 
   it('self service request 404 status error', async () => {
@@ -59,9 +64,10 @@ describe('KratosRedirectInterceptor', () => {
       },
     }
 
-    await expect(
-      lastValueFrom(target.intercept(new ExecutionContextHost([]), handler))
-    ).rejects.toThrowError(KratosRedirectRequiredException)
+    await assert.rejects(
+      lastValueFrom(target.intercept(new ExecutionContextHost([]), handler)),
+      KratosRedirectRequiredException
+    )
   })
 
   it('self service request 403 status error', async () => {
@@ -79,9 +85,10 @@ describe('KratosRedirectInterceptor', () => {
       },
     }
 
-    await expect(
-      lastValueFrom(target.intercept(new ExecutionContextHost([]), handler))
-    ).rejects.toThrowError(KratosRedirectRequiredException)
+    await assert.rejects(
+      lastValueFrom(target.intercept(new ExecutionContextHost([]), handler)),
+      KratosRedirectRequiredException
+    )
   })
 
   it('self service flow required error', async () => {
@@ -91,8 +98,9 @@ describe('KratosRedirectInterceptor', () => {
       handle: () => throwError(() => new KratosFlowRequiredException()),
     }
 
-    await expect(
-      lastValueFrom(target.intercept(new ExecutionContextHost([]), handler))
-    ).rejects.toThrowError(KratosRedirectRequiredException)
+    await assert.rejects(
+      lastValueFrom(target.intercept(new ExecutionContextHost([]), handler)),
+      KratosRedirectRequiredException
+    )
   })
 })

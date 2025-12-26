@@ -4,12 +4,13 @@ import type { TestingModule }                 from '@nestjs/testing'
 
 import type { ExternalRendererModuleOptions } from './external-renderer-module-options.interface.js'
 
+import assert                                 from 'node:assert/strict'
+import { afterEach }                          from 'node:test'
+import { describe }                           from 'node:test'
+import { it }                                 from 'node:test'
+
 import { Module }                             from '@nestjs/common'
 import { Test }                               from '@nestjs/testing'
-import { describe }                           from '@jest/globals'
-import { expect }                             from '@jest/globals'
-import { it }                                 from '@jest/globals'
-import { afterEach }                          from '@jest/globals'
 
 import { EXTERNAL_RENDERER_MODULE_OPTIONS }   from './external-renderer.constants.js'
 import { ExternalRendererModule }             from './external-renderer.module.js'
@@ -31,7 +32,7 @@ describe('external-renderer', () => {
         ],
       }).compile()
 
-      expect(testingModule.get(EXTERNAL_RENDERER_MODULE_OPTIONS)).toBeDefined()
+      assert.ok(testingModule.get(EXTERNAL_RENDERER_MODULE_OPTIONS))
     })
 
     it(`register async use factory`, async () => {
@@ -45,7 +46,7 @@ describe('external-renderer', () => {
         ],
       }).compile()
 
-      expect(testingModule.get(EXTERNAL_RENDERER_MODULE_OPTIONS)).toBeDefined()
+      assert.ok(testingModule.get(EXTERNAL_RENDERER_MODULE_OPTIONS))
     })
 
     it(`register async use class`, async () => {
@@ -65,7 +66,7 @@ describe('external-renderer', () => {
         ],
       }).compile()
 
-      expect(testingModule.get(EXTERNAL_RENDERER_MODULE_OPTIONS)).toBeDefined()
+      assert.ok(testingModule.get(EXTERNAL_RENDERER_MODULE_OPTIONS))
     })
 
     it(`register async use exists`, async () => {
@@ -95,7 +96,7 @@ describe('external-renderer', () => {
         ],
       }).compile()
 
-      expect(testingModule.get(EXTERNAL_RENDERER_MODULE_OPTIONS)).toBeDefined()
+      assert.ok(testingModule.get(EXTERNAL_RENDERER_MODULE_OPTIONS))
     })
   })
 })
