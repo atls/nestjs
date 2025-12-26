@@ -3,7 +3,7 @@ import type { ExecutionContext }        from '@nestjs/common'
 import type { NestInterceptor }         from '@nestjs/common'
 import type { GraphQLExecutionContext } from '@nestjs/graphql'
 import type { Observable }              from 'rxjs'
-import type DataLoader                 from 'dataloader'
+import type DataLoader                  from 'dataloader'
 
 import type { NestDataLoader }          from '../interfaces/index.js'
 

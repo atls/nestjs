@@ -331,8 +331,8 @@ __metadata:
   resolution: "@atls/nestjs-batch-queue@workspace:packages/nestjs-batch-queue"
   dependencies:
     "@jest/globals": "npm:29.7.0"
-    "@nestjs/common": "npm:10.0.5"
-    "@nestjs/core": "npm:10.0.5"
+    "@nestjs/common": "npm:10.4.1"
+    "@nestjs/core": "npm:10.4.1"
     "@nestjs/testing": "npm:10.4.1"
     "@types/amqplib": "npm:0.10.1"
     amqp-connection-manager: "npm:4.1.14"
@@ -396,8 +396,8 @@ __metadata:
     "@bufbuild/protobuf": "npm:1.10.0"
     "@connectrpc/connect": "npm:1.6.1"
     "@connectrpc/connect-node": "npm:1.6.1"
-    "@nestjs/common": "npm:10.0.5"
-    "@nestjs/core": "npm:10.0.5"
+    "@nestjs/common": "npm:10.4.1"
+    "@nestjs/core": "npm:10.4.1"
     "@nestjs/microservices": "npm:10.2.4"
     "@nestjs/platform-express": "npm:10.2.4"
     reflect-metadata: "npm:0.2.2"
@@ -905,8 +905,8 @@ __metadata:
     "@atls/mikro-orm-logger": "npm:0.0.1"
     "@mikro-orm/core": "npm:5.7.12"
     "@mikro-orm/nestjs": "npm:5.2.0"
-    "@nestjs/common": "npm:10.0.5"
-    "@nestjs/core": "npm:10.0.5"
+    "@nestjs/common": "npm:10.4.1"
+    "@nestjs/core": "npm:10.4.1"
     reflect-metadata: "npm:^0.2.2"
     rxjs: "npm:^7.8.1"
   peerDependencies:
@@ -924,8 +924,8 @@ __metadata:
   resolution: "@atls/nestjs-mikro-orm-request-context@workspace:packages/nestjs-mikro-orm-request-context"
   dependencies:
     "@mikro-orm/core": "npm:5.7.12"
-    "@nestjs/common": "npm:10.0.5"
-    "@nestjs/core": "npm:10.0.5"
+    "@nestjs/common": "npm:10.4.1"
+    "@nestjs/core": "npm:10.4.1"
     reflect-metadata: "npm:0.2.2"
     rxjs: "npm:7.8.1"
   peerDependencies:
@@ -941,8 +941,8 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@atls/nestjs-pipes@workspace:packages/nestjs-pipes"
   dependencies:
-    "@nestjs/common": "npm:10.0.5"
-    "@nestjs/core": "npm:10.0.5"
+    "@nestjs/common": "npm:10.4.1"
+    "@nestjs/core": "npm:10.4.1"
     reflect-metadata: "npm:0.2.2"
     rxjs: "npm:7.8.1"
   peerDependencies:
@@ -4686,6 +4686,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@grpc/grpc-js@npm:*":
+  version: 1.14.3
+  resolution: "@grpc/grpc-js@npm:1.14.3"
+  dependencies:
+    "@grpc/proto-loader": "npm:^0.8.0"
+    "@js-sdsl/ordered-map": "npm:^4.4.2"
+  checksum: 10c0/f41f06a311b93cca8c472d56e21387e0f7b57bb2337a91d15ea4279bac8ec4fa0de6bd0d881201229ab800c0f0c55277911ecb850e057f20a828d0ddd623551d
+  languageName: node
+  linkType: hard
+
 "@grpc/grpc-js@npm:1.11.2, @grpc/grpc-js@npm:^1.3.4":
   version: 1.11.2
   resolution: "@grpc/grpc-js@npm:1.11.2"
@@ -4723,6 +4733,20 @@ __metadata:
     "@grpc/proto-loader": "npm:^0.7.8"
     "@types/node": "npm:>=12.12.47"
   checksum: 10c0/798396ba84f324efec9b9efbae681aa735766fccc1b4cf2d5fd502a590c02789fe7aa3f0be31b73ac703da4105763c88e7b5c534159ff33ea8b620f531aa3e13
+  languageName: node
+  linkType: hard
+
+"@grpc/proto-loader@npm:*, @grpc/proto-loader@npm:^0.8.0":
+  version: 0.8.0
+  resolution: "@grpc/proto-loader@npm:0.8.0"
+  dependencies:
+    lodash.camelcase: "npm:^4.3.0"
+    long: "npm:^5.0.0"
+    protobufjs: "npm:^7.5.3"
+    yargs: "npm:^17.7.2"
+  bin:
+    proto-loader-gen-types: build/bin/proto-loader-gen-types.js
+  checksum: 10c0/a27da3b85d5d17bab956d536786c717287eae46ca264ea9ec774db90ff571955bae2705809f431b4622fbf3be9951d7c7bbb1360b2015ee88abe1587cf3d6fe0
   languageName: node
   linkType: hard
 
@@ -5155,27 +5179,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@nestjs/common@npm:10.0.5":
-  version: 10.0.5
-  resolution: "@nestjs/common@npm:10.0.5"
-  dependencies:
-    iterare: "npm:1.2.1"
-    tslib: "npm:2.6.0"
-    uid: "npm:2.0.2"
-  peerDependencies:
-    class-transformer: "*"
-    class-validator: "*"
-    reflect-metadata: ^0.1.12
-    rxjs: ^7.1.0
-  peerDependenciesMeta:
-    class-transformer:
-      optional: true
-    class-validator:
-      optional: true
-  checksum: 10c0/35909db5d05ea933e13f818dc084a3b1aaaadf3287cbb8b72507c01f37e9cdad07eeaab71c8035c37290fe42f25cc8feef81f921cf222400f5a675ea41db62be
-  languageName: node
-  linkType: hard
-
 "@nestjs/common@npm:10.4.1":
   version: 10.4.1
   resolution: "@nestjs/common@npm:10.4.1"
@@ -5278,34 +5281,6 @@ __metadata:
     class-validator:
       optional: true
   checksum: 10c0/3f376333f0438ce3ba21f7887a2ca95acf267086308dd7ef2f9a893b5e286acf73fbee56cc01783c79377218b8d1ba601f694a9a2bd4765f1a14b7570606b7db
-  languageName: node
-  linkType: hard
-
-"@nestjs/core@npm:10.0.5":
-  version: 10.0.5
-  resolution: "@nestjs/core@npm:10.0.5"
-  dependencies:
-    "@nuxtjs/opencollective": "npm:0.3.2"
-    fast-safe-stringify: "npm:2.1.1"
-    iterare: "npm:1.2.1"
-    path-to-regexp: "npm:3.2.0"
-    tslib: "npm:2.6.0"
-    uid: "npm:2.0.2"
-  peerDependencies:
-    "@nestjs/common": ^10.0.0
-    "@nestjs/microservices": ^10.0.0
-    "@nestjs/platform-express": ^10.0.0
-    "@nestjs/websockets": ^10.0.0
-    reflect-metadata: ^0.1.12
-    rxjs: ^7.1.0
-  peerDependenciesMeta:
-    "@nestjs/microservices":
-      optional: true
-    "@nestjs/platform-express":
-      optional: true
-    "@nestjs/websockets":
-      optional: true
-  checksum: 10c0/be62a36c157143c130eace61b2069fb6731025be6c3a2a2b401ebb9c8264fc413b9c96ce99b7c205a9177279f90f04c11972f66e9778c8d6bf1c1607706a9aee
   languageName: node
   linkType: hard
 
@@ -15604,6 +15579,26 @@ __metadata:
   languageName: node
   linkType: hard
 
+"protobufjs@npm:^7.5.3":
+  version: 7.5.4
+  resolution: "protobufjs@npm:7.5.4"
+  dependencies:
+    "@protobufjs/aspromise": "npm:^1.1.2"
+    "@protobufjs/base64": "npm:^1.1.2"
+    "@protobufjs/codegen": "npm:^2.0.4"
+    "@protobufjs/eventemitter": "npm:^1.1.0"
+    "@protobufjs/fetch": "npm:^1.1.0"
+    "@protobufjs/float": "npm:^1.0.2"
+    "@protobufjs/inquire": "npm:^1.1.0"
+    "@protobufjs/path": "npm:^1.1.2"
+    "@protobufjs/pool": "npm:^1.1.0"
+    "@protobufjs/utf8": "npm:^1.1.0"
+    "@types/node": "npm:>=13.7.0"
+    long: "npm:^5.0.0"
+  checksum: 10c0/913b676109ffb3c05d3d31e03a684e569be91f3bba8613da4a683d69d9dba948daa2afd7d2e7944d1aa6c417890c35d9d9a8883c1160affafb0f9670d59ef722
+  languageName: node
+  linkType: hard
+
 "protocol-buffers-schema@npm:3.6.0":
   version: 3.6.0
   resolution: "protocol-buffers-schema@npm:3.6.0"
@@ -17560,13 +17555,6 @@ __metadata:
     minimist: "npm:^1.2.6"
     strip-bom: "npm:^3.0.0"
   checksum: 10c0/5b4f301a2b7a3766a986baf8fc0e177eb80bdba6e396792ff92dc23b5bca8bb279fc96517dcaaef63a3b49bebc6c4c833653ec58155780bc906bdbcf7dda0ef5
-  languageName: node
-  linkType: hard
-
-"tslib@npm:2.6.0":
-  version: 2.6.0
-  resolution: "tslib@npm:2.6.0"
-  checksum: 10c0/8d18020a8b9e70ecc529a744c883c095f177805efdbc9786bd50bd82a46c17547923133c5444fbcaf1f7f1c44e0e29c89f73ecf6d8fd1039668024a073a81dc6
   languageName: node
   linkType: hard
 

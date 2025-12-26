@@ -4,12 +4,13 @@ import type { TestingModule }       from '@nestjs/testing'
 
 import type { KratosModuleOptions } from './kratos-module-options.interface.js'
 
+import assert                       from 'node:assert/strict'
+import { afterEach }                from 'node:test'
+import { describe }                 from 'node:test'
+import { it }                       from 'node:test'
+
 import { Module }                   from '@nestjs/common'
 import { Test }                     from '@nestjs/testing'
-import { describe }                 from '@jest/globals'
-import { it }                       from '@jest/globals'
-import { expect }                   from '@jest/globals'
-import { afterEach }                from '@jest/globals'
 
 import { KRATOS_MODULE_OPTIONS }    from './kratos.constants.js'
 import { KratosModule }             from './kratos.module.js'
@@ -32,7 +33,7 @@ describe('kratos', () => {
         ],
       }).compile()
 
-      expect(testingModule.get(KRATOS_MODULE_OPTIONS)).toBeDefined()
+      assert.ok(testingModule.get(KRATOS_MODULE_OPTIONS))
     })
 
     it(`register async use factory`, async () => {
@@ -47,7 +48,7 @@ describe('kratos', () => {
         ],
       }).compile()
 
-      expect(testingModule.get(KRATOS_MODULE_OPTIONS)).toBeDefined()
+      assert.ok(testingModule.get(KRATOS_MODULE_OPTIONS))
     })
 
     it(`register async use class`, async () => {
@@ -68,7 +69,7 @@ describe('kratos', () => {
         ],
       }).compile()
 
-      expect(testingModule.get(KRATOS_MODULE_OPTIONS)).toBeDefined()
+      assert.ok(testingModule.get(KRATOS_MODULE_OPTIONS))
     })
 
     it(`register async use exists`, async () => {
@@ -99,7 +100,7 @@ describe('kratos', () => {
         ],
       }).compile()
 
-      expect(testingModule.get(KRATOS_MODULE_OPTIONS)).toBeDefined()
+      assert.ok(testingModule.get(KRATOS_MODULE_OPTIONS))
     })
   })
 })

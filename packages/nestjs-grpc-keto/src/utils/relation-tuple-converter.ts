@@ -1,6 +1,9 @@
-import { CheckRequest }                      from '@ory/keto-grpc-client/ory/keto/relation_tuples/v1alpha2/check_service_pb'
-import { SubjectSet }                        from '@ory/keto-grpc-client/ory/keto/relation_tuples/v1alpha2/relation_tuples_pb'
-import { Subject }                           from '@ory/keto-grpc-client/ory/keto/relation_tuples/v1alpha2/relation_tuples_pb'
+import type { CheckRequest }                 from '@ory/keto-grpc-client/ory/keto/relation_tuples/v1alpha2/check_service_pb'
+import type { Subject }                      from '@ory/keto-grpc-client/ory/keto/relation_tuples/v1alpha2/relation_tuples_pb'
+import type { SubjectSet }                   from '@ory/keto-grpc-client/ory/keto/relation_tuples/v1alpha2/relation_tuples_pb'
+
+import checkService                          from '@ory/keto-grpc-client/ory/keto/relation_tuples/v1alpha2/check_service_pb.js'
+import relationTuples                        from '@ory/keto-grpc-client/ory/keto/relation_tuples/v1alpha2/relation_tuples_pb.js'
 
 import { KetoRelationTupleInvalidException } from '../exceptions/index.js'
 
@@ -15,7 +18,7 @@ export class RelationTupleConverter {
     private readonly tuple: Tuple,
     private readonly replacement: string = ''
   ) {
-    this.checkRequest = new CheckRequest()
+    this.checkRequest = new checkService.CheckRequest()
 
     this.convertToString()
   }
@@ -25,7 +28,7 @@ export class RelationTupleConverter {
   }
 
   private get subject(): Subject {
-    return new Subject()
+    return new relationTuples.Subject()
   }
 
   run(): CheckRequest {
@@ -105,7 +108,7 @@ export class RelationTupleConverter {
     const object = this.getObject()
     const relation = this.getRelation()
 
-    const subjectSet = new SubjectSet()
+    const subjectSet = new relationTuples.SubjectSet()
 
     subjectSet.setNamespace(namespace)
 

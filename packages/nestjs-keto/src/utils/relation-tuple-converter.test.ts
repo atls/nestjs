@@ -2,10 +2,10 @@ import type { SubjectSet }        from '@ory/keto-client'
 
 import type { RelationShipTuple } from '../module/index.js'
 
-import { describe }               from '@jest/globals'
-import { beforeAll }              from '@jest/globals'
-import { it }                     from '@jest/globals'
-import { expect }                 from '@jest/globals'
+import assert                     from 'node:assert/strict'
+import { before }                 from 'node:test'
+import { describe }               from 'node:test'
+import { it }                     from 'node:test'
 
 import { RelationTupleConverter } from './relation-tuple-converter.js'
 
@@ -15,7 +15,7 @@ describe('Keto relation tuple converter', () => {
   let stringConverterSubjectSet: RelationTupleConverter
   let invalidTupleConverter: RelationTupleConverter
 
-  beforeAll(() => {
+  before(() => {
     stringConverter = new RelationTupleConverter(
       'testNamespace:testObject#testRelation@testSubject'
     )
@@ -31,12 +31,12 @@ describe('Keto relation tuple converter', () => {
   })
 
   it('accepts either string or function', () => {
-    expect(stringConverter).toBeTruthy()
-    expect(functionConverter).toBeTruthy()
+    assert.ok(stringConverter)
+    assert.ok(functionConverter)
   })
 
   it('throws if tuple is invalid', () => {
-    expect(() => invalidTupleConverter.run()).toThrow()
+    assert.throws(() => invalidTupleConverter.run())
   })
 
   describe('runs', () => {
@@ -44,59 +44,59 @@ describe('Keto relation tuple converter', () => {
     let functionResult: RelationShipTuple
     let stringResultSubjectSet: RelationShipTuple
 
-    beforeAll(() => {
+    before(() => {
       stringResult = stringConverter.run()
       functionResult = functionConverter.run()
       stringResultSubjectSet = stringConverterSubjectSet.run()
     })
 
     it('gets namespace', () => {
-      expect(stringResult.namespace).toBe('testNamespace')
+      assert.strictEqual(stringResult.namespace, 'testNamespace')
 
-      expect(functionResult.namespace).toBe('testNamespace')
+      assert.strictEqual(functionResult.namespace, 'testNamespace')
     })
 
     it('gets object', () => {
-      expect(stringResult.object).toBe('testObject')
+      assert.strictEqual(stringResult.object, 'testObject')
 
-      expect(functionResult.object).toBe('testObject')
+      assert.strictEqual(functionResult.object, 'testObject')
     })
 
     it('gets relation', () => {
-      expect(stringResult.relation).toBe('testRelation')
+      assert.strictEqual(stringResult.relation, 'testRelation')
 
-      expect(functionResult.relation).toBe('testRelation')
+      assert.strictEqual(functionResult.relation, 'testRelation')
     })
 
     it('gets subjectId', () => {
       if ('subject_id' in stringResult) {
-        expect(stringResult.subject_id).toBe('testSubject')
+        assert.strictEqual(stringResult.subject_id, 'testSubject')
       }
 
       if ('subject_id' in functionResult) {
-        expect(functionResult.subject_id).toBe('testSubject')
+        assert.strictEqual(functionResult.subject_id, 'testSubject')
       }
     })
 
     describe('Subject set', () => {
       let stringSubjectSet: SubjectSet | undefined
 
-      beforeAll(() => {
+      before(() => {
         if ('subject_set' in stringResultSubjectSet) {
           stringSubjectSet = stringResultSubjectSet.subject_set
         }
       })
 
       it('gets namespace', () => {
-        expect(stringSubjectSet?.namespace).toBe('testSubjectNamespace')
+        assert.strictEqual(stringSubjectSet?.namespace, 'testSubjectNamespace')
       })
 
       it('gets object', () => {
-        expect(stringSubjectSet?.object).toBe('testSubjectObject')
+        assert.strictEqual(stringSubjectSet?.object, 'testSubjectObject')
       })
 
       it('gets relation', () => {
-        expect(stringSubjectSet?.relation).toBe('testSubjectRelation')
+        assert.strictEqual(stringSubjectSet?.relation, 'testSubjectRelation')
       })
     })
   })

@@ -18,6 +18,8 @@ import { GatewayModuleOptions }       from '../module/index.js'
 import { GraphQLMesh }                from './graphql.mesh.js'
 import { formatError }                from './format.error.js'
 
+type ApolloCorsOption = Parameters<ApolloServer['applyMiddleware']>[0]['cors']
+
 @Injectable()
 export class GraphQLMeshHandler implements OnModuleInit, OnModuleDestroy {
   private apolloServer!: ApolloServer
@@ -40,6 +42,7 @@ export class GraphQLMeshHandler implements OnModuleInit, OnModuleDestroy {
       const buildContext = contextBuilder as (req: IncomingMessage) => unknown
 
       const { path = '/', playground, introspection, cors } = this.options
+      const corsOptions = cors as ApolloCorsOption
 
       const apolloServer = new ApolloServer({
         schema,
@@ -53,7 +56,7 @@ export class GraphQLMeshHandler implements OnModuleInit, OnModuleDestroy {
       apolloServer.applyMiddleware({
         app,
         path,
-        cors,
+        cors: corsOptions,
         bodyParserConfig: {
           limit: this.options.limit || undefined,
         },

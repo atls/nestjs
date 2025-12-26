@@ -63,8 +63,9 @@ export class ProtoClient {
 
     return new Promise((resolve, reject) => {
       const methodImpl = getClientMethod(this.client, method)
-      if ('requestStream' in methodImpl) {
-        const call = methodImpl(metadata)
+      const hasRequestStream = 'requestStream' in methodImpl && Boolean(methodImpl.requestStream)
+      if (hasRequestStream) {
+        const call = methodImpl.call(this.client, metadata)
 
         call.write(request)
 
@@ -80,7 +81,7 @@ export class ProtoClient {
           resolve(response)
         })
       } else {
-        methodImpl(request as Metadata, metadata, (
+        ;(methodImpl as ClientUnaryMethod).call(this.client, request, metadata, (
           error: ServiceError | null,
           response: unknown
         ) => {

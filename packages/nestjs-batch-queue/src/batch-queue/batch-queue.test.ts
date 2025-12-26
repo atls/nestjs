@@ -1,11 +1,16 @@
+/* eslint-disable n/no-unsupported-features/node-builtins */
+
+import type { Mock }                           from 'node:test'
+
 import type { ProcessorFn }                    from './batch-queue.types.js'
 
-import { jest }                                from '@jest/globals'
-import { beforeEach }                          from '@jest/globals'
-import { beforeAll }                           from '@jest/globals'
-import { describe }                            from '@jest/globals'
-import { it }                                  from '@jest/globals'
-import { expect }                              from '@jest/globals'
+import assert                                  from 'node:assert/strict'
+import { after }                               from 'node:test'
+import { before }                              from 'node:test'
+import { beforeEach }                          from 'node:test'
+import { describe }                            from 'node:test'
+import { it }                                  from 'node:test'
+import { mock }                                from 'node:test'
 
 import { CheckManager }                        from '../check-manager/index.js'
 import { MaxQueueLengthExceededError }         from '../errors/index.js'
@@ -22,17 +27,21 @@ describe('BatchQueue', () => {
     timeoutDuration: 1000,
   }
 
-  let processorFnMock: ProcessorFn<string>
+  let processorFnMock: Mock<ProcessorFn<string>>
 
   let batchQueue: BatchQueue<string>
   let checkManager: CheckManager
 
-  beforeAll(() => {
-    jest.useFakeTimers()
+  before(() => {
+    mock.timers.enable()
+  })
+
+  after(() => {
+    mock.timers.reset()
   })
 
   beforeEach(() => {
-    processorFnMock = jest.fn<ReturnType<ProcessorFn<string>>, Parameters<ProcessorFn<string>>>()
+    processorFnMock = mock.fn()
   })
 
   beforeEach(() => {
@@ -45,11 +54,11 @@ describe('BatchQueue', () => {
 
     await batchQueue.addMany({ queueName: 'testQueue', items: ['item1', 'item2'] })
 
-    expect(processorFnMock).not.toHaveBeenCalled()
+    assert.strictEqual(processorFnMock.mock.callCount(), 0)
 
-    jest.advanceTimersByTime(defaultOptions.timeoutDuration)
+    mock.timers.tick(defaultOptions.timeoutDuration)
 
-    expect(processorFnMock).toHaveBeenCalledWith('testQueue', ['item1', 'item2'])
+    assert.deepEqual(processorFnMock.mock.calls[0].arguments, ['testQueue', ['item1', 'item2']])
   })
 
   it('should throw MaxQueueLengthExceededError when adding more items than allowed in a queue', async () => {
@@ -60,7 +69,8 @@ describe('BatchQueue', () => {
       items: ['item1', 'item2', 'item3', 'item4', 'item5'],
     })
 
-    await expect(batchQueue.addMany({ queueName: 'testQueue', items: ['item6'] })).rejects.toThrow(
+    await assert.rejects(
+      batchQueue.addMany({ queueName: 'testQueue', items: ['item6'] }),
       MaxQueueLengthExceededError
     )
   })
@@ -71,9 +81,10 @@ describe('BatchQueue', () => {
     await batchQueue.addMany({ queueName: 'queue1', items: ['item1', 'item2', 'item3'] })
     await batchQueue.addMany({ queueName: 'queue2', items: ['item1', 'item2', 'item3', 'item4'] })
 
-    await expect(
-      batchQueue.addMany({ queueName: 'queue4', items: ['item1', 'item2', 'item3', 'item4'] })
-    ).rejects.toThrow(MaxTotalLengthOfQueuesExceededError)
+    await assert.rejects(
+      batchQueue.addMany({ queueName: 'queue4', items: ['item1', 'item2', 'item3', 'item4'] }),
+      MaxTotalLengthOfQueuesExceededError
+    )
   })
 
   it('should throw MaxQueueCountError when number of queues exceeds the limit', async () => {
@@ -83,7 +94,8 @@ describe('BatchQueue', () => {
     await batchQueue.addMany({ queueName: 'queue2', items: ['item1'] })
     await batchQueue.addMany({ queueName: 'queue3', items: ['item1'] })
 
-    await expect(batchQueue.addMany({ queueName: 'queue4', items: ['item1'] })).rejects.toThrow(
+    await assert.rejects(
+      batchQueue.addMany({ queueName: 'queue4', items: ['item1'] }),
       MaxQueueCountError
     )
   })
@@ -91,39 +103,36 @@ describe('BatchQueue', () => {
   it('should throw CheckFailedError if checks are not passing before adding items', async () => {
     batchQueue.processBatch(processorFnMock)
 
-    const getStateSpy = jest.spyOn(checkManager, 'getState').mockReturnValue(false)
+    const getStateSpy = mock.method(checkManager, 'getState', () => false)
 
-    await expect(batchQueue.addMany({ queueName: 'testQueue', items: ['item1'] })).rejects.toThrow(
+    await assert.rejects(
+      batchQueue.addMany({ queueName: 'testQueue', items: ['item1'] }),
       CheckFailedError
     )
 
-    getStateSpy.mockReturnValue(true)
+    getStateSpy.mock.mockImplementation(() => true)
 
-    await expect(
-      batchQueue.addMany({ queueName: 'testQueue', items: ['item2'] })
-    ).resolves.not.toThrow()
+    await assert.doesNotReject(batchQueue.addMany({ queueName: 'testQueue', items: ['item2'] }))
   })
 
   it('should handle slow batch processing correctly without duplicate processing', async () => {
-    jest.useFakeTimers()
-
-    const slowProcessorFn = jest.fn().mockImplementation(
+    const slowProcessorFn = mock.fn(
       async () =>
         new Promise((resolve) => {
           setTimeout(resolve, 2000)
         })
-    ) as ProcessorFn<string>
+    ) as Mock<ProcessorFn<string>>
 
     batchQueue.processBatch(slowProcessorFn)
 
     await batchQueue.addMany({ queueName: 'testQueue', items: ['item1', 'item2'] })
 
-    jest.advanceTimersByTime(1000)
+    mock.timers.tick(1000)
 
     await batchQueue.addMany({ queueName: 'testQueue', items: ['item3', 'item4'] })
 
-    jest.advanceTimersByTime(2000)
+    mock.timers.tick(2000)
 
-    expect(slowProcessorFn).toHaveBeenCalledTimes(2)
+    assert.strictEqual(slowProcessorFn.mock.callCount(), 2)
   })
 })

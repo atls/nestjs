@@ -1,16 +1,17 @@
-import type { GrpcObject }                from '@grpc/grpc-js'
-import type { Client }                    from '@grpc/grpc-js'
-import type { OnApplicationBootstrap }    from '@nestjs/common'
+import type { GrpcObject }                 from '@grpc/grpc-js'
+import type { Client }                     from '@grpc/grpc-js'
+import type { OnApplicationBootstrap }     from '@nestjs/common'
 
-import { Inject }                         from '@nestjs/common'
-import { Injectable }                     from '@nestjs/common'
-import { loadPackageDefinition }          from '@grpc/grpc-js'
-import { load }                           from '@grpc/proto-loader'
-import get                                from 'lodash.get'
+import type { GrpcHttpProxyModuleOptions } from '../module/index.js'
 
-import { GRPC_HTTP_PROXY_MODULE_OPTIONS } from '../module/index.js'
-import { GrpcHttpProxyModuleOptions }     from '../module/index.js'
-import { ProtoClient }                    from './proto.client.js'
+import { Inject }                          from '@nestjs/common'
+import { Injectable }                      from '@nestjs/common'
+import { loadPackageDefinition }           from '@grpc/grpc-js'
+import { load }                            from '@grpc/proto-loader'
+import get                                 from 'lodash.get'
+
+import { GRPC_HTTP_PROXY_MODULE_OPTIONS }  from '../module/index.js'
+import { ProtoClient }                     from './proto.client.js'
 
 @Injectable()
 export class ProtoRegistry implements OnApplicationBootstrap {
@@ -53,6 +54,6 @@ export class ProtoRegistry implements OnApplicationBootstrap {
       throw new Error('GRPC service not found')
     }
 
-    return ProtoClient.create(this.options.options.url, client)
+    return ProtoClient.create(client, this.options.options.url)
   }
 }

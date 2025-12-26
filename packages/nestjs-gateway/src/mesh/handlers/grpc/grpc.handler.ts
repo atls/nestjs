@@ -1,6 +1,6 @@
 /* eslint-disable */
 
-import './patch-long-js'
+import './patch-long-js.js'
 
 // @ts-ignore
 import { StoreProxy }                                      from '@graphql-mesh/store'

@@ -1,10 +1,10 @@
 import type { ArgumentsHost }              from '@nestjs/common'
 import type { HttpArgumentsHost }          from '@nestjs/common/interfaces/features/arguments-host.interface.js'
 
-import { describe }                        from '@jest/globals'
-import { it }                              from '@jest/globals'
-import { expect }                          from '@jest/globals'
-import { jest }                            from '@jest/globals'
+import assert                              from 'node:assert/strict'
+import { describe }                        from 'node:test'
+import { it }                              from 'node:test'
+import { mock }                            from 'node:test'
 
 import { KratosRedirectRequiredException } from '../exceptions/index.js'
 import { KratosBrowserUrls }               from '../urls/index.js'
@@ -19,8 +19,8 @@ describe('KratosExceptionFilter', () => {
       })
     )
 
-    const response: { redirect: jest.Mock } = {
-      redirect: jest.fn(),
+    const response = {
+      redirect: mock.fn(),
     }
 
     const argumentHost = {
@@ -39,7 +39,9 @@ describe('KratosExceptionFilter', () => {
 
     filter.catch(new KratosRedirectRequiredException('login'), host as ArgumentsHost)
 
-    expect(response.redirect).toBeCalledWith('http://localhost:3000/self-service/login/browser')
+    assert.deepEqual(response.redirect.mock.calls[0].arguments, [
+      'http://localhost:3000/self-service/login/browser',
+    ])
   })
 
   it('redirect on KratosFlowRequiredException with return_to interception', async () => {
@@ -50,8 +52,8 @@ describe('KratosExceptionFilter', () => {
       })
     )
 
-    const response: { redirect: jest.Mock } = {
-      redirect: jest.fn(),
+    const response = {
+      redirect: mock.fn(),
     }
 
     const argumentHost = {
@@ -83,8 +85,8 @@ describe('KratosExceptionFilter', () => {
 
     filter.catch(new KratosRedirectRequiredException('login'), host as ArgumentsHost)
 
-    expect(response.redirect).toBeCalledWith(
-      'http://localhost:3000/self-service/login/browser?return_to=https%3A%2F%2Flocalhost%2Fcomplete%3Freturn_to%3Dhttp%253A%252F%252Flocalhost%253A3000'
-    )
+    assert.deepEqual(response.redirect.mock.calls[0].arguments, [
+      'http://localhost:3000/self-service/login/browser?return_to=https%3A%2F%2Flocalhost%2Fcomplete%3Freturn_to%3Dhttp%253A%252F%252Flocalhost%253A3000',
+    ])
   })
 })

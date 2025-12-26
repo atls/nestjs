@@ -1,14 +1,15 @@
-import type { Response }                  from 'express'
+import type { Response }                    from 'express'
 
-import { Controller }                     from '@nestjs/common'
-import { Inject }                         from '@nestjs/common'
-import { Param }                          from '@nestjs/common'
-import { Res }                            from '@nestjs/common'
-import { Get }                            from '@nestjs/common'
-import fetch                              from 'node-fetch'
+import type { GrpcPlaygroundModuleOptions } from '../module/index.js'
 
-import { GRPC_PLAYGROUND_MODULE_OPTIONS } from '../module/index.js'
-import { GrpcPlaygroundModuleOptions }    from '../module/index.js'
+import { Controller }                       from '@nestjs/common'
+import { Inject }                           from '@nestjs/common'
+import { Param }                            from '@nestjs/common'
+import { Res }                              from '@nestjs/common'
+import { Get }                              from '@nestjs/common'
+import fetch                                from 'node-fetch'
+
+import { GRPC_PLAYGROUND_MODULE_OPTIONS }   from '../module/index.js'
 
 @Controller()
 export class GrpcPlaygroundController {

@@ -1,15 +1,16 @@
-import type { ServiceDefinition }         from '@grpc/proto-loader'
-import type { OnModuleInit }              from '@nestjs/common'
+import type { ServiceDefinition }           from '@grpc/proto-loader'
+import type { OnModuleInit }                from '@nestjs/common'
 
-import { Injectable }                     from '@nestjs/common'
-import { Inject }                         from '@nestjs/common'
-import { ServerGrpc }                     from '@nestjs/microservices'
-import { loadPackageDefinition }          from '@grpc/grpc-js'
-import { loadSync }                       from '@grpc/proto-loader'
+import type { GrpcReflectionModuleOptions } from '../module/index.js'
 
-import { GRPC_REFLECTION_MODULE_OPTIONS } from '../module/index.js'
-import { GrpcReflectionModuleOptions }    from '../module/index.js'
-import { GrpcServicesRegistry }           from './grpc-services.registry.js'
+import { Injectable }                       from '@nestjs/common'
+import { Inject }                           from '@nestjs/common'
+import { ServerGrpc }                       from '@nestjs/microservices'
+import { loadPackageDefinition }            from '@grpc/grpc-js'
+import { loadSync }                         from '@grpc/proto-loader'
+
+import { GRPC_REFLECTION_MODULE_OPTIONS }   from '../module/index.js'
+import { GrpcServicesRegistry }             from './grpc-services.registry.js'
 
 @Injectable()
 export class GrpcReflector implements OnModuleInit {
