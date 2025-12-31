@@ -1,5 +1,8 @@
 import type { FileToCopy } from 'testcontainers/build/types.js'
 
+import { dirname }         from 'node:path'
+import { fileURLToPath }   from 'node:url'
+
 export const KETO_MIGRATE_COMMAND = ['migrate', 'up', '--yes']
 
 export const KETO_START_COMMAND = ['serve']
@@ -34,7 +37,7 @@ export const KETO_READ_PORT = 4466
 
 export const KETO_WRITE_PORT = 4467
 
-const PROJECT_PATH = __dirname
+const PROJECT_PATH = dirname(fileURLToPath(import.meta.url))
 
 export const KETO_FILES: Array<FileToCopy> = [
   {

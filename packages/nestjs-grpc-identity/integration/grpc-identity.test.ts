@@ -1,33 +1,41 @@
-/**
- * @jest-environment node
- */
-
 import type { INestMicroservice }        from '@nestjs/common'
+import type { ClientGrpc }               from '@nestjs/microservices'
 
-import { readFileSync }                  from 'node:fs'
+import assert                            from 'node:assert/strict'
+import { readFile }                      from 'node:fs/promises'
+import { dirname }                       from 'node:path'
 import { join }                          from 'node:path'
+import { after }                         from 'node:test'
+import { before }                        from 'node:test'
+import { describe }                      from 'node:test'
+import { it }                            from 'node:test'
+import { fileURLToPath }                 from 'node:url'
 
 import { Metadata }                      from '@grpc/grpc-js'
 import { ClientsModule }                 from '@nestjs/microservices'
 import { Transport }                     from '@nestjs/microservices'
 import { Test }                          from '@nestjs/testing'
 import { status }                        from '@grpc/grpc-js'
-import { describe }                      from '@jest/globals'
-import { beforeAll }                     from '@jest/globals'
-import { it }                            from '@jest/globals'
-import { expect }                        from '@jest/globals'
-import { afterAll }                      from '@jest/globals'
-import { sign }                          from 'jsonwebtoken'
 import getPort                           from 'get-port'
+import jwt                               from 'jsonwebtoken'
 
 import { GrpcIdentityIntegrationModule } from './src/index.js'
 import { serverOptions }                 from './src/index.js'
 
-describe('grpc identity', () => {
-  let service: INestMicroservice
-  let client: any
+const moduleDir = dirname(fileURLToPath(import.meta.url))
 
-  beforeAll(async () => {
+describe('grpc identity', () => {
+  type TestServiceClient = {
+    test: (
+      request: { id: string },
+      metadata: Metadata
+    ) => { toPromise: () => Promise<{ id: string }> }
+  }
+
+  let service: INestMicroservice
+  let client: TestServiceClient
+
+  before(async () => {
     const servicePort = await getPort()
 
     const testModule = await Test.createTestingModule({
@@ -38,9 +46,9 @@ describe('grpc identity', () => {
             name: 'client',
             transport: Transport.GRPC,
             options: {
-              url: `0.0.0.0:${servicePort}`,
+              url: `127.0.0.1:${servicePort}`,
               package: 'test',
-              protoPath: join(__dirname, 'src/test.proto'),
+              protoPath: join(moduleDir, 'src/test.proto'),
               loader: {
                 arrays: true,
                 keepCase: false,
@@ -58,48 +66,58 @@ describe('grpc identity', () => {
       ...serverOptions,
       options: {
         ...serverOptions.options,
-        url: `0.0.0.0:${servicePort}`,
+        url: `127.0.0.1:${servicePort}`,
       },
     })
 
     await service.init()
     await service.listen()
 
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-call
-    client = service.get('client').getService('TestService')
+    const grpcClient = service.get<ClientGrpc>('client')
+    client = grpcClient.getService<TestServiceClient>('TestService')
   })
 
-  afterAll(async () => {
+  after(async () => {
     await service.close()
   })
 
   it(`check success`, async () => {
-    const privateKey = readFileSync(join(__dirname, 'src/.jwks.pem'), 'utf-8')
+    const privateKey = await readFile(join(moduleDir, 'src/.jwks.pem'), 'utf-8')
+    const jwks = JSON.parse(await readFile(join(moduleDir, 'src/.jwks.json'), 'utf-8'))
 
-    const token = sign({ sub: 'test' }, privateKey, { algorithm: 'RS256' })
+    const keyId = jwks.keys?.[0]?.kid
+
+    const token = jwt.sign({ sub: 'test' }, privateKey, {
+      algorithm: 'RS256',
+      keyid: keyId,
+    })
 
     const metadata = new Metadata()
 
     metadata.add('authorization', `Bearer ${token}`)
 
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-call
     const result = await client.test({ id: 'test' }, metadata).toPromise()
 
-    expect(result.id).toBe('test')
+    assert.strictEqual(result.id, 'test')
   })
 
   it(`check failed`, async () => {
-    expect.assertions(1)
+    const metadata = new Metadata()
 
-    try {
-      const metadata = new Metadata()
+    metadata.add('authorization', `Bearer test`)
 
-      metadata.add('authorization', `Bearer test`)
+    await assert.rejects(
+      async () => client.test({ id: 'test' }, metadata).toPromise(),
+      (error) => {
+        if (!(error instanceof Error)) {
+          throw error
+        }
 
-      // eslint-disable-next-line @typescript-eslint/no-unsafe-call
-      await client.test({ id: 'test' }, metadata).toPromise()
-    } catch (error) {
-      expect((error as any).code).toBe(status.UNAUTHENTICATED)
-    }
+        const grpcError = error as Error & { code?: number }
+        assert.strictEqual(grpcError.code, status.UNAUTHENTICATED)
+
+        return true
+      }
+    )
   })
 })

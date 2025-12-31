@@ -2,9 +2,10 @@
 import type { ArgumentsHost }              from '@nestjs/common'
 import type { ExceptionFilter }            from '@nestjs/common'
 
+import { join }                            from 'node:path'
+
 import { Inject }                          from '@nestjs/common'
 import { Catch }                           from '@nestjs/common'
-import { join }                            from 'path'
 
 import { KratosRedirectRequiredException } from '../exceptions/index.js'
 import { KRATOS_BROWSER_URLS }             from '../module/index.js'

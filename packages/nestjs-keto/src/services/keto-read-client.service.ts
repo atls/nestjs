@@ -21,9 +21,7 @@ export class KetoReadClientService {
     try {
       let data: PermissionApiCheckPermissionRequest
 
-      // @ts-expect-error
-      if (request.subject_id !== undefined) {
-        // @ts-expect-error
+      if ('subject_id' in request) {
         const req: RelationShipTupleWithId = request
 
         data = {
@@ -33,7 +31,6 @@ export class KetoReadClientService {
           subjectId: req.subject_id,
         }
       } else {
-        // @ts-expect-error
         const req: RelationShipTupleWithSet = request
 
         data = {

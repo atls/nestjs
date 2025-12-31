@@ -5,8 +5,7 @@ import { Logger }             from '@atls/logger'
 export class NestLogger implements LoggerService {
   private logger = new Logger(`nestjs`)
 
-  // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
-  public error(message: any, trace?: string, context?: string): void {
+  public error(message: unknown, trace?: string, context?: string): void {
     if (context) {
       this.logger.child(context).error(message)
     } else {
@@ -14,8 +13,7 @@ export class NestLogger implements LoggerService {
     }
   }
 
-  // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
-  public log(message: any, context?: string): void {
+  public log(message: unknown, context?: string): void {
     if (context) {
       this.logger.child(context).info(message)
     } else {
@@ -23,8 +21,7 @@ export class NestLogger implements LoggerService {
     }
   }
 
-  // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
-  public warn(message: any, context?: string): void {
+  public warn(message: unknown, context?: string): void {
     if (context) {
       this.logger.child(context).warn(message)
     } else {
@@ -32,8 +29,7 @@ export class NestLogger implements LoggerService {
     }
   }
 
-  // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
-  public debug(message: any, context?: string): void {
+  public debug(message: unknown, context?: string): void {
     if (context) {
       this.logger.child(context).debug(message)
     } else {
@@ -41,8 +37,7 @@ export class NestLogger implements LoggerService {
     }
   }
 
-  // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
-  public verbose?(message: any, context?: string): void {
+  public verbose?(message: unknown, context?: string): void {
     if (context) {
       this.logger.child(context).trace(message)
     } else {

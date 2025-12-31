@@ -63,11 +63,16 @@ export class TypesenseTypeOrmModule {
       }
     }
 
+    const injectTarget = options.useExisting ?? options.useClass
+    if (!injectTarget) {
+      throw new Error('TypesenseTypeOrmModule requires useExisting, useClass, or useFactory')
+    }
+
     return {
       provide: TYPESENSE_TYPEORM_MODULE_OPTIONS,
       useFactory: async (optionsFactory: TypesenseTypeOrmOptionsFactory) =>
         optionsFactory.createTypesenseTypeOrmOptions(),
-      inject: [options.useExisting! || options.useClass!],
+      inject: [injectTarget],
     }
   }
 }

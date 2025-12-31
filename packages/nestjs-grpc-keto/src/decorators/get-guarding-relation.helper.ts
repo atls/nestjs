@@ -7,4 +7,4 @@ export const getGuardingRelationTuple: GetGuardingRelationTuple = (reflector, ha
   reflector.get<ReplaceGenerator | string, typeof GUARDED_BY_METADATA_KEY>(
     GUARDED_BY_METADATA_KEY,
     handler
-  ) ?? null
+  )

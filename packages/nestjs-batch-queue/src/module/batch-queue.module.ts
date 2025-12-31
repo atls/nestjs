@@ -51,10 +51,16 @@ export class BatchQueueModule {
       createBatchQueueCheckerProvider(),
       createBatchQueueStateHandlerProvider(),
     ]
-    if (!(options.useExisting || options.useFactory)) {
+    const needsClassProvider = options.useExisting === undefined && options.useFactory === undefined
+    if (needsClassProvider) {
+      if (!options.useClass) {
+        throw new Error(
+          'BatchQueueModule requires useClass when useExisting/useFactory not provided'
+        )
+      }
       providers.push({
-        provide: options.useClass!,
-        useClass: options.useClass!,
+        provide: options.useClass,
+        useClass: options.useClass,
       })
     }
     return providers
@@ -69,11 +75,17 @@ export class BatchQueueModule {
       }
     }
 
+    const injectTarget = options.useExisting ?? options.useClass
+
+    if (!injectTarget) {
+      throw new Error('BatchQueueModule requires useExisting, useClass, or useFactory')
+    }
+
     return {
       provide: BATCH_QUEUE_MODULE_OPTIONS,
       useFactory: async (optionsFactory: BatchQueueOptionsFactory) =>
         optionsFactory.createBatchQueueOptions(),
-      inject: [options.useExisting! || options.useClass!],
+      inject: [injectTarget],
     }
   }
 }

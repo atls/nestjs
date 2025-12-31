@@ -18,10 +18,10 @@ export class GrpcJwtIdentityGuard implements CanActivate {
       const metadata = context.getArgByIndex(1)
 
       if (metadata instanceof Metadata) {
-        const authorization = metadata.get('authorization')
+        const authorizationValues = metadata.get('authorization') as Array<Buffer | string>
 
-        if (authorization?.[0]) {
-          const [scheme, credentials] = authorization[0].toString().split(' ')
+        if (authorizationValues.length > 0) {
+          const [scheme, credentials] = authorizationValues[0].toString().split(' ')
 
           if (/^Bearer$/i.test(scheme)) {
             const identity = await this.verifier.verify(credentials)

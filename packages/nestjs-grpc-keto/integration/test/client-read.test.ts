@@ -1,17 +1,13 @@
-/**
- * @jest-environment node
- */
-
 import type { INestApplication }     from '@nestjs/common'
 import type { TestingModule }        from '@nestjs/testing'
 import type { StartedTestContainer } from 'testcontainers'
 
+import { after }                     from 'node:test'
+import { before }                    from 'node:test'
+import { describe }                  from 'node:test'
+import { it }                        from 'node:test'
+
 import { Test }                      from '@nestjs/testing'
-import { jest }                      from '@jest/globals'
-import { describe }                  from '@jest/globals'
-import { beforeAll }                 from '@jest/globals'
-import { afterAll }                  from '@jest/globals'
-import { it }                        from '@jest/globals'
 import { Network }                   from 'testcontainers'
 import { Wait }                      from 'testcontainers'
 import { GenericContainer }          from 'testcontainers'
@@ -30,9 +26,7 @@ import { KETO_START_COMMAND }        from './test.constants.js'
 import { KETO_INIT_COMMAND }         from './test.constants.js'
 import { KETO_MIGRATE_COMMAND }      from './test.constants.js'
 
-jest.setTimeout(25000)
-
-describe('Keto read client', () => {
+describe('Keto read client', { timeout: 25000 }, () => {
   let app: INestApplication
   let url: string
   let testingModule: TestingModule
@@ -40,7 +34,7 @@ describe('Keto read client', () => {
   let dbContainer: StartedTestContainer
   let ketoContainer: StartedTestContainer
 
-  beforeAll(async () => {
+  before(async () => {
     const port = await getPort()
 
     const network = await new Network().start()
@@ -80,7 +74,7 @@ describe('Keto read client', () => {
       })
       .compile()
 
-    app = testingModule.createNestApplication() as INestApplication
+    app = testingModule.createNestApplication()
 
     await app.init()
     await app.listen(port)
@@ -88,15 +82,18 @@ describe('Keto read client', () => {
     url = await app.getHttpServer()
   })
 
-  afterAll(async () => {
+  after(async () => {
     await app.close()
 
     await dbContainer.stop()
     await ketoContainer.stop()
   })
 
-  it('allowed', async () => request(url).get('/allowed').expect(200))
+  it('allowed', async () => {
+    await request(url).get('/allowed').expect(200)
+  })
 
-  it('allows if relation tuple is ok', async () =>
-    request(url).get('/protected-by-keto').set('x-user', 'testUser').expect(200))
+  it('allows if relation tuple is ok', async () => {
+    await request(url).get('/protected-by-keto').set('x-user', 'testUser').expect(200)
+  })
 })

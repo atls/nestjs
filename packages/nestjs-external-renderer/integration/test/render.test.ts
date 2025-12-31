@@ -1,64 +1,100 @@
-/**
- * @jest-environment node
- */
+import 'reflect-metadata'
 
 import type { INestApplication }             from '@nestjs/common'
 
+import assert                                from 'node:assert/strict'
+import { describe }                          from 'node:test'
+import { it }                                from 'node:test'
+
 import { Test }                              from '@nestjs/testing'
-import { describe }                          from '@jest/globals'
-import { it }                                from '@jest/globals'
-import { expect }                            from '@jest/globals'
-import { beforeAll }                         from '@jest/globals'
-import { afterAll }                          from '@jest/globals'
-import getPort                               from 'get-port'
 import request                               from 'supertest'
 
 import { EXTERNAL_RENDERER_MODULE_OPTIONS }  from '../../src/index.js'
 import { ExternalRendererIntegrationModule } from '../src/index.js'
 
-describe('external renderer', () => {
-  let app: INestApplication
-  let url: string
-
-  beforeAll(async () => {
-    const port = await getPort()
-
+describe('external renderer', { timeout: 30000 }, () => {
+  const createApp = async (): Promise<{
+    app: INestApplication
+    server: Parameters<typeof request>[0]
+    cleanup: () => void
+  }> => {
     const testingModule = await Test.createTestingModule({
       imports: [ExternalRendererIntegrationModule],
     })
       .overrideProvider(EXTERNAL_RENDERER_MODULE_OPTIONS)
       .useValue({
-        url: `http://127.0.0.1:${port}`,
+        url: 'http://127.0.0.1:3000',
       })
       .compile()
 
-    app = testingModule.createNestApplication() as INestApplication
+    const app = testingModule.createNestApplication()
 
     await app.init()
-    await app.listen(port, '0.0.0.0')
 
-    url = await app.getUrl()
-  })
+    const server = app.getHttpServer() as Parameters<typeof request>[0]
+    const originalFetch = globalThis.fetch
 
-  afterAll(async () => {
-    await app.close()
-  })
+    globalThis.fetch = (async (input: URL | string, init?: RequestInit) => {
+      const requestUrl = new URL(input.toString())
+      const body =
+        typeof init?.body === 'string'
+          ? (JSON.parse(init.body) as Record<string, unknown>)
+          : undefined
+
+      const response = await request(server)
+        .post(requestUrl.pathname + requestUrl.search)
+        .send(body ?? {})
+
+      return {
+        text: async () => response.text,
+      } as Response
+    }) as typeof fetch
+
+    return {
+      app,
+      server,
+      cleanup: () => {
+        globalThis.fetch = originalFetch
+      },
+    }
+  }
 
   it(`return content`, async () => {
-    const response = await request(url).get('/exec/simple').expect(200)
+    const { app, server, cleanup } = await createApp()
 
-    expect(response.text).toBe('content')
+    try {
+      const response = await request(server).get('/exec/simple').expect(200)
+
+      assert.strictEqual(response.text, 'content')
+    } finally {
+      cleanup()
+      await app.close()
+    }
   })
 
   it(`return param`, async () => {
-    const response = await request(url).get('/exec/params').expect(200)
+    const { app, server, cleanup } = await createApp()
 
-    expect(response.text).toBe('value')
+    try {
+      const response = await request(server).get('/exec/params').expect(200)
+
+      assert.strictEqual(response.text, 'value')
+    } finally {
+      cleanup()
+      await app.close()
+    }
   })
 
   it(`return param res`, async () => {
-    const response = await request(url).get('/exec/res-render-params').expect(200)
+    const { app, server, cleanup } = await createApp()
 
-    expect(response.text).toBe('value')
+    try {
+      const response = await request(server).get('/exec/res-render-params').expect(200)
+
+      assert.strictEqual(response.text, 'value')
+    } finally {
+      cleanup()
+      await app.close()
+    }
   })
 })

@@ -18,7 +18,7 @@ export const createHydraProvider = (): Array<Provider> => []
 export const createHydraExportsProvider = (): Array<Provider> => [
   {
     provide: HydraAdminApi,
-    // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
+
     useFactory: (config: HydraModuleOptions) => {
       const baseOptions = config.tls?.termination
         ? { headers: { 'X-Forwarded-Proto': 'https' } }

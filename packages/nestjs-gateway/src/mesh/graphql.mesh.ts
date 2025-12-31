@@ -1,8 +1,8 @@
-// @ts-expect-error
+// @ts-expect-error import exists
 import type { MeshInstance } from '@graphql-mesh/runtime'
 
 import { Injectable }        from '@nestjs/common'
-// @ts-expect-error
+// @ts-expect-error import exists
 import { getMesh }           from '@graphql-mesh/runtime'
 
 import { GraphQLMeshConfig } from './graphql-mesh.config.js'

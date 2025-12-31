@@ -1,12 +1,30 @@
-import type { OnModuleInit }                from '@nestjs/common'
+import type { OnModuleInit }                  from '@nestjs/common'
 
-import { Inject }                           from '@nestjs/common'
-import { Injectable }                       from '@nestjs/common'
-import { HttpAdapterHost }                  from '@nestjs/core'
+import type { ExternalRendererModuleOptions } from '../module/index.js'
 
-import { EXTERNAL_RENDERER_MODULE_OPTIONS } from '../module/index.js'
-import { ExternalRendererModuleOptions }    from '../module/index.js'
-import { ExpressExternalRendererView }      from './express-external-renderer.view.js'
+import { Inject }                             from '@nestjs/common'
+import { Injectable }                         from '@nestjs/common'
+import { HttpAdapterHost }                    from '@nestjs/core'
+
+import { EXTERNAL_RENDERER_MODULE_OPTIONS }   from '../module/index.js'
+import { ExpressExternalRendererView }        from './express-external-renderer.view.js'
+
+type ExpressResponse = {
+  render: (
+    view: string,
+    options: unknown,
+    callback: (error: unknown, html?: string) => void
+  ) => unknown
+  req: {
+    header: Record<string, string>
+    query: Record<string, unknown>
+  }
+}
+
+type ExpressInstance = {
+  set: (key: string, value: unknown) => void
+  response: ExpressResponse
+}
 
 @Injectable()
 export class ExternalRenderer implements OnModuleInit {
@@ -18,19 +36,18 @@ export class ExternalRenderer implements OnModuleInit {
 
   async onModuleInit(): Promise<void> {
     if (this.adapterHost.httpAdapter.getType() === 'express') {
-      const instance = this.adapterHost.httpAdapter.getInstance()
+      const instance: ExpressInstance = this.adapterHost.httpAdapter.getInstance()
 
-      // eslint-disable-next-line @typescript-eslint/no-unsafe-call
       instance.set('view', ExpressExternalRendererView)
-      // eslint-disable-next-line @typescript-eslint/no-unsafe-call
       instance.set('views', this.options.url)
 
       const { render } = instance.response
 
-      // @ts-expect-error
-      // eslint-disable-next-line @typescript-eslint/explicit-function-return-type, @typescript-eslint/ban-types
-      instance.response.render = function renderView(view, options, callback: Function) {
-        // eslint-disable-next-line @typescript-eslint/no-unsafe-return, @typescript-eslint/no-unsafe-call
+      instance.response.render = function renderView(
+        view: string,
+        options: unknown,
+        callback: (error: unknown, html?: string) => void
+      ): unknown {
         return render.apply(this, [
           view,
           {

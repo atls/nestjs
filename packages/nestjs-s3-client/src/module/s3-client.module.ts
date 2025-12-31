@@ -60,13 +60,18 @@ export class S3ClientModule {
       }
     }
 
+    const injectTarget = options.useExisting ?? options.useClass
+    if (!injectTarget) {
+      throw new Error('S3ClientModule requires useExisting, useClass, or useFactory')
+    }
+
     return {
       provide: S3_CLIENT_MODULE_OPTIONS,
       useFactory: (
         optionsFactory: S3ClientOptionsFactory
       ): Promise<S3ClientModuleOptions> | S3ClientModuleOptions =>
         optionsFactory.createS3ClientOptions(),
-      inject: [options.useExisting! || options.useClass!],
+      inject: [injectTarget],
     }
   }
 }

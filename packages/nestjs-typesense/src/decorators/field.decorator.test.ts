@@ -1,8 +1,8 @@
 /* eslint-disable max-classes-per-file */
 
-import { describe }       from '@jest/globals'
-import { it }             from '@jest/globals'
-import { expect }         from '@jest/globals'
+import assert             from 'node:assert/strict'
+import { describe }       from 'node:test'
+import { it }             from 'node:test'
 
 import { Field }          from './field.decorator.js'
 import { FIELD_METADATA } from './field.decorator.js'
@@ -18,14 +18,8 @@ describe('typesense', () => {
           field!: string
         }
 
-        expect(Reflect.getMetadata(FIELD_METADATA, Test)).toEqual(
-          expect.arrayContaining([
-            expect.objectContaining({
-              name: 'field',
-              type: 'string',
-            }),
-          ])
-        )
+        const metadata = Reflect.getMetadata(FIELD_METADATA, Test) as Array<Record<string, unknown>>
+        assert.ok(metadata.some((entry) => entry.name === 'field' && entry.type === 'string'))
       })
 
       it('should enhance field with custom name metadata', () => {
@@ -35,14 +29,8 @@ describe('typesense', () => {
           field!: string
         }
 
-        expect(Reflect.getMetadata(FIELD_METADATA, Test)).toEqual(
-          expect.arrayContaining([
-            expect.objectContaining({
-              name: 'custom',
-              type: 'string',
-            }),
-          ])
-        )
+        const metadata = Reflect.getMetadata(FIELD_METADATA, Test) as Array<Record<string, unknown>>
+        assert.ok(metadata.some((entry) => entry.name === 'custom' && entry.type === 'string'))
       })
     })
 
@@ -53,16 +41,16 @@ describe('typesense', () => {
         field!: string
       }
 
-      expect(Reflect.getMetadata(FIELD_METADATA, Test)).toEqual(
-        expect.arrayContaining([
-          expect.objectContaining({
-            name: 'field',
-            type: 'string',
-            facet: true,
-            index: true,
-            optional: true,
-          }),
-        ])
+      const metadata = Reflect.getMetadata(FIELD_METADATA, Test) as Array<Record<string, unknown>>
+      assert.ok(
+        metadata.some(
+          (entry) =>
+            entry.name === 'field' &&
+            entry.type === 'string' &&
+            entry.facet === true &&
+            entry.index === true &&
+            entry.optional === true
+        )
       )
     })
 
@@ -76,18 +64,9 @@ describe('typesense', () => {
         field2!: string
       }
 
-      expect(Reflect.getMetadata(FIELD_METADATA, Test)).toEqual(
-        expect.arrayContaining([
-          expect.objectContaining({
-            name: 'field',
-            type: 'string',
-          }),
-          expect.objectContaining({
-            name: 'field2',
-            type: 'string',
-          }),
-        ])
-      )
+      const metadata = Reflect.getMetadata(FIELD_METADATA, Test) as Array<Record<string, unknown>>
+      assert.ok(metadata.some((entry) => entry.name === 'field' && entry.type === 'string'))
+      assert.ok(metadata.some((entry) => entry.name === 'field2' && entry.type === 'string'))
     })
   })
 })

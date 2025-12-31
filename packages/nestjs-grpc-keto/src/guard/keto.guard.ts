@@ -28,7 +28,7 @@ export class KetoGuard implements CanActivate {
 
       const relationTuple = getGuardingRelationTuple(this.reflector, context.getHandler())
 
-      if (relationTuple === null) return false
+      if (!relationTuple) return false
 
       const converter = new RelationTupleConverter(relationTuple, userId)
 
@@ -43,27 +43,37 @@ export class KetoGuard implements CanActivate {
   private getUserId(ctx: ExecutionContext): string | null {
     const contextType = ctx.getType<string>()
 
-    // eslint-disable-next-line @typescript-eslint/no-redundant-type-constituents
-    let metadata: Metadata | any
-
     switch (contextType) {
-      case 'graphql':
-        metadata = GqlExecutionContext.create(ctx).getContext()
+      case 'graphql': {
+        const gqlContext = GqlExecutionContext.create(ctx).getContext<{ user?: string }>()
+        return gqlContext.user ?? null
+      }
 
-        // eslint-disable-next-line @typescript-eslint/no-unsafe-return
-        return metadata.user
+      case 'rpc': {
+        const metadata = ctx.switchToRpc().getContext<Metadata>()
+        const values = metadata.get('x_user') as Array<Buffer | string>
+        const userValues = values.length
+          ? values
+          : (metadata.get('x-user') as Array<Buffer | string>)
+        const value = userValues[0]
+        return value ? value.toString() : null
+      }
 
-      case 'rpc':
-        metadata = ctx.switchToRpc().getContext()
-
-        // eslint-disable-next-line @typescript-eslint/no-unsafe-return, @typescript-eslint/no-unsafe-call
-        return (metadata.get('x_user') ?? metadata.get('x-user')).toString()
-
-      default:
-        metadata = ctx.switchToHttp().getRequest()
-
-        // eslint-disable-next-line @typescript-eslint/no-unsafe-return, @typescript-eslint/no-unsafe-call
-        return metadata.get('x_user') ?? metadata.get('x-user')
+      default: {
+        const request = ctx.switchToHttp().getRequest<{
+          get?: (name: string) => string | undefined
+          headers?: Record<string, Array<string> | string | undefined>
+        }>()
+        const headerValue =
+          request.get?.('x_user') ??
+          request.get?.('x-user') ??
+          request.headers?.x_user ??
+          request.headers?.['x-user']
+        if (Array.isArray(headerValue)) {
+          return headerValue[0] ?? null
+        }
+        return headerValue ?? null
+      }
     }
   }
 }

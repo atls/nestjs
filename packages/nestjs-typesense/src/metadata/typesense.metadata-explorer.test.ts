@@ -4,14 +4,15 @@ import 'reflect-metadata'
 
 import type { TestingModule }        from '@nestjs/testing'
 
+import assert                        from 'node:assert/strict'
+import { afterEach }                 from 'node:test'
+import { beforeEach }                from 'node:test'
+import { describe }                  from 'node:test'
+import { it }                        from 'node:test'
+
 import { Module }                    from '@nestjs/common'
 import { DiscoveryModule }           from '@nestjs/core'
 import { Test }                      from '@nestjs/testing'
-import { describe }                  from '@jest/globals'
-import { it }                        from '@jest/globals'
-import { expect }                    from '@jest/globals'
-import { beforeEach }                from '@jest/globals'
-import { afterEach }                 from '@jest/globals'
 
 import { Schema }                    from '../decorators/index.js'
 import { Field }                     from '../decorators/index.js'
@@ -54,9 +55,7 @@ describe('typesense', () => {
       })
 
       it('should store schema metadata', () => {
-        expect(
-          testingModule.get(TypesenseMetadataRegistry).getSchemaByTarget(TestSchema)
-        ).toBeDefined()
+        assert.ok(testingModule.get(TypesenseMetadataRegistry).getSchemaByTarget(TestSchema))
       })
     })
   })

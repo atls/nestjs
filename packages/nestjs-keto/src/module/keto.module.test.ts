@@ -3,12 +3,13 @@ import type { TestingModule }        from '@nestjs/testing'
 
 import type { KetoModuleOptions }    from './keto-module.interfaces.js'
 
+import assert                        from 'node:assert/strict'
+import { afterEach }                 from 'node:test'
+import { describe }                  from 'node:test'
+import { it }                        from 'node:test'
+
 import { Module }                    from '@nestjs/common'
 import { Test }                      from '@nestjs/testing'
-import { describe }                  from '@jest/globals'
-import { it }                        from '@jest/globals'
-import { expect }                    from '@jest/globals'
-import { afterEach }                 from '@jest/globals'
 
 import { KETO_WRITE_CLIENT }         from './keto.constants.js'
 import { KETO_READ_CLIENT }          from './keto.constants.js'
@@ -32,9 +33,9 @@ describe('Keto module', () => {
       ],
     }).compile()
 
-    expect(testingModule.get(KETO_MODULE_CONFIGURATION)).toBeDefined()
-    expect(testingModule.get(KETO_READ_CLIENT)).toBeDefined()
-    expect(testingModule.get(KETO_WRITE_CLIENT)).toBeDefined()
+    assert.ok(testingModule.get(KETO_MODULE_CONFIGURATION))
+    assert.ok(testingModule.get(KETO_READ_CLIENT))
+    assert.ok(testingModule.get(KETO_WRITE_CLIENT))
   })
 
   it(`registers async use exists`, async () => {
@@ -64,9 +65,9 @@ describe('Keto module', () => {
       ],
     }).compile()
 
-    expect(testingModule.get(KETO_MODULE_CONFIGURATION)).toBeDefined()
-    expect(testingModule.get(KETO_READ_CLIENT)).toBeDefined()
-    expect(testingModule.get(KETO_WRITE_CLIENT)).toBeDefined()
+    assert.ok(testingModule.get(KETO_MODULE_CONFIGURATION))
+    assert.ok(testingModule.get(KETO_READ_CLIENT))
+    assert.ok(testingModule.get(KETO_WRITE_CLIENT))
   })
 
   it(`registers async use class`, async () => {
@@ -86,8 +87,8 @@ describe('Keto module', () => {
       ],
     }).compile()
 
-    expect(testingModule.get(KETO_MODULE_CONFIGURATION)).toBeDefined()
-    expect(testingModule.get(KETO_READ_CLIENT)).toBeDefined()
-    expect(testingModule.get(KETO_WRITE_CLIENT)).toBeDefined()
+    assert.ok(testingModule.get(KETO_MODULE_CONFIGURATION))
+    assert.ok(testingModule.get(KETO_READ_CLIENT))
+    assert.ok(testingModule.get(KETO_WRITE_CLIENT))
   })
 })

@@ -7,10 +7,11 @@ import type { HttpsOptions }         from './connectrpc.interfaces.js'
 import type { HttpOptions }          from './connectrpc.interfaces.js'
 import type { ServerInstance }       from './connectrpc.interfaces.js'
 
+import * as http                     from 'node:http'
+import * as http2                    from 'node:http2'
+import * as https                    from 'node:https'
+
 import { connectNodeAdapter }        from '@connectrpc/connect-node'
-import * as http                     from 'http'
-import * as http2                    from 'http2'
-import * as https                    from 'https'
 
 import { ServerProtocol }            from './connectrpc.interfaces.js'
 

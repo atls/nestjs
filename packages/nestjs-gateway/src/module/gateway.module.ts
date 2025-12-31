@@ -46,11 +46,15 @@ export class GatewayModule {
       return [this.createAsyncOptionsProvider(options)]
     }
 
+    if (!options.useClass) {
+      throw new Error('GatewayModule requires useClass when useExisting/useFactory not provided')
+    }
+
     return [
       this.createAsyncOptionsProvider(options),
       {
-        provide: options.useClass!,
-        useClass: options.useClass!,
+        provide: options.useClass,
+        useClass: options.useClass,
       },
     ]
   }
@@ -64,11 +68,16 @@ export class GatewayModule {
       }
     }
 
+    const injectTarget = options.useExisting ?? options.useClass
+    if (!injectTarget) {
+      throw new Error('GatewayModule requires useExisting, useClass, or useFactory')
+    }
+
     return {
       provide: GATEWAY_MODULE_OPTIONS,
       useFactory: async (optionsFactory: GatewayOptionsFactory) =>
         optionsFactory.createGatewayOptions(),
-      inject: [options.useExisting! || options.useClass!],
+      inject: [injectTarget],
     }
   }
 }

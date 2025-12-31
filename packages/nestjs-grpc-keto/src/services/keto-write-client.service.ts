@@ -1,18 +1,15 @@
-// @ts-expect-error
-import type { RelationTuple }            from '@ory/keto-grpc-client/ory/keto/relation_tuples/v1alpha2/relation_tuples_pb'
+import type { RelationTuple }           from '@ory/keto-grpc-client/ory/keto/relation_tuples/v1alpha2/relation_tuples_pb'
 
-import { Inject }                        from '@nestjs/common'
-import { Injectable }                    from '@nestjs/common'
-// @ts-expect-error
-import { RelationTupleDelta }            from '@ory/keto-grpc-client/ory/keto/relation_tuples/v1alpha2/write_service_pb'
-// @ts-expect-error
-import { TransactRelationTuplesRequest } from '@ory/keto-grpc-client/ory/keto/relation_tuples/v1alpha2/write_service_pb'
+import { Inject }                       from '@nestjs/common'
+import { Injectable }                   from '@nestjs/common'
+import writeService                     from '@ory/keto-grpc-client/ory/keto/relation_tuples/v1alpha2/write_service_pb.js'
 
-import { KetoGeneralException }          from '../exceptions/index.js'
-import { KETO_WRITE_NATIVE_CLIENT }      from '../module/index.js'
-import { KetoWriteNativeClientService }  from './keto-write-native-client.service.js'
+import { KetoGeneralException }         from '../exceptions/index.js'
+import { KETO_WRITE_NATIVE_CLIENT }     from '../module/index.js'
+import { KetoWriteNativeClientService } from './keto-write-native-client.service.js'
 
-import Action = RelationTupleDelta.Action
+type RelationTupleDeltaAction =
+  (typeof writeService.RelationTupleDelta.Action)[keyof typeof writeService.RelationTupleDelta.Action]
 
 @Injectable()
 export class KetoWriteClientService {
@@ -23,21 +20,19 @@ export class KetoWriteClientService {
 
   async addRelationTuple(tuple: RelationTuple): Promise<Array<string>> {
     try {
-      // eslint-disable-next-line @typescript-eslint/no-unsafe-call
-      const relationRequest = new TransactRelationTuplesRequest()
+      const relationRequest = new writeService.TransactRelationTuplesRequest()
 
-      const delta = this.convertDeltaToTuple(tuple, Action.ACTION_INSERT)
+      const delta = this.convertDeltaToTuple(
+        tuple,
+        writeService.RelationTupleDelta.Action.ACTION_INSERT
+      )
 
-      // eslint-disable-next-line @typescript-eslint/no-unsafe-call
       relationRequest.addRelationTupleDeltas(delta)
 
       return new Promise((resolve) => {
-        // @ts-expect-error
-        // eslint-disable-next-line @typescript-eslint/no-unsafe-call
         this.writeServiceClient.transactRelationTuples(relationRequest, (error, response) => {
           if (error) throw error
 
-          // eslint-disable-next-line @typescript-eslint/no-unsafe-argument, @typescript-eslint/no-unsafe-call
           resolve(response.getSnaptokensList())
         })
       })
@@ -48,21 +43,19 @@ export class KetoWriteClientService {
 
   async deleteRelationTuple(tuple: RelationTuple): Promise<Array<string>> {
     try {
-      // eslint-disable-next-line @typescript-eslint/no-unsafe-call
-      const relationRequest = new TransactRelationTuplesRequest()
+      const relationRequest = new writeService.TransactRelationTuplesRequest()
 
-      const delta = this.convertDeltaToTuple(tuple, Action.ACTION_DELETE)
+      const delta = this.convertDeltaToTuple(
+        tuple,
+        writeService.RelationTupleDelta.Action.ACTION_DELETE
+      )
 
-      // eslint-disable-next-line @typescript-eslint/no-unsafe-call
       relationRequest.addRelationTupleDeltas(delta)
 
       return new Promise((resolve) => {
-        // @ts-expect-error
-        // eslint-disable-next-line @typescript-eslint/no-unsafe-call
         this.writeServiceClient.transactRelationTuples(relationRequest, (error, response) => {
           if (error) throw error
 
-          // eslint-disable-next-line @typescript-eslint/no-unsafe-argument, @typescript-eslint/no-unsafe-call
           resolve(response.getSnaptokensList())
         })
       })
@@ -71,11 +64,12 @@ export class KetoWriteClientService {
     }
   }
 
-  private convertDeltaToTuple(tuple: RelationTuple, action: Action): RelationTupleDelta {
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-call
-    const delta = new RelationTupleDelta()
+  private convertDeltaToTuple(
+    tuple: RelationTuple,
+    action: RelationTupleDeltaAction
+  ): writeService.RelationTupleDelta {
+    const delta = new writeService.RelationTupleDelta()
 
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-call
     delta.setAction(action).setRelationTuple(tuple)
 
     return delta

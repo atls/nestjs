@@ -1,4 +1,6 @@
-// @ts-nocheck
+import type { Metadata }    from '@grpc/grpc-js'
+import type { Observable }  from 'rxjs'
+
 import { Controller }       from '@nestjs/common'
 import { GrpcMethod }       from '@nestjs/microservices'
 import { GrpcStreamMethod } from '@nestjs/microservices'
@@ -20,11 +22,9 @@ export class TestController {
   }
 
   @GrpcStreamMethod('TestService', 'TestStream')
-  // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types, @typescript-eslint/explicit-function-return-type
-  testStream(request) {
-    const response = new Subject()
+  testStream(request: Observable<{ id: string }>): Observable<{ id: string }> {
+    const response = new Subject<{ id: string }>()
 
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-call
     request.subscribe({
       complete: () => {
         response.complete()
@@ -40,10 +40,18 @@ export class TestController {
   }
 
   @GrpcMethod('TestService', 'TestAuth')
-  // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
-  auth(_, metadata): { id: string } {
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-call
-    const authorization = metadata.get('authorization')?.[0]
+  auth(_: unknown, metadata: Metadata): { id: string } {
+    const authorizationValues = metadata.get('authorization') as Array<Buffer | string>
+    const authorizationValue = authorizationValues[0]
+    let authorization = ''
+
+    if (typeof authorizationValue === 'string') {
+      authorization = authorizationValue
+    }
+
+    if (authorizationValue instanceof Buffer) {
+      authorization = authorizationValue.toString()
+    }
 
     return {
       id: authorization,
