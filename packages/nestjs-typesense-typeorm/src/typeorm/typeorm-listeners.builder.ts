@@ -2,8 +2,8 @@
 
 import type { OnModuleInit }              from '@nestjs/common'
 import type { EntitySubscriberInterface } from 'typeorm'
-import type { InsertEvent }               from 'typeorm'
 import type { UpdateEvent }               from 'typeorm'
+import type { InsertEvent }               from 'typeorm'
 
 import { Logger }                         from '@atls/logger'
 import { Injectable }                     from '@nestjs/common'
