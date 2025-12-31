@@ -1,6 +1,6 @@
 {
   "name": "@atlantis-lab/nestjs-signed-url",
-  "version": "0.1.45",
+  "version": "0.1.46",
   "repository": "git@github.com:atls/nestjs.git",
   "license": "BSD-3 Clause",
   "type": "module",
