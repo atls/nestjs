@@ -1,5 +1,12 @@
 
 
+## [1.0.8](https://github.com/atls/nestjs/compare/@atls/nestjs-grpc-reflection@1.0.7...@atls/nestjs-grpc-reflection@1.0.8) (2025-12-31)
+
+
+
+
+
+
 ## [1.0.7](https://github.com/atls/nestjs/compare/@atls/nestjs-grpc-reflection@1.0.7...@atls/nestjs-grpc-reflection@1.0.7) (2025-12-31)
 
 
