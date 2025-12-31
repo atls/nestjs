@@ -18,7 +18,7 @@ export const kafkaLogCreator = (): ((logEntry: LogEntry) => void) => {
       logger.warn(message, extra)
     } else if (level === logLevel.INFO) {
       logger.info(message, extra)
-    } else if (level === logLevel.DEBUG) {
+    } else {
       logger.debug(message, extra)
     }
   }

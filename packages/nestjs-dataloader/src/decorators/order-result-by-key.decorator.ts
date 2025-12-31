@@ -1,32 +1,46 @@
-/* eslint-disable no-param-reassign */
+type OrderKey = number | string | symbol
 
-export const OrderResultByKey = (key = 'id', defaultValue = undefined) =>
-  // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
-  (target: any, propertyKey: string, descriptor: PropertyDescriptor): PropertyDescriptor => {
-    const original = descriptor.value
+const normalizeKey = (value: unknown): string | undefined => {
+  if (typeof value === 'string' || typeof value === 'number') {
+    return String(value)
+  }
+  if (typeof value === 'symbol') {
+    return value.toString()
+  }
+  return undefined
+}
 
-    // @ts-expect-error unsafe assign
-    // eslint-disable-next-line func-names, @typescript-eslint/no-explicit-any
-    descriptor.value = async function (keys, ...args): Promise<any> {
-      // eslint-disable-next-line @typescript-eslint/no-unsafe-call
+export const OrderResultByKey = (key = 'id', defaultValue: unknown = undefined) =>
+  (target: object, propertyKey: string, descriptor: PropertyDescriptor): PropertyDescriptor => {
+    const original = descriptor.value as (
+      keys: Array<OrderKey>,
+      ...args: Array<unknown>
+    ) => Promise<Array<Record<OrderKey, unknown>>>
+
+    // eslint-disable-next-line func-names
+    descriptor.value = async function (
+      keys: Array<OrderKey>,
+      ...args: Array<unknown>
+    ): Promise<Array<unknown>> {
       const method = original.bind(this)
-      // eslint-disable-next-line @typescript-eslint/no-unsafe-call
       const result = await method(keys, ...args)
 
-      // eslint-disable-next-line @typescript-eslint/no-unsafe-call
-      const resultByKey = result.reduce(
-        // @ts-expect-error unsafe method
-        // eslint-disable-next-line @typescript-eslint/no-unsafe-return
-        (res, item) => ({
-          ...res,
-          [item[key]]: item,
-        }),
-        {}
-      )
+      const resultByKey = result.reduce<Record<string, Record<OrderKey, unknown>>>((res, item) => {
+        const itemKey = item[key]
+        const normalizedKey = normalizeKey(itemKey)
+        if (normalizedKey !== undefined) {
+          res[normalizedKey] = item
+        }
+        return res
+      }, {})
 
-      // @ts-expect-error unsafe method
-      // eslint-disable-next-line @typescript-eslint/no-unsafe-return, @typescript-eslint/no-unsafe-call
-      return keys.map((itemKey) => resultByKey[itemKey] || defaultValue)
+      return keys.map((itemKey) => {
+        const normalizedKey = normalizeKey(itemKey)
+        if (normalizedKey === undefined) {
+          return defaultValue
+        }
+        return resultByKey[normalizedKey] ?? defaultValue
+      })
     }
 
     return descriptor

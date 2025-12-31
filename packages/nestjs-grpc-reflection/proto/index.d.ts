@@ -1,1 +1,1 @@
-export declare const serverReflectionPath: any
+export declare const serverReflectionPath: string

@@ -1,6 +1,6 @@
-import type * as http                from 'http'
-import type * as http2               from 'http2'
-import type * as https               from 'https'
+import type * as http                from 'node:http'
+import type * as http2               from 'node:http2'
+import type * as https               from 'node:https'
 import type { ConnectRouterOptions } from '@connectrpc/connect'
 import type { Observable }           from 'rxjs'
 

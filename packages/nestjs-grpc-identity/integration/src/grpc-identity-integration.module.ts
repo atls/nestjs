@@ -1,15 +1,19 @@
+import { promises as fs }     from 'node:fs'
+import { join }               from 'node:path'
+import { fileURLToPath }      from 'node:url'
+
 import { Module }             from '@nestjs/common'
-import { promises as fs }     from 'fs'
-import { join }               from 'path'
 
 import { GrpcIdentityModule } from '../../src/index.js'
 import { TestController }     from './test.controller.js'
+
+const moduleDir = fileURLToPath(new URL('.', import.meta.url))
 
 @Module({
   imports: [
     GrpcIdentityModule.register({
       jwks: {
-        jwksUri: join(__dirname, '.jwks.json'),
+        jwksUri: join(moduleDir, '.jwks.json'),
         fetcher: async (jwksUri) => {
           const data = await fs.readFile(jwksUri)
 

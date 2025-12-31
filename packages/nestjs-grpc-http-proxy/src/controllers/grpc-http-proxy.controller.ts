@@ -1,4 +1,7 @@
-// @ts-nocheck
+import type { ServiceError }     from '@grpc/grpc-js'
+import type { Request }          from 'express'
+import type { Response }         from 'express'
+
 import { ErrorStatus }           from '@atls/grpc-error-status'
 import { Controller }            from '@nestjs/common'
 import { Body }                  from '@nestjs/common'
@@ -8,8 +11,6 @@ import { Param }                 from '@nestjs/common'
 import { Header }                from '@nestjs/common'
 import { Req }                   from '@nestjs/common'
 import { Res }                   from '@nestjs/common'
-import { Request }               from 'express'
-import { Response }              from 'express'
 import BJSON                     from 'buffer-json'
 
 import { AuthenticationService } from '../authenticators/index.js'
@@ -25,28 +26,21 @@ export class GrpcHttpProxyController {
   @HttpCode(200)
   @Post('/:service/:method')
   @Header('Content-Type', 'application/json')
-  /* eslint-disable @typescript-eslint/explicit-module-boundary-types */
   async call(
-    // @ts-expect-error
-    @Param('service') service,
-    // @ts-expect-error
-    @Param('method') method,
-    // @ts-expect-error
-    @Body() body,
+    @Param('service') service: string,
+    @Param('method') method: string,
+    @Body() body: unknown,
     @Req() req: Request,
     @Res() res: Response
   ): Promise<void> {
-    /* eslint-enable @typescript-eslint/explicit-module-boundary-types */
     try {
       const authorization = await this.authenticator.authenticate(req, res)
 
-      // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
       const data = await this.protoRegistry.getClient(service).call(method, body, { authorization })
 
       res.send(BJSON.stringify(data))
     } catch (error) {
-      // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
-      res.send(BJSON.stringify(ErrorStatus.fromServiceError(error as any).toObject()))
+      res.send(BJSON.stringify(ErrorStatus.fromServiceError(error as ServiceError).toObject()))
     }
   }
 }

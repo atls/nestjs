@@ -1,12 +1,15 @@
-import { Controller }                     from '@nestjs/common'
-import { Inject }                         from '@nestjs/common'
-import { Param }                          from '@nestjs/common'
-import { Res }                            from '@nestjs/common'
-import { Get }                            from '@nestjs/common'
-import fetch                              from 'node-fetch'
+import type { Response }                    from 'express'
 
-import { GRPC_PLAYGROUND_MODULE_OPTIONS } from '../module/index.js'
-import { GrpcPlaygroundModuleOptions }    from '../module/index.js'
+import type { GrpcPlaygroundModuleOptions } from '../module/index.js'
+
+import { Controller }                       from '@nestjs/common'
+import { Inject }                           from '@nestjs/common'
+import { Param }                            from '@nestjs/common'
+import { Res }                              from '@nestjs/common'
+import { Get }                              from '@nestjs/common'
+import fetch                                from 'node-fetch'
+
+import { GRPC_PLAYGROUND_MODULE_OPTIONS }   from '../module/index.js'
 
 @Controller()
 export class GrpcPlaygroundController {
@@ -23,10 +26,7 @@ export class GrpcPlaygroundController {
   }
 
   @Get('/_next/static/chunks/:chunk')
-  // @ts-expect-error
-  // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
-  async chunks(@Res() res, @Param('chunk') chunk: string): Promise<void> {
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-call
+  async chunks(@Res() res: Response, @Param('chunk') chunk: string): Promise<void> {
     res.redirect(this.getJsdelivrUrl(`_next/static/chunks/${chunk}`))
   }
 

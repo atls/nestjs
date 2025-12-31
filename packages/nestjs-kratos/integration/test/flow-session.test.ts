@@ -1,15 +1,12 @@
-/**
- * @jest-environment node
- */
-
 import type { INestApplication }   from '@nestjs/common'
 
+import assert                      from 'node:assert/strict'
+import { after }                   from 'node:test'
+import { before }                  from 'node:test'
+import { describe }                from 'node:test'
+import { it }                      from 'node:test'
+
 import { Test }                    from '@nestjs/testing'
-import { describe }                from '@jest/globals'
-import { it }                      from '@jest/globals'
-import { expect }                  from '@jest/globals'
-import { beforeAll }               from '@jest/globals'
-import { afterAll }                from '@jest/globals'
 import getPort                     from 'get-port'
 import request                     from 'supertest'
 
@@ -20,7 +17,7 @@ describe('kratos flow session', () => {
   let app: INestApplication
   let url: string
 
-  beforeAll(async () => {
+  before(async () => {
     const port = await getPort()
 
     const testingModule = await Test.createTestingModule({
@@ -33,15 +30,15 @@ describe('kratos flow session', () => {
       })
       .compile()
 
-    app = testingModule.createNestApplication() as INestApplication
+    app = testingModule.createNestApplication()
 
     await app.init()
-    await app.listen(port, '0.0.0.0')
+    await app.listen(port, '127.0.0.1')
 
     url = await app.getUrl()
   })
 
-  afterAll(async () => {
+  after(async () => {
     await app.close()
   })
 
@@ -51,12 +48,12 @@ describe('kratos flow session', () => {
       .set('Cookie', 'test')
       .expect(200)
 
-    expect(response.body.id).toBe('test')
+    assert.strictEqual(response.body.id, 'test')
   })
 
   it(`empty session`, async () => {
     const response = await request(url).get('/identity/session/whoami').expect(200)
 
-    expect(response.body.id).not.toBeDefined()
+    assert.equal(response.body.id, undefined)
   })
 })

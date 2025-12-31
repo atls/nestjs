@@ -1,30 +1,37 @@
-/**
- * @jest-environment node
- */
-
 import type { INestMicroservice }      from '@nestjs/common'
+import type { ClientGrpc }             from '@nestjs/microservices'
+
+import assert                          from 'node:assert/strict'
+import { dirname }                     from 'node:path'
+import { join }                        from 'node:path'
+import { after }                       from 'node:test'
+import { before }                      from 'node:test'
+import { describe }                    from 'node:test'
+import { it }                          from 'node:test'
+import { fileURLToPath }               from 'node:url'
 
 import { ErrorStatus }                 from '@atls/grpc-error-status'
 import { ClientsModule }               from '@nestjs/microservices'
 import { Transport }                   from '@nestjs/microservices'
 import { Test }                        from '@nestjs/testing'
-import { describe }                    from '@jest/globals'
-import { it }                          from '@jest/globals'
-import { beforeAll }                   from '@jest/globals'
-import { expect }                      from '@jest/globals'
-import { afterAll }                    from '@jest/globals'
-import { join }                        from 'path'
 import getPort                         from 'get-port'
 
 import { GrpcErrorsIntegrationModule } from '../src/index.js'
 import { serverOptions }               from '../src/index.js'
 
-describe('grpc error', () => {
-  let service: INestMicroservice
-  // @ts-expect-error
-  let testClient
+const moduleDir = dirname(fileURLToPath(import.meta.url))
 
-  beforeAll(async () => {
+describe('grpc error', () => {
+  type TestServiceClient = {
+    testValidation: (request: { id: string; child: { id: string } }) => {
+      toPromise: () => Promise<unknown>
+    }
+  }
+
+  let service: INestMicroservice
+  let testClient: TestServiceClient
+
+  before(async () => {
     const servicePort = await getPort()
 
     const testingModule = await Test.createTestingModule({
@@ -35,9 +42,9 @@ describe('grpc error', () => {
             name: 'client',
             transport: Transport.GRPC,
             options: {
-              url: `0.0.0.0:${servicePort}`,
+              url: `127.0.0.1:${servicePort}`,
               package: 'test',
-              protoPath: join(__dirname, '../src/test.proto'),
+              protoPath: join(moduleDir, '../src/test.proto'),
               loader: {
                 arrays: true,
                 keepCase: false,
@@ -55,7 +62,7 @@ describe('grpc error', () => {
       ...serverOptions,
       options: {
         ...serverOptions.options,
-        url: `0.0.0.0:${servicePort}`,
+        url: `127.0.0.1:${servicePort}`,
       },
     })
 
@@ -63,42 +70,41 @@ describe('grpc error', () => {
 
     await service.listen()
 
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-call
-    testClient = service.get('client').getService('TestService')
+    const grpcClient = service.get<ClientGrpc>('client')
+
+    testClient = grpcClient.getService<TestServiceClient>('TestService')
   })
 
-  afterAll(async () => {
+  after(async () => {
     await service.close()
   })
 
   it(`validation errors`, async () => {
-    expect.assertions(1)
+    await assert.rejects(
+      async () => testClient.testValidation({ id: 'test', child: { id: 'test' } }).toPromise(),
+      (error) => {
+        const status = ErrorStatus.fromServiceError(
+          error as Parameters<typeof ErrorStatus.fromServiceError>[0]
+        ).toObject() as {
+          details?: Array<Record<string, unknown>>
+        }
+        const details = status.details ?? []
+        const badRequest = details.find(
+          (detail) => detail['@type'] === 'type.googleapis.com/google.rpc.BadRequest'
+        ) as { fieldViolationsList?: Array<{ field?: string; description?: string }> } | undefined
 
-    try {
-      // @ts-expect-error
-      // eslint-disable-next-line @typescript-eslint/no-unsafe-call
-      await testClient.testValidation({ id: 'test', child: { id: 'test' } }).toPromise()
-    } catch (error) {
-      // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
-      expect(ErrorStatus.fromServiceError(error as any).toObject()).toEqual(
-        expect.objectContaining({
-          details: expect.arrayContaining([
-            expect.objectContaining({
-              '@type': 'type.googleapis.com/google.rpc.BadRequest',
-              fieldViolationsList: expect.arrayContaining([
-                expect.objectContaining({
-                  field: 'id',
-                  description: 'id must be an email',
-                }),
-                expect.objectContaining({
-                  field: 'child.id',
-                  description: 'id must be an email',
-                }),
-              ]),
-            }),
-          ]),
-        })
-      )
-    }
+        assert.ok(badRequest)
+
+        const violations = badRequest.fieldViolationsList ?? []
+        const fields = violations.map((violation) => violation.field)
+        const descriptions = violations.map((violation) => violation.description)
+
+        assert.ok(fields.includes('id'))
+        assert.ok(fields.includes('child.id'))
+        assert.ok(descriptions.includes('id must be an email'))
+
+        return true
+      }
+    )
   })
 })

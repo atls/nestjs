@@ -1,6 +1,6 @@
 export const waitForConsumeCount = async (
   expectedCount: number,
-  consumeBatchs: Array<any>,
+  consumeBatchs: Array<unknown>,
   timeout = 5000
 ): Promise<void> => {
   const endTime = Date.now() + timeout

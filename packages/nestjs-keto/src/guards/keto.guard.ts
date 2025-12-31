@@ -27,7 +27,7 @@ export class KetoGuard implements CanActivate {
 
       const relationTuple = getGuardingRelationTuple(this.reflector, context.getHandler())
 
-      if (relationTuple === null) return false
+      if (!relationTuple) return false
 
       const converter = new RelationTupleConverter(relationTuple, userId)
 
@@ -42,20 +42,27 @@ export class KetoGuard implements CanActivate {
   private getUserId(ctx: ExecutionContext): string | null {
     const contextType = ctx.getType<string>()
 
-    let metadata
-
     switch (contextType) {
-      case 'graphql':
-        metadata = GqlExecutionContext.create(ctx).getContext()
+      case 'graphql': {
+        const graphqlContext = GqlExecutionContext.create(ctx).getContext<{ user?: string }>()
+        return graphqlContext.user ?? null
+      }
 
-        // eslint-disable-next-line @typescript-eslint/no-unsafe-return
-        return metadata.user
-
-      default:
-        metadata = ctx.switchToHttp().getRequest()
-
-        // eslint-disable-next-line @typescript-eslint/no-unsafe-return, @typescript-eslint/no-unsafe-call
-        return metadata.get('x_user') ?? metadata.get('x-user')
+      default: {
+        const request = ctx.switchToHttp().getRequest<{
+          get?: (name: string) => string | undefined
+          headers?: Record<string, Array<string> | string | undefined>
+        }>()
+        const headerValue =
+          request.get?.('x_user') ??
+          request.get?.('x-user') ??
+          request.headers?.x_user ??
+          request.headers?.['x-user']
+        if (Array.isArray(headerValue)) {
+          return headerValue[0] ?? null
+        }
+        return headerValue ?? null
+      }
     }
   }
 }

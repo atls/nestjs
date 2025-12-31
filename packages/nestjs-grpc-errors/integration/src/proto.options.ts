@@ -1,14 +1,18 @@
 import type { GrpcOptions } from '@nestjs/microservices'
 
+import path                 from 'node:path'
+import { fileURLToPath }    from 'node:url'
+
 import { Transport }        from '@nestjs/microservices'
-import path                 from 'path'
+
+const moduleDir = path.dirname(fileURLToPath(import.meta.url))
 
 export const serverOptions: GrpcOptions = {
   transport: Transport.GRPC,
   options: {
     package: ['test'],
-    protoPath: [path.join(__dirname, './test.proto')],
-    url: '0.0.0.0:50051',
+    protoPath: [path.join(moduleDir, './test.proto')],
+    url: '127.0.0.1:50051',
     loader: {
       arrays: true,
       keepCase: true,

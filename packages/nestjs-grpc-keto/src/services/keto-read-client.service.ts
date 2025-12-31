@@ -1,5 +1,4 @@
-// @ts-expect-error
-import type { CheckRequest }      from '@ory/keto-grpc-client/ory/keto/relation_tuples/v1alpha2/check_service_pb'
+import type { CheckRequest }      from '@ory/keto-grpc-client/ory/keto/relation_tuples/v1alpha2/check_service_pb.js'
 
 import { Inject }                 from '@nestjs/common'
 import { Injectable }             from '@nestjs/common'
@@ -17,12 +16,9 @@ export class KetoReadClientService {
   async validateRelationTuple(checkRequest: CheckRequest): Promise<boolean> {
     try {
       return new Promise((resolve) => {
-        // @ts-expect-error
-        // eslint-disable-next-line @typescript-eslint/no-unsafe-call
         this.checkServiceClient.check(checkRequest, (error, response) => {
           if (error) throw error
 
-          // eslint-disable-next-line @typescript-eslint/no-unsafe-argument, @typescript-eslint/no-unsafe-call
           resolve(response.getAllowed())
         })
       })

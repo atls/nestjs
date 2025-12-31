@@ -1,6 +1,8 @@
-import type { ModuleMetadata }         from '@nestjs/common/interfaces'
-import type { Type }                   from '@nestjs/common/interfaces'
-import type { Options as JwksOptions } from 'jwks-rsa'
+import type { InjectionToken }            from '@nestjs/common/interfaces'
+import type { ModuleMetadata }            from '@nestjs/common/interfaces'
+import type { OptionalFactoryDependency } from '@nestjs/common/interfaces'
+import type { Type }                      from '@nestjs/common/interfaces'
+import type { Options as JwksOptions }    from 'jwks-rsa'
 
 export interface GrpcIdentityModuleOptions {
   jwks: JwksOptions
@@ -14,7 +16,7 @@ export interface GrpcIdentityModuleAsyncOptions extends Pick<ModuleMetadata, 'im
   useExisting?: Type<GrpcIdentityOptionsFactory>
   useClass?: Type<GrpcIdentityOptionsFactory>
   useFactory?: (
-    ...args: Array<any>
+    ...args: Array<unknown>
   ) => GrpcIdentityModuleOptions | Promise<GrpcIdentityModuleOptions>
-  inject?: Array<any>
+  inject?: Array<InjectionToken | OptionalFactoryDependency>
 }

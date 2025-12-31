@@ -1,16 +1,13 @@
-/**
- * @jest-environment node
- */
-
 import type { INestApplication }          from '@nestjs/common'
 import type { INestMicroservice }         from '@nestjs/common'
 
+import assert                             from 'node:assert/strict'
+import { after }                          from 'node:test'
+import { before }                         from 'node:test'
+import { describe }                       from 'node:test'
+import { it }                             from 'node:test'
+
 import { Test }                           from '@nestjs/testing'
-import { describe }                       from '@jest/globals'
-import { beforeAll }                      from '@jest/globals'
-import { it }                             from '@jest/globals'
-import { expect }                         from '@jest/globals'
-import { afterAll }                       from '@jest/globals'
 import getPort                            from 'get-port'
 import request                            from 'supertest'
 
@@ -24,7 +21,7 @@ describe('grpc http proxy', () => {
   let app: INestApplication
   let url: string
 
-  beforeAll(async () => {
+  before(async () => {
     const servicePort = await getPort()
     const appPort = await getPort()
 
@@ -35,7 +32,7 @@ describe('grpc http proxy', () => {
       .useValue({
         options: {
           ...serverOptions.options,
-          url: `0.0.0.0:${servicePort}`,
+          url: `127.0.0.1:${servicePort}`,
         },
         authenticator: new NopeAuthenticator(),
       })
@@ -45,22 +42,22 @@ describe('grpc http proxy', () => {
       ...serverOptions,
       options: {
         ...serverOptions.options,
-        url: `0.0.0.0:${servicePort}`,
+        url: `127.0.0.1:${servicePort}`,
       },
     })
 
-    app = testingModule.createNestApplication() as INestApplication
+    app = testingModule.createNestApplication()
 
     await service.init()
     await app.init()
 
-    await app.listen(appPort, '0.0.0.0')
+    await app.listen(appPort, '127.0.0.1')
     await service.listen()
 
     url = await app.getUrl()
   })
 
-  afterAll(async () => {
+  after(async () => {
     await service.close()
     await app.close()
   })
@@ -74,7 +71,7 @@ describe('grpc http proxy', () => {
       .set('Accept', 'application/json')
       .expect(200)
 
-    expect(response.body.id).toBe('test')
+    assert.strictEqual(response.body.id, 'test')
   })
 
   it(`call error method`, async () => {
@@ -86,8 +83,8 @@ describe('grpc http proxy', () => {
       .set('Accept', 'application/json')
       .expect(200)
 
-    expect(response.body.code).toBe(2)
-    expect(response.body.details).toBeDefined()
+    assert.strictEqual(response.body.code, 2)
+    assert.ok(response.body.details)
   })
 
   it(`call stream method`, async () => {
@@ -99,7 +96,7 @@ describe('grpc http proxy', () => {
       .set('Accept', 'application/json')
       .expect(200)
 
-    expect(response.body.id).toBe('test')
+    assert.strictEqual(response.body.id, 'test')
   })
 
   it(`call auth method`, async () => {
@@ -111,6 +108,6 @@ describe('grpc http proxy', () => {
       .set('Accept', 'application/json')
       .expect(200)
 
-    expect(response.body.id).toBe('nope')
+    assert.strictEqual(response.body.id, 'nope')
   })
 })

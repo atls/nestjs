@@ -60,13 +60,18 @@ export class GcsClientModule {
       }
     }
 
+    const injectTarget = options.useExisting ?? options.useClass
+    if (!injectTarget) {
+      throw new Error('GcsClientModule requires useExisting, useClass, or useFactory')
+    }
+
     return {
       provide: GCS_CLIENT_MODULE_OPTIONS,
       useFactory: (
         optionsFactory: GcsClientOptionsFactory
       ): GcsClientModuleOptions | Promise<GcsClientModuleOptions> =>
         optionsFactory.createGcsClientOptions(),
-      inject: [options.useExisting! || options.useClass!],
+      inject: [injectTarget],
     }
   }
 }

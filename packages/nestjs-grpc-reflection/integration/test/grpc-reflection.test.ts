@@ -1,33 +1,37 @@
-/**
- * @jest-environment node
- */
-
 import type { INestMicroservice }          from '@nestjs/common'
 
 import type { ServerReflectionClient }     from '../../src/index.js'
 import type { ServerReflectionRequest }    from '../../src/index.js'
 
+import assert                              from 'node:assert/strict'
+import path                                from 'node:path'
+import { after }                           from 'node:test'
+import { before }                          from 'node:test'
+import { describe }                        from 'node:test'
+import { it }                              from 'node:test'
+import { fileURLToPath }                   from 'node:url'
+
 import { ClientsModule }                   from '@nestjs/microservices'
 import { Transport }                       from '@nestjs/microservices'
 import { Test }                            from '@nestjs/testing'
-import { describe }                        from '@jest/globals'
-import { beforeAll }                       from '@jest/globals'
-import { it }                              from '@jest/globals'
-import { expect }                          from '@jest/globals'
-import { afterAll }                        from '@jest/globals'
-import { FileDescriptorProto }             from 'google-protobuf/google/protobuf/descriptor_pb.js'
+import * as googleDescriptorProto          from 'google-protobuf/google/protobuf/descriptor_pb.js'
 import { ReplaySubject }                   from 'rxjs'
+import { lastValueFrom }                   from 'rxjs'
 import getPort                             from 'get-port'
-import path                                from 'path'
 
 import { GrpcReflectionIntegrationModule } from '../src/index.js'
 import { serverOptions }                   from '../src/index.js'
+
+const descriptorProto =
+  'default' in googleDescriptorProto ? googleDescriptorProto.default : googleDescriptorProto
+
+const moduleDir = path.dirname(fileURLToPath(import.meta.url))
 
 describe('grpc reflection', () => {
   let service: INestMicroservice
   let serverReflection: ServerReflectionClient
 
-  beforeAll(async () => {
+  before(async () => {
     const servicePort = await getPort()
 
     const testingModule = await Test.createTestingModule({
@@ -38,9 +42,9 @@ describe('grpc reflection', () => {
             name: 'client',
             transport: Transport.GRPC,
             options: {
-              url: `0.0.0.0:${servicePort}`,
+              url: `127.0.0.1:${servicePort}`,
               package: 'grpc.reflection.v1',
-              protoPath: path.join(__dirname, '../../proto/grpc/reflection/v1/reflection.proto'),
+              protoPath: path.join(moduleDir, '../../proto/grpc/reflection/v1/reflection.proto'),
               loader: {
                 arrays: true,
                 keepCase: false,
@@ -58,7 +62,7 @@ describe('grpc reflection', () => {
       ...serverOptions,
       options: {
         ...serverOptions.options,
-        url: `0.0.0.0:${servicePort}`,
+        url: `127.0.0.1:${servicePort}`,
       },
     })
 
@@ -70,7 +74,7 @@ describe('grpc reflection', () => {
     serverReflection = service.get('client').getService('ServerReflection')
   })
 
-  afterAll(async () => {
+  after(async () => {
     await service.close()
   })
 
@@ -87,14 +91,15 @@ describe('grpc reflection', () => {
 
     request.complete()
 
-    const response = await serverReflection.serverReflectionInfo(request.asObservable()).toPromise()
+    const response = await lastValueFrom(
+      serverReflection.serverReflectionInfo(request.asObservable())
+    )
 
-    expect(response?.listServicesResponse?.service).toEqual(
-      expect.arrayContaining([
-        expect.objectContaining({
-          name: 'grpc.reflection.v1.ServerReflection',
-        }),
-      ])
+    const services = response.listServicesResponse?.service ?? []
+    assert.ok(
+      services.some(
+        (reflectionService) => reflectionService.name === 'grpc.reflection.v1.ServerReflection'
+      )
     )
   })
 
@@ -111,15 +116,18 @@ describe('grpc reflection', () => {
 
     request.complete()
 
-    const response = await serverReflection.serverReflectionInfo(request.asObservable()).toPromise()
+    const response = await lastValueFrom(
+      serverReflection.serverReflectionInfo(request.asObservable())
+    )
 
-    if (response?.fileDescriptorResponse) {
-      // eslint-disable-next-line @typescript-eslint/no-unsafe-call
-      const descriptor = FileDescriptorProto.deserializeBinary(
-        response?.fileDescriptorResponse?.fileDescriptorProto[0]
-      )
-
-      expect(descriptor.toArray()).toContain('grpc_reflection_v1.proto')
+    if (!response.fileDescriptorResponse) {
+      return
     }
+
+    const descriptor = descriptorProto.FileDescriptorProto.deserializeBinary(
+      response.fileDescriptorResponse.fileDescriptorProto[0]
+    )
+
+    assert.ok(descriptor.toArray().includes('grpc_reflection_v1.proto'))
   })
 })

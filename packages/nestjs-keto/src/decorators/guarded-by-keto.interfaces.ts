@@ -4,7 +4,7 @@ import type { Reflector }       from '@nestjs/core'
 export type GetGuardingRelationTuple = (
   reflector: Reflector,
   handler: Parameters<Reflector['get']>[1]
-) => ReplaceGenerator | string
+) => ReplaceGenerator | string | undefined
 
 export type ReplaceGenerator = (value: string) => string
 

@@ -4,7 +4,8 @@ import * as grpcErrorStatus     from '@atls/grpc-error-status'
 import { RpcException }         from '@nestjs/microservices'
 import { status }               from '@grpc/grpc-js'
 
-const { BadRequest, ErrorStatus } = grpcErrorStatus
+const { BadRequest, ErrorStatus } =
+  'default' in grpcErrorStatus ? grpcErrorStatus.default : grpcErrorStatus
 
 const traverseErrors = (
   errors: Array<ValidationError> = [],

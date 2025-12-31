@@ -20,7 +20,7 @@ export class HydraModule {
     const providers = createHydraProvider()
 
     return {
-      global: options?.global ?? true,
+      global: options.global ?? true,
       module: HydraModule,
       providers: [...optionsProviders, ...providers, ...exportsProviders],
       exports: exportsProviders,
@@ -32,7 +32,7 @@ export class HydraModule {
     const providers = createHydraProvider()
 
     return {
-      global: options?.global ?? true,
+      global: options.global ?? true,
       module: HydraModule,
       imports: options.imports || [],
       providers: [...this.createAsyncProviders(options), ...providers, ...exportsProviders],
@@ -45,11 +45,15 @@ export class HydraModule {
       return [this.createAsyncOptionsProvider(options)]
     }
 
+    if (!options.useClass) {
+      throw new Error('HydraModule requires useClass when useExisting/useFactory not provided')
+    }
+
     return [
       this.createAsyncOptionsProvider(options),
       {
-        provide: options.useClass!,
-        useClass: options.useClass!,
+        provide: options.useClass,
+        useClass: options.useClass,
       },
     ]
   }
@@ -63,11 +67,16 @@ export class HydraModule {
       }
     }
 
+    const injectTarget = options.useExisting ?? options.useClass
+    if (!injectTarget) {
+      throw new Error('HydraModule requires useExisting, useClass, or useFactory')
+    }
+
     return {
       provide: HYDRA_MODULE_OPTIONS,
       useFactory: async (optionsFactory: HydraOptionsFactory) =>
         optionsFactory.createHydraOptions(),
-      inject: [options.useExisting! || options.useClass!],
+      inject: [injectTarget],
     }
   }
 }

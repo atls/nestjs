@@ -21,7 +21,6 @@ export class ExecController {
 
   @Get('/res-render-params')
   // @ts-expect-error unsafe method
-  // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
   resRenderParams(@Res() res): void {
     // eslint-disable-next-line @typescript-eslint/no-unsafe-call
     res.render('/render/params', {

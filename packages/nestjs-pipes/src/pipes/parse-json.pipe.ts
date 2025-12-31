@@ -9,13 +9,13 @@ import { isNil }                    from '@nestjs/common/utils/shared.utils.js'
 
 export interface ParseJsonPipeOptions {
   errorHttpStatusCode?: ErrorHttpStatusCode
-  exceptionFactory?: (error: string) => any
+  exceptionFactory?: (error: string) => unknown
   optional?: boolean
 }
 
 @Injectable()
 export class ParseJsonPipe implements PipeTransform {
-  protected exceptionFactory: (error: string) => any
+  protected exceptionFactory: (error: string) => unknown
 
   constructor(@Optional() protected readonly options: ParseJsonPipeOptions = {}) {
     const { exceptionFactory, errorHttpStatusCode = HttpStatus.BAD_REQUEST } = options
@@ -24,8 +24,8 @@ export class ParseJsonPipe implements PipeTransform {
       exceptionFactory || ((error): unknown => new HttpErrorByCode[errorHttpStatusCode](error))
   }
 
-  transform(value: unknown): any {
-    if (isNil(value) && this.options?.optional) {
+  transform(value: unknown): unknown {
+    if (isNil(value) && this.options.optional) {
       return value
     }
 

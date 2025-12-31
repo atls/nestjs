@@ -1,4 +1,4 @@
-import { AssertionError }       from 'assert'
+import { AssertionError }       from 'node:assert'
 
 import { KetoExceptionMessage } from './exception-message.constants.js'
 

@@ -103,13 +103,17 @@ export class CqrsKafkaEventsModule implements OnModuleInit {
       return [this.createAsyncOptionsProvider(options)]
     }
 
+    if (!options.useClass) {
+      throw new Error(
+        'CqrsKafkaEventsModule requires useClass when useExisting/useFactory not provided'
+      )
+    }
+
     return [
       this.createAsyncOptionsProvider(options),
       {
-        // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-        provide: options.useClass!,
-        // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-        useClass: options.useClass!,
+        provide: options.useClass,
+        useClass: options.useClass,
       },
     ]
   }
@@ -123,14 +127,19 @@ export class CqrsKafkaEventsModule implements OnModuleInit {
       }
     }
 
+    const injectTarget = options.useExisting ?? options.useClass
+    if (!injectTarget) {
+      throw new Error('CqrsKafkaEventsModule requires useExisting, useClass, or useFactory')
+    }
+
     return {
       provide: CQRS_KAFKA_EVENTS_MODULE_OPTIONS,
       useFactory: (
         optionsFactory: CqrsKafkaEventsOptionsFactory
       ): CqrsKafkaEventsModuleOptions | Promise<CqrsKafkaEventsModuleOptions> =>
         optionsFactory.createCqrsKafkaEventsOptions(),
-      // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-      inject: [options.useExisting! || options.useClass!],
+
+      inject: [injectTarget],
     }
   }
 

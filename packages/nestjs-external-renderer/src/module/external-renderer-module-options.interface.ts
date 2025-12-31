@@ -1,5 +1,7 @@
-import type { ModuleMetadata } from '@nestjs/common/interfaces'
-import type { Type }           from '@nestjs/common/interfaces'
+import type { InjectionToken }            from '@nestjs/common/interfaces'
+import type { ModuleMetadata }            from '@nestjs/common/interfaces'
+import type { OptionalFactoryDependency } from '@nestjs/common/interfaces'
+import type { Type }                      from '@nestjs/common/interfaces'
 
 export interface ExternalRendererModuleOptions {
   url: string
@@ -15,7 +17,7 @@ export interface ExternalRendererModuleAsyncOptions extends Pick<ModuleMetadata,
   useExisting?: Type<ExternalRendererOptionsFactory>
   useClass?: Type<ExternalRendererOptionsFactory>
   useFactory?: (
-    ...args: Array<any>
+    ...args: Array<unknown>
   ) => ExternalRendererModuleOptions | Promise<ExternalRendererModuleOptions>
-  inject?: Array<any>
+  inject?: Array<InjectionToken | OptionalFactoryDependency>
 }

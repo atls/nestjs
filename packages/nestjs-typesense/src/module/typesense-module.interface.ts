@@ -1,6 +1,8 @@
-import type { ModuleMetadata } from '@nestjs/common/interfaces'
-import type { Type }           from '@nestjs/common/interfaces'
-import type { LogLevelDesc }   from 'loglevel'
+import type { ModuleMetadata }            from '@nestjs/common/interfaces'
+import type { Type }                      from '@nestjs/common/interfaces'
+import type { InjectionToken }            from '@nestjs/common/interfaces'
+import type { OptionalFactoryDependency } from '@nestjs/common/interfaces'
+import type { LogLevelDesc }              from 'loglevel'
 
 export interface TypesenseNodeOptions {
   host: string
@@ -26,6 +28,6 @@ export interface TypesenseOptionsFactory {
 export interface TypesenseModuleAsyncOptions extends Pick<ModuleMetadata, 'imports'> {
   useExisting?: Type<TypesenseOptionsFactory>
   useClass?: Type<TypesenseOptionsFactory>
-  useFactory?: (...args: Array<any>) => Promise<TypesenseModuleOptions> | TypesenseModuleOptions
-  inject?: Array<any>
+  useFactory?: (...args: Array<unknown>) => Promise<TypesenseModuleOptions> | TypesenseModuleOptions
+  inject?: Array<InjectionToken | OptionalFactoryDependency>
 }

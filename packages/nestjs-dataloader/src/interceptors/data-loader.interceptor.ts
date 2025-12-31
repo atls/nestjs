@@ -3,6 +3,7 @@ import type { ExecutionContext }        from '@nestjs/common'
 import type { NestInterceptor }         from '@nestjs/common'
 import type { GraphQLExecutionContext } from '@nestjs/graphql'
 import type { Observable }              from 'rxjs'
+import type DataLoader                  from 'dataloader'
 
 import type { NestDataLoader }          from '../interfaces/index.js'
 
@@ -13,28 +14,37 @@ import { GqlExecutionContext }          from '@nestjs/graphql'
 
 import { GET_LOADER_CONTEXT_KEY }       from '../constants.js'
 
+type LoaderContext = Record<string, unknown> & {
+  GET_LOADER_CONTEXT_KEY?: (type: string) => DataLoader<unknown, unknown>
+}
+
 @Injectable()
 export class DataLoaderInterceptor implements NestInterceptor {
   constructor(private readonly moduleRef: ModuleRef) {}
 
-  intercept(context: ExecutionContext, next: CallHandler): Observable<any> {
+  intercept(context: ExecutionContext, next: CallHandler): Observable<unknown> {
     const graphqlExecutionContext: GraphQLExecutionContext = GqlExecutionContext.create(context)
-    const ctx: any = graphqlExecutionContext.getContext()
+    const ctx = graphqlExecutionContext.getContext<LoaderContext>()
+    const loaders = ctx as LoaderContext & Record<string, DataLoader<unknown, unknown> | undefined>
 
     if (ctx[GET_LOADER_CONTEXT_KEY] === undefined) {
-      ctx[GET_LOADER_CONTEXT_KEY] = (type: string): NestDataLoader => {
-        if (ctx[type] === undefined) {
-          try {
-            ctx[type] = this.moduleRef
-              .get<NestDataLoader>(type, { strict: false })
-              .generateDataLoader()
-          } catch {
-            throw new InternalServerErrorException(`The loader ${type} is not provided`)
-          }
+      ctx[GET_LOADER_CONTEXT_KEY] = (type: string): DataLoader<unknown, unknown> => {
+        const existing = loaders[type]
+        if (existing) {
+          return existing
         }
 
-        // eslint-disable-next-line @typescript-eslint/no-unsafe-return
-        return ctx[type]
+        try {
+          const loader = this.moduleRef
+            .get<NestDataLoader>(type, { strict: false })
+            .generateDataLoader()
+
+          loaders[type] = loader
+
+          return loader
+        } catch {
+          throw new InternalServerErrorException(`The loader ${type} is not provided`)
+        }
       }
     }
 
