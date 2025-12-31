@@ -10,6 +10,6 @@
  * @module
  * @typedef {string} ProtoFile - Represents the imported `.proto` file as a string
  */
-// eslint-disable-next-line @typescript-eslint/prefer-ts-expect-error, @typescript-eslint/ban-ts-comment
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment, @typescript-eslint/prefer-ts-expect-error
 // @ts-ignore correct module name
 declare module '*.proto'
