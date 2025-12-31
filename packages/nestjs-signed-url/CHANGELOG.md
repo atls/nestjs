@@ -12,6 +12,18 @@
 
 
 
+## [0.1.45](https://github.com/atls/nestjs/compare/@atlantis-lab/nestjs-signed-url@0.1.45...@atlantis-lab/nestjs-signed-url@0.1.45) (2025-12-31)
+
+
+### Bug Fixes
+
+
+* **packages:** tests ([ae0f308](https://github.com/atls/nestjs/commit/ae0f308e695cfe39b4e2d38b6a33be4f7e5a8821))
+
+
+
+
+
 ## [0.1.45](https://github.com/atls/nestjs/compare/@atlantis-lab/nestjs-signed-url@0.1.44...@atlantis-lab/nestjs-signed-url@0.1.45) (2025-01-24)
 
 

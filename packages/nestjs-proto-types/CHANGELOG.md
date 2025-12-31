@@ -1,5 +1,18 @@
 
 
+## [0.0.12](https://github.com/atls/nestjs/compare/@atls/nestjs-proto-types@0.0.11...@atls/nestjs-proto-types@0.0.12) (2025-12-31)
+
+
+### Bug Fixes
+
+
+* **packages:** linter errors ([204ce22](https://github.com/atls/nestjs/commit/204ce229e375b09ffd69d93e47c08bd1d1fbea1b))
+* **packages:** nestjs-proto-types build ([fba1dd7](https://github.com/atls/nestjs/commit/fba1dd7ca8bcc9ea665acf70777a85eb5ffcaba0))
+
+
+
+
+
 ## [0.0.11](https://github.com/atls/nestjs/compare/@atls/nestjs-proto-types@0.0.11...@atls/nestjs-proto-types@0.0.11) (2025-12-31)
 
 

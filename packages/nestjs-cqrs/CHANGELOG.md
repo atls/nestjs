@@ -1,5 +1,12 @@
 
 
+## [0.0.4](https://github.com/atls/nestjs/compare/@atls/nestjs-cqrs@0.0.3...@atls/nestjs-cqrs@0.0.4) (2025-12-31)
+
+
+
+
+
+
 ## [0.0.3](https://github.com/atls/nestjs/compare/@atls/nestjs-cqrs@0.0.3...@atls/nestjs-cqrs@0.0.3) (2025-12-31)
 
 
