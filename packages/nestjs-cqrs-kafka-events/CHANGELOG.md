@@ -1,5 +1,18 @@
 
 
+## [0.0.1](https://github.com/atls/nestjs/compare/@atls/nestjs-cqrs-kafka-events@0.0.1...@atls/nestjs-cqrs-kafka-events@0.0.1) (2025-12-31)
+
+
+### Bug Fixes
+
+
+* **packages:** linter errors ([204ce22](https://github.com/atls/nestjs/commit/204ce229e375b09ffd69d93e47c08bd1d1fbea1b))
+* **packages:** linter errors ([d41854b](https://github.com/atls/nestjs/commit/d41854b94d5502ebf2b9e18d22cac33f98c8fc41))
+
+
+
+
+
 ## [0.0.1](https://github.com/atls/nestjs/compare/@atls/nestjs-cqrs-kafka-events@0.0.0...@atls/nestjs-cqrs-kafka-events@0.0.1) (2025-03-14)
 
 
