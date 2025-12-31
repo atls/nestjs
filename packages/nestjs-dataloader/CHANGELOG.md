@@ -1,6 +1,6 @@
 
 
-## [0.0.2](https://github.com/atls/nestjs/compare/@atls/nestjs-mikro-orm-config@0.0.1...@atls/nestjs-mikro-orm-config@0.0.2) (2025-12-31)
+## 0.0.11 (2025-12-31)
 
 
 ### Bug Fixes
@@ -10,16 +10,9 @@
 * **packages:** linter errors ([d41854b](https://github.com/atls/nestjs/commit/d41854b94d5502ebf2b9e18d22cac33f98c8fc41))
 * **packages:** tests ([ae0f308](https://github.com/atls/nestjs/commit/ae0f308e695cfe39b4e2d38b6a33be4f7e5a8821))
 
-
-
-
-
-## 0.0.1 (2025-03-14)
-
-
 ### Features
 
 
-* **nestjs:** init ([b6d0be1](https://github.com/atls/nestjs/commit/b6d0be197b5d38325fc01caa2b3f08e21d9d6816))
+* **common:** bump yarn, trigger release ([#338](https://github.com/atls/nestjs/issues/338)) ([9837d48](https://github.com/atls/nestjs/commit/9837d482f75928a3ac132d0306ab6de04d8a04b9))
 
 
