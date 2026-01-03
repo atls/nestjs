@@ -45,5 +45,7 @@ dist/
 *.iml
 *.idea
 
+.junie/
+
 # next.js output
 .next
