@@ -1,5 +1,12 @@
 
 
+## [0.0.11](https://github.com/atls/nestjs/compare/@atls/nestjs-keto@0.0.10...@atls/nestjs-keto@0.0.11) (2026-01-08)
+
+
+
+
+
+
 ## 0.0.9 (2025-12-31)
 
 

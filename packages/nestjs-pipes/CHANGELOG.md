@@ -1,5 +1,12 @@
 
 
+## [0.0.3](https://github.com/atls/nestjs/compare/@atls/nestjs-pipes@0.0.3...@atls/nestjs-pipes@0.0.3) (2026-01-08)
+
+
+
+
+
+
 ## [0.0.2](https://github.com/atls/nestjs/compare/@atls/nestjs-pipes@0.0.1...@atls/nestjs-pipes@0.0.2) (2025-12-31)
 
 
