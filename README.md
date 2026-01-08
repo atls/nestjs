@@ -47,16 +47,6 @@ NestJS Infrastructure-first toolkit
 - Microservices Registry
 - External Renderer
 
-## Development
-
-This repo uses [Yarn 4](https://yarnpkg.com/) and [ESM](https://nodejs.org/api/esm.html).
-
-### Build
-
-```bash
-yarn workspaces run build
-```
-
 ## Why
 
 - opinionated infra
