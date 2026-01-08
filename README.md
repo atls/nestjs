@@ -1,6 +1,8 @@
 ![nestjs-github-cover](https://user-images.githubusercontent.com/102182195/235650080-e661338e-4466-43f7-84fc-f801558495eb.png)
 
-# @atls/nestjs
+# ATLS | NestJS
+
+[English](README.md) | [Русский](README_RU.md)
 
 NestJS Infrastructure-first toolkit
 
@@ -64,6 +66,6 @@ yarn workspaces run build
 
 ## 🚀 Examples
 
-- [`grpc-http-proxy`](examples/grpc-http-proxy) - пример HTTP-прокси для gRPC-сервисов.
-- [`grpc-playground`](examples/grpc-playground) - пример использования gRPC Playground.
-- [`grpc-reflection`](examples/grpc-reflection) - пример использования gRPC Server Reflection.
+- [`grpc-http-proxy`](examples/grpc-http-proxy) - Echo HTTP proxy for gRPC services example.
+- [`grpc-playground`](examples/grpc-playground) - gRPC Playground integration example.
+- [`grpc-reflection`](examples/grpc-reflection) - gRPC Server Reflection usage example.
