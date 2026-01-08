@@ -1,6 +1,6 @@
 {
   "name": "@atls/nestjs-graphql-redis-subscriptions",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "license": "BSD-3-Clause",
   "type": "module",
   "exports": {
@@ -17,7 +17,7 @@
     "postpack": "rm -rf dist"
   },
   "dependencies": {
-    "@atls/nestjs-redis": "^0.0.1",
+    "@atls/nestjs-redis": "^0.0.2",
     "graphql-redis-subscriptions": "^2.6.0",
     "graphql-subscriptions": "^2.0.0",
     "telejson": "^7.1.0"
