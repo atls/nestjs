@@ -1080,6 +1080,7 @@ __metadata:
   dependencies:
     "@nestjs/common": "npm:^10.0.5"
     "@nestjs/core": "npm:^10.0.5"
+    "@types/node": "npm:22.5.5"
     class-transformer: "npm:0.5.1"
     class-validator: "npm:^0.14.0"
     reflect-metadata: "npm:^0.1.13"
