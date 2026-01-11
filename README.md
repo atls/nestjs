@@ -47,15 +47,19 @@ NestJS Infrastructure-first toolkit
 - Microservices Registry
 - External Renderer
 
-## Why
+## Why this repo exists
 
-- opinionated infra
-- consistent error model
-- zero glue code between services
-- production-first defaults
+- NestJS does not provide built-in modules for gRPC, Kafka, authentication systems,
+  API gateways, or search engines
+- In production, this usually turns into custom glue code
+  and repeated infrastructure logic copied across services
+
+This repository provides infrastructure-level modules for NestJS
+that cover these concerns out of the box
+and remove the need to reimplement the same infra in every project.
 
 ## 🚀 Examples
 
-- [`grpc-http-proxy`](examples/grpc-http-proxy) - Echo HTTP proxy for gRPC services example.
-- [`grpc-playground`](examples/grpc-playground) - gRPC Playground integration example.
-- [`grpc-reflection`](examples/grpc-reflection) - gRPC Server Reflection usage example.
+- [`grpc-http-proxy`](examples/grpc-http-proxy) - Echo HTTP proxy for gRPC services example
+- [`grpc-playground`](examples/grpc-playground) - gRPC Playground integration example
+- [`grpc-reflection`](examples/grpc-reflection) - gRPC Server Reflection usage example
