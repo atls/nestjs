@@ -1,5 +1,12 @@
 
 
+## [0.0.19](https://github.com/atls/nestjs/compare/@atls/nestjs-gateway@0.0.19...@atls/nestjs-gateway@0.0.19) (2026-01-11)
+
+
+
+
+
+
 ## [0.0.19](https://github.com/atls/nestjs/compare/@atls/nestjs-gateway@0.0.19...@atls/nestjs-gateway@0.0.19) (2026-01-08)
 
 

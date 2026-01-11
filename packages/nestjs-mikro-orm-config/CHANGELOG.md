@@ -1,5 +1,12 @@
 
 
+## [0.0.5](https://github.com/atls/nestjs/compare/@atls/nestjs-mikro-orm-config@0.0.4...@atls/nestjs-mikro-orm-config@0.0.5) (2026-01-11)
+
+
+
+
+
+
 ## [0.0.4](https://github.com/atls/nestjs/compare/@atls/nestjs-mikro-orm-config@0.0.3...@atls/nestjs-mikro-orm-config@0.0.4) (2026-01-08)
 
 

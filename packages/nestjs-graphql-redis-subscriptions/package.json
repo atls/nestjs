@@ -17,7 +17,7 @@
     "postpack": "rm -rf dist"
   },
   "dependencies": {
-    "@atls/nestjs-redis": "^0.0.3",
+    "@atls/nestjs-redis": "^0.0.4",
     "graphql-redis-subscriptions": "^2.6.0",
     "graphql-subscriptions": "^2.0.0",
     "telejson": "^7.1.0"

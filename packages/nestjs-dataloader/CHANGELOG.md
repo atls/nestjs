@@ -1,5 +1,12 @@
 
 
+## [0.0.14](https://github.com/atls/nestjs/compare/@atls/nestjs-dataloader@0.0.13...@atls/nestjs-dataloader@0.0.14) (2026-01-11)
+
+
+
+
+
+
 ## [0.0.13](https://github.com/atls/nestjs/compare/@atls/nestjs-dataloader@0.0.12...@atls/nestjs-dataloader@0.0.13) (2026-01-08)
 
 

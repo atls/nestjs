@@ -1,5 +1,12 @@
 
 
+## [0.2.42](https://github.com/atls/nestjs/compare/@atls/nestjs-logger@0.2.42...@atls/nestjs-logger@0.2.42) (2026-01-11)
+
+
+
+
+
+
 ## [0.2.42](https://github.com/atls/nestjs/compare/@atls/nestjs-logger@0.2.42...@atls/nestjs-logger@0.2.42) (2026-01-08)
 
 

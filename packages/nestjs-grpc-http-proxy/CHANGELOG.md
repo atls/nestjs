@@ -1,5 +1,12 @@
 
 
+## [0.0.18](https://github.com/atls/nestjs/compare/@atls/nestjs-grpc-http-proxy@0.0.17...@atls/nestjs-grpc-http-proxy@0.0.18) (2026-01-11)
+
+
+
+
+
+
 ## [0.0.17](https://github.com/atls/nestjs/compare/@atls/nestjs-grpc-http-proxy@0.0.16...@atls/nestjs-grpc-http-proxy@0.0.17) (2026-01-08)
 
 

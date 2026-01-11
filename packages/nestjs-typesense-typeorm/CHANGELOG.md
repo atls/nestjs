@@ -1,5 +1,12 @@
 
 
+## [0.0.13](https://github.com/atls/nestjs/compare/@atls/nestjs-typesense-typeorm@0.0.13...@atls/nestjs-typesense-typeorm@0.0.13) (2026-01-11)
+
+
+
+
+
+
 ## [0.0.13](https://github.com/atls/nestjs/compare/@atls/nestjs-typesense-typeorm@0.0.13...@atls/nestjs-typesense-typeorm@0.0.13) (2026-01-08)
 
 
