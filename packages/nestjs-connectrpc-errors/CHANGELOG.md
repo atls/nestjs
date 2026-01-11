@@ -1,5 +1,26 @@
 
 
+## [0.0.5](https://github.com/atls/nestjs/compare/@atls/nestjs-connectrpc-errors@0.0.5...@atls/nestjs-connectrpc-errors@0.0.5) (2026-01-09)
+
+
+
+
+
+
+## [0.0.5](https://github.com/atls/nestjs/compare/@atls/nestjs-connectrpc-errors@0.0.4...@atls/nestjs-connectrpc-errors@0.0.5) (2026-01-09)
+
+
+
+
+
+
+## [0.0.4](https://github.com/atls/nestjs/compare/@atls/nestjs-connectrpc-errors@0.0.4...@atls/nestjs-connectrpc-errors@0.0.4) (2026-01-08)
+
+
+
+
+
+
 ## [0.0.3](https://github.com/atls/nestjs/compare/@atls/nestjs-connectrpc-errors@0.0.2...@atls/nestjs-connectrpc-errors@0.0.3) (2025-12-31)
 
 
