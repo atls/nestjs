@@ -1,0 +1,34 @@
+name: Epic
+description: A large initiative managed through native links to child issues
+title: '[Epic] '
+type: 'Epic'
+assignees:
+  - TorinAsakura
+body:
+  - type: input
+    id: motivation
+    attributes:
+      label: What is this epic about?
+      placeholder: Which goal, problem, or constraint makes this epic necessary?
+    validations:
+      required: true
+
+  - type: textarea
+    id: target-state
+    attributes:
+      label: Target state
+      placeholder: What should become true after the epic is complete
+    validations:
+      required: true
+
+  - type: textarea
+    id: dod
+    attributes:
+      label: Epic definition of done
+      placeholder: |
+        - Target state is reached
+        - All relevant child issues are closed or explicitly moved out of the epic
+        - Native dependencies are closed or no longer block the work
+        - Documentation or release notes are updated when needed
+    validations:
+      required: true
