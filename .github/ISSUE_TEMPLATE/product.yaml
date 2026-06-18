@@ -1,0 +1,38 @@
+name: Product
+description: Product tasks
+title: '[Product] '
+type: 'Product'
+assignees:
+  - TorinAsakura
+body:
+  - type: input
+    id: motivation
+    attributes:
+      label: What are we doing?
+      description: "For example: chatbot, admin panel, API"
+    validations:
+      required: true
+
+  - type: textarea
+    id: scope
+    attributes:
+      label: What is included in the task scope?
+      description: "List the main features"
+    validations:
+      required: true
+
+  - type: textarea
+    id: requirements
+    attributes:
+      label: Requirements
+      description: "List the requirements the final result must satisfy"
+    validations:
+      required: true
+
+  - type: textarea
+    id: results
+    attributes:
+      label: Expected result
+      description: "Briefly list what exactly will be delivered: artifacts, data, functionality"
+    validations:
+      required: false
