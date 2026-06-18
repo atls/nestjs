@@ -1,0 +1,27 @@
+name: Dependencies
+description: Dependency updates
+title: '[Dependencies] '
+type: 'Dependencies'
+assignees:
+  - TorinAsakura
+body:
+  - type: textarea
+    id: dependencies
+    attributes:
+      label: Which dependencies are being updated?
+      placeholder: |
+        - [ ] #12
+        - [ ] #13
+        - [ ] #14
+    validations:
+      required: true
+
+  - type: textarea
+    id: blockers
+    attributes:
+      label: What blocks the update?
+      placeholder: |
+        #12 requires updating node 12 -> 14.
+        Changes in #14 are not backward compatible and require research and refactoring.
+    validations:
+      required: false
