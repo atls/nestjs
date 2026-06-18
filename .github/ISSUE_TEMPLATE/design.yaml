@@ -1,0 +1,49 @@
+name: Design
+description: Design task
+title: '[Design] '
+type: 'Design'
+assignees:
+  - TorinAsakura
+body:
+  - type: dropdown
+    id: design-type
+    attributes:
+      label: Design task type
+      options:
+        - UI
+        - UX
+        - Design System
+        - Research
+      default: 0
+    validations:
+      required: true
+
+  - type: input
+    id: motivation
+    attributes:
+      label: Why are we doing this?
+      placeholder: Which goal, problem, or constraint makes this task necessary?
+    validations:
+      required: true
+
+  - type: textarea
+    id: scope
+    attributes:
+      label: What exactly are we changing?
+      placeholder: Screens, flows, components, states, or artifacts
+    validations:
+      required: true
+
+  - type: textarea
+    id: artifacts
+    attributes:
+      label: Artifacts
+      placeholder: Links to Figma, prototypes, references, or materials
+
+  - type: textarea
+    id: dod
+    attributes:
+      label: Definition of done
+      placeholder: What we consider done
+    validations:
+      required: true
