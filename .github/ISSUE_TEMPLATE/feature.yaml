@@ -1,0 +1,38 @@
+name: Feature
+description: Change that adds new capabilities
+title: '[Feature] '
+type: 'feature'
+assignees:
+  - TorinAsakura
+body:
+  - type: input
+    id: motivation
+    attributes:
+      label: What is this request about?
+      placeholder: Think through whether this task is actually needed
+    validations:
+      required: true
+
+  - type: textarea
+    id: plan
+    attributes:
+      label: Describe the implementation plan
+      placeholder: Explain in a couple of sentences how this will be implemented
+    validations:
+      required: true
+
+  - type: textarea
+    id: dod
+    attributes:
+      label: Task definition of done
+      placeholder: |
+        Criteria used to assess task completion, for example:
+        - initialization:
+          - the application works in the environment
+        - data handling:
+          - input - product JSON object
+          - output - product JSON object with price in another currency
+        - artifacts:
+          - log entry
+    validations:
+      required: true
