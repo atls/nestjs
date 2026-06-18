@@ -1,0 +1,42 @@
+name: Docs
+description: Documentation task
+title: '[Docs] '
+type: 'Docs'
+assignees:
+  - TorinAsakura
+body:
+  - type: input
+    id: scope
+    attributes:
+      label: Where did the changes happen?
+      placeholder: 'For example: the algorithm changed in library@1.1.1; or framework@iOS_SDK-v1.1.1 changed the accepted data type'
+    validations:
+      required: true
+
+  - type: textarea
+    id: description
+    attributes:
+      label: What will be documented
+      placeholder: Detailed description of what we are going to document
+    validations:
+      required: false
+
+  - type: dropdown
+    id: breaking-change
+    attributes:
+      label: Does this break backward compatibility?
+      description: Whether the client must change old code after the update to keep things working
+      options:
+        - Yes
+        - No
+      default: 0
+    validations:
+      required: true
+
+  - type: input
+    id: backlink
+    attributes:
+      label: Link to the initiating task
+      placeholder: Add the link
+    validations:
+      required: true
