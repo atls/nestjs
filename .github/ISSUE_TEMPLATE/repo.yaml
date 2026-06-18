@@ -1,0 +1,20 @@
+name: Repo
+description: Repository creation
+title: '[Repo] '
+type: 'Repo'
+assignees:
+  - TorinAsakura
+body:
+  - type: input
+    id: repo-name
+    attributes:
+      label: Repository name
+    validations:
+      required: true
+
+  - type: textarea
+    id: specs
+    attributes:
+      label: What is the repository needed for?
+    validations:
+      required: true
