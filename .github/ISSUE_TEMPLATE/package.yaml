@@ -1,0 +1,34 @@
+name: Package
+description: Package creation
+title: '[Package] '
+type: 'Package'
+assignees:
+  - TorinAsakura
+body:
+  - type: input
+    id: package-name
+    attributes:
+      label: Package name
+    validations:
+      required: true
+
+  - type: textarea
+    id: specs
+    attributes:
+      label: What is the package needed for?
+      placeholder: Description of package features and modules
+    validations:
+      required: true
+
+  - type: textarea
+    id: how-to
+    attributes:
+      label: Usage example
+    validations:
+      required: true
+
+  - type: input
+    id: materials
+    attributes:
+      label: Materials
+      placeholder: Link to repository or article
