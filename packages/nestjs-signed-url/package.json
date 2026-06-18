@@ -1,15 +1,14 @@
 {
-  "name": "@atlantis-lab/nestjs-signed-url",
+  "name": "@atls/nestjs-signed-url",
   "version": "0.1.47",
   "repository": "git@github.com:atls/nestjs.git",
-  "license": "BSD-3 Clause",
+  "license": "BSD-3-Clause",
   "type": "module",
   "exports": {
-    ".": "./src/index.js"
+    "./package.json": "./package.json",
+    ".": "./src/index.ts"
   },
-  "main": "src/index.js",
-  "source": "src/index.ts",
-  "typings": "dist/index.d.ts",
+  "main": "src/index.ts",
   "files": [
     "dist"
   ],
@@ -45,7 +44,8 @@
         "default": "./dist/index.js"
       }
     },
-    "main": "dist/index.js"
+    "main": "dist/index.js",
+    "typings": "dist/index.d.ts"
   },
   "typecheckSkipLibCheck": true
 }
