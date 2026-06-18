@@ -1,0 +1,60 @@
+name: Bug
+description: Something is broken
+title: '[Bug] '
+type: 'Bug'
+assignees:
+  - TorinAsakura
+body:
+  - type: textarea
+    id: bug-description
+    attributes:
+      label: Bug location
+      description: 'For example: after pressing the button, the message is not sent'
+    validations:
+      required: true
+
+  - type: textarea
+    id: reproduce
+    attributes:
+      label: Reproduction
+      description: 'Steps to reproduce'
+      placeholder: |
+        1. Open the screen
+        2. Enter a message
+        3. Press the button
+        4. See the error
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected-behavior
+    attributes:
+      label: Expected behavior
+      placeholder: 'For example: after pressing the button, the message is sent'
+    validations:
+      required: true
+
+  - type: textarea
+    id: logs
+    attributes:
+      label: Attach logs
+      description: Attach logs if the error is system-related and a screenshot will not help with analysis or troubleshooting. Logs will be formatted after insertion.
+      render: bash
+
+  - type: textarea
+    id: assets
+    attributes:
+      label: Media
+      description: Attach screenshots if the error is visual and collecting logs is not acceptable.
+
+  - type: textarea
+    id: env
+    attributes:
+      label: Environment data
+      placeholder: |
+        - OS and version [for example: iOS@18.2, Android@11.1.0, Windows@11.1]
+        - Browser and version [for example: Chrome@64, Safari@13]
+        - Server (for example: Server1 => Debian@11, Clickhouse@4.7)
+        - One of the services (for example: recommender@1.2)
+    validations:
+      required: true
