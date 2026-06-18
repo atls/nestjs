@@ -1,0 +1,91 @@
+name: Security
+description: Internal security tasks without publishing secrets or private details
+title: '[Security] '
+type: 'OPS'
+assignees:
+  - TorinAsakura
+body:
+  - type: markdown
+    attributes:
+      value: |
+        This form is only for internal security tasks with redacted data.
+        Do not publish live secrets, private scan reports, or details of unresolved vulnerabilities in a public issue.
+
+  - type: dropdown
+    id: finding-source
+    attributes:
+      label: Finding source
+      options:
+        - Dependabot
+        - CodeQL
+        - Container scan
+        - Secret scan
+        - Manual review
+        - Incident follow-up
+        - Other
+    validations:
+      required: true
+
+  - type: input
+    id: affected-target
+    attributes:
+      label: Affected repository or image
+      placeholder: 'For example: atls/services or ghcr.io/atls/services:1.2.3'
+    validations:
+      required: true
+
+  - type: dropdown
+    id: environment
+    attributes:
+      label: Environment
+      options:
+        - Production
+        - Stage
+        - Development
+        - CI
+        - Local
+        - Shared infrastructure
+        - Unknown
+    validations:
+      required: true
+
+  - type: dropdown
+    id: severity
+    attributes:
+      label: Severity
+      options:
+        - Critical
+        - High
+        - Medium
+        - Low
+        - Informational
+    validations:
+      required: true
+
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Scan or reproduction evidence
+      description: Do not publish secrets, tokens, private scan reports, or details of an unresolved vulnerability. Attach only redacted evidence or a link to a private channel.
+      placeholder: |
+        Attach a redacted link to a scan report, CVE, alert, log, or reproduction steps.
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected-state
+    attributes:
+      label: Expected state
+      placeholder: |
+        Describe what should change: vulnerability fixed, secret rotated, rule hardened, finding closed.
+    validations:
+      required: true
+
+  - type: textarea
+    id: verification-artifacts
+    attributes:
+      label: Verification artifacts
+      placeholder: |
+        Follow-up scan report, CI link, command output, screenshot, or another artifact proving the fix.
+    validations:
+      required: true
