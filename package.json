@@ -8,7 +8,7 @@
     "examples/**/*"
   ],
   "devDependencies": {
-    "@atls/code-runtime": "2.1.16",
+    "@atls/code-runtime": "2.1.34",
     "@types/node": "22.5.5",
     "typescript": "5.5.4"
   },

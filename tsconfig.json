@@ -25,9 +25,8 @@
     "target": "es2022",
     "jsx": "react-jsx",
     "outDir": "./dist",
-    "noImplicitOverride": true,
-    "skipLibCheck": true,
     "allowJs": true
   },
+  "$comment": "TODO: remove compilerOptions.allowJs when tracked CommonJS files are gone.",
   "include": ["project.types.d.ts", "packages/**/*", "examples/**/*"]
 }
