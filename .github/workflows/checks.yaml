@@ -2,6 +2,15 @@ name: Checks
 
 on:
   pull_request:
+    types:
+      - opened
+      - edited
+      - reopened
+      - synchronize
+    paths-ignore:
+      - '.agents/**'
+      - '.codex/context/**'
+      - '**/*.md'
 
 jobs:
   check:
