@@ -6,5 +6,49 @@ on:
 jobs:
   update-tools:
     name: Update tools
-    uses: atls/shared/.github/workflows/tools.yaml@master
+    runs-on: ubuntu-latest
     permissions: write-all
+    env:
+      YARN_PATH: .yarn/releases/raijin-yarn-1.3.3.mjs
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+        with:
+          ref: master
+
+      - name: Setup Node
+        uses: actions/setup-node@v6
+        with:
+          node-version: '22'
+
+      - name: Yarn cache directory
+        id: yarn-cache-dir-path
+        run: echo "dir=$(node "$YARN_PATH" config get cacheFolder)" >> "$GITHUB_OUTPUT"
+
+      - uses: actions/cache@v5
+        id: yarn-cache
+        with:
+          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
+          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-yarn-
+
+      - name: Install
+        run: node "$YARN_PATH" install --inline-builds
+
+      - name: Update
+        run: node "$YARN_PATH" set version atls
+        env:
+          YARN_ENABLE_IMMUTABLE_INSTALLS: false
+
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v8
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          commit-message: 'feat(common): update bundle'
+          title: 'feat(common): update bundle'
+          branch-suffix: random
+          delete-branch: true
+          sign-commits: true
+          assignees: ${{ github.actor }}
