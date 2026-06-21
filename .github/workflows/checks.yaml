@@ -9,7 +9,7 @@ jobs:
     runs-on: ubuntu-latest
     permissions: write-all
     env:
-      YARN_PATH: .yarn/releases/raijin-yarn-1.3.3.mjs
+      RAIJIN_BUNDLE: .yarn/releases/raijin-yarn-1.3.3.mjs
 
     steps:
       - name: Login to GHCR
@@ -39,18 +39,18 @@ jobs:
             ${{ runner.os }}-yarn-
 
       - name: Install
-        run: node "$YARN_PATH" install --inline-builds
+        run: node "$RAIJIN_BUNDLE" install --inline-builds
 
       - name: Install playwright
         run: |
-          if node "$YARN_PATH" why playwright 2>/dev/null | grep -q 'playwright'; then
+          if node "$RAIJIN_BUNDLE" why playwright 2>/dev/null | grep -q 'playwright'; then
             echo "Playwright is present as a dependency. Installing..."
-            node "$YARN_PATH" dlx playwright@1.55.0 install --with-deps
+            node "$RAIJIN_BUNDLE" dlx playwright@1.55.0 install --with-deps
           else
             echo "Playwright is not listed as a dependency. Skipping installation."
           fi
 
       - name: Checks
-        run: node "$YARN_PATH" checks run
+        run: node "$RAIJIN_BUNDLE" checks run
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
