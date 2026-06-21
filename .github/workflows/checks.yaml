@@ -6,51 +6,7 @@ on:
 jobs:
   check:
     name: Checks
-    runs-on: ubuntu-latest
+    uses: atls/shared/.github/workflows/checks.yaml@master
     permissions: write-all
-    env:
-      RAIJIN_BUNDLE: .yarn/releases/raijin-yarn-1.3.3.mjs
-
-    steps:
-      - name: Login to GHCR
-        run: echo "$GITHUB_TOKEN" | docker login ghcr.io -u "$REPOSITORY_OWNER" --password-stdin
-        env:
-          REPOSITORY_OWNER: ${{ github.repository_owner }}
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: Checkout
-        uses: actions/checkout@v6
-
-      - name: Setup Node
-        uses: actions/setup-node@v6
-        with:
-          node-version: '22'
-
-      - name: Yarn cache directory
-        id: yarn-cache-dir-path
-        run: printf 'dir=%s/.yarn/berry/cache\n' "$(dirname "$GITHUB_WORKSPACE")" >> "$GITHUB_OUTPUT"
-
-      - uses: actions/cache@v5
-        id: yarn-cache
-        with:
-          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
-          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
-          restore-keys: |
-            ${{ runner.os }}-yarn-
-
-      - name: Install
-        run: node "$RAIJIN_BUNDLE" install --inline-builds
-
-      - name: Install playwright
-        run: |
-          if node "$RAIJIN_BUNDLE" why playwright 2>/dev/null | grep -q 'playwright'; then
-            echo "Playwright is present as a dependency. Installing..."
-            node "$RAIJIN_BUNDLE" dlx playwright@1.55.0 install --with-deps
-          else
-            echo "Playwright is not listed as a dependency. Skipping installation."
-          fi
-
-      - name: Checks
-        run: node "$RAIJIN_BUNDLE" checks run
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    with:
+      node-version: '22'
