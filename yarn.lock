@@ -144,11 +144,11 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@atls/code-runtime@npm:2.1.34":
-  version: 2.1.34
-  resolution: "@atls/code-runtime@npm:2.1.34"
+"@atls/code-runtime@npm:2.1.35":
+  version: 2.1.35
+  resolution: "@atls/code-runtime@npm:2.1.35"
   dependencies:
-    "@atls/config-eslint": "npm:2.0.15"
+    "@atls/config-eslint": "npm:2.0.16"
     "@atls/config-prettier": "npm:2.0.4"
     "@atls/config-typescript": "npm:2.0.3"
     "@atls/webpack-proto-imports-loader": "npm:1.0.6"
@@ -160,13 +160,13 @@ __metadata:
     ts-loader: "npm:9.5.2"
     typescript: "npm:5.5.4"
     webpack: "npm:5.98.0"
-  checksum: 10c0/a8a5152b407c2bcb1a484b5fbb95ffbd26e8b57d24dfafbb73f32e08c27651f1b3c63d68b7e62404df308e9489b27b49f70cf186c25cea65d95149e86669123a
+  checksum: 10c0/4000b61e969cf525c807e5a04e359381111c504864444751224c02d49cc27807afc0a766f06f4fb39b7de0e826abb46bea48c3d28308c25ab0df72b49424b9c5
   languageName: node
   linkType: hard
 
-"@atls/config-eslint@npm:2.0.15":
-  version: 2.0.15
-  resolution: "@atls/config-eslint@npm:2.0.15"
+"@atls/config-eslint@npm:2.0.16":
+  version: 2.0.16
+  resolution: "@atls/config-eslint@npm:2.0.16"
   dependencies:
     "@atls/config-prettier": "npm:2.0.4"
     "@next/eslint-plugin-next": "npm:16.0.7"
@@ -187,7 +187,7 @@ __metadata:
   peerDependenciesMeta:
     typescript:
       optional: true
-  checksum: 10c0/d6e671124b9c3a3eeec2499bb0faaeb801098b58fc8dbf3a0b63e0d6f24dfb3524c68f7fa4d4218a552d8fb29e9122530299996134c25d7fa58a415ebcfef101
+  checksum: 10c0/ed054349d4ba5a81771ef29c9ef4418f1f42f3f09287882582e2b9a617a561e5f28f3261e7460300f117e4ecaaef94d38f715cdd72e035f3c932b550399926bf
   languageName: node
   linkType: hard
 
@@ -14730,7 +14730,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "nestjs@workspace:."
   dependencies:
-    "@atls/code-runtime": "npm:2.1.34"
+    "@atls/code-runtime": "npm:2.1.35"
     "@types/node": "npm:22.5.5"
     typescript: "npm:5.5.4"
   languageName: unknown
