@@ -9,7 +9,7 @@ body:
     id: motivation
     attributes:
       label: What are we doing?
-      description: 'For example: chatbot, admin panel, API'
+      description: "For example: chatbot, admin panel, API"
     validations:
       required: true
 
@@ -17,7 +17,7 @@ body:
     id: scope
     attributes:
       label: What is included in the task scope?
-      description: 'List the main features'
+      description: "List the main features"
     validations:
       required: true
 
@@ -25,7 +25,7 @@ body:
     id: requirements
     attributes:
       label: Requirements
-      description: 'List the requirements the final result must satisfy'
+      description: "List the requirements the final result must satisfy"
     validations:
       required: true
 
@@ -33,6 +33,6 @@ body:
     id: results
     attributes:
       label: Expected result
-      description: 'Briefly list what exactly will be delivered: artifacts, data, functionality'
+      description: "Briefly list what exactly will be delivered: artifacts, data, functionality"
     validations:
       required: false
