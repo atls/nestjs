@@ -1,5 +1,18 @@
 
 
+## [0.0.14](https://github.com/atls/nestjs/compare/@atls/nestjs-typesense-typeorm@0.0.13...@atls/nestjs-typesense-typeorm@0.0.14) (2026-06-22)
+
+
+### Bug Fixes
+
+
+* **nestjs-typesense-typeorm:** keep indexing fire-and-forget ([1a03f69](https://github.com/atls/nestjs/commit/1a03f696e77176df5cddc7a8b5cb546b8d4423e7))
+* **nestjs-typesense-typeorm:** use sqljs for integration storage ([ee7c175](https://github.com/atls/nestjs/commit/ee7c17503c4f96bab09dbb41944aed4ea3a57497))
+
+
+
+
+
 ## [0.0.13](https://github.com/atls/nestjs/compare/@atls/nestjs-typesense-typeorm@0.0.13...@atls/nestjs-typesense-typeorm@0.0.13) (2026-01-11)
 
 

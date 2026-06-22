@@ -1,6 +1,6 @@
 {
   "name": "@atls/grpc-keto",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "private": true,
   "license": "BSD-3-Clause",
   "type": "module",

@@ -1,5 +1,17 @@
 
 
+## [0.0.13](https://github.com/atls/nestjs/compare/@atls/nestjs-keto@0.0.12...@atls/nestjs-keto@0.0.13) (2026-06-22)
+
+
+### Bug Fixes
+
+
+* **nestjs:** load keto relation fixtures through file import ([0ba28c2](https://github.com/atls/nestjs/commit/0ba28c2a69de7fcd05f67502e5b97c736275ff0f))
+
+
+
+
+
 ## [0.0.12](https://github.com/atls/nestjs/compare/@atls/nestjs-keto@0.0.11...@atls/nestjs-keto@0.0.12) (2026-01-11)
 
 
