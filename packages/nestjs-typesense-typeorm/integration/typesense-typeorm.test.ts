@@ -2,7 +2,6 @@ import type { INestApplication }             from '@nestjs/common'
 import type { StartedTestContainer }         from 'testcontainers'
 import type { Repository }                   from 'typeorm'
 
-import assert                                from 'node:assert/strict'
 import { after }                             from 'node:test'
 import { before }                            from 'node:test'
 import { describe }                          from 'node:test'
@@ -18,6 +17,65 @@ import { TYPESENSE_MODULE_OPTIONS }          from '@atls/nestjs-typesense'
 
 import { TypesenseTypeOrmIntegrationModule } from './src/index.js'
 import { TestEntity }                        from './src/test.entity.js'
+
+const TYPESENSE_WAIT_TIMEOUT = 5000
+const TYPESENSE_WAIT_INTERVAL = 100
+
+const waitForTypesenseFound = async (
+  search: () => Promise<{ found?: number }>,
+  expectedFound: number
+): Promise<void> => {
+  const endTime = Date.now() + TYPESENSE_WAIT_TIMEOUT
+  let lastFound: number | undefined
+  let lastError: unknown
+
+  return new Promise((resolve, reject) => {
+    const poll = async (): Promise<void> => {
+      if (Date.now() > endTime) {
+        if (lastError instanceof Error) {
+          reject(new Error(`Timeout waiting for Typesense search result: ${lastError.message}`))
+          return
+        }
+
+        reject(
+          new Error(
+            `Timeout waiting for Typesense search result: expected ${expectedFound}, received ${lastFound ?? 0}`
+          )
+        )
+        return
+      }
+
+      try {
+        const result = await search()
+        lastFound = result.found
+        lastError = undefined
+
+        if (lastFound === expectedFound) {
+          resolve()
+          return
+        }
+      } catch (error) {
+        lastError = error
+      }
+
+      setTimeout(() => {
+        poll().catch(reject)
+      }, TYPESENSE_WAIT_INTERVAL)
+    }
+
+    poll().catch(reject)
+  })
+}
+
+const searchCompanyByEmployees = async (
+  client: Client,
+  filter: string
+): Promise<{ found?: number }> =>
+  client.collections('test').documents().search({
+    q: 'Stark',
+    query_by: 'company',
+    filter_by: filter,
+  })
 
 describe('typesense-typeorm', { timeout: 30000 }, () => {
   let typesense: StartedTestContainer
@@ -72,17 +130,7 @@ describe('typesense-typeorm', { timeout: 30000 }, () => {
       })
     )
 
-    await new Promise((r) => {
-      setTimeout(r, 5)
-    })
-
-    const result = await client.collections('test').documents().search({
-      q: 'Stark',
-      query_by: 'company',
-      filter_by: 'employees:>1000',
-    })
-
-    assert.strictEqual(result.found, 1)
+    await waitForTypesenseFound(async () => searchCompanyByEmployees(client, 'employees:>1000'), 1)
   })
 
   it(`find after update`, async () => {
@@ -93,20 +141,12 @@ describe('typesense-typeorm', { timeout: 30000 }, () => {
       })
     )
 
+    await waitForTypesenseFound(async () => searchCompanyByEmployees(client, 'employees:=10'), 1)
+
     entity.employees = 1031
 
     await repository.save(entity)
 
-    await new Promise((r) => {
-      setTimeout(r, 5)
-    })
-
-    const result = await client.collections('test').documents().search({
-      q: 'Stark',
-      query_by: 'company',
-      filter_by: 'employees:>1000',
-    })
-
-    assert.strictEqual(result.found, 2)
+    await waitForTypesenseFound(async () => searchCompanyByEmployees(client, 'employees:>1000'), 2)
   })
 })

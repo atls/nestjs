@@ -41,16 +41,12 @@ export class TypeOrmListenersBuilder implements OnModuleInit {
           return target
         }
 
-        async afterInsert(event: InsertEvent<unknown>): Promise<void> {
-          await this.mapper.insert(
-            event.entity as Record<string, unknown> & { id?: number | string }
-          )
+        afterInsert(event: InsertEvent<unknown>): void {
+          this.mapper.insert(event.entity as Record<string, unknown> & { id?: number | string })
         }
 
-        async afterUpdate(event: UpdateEvent<unknown>): Promise<void> {
-          await this.mapper.update(
-            event.entity as Record<string, unknown> & { id?: number | string }
-          )
+        afterUpdate(event: UpdateEvent<unknown>): void {
+          this.mapper.update(event.entity as Record<string, unknown> & { id?: number | string })
         }
       }
 
