@@ -1,5 +1,17 @@
 
 
+# [0.2.0](https://github.com/atls/nestjs/compare/@atls/nestjs-signed-url@0.1.47...@atls/nestjs-signed-url@0.2.0) (2026-06-22)
+
+
+### Features
+
+
+* **nestjs-signed-url:** define provider-neutral contract ([7eafbf6](https://github.com/atls/nestjs/commit/7eafbf6ac24604ebf8e4f812ee0a0dd6ce119834))
+
+
+
+
+
 ## 0.1.47 (2026-06-18)
 
 
