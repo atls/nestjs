@@ -11,6 +11,7 @@ export const KETO_INIT_COMMAND = [
   'keto',
   'relation-tuple',
   'create',
+  '--file',
   '/home/ory/relationships',
   '--insecure-disable-transport-security',
   '--insecure-skip-hostname-verification',

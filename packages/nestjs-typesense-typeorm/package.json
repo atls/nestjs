@@ -27,10 +27,11 @@
     "@nestjs/testing": "10.4.1",
     "@nestjs/typeorm": "10.0.2",
     "@types/node": "22.5.5",
+    "@types/sql.js": "1.4.9",
     "get-port": "7.1.0",
     "reflect-metadata": "0.2.2",
     "rxjs": "7.8.1",
-    "sqlite3": "5.1.6",
+    "sql.js": "1.8.0",
     "testcontainers": "10.13.1",
     "typesense": "1.8.2"
   },
