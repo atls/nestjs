@@ -9,8 +9,7 @@ import { TestEntity }             from './test.entity.js'
 @Module({
   imports: [
     TypeOrmModule.forRoot({
-      type: 'sqlite',
-      database: ':memory:',
+      type: 'sqljs',
       entities: [TestEntity],
       synchronize: true,
     }),
