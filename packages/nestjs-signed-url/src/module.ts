@@ -9,6 +9,7 @@ import { Module }                from '@nestjs/common'
 import { SIGNED_URL_PROVIDER }   from './constants.js'
 import { GCS_SIGNED_URL_CLIENT } from './gcs/index.js'
 import { GcsSignedUrlGateway }   from './gcs/index.js'
+import { GcsSignedUrlSigner }    from './gcs/index.js'
 import { SignedUrlSigner }       from './signer.js'
 
 export interface GcsSignedUrlModuleOptions {
@@ -58,8 +59,17 @@ export class SignedUrlModule {
 
     return {
       module: SignedUrlModule,
-      providers: [SignedUrlSigner, clientProvider, GcsSignedUrlGateway, signedUrlProvider],
-      exports: [SignedUrlSigner, SIGNED_URL_PROVIDER],
+      providers: [
+        GcsSignedUrlSigner,
+        {
+          provide: SignedUrlSigner,
+          useExisting: GcsSignedUrlSigner,
+        },
+        clientProvider,
+        GcsSignedUrlGateway,
+        signedUrlProvider,
+      ],
+      exports: [SignedUrlSigner, GcsSignedUrlSigner, SIGNED_URL_PROVIDER],
     }
   }
 

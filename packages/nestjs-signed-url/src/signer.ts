@@ -9,13 +9,19 @@ import { Injectable }                 from '@nestjs/common'
 import { SIGNED_URL_PROVIDER }        from './constants.js'
 
 @Injectable()
-export class SignedUrlSigner {
-  constructor(@Inject(SIGNED_URL_PROVIDER) private readonly provider: SignedUrlProvider) {}
+export class SignedUrlSigner<
+  ReadOptions extends SignedUrlReadOptions = SignedUrlReadOptions,
+  WriteOptions extends SignedUrlWriteOptions = SignedUrlWriteOptions,
+> {
+  constructor(
+    @Inject(SIGNED_URL_PROVIDER)
+    private readonly provider: SignedUrlProvider<ReadOptions, WriteOptions>
+  ) {}
 
   async generateWriteUrl(
     bucket: string,
     filename: string,
-    options: SignedUrlWriteOptions
+    options: WriteOptions
   ): Promise<SignedUrl> {
     return this.provider.generateWriteUrl(bucket, filename, options)
   }
@@ -23,7 +29,7 @@ export class SignedUrlSigner {
   async generateReadUrl(
     bucket: string,
     filename: string,
-    options: SignedUrlReadOptions = {}
+    options?: ReadOptions
   ): Promise<SignedUrl> {
     return this.provider.generateReadUrl(bucket, filename, options)
   }

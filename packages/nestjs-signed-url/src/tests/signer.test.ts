@@ -1,82 +1,21 @@
-import type { SignedUrlReadOptions }  from '../options.js'
-import type { SignedUrlWriteOptions } from '../options.js'
-import type { SignedUrl }             from '../options.js'
-import type { SignedUrlProvider }     from '../provider.js'
+import type { SignedUrlReadOptions }      from '../options.js'
+import type { SignedUrlWriteOptions }     from '../options.js'
+import type { TestingSignedUrlProvider }  from './signer.fixture.js'
 
-import assert                         from 'node:assert/strict'
-import { beforeEach }                 from 'node:test'
-import { describe }                   from 'node:test'
-import { it }                         from 'node:test'
+import assert                             from 'node:assert/strict'
+import { beforeEach }                     from 'node:test'
+import { describe }                       from 'node:test'
+import { it }                             from 'node:test'
 
-import { SignedUrlSigner }            from '../signer.js'
-
-type WriteCall = {
-  bucket: string
-  filename: string
-  options: SignedUrlWriteOptions
-}
-
-type ReadCall = {
-  bucket: string
-  filename: string
-  options: SignedUrlReadOptions
-}
-
-type TestingProvider = SignedUrlProvider & {
-  writeCalls: Array<WriteCall>
-  readCalls: Array<ReadCall>
-}
-
-const createTestingProvider = (): TestingProvider => {
-  const writeCalls: Array<WriteCall> = []
-  const readCalls: Array<ReadCall> = []
-
-  return {
-    writeCalls,
-    readCalls,
-
-    async generateWriteUrl(
-      bucket: string,
-      filename: string,
-      options: SignedUrlWriteOptions
-    ): Promise<SignedUrl> {
-      writeCalls.push({
-        bucket,
-        filename,
-        options,
-      })
-
-      return {
-        url: 'write-url',
-        fields: [],
-      }
-    },
-
-    async generateReadUrl(
-      bucket: string,
-      filename: string,
-      options: SignedUrlReadOptions = {}
-    ): Promise<SignedUrl> {
-      readCalls.push({
-        bucket,
-        filename,
-        options,
-      })
-
-      return {
-        url: 'read-url',
-        fields: [],
-      }
-    },
-  }
-}
+import { SignedUrlSigner }                from '../signer.js'
+import { createTestingSignedUrlProvider } from './signer.fixture.js'
 
 describe('SignedUrlSigner', () => {
   let signer: SignedUrlSigner
-  let provider: TestingProvider
+  let provider: TestingSignedUrlProvider
 
   beforeEach(() => {
-    provider = createTestingProvider()
+    provider = createTestingSignedUrlProvider()
     signer = new SignedUrlSigner(provider)
   })
 
