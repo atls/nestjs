@@ -1,5 +1,5 @@
 import type { GcsSignedUrlReadOptions } from '../gcs/index.js'
-import type { GcsSignedUrlSigner }      from '../gcs/index.js'
+import type { GcsSignedUrlSigning }     from '../gcs/index.js'
 import type { SignedUrlOptions }        from '../interfaces.js'
 import type { SignedUrlWriteOptions }   from '../interfaces.js'
 
@@ -22,7 +22,7 @@ describe('signed-url options', () => {
   it('keeps provider-specific option bags out of the common options', () => {
     type HasProviderOptions = 'providerOptions' extends keyof SignedUrlOptions ? true : false
     type HasGcsOptions = 'gcs' extends keyof GcsSignedUrlReadOptions ? true : false
-    type GcsSignerReadOptions = NonNullable<Parameters<GcsSignedUrlSigner['generateReadUrl']>[2]>
+    type GcsSignerReadOptions = NonNullable<Parameters<GcsSignedUrlSigning['generateReadUrl']>[2]>
     type GcsSignerHasGcsOptions = 'gcs' extends keyof GcsSignerReadOptions ? true : false
     type CommonHasGcsOptions = 'gcs' extends keyof SignedUrlOptions ? true : false
 

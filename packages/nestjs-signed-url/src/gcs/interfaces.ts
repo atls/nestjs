@@ -1,6 +1,7 @@
 import type { GetSignedUrlConfig }    from '@google-cloud/storage'
 
 import type { SignedUrlReadOptions }  from '../interfaces.js'
+import type { SignedUrlSigning }      from '../interfaces.js'
 import type { SignedUrlWriteOptions } from '../interfaces.js'
 
 export type GcsSignedUrlConfig = Partial<
@@ -17,3 +18,8 @@ export interface GcsSignedUrlReadOptions extends SignedUrlReadOptions {
 export interface GcsSignedUrlWriteOptions extends SignedUrlWriteOptions {
   gcs?: GcsSignedUrlConfig
 }
+
+export type GcsSignedUrlSigning = SignedUrlSigning<
+  GcsSignedUrlReadOptions,
+  GcsSignedUrlWriteOptions
+>

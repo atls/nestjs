@@ -1,5 +1,6 @@
 import type { SignedUrlGateway }      from './interfaces.js'
 import type { SignedUrlReadOptions }  from './interfaces.js'
+import type { SignedUrlSigning }      from './interfaces.js'
 import type { SignedUrlWriteOptions } from './interfaces.js'
 import type { SignedUrl }             from './interfaces.js'
 
@@ -12,7 +13,8 @@ import { SIGNED_URL_GATEWAY }         from './constants.js'
 export class SignedUrlSigner<
   ReadOptions extends SignedUrlReadOptions = SignedUrlReadOptions,
   WriteOptions extends SignedUrlWriteOptions = SignedUrlWriteOptions,
-> {
+> implements SignedUrlSigning<ReadOptions, WriteOptions>
+{
   constructor(
     @Inject(SIGNED_URL_GATEWAY)
     private readonly gateway: SignedUrlGateway<ReadOptions, WriteOptions>

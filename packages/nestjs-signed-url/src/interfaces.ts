@@ -23,7 +23,7 @@ export interface SignedUrlWriteOptions extends SignedUrlOptions {
   contentType: string
 }
 
-export interface SignedUrlGateway<
+export interface SignedUrlSigning<
   ReadOptions extends SignedUrlReadOptions = SignedUrlReadOptions,
   WriteOptions extends SignedUrlWriteOptions = SignedUrlWriteOptions,
 > {
@@ -31,3 +31,8 @@ export interface SignedUrlGateway<
 
   generateReadUrl: (bucket: string, filename: string, options?: ReadOptions) => Promise<SignedUrl>
 }
+
+export type SignedUrlGateway<
+  ReadOptions extends SignedUrlReadOptions = SignedUrlReadOptions,
+  WriteOptions extends SignedUrlWriteOptions = SignedUrlWriteOptions,
+> = SignedUrlSigning<ReadOptions, WriteOptions>
