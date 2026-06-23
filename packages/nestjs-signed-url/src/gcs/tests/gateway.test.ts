@@ -85,6 +85,13 @@ describe('GcsSignedUrlGateway', () => {
       try {
         const value = await gateway.generateReadUrl('bucket', 'file.png', {
           expiresInSeconds: 30,
+          gcs: {
+            cname: 'cdn.example.com',
+            queryParams: {
+              'response-content-language': 'en',
+            },
+            virtualHostedStyle: true,
+          },
           headers: {
             'x-goog-if-generation-match': '1',
           },
@@ -99,6 +106,11 @@ describe('GcsSignedUrlGateway', () => {
         assert.equal(client.filename, 'file.png')
         assert.deepEqual(client.fileObject.params, {
           version: 'v4',
+          cname: 'cdn.example.com',
+          queryParams: {
+            'response-content-language': 'en',
+          },
+          virtualHostedStyle: true,
           action: 'read',
           expires: 31000,
           extensionHeaders: {

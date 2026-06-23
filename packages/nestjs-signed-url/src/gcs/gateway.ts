@@ -17,6 +17,21 @@ const MILLISECONDS_IN_SECOND = 1000
 
 type GcsSignedUrlAction = Extract<GetSignedUrlConfig['action'], 'read' | 'write'>
 
+export type GcsSignedUrlConfig = Partial<
+  Omit<
+    GetSignedUrlConfig,
+    'action' | 'contentType' | 'expires' | 'extensionHeaders' | 'responseDisposition'
+  >
+>
+
+export interface GcsSignedUrlReadOptions extends SignedUrlReadOptions {
+  gcs?: GcsSignedUrlConfig
+}
+
+export interface GcsSignedUrlWriteOptions extends SignedUrlWriteOptions {
+  gcs?: GcsSignedUrlConfig
+}
+
 const resolveExpires = (options: SignedUrlOptions): GetSignedUrlConfig['expires'] => {
   if (options.expiresAt !== undefined) {
     return options.expiresAt
@@ -30,10 +45,11 @@ const resolveExpires = (options: SignedUrlOptions): GetSignedUrlConfig['expires'
 
 const buildGcsConfig = (
   action: GcsSignedUrlAction,
-  options: SignedUrlOptions
+  options: GcsSignedUrlReadOptions | GcsSignedUrlWriteOptions
 ): GetSignedUrlConfig => {
   const config: GetSignedUrlConfig = {
     version: 'v4',
+    ...options.gcs,
     action,
     expires: resolveExpires(options),
   }
@@ -58,7 +74,7 @@ export class GcsSignedUrlGateway extends SignedUrlProvider {
   async generateWriteUrl(
     bucket: string,
     filename: string,
-    options: SignedUrlWriteOptions
+    options: GcsSignedUrlWriteOptions
   ): Promise<SignedUrl> {
     const params: GetSignedUrlConfig = {
       ...buildGcsConfig('write', options),
@@ -73,7 +89,7 @@ export class GcsSignedUrlGateway extends SignedUrlProvider {
   async generateReadUrl(
     bucket: string,
     filename: string,
-    options: SignedUrlReadOptions = {}
+    options: GcsSignedUrlReadOptions = {}
   ): Promise<SignedUrl> {
     const params = buildGcsConfig('read', options)
 
