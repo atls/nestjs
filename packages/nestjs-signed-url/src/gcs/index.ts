@@ -1,5 +1,4 @@
 export * from './constants.js'
-export * from './gcs/index.js'
+export * from './gateway.js'
 export type * from './interfaces.js'
-export * from './module/index.js'
 export * from './signer.js'

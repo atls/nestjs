@@ -1,27 +1,21 @@
 import type { GetSignedUrlConfig }               from '@google-cloud/storage'
 import type { Storage }                          from '@google-cloud/storage'
-import type { OnModuleInit }                     from '@nestjs/common'
 
-import type { SignedUrlOptions }                 from './storage.interfaces.js'
-import type { SignedUrlReadOptions }             from './storage.interfaces.js'
-import type { SignedUrlWriteOptions }            from './storage.interfaces.js'
-import type { SignedUrl }                        from './storage.interfaces.js'
+import type { SignedUrlGateway }                 from '../interfaces.js'
+import type { SignedUrlOptions }                 from '../interfaces.js'
+import type { SignedUrl }                        from '../interfaces.js'
+import type { GcsSignedUrlReadOptions }          from './interfaces.js'
+import type { GcsSignedUrlWriteOptions }         from './interfaces.js'
 
+import { Inject }                                from '@nestjs/common'
 import { Injectable }                            from '@nestjs/common'
 
-import { AbstractStorage }                       from './abstract.storage.js'
-import { DEFAULT_SIGNED_URL_EXPIRES_IN_SECONDS } from './constants.js'
+import { DEFAULT_SIGNED_URL_EXPIRES_IN_SECONDS } from '../constants.js'
+import { GCS_SIGNED_URL_CLIENT }                 from './constants.js'
 
 const MILLISECONDS_IN_SECOND = 1000
 
 type GcsSignedUrlAction = Extract<GetSignedUrlConfig['action'], 'read' | 'write'>
-
-type GcsProviderOptions = Partial<
-  Omit<
-    GetSignedUrlConfig,
-    'action' | 'contentType' | 'expires' | 'extensionHeaders' | 'responseDisposition'
-  >
->
 
 const resolveExpires = (options: SignedUrlOptions): GetSignedUrlConfig['expires'] => {
   if (options.expiresAt !== undefined) {
@@ -34,16 +28,13 @@ const resolveExpires = (options: SignedUrlOptions): GetSignedUrlConfig['expires'
   )
 }
 
-const resolveGcsProviderOptions = (options: SignedUrlOptions): GcsProviderOptions =>
-  (options.providerOptions?.gcs ?? {}) as GcsProviderOptions
-
 const buildGcsConfig = (
   action: GcsSignedUrlAction,
-  options: SignedUrlOptions
+  options: GcsSignedUrlReadOptions | GcsSignedUrlWriteOptions
 ): GetSignedUrlConfig => {
   const config: GetSignedUrlConfig = {
     version: 'v4',
-    ...resolveGcsProviderOptions(options),
+    ...options.gcs,
     action,
     expires: resolveExpires(options),
   }
@@ -60,30 +51,22 @@ const buildGcsConfig = (
 }
 
 @Injectable()
-export class GcsStorage extends AbstractStorage implements OnModuleInit {
-  storage: Storage
-
-  bucket: string
-
-  async onModuleInit(): Promise<void> {
-    const { Storage } = await import('@google-cloud/storage')
-
-    this.storage = new Storage()
-  }
+export class GcsSignedUrlGateway
+  implements SignedUrlGateway<GcsSignedUrlReadOptions, GcsSignedUrlWriteOptions>
+{
+  constructor(@Inject(GCS_SIGNED_URL_CLIENT) private readonly client: Storage) {}
 
   async generateWriteUrl(
-    bucketName: string,
+    bucket: string,
     filename: string,
-    options: SignedUrlWriteOptions
+    options: GcsSignedUrlWriteOptions
   ): Promise<SignedUrl> {
     const params: GetSignedUrlConfig = {
       ...buildGcsConfig('write', options),
       contentType: options.contentType,
     }
 
-    const bucket = this.storage.bucket(bucketName)
-    const file = bucket.file(filename)
-    const [url] = await file.getSignedUrl(params)
+    const [url] = await this.client.bucket(bucket).file(filename).getSignedUrl(params)
 
     return { url, fields: [] }
   }
@@ -91,11 +74,11 @@ export class GcsStorage extends AbstractStorage implements OnModuleInit {
   async generateReadUrl(
     bucket: string,
     filename: string,
-    options: SignedUrlReadOptions = {}
+    options: GcsSignedUrlReadOptions = {}
   ): Promise<SignedUrl> {
     const params = buildGcsConfig('read', options)
 
-    const [url] = await this.storage.bucket(bucket).file(filename).getSignedUrl(params)
+    const [url] = await this.client.bucket(bucket).file(filename).getSignedUrl(params)
 
     return { url, fields: [] }
   }

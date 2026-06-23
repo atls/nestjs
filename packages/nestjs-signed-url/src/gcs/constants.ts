@@ -1,0 +1,1 @@
+export const GCS_SIGNED_URL_CLIENT = Symbol('GCS_SIGNED_URL_CLIENT')
