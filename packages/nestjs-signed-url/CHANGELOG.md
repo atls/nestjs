@@ -1,5 +1,17 @@
 
 
+# [0.5.0](https://github.com/atls/nestjs/compare/@atls/nestjs-signed-url@0.4.0...@atls/nestjs-signed-url@0.5.0) (2026-06-23)
+
+
+### Features
+
+
+* **nestjs-signed-url:** wire gcs client boundary ([31ed39a](https://github.com/atls/nestjs/commit/31ed39ac40b4b64ef9149c38aa1ae2ab10d0c7a4))
+
+
+
+
+
 # [0.4.0](https://github.com/atls/nestjs/compare/@atls/nestjs-signed-url@0.3.0...@atls/nestjs-signed-url@0.4.0) (2026-06-23)
 
 
