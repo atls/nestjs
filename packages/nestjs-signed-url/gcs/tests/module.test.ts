@@ -9,15 +9,21 @@ import { afterEach }                     from 'node:test'
 import { describe }                      from 'node:test'
 import { it }                            from 'node:test'
 
+import { Inject }                        from '@nestjs/common'
 import { Test }                          from '@nestjs/testing'
 
 import { SIGNED_URL_GATEWAY }            from '../../src/constants.js'
+import { GCS_SIGNED_URL_CLIENT }         from '../../src/gcs/index.js'
 import { GcsSignedUrlSigner }            from '../../src/gcs/signer.js'
 import { SignedUrlModule }               from '../../src/module/index.js'
 import { SignedUrlSigner }               from '../../src/signer.js'
 import { TESTING_GCS_STORAGE_FACTORY }   from './fixtures/module.fixture.js'
 import { createFakeGcsStorage }          from './fixtures/client.fixture.js'
 import { createTestingGcsClientModule }  from './fixtures/module.fixture.js'
+
+class TestingGcsClientConsumer {
+  constructor(@Inject(GCS_SIGNED_URL_CLIENT) readonly storage: Storage) {}
+}
 
 describe('SignedUrlModule', () => {
   let moduleRef: TestingModule | undefined
@@ -32,13 +38,16 @@ describe('SignedUrlModule', () => {
 
     moduleRef = await Test.createTestingModule({
       imports: [SignedUrlModule.gcs({ useValue: storage })],
+      providers: [TestingGcsClientConsumer],
     }).compile()
 
     const signer = moduleRef.get(SignedUrlSigner)
     const gcsSigner = moduleRef.get(GcsSignedUrlSigner)
     const gateway = moduleRef.get<SignedUrlGateway>(SIGNED_URL_GATEWAY)
+    const consumer = moduleRef.get(TestingGcsClientConsumer)
 
     assert.equal(signer, gcsSigner)
+    assert.equal(consumer.storage, storage)
 
     const value = await signer.generateWriteUrl('bucket', 'file.png', {
       contentType: 'image/png',
@@ -76,9 +85,13 @@ describe('SignedUrlModule', () => {
             storageFactory.create(),
         }),
       ],
+      providers: [TestingGcsClientConsumer],
     }).compile()
 
     const signer = moduleRef.get(GcsSignedUrlSigner)
+    const consumer = moduleRef.get(TestingGcsClientConsumer)
+
+    assert.equal(consumer.storage, storage)
 
     const value = await signer.generateReadUrl('bucket', 'file.png', {
       expiresAt: 1730000000000,

@@ -51,7 +51,7 @@ export class SignedUrlModule {
         GcsSignedUrlGateway,
         signedUrlGateway,
       ],
-      exports: [SignedUrlSigner, GcsSignedUrlSigner, SIGNED_URL_GATEWAY],
+      exports: [SignedUrlSigner, GcsSignedUrlSigner, SIGNED_URL_GATEWAY, GCS_SIGNED_URL_CLIENT],
     }
   }
 
