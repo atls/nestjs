@@ -1,6 +1,7 @@
 import type { GetSignedUrlConfig }               from '@google-cloud/storage'
 import type { Storage }                          from '@google-cloud/storage'
 
+import type { SignedUrlGateway }                 from '../interfaces.js'
 import type { SignedUrlOptions }                 from '../interfaces.js'
 import type { SignedUrl }                        from '../interfaces.js'
 import type { GcsSignedUrlReadOptions }          from './interfaces.js'
@@ -10,7 +11,6 @@ import { Inject }                                from '@nestjs/common'
 import { Injectable }                            from '@nestjs/common'
 
 import { DEFAULT_SIGNED_URL_EXPIRES_IN_SECONDS } from '../constants.js'
-import { SignedUrlGateway }                      from '../gateway.js'
 import { GCS_SIGNED_URL_CLIENT }                 from './constants.js'
 
 const MILLISECONDS_IN_SECOND = 1000
@@ -51,13 +51,10 @@ const buildGcsConfig = (
 }
 
 @Injectable()
-export class GcsSignedUrlGateway extends SignedUrlGateway<
-  GcsSignedUrlReadOptions,
-  GcsSignedUrlWriteOptions
-> {
-  constructor(@Inject(GCS_SIGNED_URL_CLIENT) private readonly client: Storage) {
-    super()
-  }
+export class GcsSignedUrlGateway
+  implements SignedUrlGateway<GcsSignedUrlReadOptions, GcsSignedUrlWriteOptions>
+{
+  constructor(@Inject(GCS_SIGNED_URL_CLIENT) private readonly client: Storage) {}
 
   async generateWriteUrl(
     bucket: string,

@@ -1,4 +1,4 @@
-import type { SignedUrlGateway }         from '../gateway.js'
+import type { SignedUrlGateway }         from '../interfaces.js'
 import type { GcsSignedUrlReadOptions }  from './interfaces.js'
 import type { GcsSignedUrlWriteOptions } from './interfaces.js'
 
