@@ -1,5 +1,26 @@
 
 
+# [0.3.0](https://github.com/atls/nestjs/compare/@atls/nestjs-signed-url@0.2.0...@atls/nestjs-signed-url@0.3.0) (2026-06-23)
+
+
+### Bug Fixes
+
+
+* **nestjs-signed-url:** align interface ownership ([b95e2b3](https://github.com/atls/nestjs/commit/b95e2b3aec6b9dfbc43358dd22f2a3e09ffd72b4))
+* **nestjs-signed-url:** export gcs client token ([0ee45d0](https://github.com/atls/nestjs/commit/0ee45d00ca50606914c6c679f92791730aaf1d98))
+* **nestjs-signed-url:** export provider token ([eec4801](https://github.com/atls/nestjs/commit/eec48015df163868af050478e8a46aecc6a66d5e))
+* **nestjs-signed-url:** expose gcs signer options ([b8ab8bd](https://github.com/atls/nestjs/commit/b8ab8bdc0f79f0b80c41aee7f7fc209e81bcaabf))
+
+### Features
+
+
+* **nestjs-signed-url:** restore gcs signing options ([b95945c](https://github.com/atls/nestjs/commit/b95945c0d78ba152019c7409fd50dbc89276572e))
+* **nestjs-signed-url:** support async gcs client wiring ([ccf2819](https://github.com/atls/nestjs/commit/ccf28197d8064001071442e2acef0b0a49e52cb2))
+
+
+
+
+
 # [0.2.0](https://github.com/atls/nestjs/compare/@atls/nestjs-signed-url@0.1.47...@atls/nestjs-signed-url@0.2.0) (2026-06-22)
 
 
