@@ -1,17 +1,17 @@
-import type { Storage }          from '@google-cloud/storage'
-import type { DynamicModule }    from '@nestjs/common'
-import type { Provider }         from '@nestjs/common'
+import type { Storage }                        from '@google-cloud/storage'
+import type { DynamicModule }                  from '@nestjs/common'
+import type { Provider }                       from '@nestjs/common'
 
 import type { GcsSignedUrlModuleAsyncOptions } from './module.interfaces.js'
 import type { GcsSignedUrlModuleOptions }      from './module.interfaces.js'
 
-import { Module }                from '@nestjs/common'
+import { Module }                              from '@nestjs/common'
 
-import { SIGNED_URL_PROVIDER }   from './constants.js'
-import { GCS_SIGNED_URL_CLIENT } from './gcs/index.js'
-import { GcsSignedUrlGateway }   from './gcs/index.js'
-import { GcsSignedUrlSigner }    from './gcs/index.js'
-import { SignedUrlSigner }       from './signer.js'
+import { SIGNED_URL_GATEWAY }                  from '../constants.js'
+import { GCS_SIGNED_URL_CLIENT }               from '../gcs/index.js'
+import { GcsSignedUrlGateway }                 from '../gcs/index.js'
+import { GcsSignedUrlSigner }                  from '../gcs/index.js'
+import { SignedUrlSigner }                     from '../signer.js'
 
 @Module({})
 export class SignedUrlModule {
@@ -34,8 +34,8 @@ export class SignedUrlModule {
   }
 
   private static createGcsModule(clientProvider: Provider<Storage>): DynamicModule {
-    const signedUrlProvider: Provider = {
-      provide: SIGNED_URL_PROVIDER,
+    const signedUrlGateway: Provider = {
+      provide: SIGNED_URL_GATEWAY,
       useExisting: GcsSignedUrlGateway,
     }
 
@@ -49,9 +49,9 @@ export class SignedUrlModule {
         },
         clientProvider,
         GcsSignedUrlGateway,
-        signedUrlProvider,
+        signedUrlGateway,
       ],
-      exports: [SignedUrlSigner, GcsSignedUrlSigner, SIGNED_URL_PROVIDER],
+      exports: [SignedUrlSigner, GcsSignedUrlSigner, SIGNED_URL_GATEWAY],
     }
   }
 

@@ -1,8 +1,8 @@
 import type { Storage }                  from '@google-cloud/storage'
 import type { TestingModule }            from '@nestjs/testing'
 
-import type { SignedUrlProvider }        from '../provider.js'
 import type { TestingGcsStorageFactory } from '../../tests/fixtures/gcs.module.interfaces.js'
+import type { SignedUrlGateway }         from '../gateway.js'
 
 import assert                            from 'node:assert/strict'
 import { afterEach }                     from 'node:test'
@@ -11,11 +11,11 @@ import { it }                            from 'node:test'
 
 import { Test }                          from '@nestjs/testing'
 
-import { SIGNED_URL_PROVIDER }           from '../constants.js'
-import { GcsSignedUrlSigner }            from '../gcs/index.js'
-import { SignedUrlModule }               from '../module.js'
-import { SignedUrlSigner }               from '../signer.js'
 import { TESTING_GCS_STORAGE_FACTORY }   from '../../tests/fixtures/gcs.module.fixture.js'
+import { SIGNED_URL_GATEWAY }            from '../constants.js'
+import { GcsSignedUrlSigner }            from '../gcs/index.js'
+import { SignedUrlModule }               from '../module/index.js'
+import { SignedUrlSigner }               from '../signer.js'
 import { createFakeGcsStorage }          from '../../tests/fixtures/gcs.client.fixture.js'
 import { createTestingGcsClientModule }  from '../../tests/fixtures/gcs.module.fixture.js'
 
@@ -36,7 +36,7 @@ describe('SignedUrlModule', () => {
 
     const signer = moduleRef.get(SignedUrlSigner)
     const gcsSigner = moduleRef.get(GcsSignedUrlSigner)
-    const provider = moduleRef.get<SignedUrlProvider>(SIGNED_URL_PROVIDER)
+    const gateway = moduleRef.get<SignedUrlGateway>(SIGNED_URL_GATEWAY)
 
     assert.equal(signer, gcsSigner)
 
@@ -56,7 +56,7 @@ describe('SignedUrlModule', () => {
       contentType: 'image/png',
     })
 
-    const readValue = await provider.generateReadUrl('bucket', 'file.png')
+    const readValue = await gateway.generateReadUrl('bucket', 'file.png')
 
     assert.deepEqual(readValue, {
       url: 'module-signed-url',

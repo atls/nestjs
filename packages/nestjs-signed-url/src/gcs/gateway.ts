@@ -10,7 +10,7 @@ import { Inject }                                from '@nestjs/common'
 import { Injectable }                            from '@nestjs/common'
 
 import { DEFAULT_SIGNED_URL_EXPIRES_IN_SECONDS } from '../constants.js'
-import { SignedUrlProvider }                     from '../provider.js'
+import { SignedUrlGateway }                      from '../gateway.js'
 import { GCS_SIGNED_URL_CLIENT }                 from './constants.js'
 
 const MILLISECONDS_IN_SECOND = 1000
@@ -51,7 +51,7 @@ const buildGcsConfig = (
 }
 
 @Injectable()
-export class GcsSignedUrlGateway extends SignedUrlProvider<
+export class GcsSignedUrlGateway extends SignedUrlGateway<
   GcsSignedUrlReadOptions,
   GcsSignedUrlWriteOptions
 > {

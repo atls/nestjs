@@ -1,12 +1,12 @@
+import type { SignedUrlGateway }      from './gateway.js'
 import type { SignedUrlReadOptions }  from './interfaces.js'
 import type { SignedUrlWriteOptions } from './interfaces.js'
 import type { SignedUrl }             from './interfaces.js'
-import type { SignedUrlProvider }     from './provider.js'
 
 import { Inject }                     from '@nestjs/common'
 import { Injectable }                 from '@nestjs/common'
 
-import { SIGNED_URL_PROVIDER }        from './constants.js'
+import { SIGNED_URL_GATEWAY }         from './constants.js'
 
 @Injectable()
 export class SignedUrlSigner<
@@ -14,8 +14,8 @@ export class SignedUrlSigner<
   WriteOptions extends SignedUrlWriteOptions = SignedUrlWriteOptions,
 > {
   constructor(
-    @Inject(SIGNED_URL_PROVIDER)
-    private readonly provider: SignedUrlProvider<ReadOptions, WriteOptions>
+    @Inject(SIGNED_URL_GATEWAY)
+    private readonly gateway: SignedUrlGateway<ReadOptions, WriteOptions>
   ) {}
 
   async generateWriteUrl(
@@ -23,7 +23,7 @@ export class SignedUrlSigner<
     filename: string,
     options: WriteOptions
   ): Promise<SignedUrl> {
-    return this.provider.generateWriteUrl(bucket, filename, options)
+    return this.gateway.generateWriteUrl(bucket, filename, options)
   }
 
   async generateReadUrl(
@@ -31,6 +31,6 @@ export class SignedUrlSigner<
     filename: string,
     options?: ReadOptions
   ): Promise<SignedUrl> {
-    return this.provider.generateReadUrl(bucket, filename, options)
+    return this.gateway.generateReadUrl(bucket, filename, options)
   }
 }

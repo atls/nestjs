@@ -1,11 +1,11 @@
-import type { SignedUrlReadOptions }      from '../../src/interfaces.js'
-import type { SignedUrlWriteOptions }     from '../../src/interfaces.js'
-import type { SignedUrl }                 from '../../src/interfaces.js'
-import type { ReadCall }                  from './signer.interfaces.js'
-import type { TestingSignedUrlProvider }  from './signer.interfaces.js'
-import type { WriteCall }                 from './signer.interfaces.js'
+import type { SignedUrlReadOptions }    from '../../src/interfaces.js'
+import type { SignedUrlWriteOptions }   from '../../src/interfaces.js'
+import type { SignedUrl }               from '../../src/interfaces.js'
+import type { ReadCall }                from './signer.interfaces.js'
+import type { TestingSignedUrlGateway } from './signer.interfaces.js'
+import type { WriteCall }               from './signer.interfaces.js'
 
-export const createTestingSignedUrlProvider = (): TestingSignedUrlProvider => {
+export const createTestingSignedUrlGateway = (): TestingSignedUrlGateway => {
   const writeCalls: Array<WriteCall> = []
   const readCalls: Array<ReadCall> = []
 

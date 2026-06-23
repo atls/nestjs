@@ -1,6 +1,6 @@
+import type { SignedUrlGateway }      from '../../src/gateway.js'
 import type { SignedUrlReadOptions }  from '../../src/interfaces.js'
 import type { SignedUrlWriteOptions } from '../../src/interfaces.js'
-import type { SignedUrlProvider }     from '../../src/provider.js'
 
 export interface WriteCall {
   bucket: string
@@ -14,7 +14,7 @@ export interface ReadCall {
   options?: SignedUrlReadOptions
 }
 
-export type TestingSignedUrlProvider = SignedUrlProvider & {
+export type TestingSignedUrlGateway = SignedUrlGateway & {
   writeCalls: Array<WriteCall>
   readCalls: Array<ReadCall>
 }

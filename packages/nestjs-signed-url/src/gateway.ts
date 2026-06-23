@@ -2,7 +2,7 @@ import type { SignedUrlReadOptions }  from './interfaces.js'
 import type { SignedUrlWriteOptions } from './interfaces.js'
 import type { SignedUrl }             from './interfaces.js'
 
-export abstract class SignedUrlProvider<
+export abstract class SignedUrlGateway<
   ReadOptions extends SignedUrlReadOptions = SignedUrlReadOptions,
   WriteOptions extends SignedUrlWriteOptions = SignedUrlWriteOptions,
 > {
