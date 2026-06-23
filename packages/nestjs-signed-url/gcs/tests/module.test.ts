@@ -1,8 +1,8 @@
 import type { Storage }                  from '@google-cloud/storage'
 import type { TestingModule }            from '@nestjs/testing'
 
-import type { TestingGcsStorageFactory } from '../../tests/fixtures/gcs.module.interfaces.js'
-import type { SignedUrlGateway }         from '../interfaces.js'
+import type { SignedUrlGateway }         from '../../src/interfaces.js'
+import type { TestingGcsStorageFactory } from './fixtures/module.interfaces.js'
 
 import assert                            from 'node:assert/strict'
 import { afterEach }                     from 'node:test'
@@ -11,13 +11,13 @@ import { it }                            from 'node:test'
 
 import { Test }                          from '@nestjs/testing'
 
-import { TESTING_GCS_STORAGE_FACTORY }   from '../../tests/fixtures/gcs.module.fixture.js'
-import { SIGNED_URL_GATEWAY }            from '../constants.js'
-import { GcsSignedUrlSigner }            from '../gcs/index.js'
-import { SignedUrlModule }               from '../module/index.js'
-import { SignedUrlSigner }               from '../signer.js'
-import { createFakeGcsStorage }          from '../../tests/fixtures/gcs.client.fixture.js'
-import { createTestingGcsClientModule }  from '../../tests/fixtures/gcs.module.fixture.js'
+import { SIGNED_URL_GATEWAY }            from '../../src/constants.js'
+import { GcsSignedUrlSigner }            from '../../src/gcs/signer.js'
+import { SignedUrlModule }               from '../../src/module/index.js'
+import { SignedUrlSigner }               from '../../src/signer.js'
+import { TESTING_GCS_STORAGE_FACTORY }   from './fixtures/module.fixture.js'
+import { createFakeGcsStorage }          from './fixtures/client.fixture.js'
+import { createTestingGcsClientModule }  from './fixtures/module.fixture.js'
 
 describe('SignedUrlModule', () => {
   let moduleRef: TestingModule | undefined

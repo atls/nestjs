@@ -1,4 +1,4 @@
-import type { FakeGcsClient }   from '../../../tests/fixtures/gcs.client.interfaces.js'
+import type { FakeGcsClient }   from './fixtures/client.interfaces.js'
 
 import assert                   from 'node:assert/strict'
 import { beforeEach }           from 'node:test'
@@ -6,8 +6,8 @@ import { describe }             from 'node:test'
 import { it }                   from 'node:test'
 import { mock }                 from 'node:test'
 
-import { GcsSignedUrlGateway }  from '../gateway.js'
-import { createFakeGcsStorage } from '../../../tests/fixtures/gcs.client.fixture.js'
+import { GcsSignedUrlGateway }  from '../../src/gcs/gateway.js'
+import { createFakeGcsStorage } from './fixtures/client.fixture.js'
 
 describe('GcsSignedUrlGateway', () => {
   let gateway: GcsSignedUrlGateway

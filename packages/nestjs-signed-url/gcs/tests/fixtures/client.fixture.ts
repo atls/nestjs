@@ -1,9 +1,10 @@
 import type { GetSignedUrlConfig } from '@google-cloud/storage'
 import type { Storage }            from '@google-cloud/storage'
-import type { FakeGcsBucket }      from './gcs.client.interfaces.js'
-import type { FakeGcsClient }      from './gcs.client.interfaces.js'
-import type { FakeGcsFile }        from './gcs.client.interfaces.js'
-import type { FakeGcsStorage }     from './gcs.client.interfaces.js'
+
+import type { FakeGcsBucket }      from './client.interfaces.js'
+import type { FakeGcsClient }      from './client.interfaces.js'
+import type { FakeGcsFile }        from './client.interfaces.js'
+import type { FakeGcsStorage }     from './client.interfaces.js'
 
 export const createFakeGcsClient = (signedUrl = 'signed-url'): FakeGcsClient => {
   const fileObject: FakeGcsFile = {

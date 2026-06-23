@@ -1,6 +1,7 @@
-import type { Storage }       from '@google-cloud/storage'
-import type { DynamicModule } from '@nestjs/common'
-import type { TestingGcsStorageFactory } from './gcs.module.interfaces.js'
+import type { Storage }                  from '@google-cloud/storage'
+import type { DynamicModule }            from '@nestjs/common'
+
+import type { TestingGcsStorageFactory } from './module.interfaces.js'
 
 class TestingGcsClientModule {}
 
