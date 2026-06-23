@@ -2,23 +2,20 @@ import type { Storage }                        from '@google-cloud/storage'
 import type { DynamicModule }                  from '@nestjs/common'
 import type { Provider }                       from '@nestjs/common'
 
-import type { SignedUrlGateway }               from '../interfaces.js'
 import type { SignedUrlReadOptions }           from '../interfaces.js'
 import type { SignedUrlWriteOptions }          from '../interfaces.js'
 import type { GcsSignedUrlModuleAsyncOptions } from './interfaces.js'
 import type { GcsSignedUrlModuleOptions }      from './interfaces.js'
 import type { SignedUrlModuleAsyncOptions }    from './interfaces.js'
 import type { SignedUrlModuleOptions }         from './interfaces.js'
-import type { SignedUrlModuleOptionsFactory }  from './interfaces.js'
 
 import { Module }                              from '@nestjs/common'
 
 import { SIGNED_URL_GATEWAY }                  from '../constants.js'
-import { GCS_SIGNED_URL_CLIENT }               from '../gcs/index.js'
-import { GcsSignedUrlGateway }                 from '../gcs/index.js'
-import { GcsSignedUrlSigner }                  from '../gcs/index.js'
+import { GCS_SIGNED_URL_CLIENT }               from '../gcs/constants.js'
+import { GcsSignedUrlGateway }                 from '../gcs/gateway.js'
+import { GcsSignedUrlSigner }                  from '../gcs/signer.js'
 import { SignedUrlSigner }                     from '../signer.js'
-import { SIGNED_URL_MODULE_OPTIONS }           from './constants.js'
 
 @Module({})
 export class SignedUrlModule {
@@ -26,14 +23,7 @@ export class SignedUrlModule {
     ReadOptions extends SignedUrlReadOptions = SignedUrlReadOptions,
     WriteOptions extends SignedUrlWriteOptions = SignedUrlWriteOptions,
   >(options: SignedUrlModuleOptions<ReadOptions, WriteOptions>): DynamicModule {
-    return this.createModule([
-      SignedUrlSigner,
-      {
-        provide: SIGNED_URL_MODULE_OPTIONS,
-        useValue: options,
-      },
-      this.createSignedUrlGatewayProvider(),
-    ])
+    return this.createSignedUrlModule(options, this.createSignedUrlGatewayProviders(options))
   }
 
   static registerAsync<
@@ -41,14 +31,7 @@ export class SignedUrlModule {
     ReadOptions extends SignedUrlReadOptions = SignedUrlReadOptions,
     WriteOptions extends SignedUrlWriteOptions = SignedUrlWriteOptions,
   >(options: SignedUrlModuleAsyncOptions<FactoryArgs, ReadOptions, WriteOptions>): DynamicModule {
-    return {
-      ...this.createModule([
-        SignedUrlSigner,
-        ...this.createAsyncProviders(options),
-        this.createSignedUrlGatewayProvider(),
-      ]),
-      imports: options.imports || [],
-    }
+    return this.createSignedUrlModule(options, this.createSignedUrlGatewayProviders(options))
   }
 
   static gcs(options: GcsSignedUrlModuleOptions): DynamicModule {
@@ -63,77 +46,81 @@ export class SignedUrlModule {
   static gcsAsync<FactoryArgs extends ReadonlyArray<unknown> = ReadonlyArray<unknown>>(
     options: GcsSignedUrlModuleAsyncOptions<FactoryArgs>
   ): DynamicModule {
-    return {
-      ...this.createGcsModule(this.createGcsClientProvider(options)),
-      imports: options.imports || [],
-    }
+    return this.createGcsModule(this.createGcsClientProvider(options), options.imports || [])
   }
 
-  private static createModule(providers: Array<Provider>): DynamicModule {
+  private static createSignedUrlModule<
+    FactoryArgs extends ReadonlyArray<unknown> = ReadonlyArray<unknown>,
+    ReadOptions extends SignedUrlReadOptions = SignedUrlReadOptions,
+    WriteOptions extends SignedUrlWriteOptions = SignedUrlWriteOptions,
+  >(
+    options:
+      | SignedUrlModuleAsyncOptions<FactoryArgs, ReadOptions, WriteOptions>
+      | SignedUrlModuleOptions<ReadOptions, WriteOptions>,
+    providers: Array<Provider>
+  ): DynamicModule {
     return {
       module: SignedUrlModule,
-      providers,
+      imports: options.imports || [],
+      providers: [SignedUrlSigner, ...providers],
       exports: [SignedUrlSigner, SIGNED_URL_GATEWAY],
     }
   }
 
-  private static createAsyncProviders<
+  private static createSignedUrlGatewayProviders<
     FactoryArgs extends ReadonlyArray<unknown> = ReadonlyArray<unknown>,
     ReadOptions extends SignedUrlReadOptions = SignedUrlReadOptions,
     WriteOptions extends SignedUrlWriteOptions = SignedUrlWriteOptions,
-  >(options: SignedUrlModuleAsyncOptions<FactoryArgs, ReadOptions, WriteOptions>): Array<Provider> {
-    if (options.useExisting || options.useFactory) {
-      return [this.createAsyncOptionsProvider(options)]
+  >(
+    options:
+      | SignedUrlModuleAsyncOptions<FactoryArgs, ReadOptions, WriteOptions>
+      | SignedUrlModuleOptions<ReadOptions, WriteOptions>
+  ): Array<Provider> {
+    if ('useValue' in options) {
+      return [
+        {
+          provide: SIGNED_URL_GATEWAY,
+          useValue: options.useValue,
+        },
+      ]
     }
 
-    return [
-      this.createAsyncOptionsProvider(options),
-      {
-        provide: options.useClass!,
-        useClass: options.useClass!,
-      },
-    ]
+    if ('useExisting' in options) {
+      return [
+        {
+          provide: SIGNED_URL_GATEWAY,
+          useExisting: options.useExisting,
+        },
+      ]
+    }
+
+    if ('useFactory' in options) {
+      return [
+        {
+          provide: SIGNED_URL_GATEWAY,
+          useFactory: options.useFactory,
+          inject: options.inject || [],
+        },
+      ]
+    }
+
+    if ('useClass' in options) {
+      return [
+        options.useClass,
+        {
+          provide: SIGNED_URL_GATEWAY,
+          useExisting: options.useClass,
+        },
+      ]
+    }
+
+    throw new Error('SignedUrlModule requires useValue, useExisting, useClass, or useFactory')
   }
 
-  private static createAsyncOptionsProvider<
-    FactoryArgs extends ReadonlyArray<unknown> = ReadonlyArray<unknown>,
-    ReadOptions extends SignedUrlReadOptions = SignedUrlReadOptions,
-    WriteOptions extends SignedUrlWriteOptions = SignedUrlWriteOptions,
-  >(options: SignedUrlModuleAsyncOptions<FactoryArgs, ReadOptions, WriteOptions>): Provider {
-    if (options.useFactory) {
-      return {
-        provide: SIGNED_URL_MODULE_OPTIONS,
-        useFactory: options.useFactory,
-        inject: options.inject || [],
-      }
-    }
-
-    const injectTarget = options.useExisting ?? options.useClass
-    if (!injectTarget) {
-      throw new Error('SignedUrlModule requires useExisting, useClass, or useFactory')
-    }
-
-    return {
-      provide: SIGNED_URL_MODULE_OPTIONS,
-      useFactory: (
-        optionsFactory: SignedUrlModuleOptionsFactory<ReadOptions, WriteOptions>
-      ):
-        | Promise<SignedUrlModuleOptions<ReadOptions, WriteOptions>>
-        | SignedUrlModuleOptions<ReadOptions, WriteOptions> =>
-        optionsFactory.createSignedUrlModuleOptions(),
-      inject: [injectTarget],
-    }
-  }
-
-  private static createSignedUrlGatewayProvider(): Provider<SignedUrlGateway> {
-    return {
-      provide: SIGNED_URL_GATEWAY,
-      useFactory: (options: SignedUrlModuleOptions): SignedUrlGateway => options.gateway,
-      inject: [SIGNED_URL_MODULE_OPTIONS],
-    }
-  }
-
-  private static createGcsModule(clientProvider: Provider<Storage>): DynamicModule {
+  private static createGcsModule(
+    clientProvider: Provider<Storage>,
+    imports: DynamicModule['imports'] = []
+  ): DynamicModule {
     const signedUrlGateway: Provider = {
       provide: SIGNED_URL_GATEWAY,
       useExisting: GcsSignedUrlGateway,
@@ -141,6 +128,7 @@ export class SignedUrlModule {
 
     return {
       module: SignedUrlModule,
+      imports,
       providers: [
         GcsSignedUrlSigner,
         {

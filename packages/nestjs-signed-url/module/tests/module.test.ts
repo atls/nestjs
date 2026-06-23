@@ -1,6 +1,6 @@
 import type { TestingModule }                  from '@nestjs/testing'
 
-import type { TestingSignedUrlGateway }        from '../../../tests/fixtures/signer.interfaces.js'
+import type { TestingSignedUrlGateway }        from '../../tests/fixtures/signer.interfaces.js'
 
 import assert                                  from 'node:assert/strict'
 import { afterEach }                           from 'node:test'
@@ -9,14 +9,14 @@ import { it }                                  from 'node:test'
 
 import { Test }                                from '@nestjs/testing'
 
-import { SIGNED_URL_GATEWAY }                  from '../../constants.js'
-import { SignedUrlSigner }                     from '../../signer.js'
-import { SignedUrlModule }                     from '../index.js'
+import { SIGNED_URL_GATEWAY }                  from '../../src/constants.js'
+import { SignedUrlModule }                     from '../../src/module/index.js'
+import { SignedUrlSigner }                     from '../../src/signer.js'
 import { TESTING_SIGNED_URL_GATEWAY }          from './fixtures/constants.js'
-import { TestingSignedUrlGatewayConsumer }     from './fixtures/gateway.js'
-import { TestingSignedUrlOptionsFactory }      from './fixtures/options.js'
-import { createTestingSignedUrlGateway }       from '../../../tests/fixtures/signer.fixture.js'
-import { createTestingSignedUrlGatewayModule } from './fixtures/gateway.js'
+import { TestingSignedUrlGatewayConsumer }     from './fixtures/consumer.js'
+import { TestingSignedUrlGatewayImpl }         from './fixtures/gateway.js'
+import { createTestingSignedUrlGateway }       from '../../tests/fixtures/signer.fixture.js'
+import { createTestingSignedUrlGatewayModule } from './fixtures/module.js'
 
 describe('SignedUrlModule register APIs', () => {
   let moduleRef: TestingModule | undefined
@@ -26,11 +26,11 @@ describe('SignedUrlModule register APIs', () => {
     moduleRef = undefined
   })
 
-  it('wires a gateway through register', async () => {
+  it('wires a gateway through register useValue', async () => {
     const gateway = createTestingSignedUrlGateway()
 
     moduleRef = await Test.createTestingModule({
-      imports: [SignedUrlModule.register({ gateway })],
+      imports: [SignedUrlModule.register({ useValue: gateway })],
       providers: [TestingSignedUrlGatewayConsumer],
     }).compile()
 
@@ -62,6 +62,51 @@ describe('SignedUrlModule register APIs', () => {
     ])
   })
 
+  it('wires a gateway through register useExisting', async () => {
+    const gateway = createTestingSignedUrlGateway()
+
+    moduleRef = await Test.createTestingModule({
+      imports: [
+        SignedUrlModule.register({
+          imports: [createTestingSignedUrlGatewayModule(gateway)],
+          useExisting: TESTING_SIGNED_URL_GATEWAY,
+        }),
+      ],
+      providers: [TestingSignedUrlGatewayConsumer],
+    }).compile()
+
+    const signedUrlGateway = moduleRef.get<TestingSignedUrlGateway>(SIGNED_URL_GATEWAY)
+    const consumer = moduleRef.get(TestingSignedUrlGatewayConsumer)
+
+    assert.equal(signedUrlGateway, gateway)
+    assert.equal(consumer.gateway, gateway)
+  })
+
+  it('wires a gateway through register useClass', async () => {
+    const gateway = createTestingSignedUrlGateway()
+
+    moduleRef = await Test.createTestingModule({
+      imports: [
+        SignedUrlModule.register({
+          imports: [createTestingSignedUrlGatewayModule(gateway)],
+          useClass: TestingSignedUrlGatewayImpl,
+        }),
+      ],
+    }).compile()
+
+    const signer = moduleRef.get(SignedUrlSigner)
+
+    await signer.generateReadUrl('bucket', 'file.png')
+
+    assert.deepEqual(gateway.readCalls, [
+      {
+        bucket: 'bucket',
+        filename: 'file.png',
+        options: undefined,
+      },
+    ])
+  })
+
   it('wires a gateway through registerAsync useFactory', async () => {
     const gateway = createTestingSignedUrlGateway()
 
@@ -70,9 +115,7 @@ describe('SignedUrlModule register APIs', () => {
         SignedUrlModule.registerAsync<[TestingSignedUrlGateway]>({
           imports: [createTestingSignedUrlGatewayModule(gateway)],
           inject: [TESTING_SIGNED_URL_GATEWAY],
-          useFactory: (signedUrlGateway: TestingSignedUrlGateway) => ({
-            gateway: signedUrlGateway,
-          }),
+          useFactory: (signedUrlGateway: TestingSignedUrlGateway) => signedUrlGateway,
         }),
       ],
     }).compile()
@@ -105,7 +148,7 @@ describe('SignedUrlModule register APIs', () => {
       imports: [
         SignedUrlModule.registerAsync({
           imports: [createTestingSignedUrlGatewayModule(gateway)],
-          useClass: TestingSignedUrlOptionsFactory,
+          useClass: TestingSignedUrlGatewayImpl,
         }),
       ],
     }).compile()
@@ -130,7 +173,7 @@ describe('SignedUrlModule register APIs', () => {
       imports: [
         SignedUrlModule.registerAsync({
           imports: [createTestingSignedUrlGatewayModule(gateway)],
-          useExisting: TestingSignedUrlOptionsFactory,
+          useExisting: TESTING_SIGNED_URL_GATEWAY,
         }),
       ],
     }).compile()
