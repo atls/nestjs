@@ -1,6 +1,7 @@
 import type { Storage }           from '@google-cloud/storage'
 import type { DynamicModule }     from '@nestjs/common'
 import type { TestingModule }     from '@nestjs/testing'
+import type { SignedUrlProvider } from '../provider.js'
 
 import assert                     from 'node:assert/strict'
 import { afterEach }              from 'node:test'
@@ -9,6 +10,7 @@ import { it }                     from 'node:test'
 
 import { Test }                   from '@nestjs/testing'
 
+import { SIGNED_URL_PROVIDER }    from '../constants.js'
 import { SignedUrlModule }        from '../module.js'
 import { SignedUrlSigner }        from '../signer.js'
 import { createFakeGcsStorage }   from '../../tests/gcs.client.fixture.js'
@@ -50,6 +52,7 @@ describe('SignedUrlModule', () => {
     }).compile()
 
     const signer = moduleRef.get(SignedUrlSigner)
+    const provider = moduleRef.get<SignedUrlProvider>(SIGNED_URL_PROVIDER)
 
     const value = await signer.generateWriteUrl('bucket', 'file.png', {
       contentType: 'image/png',
@@ -65,6 +68,13 @@ describe('SignedUrlModule', () => {
       action: 'write',
       expires: 1730000000000,
       contentType: 'image/png',
+    })
+
+    const readValue = await provider.generateReadUrl('bucket', 'file.png')
+
+    assert.deepEqual(readValue, {
+      url: 'module-signed-url',
+      fields: [],
     })
   })
 

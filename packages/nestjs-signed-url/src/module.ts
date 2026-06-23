@@ -61,7 +61,7 @@ export class SignedUrlModule {
     return {
       module: SignedUrlModule,
       providers: [SignedUrlSigner, clientProvider, GcsSignedUrlGateway, signedUrlProvider],
-      exports: [SignedUrlSigner],
+      exports: [SignedUrlSigner, SIGNED_URL_PROVIDER],
     }
   }
 
