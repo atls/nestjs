@@ -12,6 +12,9 @@ import { it }                            from 'node:test'
 import { Inject }                        from '@nestjs/common'
 import { Test }                          from '@nestjs/testing'
 
+import { GcsClientFactory }              from '@atls/nestjs-gcs-client'
+import { GcsClientModule }               from '@atls/nestjs-gcs-client'
+
 import { SIGNED_URL_GATEWAY }            from '../../src/constants.js'
 import { GCS_SIGNED_URL_CLIENT }         from '../../src/gcs/index.js'
 import { GcsSignedUrlSigner }            from '../../src/gcs/signer.js'
@@ -115,6 +118,56 @@ describe('SignedUrlModule', () => {
       virtualHostedStyle: true,
       action: 'read',
       expires: 1730000000000,
+    })
+  })
+
+  it('wires the public gcs-client module boundary into the signed-url signer', async () => {
+    const { client, storage } = createFakeGcsStorage('gcs-client-boundary-signed-url')
+    const gcsClientFactory: Pick<GcsClientFactory, 'create'> = {
+      create: (): Storage => storage,
+    }
+
+    moduleRef = await Test.createTestingModule({
+      imports: [
+        SignedUrlModule.gcsAsync<[GcsClientFactory]>({
+          imports: [GcsClientModule.register()],
+          inject: [GcsClientFactory],
+          useFactory: (factory: GcsClientFactory): Storage => factory.create(),
+        }),
+      ],
+      providers: [TestingGcsClientConsumer],
+    })
+      .overrideProvider(GcsClientFactory)
+      .useValue(gcsClientFactory)
+      .compile()
+
+    const signer = moduleRef.get(GcsSignedUrlSigner)
+    const consumer = moduleRef.get(TestingGcsClientConsumer)
+
+    assert.equal(consumer.storage, storage)
+
+    const value = await signer.generateWriteUrl('bucket', 'file.png', {
+      contentType: 'image/png',
+      expiresAt: 1730000000000,
+      headers: {
+        'x-goog-meta-origin': 'gcs-client-boundary',
+      },
+      responseDisposition: 'inline',
+    })
+
+    assert.deepEqual(value, {
+      url: 'gcs-client-boundary-signed-url',
+      fields: [],
+    })
+    assert.deepEqual(client.fileObject.params, {
+      version: 'v4',
+      action: 'write',
+      expires: 1730000000000,
+      extensionHeaders: {
+        'x-goog-meta-origin': 'gcs-client-boundary',
+      },
+      responseDisposition: 'inline',
+      contentType: 'image/png',
     })
   })
 })
