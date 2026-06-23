@@ -1,8 +1,8 @@
-import type { SignedUrlReadOptions }  from './storage.interfaces.js'
-import type { SignedUrlWriteOptions } from './storage.interfaces.js'
-import type { SignedUrl }             from './storage.interfaces.js'
+import type { SignedUrlReadOptions }  from './options.js'
+import type { SignedUrlWriteOptions } from './options.js'
+import type { SignedUrl }             from './options.js'
 
-export abstract class AbstractStorage {
+export abstract class SignedUrlProvider {
   abstract generateWriteUrl(
     bucket: string,
     filename: string,

@@ -1,23 +1,31 @@
-import type { DynamicModule } from '@nestjs/common'
+import type { Storage }          from '@google-cloud/storage'
+import type { DynamicModule }    from '@nestjs/common'
+import type { Provider }         from '@nestjs/common'
 
-import { Module }             from '@nestjs/common'
+import { Module }                from '@nestjs/common'
 
-import { SignedUrlService }   from './services/index.js'
-import { STORAGE }            from './storage/index.js'
-import { GcsStorage }         from './storage/index.js'
+import { SIGNED_URL_PROVIDER }   from './constants.js'
+import { GCS_SIGNED_URL_CLIENT } from './gcs/index.js'
+import { GcsSignedUrlGateway }   from './gcs/index.js'
+import { SignedUrlSigner }       from './signer.js'
 
 @Module({})
 export class SignedUrlModule {
-  static gcs(): DynamicModule {
-    const storageProvider = {
-      provide: STORAGE,
-      useFactory: (): GcsStorage => new GcsStorage(),
+  static gcs(client: Storage): DynamicModule {
+    const clientProvider: Provider<Storage> = {
+      provide: GCS_SIGNED_URL_CLIENT,
+      useValue: client,
+    }
+
+    const signedUrlProvider: Provider = {
+      provide: SIGNED_URL_PROVIDER,
+      useExisting: GcsSignedUrlGateway,
     }
 
     return {
       module: SignedUrlModule,
-      providers: [SignedUrlService, storageProvider],
-      exports: [SignedUrlService],
+      providers: [SignedUrlSigner, clientProvider, GcsSignedUrlGateway, signedUrlProvider],
+      exports: [SignedUrlSigner],
     }
   }
 }

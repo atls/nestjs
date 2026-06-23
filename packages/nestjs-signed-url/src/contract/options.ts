@@ -10,15 +10,10 @@ export interface SignedUrl {
   fields?: Array<SignedUrlField>
 }
 
-export interface SignedUrlProviderOptions {
-  gcs?: Record<string, unknown>
-}
-
 export interface SignedUrlOptions {
   expiresAt?: Date | number
   expiresInSeconds?: number
   headers?: SignedUrlHeaders
-  providerOptions?: SignedUrlProviderOptions
   responseDisposition?: string
 }
 
