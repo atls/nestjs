@@ -1,52 +1,15 @@
-import type { GetSignedUrlConfig } from '@google-cloud/storage'
-import type { Storage }            from '@google-cloud/storage'
-import type { TestingModule }      from '@nestjs/testing'
+import type { TestingModule }   from '@nestjs/testing'
 
-import assert                      from 'node:assert/strict'
-import { afterEach }               from 'node:test'
-import { describe }                from 'node:test'
-import { it }                      from 'node:test'
+import assert                   from 'node:assert/strict'
+import { afterEach }            from 'node:test'
+import { describe }             from 'node:test'
+import { it }                   from 'node:test'
 
-import { Test }                    from '@nestjs/testing'
+import { Test }                 from '@nestjs/testing'
 
-import { SignedUrlModule }         from '../module.js'
-import { SignedUrlSigner }         from '../signer.js'
-
-interface FakeGcsFile {
-  params?: GetSignedUrlConfig
-  getSignedUrl: (params: GetSignedUrlConfig) => Promise<[string]>
-}
-
-interface FakeGcsBucket {
-  file: (filename: string) => FakeGcsFile
-}
-
-interface FakeGcsClient {
-  fileObject: FakeGcsFile
-  bucket: (bucketName: string) => FakeGcsBucket
-}
-
-const createFakeGcsClient = (): FakeGcsClient => {
-  const fileObject: FakeGcsFile = {
-    async getSignedUrl(params: GetSignedUrlConfig): Promise<[string]> {
-      fileObject.params = params
-
-      return ['module-signed-url']
-    },
-  }
-
-  return {
-    fileObject,
-
-    bucket(): FakeGcsBucket {
-      return {
-        file(): FakeGcsFile {
-          return fileObject
-        },
-      }
-    },
-  }
-}
+import { SignedUrlModule }      from '../module.js'
+import { SignedUrlSigner }      from '../signer.js'
+import { createFakeGcsStorage } from '../../tests/gcs.client.fixture.js'
 
 describe('SignedUrlModule', () => {
   let moduleRef: TestingModule | undefined
@@ -57,10 +20,10 @@ describe('SignedUrlModule', () => {
   })
 
   it('wires the GCS client into the signed-url signer', async () => {
-    const client = createFakeGcsClient()
+    const { client, storage } = createFakeGcsStorage('module-signed-url')
 
     moduleRef = await Test.createTestingModule({
-      imports: [SignedUrlModule.gcs(client as unknown as Storage)],
+      imports: [SignedUrlModule.gcs(storage)],
     }).compile()
 
     const signer = moduleRef.get(SignedUrlSigner)

@@ -10,13 +10,13 @@ import { it }                         from 'node:test'
 
 import { SignedUrlSigner }            from '../signer.js'
 
-interface WriteCall {
+type WriteCall = {
   bucket: string
   filename: string
   options: SignedUrlWriteOptions
 }
 
-interface ReadCall {
+type ReadCall = {
   bucket: string
   filename: string
   options: SignedUrlReadOptions
