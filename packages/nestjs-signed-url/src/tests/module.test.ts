@@ -2,7 +2,7 @@ import type { Storage }                  from '@google-cloud/storage'
 import type { TestingModule }            from '@nestjs/testing'
 
 import type { SignedUrlProvider }        from '../provider.js'
-import type { TestingGcsStorageFactory } from './gcs.module.fixture.js'
+import type { TestingGcsStorageFactory } from './gcs.module.interfaces.js'
 
 import assert                            from 'node:assert/strict'
 import { afterEach }                     from 'node:test'

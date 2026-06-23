@@ -1,8 +1,9 @@
 import type { Storage }          from '@google-cloud/storage'
 import type { DynamicModule }    from '@nestjs/common'
-import type { InjectionToken }   from '@nestjs/common'
-import type { ModuleMetadata }   from '@nestjs/common'
 import type { Provider }         from '@nestjs/common'
+
+import type { GcsSignedUrlModuleAsyncOptions } from './module.interfaces.js'
+import type { GcsSignedUrlModuleOptions }      from './module.interfaces.js'
 
 import { Module }                from '@nestjs/common'
 
@@ -11,25 +12,6 @@ import { GCS_SIGNED_URL_CLIENT } from './gcs/index.js'
 import { GcsSignedUrlGateway }   from './gcs/index.js'
 import { GcsSignedUrlSigner }    from './gcs/index.js'
 import { SignedUrlSigner }       from './signer.js'
-
-export interface GcsSignedUrlModuleOptions {
-  useValue: Storage
-}
-
-export interface GcsSignedUrlModuleExistingOptions extends Pick<ModuleMetadata, 'imports'> {
-  useExisting: InjectionToken
-}
-
-export interface GcsSignedUrlModuleFactoryOptions<
-  FactoryArgs extends ReadonlyArray<unknown> = ReadonlyArray<unknown>,
-> extends Pick<ModuleMetadata, 'imports'> {
-  useFactory: (...args: FactoryArgs) => Promise<Storage> | Storage
-  inject?: Array<InjectionToken>
-}
-
-export type GcsSignedUrlModuleAsyncOptions<
-  FactoryArgs extends ReadonlyArray<unknown> = ReadonlyArray<unknown>,
-> = GcsSignedUrlModuleExistingOptions | GcsSignedUrlModuleFactoryOptions<FactoryArgs>
 
 @Module({})
 export class SignedUrlModule {

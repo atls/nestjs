@@ -1,6 +1,6 @@
-import type { SignedUrlReadOptions }  from './options.js'
-import type { SignedUrlWriteOptions } from './options.js'
-import type { SignedUrl }             from './options.js'
+import type { SignedUrlReadOptions }  from './interfaces.js'
+import type { SignedUrlWriteOptions } from './interfaces.js'
+import type { SignedUrl }             from './interfaces.js'
 import type { SignedUrlProvider }     from './provider.js'
 
 import { Inject }                     from '@nestjs/common'

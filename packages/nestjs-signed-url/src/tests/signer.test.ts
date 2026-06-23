@@ -1,6 +1,6 @@
-import type { SignedUrlReadOptions }      from '../options.js'
-import type { SignedUrlWriteOptions }     from '../options.js'
-import type { TestingSignedUrlProvider }  from './signer.fixture.js'
+import type { SignedUrlReadOptions }      from '../interfaces.js'
+import type { SignedUrlWriteOptions }     from '../interfaces.js'
+import type { TestingSignedUrlProvider }  from './signer.interfaces.js'
 
 import assert                             from 'node:assert/strict'
 import { beforeEach }                     from 'node:test'

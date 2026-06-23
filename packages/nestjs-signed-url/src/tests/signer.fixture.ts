@@ -1,24 +1,9 @@
-import type { SignedUrlReadOptions }  from '../options.js'
-import type { SignedUrlWriteOptions } from '../options.js'
-import type { SignedUrl }             from '../options.js'
-import type { SignedUrlProvider }     from '../provider.js'
-
-export type WriteCall = {
-  bucket: string
-  filename: string
-  options: SignedUrlWriteOptions
-}
-
-export type ReadCall = {
-  bucket: string
-  filename: string
-  options?: SignedUrlReadOptions
-}
-
-export type TestingSignedUrlProvider = SignedUrlProvider & {
-  writeCalls: Array<WriteCall>
-  readCalls: Array<ReadCall>
-}
+import type { SignedUrlReadOptions }      from '../interfaces.js'
+import type { SignedUrlWriteOptions }     from '../interfaces.js'
+import type { SignedUrl }                 from '../interfaces.js'
+import type { ReadCall }                  from './signer.interfaces.js'
+import type { TestingSignedUrlProvider }  from './signer.interfaces.js'
+import type { WriteCall }                 from './signer.interfaces.js'
 
 export const createTestingSignedUrlProvider = (): TestingSignedUrlProvider => {
   const writeCalls: Array<WriteCall> = []

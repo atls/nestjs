@@ -1,6 +1,7 @@
 export * from './constants.js'
 export * from './gcs/index.js'
+export type * from './interfaces.js'
 export * from './module.js'
+export type * from './module.interfaces.js'
 export * from './provider.js'
 export * from './signer.js'
-export type * from './options.js'

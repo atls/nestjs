@@ -1,26 +1,9 @@
 import type { GetSignedUrlConfig } from '@google-cloud/storage'
 import type { Storage }            from '@google-cloud/storage'
-
-export type FakeGcsFile = {
-  params?: GetSignedUrlConfig
-  getSignedUrl: (params: GetSignedUrlConfig) => Promise<[string]>
-}
-
-export type FakeGcsBucket = {
-  file: (filename: string) => FakeGcsFile
-}
-
-export type FakeGcsClient = {
-  bucketName?: string
-  filename?: string
-  fileObject: FakeGcsFile
-  bucket: (bucketName: string) => FakeGcsBucket
-}
-
-export type FakeGcsStorage = {
-  client: FakeGcsClient
-  storage: Storage
-}
+import type { FakeGcsBucket }      from './gcs.client.interfaces.js'
+import type { FakeGcsClient }      from './gcs.client.interfaces.js'
+import type { FakeGcsFile }        from './gcs.client.interfaces.js'
+import type { FakeGcsStorage }     from './gcs.client.interfaces.js'
 
 export const createFakeGcsClient = (signedUrl = 'signed-url'): FakeGcsClient => {
   const fileObject: FakeGcsFile = {

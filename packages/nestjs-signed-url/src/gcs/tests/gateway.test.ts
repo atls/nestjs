@@ -1,4 +1,4 @@
-import type { FakeGcsClient }   from '../../../tests/gcs.client.fixture.js'
+import type { FakeGcsClient }   from '../../../tests/gcs.client.interfaces.js'
 
 import assert                   from 'node:assert/strict'
 import { beforeEach }           from 'node:test'

@@ -1,6 +1,6 @@
 import type { SignedUrlProvider }        from '../provider.js'
-import type { GcsSignedUrlReadOptions }  from './gateway.js'
-import type { GcsSignedUrlWriteOptions } from './gateway.js'
+import type { GcsSignedUrlReadOptions }  from './interfaces.js'
+import type { GcsSignedUrlWriteOptions } from './interfaces.js'
 
 import { Inject }                        from '@nestjs/common'
 import { Injectable }                    from '@nestjs/common'

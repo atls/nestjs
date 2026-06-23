@@ -1,7 +1,7 @@
 import type { GcsSignedUrlReadOptions } from '../gcs/index.js'
 import type { GcsSignedUrlSigner }      from '../gcs/index.js'
-import type { SignedUrlOptions }        from '../options.js'
-import type { SignedUrlWriteOptions }   from '../options.js'
+import type { SignedUrlOptions }        from '../interfaces.js'
+import type { SignedUrlWriteOptions }   from '../interfaces.js'
 
 import assert                           from 'node:assert/strict'
 import { describe }                     from 'node:test'

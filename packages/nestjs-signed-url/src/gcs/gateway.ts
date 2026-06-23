@@ -1,10 +1,10 @@
 import type { GetSignedUrlConfig }               from '@google-cloud/storage'
 import type { Storage }                          from '@google-cloud/storage'
 
-import type { SignedUrlOptions }                 from '../options.js'
-import type { SignedUrlReadOptions }             from '../options.js'
-import type { SignedUrlWriteOptions }            from '../options.js'
-import type { SignedUrl }                        from '../options.js'
+import type { SignedUrlOptions }                 from '../interfaces.js'
+import type { SignedUrl }                        from '../interfaces.js'
+import type { GcsSignedUrlReadOptions }          from './interfaces.js'
+import type { GcsSignedUrlWriteOptions }         from './interfaces.js'
 
 import { Inject }                                from '@nestjs/common'
 import { Injectable }                            from '@nestjs/common'
@@ -16,21 +16,6 @@ import { GCS_SIGNED_URL_CLIENT }                 from './constants.js'
 const MILLISECONDS_IN_SECOND = 1000
 
 type GcsSignedUrlAction = Extract<GetSignedUrlConfig['action'], 'read' | 'write'>
-
-export type GcsSignedUrlConfig = Partial<
-  Omit<
-    GetSignedUrlConfig,
-    'action' | 'contentType' | 'expires' | 'extensionHeaders' | 'responseDisposition'
-  >
->
-
-export interface GcsSignedUrlReadOptions extends SignedUrlReadOptions {
-  gcs?: GcsSignedUrlConfig
-}
-
-export interface GcsSignedUrlWriteOptions extends SignedUrlWriteOptions {
-  gcs?: GcsSignedUrlConfig
-}
 
 const resolveExpires = (options: SignedUrlOptions): GetSignedUrlConfig['expires'] => {
   if (options.expiresAt !== undefined) {
