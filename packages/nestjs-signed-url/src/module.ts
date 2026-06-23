@@ -28,9 +28,7 @@ export interface GcsSignedUrlModuleFactoryOptions<
 
 export type GcsSignedUrlModuleAsyncOptions<
   FactoryArgs extends ReadonlyArray<unknown> = ReadonlyArray<unknown>,
-> =
-  | GcsSignedUrlModuleExistingOptions
-  | GcsSignedUrlModuleFactoryOptions<FactoryArgs>
+> = GcsSignedUrlModuleExistingOptions | GcsSignedUrlModuleFactoryOptions<FactoryArgs>
 
 @Module({})
 export class SignedUrlModule {
@@ -67,9 +65,7 @@ export class SignedUrlModule {
 
   private static createGcsClientProvider<
     FactoryArgs extends ReadonlyArray<unknown> = ReadonlyArray<unknown>,
-  >(
-    options: GcsSignedUrlModuleAsyncOptions<FactoryArgs>
-  ): Provider<Storage> {
+  >(options: GcsSignedUrlModuleAsyncOptions<FactoryArgs>): Provider<Storage> {
     if ('useFactory' in options) {
       return {
         provide: GCS_SIGNED_URL_CLIENT,

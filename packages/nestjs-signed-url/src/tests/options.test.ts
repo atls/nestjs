@@ -2,9 +2,9 @@ import type { GcsSignedUrlReadOptions } from '../gcs/index.js'
 import type { SignedUrlOptions }        from '../options.js'
 import type { SignedUrlWriteOptions }   from '../options.js'
 
-import assert                            from 'node:assert/strict'
-import { describe }                      from 'node:test'
-import { it }                            from 'node:test'
+import assert                           from 'node:assert/strict'
+import { describe }                     from 'node:test'
+import { it }                           from 'node:test'
 
 describe('signed-url options', () => {
   it('exposes contentType without the legacy type option', () => {

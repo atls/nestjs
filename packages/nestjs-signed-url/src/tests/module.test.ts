@@ -1,6 +1,7 @@
 import type { Storage }           from '@google-cloud/storage'
 import type { DynamicModule }     from '@nestjs/common'
 import type { TestingModule }     from '@nestjs/testing'
+
 import type { SignedUrlProvider } from '../provider.js'
 
 import assert                     from 'node:assert/strict'
