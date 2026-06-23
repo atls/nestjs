@@ -1,6 +1,6 @@
 import type { SignedUrlReadOptions }      from '../interfaces.js'
 import type { SignedUrlWriteOptions }     from '../interfaces.js'
-import type { TestingSignedUrlProvider }  from './signer.interfaces.js'
+import type { TestingSignedUrlProvider }  from '../../tests/fixtures/signer.interfaces.js'
 
 import assert                             from 'node:assert/strict'
 import { beforeEach }                     from 'node:test'
@@ -8,7 +8,7 @@ import { describe }                       from 'node:test'
 import { it }                             from 'node:test'
 
 import { SignedUrlSigner }                from '../signer.js'
-import { createTestingSignedUrlProvider } from './signer.fixture.js'
+import { createTestingSignedUrlProvider } from '../../tests/fixtures/signer.fixture.js'
 
 describe('SignedUrlSigner', () => {
   let signer: SignedUrlSigner

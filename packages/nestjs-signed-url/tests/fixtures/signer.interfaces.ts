@@ -1,6 +1,6 @@
-import type { SignedUrlReadOptions }  from '../interfaces.js'
-import type { SignedUrlWriteOptions } from '../interfaces.js'
-import type { SignedUrlProvider }     from '../provider.js'
+import type { SignedUrlReadOptions }  from '../../src/interfaces.js'
+import type { SignedUrlWriteOptions } from '../../src/interfaces.js'
+import type { SignedUrlProvider }     from '../../src/provider.js'
 
 export interface WriteCall {
   bucket: string

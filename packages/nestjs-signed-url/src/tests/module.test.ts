@@ -2,7 +2,7 @@ import type { Storage }                  from '@google-cloud/storage'
 import type { TestingModule }            from '@nestjs/testing'
 
 import type { SignedUrlProvider }        from '../provider.js'
-import type { TestingGcsStorageFactory } from './gcs.module.interfaces.js'
+import type { TestingGcsStorageFactory } from '../../tests/fixtures/gcs.module.interfaces.js'
 
 import assert                            from 'node:assert/strict'
 import { afterEach }                     from 'node:test'
@@ -15,9 +15,9 @@ import { SIGNED_URL_PROVIDER }           from '../constants.js'
 import { GcsSignedUrlSigner }            from '../gcs/index.js'
 import { SignedUrlModule }               from '../module.js'
 import { SignedUrlSigner }               from '../signer.js'
-import { TESTING_GCS_STORAGE_FACTORY }   from './gcs.module.fixture.js'
-import { createFakeGcsStorage }          from '../../tests/gcs.client.fixture.js'
-import { createTestingGcsClientModule }  from './gcs.module.fixture.js'
+import { TESTING_GCS_STORAGE_FACTORY }   from '../../tests/fixtures/gcs.module.fixture.js'
+import { createFakeGcsStorage }          from '../../tests/fixtures/gcs.client.fixture.js'
+import { createTestingGcsClientModule }  from '../../tests/fixtures/gcs.module.fixture.js'
 
 describe('SignedUrlModule', () => {
   let moduleRef: TestingModule | undefined
