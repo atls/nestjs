@@ -1,5 +1,22 @@
 
 
+# [0.4.0](https://github.com/atls/nestjs/compare/@atls/nestjs-signed-url@0.3.0...@atls/nestjs-signed-url@0.4.0) (2026-06-23)
+
+
+### Bug Fixes
+
+
+* **nestjs-signed-url:** align module provider binding ([858fe98](https://github.com/atls/nestjs/commit/858fe981785f060acd69dd845e360ed0e5e154f7))
+
+### Features
+
+
+* **nestjs-signed-url:** add module registration api ([95bcf59](https://github.com/atls/nestjs/commit/95bcf59c61e9450aef15c58761cbbde3c9b5298d))
+
+
+
+
+
 # [0.3.0](https://github.com/atls/nestjs/compare/@atls/nestjs-signed-url@0.2.0...@atls/nestjs-signed-url@0.3.0) (2026-06-23)
 
 
