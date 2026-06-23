@@ -2,8 +2,8 @@ import type { Storage }                        from '@google-cloud/storage'
 import type { DynamicModule }                  from '@nestjs/common'
 import type { Provider }                       from '@nestjs/common'
 
-import type { GcsSignedUrlModuleAsyncOptions } from './module.interfaces.js'
-import type { GcsSignedUrlModuleOptions }      from './module.interfaces.js'
+import type { GcsSignedUrlModuleAsyncOptions } from './interfaces.js'
+import type { GcsSignedUrlModuleOptions }      from './interfaces.js'
 
 import { Module }                              from '@nestjs/common'
 
