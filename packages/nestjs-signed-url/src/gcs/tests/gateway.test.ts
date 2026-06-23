@@ -1,14 +1,13 @@
-import type { GetSignedUrlConfig }           from '@google-cloud/storage'
-import type { Storage }                      from '@google-cloud/storage'
+import type { GetSignedUrlConfig } from '@google-cloud/storage'
+import type { Storage }            from '@google-cloud/storage'
 
-import assert                                from 'node:assert/strict'
-import { beforeEach }                        from 'node:test'
-import { describe }                          from 'node:test'
-import { it }                                from 'node:test'
-import { mock }                              from 'node:test'
+import assert                      from 'node:assert/strict'
+import { beforeEach }              from 'node:test'
+import { describe }                from 'node:test'
+import { it }                      from 'node:test'
+import { mock }                    from 'node:test'
 
-import { GcsSignedUrlGateway }               from '../gateway.js'
-import { describeSignedUrlProviderContract } from '../../contract/tests/provider.contract.js'
+import { GcsSignedUrlGateway }     from '../gateway.js'
 
 interface FakeGcsFile {
   params?: GetSignedUrlConfig
@@ -57,18 +56,6 @@ const createFakeGcsClient = (): FakeGcsClient => {
 const createGateway = (client: FakeGcsClient): GcsSignedUrlGateway =>
   new GcsSignedUrlGateway(client as unknown as Storage)
 
-describeSignedUrlProviderContract('GcsSignedUrlGateway', () => ({
-  provider: createGateway(createFakeGcsClient()),
-  expectedWriteUrl: {
-    url: 'signed-url',
-    fields: [],
-  },
-  expectedReadUrl: {
-    url: 'signed-url',
-    fields: [],
-  },
-}))
-
 describe('GcsSignedUrlGateway', () => {
   let gateway: GcsSignedUrlGateway
   let client: FakeGcsClient
@@ -79,6 +66,22 @@ describe('GcsSignedUrlGateway', () => {
   })
 
   describe('generateWriteUrl', () => {
+    it('generates write urls through the package signing boundary', async () => {
+      const value = await gateway.generateWriteUrl('bucket', 'file.png', {
+        contentType: 'image/png',
+        expiresAt: 1730000000000,
+        headers: {
+          'x-signed-url-origin': 'gateway-test',
+        },
+        responseDisposition: 'inline',
+      })
+
+      assert.deepEqual(value, {
+        url: 'signed-url',
+        fields: [],
+      })
+    })
+
     it('maps provider-neutral write options to the GCS signed-url config', async () => {
       const value = await gateway.generateWriteUrl('bucket', 'file.png', {
         contentType: 'image/png',
@@ -109,6 +112,18 @@ describe('GcsSignedUrlGateway', () => {
   })
 
   describe('generateReadUrl', () => {
+    it('generates read urls through the package signing boundary', async () => {
+      const value = await gateway.generateReadUrl('bucket', 'file.png', {
+        expiresInSeconds: 30,
+        responseDisposition: 'attachment; filename="file.png"',
+      })
+
+      assert.deepEqual(value, {
+        url: 'signed-url',
+        fields: [],
+      })
+    })
+
     it('maps provider-neutral read options to the GCS signed-url config', async () => {
       const dateNowMock = mock.method(Date, 'now', () => 1000)
 

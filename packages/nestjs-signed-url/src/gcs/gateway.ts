@@ -1,16 +1,16 @@
 import type { GetSignedUrlConfig }               from '@google-cloud/storage'
 import type { Storage }                          from '@google-cloud/storage'
 
-import type { SignedUrlOptions }                 from '../contract/index.js'
-import type { SignedUrlReadOptions }             from '../contract/index.js'
-import type { SignedUrlWriteOptions }            from '../contract/index.js'
-import type { SignedUrl }                        from '../contract/index.js'
+import type { SignedUrlOptions }                 from '../options.js'
+import type { SignedUrlReadOptions }             from '../options.js'
+import type { SignedUrlWriteOptions }            from '../options.js'
+import type { SignedUrl }                        from '../options.js'
 
 import { Inject }                                from '@nestjs/common'
 import { Injectable }                            from '@nestjs/common'
 
 import { DEFAULT_SIGNED_URL_EXPIRES_IN_SECONDS } from '../constants.js'
-import { SignedUrlProvider }                     from '../contract/index.js'
+import { SignedUrlProvider }                     from '../provider.js'
 import { GCS_SIGNED_URL_CLIENT }                 from './constants.js'
 
 const MILLISECONDS_IN_SECOND = 1000

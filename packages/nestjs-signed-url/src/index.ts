@@ -1,5 +1,6 @@
 export * from './constants.js'
-export * from './contract/index.js'
 export * from './gcs/index.js'
 export * from './module.js'
+export * from './provider.js'
 export * from './signer.js'
+export type * from './options.js'

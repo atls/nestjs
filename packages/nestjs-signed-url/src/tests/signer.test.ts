@@ -1,7 +1,7 @@
-import type { SignedUrlProvider }     from '../contract/index.js'
-import type { SignedUrlReadOptions }  from '../contract/index.js'
-import type { SignedUrlWriteOptions } from '../contract/index.js'
-import type { SignedUrl }             from '../contract/index.js'
+import type { SignedUrlReadOptions }  from '../options.js'
+import type { SignedUrlWriteOptions } from '../options.js'
+import type { SignedUrl }             from '../options.js'
+import type { SignedUrlProvider }     from '../provider.js'
 
 import assert                         from 'node:assert/strict'
 import { beforeEach }                 from 'node:test'

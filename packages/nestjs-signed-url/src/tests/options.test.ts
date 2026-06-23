@@ -17,7 +17,7 @@ describe('signed-url options', () => {
     assert.equal(hasLegacyType, false)
   })
 
-  it('keeps provider-specific option bags out of the common contract', () => {
+  it('keeps provider-specific option bags out of the common options', () => {
     type HasProviderOptions = 'providerOptions' extends keyof SignedUrlOptions ? true : false
 
     const hasProviderOptions: HasProviderOptions = false
