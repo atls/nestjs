@@ -954,7 +954,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@atls/nestjs-s3-client@workspace:packages/nestjs-s3-client":
+"@atls/nestjs-s3-client@workspace:*, @atls/nestjs-s3-client@workspace:packages/nestjs-s3-client":
   version: 0.0.0-use.local
   resolution: "@atls/nestjs-s3-client@workspace:packages/nestjs-s3-client"
   dependencies:
@@ -964,12 +964,12 @@ __metadata:
     "@aws-sdk/types": "npm:^3.357.0"
     "@nestjs/common": "npm:^10.0.5"
     "@nestjs/core": "npm:^10.0.5"
-    reflect-metadata: "npm:^0.1.13"
+    reflect-metadata: "npm:0.2.2"
     rxjs: "npm:^7.8.1"
   peerDependencies:
     "@nestjs/common": ^10
     "@nestjs/core": ^10
-    reflect-metadata: ^0.1
+    reflect-metadata: ^0.2
     rxjs: ^7
   languageName: unknown
   linkType: soft
@@ -979,6 +979,7 @@ __metadata:
   resolution: "@atls/nestjs-signed-url@workspace:packages/nestjs-signed-url"
   dependencies:
     "@atls/nestjs-gcs-client": "workspace:*"
+    "@atls/nestjs-s3-client": "workspace:*"
     "@google-cloud/storage": "npm:7.14.0"
     "@jest/globals": "npm:29.7.0"
     "@nestjs/common": "npm:10.4.22"
