@@ -1,5 +1,12 @@
 
 
+## [0.5.1](https://github.com/atls/nestjs/compare/@atls/nestjs-signed-url@0.5.0...@atls/nestjs-signed-url@0.5.1) (2026-06-24)
+
+
+
+
+
+
 # [0.5.0](https://github.com/atls/nestjs/compare/@atls/nestjs-signed-url@0.4.0...@atls/nestjs-signed-url@0.5.0) (2026-06-23)
 
 
