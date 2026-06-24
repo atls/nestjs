@@ -21,6 +21,7 @@ import { S3_SIGNED_URL_CLIENT }                  from './constants.js'
 import { S3_SIGNED_URL_PRESIGNER }               from './constants.js'
 
 const MILLISECONDS_IN_SECOND = 1000
+const CONTENT_TYPE_HEADER = 'content-type'
 
 const resolveExpiresAt = (expiresAt: Date | number): number => {
   if (expiresAt instanceof Date) {
@@ -39,11 +40,9 @@ const resolveExpiresIn = (options: SignedUrlOptions): number => {
 }
 
 const mergeSignableHeaders = (
-  options: SignedUrlOptions,
-  presignOptions: S3SignedUrlPresignOptions
+  presignOptions: S3SignedUrlPresignOptions,
+  headerNames: ReadonlyArray<string>
 ): S3SignedUrlPresignOptions => {
-  const headerNames = Object.keys(options.headers ?? {})
-
   if (headerNames.length === 0) {
     return presignOptions
   }
@@ -61,12 +60,16 @@ const mergeSignableHeaders = (
 }
 
 const buildPresignOptions = (
-  options: S3SignedUrlReadOptions | S3SignedUrlWriteOptions
+  options: S3SignedUrlReadOptions | S3SignedUrlWriteOptions,
+  signableHeaders: ReadonlyArray<string> = []
 ): S3SignedUrlPresignOptions =>
-  mergeSignableHeaders(options, {
-    ...options.s3?.presign,
-    expiresIn: resolveExpiresIn(options),
-  })
+  mergeSignableHeaders(
+    {
+      ...options.s3?.presign,
+      expiresIn: resolveExpiresIn(options),
+    },
+    signableHeaders
+  )
 
 const buildWriteInput = (
   bucket: string,
@@ -122,7 +125,11 @@ export class S3SignedUrlGateway
     options: S3SignedUrlWriteOptions
   ): Promise<SignedUrl> {
     const command = new PutObjectCommand(buildWriteInput(bucket, filename, options))
-    const url = await this.presigner(this.client, command, buildPresignOptions(options))
+    const url = await this.presigner(
+      this.client,
+      command,
+      buildPresignOptions(options, [CONTENT_TYPE_HEADER])
+    )
 
     return { url, fields: [] }
   }

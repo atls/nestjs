@@ -964,12 +964,12 @@ __metadata:
     "@aws-sdk/types": "npm:^3.357.0"
     "@nestjs/common": "npm:^10.0.5"
     "@nestjs/core": "npm:^10.0.5"
-    reflect-metadata: "npm:^0.1.13"
+    reflect-metadata: "npm:0.2.2"
     rxjs: "npm:^7.8.1"
   peerDependencies:
     "@nestjs/common": ^10
     "@nestjs/core": ^10
-    reflect-metadata: ^0.1
+    reflect-metadata: ^0.2
     rxjs: ^7
   languageName: unknown
   linkType: soft

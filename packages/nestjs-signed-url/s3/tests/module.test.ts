@@ -60,7 +60,7 @@ describe('SignedUrlModule S3 APIs', () => {
 
     const value = await signer.generateWriteUrl('bucket', 'file.png', {
       contentType: 'image/png',
-      expiresAt: 1730000000000,
+      expiresInSeconds: 60,
     })
 
     assert.deepEqual(value, {
@@ -71,6 +71,10 @@ describe('SignedUrlModule S3 APIs', () => {
       Bucket: 'bucket',
       Key: 'file.png',
       ContentType: 'image/png',
+    })
+    assert.deepEqual(presigner.options, {
+      expiresIn: 60,
+      signableHeaders: new Set(['content-type']),
     })
 
     const readValue = await gateway.generateReadUrl('bucket', 'file.png')
@@ -175,6 +179,10 @@ describe('SignedUrlModule S3 APIs', () => {
       Bucket: 'bucket',
       Key: 'file.png',
       ContentType: 'image/png',
+    })
+    assert.deepEqual(presigner.options, {
+      expiresIn: 60,
+      signableHeaders: new Set(['content-type']),
     })
   })
 })

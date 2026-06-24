@@ -1641,9 +1641,9 @@ const RAW_RUNTIME_STATE =
           ["@aws-sdk/credential-providers", "npm:3.651.1"],\
           ["@aws-sdk/s3-request-presigner", "npm:3.651.1"],\
           ["@aws-sdk/types", "npm:3.649.0"],\
-          ["@nestjs/common", "virtual:a83c01fc4cba5ca49a56474f02d0e2a42b67fd84218e0ed8446c312a68b5dcda210438f3221534d1b20254ee4cad2d7a7704d91b0774cb67fd2dcafbea6e550e#npm:10.4.3"],\
-          ["@nestjs/core", "virtual:a83c01fc4cba5ca49a56474f02d0e2a42b67fd84218e0ed8446c312a68b5dcda210438f3221534d1b20254ee4cad2d7a7704d91b0774cb67fd2dcafbea6e550e#npm:10.4.3"],\
-          ["reflect-metadata", "npm:0.1.14"],\
+          ["@nestjs/common", "virtual:6c9dc9bccc9e9b135b3d207eb5492c0f611804f454a654b42d7f16642b9765843f2a78588b253925b98b198c823be1ececbcab5059503f1d6d4d7effc5de65b3#npm:10.4.3"],\
+          ["@nestjs/core", "virtual:6c9dc9bccc9e9b135b3d207eb5492c0f611804f454a654b42d7f16642b9765843f2a78588b253925b98b198c823be1ececbcab5059503f1d6d4d7effc5de65b3#npm:10.4.3"],\
+          ["reflect-metadata", "npm:0.2.2"],\
           ["rxjs", "npm:7.8.1"]\
         ],\
         "linkType": "SOFT"\
@@ -7888,6 +7888,34 @@ const RAW_RUNTIME_STATE =
         ],\
         "linkType": "HARD"\
       }],\
+      ["virtual:6c9dc9bccc9e9b135b3d207eb5492c0f611804f454a654b42d7f16642b9765843f2a78588b253925b98b198c823be1ececbcab5059503f1d6d4d7effc5de65b3#npm:10.4.3", {\
+        "packageLocation": "./.yarn/__virtual__/@nestjs-common-virtual-ca700bdfd8/2/.yarn/berry/cache/@nestjs-common-npm-10.4.3-c8baed1848-10c0.zip/node_modules/@nestjs/common/",\
+        "packageDependencies": [\
+          ["@nestjs/common", "virtual:6c9dc9bccc9e9b135b3d207eb5492c0f611804f454a654b42d7f16642b9765843f2a78588b253925b98b198c823be1ececbcab5059503f1d6d4d7effc5de65b3#npm:10.4.3"],\
+          ["@types/class-transformer", null],\
+          ["@types/class-validator", null],\
+          ["@types/reflect-metadata", null],\
+          ["@types/rxjs", null],\
+          ["class-transformer", null],\
+          ["class-validator", null],\
+          ["iterare", "npm:1.2.1"],\
+          ["reflect-metadata", "npm:0.2.2"],\
+          ["rxjs", "npm:7.8.1"],\
+          ["tslib", "npm:2.7.0"],\
+          ["uid", "npm:2.0.2"]\
+        ],\
+        "packagePeers": [\
+          "@types/class-transformer",\
+          "@types/class-validator",\
+          "@types/reflect-metadata",\
+          "@types/rxjs",\
+          "class-transformer",\
+          "class-validator",\
+          "reflect-metadata",\
+          "rxjs"\
+        ],\
+        "linkType": "HARD"\
+      }],\
       ["virtual:773e124e6d7d5c23e2706ffde057b7c1d13d30452fb17121aed2189489091a233a955fdd9b958f8fa713a6cdbe245c696fcd7e05eb8d3e4a938f0a00ad757325#npm:10.4.15", {\
         "packageLocation": "./.yarn/__virtual__/@nestjs-common-virtual-bc8d5973ad/2/.yarn/berry/cache/@nestjs-common-npm-10.4.15-6477955573-10c0.zip/node_modules/@nestjs/common/",\
         "packageDependencies": [\
@@ -8427,6 +8455,45 @@ const RAW_RUNTIME_STATE =
           ["reflect-metadata", "npm:0.2.2"],\
           ["rxjs", "npm:7.8.1"],\
           ["tslib", "npm:2.6.3"],\
+          ["uid", "npm:2.0.2"]\
+        ],\
+        "packagePeers": [\
+          "@nestjs/common",\
+          "@nestjs/microservices",\
+          "@nestjs/platform-express",\
+          "@nestjs/websockets",\
+          "@types/nestjs__common",\
+          "@types/nestjs__microservices",\
+          "@types/nestjs__platform-express",\
+          "@types/nestjs__websockets",\
+          "@types/reflect-metadata",\
+          "@types/rxjs",\
+          "reflect-metadata",\
+          "rxjs"\
+        ],\
+        "linkType": "HARD"\
+      }],\
+      ["virtual:6c9dc9bccc9e9b135b3d207eb5492c0f611804f454a654b42d7f16642b9765843f2a78588b253925b98b198c823be1ececbcab5059503f1d6d4d7effc5de65b3#npm:10.4.3", {\
+        "packageLocation": "./.yarn/__virtual__/@nestjs-core-virtual-00b0bdd729/2/.yarn/berry/cache/@nestjs-core-npm-10.4.3-60d70056b1-10c0.zip/node_modules/@nestjs/core/",\
+        "packageDependencies": [\
+          ["@nestjs/common", "virtual:6c9dc9bccc9e9b135b3d207eb5492c0f611804f454a654b42d7f16642b9765843f2a78588b253925b98b198c823be1ececbcab5059503f1d6d4d7effc5de65b3#npm:10.4.3"],\
+          ["@nestjs/core", "virtual:6c9dc9bccc9e9b135b3d207eb5492c0f611804f454a654b42d7f16642b9765843f2a78588b253925b98b198c823be1ececbcab5059503f1d6d4d7effc5de65b3#npm:10.4.3"],\
+          ["@nestjs/microservices", null],\
+          ["@nestjs/platform-express", null],\
+          ["@nestjs/websockets", null],\
+          ["@nuxtjs/opencollective", "npm:0.3.2"],\
+          ["@types/nestjs__common", null],\
+          ["@types/nestjs__microservices", null],\
+          ["@types/nestjs__platform-express", null],\
+          ["@types/nestjs__websockets", null],\
+          ["@types/reflect-metadata", null],\
+          ["@types/rxjs", null],\
+          ["fast-safe-stringify", "npm:2.1.1"],\
+          ["iterare", "npm:1.2.1"],\
+          ["path-to-regexp", "npm:3.3.0"],\
+          ["reflect-metadata", "npm:0.2.2"],\
+          ["rxjs", "npm:7.8.1"],\
+          ["tslib", "npm:2.7.0"],\
           ["uid", "npm:2.0.2"]\
         ],\
         "packagePeers": [\

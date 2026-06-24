@@ -11,6 +11,10 @@ import type { SignedUrlWriteOptions } from '../interfaces.js'
 
 export type S3SignedUrlPresignOptions = NonNullable<Parameters<typeof getSignedUrl>[2]>
 
+type S3SignedUrlBaseReadOptions = Omit<SignedUrlReadOptions, 'headers'>
+
+type S3SignedUrlBaseWriteOptions = Omit<SignedUrlWriteOptions, 'headers'>
+
 export type S3SignedUrlReadCommandInput = Partial<
   Omit<GetObjectCommandInput, 'Bucket' | 'Key' | 'ResponseContentDisposition'>
 >
@@ -24,11 +28,11 @@ export interface S3SignedUrlConfig<CommandInput> {
   presign?: S3SignedUrlPresignOptions
 }
 
-export interface S3SignedUrlReadOptions extends SignedUrlReadOptions {
+export interface S3SignedUrlReadOptions extends S3SignedUrlBaseReadOptions {
   s3?: S3SignedUrlConfig<S3SignedUrlReadCommandInput>
 }
 
-export interface S3SignedUrlWriteOptions extends SignedUrlWriteOptions {
+export interface S3SignedUrlWriteOptions extends S3SignedUrlBaseWriteOptions {
   s3?: S3SignedUrlConfig<S3SignedUrlWriteCommandInput>
 }
 

@@ -27,7 +27,10 @@ describe('signed-url options', () => {
     type GcsSignerReadOptions = NonNullable<Parameters<GcsSignedUrlSigning['generateReadUrl']>[2]>
     type GcsSignerHasGcsOptions = 'gcs' extends keyof GcsSignerReadOptions ? true : false
     type S3SignerReadOptions = NonNullable<Parameters<S3SignedUrlSigning['generateReadUrl']>[2]>
+    type S3SignerWriteOptions = Parameters<S3SignedUrlSigning['generateWriteUrl']>[2]
     type S3SignerHasS3Options = 's3' extends keyof S3SignerReadOptions ? true : false
+    type S3SignerReadHasHeaders = 'headers' extends keyof S3SignerReadOptions ? true : false
+    type S3SignerWriteHasHeaders = 'headers' extends keyof S3SignerWriteOptions ? true : false
     type CommonHasGcsOptions = 'gcs' extends keyof SignedUrlOptions ? true : false
     type CommonHasS3Options = 's3' extends keyof SignedUrlOptions ? true : false
 
@@ -35,6 +38,8 @@ describe('signed-url options', () => {
     const hasGcsOptions: HasGcsOptions = true
     const gcsSignerHasGcsOptions: GcsSignerHasGcsOptions = true
     const s3SignerHasS3Options: S3SignerHasS3Options = true
+    const s3SignerReadHasHeaders: S3SignerReadHasHeaders = false
+    const s3SignerWriteHasHeaders: S3SignerWriteHasHeaders = false
     const commonHasGcsOptions: CommonHasGcsOptions = false
     const commonHasS3Options: CommonHasS3Options = false
 
@@ -42,6 +47,8 @@ describe('signed-url options', () => {
     assert.equal(hasGcsOptions, true)
     assert.equal(gcsSignerHasGcsOptions, true)
     assert.equal(s3SignerHasS3Options, true)
+    assert.equal(s3SignerReadHasHeaders, false)
+    assert.equal(s3SignerWriteHasHeaders, false)
     assert.equal(commonHasGcsOptions, false)
     assert.equal(commonHasS3Options, false)
   })

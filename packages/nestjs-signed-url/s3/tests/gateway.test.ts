@@ -25,16 +25,13 @@ describe('S3SignedUrlGateway', () => {
   })
 
   describe('generateWriteUrl', () => {
-    it('maps provider-neutral write options to PutObjectCommand and getSignedUrl', async () => {
+    it('maps S3 write options to PutObjectCommand and getSignedUrl', async () => {
       const dateNowMock = mock.method(Date, 'now', () => 1000)
 
       try {
         const value = await gateway.generateWriteUrl('bucket', 'file.png', {
           contentType: 'image/png',
           expiresAt: 61000,
-          headers: {
-            'content-type': 'image/png',
-          },
           responseDisposition: 'inline',
           s3: {
             command: {
@@ -73,6 +70,23 @@ describe('S3SignedUrlGateway', () => {
       } finally {
         dateNowMock.mock.restore()
       }
+    })
+
+    it('signs write content type without requiring duplicated headers', async () => {
+      await gateway.generateWriteUrl('bucket', 'file.png', {
+        contentType: 'image/png',
+      })
+
+      assert.ok(presigner.command instanceof PutObjectCommand)
+      assert.deepEqual(presigner.command.input, {
+        Bucket: 'bucket',
+        Key: 'file.png',
+        ContentType: 'image/png',
+      })
+      assert.deepEqual(presigner.options, {
+        expiresIn: 900,
+        signableHeaders: new Set(['content-type']),
+      })
     })
   })
 
