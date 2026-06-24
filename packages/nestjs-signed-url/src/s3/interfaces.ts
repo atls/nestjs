@@ -9,7 +9,9 @@ import type { SignedUrlReadOptions }  from '../interfaces.js'
 import type { SignedUrlSigning }      from '../interfaces.js'
 import type { SignedUrlWriteOptions } from '../interfaces.js'
 
-export type S3SignedUrlPresignOptions = NonNullable<Parameters<typeof getSignedUrl>[2]>
+export type S3SignedUrlPresignerOptions = NonNullable<Parameters<typeof getSignedUrl>[2]>
+
+export type S3SignedUrlPresignOptions = Omit<S3SignedUrlPresignerOptions, 'expiresIn'>
 
 type S3SignedUrlBaseReadOptions = Omit<SignedUrlReadOptions, 'headers'>
 
@@ -41,7 +43,7 @@ export type S3SignedUrlCommand = GetObjectCommand | PutObjectCommand
 export type S3SignedUrlPresigner = (
   client: S3Client,
   command: S3SignedUrlCommand,
-  options?: S3SignedUrlPresignOptions
+  options?: S3SignedUrlPresignerOptions
 ) => Promise<string>
 
 export type S3SignedUrlSigning = SignedUrlSigning<S3SignedUrlReadOptions, S3SignedUrlWriteOptions>

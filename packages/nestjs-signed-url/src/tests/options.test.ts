@@ -28,9 +28,19 @@ describe('signed-url options', () => {
     type GcsSignerHasGcsOptions = 'gcs' extends keyof GcsSignerReadOptions ? true : false
     type S3SignerReadOptions = NonNullable<Parameters<S3SignedUrlSigning['generateReadUrl']>[2]>
     type S3SignerWriteOptions = Parameters<S3SignedUrlSigning['generateWriteUrl']>[2]
+    type S3SignerReadS3Options = NonNullable<S3SignerReadOptions['s3']>
+    type S3SignerWriteS3Options = NonNullable<S3SignerWriteOptions['s3']>
+    type S3SignerReadPresignOptions = NonNullable<S3SignerReadS3Options['presign']>
+    type S3SignerWritePresignOptions = NonNullable<S3SignerWriteS3Options['presign']>
     type S3SignerHasS3Options = 's3' extends keyof S3SignerReadOptions ? true : false
     type S3SignerReadHasHeaders = 'headers' extends keyof S3SignerReadOptions ? true : false
     type S3SignerWriteHasHeaders = 'headers' extends keyof S3SignerWriteOptions ? true : false
+    type S3SignerReadPresignHasExpiresIn = 'expiresIn' extends keyof S3SignerReadPresignOptions
+      ? true
+      : false
+    type S3SignerWritePresignHasExpiresIn = 'expiresIn' extends keyof S3SignerWritePresignOptions
+      ? true
+      : false
     type CommonHasGcsOptions = 'gcs' extends keyof SignedUrlOptions ? true : false
     type CommonHasS3Options = 's3' extends keyof SignedUrlOptions ? true : false
 
@@ -40,6 +50,8 @@ describe('signed-url options', () => {
     const s3SignerHasS3Options: S3SignerHasS3Options = true
     const s3SignerReadHasHeaders: S3SignerReadHasHeaders = false
     const s3SignerWriteHasHeaders: S3SignerWriteHasHeaders = false
+    const s3SignerReadPresignHasExpiresIn: S3SignerReadPresignHasExpiresIn = false
+    const s3SignerWritePresignHasExpiresIn: S3SignerWritePresignHasExpiresIn = false
     const commonHasGcsOptions: CommonHasGcsOptions = false
     const commonHasS3Options: CommonHasS3Options = false
 
@@ -49,6 +61,8 @@ describe('signed-url options', () => {
     assert.equal(s3SignerHasS3Options, true)
     assert.equal(s3SignerReadHasHeaders, false)
     assert.equal(s3SignerWriteHasHeaders, false)
+    assert.equal(s3SignerReadPresignHasExpiresIn, false)
+    assert.equal(s3SignerWritePresignHasExpiresIn, false)
     assert.equal(commonHasGcsOptions, false)
     assert.equal(commonHasS3Options, false)
   })

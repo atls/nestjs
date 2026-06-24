@@ -5,7 +5,7 @@ import type { S3Client }                         from '@atls/nestjs-s3-client'
 import type { SignedUrlGateway }                 from '../interfaces.js'
 import type { SignedUrlOptions }                 from '../interfaces.js'
 import type { SignedUrl }                        from '../interfaces.js'
-import type { S3SignedUrlPresignOptions }        from './interfaces.js'
+import type { S3SignedUrlPresignerOptions }      from './interfaces.js'
 import type { S3SignedUrlPresigner }             from './interfaces.js'
 import type { S3SignedUrlReadOptions }           from './interfaces.js'
 import type { S3SignedUrlWriteOptions }          from './interfaces.js'
@@ -40,9 +40,9 @@ const resolveExpiresIn = (options: SignedUrlOptions): number => {
 }
 
 const mergeSignableHeaders = (
-  presignOptions: S3SignedUrlPresignOptions,
+  presignOptions: S3SignedUrlPresignerOptions,
   headerNames: ReadonlyArray<string>
-): S3SignedUrlPresignOptions => {
+): S3SignedUrlPresignerOptions => {
   if (headerNames.length === 0) {
     return presignOptions
   }
@@ -62,7 +62,7 @@ const mergeSignableHeaders = (
 const buildPresignOptions = (
   options: S3SignedUrlReadOptions | S3SignedUrlWriteOptions,
   signableHeaders: ReadonlyArray<string> = []
-): S3SignedUrlPresignOptions =>
+): S3SignedUrlPresignerOptions =>
   mergeSignableHeaders(
     {
       ...options.s3?.presign,
