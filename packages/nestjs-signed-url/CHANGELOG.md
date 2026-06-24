@@ -1,5 +1,23 @@
 
 
+# [0.6.0](https://github.com/atls/nestjs/compare/@atls/nestjs-signed-url@0.5.1...@atls/nestjs-signed-url@0.6.0) (2026-06-24)
+
+
+### Bug Fixes
+
+
+* **nestjs-signed-url:** hide s3 presign expiration ([3b3110f](https://github.com/atls/nestjs/commit/3b3110fa909eb9fcbd134a866b9200fae85bbed4))
+* **nestjs-signed-url:** tighten s3 signing options ([7c54be9](https://github.com/atls/nestjs/commit/7c54be9b1acf6c9e8812b516c449d0374ecbc68d))
+
+### Features
+
+
+* **nestjs-signed-url:** add s3 signed url provider ([5b166f2](https://github.com/atls/nestjs/commit/5b166f2f81d48c914ae5e2ed132c104c04fc3fb1))
+
+
+
+
+
 ## [0.5.1](https://github.com/atls/nestjs/compare/@atls/nestjs-signed-url@0.5.0...@atls/nestjs-signed-url@0.5.1) (2026-06-24)
 
 
