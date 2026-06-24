@@ -1,3 +1,4 @@
+import type { S3Client }                  from '@atls/nestjs-s3-client'
 import type { Storage }                   from '@google-cloud/storage'
 import type { InjectionToken }            from '@nestjs/common/interfaces'
 import type { ModuleMetadata }            from '@nestjs/common/interfaces'
@@ -77,3 +78,22 @@ export interface GcsSignedUrlModuleFactoryOptions<
 export type GcsSignedUrlModuleAsyncOptions<
   FactoryArgs extends ReadonlyArray<unknown> = ReadonlyArray<unknown>,
 > = GcsSignedUrlModuleExistingOptions | GcsSignedUrlModuleFactoryOptions<FactoryArgs>
+
+export interface S3SignedUrlModuleOptions {
+  useValue: S3Client
+}
+
+export interface S3SignedUrlModuleExistingOptions extends Pick<ModuleMetadata, 'imports'> {
+  useExisting: InjectionToken<S3Client>
+}
+
+export interface S3SignedUrlModuleFactoryOptions<
+  FactoryArgs extends ReadonlyArray<unknown> = ReadonlyArray<unknown>,
+> extends Pick<ModuleMetadata, 'imports'> {
+  useFactory: (...args: FactoryArgs) => Promise<S3Client> | S3Client
+  inject?: Array<InjectionToken | OptionalFactoryDependency>
+}
+
+export type S3SignedUrlModuleAsyncOptions<
+  FactoryArgs extends ReadonlyArray<unknown> = ReadonlyArray<unknown>,
+> = S3SignedUrlModuleExistingOptions | S3SignedUrlModuleFactoryOptions<FactoryArgs>

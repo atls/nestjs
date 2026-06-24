@@ -954,7 +954,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@atls/nestjs-s3-client@workspace:packages/nestjs-s3-client":
+"@atls/nestjs-s3-client@workspace:*, @atls/nestjs-s3-client@workspace:packages/nestjs-s3-client":
   version: 0.0.0-use.local
   resolution: "@atls/nestjs-s3-client@workspace:packages/nestjs-s3-client"
   dependencies:
@@ -979,6 +979,7 @@ __metadata:
   resolution: "@atls/nestjs-signed-url@workspace:packages/nestjs-signed-url"
   dependencies:
     "@atls/nestjs-gcs-client": "workspace:*"
+    "@atls/nestjs-s3-client": "workspace:*"
     "@google-cloud/storage": "npm:7.14.0"
     "@jest/globals": "npm:29.7.0"
     "@nestjs/common": "npm:10.4.22"

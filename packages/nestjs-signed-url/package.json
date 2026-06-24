@@ -17,6 +17,9 @@
     "prepack": "yarn run build",
     "postpack": "rm -rf dist"
   },
+  "dependencies": {
+    "@atls/nestjs-s3-client": "workspace:*"
+  },
   "devDependencies": {
     "@atls/nestjs-gcs-client": "workspace:*",
     "@google-cloud/storage": "7.14.0",
