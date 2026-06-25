@@ -41,18 +41,22 @@ describe('GrpcPlaygroundController', () => {
     )
   })
 
-  it('returns fallback html when jsdelivr index is unavailable', async () => {
+  it('returns rewritten fallback html when jsdelivr index is unavailable', async () => {
     const target = new TestGrpcPlaygroundController(async () => {
       throw new Error('CDN unavailable')
     })
 
     const content = await target.index()
 
-    assert.ok(content.includes('<iframe'))
+    assert.equal(content.includes('<iframe'), false)
     assert.ok(
       content.includes(
         'https://cdn.jsdelivr.net/npm/@atls/grpc-playground-app@0.0.8/dist/index.html'
       )
     )
+    assert.ok(
+      content.includes('https://cdn.jsdelivr.net/npm/@atls/grpc-playground-app@0.0.8/dist/_next')
+    )
+    assert.ok(content.includes('document.write(content.replace(/\\/_next/g, nextUrl))'))
   })
 })
