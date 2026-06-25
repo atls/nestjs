@@ -1,5 +1,18 @@
 
 
+## [0.0.37](https://github.com/atls/nestjs/compare/@atls/nestjs-grpc-playground@0.0.36...@atls/nestjs-grpc-playground@0.0.37) (2026-06-25)
+
+
+### Bug Fixes
+
+
+* **nestjs-grpc-playground:** avoid playground cdn failure ([64df758](https://github.com/atls/nestjs/commit/64df7587999dbba2570e886938457d9998a4a2ba))
+* **nestjs-grpc-playground:** rewrite fallback assets ([2d2a4b2](https://github.com/atls/nestjs/commit/2d2a4b22f3b1e913a75ce1d2aa70866353bb9229))
+
+
+
+
+
 ## [0.0.36](https://github.com/atls/nestjs/compare/@atls/nestjs-grpc-playground@0.0.36...@atls/nestjs-grpc-playground@0.0.36) (2026-01-11)
 
 
