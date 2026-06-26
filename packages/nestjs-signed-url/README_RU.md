@@ -317,25 +317,6 @@ export class S3AssetsService {
 - R2 поддерживается через S3-совместимый клиентский путь, а не через отдельный R2 module
 - Данные конкретного SDK живут внутри групп параметров `gcs` и `s3`
 
-<!-- sync:root-migration -->
-
-## Миграция с `@atlantis-lab/nestjs-signed-url`
-
-Используйте новое имя пакета:
-
-```typescript
-import { SignedUrlModule } from '@atls/nestjs-signed-url'
-import { SignedUrlSigner } from '@atls/nestjs-signed-url'
-```
-
-Ожидаемые изменения при миграции:
-
-- Заменить старое имя пакета на `@atls/nestjs-signed-url`
-- Использовать `contentType` для типа содержимого URL записи вместо старого имени `type`
-- Перенести параметры GCS-клиента в `@atls/nestjs-gcs-client`
-- Перенести параметры S3, R2, region, endpoint и учётных данных в `@atls/nestjs-s3-client`
-- Использовать signers конкретных провайдеров только когда нужны их параметры: `GcsSignedUrlSigner` для `gcs` options и `S3SignedUrlSigner` для `s3` options
-
 <!-- sync:root-read-more -->
 
 ## Что читать дальше

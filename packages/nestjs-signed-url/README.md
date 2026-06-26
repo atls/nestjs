@@ -317,25 +317,6 @@ S3 read and write option types intentionally do not expose the common `headers` 
 - R2 is supported through the S3-compatible client path, not through a separate R2 module
 - Provider-specific SDK payloads stay inside `gcs` and `s3` option bags
 
-<!-- sync:root-migration -->
-
-## Migration from `@atlantis-lab/nestjs-signed-url`
-
-Use the new package name:
-
-```typescript
-import { SignedUrlModule } from '@atls/nestjs-signed-url'
-import { SignedUrlSigner } from '@atls/nestjs-signed-url'
-```
-
-Expected migration changes:
-
-- Replace the old package name with `@atls/nestjs-signed-url`
-- Use `contentType` for write URL content type instead of legacy `type` naming
-- Move GCS client options to `@atls/nestjs-gcs-client`
-- Move S3, R2, region, endpoint, and credential options to `@atls/nestjs-s3-client`
-- Use provider-specific signers only when provider-specific options are needed: `GcsSignedUrlSigner` for `gcs` options and `S3SignedUrlSigner` for `s3` options
-
 <!-- sync:root-read-more -->
 
 ## Where to read next
