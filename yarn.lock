@@ -915,6 +915,27 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@atls/nestjs-oathkeeper@workspace:packages/nestjs-oathkeeper":
+  version: 0.0.0-use.local
+  resolution: "@atls/nestjs-oathkeeper@workspace:packages/nestjs-oathkeeper"
+  dependencies:
+    "@jest/globals": "npm:29.7.0"
+    "@nestjs/common": "npm:10.4.22"
+    "@nestjs/core": "npm:10.4.22"
+    "@nestjs/testing": "npm:10.4.22"
+    "@ory/oathkeeper-client-fetch": "npm:26.2.0"
+    "@types/node": "npm:22.20.0"
+    reflect-metadata: "npm:0.2.2"
+    rxjs: "npm:7.8.2"
+    typescript: "npm:5.9.3"
+  peerDependencies:
+    "@nestjs/common": 10
+    "@nestjs/core": 10
+    reflect-metadata: 0.2
+    rxjs: 7
+  languageName: unknown
+  linkType: soft
+
 "@atls/nestjs-pipes@workspace:packages/nestjs-pipes":
   version: 0.0.0-use.local
   resolution: "@atls/nestjs-pipes@workspace:packages/nestjs-pipes"
@@ -5856,6 +5877,13 @@ __metadata:
   dependencies:
     axios: "npm:^1.6.1"
   checksum: 10c0/cb5abe68b89aa70bce653c4cb7991764069018f0ec87d2d54a5f1742ee0c3957affe820cbfec532b942243f687624d90d469074d76f5cec10c5d20b8d60e3a2a
+  languageName: node
+  linkType: hard
+
+"@ory/oathkeeper-client-fetch@npm:26.2.0":
+  version: 26.2.0
+  resolution: "@ory/oathkeeper-client-fetch@npm:26.2.0"
+  checksum: 10c0/a6710c2268f169390b9032be7f29d73363aa0ada83932f64e683a355845e00f09918664c0f684bd2c8dd7c5029ab25008fcd5c881af1ce59cf4b932b72b1c28d
   languageName: node
   linkType: hard
 
