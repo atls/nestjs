@@ -7,28 +7,40 @@
 
 ## What this is
 
-`@atls/nestjs-signed-url` is a NestJS package for generating signed read and write URLs through a provider-neutral signing boundary
+`@atls/nestjs-signed-url` gives NestJS services one way to generate signed
+object-storage URLs. Application code asks for a read or write URL by bucket,
+object name, and typed options; the package delegates provider-specific signing
+to GCS or S3 adapters.
 
-The package owns URL signing, NestJS module wiring, and provider option mapping. Cloud SDK client construction stays in the client packages such as `@atls/nestjs-gcs-client` and `@atls/nestjs-s3-client`
+The package deliberately stops at signing. It wires NestJS providers, maps common
+options to provider SDK payloads, and leaves storage client construction to
+`@atls/nestjs-gcs-client`, `@atls/nestjs-s3-client`, or an application-owned
+provider.
 
 <!-- sync:root-audience -->
 
 ## Who it is for
 
-- NestJS services that need short-lived upload or download URLs for object storage
-- Projects that want one signing API over GCS, S3, and S3-compatible providers such as Cloudflare R2
-- Teams that already configure storage clients through NestJS DI and do not want signing code to own credentials, endpoints, or SDK setup
+- Services that let browsers, mobile clients, or workers upload and download
+  objects directly without proxying file bytes through the NestJS application
+- Applications that use GCS, S3, or S3-compatible storage and want the same
+  NestJS provider model for URL signing
+- Teams that keep credentials and SDK setup in storage-client modules while
+  keeping upload and download policy in domain services
 
 <!-- sync:root-capabilities -->
 
-## What the package can do
+## Core role
 
-- Provide `SignedUrlModule.register` and `SignedUrlModule.registerAsync` for custom signing gateways
-- Provide `SignedUrlModule.gcs` and `SignedUrlModule.gcsAsync` for Google Cloud Storage signing over an injected `Storage` client
-- Provide `SignedUrlModule.s3` and `SignedUrlModule.s3Async` for AWS S3 and S3-compatible signing over an injected `S3Client`
-- Generate read URLs through `generateReadUrl(bucket, filename, options)`
-- Generate write URLs through `generateWriteUrl(bucket, filename, options)`
-- Keep provider-specific options in `gcs` and `s3` option bags instead of leaking them into the common signing options
+- Turns bucket, object name, expiration, content type, and response metadata into
+  provider-signed read or write URLs
+- Lets domain services depend on `SignedUrlSigner`, with `GcsSignedUrlSigner` and
+  `S3SignedUrlSigner` available when provider-specific options are required
+- Keeps GCS and S3 SDK payloads inside explicit `gcs` and `s3` option bags
+  instead of mixing provider details into common signing options
+- Supports custom signing gateways for applications that sign through a CDN,
+  internal storage service, or another provider
+- Supports Cloudflare R2 through the S3-compatible client
 
 <!-- sync:root-install -->
 
@@ -54,7 +66,7 @@ yarn add @atls/nestjs-s3-client
 
 ## Quickstart
 
-### Provider-neutral gateway
+### Custom gateway
 
 Use `register` when the application already has a signing gateway implementation:
 
@@ -147,7 +159,9 @@ export class AssetsModule {}
 
 ## GCS usage
 
-`SignedUrlModule.gcsAsync` consumes a Google Cloud Storage `Storage` instance. The recommended path is to let `@atls/nestjs-gcs-client` own client construction and pass the created client into signed-url:
+`SignedUrlModule.gcsAsync` consumes a Google Cloud Storage `Storage` instance.
+The recommended path is to let `@atls/nestjs-gcs-client` own client construction
+and pass the created client into this package:
 
 ```typescript
 import type { Storage }     from '@atls/nestjs-gcs-client'
@@ -206,7 +220,9 @@ export class GcsAssetsService {
 
 ## S3 and R2 usage
 
-`SignedUrlModule.s3Async` consumes an `S3Client`. The recommended path is to let `@atls/nestjs-s3-client` own region, credentials, endpoint, and S3-compatible client setup:
+`SignedUrlModule.s3Async` consumes an `S3Client`. The recommended path is to let
+`@atls/nestjs-s3-client` own region, credentials, endpoint, and S3-compatible
+client setup:
 
 ```typescript
 import type { S3Client }   from '@atls/nestjs-s3-client'
@@ -281,13 +297,13 @@ export class S3AssetsService {
 
 ## Signed URL options
 
-Common options:
+Common signing options:
 
 | Option                | Scope                            | Description                                                                              |
 | --------------------- | -------------------------------- | ---------------------------------------------------------------------------------------- |
 | `expiresAt`           | read and write                   | Absolute expiration as `Date` or millisecond timestamp                                   |
 | `expiresInSeconds`    | read and write                   | Relative expiration in seconds; default is `900` seconds                                 |
-| `responseDisposition` | read and write                   | Response disposition mapped to the provider-specific response header option              |
+| `responseDisposition` | read and write                   | Response `Content-Disposition` mapped to the provider-specific response header option    |
 | `headers`             | provider-neutral and GCS options | Headers signed by providers that support this shape; GCS maps them to `extensionHeaders` |
 | `contentType`         | write only                       | Required write content type                                                              |
 
@@ -304,17 +320,24 @@ S3 options:
 | `s3.command` | read and write | Extra `GetObjectCommandInput` or `PutObjectCommandInput` values except `Bucket`, `Key`, and common fields |
 | `s3.presign` | read and write | Extra AWS presigner options except `expiresIn`, which is owned by `expiresAt` or `expiresInSeconds`       |
 
-S3 read and write option types intentionally do not expose the common `headers` field. Write `contentType` is mapped to `ContentType` and signed through the S3 presigner path
+S3 read and write option types intentionally do not expose the common `headers`
+field. Write `contentType` is mapped to `ContentType` and signed through the S3
+presigner path.
 
 <!-- sync:root-limitations -->
 
 ## Limitations
 
-- This package does not create GCS or S3 clients. Use `@atls/nestjs-gcs-client`, `@atls/nestjs-s3-client`, or pass an already configured client
-- This package does not own credentials, regions, endpoints, buckets, or SDK retry configuration
-- GCS signing returns `{ url, fields: [] }`
-- S3 and R2 signing returns `{ url, fields: [] }`
-- R2 is supported through the S3-compatible client path, not through a separate R2 module
+- This package signs URLs only. It does not upload, download, delete objects, or
+  create buckets
+- This package does not create GCS or S3 clients. Use `@atls/nestjs-gcs-client`,
+  `@atls/nestjs-s3-client`, or pass an already configured client
+- Credentials, regions, endpoints, bucket names, and SDK retry policy stay with
+  the configured storage client
+- GCS, S3, and R2 signing currently return `{ url, fields: [] }`; browser POST
+  policy fields are not implemented here
+- R2 is supported through the S3-compatible client path, not through a separate
+  R2 module
 - Provider-specific SDK payloads stay inside `gcs` and `s3` option bags
 
 <!-- sync:root-read-more -->
