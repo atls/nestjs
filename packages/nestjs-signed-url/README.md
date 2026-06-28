@@ -14,8 +14,8 @@ to GCS or S3 adapters.
 
 The package deliberately stops at signing. It wires NestJS providers, maps common
 options to provider SDK payloads, and leaves storage client construction to
-`@atls/nestjs-gcs-client`, `@atls/nestjs-s3-client`, or an application-owned
-provider.
+[`@atls/nestjs-gcs-client`](../nestjs-gcs-client),
+[`@atls/nestjs-s3-client`](../nestjs-s3-client), or an application-owned provider.
 
 <!-- sync:root-audience -->
 
@@ -23,8 +23,10 @@ provider.
 
 - Services that let browsers, mobile clients, or workers upload and download
   objects directly without proxying file bytes through the NestJS application
-- Applications that use GCS, S3, or S3-compatible storage and want the same
-  NestJS provider model for URL signing
+- Applications that use GCS through
+  [`@atls/nestjs-gcs-client`](../nestjs-gcs-client), S3 through
+  [`@atls/nestjs-s3-client`](../nestjs-s3-client), or another S3-compatible
+  storage client and want the same NestJS provider model for URL signing
 - Teams that keep credentials and SDK setup in storage-client modules while
   keeping upload and download policy in domain services
 
@@ -330,8 +332,10 @@ presigner path.
 
 - This package signs URLs only. It does not upload, download, delete objects, or
   create buckets
-- This package does not create GCS or S3 clients. Use `@atls/nestjs-gcs-client`,
-  `@atls/nestjs-s3-client`, or pass an already configured client
+- This package does not create GCS or S3 clients. Use
+  [`@atls/nestjs-gcs-client`](../nestjs-gcs-client),
+  [`@atls/nestjs-s3-client`](../nestjs-s3-client), or pass an already configured
+  client
 - Credentials, regions, endpoints, bucket names, and SDK retry policy stay with
   the configured storage client
 - GCS, S3, and R2 signing currently return `{ url, fields: [] }`; browser POST
