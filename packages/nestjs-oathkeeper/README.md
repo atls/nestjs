@@ -7,7 +7,7 @@
 
 `@atls/nestjs-oathkeeper` is a NestJS package for integrating applications with Ory Oathkeeper Access Control Decision API.
 
-The package owns NestJS module wiring, typed decision calls, request-to-decision header mapping, and optional request enrichment from Oathkeeper mutator response headers. Oathkeeper rule configuration, Kratos sessions, Keto permissions, and application-specific host defaults stay outside this package.
+The package owns NestJS module wiring, typed decision calls, Fastify request-to-decision header mapping, and optional request enrichment from Oathkeeper mutator response headers. Oathkeeper rule configuration, Kratos sessions, Keto permissions, and application-specific host defaults stay outside this package.
 
 ## Who It Is For
 
@@ -20,7 +20,7 @@ The package owns NestJS module wiring, typed decision calls, request-to-decision
 - Provide `OathkeeperModule.register` and `OathkeeperModule.registerAsync`.
 - Expose `OathkeeperDecisionService` for typed Decisions API calls.
 - Forward request context with `X-Forwarded-Method`, `X-Forwarded-Proto`, `X-Forwarded-Host`, and `X-Forwarded-Uri`.
-- Normalize Oathkeeper denial responses into decision results instead of treating `401` and `403` as unexpected transport failures.
+- Normalize Oathkeeper `401` and `403` denial responses into decision results instead of treating them as unexpected transport failures.
 - Provide `OathkeeperIdentityMiddleware` for enforcing decisions or explicitly running in enrichment-only mode.
 
 ## Installation
@@ -81,7 +81,7 @@ export class AccessService {
 
 ## Middleware
 
-`OathkeeperIdentityMiddleware` uses `enforce` mode by default. Denied decisions throw NestJS HTTP exceptions, and allowed decisions copy configured mutator headers into the request.
+`OathkeeperIdentityMiddleware` uses `enforce` mode by default. It reads the Fastify request `url`, `hostname`, `protocol`, and `headers`. Denied decisions throw NestJS HTTP exceptions, and allowed decisions copy configured mutator headers into the request.
 
 ```typescript
 OathkeeperModule.register({
@@ -126,3 +126,9 @@ OathkeeperModule.register({
   },
 })
 ```
+
+## Errors
+
+- `OathkeeperModuleOptionsError` is thrown for invalid `registerAsync` options.
+- `OathkeeperDecisionConfigurationError` is thrown when the decision request cannot be built from request or module options.
+- `OathkeeperDecisionRequestError` is thrown when Oathkeeper returns a non-decision provider failure instead of `200`, `401`, or `403`.

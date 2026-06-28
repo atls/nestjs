@@ -1,4 +1,5 @@
 import type { OathkeeperDecisionService } from '../decision.js'
+import type { OathkeeperDecisionRequest } from '../interfaces.js'
 import type { OathkeeperDecisionResult }  from '../interfaces.js'
 import type { OathkeeperHttpRequest }     from '../interfaces.js'
 
@@ -12,10 +13,15 @@ import { OathkeeperIdentityMiddleware }   from '../middleware.js'
 
 const createMiddleware = (
   result: OathkeeperDecisionResult,
-  mode: 'enforce' | 'enrich' = 'enforce'
+  mode: 'enforce' | 'enrich' = 'enforce',
+  handleRequest?: (request: OathkeeperDecisionRequest) => void
 ): OathkeeperIdentityMiddleware => {
   const decisions = {
-    decide: async () => result,
+    decide: async (request: OathkeeperDecisionRequest) => {
+      handleRequest?.(request)
+
+      return result
+    },
   } as unknown as OathkeeperDecisionService
 
   return new OathkeeperIdentityMiddleware(decisions, {
@@ -30,22 +36,35 @@ const createMiddleware = (
 
 describe('OathkeeperIdentityMiddleware', () => {
   it('enriches allowed requests with Oathkeeper response headers', async () => {
-    const middleware = createMiddleware({
-      allowed: true,
-      status: 200,
-      headers: {
+    let decisionRequest: OathkeeperDecisionRequest | undefined
+    const middleware = createMiddleware(
+      {
+        allowed: true,
+        status: 200,
+        headers: {
+          authorization: 'Bearer test',
+          'x-user': 'user-1',
+        },
         authorization: 'Bearer test',
-        'x-user': 'user-1',
+        user: 'user-1',
       },
-      authorization: 'Bearer test',
-      user: 'user-1',
-    })
+      'enforce',
+      (request) => {
+        decisionRequest = {
+          ...request,
+          headers: {
+            ...request.headers,
+          },
+        }
+      }
+    )
     const request: OathkeeperHttpRequest = {
       method: 'GET',
-      originalUrl: '/assets',
+      hostname: 'app.example.com',
       protocol: 'https',
+      url: '/assets',
       headers: {
-        host: 'app.example.com',
+        cookie: 'sid=1',
       },
     }
     let called = false
@@ -55,6 +74,15 @@ describe('OathkeeperIdentityMiddleware', () => {
     })
 
     assert.equal(called, true)
+    assert.deepEqual(decisionRequest, {
+      headers: {
+        cookie: 'sid=1',
+      },
+      host: 'app.example.com',
+      method: 'GET',
+      proto: 'https',
+      uri: '/assets',
+    })
     assert.equal(request.headers.authorization, 'Bearer test')
     assert.equal(request.headers['x-user'], 'user-1')
   })
@@ -67,9 +95,10 @@ describe('OathkeeperIdentityMiddleware', () => {
     })
     const request: OathkeeperHttpRequest = {
       method: 'GET',
-      originalUrl: '/assets',
+      hostname: 'app.example.com',
+      url: '/assets',
       headers: {
-        host: 'app.example.com',
+        'x-forwarded-proto': 'https',
       },
     }
     let called = false
@@ -93,9 +122,10 @@ describe('OathkeeperIdentityMiddleware', () => {
     )
     const request: OathkeeperHttpRequest = {
       method: 'GET',
-      originalUrl: '/assets',
+      hostname: 'app.example.com',
+      url: '/assets',
       headers: {
-        host: 'app.example.com',
+        'x-forwarded-proto': 'https',
       },
     }
     let called = false

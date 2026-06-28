@@ -7,7 +7,7 @@
 
 `@atls/nestjs-oathkeeper` — NestJS-пакет для интеграции приложений с Ory Oathkeeper Access Control Decision API.
 
-Пакет отвечает за подключение NestJS-модуля, типизированные decision-вызовы, преобразование request-контекста в Oathkeeper-заголовки и опциональное обогащение request заголовками, которые вернули Oathkeeper mutators. Настройка Oathkeeper rules, Kratos sessions, Keto permissions и app-specific host defaults остаются вне этого пакета.
+Пакет отвечает за подключение NestJS-модуля, типизированные decision-вызовы, преобразование Fastify request-контекста в Oathkeeper-заголовки и опциональное обогащение request заголовками, которые вернули Oathkeeper mutators. Настройка Oathkeeper rules, Kratos sessions, Keto permissions и app-specific host defaults остаются вне этого пакета.
 
 ## Для Кого
 
@@ -20,7 +20,7 @@
 - Даёт `OathkeeperModule.register` и `OathkeeperModule.registerAsync`.
 - Экспортирует `OathkeeperDecisionService` для типизированных вызовов Decisions API.
 - Передаёт request-контекст через `X-Forwarded-Method`, `X-Forwarded-Proto`, `X-Forwarded-Host` и `X-Forwarded-Uri`.
-- Нормализует deny-ответы Oathkeeper в decision result, не считая `401` и `403` неожиданной transport-ошибкой.
+- Нормализует deny-ответы Oathkeeper `401` и `403` в decision result, не считая их неожиданной transport-ошибкой.
 - Даёт `OathkeeperIdentityMiddleware` для enforcement-режима или явно выбранного enrichment-only режима.
 
 ## Установка
@@ -81,7 +81,7 @@ export class AccessService {
 
 ## Middleware
 
-`OathkeeperIdentityMiddleware` по умолчанию работает в режиме `enforce`. Deny-решения превращаются в NestJS HTTP exceptions, а allowed-решения копируют настроенные mutator headers в request.
+`OathkeeperIdentityMiddleware` по умолчанию работает в режиме `enforce`. Middleware читает Fastify request `url`, `hostname`, `protocol` и `headers`. Deny-решения превращаются в NestJS HTTP exceptions, а allowed-решения копируют настроенные mutator headers в request.
 
 ```typescript
 OathkeeperModule.register({
@@ -126,3 +126,9 @@ OathkeeperModule.register({
   },
 })
 ```
+
+## Ошибки
+
+- `OathkeeperModuleOptionsError` выбрасывается при невалидных `registerAsync` options.
+- `OathkeeperDecisionConfigurationError` выбрасывается, когда decision request нельзя собрать из request или module options.
+- `OathkeeperDecisionRequestError` выбрасывается, когда Oathkeeper возвращает provider failure вместо decision-статусов `200`, `401` или `403`.

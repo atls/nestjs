@@ -29,7 +29,7 @@ export class OathkeeperIdentityMiddleware implements NestMiddleware {
       host: this.getHost(request),
       method: request.method ?? 'GET',
       proto: this.getProto(request),
-      uri: request.originalUrl ?? request.url ?? '/',
+      uri: request.url ?? '/',
     })
 
     if (!decision.allowed && this.getMode() === 'enforce') {
@@ -50,7 +50,7 @@ export class OathkeeperIdentityMiddleware implements NestMiddleware {
   private getHost(request: OathkeeperHttpRequest): string | undefined {
     return (
       this.options.decision?.forwardedHost ??
-      request.get?.('host') ??
+      request.hostname ??
       this.getHeader(request.headers, 'host')
     )
   }
@@ -59,8 +59,7 @@ export class OathkeeperIdentityMiddleware implements NestMiddleware {
     return (
       this.options.decision?.forwardedProto ??
       request.protocol ??
-      this.getHeader(request.headers, 'x-forwarded-proto') ??
-      (request.secure ? 'https' : undefined)
+      this.getHeader(request.headers, 'x-forwarded-proto')
     )
   }
 

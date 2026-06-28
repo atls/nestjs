@@ -1,38 +1,34 @@
-import type { ApiResponse }             from '@ory/oathkeeper-client-fetch'
+import type { OathkeeperDecisionClient }        from '../client.js'
+import type { OathkeeperHeaders }               from '../interfaces.js'
+import type { OathkeeperModuleOptions }         from '../module/interfaces.js'
 
-import type { OathkeeperDecisionApi }   from '../decision.js'
-import type { OathkeeperModuleOptions } from '../module/interfaces.js'
+import assert                                   from 'node:assert/strict'
+import { describe }                             from 'node:test'
+import { it }                                   from 'node:test'
 
-import assert                           from 'node:assert/strict'
-import { describe }                     from 'node:test'
-import { it }                           from 'node:test'
-
-import { ResponseError }                from '@ory/oathkeeper-client-fetch'
-
-import { OathkeeperDecisionService }    from '../decision.js'
+import { OathkeeperDecisionService }            from '../decision.js'
+import { OathkeeperDecisionConfigurationError } from '../errors/index.js'
+import { OathkeeperDecisionRequestError }       from '../errors/index.js'
 
 describe('OathkeeperDecisionService', () => {
   it('calls the Decisions API with forwarded request headers', async () => {
-    let headers: HeadersInit | undefined
+    let headers: OathkeeperHeaders | undefined
 
-    const api: OathkeeperDecisionApi = {
-      async decisionsRaw(initOverrides?: RequestInit): Promise<ApiResponse<void>> {
-        headers = initOverrides?.headers
+    const client: OathkeeperDecisionClient = {
+      async decide(forwardedHeaders: OathkeeperHeaders) {
+        headers = forwardedHeaders
 
         return {
-          raw: new Response(null, {
-            status: 200,
-            headers: {
-              authorization: 'Bearer test',
-              'x-user': 'user-1',
-            },
+          status: 200,
+          headers: new Headers({
+            authorization: 'Bearer test',
+            'x-user': 'user-1',
           }),
-          value: async () => undefined,
         }
       },
     }
 
-    const service = new OathkeeperDecisionService(api, {
+    const service = new OathkeeperDecisionService(client, {
       urls: {
         api: 'http://oathkeeper-api:4456',
       },
@@ -71,18 +67,16 @@ describe('OathkeeperDecisionService', () => {
   })
 
   it('maps Oathkeeper denial responses to decision results', async () => {
-    const api: OathkeeperDecisionApi = {
-      async decisionsRaw(): Promise<ApiResponse<void>> {
-        throw new ResponseError(
-          new Response(null, {
-            status: 403,
-          }),
-          'Denied'
-        )
+    const client: OathkeeperDecisionClient = {
+      async decide() {
+        return {
+          status: 403,
+          headers: new Headers(),
+        }
       },
     }
 
-    const service = new OathkeeperDecisionService(api, {
+    const service = new OathkeeperDecisionService(client, {
       urls: {
         api: 'http://oathkeeper-api:4456',
       },
@@ -105,10 +99,45 @@ describe('OathkeeperDecisionService', () => {
     })
   })
 
+  it('throws typed request errors for provider failures', async () => {
+    const client: OathkeeperDecisionClient = {
+      async decide() {
+        return {
+          status: 500,
+          headers: new Headers(),
+        }
+      },
+    }
+
+    const service = new OathkeeperDecisionService(client, {
+      urls: {
+        api: 'http://oathkeeper-api:4456',
+      },
+      decision: {
+        forwardedHost: 'app.example.com',
+      },
+    })
+
+    await assert.rejects(
+      async () => {
+        await service.decide({
+          method: 'POST',
+          uri: '/restricted',
+        })
+      },
+      (error) => {
+        assert.ok(error instanceof OathkeeperDecisionRequestError)
+        assert.equal(error.status, 500)
+
+        return true
+      }
+    )
+  })
+
   it('requires a decision host from request or module options', async () => {
-    const api: OathkeeperDecisionApi = {
-      async decisionsRaw(): Promise<ApiResponse<void>> {
-        throw new Error('Unexpected call')
+    const client: OathkeeperDecisionClient = {
+      async decide() {
+        assert.fail('Unexpected call')
       },
     }
 
@@ -118,13 +147,13 @@ describe('OathkeeperDecisionService', () => {
       },
     }
 
-    const service = new OathkeeperDecisionService(api, options)
+    const service = new OathkeeperDecisionService(client, options)
 
     await assert.rejects(async () => {
       await service.decide({
         method: 'GET',
         uri: '/',
       })
-    }, /Oathkeeper decision host is required/)
+    }, OathkeeperDecisionConfigurationError)
   })
 })

@@ -12,9 +12,10 @@ import { it }                           from 'node:test'
 import { Module }                       from '@nestjs/common'
 import { Test }                         from '@nestjs/testing'
 
-import { OATHKEEPER_API }               from '../../src/constants.js'
+import { OATHKEEPER_DECISION_CLIENT }   from '../../src/constants.js'
 import { OATHKEEPER_MODULE_OPTIONS }    from '../../src/constants.js'
 import { OathkeeperDecisionService }    from '../../src/decision.js'
+import { OathkeeperModuleOptionsError } from '../../src/errors/index.js'
 import { OathkeeperIdentityMiddleware } from '../../src/middleware.js'
 import { OathkeeperModule }             from '../../src/module/index.js'
 
@@ -38,7 +39,7 @@ describe('OathkeeperModule', () => {
     }).compile()
 
     assert.ok(moduleRef.get(OATHKEEPER_MODULE_OPTIONS))
-    assert.ok(moduleRef.get(OATHKEEPER_API))
+    assert.ok(moduleRef.get(OATHKEEPER_DECISION_CLIENT))
     assert.ok(moduleRef.get(OathkeeperDecisionService))
     assert.ok(moduleRef.get(OathkeeperIdentityMiddleware))
   })
@@ -111,5 +112,13 @@ describe('OathkeeperModule', () => {
     }).compile()
 
     assert.ok(moduleRef.get(OathkeeperDecisionService))
+  })
+
+  it('rejects registerAsync without an options provider', () => {
+    const options = {} as Parameters<typeof OathkeeperModule.registerAsync>[0]
+
+    assert.throws(() => {
+      OathkeeperModule.registerAsync(options)
+    }, OathkeeperModuleOptionsError)
   })
 })

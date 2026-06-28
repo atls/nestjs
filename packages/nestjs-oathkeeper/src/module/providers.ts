@@ -1,16 +1,16 @@
-import type { Provider }                     from '@nestjs/common'
+import type { Provider }                         from '@nestjs/common'
 
-import type { OathkeeperModuleAsyncOptions } from './interfaces.js'
-import type { OathkeeperModuleOptions }      from './interfaces.js'
-import type { OathkeeperOptionsFactory }     from './interfaces.js'
+import type { OathkeeperModuleAsyncOptions }     from './interfaces.js'
+import type { OathkeeperModuleOptions }          from './interfaces.js'
+import type { OathkeeperOptionsFactory }         from './interfaces.js'
 
-import { ApiApi }                            from '@ory/oathkeeper-client-fetch'
-import { Configuration }                     from '@ory/oathkeeper-client-fetch'
-
-import { OathkeeperDecisionService }         from '../decision.js'
-import { OathkeeperIdentityMiddleware }      from '../middleware.js'
-import { OATHKEEPER_API }                    from './constants.js'
-import { OATHKEEPER_MODULE_OPTIONS }         from './constants.js'
+import { OathkeeperDecisionService }             from '../decision.js'
+import { OathkeeperIdentityMiddleware }          from '../middleware.js'
+import { OATHKEEPER_DECISION_CLIENT }            from './constants.js'
+import { OATHKEEPER_MODULE_OPTIONS }             from './constants.js'
+import { createOathkeeperDecisionClient }        from '../client.js'
+import { getOathkeeperAsyncOptionsClass }        from './options.js'
+import { getOathkeeperAsyncOptionsInjectTarget } from './options.js'
 
 export const createOathkeeperOptionsProvider = (options: OathkeeperModuleOptions): Provider => ({
   provide: OATHKEEPER_MODULE_OPTIONS,
@@ -26,11 +26,7 @@ const createOathkeeperAsyncOptionsProvider = (options: OathkeeperModuleAsyncOpti
     }
   }
 
-  const injectTarget = options.useExisting ?? options.useClass
-
-  if (!injectTarget) {
-    throw new Error('OathkeeperModule requires useExisting, useClass, or useFactory')
-  }
+  const injectTarget = getOathkeeperAsyncOptionsInjectTarget(options)
 
   return {
     provide: OATHKEEPER_MODULE_OPTIONS,
@@ -47,24 +43,22 @@ export const createOathkeeperAsyncOptionsProviders = (
     return [createOathkeeperAsyncOptionsProvider(options)]
   }
 
-  if (!options.useClass) {
-    throw new Error('OathkeeperModule requires useClass when useExisting/useFactory not provided')
-  }
+  const optionsClass = getOathkeeperAsyncOptionsClass(options)
 
   return [
     createOathkeeperAsyncOptionsProvider(options),
     {
-      provide: options.useClass,
-      useClass: options.useClass,
+      provide: optionsClass,
+      useClass: optionsClass,
     },
   ]
 }
 
 export const createOathkeeperExportProviders = (): Array<Provider> => [
   {
-    provide: OATHKEEPER_API,
+    provide: OATHKEEPER_DECISION_CLIENT,
     useFactory: (options: OathkeeperModuleOptions) =>
-      new ApiApi(new Configuration({ basePath: options.urls.api })),
+      createOathkeeperDecisionClient(options.urls.api),
     inject: [OATHKEEPER_MODULE_OPTIONS],
   },
   OathkeeperDecisionService,

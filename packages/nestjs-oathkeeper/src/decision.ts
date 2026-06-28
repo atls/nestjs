@@ -1,46 +1,42 @@
-import type { ApiApi }                     from '@ory/oathkeeper-client-fetch'
-import type { ApiResponse }                from '@ory/oathkeeper-client-fetch'
+import type { OathkeeperDecisionClient }         from './client.js'
+import type { OathkeeperDecisionClientResponse } from './client.js'
+import type { OathkeeperDecisionRequest }        from './interfaces.js'
+import type { OathkeeperDecisionResult }         from './interfaces.js'
+import type { OathkeeperHeaderValue }            from './interfaces.js'
+import type { OathkeeperHeaders }                from './interfaces.js'
+import type { OathkeeperModuleOptions }          from './module/interfaces.js'
 
-import type { OathkeeperDecisionRequest }  from './interfaces.js'
-import type { OathkeeperDecisionResult }   from './interfaces.js'
-import type { OathkeeperHeaderValue }      from './interfaces.js'
-import type { OathkeeperHeaders }          from './interfaces.js'
-import type { OathkeeperModuleOptions }    from './module/interfaces.js'
+import { Inject }                                from '@nestjs/common'
+import { Injectable }                            from '@nestjs/common'
 
-import { Inject }                          from '@nestjs/common'
-import { Injectable }                      from '@nestjs/common'
-import { ResponseError }                   from '@ory/oathkeeper-client-fetch'
-
-import { OATHKEEPER_API }                  from './constants.js'
-import { OATHKEEPER_AUTHORIZATION_HEADER } from './constants.js'
-import { OATHKEEPER_MODULE_OPTIONS }       from './constants.js'
-import { OATHKEEPER_USER_HEADER }          from './constants.js'
-
-export type OathkeeperDecisionApi = Pick<ApiApi, 'decisionsRaw'>
+import { OATHKEEPER_AUTHORIZATION_HEADER }       from './constants.js'
+import { OATHKEEPER_DECISION_CLIENT }            from './constants.js'
+import { OATHKEEPER_MODULE_OPTIONS }             from './constants.js'
+import { OATHKEEPER_USER_HEADER }                from './constants.js'
+import { OathkeeperDecisionConfigurationError }  from './errors/index.js'
+import { OathkeeperDecisionRequestError }        from './errors/index.js'
+import { OathkeeperErrorMessage }                from './errors/index.js'
 
 @Injectable()
 export class OathkeeperDecisionService {
   constructor(
-    @Inject(OATHKEEPER_API) private readonly api: OathkeeperDecisionApi,
+    @Inject(OATHKEEPER_DECISION_CLIENT) private readonly client: OathkeeperDecisionClient,
     @Inject(OATHKEEPER_MODULE_OPTIONS) private readonly options: OathkeeperModuleOptions
   ) {}
 
   async decide(request: OathkeeperDecisionRequest): Promise<OathkeeperDecisionResult> {
+    const headers = this.createHeaders(request)
+
     try {
-      const response = await this.api.decisionsRaw({
-        headers: this.createHeaders(request),
-      })
+      const response = await this.client.decide(headers)
 
       return this.createResult(response)
     } catch (error) {
-      if (error instanceof ResponseError) {
-        return this.createResult({
-          raw: error.response,
-          value: async () => undefined,
-        })
+      if (error instanceof OathkeeperDecisionRequestError) {
+        throw error
       }
 
-      throw error
+      throw this.createDecisionRequestError(error)
     }
   }
 
@@ -48,7 +44,7 @@ export class OathkeeperDecisionService {
     const host = request.host ?? this.options.decision?.forwardedHost
 
     if (!host) {
-      throw new Error('Oathkeeper decision host is required')
+      throw new OathkeeperDecisionConfigurationError(OathkeeperErrorMessage.DECISION_HOST_REQUIRED)
     }
 
     return {
@@ -61,12 +57,17 @@ export class OathkeeperDecisionService {
     }
   }
 
-  private createResult(response: ApiResponse<void>): OathkeeperDecisionResult {
-    const headers = this.readHeaders(response.raw.headers)
+  private createResult(response: OathkeeperDecisionClientResponse): OathkeeperDecisionResult {
+    const headers = this.readHeaders(response.headers)
+    const { status } = response
+
+    if (!this.isDecisionStatus(status)) {
+      throw new OathkeeperDecisionRequestError(status)
+    }
 
     return {
-      allowed: response.raw.status === 200,
-      status: response.raw.status,
+      allowed: status === 200,
+      status,
       headers,
       authorization: headers[OATHKEEPER_AUTHORIZATION_HEADER],
       user: headers[OATHKEEPER_USER_HEADER],
@@ -96,5 +97,13 @@ export class OathkeeperDecisionService {
     })
 
     return result
+  }
+
+  private isDecisionStatus(status: number): boolean {
+    return status === 200 || status === 401 || status === 403
+  }
+
+  private createDecisionRequestError(error: unknown): OathkeeperDecisionRequestError {
+    return new OathkeeperDecisionRequestError(0, { cause: error })
   }
 }
