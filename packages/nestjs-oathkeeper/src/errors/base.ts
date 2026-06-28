@@ -1,4 +1,4 @@
-import type { OathkeeperErrorMessage } from './error-message.js'
+import type { OathkeeperErrorMessage } from './messages.js'
 
 export class OathkeeperError extends Error {
   constructor(message: OathkeeperErrorMessage | string, options?: ErrorOptions) {

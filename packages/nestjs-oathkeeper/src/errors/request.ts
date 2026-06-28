@@ -1,5 +1,5 @@
-import { OathkeeperErrorMessage } from './error-message.js'
-import { OathkeeperError }        from './oathkeeper.error.js'
+import { OathkeeperError }        from './base.js'
+import { OathkeeperErrorMessage } from './messages.js'
 
 export class OathkeeperDecisionRequestError extends OathkeeperError {
   constructor(

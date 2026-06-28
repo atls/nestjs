@@ -1,3 +1,3 @@
-import { OathkeeperError } from './oathkeeper.error.js'
+import { OathkeeperError } from './base.js'
 
 export class OathkeeperDecisionConfigurationError extends OathkeeperError {}
