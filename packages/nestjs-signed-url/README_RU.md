@@ -7,15 +7,15 @@
 
 ## Что это
 
-`@atls/nestjs-signed-url` даёт NestJS-сервисам единый вход для выдачи
+@atls/nestjs-signed-url даёт NestJS-сервисам единый вход для выдачи
 подписанных ссылок к объектному хранилищу. Код приложения запрашивает ссылку на
 чтение или запись по контейнеру, имени объекта и типизированным параметрам;
 пакет передаёт провайдерскую часть адаптерам GCS или S3.
 
 Пакет намеренно ограничен подписью. Он собирает провайдеры NestJS, переводит
 общие параметры в формат SDK и оставляет создание клиентов
-[`@atls/nestjs-gcs-client`](../nestjs-gcs-client),
-[`@atls/nestjs-s3-client`](../nestjs-s3-client) или провайдеру приложения.
+[@atls/nestjs-gcs-client](../nestjs-gcs-client),
+[@atls/nestjs-s3-client](../nestjs-s3-client) или провайдеру приложения.
 
 <!-- sync:root-audience -->
 
@@ -25,8 +25,8 @@
   обработчику прямую ссылку на загрузку и скачивание, не прокачивая файл через
   NestJS-приложение
 - Для приложений на GCS через
-  [`@atls/nestjs-gcs-client`](../nestjs-gcs-client), S3 через
-  [`@atls/nestjs-s3-client`](../nestjs-s3-client) или другом S3-совместимом
+  [@atls/nestjs-gcs-client](../nestjs-gcs-client), S3 через
+  [@atls/nestjs-s3-client](../nestjs-s3-client) или другом S3-совместимом
   клиенте, которым нужен один способ внедрять подпись ссылок в NestJS
 - Для команд, которые держат учётные данные и настройку SDK в клиентских
   модулях, а правила загрузки и скачивания — в доменных сервисах
@@ -37,9 +37,9 @@
 
 - Превращает контейнер, имя объекта, срок действия, тип содержимого и параметры
   ответа в подписанную ссылку на чтение или запись
-- Позволяет доменным сервисам зависеть от `SignedUrlSigner`; для
-  провайдерских параметров доступны `GcsSignedUrlSigner` и `S3SignedUrlSigner`
-- Держит данные SDK для GCS и S3 внутри явных групп `gcs` и `s3`, не смешивая
+- Позволяет доменным сервисам зависеть от SignedUrlSigner; для провайдерских
+  параметров доступны GcsSignedUrlSigner и S3SignedUrlSigner
+- Держит данные SDK для GCS и S3 внутри явных групп gcs и s3, не смешивая
   их с общими параметрами подписи
 - Поддерживает собственный шлюз подписи для приложений, которые подписывают
   ссылки через CDN, внутренний сервис хранилища или другого провайдера
@@ -71,7 +71,7 @@ yarn add @atls/nestjs-s3-client
 
 ### Собственный шлюз
 
-Используйте `register`, если в приложении уже есть реализация шлюза подписи:
+Используйте register, если в приложении уже есть реализация шлюза подписи:
 
 ```typescript
 import type { SignedUrlGateway } from '@atls/nestjs-signed-url'
@@ -106,7 +106,7 @@ class AssetsSignedUrlGateway implements SignedUrlGateway {
 export class AssetsModule {}
 ```
 
-Внедряйте `SignedUrlSigner` там, где приложению нужны URL:
+Внедряйте SignedUrlSigner там, где приложению нужны URL:
 
 ```typescript
 import { Injectable }      from '@nestjs/common'
@@ -135,9 +135,9 @@ export class AssetsService {
 
 ### Асинхронная регистрация шлюза
 
-Используйте `registerAsync`, если шлюз создаётся из провайдера другого модуля:
+Используйте registerAsync, если шлюз создаётся из провайдера другого модуля:
 
-В примере ниже `StorageGatewayModule` экспортирует `STORAGE_SIGNED_URL_GATEWAY`:
+В примере ниже StorageGatewayModule экспортирует STORAGE_SIGNED_URL_GATEWAY:
 
 ```typescript
 import type { SignedUrlGateway } from '@atls/nestjs-signed-url'
@@ -162,8 +162,8 @@ export class AssetsModule {}
 
 ## Использование GCS
 
-`SignedUrlModule.gcsAsync` принимает экземпляр Google Cloud Storage `Storage`.
-Рекомендуемый путь — оставить создание клиента в `@atls/nestjs-gcs-client` и
+SignedUrlModule.gcsAsync принимает экземпляр Google Cloud Storage Storage.
+Рекомендуемый путь — оставить создание клиента в @atls/nestjs-gcs-client и
 передать готовый клиент в этот пакет:
 
 ```typescript
@@ -192,7 +192,7 @@ import { SignedUrlModule }  from '@atls/nestjs-signed-url'
 export class AssetsModule {}
 ```
 
-Используйте `GcsSignedUrlSigner`, когда нужны типизированные параметры GCS:
+Используйте GcsSignedUrlSigner, когда нужны типизированные параметры GCS:
 
 ```typescript
 import { Injectable }         from '@nestjs/common'
@@ -223,9 +223,9 @@ export class GcsAssetsService {
 
 ## Использование S3 и R2
 
-`SignedUrlModule.s3Async` принимает `S3Client`. Рекомендуемый путь — оставить
+SignedUrlModule.s3Async принимает S3Client. Рекомендуемый путь — оставить
 регион, учётные данные, адрес и настройку S3-совместимого клиента в
-`@atls/nestjs-s3-client`:
+@atls/nestjs-s3-client:
 
 ```typescript
 import type { S3Client }   from '@atls/nestjs-s3-client'
@@ -254,7 +254,7 @@ export class AssetsModule {}
 ```
 
 Для Cloudflare R2 используйте тот же S3-клиент, передав S3-совместимый адрес и
-учётные данные в `S3ClientModule`:
+учётные данные в S3ClientModule:
 
 ```typescript
 S3ClientModule.register({
@@ -267,7 +267,7 @@ S3ClientModule.register({
 })
 ```
 
-Используйте `S3SignedUrlSigner`, когда нужны типизированные параметры команды
+Используйте S3SignedUrlSigner, когда нужны типизированные параметры команды
 S3 или параметры подписи:
 
 ```typescript
@@ -304,29 +304,29 @@ export class S3AssetsService {
 
 Общие параметры подписи:
 
-| Параметр              | Область               | Описание                                                                                    |
-| --------------------- | --------------------- | ------------------------------------------------------------------------------------------- |
-| `expiresAt`           | чтение и запись       | Абсолютное время истечения как `Date` или метка времени в миллисекундах                     |
-| `expiresInSeconds`    | чтение и запись       | Относительное время жизни в секундах; по умолчанию `900` секунд                             |
-| `responseDisposition` | чтение и запись       | Значение `Content-Disposition`, которое переносится в параметр ответа провайдера            |
-| `headers`             | общие параметры и GCS | Заголовки, подписываемые провайдерами с такой формой; GCS переносит их в `extensionHeaders` |
-| `contentType`         | только запись         | Обязательный тип содержимого для URL записи                                                 |
+| Параметр            | Область               | Описание                                                                                  |
+| ------------------- | --------------------- | ----------------------------------------------------------------------------------------- |
+| expiresAt           | чтение и запись       | Абсолютное время истечения как Date или метка времени в миллисекундах                     |
+| expiresInSeconds    | чтение и запись       | Относительное время жизни в секундах; по умолчанию 900 секунд                             |
+| responseDisposition | чтение и запись       | Значение Content-Disposition, которое переносится в параметр ответа провайдера            |
+| headers             | общие параметры и GCS | Заголовки, подписываемые провайдерами с такой формой; GCS переносит их в extensionHeaders |
+| contentType         | только запись         | Обязательный тип содержимого для URL записи                                               |
 
 Параметры GCS:
 
-| Параметр | Область         | Описание                                                                                                                                           |
-| -------- | --------------- | -------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `gcs`    | чтение и запись | Дополнительные значения GCS `GetSignedUrlConfig`, кроме общих полей: `action`, `contentType`, `expires`, `extensionHeaders`, `responseDisposition` |
+| Параметр | Область         | Описание                                                                                                                               |
+| -------- | --------------- | -------------------------------------------------------------------------------------------------------------------------------------- |
+| gcs      | чтение и запись | Дополнительные значения GCS GetSignedUrlConfig, кроме общих полей: action, contentType, expires, extensionHeaders, responseDisposition |
 
 Параметры S3:
 
-| Параметр     | Область         | Описание                                                                                                          |
-| ------------ | --------------- | ----------------------------------------------------------------------------------------------------------------- |
-| `s3.command` | чтение и запись | Дополнительные значения `GetObjectCommandInput` или `PutObjectCommandInput`, кроме `Bucket`, `Key` и общих полей  |
-| `s3.presign` | чтение и запись | Дополнительные параметры функции подписи AWS, кроме `expiresIn`, которым владеют `expiresAt` и `expiresInSeconds` |
+| Параметр   | Область         | Описание                                                                                                    |
+| ---------- | --------------- | ----------------------------------------------------------------------------------------------------------- |
+| s3.command | чтение и запись | Дополнительные значения GetObjectCommandInput или PutObjectCommandInput, кроме Bucket, Key и общих полей    |
+| s3.presign | чтение и запись | Дополнительные параметры функции подписи AWS, кроме expiresIn, которым владеют expiresAt и expiresInSeconds |
 
-Типы параметров чтения и записи S3 намеренно не открывают общее поле `headers`.
-При записи `contentType` переносится в `ContentType` и подписывается через
+Типы параметров чтения и записи S3 намеренно не открывают общее поле headers.
+При записи contentType переносится в ContentType и подписывается через
 механизм подписи S3.
 
 <!-- sync:root-limitations -->
@@ -336,15 +336,15 @@ export class S3AssetsService {
 - Пакет только подписывает ссылки. Он не загружает, не скачивает, не удаляет
   объекты и не создаёт контейнеры
 - Пакет не создаёт клиенты GCS или S3. Используйте
-  [`@atls/nestjs-gcs-client`](../nestjs-gcs-client),
-  [`@atls/nestjs-s3-client`](../nestjs-s3-client) или передайте уже настроенный
+  [@atls/nestjs-gcs-client](../nestjs-gcs-client),
+  [@atls/nestjs-s3-client](../nestjs-s3-client) или передайте уже настроенный
   клиент
 - Учётные данные, регионы, адреса, имена контейнеров и политика повторных
   попыток SDK остаются в настроенном клиенте хранилища
-- Подпись для GCS, S3 и R2 сейчас возвращает `{ url, fields: [] }`; поля
+- Подпись для GCS, S3 и R2 сейчас возвращает { url, fields: [] }; поля
   браузерной POST-политики здесь не реализованы
 - R2 поддерживается через S3-совместимый клиент, а не через отдельный R2-модуль
-- Данные конкретного SDK живут внутри групп параметров `gcs` и `s3`
+- Данные конкретного SDK живут внутри групп параметров gcs и s3
 
 <!-- sync:root-read-more -->
 
@@ -353,5 +353,5 @@ export class S3AssetsService {
 - EN: [README.md](README.md)
 - RU: [README_RU.md](README_RU.md)
 - Журнал изменений пакета: [CHANGELOG.md](CHANGELOG.md)
-- Пакет GCS-клиента: [`@atls/nestjs-gcs-client`](../nestjs-gcs-client)
-- Пакет S3-клиента: [`@atls/nestjs-s3-client`](../nestjs-s3-client)
+- Пакет GCS-клиента: [@atls/nestjs-gcs-client](../nestjs-gcs-client)
+- Пакет S3-клиента: [@atls/nestjs-s3-client](../nestjs-s3-client)
