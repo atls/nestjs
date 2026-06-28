@@ -5,7 +5,7 @@
 
 ## What This Is
 
-`@atls/nestjs-oathkeeper` is a NestJS package for integrating applications with
+@atls/nestjs-oathkeeper is a NestJS package for integrating applications with
 [Ory Oathkeeper](https://github.com/ory/oathkeeper) Access Control Decision API.
 
 The package owns NestJS module wiring, typed decision calls, Fastify
@@ -20,7 +20,7 @@ outside this package.
   is allowed
 - Services that want a typed decision result with status and response headers
 - Applications that need to enrich a request with mutator headers such as
-  `authorization` and `x-user`
+  authorization and x-user
 
 ## What The Package Can Do
 
@@ -31,7 +31,7 @@ outside this package.
 - Return an application-facing access result: whether the request is allowed,
   which HTTP status Ory Oathkeeper returned, and which headers should be
   propagated
-- Treat `401` and `403` as regular access denials instead of network or
+- Treat 401 and 403 as regular access denials instead of network or
   Ory Oathkeeper client failures
 - Run as NestJS middleware to reject denied requests or enrich allowed requests
   with identity headers
@@ -64,7 +64,7 @@ import { OathkeeperModule } from '@atls/nestjs-oathkeeper'
 export class AppModule {}
 ```
 
-Use `OathkeeperDecisionService` when application code needs the decision result directly:
+Use OathkeeperDecisionService when application code needs the decision result directly:
 
 ```typescript
 import { Injectable }                from '@nestjs/common'
@@ -94,7 +94,9 @@ export class AccessService {
 
 ## Middleware
 
-`OathkeeperIdentityMiddleware` uses `enforce` mode by default. It reads the Fastify request `url`, `hostname`, `protocol`, and `headers`. Denied decisions throw NestJS HTTP exceptions, and allowed decisions copy configured mutator headers into the request.
+OathkeeperIdentityMiddleware uses enforce mode by default. It reads the Fastify
+request url, hostname, protocol, and headers. Denied decisions throw NestJS HTTP
+exceptions, and allowed decisions copy configured mutator headers into the request.
 
 ```typescript
 OathkeeperModule.register({
@@ -107,7 +109,7 @@ OathkeeperModule.register({
 })
 ```
 
-Use `enrich` mode only when the application wants to continue request handling after a denied decision and only use headers from allowed decisions when they exist.
+Use enrich mode only when the application wants to continue request handling after a denied decision and only use headers from allowed decisions when they exist.
 
 ```typescript
 OathkeeperModule.register({
@@ -124,10 +126,10 @@ OathkeeperModule.register({
 
 By default, middleware propagates:
 
-- `authorization`
-- `x-user`
+- authorization
+- x-user
 
-Configure `decision.responseHeaders` when Ory Oathkeeper mutators produce a different public header contract:
+Configure decision.responseHeaders when Ory Oathkeeper mutators produce a different public header contract:
 
 ```typescript
 OathkeeperModule.register({
@@ -142,8 +144,8 @@ OathkeeperModule.register({
 
 ## Errors
 
-- `OathkeeperModuleOptionsError` is thrown for invalid `registerAsync` options
-- `OathkeeperDecisionConfigurationError` is thrown when the decision request
+- OathkeeperModuleOptionsError is thrown for invalid registerAsync options
+- OathkeeperDecisionConfigurationError is thrown when the decision request
   cannot be built from request or module options
-- `OathkeeperDecisionRequestError` is thrown when Ory Oathkeeper returns a
-  non-decision provider failure instead of `200`, `401`, or `403`
+- OathkeeperDecisionRequestError is thrown when Ory Oathkeeper returns a
+  non-decision provider failure instead of 200, 401, or 403

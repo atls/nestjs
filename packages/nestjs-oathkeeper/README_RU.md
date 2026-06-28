@@ -5,7 +5,7 @@
 
 ## Что это
 
-`@atls/nestjs-oathkeeper` — NestJS-пакет для подключения приложений к
+@atls/nestjs-oathkeeper — NestJS-пакет для подключения приложений к
 [Ory Oathkeeper](https://github.com/ory/oathkeeper) и его API принятия решений
 о доступе.
 
@@ -22,7 +22,7 @@
 - Для сервисов, которым нужен типизированный результат проверки доступа с
   HTTP-статусом и заголовками ответа
 - Для приложений, которым нужно добавлять в запрос заголовки, возвращённые
-  мутаторами Ory Oathkeeper, например `authorization` и `x-user`
+  мутаторами Ory Oathkeeper, например authorization и x-user
 
 ## Что умеет пакет
 
@@ -34,7 +34,7 @@
 - Возвращает прикладному коду понятный результат проверки: запрос разрешён или
   запрещён, какой HTTP-статус вернул Ory Oathkeeper и какие заголовки нужно
   передать дальше
-- Считает `401` и `403` штатным запретом доступа, а не ошибкой сетевого слоя или
+- Считает 401 и 403 штатным запретом доступа, а не ошибкой сетевого слоя или
   клиента Ory Oathkeeper
 - Может работать как промежуточный обработчик NestJS: блокировать запрещённые
   запросы или только дополнять разрешённые запросы заголовками идентичности
@@ -67,7 +67,7 @@ import { OathkeeperModule } from '@atls/nestjs-oathkeeper'
 export class AppModule {}
 ```
 
-Используйте `OathkeeperDecisionService`, если прикладному коду нужен результат проверки доступа:
+Используйте OathkeeperDecisionService, если прикладному коду нужен результат проверки доступа:
 
 ```typescript
 import { Injectable }                from '@nestjs/common'
@@ -97,7 +97,10 @@ export class AccessService {
 
 ## Промежуточный обработчик
 
-`OathkeeperIdentityMiddleware` по умолчанию работает в режиме `enforce`. Обработчик читает из запроса Fastify поля `url`, `hostname`, `protocol` и `headers`. Запрещающие решения превращаются в HTTP-исключения NestJS, а разрешающие решения копируют настроенные заголовки мутаторов в запрос.
+OathkeeperIdentityMiddleware по умолчанию работает в режиме enforce. Обработчик
+читает из запроса Fastify поля url, hostname, protocol и headers. Запрещающие
+решения превращаются в HTTP-исключения NestJS, а разрешающие решения копируют
+настроенные заголовки мутаторов в запрос.
 
 ```typescript
 OathkeeperModule.register({
@@ -110,7 +113,7 @@ OathkeeperModule.register({
 })
 ```
 
-Используйте режим `enrich` только если приложению нужно продолжать обработку запроса после запрета доступа и брать заголовки только из разрешающих решений, когда они есть.
+Используйте режим enrich только если приложению нужно продолжать обработку запроса после запрета доступа и брать заголовки только из разрешающих решений, когда они есть.
 
 ```typescript
 OathkeeperModule.register({
@@ -127,10 +130,10 @@ OathkeeperModule.register({
 
 По умолчанию обработчик передаёт дальше:
 
-- `authorization`
-- `x-user`
+- authorization
+- x-user
 
-Настройте `decision.responseHeaders`, если мутаторы Ory Oathkeeper возвращают другой публичный набор заголовков:
+Настройте decision.responseHeaders, если мутаторы Ory Oathkeeper возвращают другой публичный набор заголовков:
 
 ```typescript
 OathkeeperModule.register({
@@ -145,10 +148,9 @@ OathkeeperModule.register({
 
 ## Ошибки
 
-- `OathkeeperModuleOptionsError` выбрасывается при неправильной настройке
-  `registerAsync`
-- `OathkeeperDecisionConfigurationError` выбрасывается, когда запрос к
+- OathkeeperModuleOptionsError выбрасывается при неправильной настройке
+  registerAsync
+- OathkeeperDecisionConfigurationError выбрасывается, когда запрос к
   Ory Oathkeeper нельзя собрать из входящего запроса или настроек модуля
-- `OathkeeperDecisionRequestError` выбрасывается, когда Ory Oathkeeper
-  возвращает сбой провайдера вместо статусов проверки доступа `200`, `401` или
-  `403`
+- OathkeeperDecisionRequestError выбрасывается, когда Ory Oathkeeper возвращает
+  сбой провайдера вместо статусов проверки доступа 200, 401 или 403
