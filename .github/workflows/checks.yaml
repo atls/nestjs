@@ -19,3 +19,4 @@ jobs:
     permissions: write-all
     with:
       node-version: '22'
+      installPlaywright: false
