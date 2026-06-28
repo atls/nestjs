@@ -17,11 +17,11 @@ The package owns NestJS module wiring, typed decision calls, Fastify request-to-
 
 ## What The Package Can Do
 
-- Provide `OathkeeperModule.register` and `OathkeeperModule.registerAsync`.
-- Expose `OathkeeperDecisionService` for typed Decisions API calls.
-- Forward request context with `X-Forwarded-Method`, `X-Forwarded-Proto`, `X-Forwarded-Host`, and `X-Forwarded-Uri`.
-- Normalize Oathkeeper `401` and `403` denial responses into decision results instead of treating them as unexpected transport failures.
-- Provide `OathkeeperIdentityMiddleware` for enforcing decisions or explicitly running in enrichment-only mode.
+- Connect a NestJS application to Oathkeeper through the usual synchronous or asynchronous module configuration.
+- Build the minimal request context Oathkeeper needs for an access check: method, scheme, host, path, and source headers.
+- Return an application-facing access result: whether the request is allowed, which HTTP status Oathkeeper returned, and which headers should be propagated.
+- Treat `401` and `403` as regular access denials instead of network or Oathkeeper client failures.
+- Run as NestJS middleware to reject denied requests or enrich allowed requests with identity headers.
 
 ## Installation
 

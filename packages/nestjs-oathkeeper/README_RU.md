@@ -3,25 +3,25 @@
 [![Oathkeeper Docs EN](https://img.shields.io/badge/Oathkeeper%20Docs-EN-1f8a70)](README.md)
 [![Oathkeeper Docs RU](https://img.shields.io/badge/Oathkeeper%20Docs-RU-0b5fff)](README_RU.md)
 
-## Что Это
+## Что это
 
-`@atls/nestjs-oathkeeper` — NestJS-пакет для интеграции приложений с Ory Oathkeeper Access Control Decision API.
+`@atls/nestjs-oathkeeper` — NestJS-пакет для подключения приложений к Ory Oathkeeper и его API принятия решений о доступе.
 
-Пакет отвечает за подключение NestJS-модуля, типизированные decision-вызовы, преобразование Fastify request-контекста в Oathkeeper-заголовки и опциональное обогащение request заголовками, которые вернули Oathkeeper mutators. Настройка Oathkeeper rules, Kratos sessions, Keto permissions и app-specific host defaults остаются вне этого пакета.
+Пакет берёт на себя подключение NestJS-модуля, типизированную проверку доступа, преобразование контекста запроса Fastify в заголовки Oathkeeper и добавление в запрос заголовков, которые вернули мутаторы Oathkeeper. Настройка правил Oathkeeper, сессий Kratos, разрешений Keto и значений хоста по умолчанию остаётся вне этого пакета.
 
-## Для Кого
+## Для кого
 
-- Для NestJS-приложений, которым нужно спрашивать Oathkeeper, разрешён ли входящий request.
-- Для сервисов, которым нужен типизированный decision result со status и response headers.
-- Для приложений, которым нужно обогащать request mutator-заголовками, например `authorization` и `x-user`.
+- Для NestJS-приложений, которым нужно проверять входящий запрос через Oathkeeper.
+- Для сервисов, которым нужен типизированный результат проверки доступа с HTTP-статусом и заголовками ответа.
+- Для приложений, которым нужно добавлять в запрос заголовки, возвращённые мутаторами Oathkeeper, например `authorization` и `x-user`.
 
-## Что Умеет Пакет
+## Что умеет пакет
 
-- Даёт `OathkeeperModule.register` и `OathkeeperModule.registerAsync`.
-- Экспортирует `OathkeeperDecisionService` для типизированных вызовов Decisions API.
-- Передаёт request-контекст через `X-Forwarded-Method`, `X-Forwarded-Proto`, `X-Forwarded-Host` и `X-Forwarded-Uri`.
-- Нормализует deny-ответы Oathkeeper `401` и `403` в decision result, не считая их неожиданной transport-ошибкой.
-- Даёт `OathkeeperIdentityMiddleware` для enforcement-режима или явно выбранного enrichment-only режима.
+- Подключает приложение к Oathkeeper через обычную для NestJS синхронную или асинхронную настройку модуля.
+- Собирает из входящего запроса минимальный контекст, который нужен Oathkeeper для проверки доступа: метод, схему, хост, путь и исходные заголовки.
+- Возвращает прикладному коду понятный результат проверки: запрос разрешён или запрещён, какой HTTP-статус вернул Oathkeeper и какие заголовки нужно передать дальше.
+- Считает `401` и `403` штатным запретом доступа, а не ошибкой сетевого слоя или клиента Oathkeeper.
+- Может работать как промежуточный обработчик NestJS: блокировать запрещённые запросы или только дополнять разрешённые запросы заголовками идентичности.
 
 ## Установка
 
@@ -29,7 +29,7 @@
 yarn add @atls/nestjs-oathkeeper
 ```
 
-## Быстрый Старт
+## Быстрый старт
 
 ```typescript
 import { Module }           from '@nestjs/common'
@@ -51,7 +51,7 @@ import { OathkeeperModule } from '@atls/nestjs-oathkeeper'
 export class AppModule {}
 ```
 
-Используйте `OathkeeperDecisionService`, если прикладному коду нужен сам decision result:
+Используйте `OathkeeperDecisionService`, если прикладному коду нужен результат проверки доступа:
 
 ```typescript
 import { Injectable }                from '@nestjs/common'
@@ -79,9 +79,9 @@ export class AccessService {
 }
 ```
 
-## Middleware
+## Промежуточный обработчик
 
-`OathkeeperIdentityMiddleware` по умолчанию работает в режиме `enforce`. Middleware читает Fastify request `url`, `hostname`, `protocol` и `headers`. Deny-решения превращаются в NestJS HTTP exceptions, а allowed-решения копируют настроенные mutator headers в request.
+`OathkeeperIdentityMiddleware` по умолчанию работает в режиме `enforce`. Обработчик читает из запроса Fastify поля `url`, `hostname`, `protocol` и `headers`. Запрещающие решения превращаются в HTTP-исключения NestJS, а разрешающие решения копируют настроенные заголовки мутаторов в запрос.
 
 ```typescript
 OathkeeperModule.register({
@@ -94,7 +94,7 @@ OathkeeperModule.register({
 })
 ```
 
-Используйте режим `enrich` только если приложению нужно продолжать обработку request после denied decision и брать заголовки только из allowed decisions, когда они есть.
+Используйте режим `enrich` только если приложению нужно продолжать обработку запроса после запрета доступа и брать заголовки только из разрешающих решений, когда они есть.
 
 ```typescript
 OathkeeperModule.register({
@@ -107,14 +107,14 @@ OathkeeperModule.register({
 })
 ```
 
-## Decision Headers
+## Заголовки ответа
 
-По умолчанию middleware прокидывает:
+По умолчанию обработчик передаёт дальше:
 
 - `authorization`
 - `x-user`
 
-Настройте `decision.responseHeaders`, если Oathkeeper mutators возвращают другой публичный header contract:
+Настройте `decision.responseHeaders`, если мутаторы Oathkeeper возвращают другой публичный набор заголовков:
 
 ```typescript
 OathkeeperModule.register({
@@ -129,6 +129,6 @@ OathkeeperModule.register({
 
 ## Ошибки
 
-- `OathkeeperModuleOptionsError` выбрасывается при невалидных `registerAsync` options.
-- `OathkeeperDecisionConfigurationError` выбрасывается, когда decision request нельзя собрать из request или module options.
-- `OathkeeperDecisionRequestError` выбрасывается, когда Oathkeeper возвращает provider failure вместо decision-статусов `200`, `401` или `403`.
+- `OathkeeperModuleOptionsError` выбрасывается при неправильной настройке `registerAsync`.
+- `OathkeeperDecisionConfigurationError` выбрасывается, когда запрос к Oathkeeper нельзя собрать из входящего запроса или настроек модуля.
+- `OathkeeperDecisionRequestError` выбрасывается, когда Oathkeeper возвращает сбой провайдера вместо статусов проверки доступа `200`, `401` или `403`.
