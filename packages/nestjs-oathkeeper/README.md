@@ -5,23 +5,36 @@
 
 ## What This Is
 
-`@atls/nestjs-oathkeeper` is a NestJS package for integrating applications with Ory Oathkeeper Access Control Decision API.
+`@atls/nestjs-oathkeeper` is a NestJS package for integrating applications with
+[Ory Oathkeeper](https://github.com/ory/oathkeeper) Access Control Decision API.
 
-The package owns NestJS module wiring, typed decision calls, Fastify request-to-decision header mapping, and optional request enrichment from Oathkeeper mutator response headers. Oathkeeper rule configuration, Kratos sessions, Keto permissions, and application-specific host defaults stay outside this package.
+The package owns NestJS module wiring, typed decision calls, Fastify
+request-to-decision header mapping, and optional request enrichment from
+Ory Oathkeeper mutator response headers. Ory Oathkeeper rule configuration,
+Kratos sessions, Keto permissions, and application-specific host defaults stay
+outside this package.
 
 ## Who It Is For
 
-- NestJS applications that need to ask Oathkeeper whether an incoming request is allowed.
-- Services that want a typed decision result with status and response headers.
-- Applications that need to enrich a request with mutator headers such as `authorization` and `x-user`.
+- NestJS applications that need to ask Ory Oathkeeper whether an incoming request
+  is allowed
+- Services that want a typed decision result with status and response headers
+- Applications that need to enrich a request with mutator headers such as
+  `authorization` and `x-user`
 
 ## What The Package Can Do
 
-- Connect a NestJS application to Oathkeeper through the usual synchronous or asynchronous module configuration.
-- Build the minimal request context Oathkeeper needs for an access check: method, scheme, host, path, and source headers.
-- Return an application-facing access result: whether the request is allowed, which HTTP status Oathkeeper returned, and which headers should be propagated.
-- Treat `401` and `403` as regular access denials instead of network or Oathkeeper client failures.
-- Run as NestJS middleware to reject denied requests or enrich allowed requests with identity headers.
+- Connect a NestJS application to Ory Oathkeeper through the usual synchronous
+  or asynchronous module configuration
+- Build the minimal request context Ory Oathkeeper needs for an access check:
+  method, scheme, host, path, and source headers
+- Return an application-facing access result: whether the request is allowed,
+  which HTTP status Ory Oathkeeper returned, and which headers should be
+  propagated
+- Treat `401` and `403` as regular access denials instead of network or
+  Ory Oathkeeper client failures
+- Run as NestJS middleware to reject denied requests or enrich allowed requests
+  with identity headers
 
 ## Installation
 
@@ -114,7 +127,7 @@ By default, middleware propagates:
 - `authorization`
 - `x-user`
 
-Configure `decision.responseHeaders` when Oathkeeper mutators produce a different public header contract:
+Configure `decision.responseHeaders` when Ory Oathkeeper mutators produce a different public header contract:
 
 ```typescript
 OathkeeperModule.register({
@@ -129,6 +142,8 @@ OathkeeperModule.register({
 
 ## Errors
 
-- `OathkeeperModuleOptionsError` is thrown for invalid `registerAsync` options.
-- `OathkeeperDecisionConfigurationError` is thrown when the decision request cannot be built from request or module options.
-- `OathkeeperDecisionRequestError` is thrown when Oathkeeper returns a non-decision provider failure instead of `200`, `401`, or `403`.
+- `OathkeeperModuleOptionsError` is thrown for invalid `registerAsync` options
+- `OathkeeperDecisionConfigurationError` is thrown when the decision request
+  cannot be built from request or module options
+- `OathkeeperDecisionRequestError` is thrown when Ory Oathkeeper returns a
+  non-decision provider failure instead of `200`, `401`, or `403`
