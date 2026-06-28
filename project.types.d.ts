@@ -1,1 +1,1 @@
-/// <reference types="@atls/code-runtime/types" />
+/// <reference types="@atls/raijin/types" />
