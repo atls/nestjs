@@ -3,6 +3,7 @@ import type { NestMiddleware }                 from '@nestjs/common'
 import type { OathkeeperDecisionResult }       from './interfaces.js'
 import type { OathkeeperHeaderValue }          from './interfaces.js'
 import type { OathkeeperHeaders }              from './interfaces.js'
+import type { OathkeeperHttpRequest }          from './interfaces.js'
 import type { OathkeeperRequestHeaders }       from './interfaces.js'
 import type { OathkeeperModuleOptions }        from './module/interfaces.js'
 
@@ -14,16 +15,6 @@ import { UnauthorizedException }               from '@nestjs/common'
 import { OATHKEEPER_DEFAULT_RESPONSE_HEADERS } from './constants.js'
 import { OATHKEEPER_MODULE_OPTIONS }           from './constants.js'
 import { OathkeeperDecisionService }           from './decision.js'
-
-export interface OathkeeperHttpRequest {
-  headers: OathkeeperRequestHeaders
-  method?: string
-  originalUrl?: string
-  protocol?: string
-  secure?: boolean
-  url?: string
-  get?: (name: string) => string | undefined
-}
 
 @Injectable()
 export class OathkeeperIdentityMiddleware implements NestMiddleware {

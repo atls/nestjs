@@ -4,6 +4,16 @@ export type OathkeeperRequestHeaders = Record<string, OathkeeperHeaderValue>
 
 export type OathkeeperHeaders = Record<string, string>
 
+export interface OathkeeperHttpRequest {
+  headers: OathkeeperRequestHeaders
+  method?: string
+  originalUrl?: string
+  protocol?: string
+  secure?: boolean
+  url?: string
+  get?: (name: string) => string | undefined
+}
+
 export interface OathkeeperDecisionRequest {
   method: string
   uri: string

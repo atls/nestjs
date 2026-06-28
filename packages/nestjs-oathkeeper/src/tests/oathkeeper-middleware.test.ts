@@ -1,6 +1,6 @@
 import type { OathkeeperDecisionService } from '../decision.js'
 import type { OathkeeperDecisionResult }  from '../interfaces.js'
-import type { OathkeeperHttpRequest }     from '../middleware.js'
+import type { OathkeeperHttpRequest }     from '../interfaces.js'
 
 import assert                             from 'node:assert/strict'
 import { describe }                       from 'node:test'
