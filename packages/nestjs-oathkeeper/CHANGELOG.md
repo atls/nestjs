@@ -1,5 +1,12 @@
 
 
+## [0.1.1](https://github.com/atls/nestjs/compare/@atls/nestjs-oathkeeper@0.1.0...@atls/nestjs-oathkeeper@0.1.1) (2026-06-29)
+
+
+
+
+
+
 # 0.1.0 (2026-06-28)
 
 

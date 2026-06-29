@@ -1,5 +1,12 @@
 
 
+## [0.1.2](https://github.com/atls/nestjs/compare/@atls/nestjs-gcs-client@0.1.1...@atls/nestjs-gcs-client@0.1.2) (2026-06-29)
+
+
+
+
+
+
 ## [0.1.1](https://github.com/atls/nestjs/compare/@atls/nestjs-gcs-client@0.1.0...@atls/nestjs-gcs-client@0.1.1) (2026-06-24)
 
 

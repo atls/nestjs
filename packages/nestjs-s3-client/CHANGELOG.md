@@ -1,5 +1,12 @@
 
 
+## [0.0.5](https://github.com/atls/nestjs/compare/@atls/nestjs-s3-client@0.0.4...@atls/nestjs-s3-client@0.0.5) (2026-06-29)
+
+
+
+
+
+
 ## [0.0.4](https://github.com/atls/nestjs/compare/@atls/nestjs-s3-client@0.0.3...@atls/nestjs-s3-client@0.0.4) (2026-06-24)
 
 
