@@ -7,9 +7,12 @@ import { EventEmitter }              from 'node:events'
 
 import { PubSub }                    from 'graphql-subscriptions'
 
+import { ExpressGraphQLGateway }     from '../mesh/index.js'
+import { FastifyGraphQLGateway }     from '../mesh/index.js'
 import { GraphQLMeshHandler }        from '../mesh/index.js'
 import { GraphQLMeshConfig }         from '../mesh/index.js'
 import { GraphQLMesh }               from '../mesh/index.js'
+import { GraphQLMeshRuntime }        from '../mesh/index.js'
 import { GraphQLMeshSchemaDumper }   from '../mesh/index.js'
 import { GATEWAY_MODULE_OPTIONS }    from './gateway.constants.js'
 
@@ -21,9 +24,12 @@ export const createGatewayOptionsProvider = (options: GatewayModuleOptions): Arr
 ]
 
 export const createGatewayProvider = (): Array<Provider> => [
+  ExpressGraphQLGateway,
+  FastifyGraphQLGateway,
   GraphQLMeshConfig,
   GraphQLMeshHandler,
   GraphQLMesh,
+  GraphQLMeshRuntime,
   GraphQLMeshSchemaDumper,
 ]
 
