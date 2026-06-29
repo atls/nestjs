@@ -1,28 +1,30 @@
 import type { OnModuleInit }          from '@nestjs/common'
 import type { OnModuleDestroy }       from '@nestjs/common'
-import type { GraphQLError }          from 'graphql'
+import type { CorsOptions }           from 'cors'
+import type { Express }               from 'express'
 import type { GraphQLFormattedError } from 'graphql'
 import type { GraphQLSchema }         from 'graphql'
 import type { IncomingMessage }       from 'node:http'
 import type { Socket }                from 'node:net'
 
+import { ApolloServer }               from '@apollo/server'
 import { Inject }                     from '@nestjs/common'
 import { Injectable }                 from '@nestjs/common'
 import { HttpAdapterHost }            from '@nestjs/core'
-import { ApolloServer }               from 'apollo-server-express'
+import { expressMiddleware }          from '@as-integrations/express4'
 import { WebSocketServer }            from 'ws'
+import { json }                       from 'express'
 import { useServer }                  from 'graphql-ws/lib/use/ws'
+import corsMiddleware                 from 'cors'
 
 import { GATEWAY_MODULE_OPTIONS }     from '../module/index.js'
 import { GatewayModuleOptions }       from '../module/index.js'
 import { GraphQLMesh }                from './graphql.mesh.js'
 import { formatError }                from './format.error.js'
 
-type ApolloCorsOption = Parameters<ApolloServer['applyMiddleware']>[0]['cors']
-
 @Injectable()
 export class GraphQLMeshHandler implements OnModuleInit, OnModuleDestroy {
-  private apolloServer!: ApolloServer
+  private apolloServer?: ApolloServer<Record<string, unknown>>
 
   private wss?: WebSocketServer
 
@@ -38,29 +40,38 @@ export class GraphQLMeshHandler implements OnModuleInit, OnModuleDestroy {
     const meshSchema = schema as GraphQLSchema
 
     if (this.adapterHost.httpAdapter.getType() === 'express') {
-      const app = this.adapterHost.httpAdapter.getInstance()
-      const buildContext = contextBuilder as (req: IncomingMessage) => unknown
+      const app = this.adapterHost.httpAdapter.getInstance<Express>()
+      const buildContext = contextBuilder as (
+        req: IncomingMessage
+      ) => Promise<Record<string, unknown>>
 
       const { path = '/', playground, introspection, cors } = this.options
-      const corsOptions = cors as ApolloCorsOption
 
-      const apolloServer = new ApolloServer({
-        schema,
+      const apolloServer = new ApolloServer<Record<string, unknown>>({
+        schema: meshSchema,
         introspection: introspection === undefined ? Boolean(playground) : introspection,
-        context: contextBuilder,
-        playground,
-        formatError: (error: GraphQLError): GraphQLFormattedError =>
+        formatError: (
+          _formattedError: GraphQLFormattedError,
+          error: unknown
+        ): GraphQLFormattedError =>
           formatError(error as { extensions?: Record<string, unknown> }) as GraphQLFormattedError,
       })
 
-      apolloServer.applyMiddleware({
-        app,
-        path,
-        cors: corsOptions,
-        bodyParserConfig: {
+      await apolloServer.start()
+
+      const middleware = [
+        ...(cors === false
+          ? []
+          : [corsMiddleware(cors === true ? undefined : (cors as CorsOptions))]),
+        json({
           limit: this.options.limit || undefined,
-        },
-      })
+        }),
+        expressMiddleware(apolloServer, {
+          context: async ({ req }) => buildContext(req),
+        }),
+      ]
+
+      app.use(path, ...middleware)
 
       this.apolloServer = apolloServer
 
@@ -113,7 +124,7 @@ export class GraphQLMeshHandler implements OnModuleInit, OnModuleDestroy {
   }
 
   async onModuleDestroy(): Promise<void> {
-    await this.apolloServer.stop()
+    await this.apolloServer?.stop()
 
     if (this.wss) {
       for (const client of this.wss.clients) {

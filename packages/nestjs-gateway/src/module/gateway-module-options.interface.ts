@@ -7,9 +7,10 @@ import type { InjectionToken }            from '@nestjs/common/interfaces'
 import type { ModuleMetadata }            from '@nestjs/common/interfaces'
 import type { OptionalFactoryDependency } from '@nestjs/common/interfaces'
 import type { Type }                      from '@nestjs/common/interfaces'
-import type { PlaygroundConfig }          from 'apollo-server-express'
 
 import type { GatewaySourceType }         from '../enums/index.js'
+
+export type GatewayPlaygroundOptions = Record<string, unknown> | boolean
 
 export interface SourceTransformsOptions {
   rename?: YamlConfig.Transform['rename']
@@ -32,7 +33,7 @@ export interface SourceOptions {
 
 export interface GatewayModuleOptions {
   path?: string
-  playground?: PlaygroundConfig
+  playground?: GatewayPlaygroundOptions
   introspection?: boolean
   cors?: unknown
   pubsub?: MeshPubSub
