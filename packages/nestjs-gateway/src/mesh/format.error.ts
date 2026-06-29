@@ -1,20 +1,41 @@
-import type { ServiceError } from '@grpc/grpc-js'
+import type { ServiceError }          from '@grpc/grpc-js'
+import type { GraphQLFormattedError } from 'graphql'
 
-import { ErrorStatus }       from '@atls/grpc-error-status'
+import { ErrorStatus }                from '@atls/grpc-error-status'
 
 type ErrorExtensions = {
   exception?: Record<string, unknown> | ServiceError
 }
 
-const isGrpcErrorStatus = (error: Record<string, unknown> | ServiceError): error is ServiceError =>
-  Number(error.code) >= 0 && error.metadata !== undefined && error.details !== undefined
+const isGrpcErrorStatus = (error: unknown): error is ServiceError => {
+  if (typeof error !== 'object' || error === null) {
+    return false
+  }
 
-export const formatError = (error: { extensions?: ErrorExtensions }) => {
-  const exception = error.extensions?.exception
+  const candidate = error as Partial<ServiceError>
+
+  return (
+    Number(candidate.code) >= 0 &&
+    candidate.metadata !== undefined &&
+    candidate.details !== undefined
+  )
+}
+
+export const formatError = (
+  error: GraphQLFormattedError & { extensions?: ErrorExtensions },
+  exceptionOverride?: unknown
+): GraphQLFormattedError => {
+  const exception = isGrpcErrorStatus(exceptionOverride)
+    ? exceptionOverride
+    : error.extensions?.exception
+
   if (exception && isGrpcErrorStatus(exception)) {
-    error.extensions = {
-      ...error.extensions,
-      exception: ErrorStatus.fromServiceError(exception).toObject(),
+    return {
+      ...error,
+      extensions: {
+        ...error.extensions,
+        exception: ErrorStatus.fromServiceError(exception).toObject(),
+      },
     }
   }
 

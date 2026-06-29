@@ -1,26 +1,29 @@
-import type { OnModuleInit }          from '@nestjs/common'
-import type { OnModuleDestroy }       from '@nestjs/common'
-import type { CorsOptions }           from 'cors'
-import type { Express }               from 'express'
-import type { GraphQLFormattedError } from 'graphql'
-import type { GraphQLSchema }         from 'graphql'
-import type { IncomingMessage }       from 'node:http'
-import type { Socket }                from 'node:net'
+import type { OnModuleInit }                     from '@nestjs/common'
+import type { OnModuleDestroy }                  from '@nestjs/common'
+import type { CorsOptions }                      from 'cors'
+import type { Express }                          from 'express'
+import type { Response }                         from 'express'
+import type { GraphQLFormattedError }            from 'graphql'
+import type { GraphQLSchema }                    from 'graphql'
+import type { IncomingMessage }                  from 'node:http'
+import type { Socket }                           from 'node:net'
 
-import { ApolloServer }               from '@apollo/server'
-import { Inject }                     from '@nestjs/common'
-import { Injectable }                 from '@nestjs/common'
-import { HttpAdapterHost }            from '@nestjs/core'
-import { expressMiddleware }          from '@as-integrations/express4'
-import { WebSocketServer }            from 'ws'
-import { json }                       from 'express'
-import { useServer }                  from 'graphql-ws/lib/use/ws'
-import corsMiddleware                 from 'cors'
+import { ApolloServer }                          from '@apollo/server'
+import { ApolloServerPluginLandingPageDisabled } from '@apollo/server/plugin/disabled'
+import { Inject }                                from '@nestjs/common'
+import { Injectable }                            from '@nestjs/common'
+import { HttpAdapterHost }                       from '@nestjs/core'
+import { unwrapResolverError }                   from '@apollo/server/errors'
+import { expressMiddleware }                     from '@as-integrations/express4'
+import { WebSocketServer }                       from 'ws'
+import { json }                                  from 'express'
+import { useServer }                             from 'graphql-ws/lib/use/ws'
+import corsMiddleware                            from 'cors'
 
-import { GATEWAY_MODULE_OPTIONS }     from '../module/index.js'
-import { GatewayModuleOptions }       from '../module/index.js'
-import { GraphQLMesh }                from './graphql.mesh.js'
-import { formatError }                from './format.error.js'
+import { GATEWAY_MODULE_OPTIONS }                from '../module/index.js'
+import { GatewayModuleOptions }                  from '../module/index.js'
+import { GraphQLMesh }                           from './graphql.mesh.js'
+import { formatError }                           from './format.error.js'
 
 @Injectable()
 export class GraphQLMeshHandler implements OnModuleInit, OnModuleDestroy {
@@ -42,7 +45,7 @@ export class GraphQLMeshHandler implements OnModuleInit, OnModuleDestroy {
     if (this.adapterHost.httpAdapter.getType() === 'express') {
       const app = this.adapterHost.httpAdapter.getInstance<Express>()
       const buildContext = contextBuilder as (
-        req: IncomingMessage
+        context: IncomingMessage | { req: IncomingMessage; res: Response }
       ) => Promise<Record<string, unknown>>
 
       const { path = '/', playground, introspection, cors } = this.options
@@ -50,11 +53,13 @@ export class GraphQLMeshHandler implements OnModuleInit, OnModuleDestroy {
       const apolloServer = new ApolloServer<Record<string, unknown>>({
         schema: meshSchema,
         introspection: introspection === undefined ? Boolean(playground) : introspection,
+        plugins: [ApolloServerPluginLandingPageDisabled()],
+        allowBatchedHttpRequests: true,
+        csrfPrevention: false,
         formatError: (
-          _formattedError: GraphQLFormattedError,
+          formattedError: GraphQLFormattedError,
           error: unknown
-        ): GraphQLFormattedError =>
-          formatError(error as { extensions?: Record<string, unknown> }) as GraphQLFormattedError,
+        ): GraphQLFormattedError => formatError(formattedError, unwrapResolverError(error)),
       })
 
       await apolloServer.start()
@@ -67,7 +72,7 @@ export class GraphQLMeshHandler implements OnModuleInit, OnModuleDestroy {
           limit: this.options.limit || undefined,
         }),
         expressMiddleware(apolloServer, {
-          context: async ({ req }) => buildContext(req),
+          context: async ({ req, res }) => buildContext({ req, res }),
         }),
       ]
 
