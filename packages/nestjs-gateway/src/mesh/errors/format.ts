@@ -66,18 +66,23 @@ const isGrpcErrorStatus = (error: unknown): error is ServiceError => {
 const isGoogleRpcMessageConstructor = (value: unknown): value is GoogleRpcMessageConstructor =>
   isObject(value) && value.deserializeBinary instanceof Function
 
+const normalizeDetailTypeName = (typeName: string): string => typeName.split('/').at(-1) ?? typeName
+
 const resolveDetailTypeName = (detail: GoogleRpcAny): string => {
-  const typeName = detail.getTypeName()
+  const typeName = normalizeDetailTypeName(detail.getTypeName())
 
   if (typeName) {
     return typeName
   }
 
-  return detail.getTypeUrl().split('/').at(-1) ?? ''
+  return normalizeDetailTypeName(detail.getTypeUrl())
 }
 
 const resolveDetailDeserializer = (typeName: string): DeserializeBinary | undefined => {
-  const key = typeName.startsWith('google.rpc.') ? typeName.replace('google.rpc.', '') : typeName
+  const normalizedTypeName = normalizeDetailTypeName(typeName)
+  const key = normalizedTypeName.startsWith('google.rpc.')
+    ? normalizedTypeName.replace('google.rpc.', '')
+    : normalizedTypeName
   const detail = errorDetails[key]
 
   if (!isGoogleRpcMessageConstructor(detail)) {

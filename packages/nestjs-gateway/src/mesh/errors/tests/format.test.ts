@@ -14,8 +14,15 @@ type BinaryMessage = {
   serializeBinary: () => Uint8Array
 }
 
-type GoogleRpcAny = new () => {
+type GoogleRpcAnyMessage = {
+  getTypeName: () => string
+  getTypeUrl: () => string
   pack: (bytes: Uint8Array, typeName: string, typeNamePrefix?: string) => void
+}
+
+type GoogleRpcAny = {
+  prototype: GoogleRpcAnyMessage
+  new (): GoogleRpcAnyMessage
 }
 
 type GoogleRpcBadRequest = BinaryMessage & {
@@ -120,6 +127,62 @@ describe('formatError', () => {
         },
       ],
     })
+  })
+
+  it('preserves gRPC status details with full Any type URL names', () => {
+    const originalGetTypeName = Any.prototype.getTypeName
+    const metadata = new Metadata()
+    const violation = new BadRequest.FieldViolation()
+    const badRequest = new BadRequest()
+    const detail = new Any()
+    const rpcStatus = new Status()
+
+    violation.setField('id')
+    violation.setDescription('id must be an email')
+    badRequest.addFieldViolations(violation)
+    detail.pack(badRequest.serializeBinary(), 'google.rpc.BadRequest')
+    rpcStatus.setCode(status.INVALID_ARGUMENT)
+    rpcStatus.setMessage('Request validation failed')
+    rpcStatus.addDetails(detail)
+    metadata.add('grpc-status-details-bin', Buffer.from(rpcStatus.serializeBinary()))
+
+    const serviceError = Object.assign(new Error('3 INVALID_ARGUMENT: Request validation failed'), {
+      code: status.INVALID_ARGUMENT,
+      details: 'Request validation failed',
+      metadata,
+    }) as ServiceError
+
+    try {
+      Any.prototype.getTypeName = function getTypeName() {
+        return this.getTypeUrl()
+      }
+
+      const formattedError = formatError({
+        message: '3 INVALID_ARGUMENT: Request validation failed',
+        extensions: {
+          exception: serviceError,
+        },
+      })
+
+      assert.deepEqual(formattedError.extensions?.exception, {
+        status: 'INVALID_ARGUMENT',
+        code: status.INVALID_ARGUMENT,
+        message: 'Request validation failed',
+        details: [
+          {
+            '@type': 'type.googleapis.com/google.rpc.BadRequest',
+            fieldViolationsList: [
+              {
+                field: 'id',
+                description: 'id must be an email',
+              },
+            ],
+          },
+        ],
+      })
+    } finally {
+      Any.prototype.getTypeName = originalGetTypeName
+    }
   })
 
   it('formats gRPC errors unwrapped as regular errors', () => {
