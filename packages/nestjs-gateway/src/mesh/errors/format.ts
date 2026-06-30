@@ -64,7 +64,7 @@ const isGrpcErrorStatus = (error: unknown): error is ServiceError => {
 }
 
 const isGoogleRpcMessageConstructor = (value: unknown): value is GoogleRpcMessageConstructor =>
-  isObject(value) && value.deserializeBinary instanceof Function
+  isObject(value) && typeof value.deserializeBinary === 'function'
 
 const normalizeDetailTypeName = (typeName: string): string => typeName.split('/').at(-1) ?? typeName
 
