@@ -1,7 +1,7 @@
 import type { CorsOptions }           from 'cors'
 import type { Express }               from 'express'
 
-import type { GatewayModuleOptions }  from '../../module/index.js'
+import type { GatewayModuleOptions }  from '../../module/gateway-module-options.interface.js'
 import type { GatewayGraphQLRuntime } from '../interfaces.js'
 import type { GatewayHttpBoundary }   from '../interfaces.js'
 
