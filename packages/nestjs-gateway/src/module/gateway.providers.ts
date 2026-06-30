@@ -3,8 +3,8 @@ import type { Provider }             from '@nestjs/common'
 
 import type { GatewayModuleOptions } from './gateway-module-options.interface.js'
 
-import { EventEmitter }              from 'node:events'
-
+import { MemPubSub }                 from '@graphql-hive/pubsub'
+import { toMeshPubSub }              from '@graphql-mesh/types'
 import { PubSub }                    from 'graphql-subscriptions'
 
 import { ExpressGraphQLGateway }     from '../mesh/index.js'
@@ -38,14 +38,10 @@ export const createGatewayExportsProvider = (): Array<Provider> => [
     provide: PubSub,
     useFactory: (options: GatewayModuleOptions): MeshPubSub => {
       if (options.pubsub) {
-        return options.pubsub
+        return toMeshPubSub(options.pubsub)
       }
 
-      const eventEmitter = new EventEmitter({ captureRejections: true })
-
-      eventEmitter.setMaxListeners(Infinity)
-
-      return new PubSub({ eventEmitter }) as unknown as MeshPubSub
+      return toMeshPubSub(new MemPubSub())
     },
     inject: [GATEWAY_MODULE_OPTIONS],
   },

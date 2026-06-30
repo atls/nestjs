@@ -9,8 +9,6 @@ import { isAbsolute }                from 'node:path'
 import { join }                      from 'node:path'
 
 import { Metadata }                  from '@grpc/grpc-js'
-// @ts-expect-error import exists
-import { jsonFlatStringify }         from '@graphql-mesh/utils'
 import _                             from 'lodash'
 
 import { getGraphQLScalar }          from './scalars.js'
@@ -20,6 +18,18 @@ export type ClientMethod = (
   input: unknown,
   metaData?: Metadata
 ) => AsyncIterator<ClientReadableStream<unknown>> | Promise<ClientUnaryCall>
+
+const stringifyMetadataValue = (value: unknown): string => {
+  if (value === null || value === undefined) {
+    return ''
+  }
+
+  if (typeof value === 'number' || typeof value === 'boolean' || typeof value === 'bigint') {
+    return String(value)
+  }
+
+  return JSON.stringify(value)
+}
 
 export function getTypeName(
   schemaComposer: SchemaComposer,
@@ -81,8 +91,7 @@ export function addMetaDataToCall(
     }
     // Ensure that the metadata is compatible with what node-grpc expects
     if (typeof metaValue !== 'string' && !(metaValue instanceof Buffer)) {
-      // eslint-disable-next-line @typescript-eslint/no-unsafe-call
-      metaValue = jsonFlatStringify(metaValue)
+      metaValue = stringifyMetadataValue(metaValue)
     }
 
     meta.add(key, metaValue as MetadataValue)

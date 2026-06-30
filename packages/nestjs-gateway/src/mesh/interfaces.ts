@@ -1,5 +1,4 @@
 import type { ApolloServer }         from '@apollo/server'
-// @ts-expect-error import exists
 import type { MeshInstance }         from '@graphql-mesh/runtime'
 import type { GraphQLSchema }        from 'graphql'
 import type { IncomingMessage }      from 'node:http'

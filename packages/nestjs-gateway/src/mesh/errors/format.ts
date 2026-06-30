@@ -1,11 +1,13 @@
 import type { ServiceError }          from '@grpc/grpc-js'
 import type { GraphQLFormattedError } from 'graphql'
 
-import { ErrorStatus }                from '@atls/grpc-error-status'
+import { status }                     from '@grpc/grpc-js'
 
 type ErrorExtensions = {
   exception?: Record<string, unknown> | ServiceError
 }
+
+const grpcErrorMessagePattern = /^(?<code>\d+)\s+(?<status>[A-Z_]+):\s*(?<message>.*)$/
 
 const isGrpcErrorStatus = (error: unknown): error is ServiceError => {
   if (typeof error !== 'object' || error === null) {
@@ -21,6 +23,28 @@ const isGrpcErrorStatus = (error: unknown): error is ServiceError => {
   )
 }
 
+const formatGrpcError = (error: ServiceError): Record<string, unknown> => ({
+  status: status[error.code],
+  code: error.code,
+  message: error.details || error.message,
+  details: [],
+})
+
+const formatGrpcMessageError = (error: Error): Record<string, unknown> | undefined => {
+  const match = grpcErrorMessagePattern.exec(error.message)
+
+  if (!match?.groups) {
+    return undefined
+  }
+
+  return {
+    status: match.groups.status,
+    code: Number(match.groups.code),
+    message: match.groups.message,
+    details: [],
+  }
+}
+
 export const formatError = (
   error: GraphQLFormattedError & { extensions?: ErrorExtensions },
   exceptionOverride?: unknown
@@ -34,8 +58,22 @@ export const formatError = (
       ...error,
       extensions: {
         ...error.extensions,
-        exception: ErrorStatus.fromServiceError(exception).toObject(),
+        exception: formatGrpcError(exception),
       },
+    }
+  }
+
+  if (exceptionOverride instanceof Error) {
+    const formattedException = formatGrpcMessageError(exceptionOverride)
+
+    if (formattedException) {
+      return {
+        ...error,
+        extensions: {
+          ...error.extensions,
+          exception: formattedException,
+        },
+      }
     }
   }
 

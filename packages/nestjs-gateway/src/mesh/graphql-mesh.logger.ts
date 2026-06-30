@@ -2,6 +2,15 @@ import type { Logger as MeshLogger } from '@graphql-mesh/types'
 
 import { Logger }                    from '@atls/logger'
 
+type MeshLoggerName = Record<string, number | string> | string
+
+const formatLoggerName = (name: MeshLoggerName): string =>
+  typeof name === 'string'
+    ? name
+    : Object.entries(name)
+        .map(([key, value]) => `${key}:${value}`)
+        .join(',')
+
 export class GraphQLMeshLogger implements MeshLogger {
   private logger: Logger
 
@@ -29,10 +38,11 @@ export class GraphQLMeshLogger implements MeshLogger {
     this.logger.debug(message)
   }
 
-  child(name: string): MeshLogger {
-    const logger = new GraphQLMeshLogger(name)
+  child(name: MeshLoggerName): MeshLogger {
+    const loggerName = formatLoggerName(name)
+    const logger = new GraphQLMeshLogger(loggerName)
 
-    logger.logger = this.logger.child(name)
+    logger.logger = this.logger.child(loggerName)
 
     return logger
   }
