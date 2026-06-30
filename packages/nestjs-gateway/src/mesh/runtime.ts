@@ -2,7 +2,7 @@ import type { GraphQLFormattedError }            from 'graphql'
 import type { IncomingMessage }                  from 'node:http'
 import type { Socket }                           from 'node:net'
 
-import type { GatewayModuleOptions }             from '../module/index.js'
+import type { GatewayModuleOptions } from '../module/gateway-module-options.interface.js'
 import type { GraphQLMesh }                      from './graphql.mesh.js'
 import type { GatewayContextBuilder }            from './interfaces.js'
 import type { GatewayGraphQLRuntime }            from './interfaces.js'
@@ -95,7 +95,7 @@ export class GraphQLMeshRuntime {
         context: async ({ connectionParams = {}, extra: { request } }) => {
           this.applyConnectionHeaders(request, connectionParams.headers)
 
-          return runtime.contextBuilder(request)
+          return runtime.contextBuilder({ req: request })
         },
       },
       webSocketServer

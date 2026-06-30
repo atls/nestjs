@@ -4,7 +4,7 @@ import type { GraphQLSchema }        from 'graphql'
 import type { IncomingMessage }      from 'node:http'
 import type { Socket }               from 'node:net'
 
-import type { GatewayModuleOptions } from '../module/index.js'
+import type { GatewayModuleOptions } from '../module/gateway-module-options.interface.js'
 
 export type GatewayContext = Record<string, unknown>
 
@@ -12,7 +12,7 @@ export type GatewayRequestContext =
   | IncomingMessage
   | {
       req: IncomingMessage
-      res: unknown
+      res?: unknown
     }
 
 export type GatewayContextBuilder = (context: GatewayRequestContext) => Promise<GatewayContext>
