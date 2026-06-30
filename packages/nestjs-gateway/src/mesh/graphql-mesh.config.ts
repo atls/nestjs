@@ -3,8 +3,9 @@ import type { MeshTransform }           from '@graphql-mesh/types'
 import type { MeshPubSub }              from '@graphql-mesh/types'
 import type { ImportFn }                from '@graphql-mesh/types'
 
-import type { SourceOptions }           from '../module/index.js'
-import type { SourceTransformsOptions } from '../module/index.js'
+import type { GatewayModuleOptions }    from '../module/gateway-module-options.interface.js'
+import type { SourceOptions }           from '../module/gateway-module-options.interface.js'
+import type { SourceTransformsOptions } from '../module/gateway-module-options.interface.js'
 
 import { join }                         from 'node:path'
 
@@ -30,12 +31,14 @@ import ResolversCompositionTransform    from '@graphql-mesh/transform-resolvers-
 import SnapshotTransform                from '@graphql-mesh/transform-snapshot'
 import { PubSub }                       from 'graphql-subscriptions'
 
-import { GATEWAY_MODULE_OPTIONS }       from '../module/index.js'
-import { GatewayModuleOptions }         from '../module/index.js'
+import { GATEWAY_MODULE_OPTIONS }       from '../module/gateway.constants.js'
 import { GraphQLMeshLogger }            from './graphql-mesh.logger.js'
 import GrpcHandler                      from './handlers/grpc/grpc.handler.js'
 
 type MeshTransformConstructor = new (options: Record<string, unknown>) => MeshTransform
+
+const isStringArray = (value: unknown): value is Array<string> =>
+  Array.isArray(value) && value.every((entry) => typeof entry === 'string')
 
 @Injectable()
 export class GraphQLMeshConfig {
@@ -244,8 +247,11 @@ export class GraphQLMeshConfig {
   }
 
   private async resolveAdditionalTypeDefs(): Promise<GetMeshOptions['additionalTypeDefs']> {
-    if (typeof this.options.additionalTypeDefs === 'string') {
-      return resolveAdditionalTypeDefs(this.baseDir, this.options.additionalTypeDefs)
+    if (
+      typeof this.options.additionalTypeDefs === 'string' ||
+      isStringArray(this.options.additionalTypeDefs)
+    ) {
+      return resolveAdditionalTypeDefs(this.baseDir, this.options.additionalTypeDefs as string)
     }
 
     return this.options.additionalTypeDefs as GetMeshOptions['additionalTypeDefs']
