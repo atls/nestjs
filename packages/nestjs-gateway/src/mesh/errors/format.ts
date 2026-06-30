@@ -18,6 +18,7 @@ type DeserializeBinary = (buffer: Uint8Array) => BinaryMessage
 type GoogleRpcAny = {
   getTypeName: () => string
   getTypeUrl: () => string
+  getValue_asU8: () => Uint8Array
   unpack: (deserialize: DeserializeBinary, typeName: string) => BinaryMessage | null
 }
 
@@ -65,6 +66,16 @@ const isGrpcErrorStatus = (error: unknown): error is ServiceError => {
 const isGoogleRpcMessageConstructor = (value: unknown): value is GoogleRpcMessageConstructor =>
   isObject(value) && value.deserializeBinary instanceof Function
 
+const resolveDetailTypeName = (detail: GoogleRpcAny): string => {
+  const typeName = detail.getTypeName()
+
+  if (typeName) {
+    return typeName
+  }
+
+  return detail.getTypeUrl().split('/').at(-1) ?? ''
+}
+
 const resolveDetailDeserializer = (typeName: string): DeserializeBinary | undefined => {
   const key = typeName.startsWith('google.rpc.') ? typeName.replace('google.rpc.', '') : typeName
   const detail = errorDetails[key]
@@ -92,18 +103,14 @@ const resolveGrpcErrorDetails = (error: ServiceError): Array<unknown> => {
   return Status.deserializeBinary(buffer)
     .getDetailsList()
     .reduce<Array<unknown>>((result, detail) => {
-      const typeName = detail.getTypeName()
+      const typeName = resolveDetailTypeName(detail)
       const deserialize = resolveDetailDeserializer(typeName)
 
       if (!deserialize) {
         return result
       }
 
-      const message = detail.unpack(deserialize, typeName)
-
-      if (!message) {
-        return result
-      }
+      const message = detail.unpack(deserialize, typeName) ?? deserialize(detail.getValue_asU8())
 
       const data = message.toObject()
 
