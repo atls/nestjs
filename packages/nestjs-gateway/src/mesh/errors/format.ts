@@ -31,6 +31,7 @@ type GoogleRpcStatusConstructor = {
 }
 
 type GoogleRpcMessageConstructor = {
+  name: string
   deserializeBinary: DeserializeBinary
 }
 
@@ -49,6 +50,13 @@ const grpcErrorMessagePattern = /^(?<code>\d+)\s+(?<status>[A-Z_]+):\s*(?<messag
 const isObject = (value: unknown): value is Record<string, unknown> =>
   typeof value === 'object' && value !== null
 
+const hasProperties = (
+  value: unknown
+): value is Record<string, unknown> & {
+  deserializeBinary?: unknown
+  name?: unknown
+} => (typeof value === 'object' && value !== null) || typeof value === 'function'
+
 const isGrpcErrorStatus = (error: unknown): error is ServiceError => {
   if (typeof error !== 'object' || error === null) {
     return false
@@ -64,9 +72,35 @@ const isGrpcErrorStatus = (error: unknown): error is ServiceError => {
 }
 
 const isGoogleRpcMessageConstructor = (value: unknown): value is GoogleRpcMessageConstructor =>
-  isObject(value) && typeof value.deserializeBinary === 'function'
+  hasProperties(value) &&
+  typeof value.name === 'string' &&
+  typeof value.deserializeBinary === 'function'
 
 const normalizeDetailTypeName = (typeName: string): string => typeName.split('/').at(-1) ?? typeName
+
+const collectGoogleRpcMessageConstructors = (
+  source: unknown,
+  constructors = new Map<string, GoogleRpcMessageConstructor>()
+): Map<string, GoogleRpcMessageConstructor> => {
+  if (!hasProperties(source)) {
+    return constructors
+  }
+
+  for (const [key, value] of Object.entries(source)) {
+    if (isGoogleRpcMessageConstructor(value)) {
+      constructors.set(key, value)
+      constructors.set(value.name, value)
+
+      continue
+    }
+
+    collectGoogleRpcMessageConstructors(value, constructors)
+  }
+
+  return constructors
+}
+
+const googleRpcMessageConstructors = collectGoogleRpcMessageConstructors(errorDetails)
 
 const resolveDetailTypeName = (detail: GoogleRpcAny): string => {
   const typeName = normalizeDetailTypeName(detail.getTypeName())
@@ -83,7 +117,7 @@ const resolveDetailDeserializer = (typeName: string): DeserializeBinary | undefi
   const key = normalizedTypeName.startsWith('google.rpc.')
     ? normalizedTypeName.replace('google.rpc.', '')
     : normalizedTypeName
-  const detail = errorDetails[key]
+  const detail = googleRpcMessageConstructors.get(key)
 
   if (!isGoogleRpcMessageConstructor(detail)) {
     return undefined
