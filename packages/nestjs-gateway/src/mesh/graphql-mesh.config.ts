@@ -3,9 +3,9 @@ import type { MeshTransform }           from '@graphql-mesh/types'
 import type { MeshPubSub }              from '@graphql-mesh/types'
 import type { ImportFn }                from '@graphql-mesh/types'
 
-import type { GatewayModuleOptions }    from '../module/gateway-module-options.interface.js'
-import type { SourceOptions }           from '../module/gateway-module-options.interface.js'
-import type { SourceTransformsOptions } from '../module/gateway-module-options.interface.js'
+import type { GatewayModuleOptions }    from '../module/interfaces.js'
+import type { SourceOptions }           from '../module/interfaces.js'
+import type { SourceTransformsOptions } from '../module/interfaces.js'
 
 import { join }                         from 'node:path'
 

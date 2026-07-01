@@ -4,7 +4,7 @@ import type { GraphQLSchema }        from 'graphql'
 import type { IncomingMessage }      from 'node:http'
 import type { Socket }               from 'node:net'
 
-import type { GatewayModuleOptions } from '../module/gateway-module-options.interface.js'
+import type { GatewayModuleOptions } from '../module/interfaces.js'
 
 export type GatewayContext = Record<string, unknown>
 

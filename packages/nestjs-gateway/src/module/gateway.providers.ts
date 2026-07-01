@@ -1,7 +1,7 @@
 import type { MeshPubSub }           from '@graphql-mesh/types'
 import type { Provider }             from '@nestjs/common'
 
-import type { GatewayModuleOptions } from './gateway-module-options.interface.js'
+import type { GatewayModuleOptions } from './interfaces.js'
 
 import { MemPubSub }                 from '@graphql-hive/pubsub'
 import { toMeshPubSub }              from '@graphql-mesh/types'

@@ -1,4 +1,4 @@
-import type { GatewayModuleOptions } from '../../module/gateway-module-options.interface.js'
+import type { GatewayModuleOptions }          from '../../module/interfaces.js'
 import type { GatewayGraphQLRuntime }         from '../interfaces.js'
 import type { GatewayHttpBoundary }           from '../interfaces.js'
 

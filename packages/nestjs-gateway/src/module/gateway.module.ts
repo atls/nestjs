@@ -1,9 +1,9 @@
 import type { DynamicModule }             from '@nestjs/common'
 import type { Provider }                  from '@nestjs/common'
 
-import type { GatewayModuleAsyncOptions } from './gateway-module-options.interface.js'
-import type { GatewayModuleOptions }      from './gateway-module-options.interface.js'
-import type { GatewayOptionsFactory }     from './gateway-module-options.interface.js'
+import type { GatewayModuleAsyncOptions } from './interfaces.js'
+import type { GatewayModuleOptions }      from './interfaces.js'
+import type { GatewayOptionsFactory }     from './interfaces.js'
 
 import { Module }                         from '@nestjs/common'
 import { DiscoveryModule }                from '@nestjs/core'
