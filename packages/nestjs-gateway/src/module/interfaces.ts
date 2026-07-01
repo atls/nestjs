@@ -7,9 +7,34 @@ import type { InjectionToken }            from '@nestjs/common/interfaces'
 import type { ModuleMetadata }            from '@nestjs/common/interfaces'
 import type { OptionalFactoryDependency } from '@nestjs/common/interfaces'
 import type { Type }                      from '@nestjs/common/interfaces'
-import type { PlaygroundConfig }          from 'apollo-server-express'
+import type { IncomingMessage }           from 'node:http'
+import type { ServerResponse }            from 'node:http'
 
 import type { GatewaySourceType }         from '../enums/index.js'
+
+export type GatewayPlaygroundOptions = Record<string, unknown> | boolean
+
+export interface GatewayUploadProcessRequestOptions {
+  maxFieldSize?: number
+  maxFileSize?: number
+  maxFiles?: number
+}
+
+export type GatewayUploadProcessRequestResult =
+  | Array<Record<string, unknown>>
+  | Record<string, unknown>
+
+export type GatewayUploadProcessRequest = (
+  request: IncomingMessage,
+  response: ServerResponse,
+  options?: GatewayUploadProcessRequestOptions
+) => Promise<GatewayUploadProcessRequestResult>
+
+export type GatewayUploadsOptions =
+  | false
+  | (GatewayUploadProcessRequestOptions & {
+      processRequest?: GatewayUploadProcessRequest
+    })
 
 export interface SourceTransformsOptions {
   rename?: YamlConfig.Transform['rename']
@@ -32,9 +57,10 @@ export interface SourceOptions {
 
 export interface GatewayModuleOptions {
   path?: string
-  playground?: PlaygroundConfig
+  playground?: GatewayPlaygroundOptions
   introspection?: boolean
   cors?: unknown
+  uploads?: GatewayUploadsOptions
   pubsub?: MeshPubSub
   cache?: KeyValueCache
   merger?: MeshMerger

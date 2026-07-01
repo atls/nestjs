@@ -1,7 +1,9 @@
+import type { MeshPubSub }                                               from '@graphql-mesh/types'
 import type { INestApplication }                                         from '@nestjs/common'
 import type { INestMicroservice }                                        from '@nestjs/common'
 
 import type { GatewaySourceType as GatewaySourceTypeEnum }               from '../../src/index.js'
+import type { GATEWAY_MESH_PUBSUB as GatewayMeshPubSubToken }            from '../../src/index.js'
 import type { GATEWAY_MODULE_OPTIONS as GatewayModuleOptionsToken }      from '../../src/index.js'
 import type { GatewayIntegrationModule as GatewayIntegrationModuleType } from '../src/index.js'
 
@@ -13,9 +15,8 @@ import { describe }                                                      from 'n
 import { it }                                                            from 'node:test'
 import { fileURLToPath }                                                 from 'node:url'
 
-import { Transport }                                                     from '@nestjs/microservices'
+import { Transport } from '@nestjs/microservices'
 import { Test }                                                          from '@nestjs/testing'
-import { PubSub }                                                        from 'graphql-subscriptions'
 import { WebSocket }                                                     from 'ws'
 import { buildClientSchema }                                             from 'graphql'
 import { printSchema }                                                   from 'graphql'
@@ -29,12 +30,13 @@ const moduleDir = path.dirname(fileURLToPath(import.meta.url))
 // TODO: fix gateway integration test stability and re-enable suite.
 describe.skip('gateway', () => {
   let GatewaySourceType: typeof GatewaySourceTypeEnum
+  let GATEWAY_MESH_PUBSUB: typeof GatewayMeshPubSubToken
   let GATEWAY_MODULE_OPTIONS: typeof GatewayModuleOptionsToken
   let GatewayIntegrationModule: typeof GatewayIntegrationModuleType
 
   let service: INestMicroservice
   let app: INestApplication
-  let pubsub: PubSub
+  let pubsub: MeshPubSub
   let url: string
 
   before(async () => {
@@ -42,6 +44,7 @@ describe.skip('gateway', () => {
     const gatewayIntegration = await import('../src/index.js')
 
     GatewaySourceType = gatewayCore.GatewaySourceType
+    GATEWAY_MESH_PUBSUB = gatewayCore.GATEWAY_MESH_PUBSUB
     GATEWAY_MODULE_OPTIONS = gatewayCore.GATEWAY_MODULE_OPTIONS
     GatewayIntegrationModule = gatewayIntegration.GatewayIntegrationModule
 
@@ -159,7 +162,7 @@ describe.skip('gateway', () => {
     await app.listen(appPort, '0.0.0.0')
     await service.listen()
 
-    pubsub = app.get(PubSub)
+    pubsub = app.get(GATEWAY_MESH_PUBSUB)
     url = await app.getUrl()
   })
 

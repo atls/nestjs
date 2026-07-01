@@ -15,7 +15,7 @@ import { ClientReadableStream }                            from '@grpc/grpc-js'
 import { ClientUnaryCall }                                 from '@grpc/grpc-js'
 import { Metadata }                                        from '@grpc/grpc-js'
 import { ChannelOptions }                                  from '@grpc/grpc-js'
-import { ConnectivityState }                               from '@grpc/grpc-js/build/src/connectivity-state.js'
+import { connectivityState as ConnectivityState }          from '@grpc/grpc-js'
 // @ts-ignore
 import { withCancel }                                      from '@graphql-mesh/utils'
 import { credentials }                                     from '@grpc/grpc-js'

@@ -1,16 +1,19 @@
 import type { MeshPubSub }           from '@graphql-mesh/types'
 import type { Provider }             from '@nestjs/common'
 
-import type { GatewayModuleOptions } from './gateway-module-options.interface.js'
+import type { GatewayModuleOptions } from './interfaces.js'
 
-import { EventEmitter }              from 'node:events'
+import { MemPubSub }                 from '@graphql-hive/pubsub'
+import { toMeshPubSub }              from '@graphql-mesh/types'
 
-import { PubSub }                    from 'graphql-subscriptions'
-
+import { ExpressGraphQLGateway }     from '../mesh/index.js'
+import { FastifyGraphQLGateway }     from '../mesh/index.js'
 import { GraphQLMeshHandler }        from '../mesh/index.js'
 import { GraphQLMeshConfig }         from '../mesh/index.js'
 import { GraphQLMesh }               from '../mesh/index.js'
+import { GraphQLMeshRuntime }        from '../mesh/index.js'
 import { GraphQLMeshSchemaDumper }   from '../mesh/index.js'
+import { GATEWAY_MESH_PUBSUB }       from './gateway.constants.js'
 import { GATEWAY_MODULE_OPTIONS }    from './gateway.constants.js'
 
 export const createGatewayOptionsProvider = (options: GatewayModuleOptions): Array<Provider> => [
@@ -21,25 +24,24 @@ export const createGatewayOptionsProvider = (options: GatewayModuleOptions): Arr
 ]
 
 export const createGatewayProvider = (): Array<Provider> => [
+  ExpressGraphQLGateway,
+  FastifyGraphQLGateway,
   GraphQLMeshConfig,
   GraphQLMeshHandler,
   GraphQLMesh,
+  GraphQLMeshRuntime,
   GraphQLMeshSchemaDumper,
 ]
 
 export const createGatewayExportsProvider = (): Array<Provider> => [
   {
-    provide: PubSub,
+    provide: GATEWAY_MESH_PUBSUB,
     useFactory: (options: GatewayModuleOptions): MeshPubSub => {
       if (options.pubsub) {
-        return options.pubsub
+        return toMeshPubSub(options.pubsub)
       }
 
-      const eventEmitter = new EventEmitter({ captureRejections: true })
-
-      eventEmitter.setMaxListeners(Infinity)
-
-      return new PubSub({ eventEmitter }) as unknown as MeshPubSub
+      return toMeshPubSub(new MemPubSub())
     },
     inject: [GATEWAY_MODULE_OPTIONS],
   },

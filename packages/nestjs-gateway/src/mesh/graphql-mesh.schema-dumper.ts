@@ -26,7 +26,6 @@ export class GraphQLMeshSchemaDumper implements OnModuleInit {
           typeof __non_webpack_require__ === 'undefined' ? process.cwd() : `${__dirname}/../`,
           'gateway.graphql'
         ),
-        // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
         printSchemaWithDirectives(schema)
       )
     }

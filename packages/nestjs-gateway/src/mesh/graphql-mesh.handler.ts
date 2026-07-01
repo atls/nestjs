@@ -1,124 +1,79 @@
-import type { OnModuleInit }          from '@nestjs/common'
-import type { OnModuleDestroy }       from '@nestjs/common'
-import type { GraphQLError }          from 'graphql'
-import type { GraphQLFormattedError } from 'graphql'
-import type { GraphQLSchema }         from 'graphql'
-import type { IncomingMessage }       from 'node:http'
-import type { Socket }                from 'node:net'
+import type { OnModuleDestroy }               from '@nestjs/common'
+import type { OnModuleInit }                  from '@nestjs/common'
+import type { WebSocketServer }               from 'ws'
 
-import { Inject }                     from '@nestjs/common'
-import { Injectable }                 from '@nestjs/common'
-import { HttpAdapterHost }            from '@nestjs/core'
-import { ApolloServer }               from 'apollo-server-express'
-import { WebSocketServer }            from 'ws'
-import { useServer }                  from 'graphql-ws/lib/use/ws'
+import type { GatewayModuleOptions }          from '../module/interfaces.js'
+import type { GatewayHttpBoundary }           from './http/interfaces.js'
+import type { GatewayHttpServer }             from './http/interfaces.js'
+import type { GatewayGraphQLRuntime }         from './interfaces.js'
 
-import { GATEWAY_MODULE_OPTIONS }     from '../module/index.js'
-import { GatewayModuleOptions }       from '../module/index.js'
-import { GraphQLMesh }                from './graphql.mesh.js'
-import { formatError }                from './format.error.js'
+import { Inject }                             from '@nestjs/common'
+import { Injectable }                         from '@nestjs/common'
+import { HttpAdapterHost }                    from '@nestjs/core'
 
-type ApolloCorsOption = Parameters<ApolloServer['applyMiddleware']>[0]['cors']
+import { GATEWAY_MODULE_OPTIONS }             from '../module/gateway.constants.js'
+import { GatewayUnsupportedHttpAdapterError } from './errors/unsupported.js'
+import { GraphQLMesh }                        from './graphql.mesh.js'
+import { ExpressGraphQLGateway }              from './http/express.gateway.js'
+import { FastifyGraphQLGateway }              from './http/fastify.gateway.js'
+import { GraphQLMeshRuntime }                 from './runtime.js'
 
 @Injectable()
 export class GraphQLMeshHandler implements OnModuleInit, OnModuleDestroy {
-  private apolloServer!: ApolloServer
+  private runtime?: GatewayGraphQLRuntime
 
-  private wss?: WebSocketServer
+  private webSocketServer?: WebSocketServer
 
   constructor(
     private readonly adapterHost: HttpAdapterHost,
     private readonly mesh: GraphQLMesh,
+    private readonly meshRuntime: GraphQLMeshRuntime,
+    private readonly expressGateway: ExpressGraphQLGateway,
+    private readonly fastifyGateway: FastifyGraphQLGateway,
     @Inject(GATEWAY_MODULE_OPTIONS)
     private readonly options: GatewayModuleOptions
   ) {}
 
   async onModuleInit(): Promise<void> {
-    const { schema, contextBuilder, subscribe, execute } = await this.mesh.getInstance()
-    const meshSchema = schema as GraphQLSchema
+    const gateway = this.getHttpGateway()
+    const runtime = await this.meshRuntime.create(this.mesh, this.options)
 
-    if (this.adapterHost.httpAdapter.getType() === 'express') {
-      const app = this.adapterHost.httpAdapter.getInstance()
-      const buildContext = contextBuilder as (req: IncomingMessage) => unknown
-
-      const { path = '/', playground, introspection, cors } = this.options
-      const corsOptions = cors as ApolloCorsOption
-
-      const apolloServer = new ApolloServer({
-        schema,
-        introspection: introspection === undefined ? Boolean(playground) : introspection,
-        context: contextBuilder,
-        playground,
-        formatError: (error: GraphQLError): GraphQLFormattedError =>
-          formatError(error as { extensions?: Record<string, unknown> }) as GraphQLFormattedError,
-      })
-
-      apolloServer.applyMiddleware({
-        app,
-        path,
-        cors: corsOptions,
-        bodyParserConfig: {
-          limit: this.options.limit || undefined,
-        },
-      })
-
-      this.apolloServer = apolloServer
-
-      if (meshSchema.getSubscriptionType()) {
-        this.wss = new WebSocketServer({
-          noServer: true,
-          path,
-        })
-
-        // eslint-disable-next-line
-        useServer(
-          {
-            schema,
-            execute: (args) =>
-              // eslint-disable-next-line @typescript-eslint/no-unsafe-return, @typescript-eslint/no-unsafe-call
-              execute(args.document, args.variableValues, args.contextValue, args.rootValue),
-            subscribe: (args) =>
-              // eslint-disable-next-line @typescript-eslint/no-unsafe-return, @typescript-eslint/no-unsafe-call
-              subscribe(args.document, args.variableValues, args.contextValue, args.rootValue),
-            context: async ({ connectionParams = {}, extra: { request } }) => {
-              for (const [key, value] of Object.entries(
-                (connectionParams.headers ?? {}) as Record<string, unknown>
-              )) {
-                if (!(key.toLowerCase() in request.headers)) {
-                  request.headers[key.toLowerCase()] = value as string
-                }
-              }
-
-              return buildContext(request)
-            },
-          },
-          this.wss
-        )
-
-        const httpServer = this.adapterHost.httpAdapter.getHttpServer() as {
-          on: (
-            event: 'upgrade',
-            handler: (req: IncomingMessage, socket: Socket, head: Buffer) => void
-          ) => void
-        }
-        httpServer.on('upgrade', (req, socket, head) => {
-          this.wss?.handleUpgrade(req, socket, head, (ws) => {
-            this.wss?.emit('connection', ws, req)
-          })
-        })
-      }
-    } else {
-      throw new Error('Only express engine available')
+    try {
+      await gateway.register(runtime, this.options)
+    } catch (error) {
+      await runtime.apolloServer.stop()
+      throw error
     }
+
+    this.runtime = runtime
+    this.webSocketServer = this.meshRuntime.registerSubscriptions(
+      runtime,
+      this.adapterHost.httpAdapter.getHttpServer() as GatewayHttpServer,
+      this.options.path || '/'
+    )
   }
 
   async onModuleDestroy(): Promise<void> {
-    await this.apolloServer.stop()
+    await this.runtime?.apolloServer.stop()
 
-    if (this.wss) {
-      for (const client of this.wss.clients) {
+    if (this.webSocketServer) {
+      for (const client of this.webSocketServer.clients) {
         client.close(1001, 'Going away')
       }
     }
+  }
+
+  private getHttpGateway(): GatewayHttpBoundary {
+    const adapter = this.adapterHost.httpAdapter.getType()
+
+    if (adapter === 'express') {
+      return this.expressGateway
+    }
+
+    if (adapter === 'fastify') {
+      return this.fastifyGateway
+    }
+
+    throw new GatewayUnsupportedHttpAdapterError(adapter)
   }
 }

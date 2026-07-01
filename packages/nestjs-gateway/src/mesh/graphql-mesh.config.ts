@@ -1,11 +1,11 @@
-// @ts-expect-error import exists
 import type { GetMeshOptions }          from '@graphql-mesh/runtime'
 import type { MeshTransform }           from '@graphql-mesh/types'
 import type { MeshPubSub }              from '@graphql-mesh/types'
 import type { ImportFn }                from '@graphql-mesh/types'
 
-import type { SourceOptions }           from '../module/index.js'
-import type { SourceTransformsOptions } from '../module/index.js'
+import type { GatewayModuleOptions }    from '../module/interfaces.js'
+import type { SourceOptions }           from '../module/interfaces.js'
+import type { SourceTransformsOptions } from '../module/interfaces.js'
 
 import { join }                         from 'node:path'
 
@@ -13,12 +13,9 @@ import { InMemoryStoreStorageAdapter }  from '@graphql-mesh/store'
 import { MeshStore }                    from '@graphql-mesh/store'
 import { Inject }                       from '@nestjs/common'
 import { Injectable }                   from '@nestjs/common'
-// @ts-expect-error import exists
 import { resolveAdditionalTypeDefs }    from '@graphql-mesh/config'
-// @ts-expect-error import exists
-import { getDefaultSyncImport }         from '@graphql-mesh/utils'
+import { defaultImportFn }              from '@graphql-mesh/utils'
 import { resolveAdditionalResolvers }   from '@graphql-mesh/utils'
-// @ts-expect-error import exists
 import InMemoryLRUCache                 from '@graphql-mesh/cache-inmemory-lru'
 import StitchingMerger                  from '@graphql-mesh/merger-stitching'
 import CacheTransform                   from '@graphql-mesh/transform-cache'
@@ -32,18 +29,20 @@ import RenameTransform                  from '@graphql-mesh/transform-rename'
 import ResolversCompositionTransform    from '@graphql-mesh/transform-resolvers-composition'
 // @ts-expect-error import exists
 import SnapshotTransform                from '@graphql-mesh/transform-snapshot'
-import { PubSub }                       from 'graphql-subscriptions'
 
-import { GATEWAY_MODULE_OPTIONS }       from '../module/index.js'
-import { GatewayModuleOptions }         from '../module/index.js'
+import { GATEWAY_MESH_PUBSUB }          from '../module/gateway.constants.js'
+import { GATEWAY_MODULE_OPTIONS }       from '../module/gateway.constants.js'
 import { GraphQLMeshLogger }            from './graphql-mesh.logger.js'
 import GrpcHandler                      from './handlers/grpc/grpc.handler.js'
 
 type MeshTransformConstructor = new (options: Record<string, unknown>) => MeshTransform
 
+const isStringArray = (value: unknown): value is Array<string> =>
+  Array.isArray(value) && value.every((entry) => typeof entry === 'string')
+
 @Injectable()
 export class GraphQLMeshConfig {
-  private syncImportFn
+  private importFn: ImportFn
 
   private cache
 
@@ -60,42 +59,37 @@ export class GraphQLMeshConfig {
   constructor(
     @Inject(GATEWAY_MODULE_OPTIONS)
     private readonly options: GatewayModuleOptions,
-    private readonly pubsub: PubSub
+    @Inject(GATEWAY_MESH_PUBSUB)
+    private readonly pubsub: MeshPubSub
   ) {
     this.logger = new GraphQLMeshLogger('Mesh')
     this.baseDir = process.cwd()
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-call
     this.cache = options.cache || new InMemoryLRUCache()
     this.store = new MeshStore(join(process.cwd(), '.mesh'), new InMemoryStoreStorageAdapter(), {
       readonly: false,
       validate: false,
     })
 
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-call
-    this.syncImportFn = getDefaultSyncImport(this.baseDir)
+    this.importFn = defaultImportFn
     this.transforms = this.createTransforms('root', options.transforms)
 
     this.merger =
       options.merger ||
       new StitchingMerger({
         cache: this.cache,
-        pubsub: this.pubsub as unknown as MeshPubSub,
+        pubsub: this.pubsub,
         store: this.store.child(`StitchingMerger`),
         logger: this.logger,
       })
   }
 
   async create(): Promise<GetMeshOptions> {
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-call
-    const additionalTypeDefs = await resolveAdditionalTypeDefs(
-      this.baseDir,
-      this.options.additionalTypeDefs
-    )
+    const additionalTypeDefs = await this.resolveAdditionalTypeDefs()
     const additionalResolvers = await resolveAdditionalResolvers(
       this.baseDir,
       this.options.additionalResolvers || [],
-      this.syncImportFn as ImportFn,
-      this.pubsub as unknown as MeshPubSub
+      this.importFn,
+      this.pubsub
     )
 
     return {
@@ -127,7 +121,7 @@ export class GraphQLMeshConfig {
       store: this.store,
       baseDir: this.baseDir,
       logger: this.logger,
-      importFn: null,
+      importFn: this.importFn,
       channelOptions: this.options.grpcChannelOptions,
     })
   }
@@ -155,11 +149,11 @@ export class GraphQLMeshConfig {
       transforms.push(
         new EncapsulateTransform({
           apiName,
-          importFn: this.syncImportFn,
+          importFn: this.importFn,
           baseDir: this.baseDir,
           config: config.encapsulate,
           cache: this.cache,
-          pubsub: this.pubsub as unknown as MeshPubSub,
+          pubsub: this.pubsub,
           logger: this.logger,
         })
       )
@@ -169,11 +163,11 @@ export class GraphQLMeshConfig {
       transforms.push(
         new PrefixTransform({
           apiName,
-          importFn: this.syncImportFn,
+          importFn: this.importFn,
           baseDir: this.baseDir,
           config: config.prefix,
           cache: this.cache,
-          pubsub: this.pubsub as unknown as MeshPubSub,
+          pubsub: this.pubsub,
           logger: this.logger,
         })
       )
@@ -183,11 +177,11 @@ export class GraphQLMeshConfig {
       transforms.push(
         new CacheTransform({
           apiName,
-          importFn: this.syncImportFn,
+          importFn: this.importFn,
           baseDir: this.baseDir,
           config: config.cache,
           cache: this.cache,
-          pubsub: this.pubsub as unknown as MeshPubSub,
+          pubsub: this.pubsub,
           logger: this.logger,
         })
       )
@@ -198,11 +192,11 @@ export class GraphQLMeshConfig {
       const SnapshotTransformCtor = SnapshotTransform as unknown as MeshTransformConstructor
       const snapshotTransform = new SnapshotTransformCtor({
         apiName,
-        syncImportFn: this.syncImportFn,
+        importFn: this.importFn,
         baseDir: this.baseDir,
         config: snapshotConfig,
         cache: this.cache,
-        pubsub: this.pubsub as unknown as MeshPubSub,
+        pubsub: this.pubsub,
       }) as unknown as MeshTransform
       transforms.push(snapshotTransform)
     }
@@ -212,11 +206,11 @@ export class GraphQLMeshConfig {
       const MockingTransformCtor = MockingTransform as unknown as MeshTransformConstructor
       const mockTransform = new MockingTransformCtor({
         apiName,
-        syncImportFn: this.syncImportFn,
+        importFn: this.importFn,
         baseDir: this.baseDir,
         config: mockConfig,
         cache: this.cache,
-        pubsub: this.pubsub as unknown as MeshPubSub,
+        pubsub: this.pubsub,
       }) as unknown as MeshTransform
       transforms.push(mockTransform)
     }
@@ -225,11 +219,11 @@ export class GraphQLMeshConfig {
       transforms.push(
         new ResolversCompositionTransform({
           apiName,
-          importFn: this.syncImportFn,
+          importFn: this.importFn,
           baseDir: this.baseDir,
           config: config.resolversComposition,
           cache: this.cache,
-          pubsub: this.pubsub as unknown as MeshPubSub,
+          pubsub: this.pubsub,
           logger: this.logger,
         })
       )
@@ -239,16 +233,27 @@ export class GraphQLMeshConfig {
       transforms.push(
         new NamingConventionTransform({
           apiName,
-          importFn: this.syncImportFn,
+          importFn: this.importFn,
           baseDir: this.baseDir,
           config: config.namingConvention,
           cache: this.cache,
-          pubsub: this.pubsub as unknown as MeshPubSub,
+          pubsub: this.pubsub,
           logger: this.logger,
         })
       )
     }
 
     return transforms
+  }
+
+  private async resolveAdditionalTypeDefs(): Promise<GetMeshOptions['additionalTypeDefs']> {
+    if (
+      typeof this.options.additionalTypeDefs === 'string' ||
+      isStringArray(this.options.additionalTypeDefs)
+    ) {
+      return resolveAdditionalTypeDefs(this.baseDir, this.options.additionalTypeDefs as string)
+    }
+
+    return this.options.additionalTypeDefs as GetMeshOptions['additionalTypeDefs']
   }
 }
