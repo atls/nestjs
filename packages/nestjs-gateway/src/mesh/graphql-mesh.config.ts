@@ -29,8 +29,8 @@ import RenameTransform                  from '@graphql-mesh/transform-rename'
 import ResolversCompositionTransform    from '@graphql-mesh/transform-resolvers-composition'
 // @ts-expect-error import exists
 import SnapshotTransform                from '@graphql-mesh/transform-snapshot'
-import { PubSub }                       from 'graphql-subscriptions'
 
+import { GATEWAY_MESH_PUBSUB }          from '../module/gateway.constants.js'
 import { GATEWAY_MODULE_OPTIONS }       from '../module/gateway.constants.js'
 import { GraphQLMeshLogger }            from './graphql-mesh.logger.js'
 import GrpcHandler                      from './handlers/grpc/grpc.handler.js'
@@ -59,7 +59,7 @@ export class GraphQLMeshConfig {
   constructor(
     @Inject(GATEWAY_MODULE_OPTIONS)
     private readonly options: GatewayModuleOptions,
-    @Inject(PubSub)
+    @Inject(GATEWAY_MESH_PUBSUB)
     private readonly pubsub: MeshPubSub
   ) {
     this.logger = new GraphQLMeshLogger('Mesh')
@@ -192,7 +192,7 @@ export class GraphQLMeshConfig {
       const SnapshotTransformCtor = SnapshotTransform as unknown as MeshTransformConstructor
       const snapshotTransform = new SnapshotTransformCtor({
         apiName,
-        syncImportFn: this.importFn,
+        importFn: this.importFn,
         baseDir: this.baseDir,
         config: snapshotConfig,
         cache: this.cache,
@@ -206,7 +206,7 @@ export class GraphQLMeshConfig {
       const MockingTransformCtor = MockingTransform as unknown as MeshTransformConstructor
       const mockTransform = new MockingTransformCtor({
         apiName,
-        syncImportFn: this.importFn,
+        importFn: this.importFn,
         baseDir: this.baseDir,
         config: mockConfig,
         cache: this.cache,

@@ -51,6 +51,28 @@ describe('ExpressGraphQLGateway', () => {
     assert.equal(getMock.mock.calls[0].arguments[0], '/.well-known/apollo/server-health')
     assert.equal(useMock.mock.callCount(), 1)
     assert.equal(useMock.mock.calls[0].arguments[0], '/graphql')
+    assert.equal(useMock.mock.calls[0].arguments.length, 4)
+  })
+
+  it('disables upload middleware by explicit option', async () => {
+    const use = mock.fn()
+    const adapterHost = {
+      httpAdapter: {
+        getInstance: () => ({ get: mock.fn(), use }),
+      },
+    } as unknown as HttpAdapterHost
+
+    await new ExpressGraphQLGateway(adapterHost).register(createRuntime(), {
+      path: '/graphql',
+      cors: false,
+      uploads: false,
+      limit: '1mb',
+    })
+
+    const useMock = use as unknown as MockedFunction
+
+    assert.equal(useMock.mock.callCount(), 1)
+    assert.equal(useMock.mock.calls[0].arguments[0], '/graphql')
     assert.equal(useMock.mock.calls[0].arguments.length, 3)
   })
 

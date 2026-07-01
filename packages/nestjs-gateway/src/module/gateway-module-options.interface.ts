@@ -7,10 +7,18 @@ import type { InjectionToken }            from '@nestjs/common/interfaces'
 import type { ModuleMetadata }            from '@nestjs/common/interfaces'
 import type { OptionalFactoryDependency } from '@nestjs/common/interfaces'
 import type { Type }                      from '@nestjs/common/interfaces'
+import type { ProcessRequestFunction }    from 'graphql-upload/processRequest.mjs'
+import type { ProcessRequestOptions }     from 'graphql-upload/processRequest.mjs'
 
 import type { GatewaySourceType }         from '../enums/index.js'
 
 export type GatewayPlaygroundOptions = Record<string, unknown> | boolean
+
+export type GatewayUploadsOptions =
+  | false
+  | (ProcessRequestOptions & {
+      processRequest?: ProcessRequestFunction
+    })
 
 export interface SourceTransformsOptions {
   rename?: YamlConfig.Transform['rename']
@@ -36,6 +44,7 @@ export interface GatewayModuleOptions {
   playground?: GatewayPlaygroundOptions
   introspection?: boolean
   cors?: unknown
+  uploads?: GatewayUploadsOptions
   pubsub?: MeshPubSub
   cache?: KeyValueCache
   merger?: MeshMerger

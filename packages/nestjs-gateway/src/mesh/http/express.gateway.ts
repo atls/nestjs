@@ -1,5 +1,6 @@
 import type { CorsOptions }           from 'cors'
 import type { Express }               from 'express'
+import type { RequestHandler }        from 'express'
 
 import type { GatewayModuleOptions }  from '../../module/gateway-module-options.interface.js'
 import type { GatewayGraphQLRuntime } from '../interfaces.js'
@@ -10,6 +11,7 @@ import { HttpAdapterHost }            from '@nestjs/core'
 import { expressMiddleware }          from '@as-integrations/express4'
 import { json }                       from 'express'
 import corsMiddleware                 from 'cors'
+import graphqlUploadExpress           from 'graphql-upload/graphqlUploadExpress.mjs'
 
 const APOLLO_HEALTH_CHECK_PATH = '/.well-known/apollo/server-health'
 const APOLLO_HEALTH_CHECK_CONTENT_TYPE = 'application/health+json'
@@ -28,10 +30,16 @@ export class ExpressGraphQLGateway implements GatewayHttpBoundary {
       response.json(APOLLO_HEALTH_CHECK_RESPONSE)
     })
 
-    const middleware = [
+    const uploadMiddleware =
+      options.uploads === false
+        ? []
+        : [graphqlUploadExpress(options.uploads) as unknown as RequestHandler]
+
+    const middleware: Array<RequestHandler> = [
       ...(cors === false
         ? []
         : [corsMiddleware(cors === true ? undefined : (cors as CorsOptions))]),
+      ...uploadMiddleware,
       json({
         limit: options.limit || undefined,
       }),

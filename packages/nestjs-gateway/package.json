@@ -18,7 +18,7 @@
   "dependencies": {
     "@apollo/server": "5.5.1",
     "@as-integrations/express4": "1.1.2",
-    "@atls/grpc-error-status": "0.1.5",
+    "@atls/grpc-error-status": "0.1.6",
     "@atls/logger": "0.0.2",
     "@graphql-hive/pubsub": "2.1.1",
     "@graphql-mesh/cache-inmemory-lru": "0.8.38",
@@ -46,7 +46,7 @@
     "globby": "14.0.2",
     "graphql-compose": "9.0.11",
     "graphql-scalars": "1.23.0",
-    "graphql-subscriptions": "2.0.0",
+    "graphql-upload": "17.0.0",
     "graphql-ws": "5.16.0",
     "lodash": "4.17.21",
     "long": "5.2.3",
@@ -61,6 +61,7 @@
     "@nestjs/testing": "10.4.6",
     "@types/cors": "2.8.19",
     "@types/express": "4.17.25",
+    "@types/graphql-upload": "17.0.0",
     "@types/lodash": "4.17.13",
     "@types/node": "22.8.5",
     "@types/supertest": "6.0.2",
@@ -78,6 +79,9 @@
     "graphql": "16.11",
     "reflect-metadata": "0.2",
     "rxjs": "7"
+  },
+  "engines": {
+    "node": ">=24"
   },
   "publishConfig": {
     "exports": {

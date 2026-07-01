@@ -5,7 +5,6 @@ import type { GatewayModuleOptions } from './gateway-module-options.interface.js
 
 import { MemPubSub }                 from '@graphql-hive/pubsub'
 import { toMeshPubSub }              from '@graphql-mesh/types'
-import { PubSub }                    from 'graphql-subscriptions'
 
 import { ExpressGraphQLGateway }     from '../mesh/index.js'
 import { FastifyGraphQLGateway }     from '../mesh/index.js'
@@ -14,6 +13,7 @@ import { GraphQLMeshConfig }         from '../mesh/index.js'
 import { GraphQLMesh }               from '../mesh/index.js'
 import { GraphQLMeshRuntime }        from '../mesh/index.js'
 import { GraphQLMeshSchemaDumper }   from '../mesh/index.js'
+import { GATEWAY_MESH_PUBSUB }       from './gateway.constants.js'
 import { GATEWAY_MODULE_OPTIONS }    from './gateway.constants.js'
 
 export const createGatewayOptionsProvider = (options: GatewayModuleOptions): Array<Provider> => [
@@ -35,7 +35,7 @@ export const createGatewayProvider = (): Array<Provider> => [
 
 export const createGatewayExportsProvider = (): Array<Provider> => [
   {
-    provide: PubSub,
+    provide: GATEWAY_MESH_PUBSUB,
     useFactory: (options: GatewayModuleOptions): MeshPubSub => {
       if (options.pubsub) {
         return toMeshPubSub(options.pubsub)
