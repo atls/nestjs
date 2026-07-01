@@ -29,7 +29,71 @@ import request                                                      from 'supert
 
 const moduleDir = path.dirname(fileURLToPath(import.meta.url))
 const SUBSCRIPTION_TIMEOUT = 10000
-const SUBSCRIPTION_READY_DELAY = 100
+const SUBSCRIPTION_TOPIC = 'eventTriggered'
+
+const withTimeout = async <T>(promise: Promise<T>, message: string): Promise<T> => {
+  let timeout: ReturnType<typeof setTimeout> | undefined
+
+  try {
+    return await Promise.race([
+      promise,
+      new Promise<T>((_, reject) => {
+        timeout = setTimeout(() => {
+          reject(new Error(message))
+        }, SUBSCRIPTION_TIMEOUT)
+      }),
+    ])
+  } finally {
+    if (timeout) {
+      clearTimeout(timeout)
+    }
+  }
+}
+
+const createSubscriptionReadyTracker = (meshPubSub: MeshPubSub, triggerName: string) => {
+  const originalSubscribe = meshPubSub.subscribe
+  const originalAsyncIterator = meshPubSub.asyncIterator
+  const subscribe = originalSubscribe.bind(meshPubSub)
+  const asyncIterator = originalAsyncIterator.bind(meshPubSub)
+
+  let markReady!: () => void
+  let isReady = false
+
+  const ready = new Promise<void>((resolve) => {
+    markReady = () => {
+      if (!isReady) {
+        isReady = true
+        resolve()
+      }
+    }
+  })
+
+  const trackReady = (trigger: string) => {
+    if (trigger === triggerName) {
+      markReady()
+    }
+  }
+
+  meshPubSub.subscribe = ((trigger, onMessage, options) => {
+    trackReady(trigger)
+
+    return subscribe(trigger, onMessage, options)
+  }) as MeshPubSub['subscribe']
+
+  meshPubSub.asyncIterator = ((trigger) => {
+    trackReady(trigger)
+
+    return asyncIterator(trigger)
+  }) as MeshPubSub['asyncIterator']
+
+  return {
+    ready,
+    restore: () => {
+      meshPubSub.subscribe = originalSubscribe
+      meshPubSub.asyncIterator = originalAsyncIterator
+    },
+  }
+}
 
 describe('gateway', () => {
   let GatewaySourceType: typeof GatewaySourceTypeEnum
@@ -263,6 +327,7 @@ describe('gateway', () => {
     const connected = new Promise<void>((resolve) => {
       openConnection = resolve
     })
+    const subscriptionReady = createSubscriptionReadyTracker(pubsub, SUBSCRIPTION_TOPIC)
 
     const client = createClient({
       url: url.replace('http:', 'ws:'),
@@ -272,14 +337,19 @@ describe('gateway', () => {
       },
     })
 
-    const event = new Promise<SubscriptionResult>((resolve, reject) => {
-      let dispose: (() => void) | undefined
-      const disposeClient = () => {
-        dispose?.()
-        client.dispose()
-      }
+    let dispose: (() => void) | undefined
+    let timeout: ReturnType<typeof setTimeout> | undefined
 
-      const timeout = setTimeout(() => {
+    const disposeClient = () => {
+      if (timeout) {
+        clearTimeout(timeout)
+      }
+      dispose?.()
+      client.dispose()
+    }
+
+    const event = new Promise<SubscriptionResult>((resolve, reject) => {
+      timeout = setTimeout(() => {
         disposeClient()
         reject(new Error('Subscription result missing'))
       }, SUBSCRIPTION_TIMEOUT)
@@ -312,19 +382,30 @@ describe('gateway', () => {
       )
     })
 
-    await connected
-    await new Promise<void>((resolve) => {
-      setTimeout(resolve, SUBSCRIPTION_READY_DELAY)
-    })
-    pubsub.publish('eventTriggered', { id: 'test' })
+    let eventAwaited = false
 
-    const result = await event
-    assert.deepStrictEqual(result, {
-      data: {
-        eventTriggered: {
-          id: 'test',
+    try {
+      await withTimeout(connected, 'WebSocket connection missing')
+      await withTimeout(subscriptionReady.ready, 'Subscription was not registered')
+      pubsub.publish(SUBSCRIPTION_TOPIC, { id: 'test' })
+
+      eventAwaited = true
+      const result = await event
+      assert.deepStrictEqual(result, {
+        data: {
+          eventTriggered: {
+            id: 'test',
+          },
         },
-      },
-    })
+      })
+    } finally {
+      subscriptionReady.restore()
+
+      if (!eventAwaited) {
+        event.catch(() => undefined)
+      }
+
+      disposeClient()
+    }
   })
 })
