@@ -4,9 +4,9 @@ import type { Socket }                           from 'node:net'
 
 import type { GatewayModuleOptions }             from '../module/interfaces.js'
 import type { GraphQLMesh }                      from './graphql.mesh.js'
+import type { GatewayHttpServer }                from './http/interfaces.js'
 import type { GatewayContextBuilder }            from './interfaces.js'
 import type { GatewayGraphQLRuntime }            from './interfaces.js'
-import type { GatewayHttpServer }                from './interfaces.js'
 
 import { ApolloServer }                          from '@apollo/server'
 import { ApolloServerPluginLandingPageDisabled } from '@apollo/server/plugin/disabled'

@@ -3,9 +3,9 @@ import type { OnModuleInit }                  from '@nestjs/common'
 import type { WebSocketServer }               from 'ws'
 
 import type { GatewayModuleOptions }          from '../module/interfaces.js'
+import type { GatewayHttpBoundary }           from './http/interfaces.js'
+import type { GatewayHttpServer }             from './http/interfaces.js'
 import type { GatewayGraphQLRuntime }         from './interfaces.js'
-import type { GatewayHttpBoundary }           from './interfaces.js'
-import type { GatewayHttpServer }             from './interfaces.js'
 
 import { Inject }                             from '@nestjs/common'
 import { Injectable }                         from '@nestjs/common'

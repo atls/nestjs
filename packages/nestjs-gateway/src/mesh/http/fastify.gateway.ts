@@ -1,6 +1,6 @@
 import type { GatewayModuleOptions }          from '../../module/interfaces.js'
 import type { GatewayGraphQLRuntime }         from '../interfaces.js'
-import type { GatewayHttpBoundary }           from '../interfaces.js'
+import type { GatewayHttpBoundary }           from './interfaces.js'
 
 import { Injectable }                         from '@nestjs/common'
 
