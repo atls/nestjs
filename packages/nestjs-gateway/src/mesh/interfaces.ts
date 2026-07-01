@@ -20,3 +20,7 @@ export interface GatewayGraphQLRuntime {
   contextBuilder: GatewayContextBuilder
   apolloServer: ApolloServer<GatewayContext>
 }
+
+export interface GatewaySubscriptionServer {
+  dispose: () => Promise<void>
+}

@@ -1,38 +1,42 @@
-import type { MeshPubSub }                                               from '@graphql-mesh/types'
-import type { INestApplication }                                         from '@nestjs/common'
-import type { INestMicroservice }                                        from '@nestjs/common'
+import type { MeshPubSub }                                          from '@graphql-mesh/types'
+import type { INestApplication }                                    from '@nestjs/common'
+import type { INestMicroservice }                                   from '@nestjs/common'
 
-import type { GatewaySourceType as GatewaySourceTypeEnum }               from '../../src/index.js'
-import type { GATEWAY_MESH_PUBSUB as GatewayMeshPubSubToken }            from '../../src/index.js'
-import type { GATEWAY_MODULE_OPTIONS as GatewayModuleOptionsToken }      from '../../src/index.js'
-import type { GatewayIntegrationModule as GatewayIntegrationModuleType } from '../src/index.js'
+import type { GatewaySourceType as GatewaySourceTypeEnum }          from '../src/index.js'
+import type { GATEWAY_MESH_PUBSUB as GatewayMeshPubSubToken }       from '../src/index.js'
+import type { GATEWAY_MODULE_OPTIONS as GatewayModuleOptionsToken } from '../src/index.js'
+import type { SubscriptionResult }                                  from './interfaces.js'
+import type { ApplicationModule as ApplicationModuleType }          from './src/index.js'
+import type { ServiceModule as ServiceModuleType }                  from './src/index.js'
 
-import assert                                                            from 'node:assert/strict'
-import path                                                              from 'node:path'
-import { before }                                                        from 'node:test'
-import { after }                                                         from 'node:test'
-import { describe }                                                      from 'node:test'
-import { it }                                                            from 'node:test'
-import { fileURLToPath }                                                 from 'node:url'
+import assert                                                       from 'node:assert/strict'
+import path                                                         from 'node:path'
+import { before }                                                   from 'node:test'
+import { after }                                                    from 'node:test'
+import { describe }                                                 from 'node:test'
+import { it }                                                       from 'node:test'
+import { fileURLToPath }                                            from 'node:url'
 
-import { Transport } from '@nestjs/microservices'
-import { Test }                                                          from '@nestjs/testing'
-import { WebSocket }                                                     from 'ws'
-import { buildClientSchema }                                             from 'graphql'
-import { printSchema }                                                   from 'graphql'
-import { getIntrospectionQuery }                                         from 'graphql'
-import { createClient }                                                  from 'graphql-ws'
-import getPort                                                           from 'get-port'
-import request                                                           from 'supertest'
+import { Transport }                                                from '@nestjs/microservices'
+import { Test }                                                     from '@nestjs/testing'
+import { WebSocket }                                                from 'ws'
+import { buildClientSchema }                                        from 'graphql'
+import { printSchema }                                              from 'graphql'
+import { getIntrospectionQuery }                                    from 'graphql'
+import { createClient }                                             from 'graphql-ws'
+import getPort                                                      from 'get-port'
+import request                                                      from 'supertest'
 
 const moduleDir = path.dirname(fileURLToPath(import.meta.url))
+const SUBSCRIPTION_TIMEOUT = 10000
+const SUBSCRIPTION_READY_DELAY = 100
 
-// TODO: fix gateway integration test stability and re-enable suite.
-describe.skip('gateway', () => {
+describe('gateway', () => {
   let GatewaySourceType: typeof GatewaySourceTypeEnum
   let GATEWAY_MESH_PUBSUB: typeof GatewayMeshPubSubToken
   let GATEWAY_MODULE_OPTIONS: typeof GatewayModuleOptionsToken
-  let GatewayIntegrationModule: typeof GatewayIntegrationModuleType
+  let ApplicationModule: typeof ApplicationModuleType
+  let ServiceModule: typeof ServiceModuleType
 
   let service: INestMicroservice
   let app: INestApplication
@@ -40,19 +44,20 @@ describe.skip('gateway', () => {
   let url: string
 
   before(async () => {
-    const gatewayCore = await import('../../src/index.js')
-    const gatewayIntegration = await import('../src/index.js')
+    const gatewayCore = await import('../src/index.js')
+    const gatewayIntegration = await import('./src/index.js')
 
     GatewaySourceType = gatewayCore.GatewaySourceType
     GATEWAY_MESH_PUBSUB = gatewayCore.GATEWAY_MESH_PUBSUB
     GATEWAY_MODULE_OPTIONS = gatewayCore.GATEWAY_MODULE_OPTIONS
-    GatewayIntegrationModule = gatewayIntegration.GatewayIntegrationModule
+    ApplicationModule = gatewayIntegration.ApplicationModule
+    ServiceModule = gatewayIntegration.ServiceModule
 
     const servicePort = await getPort()
     const appPort = await getPort()
 
-    const testingModule = await Test.createTestingModule({
-      imports: [GatewayIntegrationModule],
+    const applicationTestingModule = await Test.createTestingModule({
+      imports: [ApplicationModule],
     })
       .overrideProvider(GATEWAY_MODULE_OPTIONS)
       .useValue({
@@ -64,7 +69,7 @@ describe.skip('gateway', () => {
             handler: {
               endpoint: `localhost:${servicePort}`,
               protoFilePath: {
-                file: path.join(moduleDir, '../src/service.proto'),
+                file: path.join(moduleDir, 'src/service.proto'),
                 load: { includeDirs: [] },
               },
               serviceName: 'ExampleService',
@@ -138,13 +143,17 @@ describe.skip('gateway', () => {
       })
       .compile()
 
-    app = testingModule.createNestApplication()
+    const serviceTestingModule = await Test.createTestingModule({
+      imports: [ServiceModule],
+    }).compile()
 
-    service = testingModule.createNestMicroservice({
+    app = applicationTestingModule.createNestApplication()
+
+    service = serviceTestingModule.createNestMicroservice({
       transport: Transport.GRPC,
       options: {
         package: ['tech.atls'],
-        protoPath: [path.join(moduleDir, '../src/service.proto')],
+        protoPath: [path.join(moduleDir, 'src/service.proto')],
         url: `0.0.0.0:${servicePort}`,
         loader: {
           arrays: true,
@@ -156,7 +165,6 @@ describe.skip('gateway', () => {
       },
     })
 
-    await app.init()
     await service.init()
 
     await app.listen(appPort, '0.0.0.0')
@@ -250,17 +258,33 @@ describe.skip('gateway', () => {
     assert.strictEqual(exception.message, 'Test')
   })
 
-  // TODO: check the test and implemenation. Event doesn't resolve
-  it.skip('check subscriptions', async () => {
+  it('check subscriptions', async () => {
+    let openConnection!: () => void
+    const connected = new Promise<void>((resolve) => {
+      openConnection = resolve
+    })
+
     const client = createClient({
       url: url.replace('http:', 'ws:'),
       webSocketImpl: WebSocket,
+      on: {
+        connected: openConnection,
+      },
     })
 
-    const event = new Promise((resolve, reject) => {
-      let result: { id: string } | undefined
+    const event = new Promise<SubscriptionResult>((resolve, reject) => {
+      let dispose: (() => void) | undefined
+      const disposeClient = () => {
+        dispose?.()
+        client.dispose()
+      }
 
-      client.subscribe(
+      const timeout = setTimeout(() => {
+        disposeClient()
+        reject(new Error('Subscription result missing'))
+      }, SUBSCRIPTION_TIMEOUT)
+
+      dispose = client.subscribe(
         {
           query: `subscription onEventTriggered {
               eventTriggered {
@@ -270,23 +294,37 @@ describe.skip('gateway', () => {
         },
         {
           next: (data) => {
-            result = data as { id: string }
+            clearTimeout(timeout)
+            disposeClient()
+            resolve(data as SubscriptionResult)
           },
-          error: reject,
+          error: (error) => {
+            clearTimeout(timeout)
+            disposeClient()
+            reject(error)
+          },
           complete: () => {
-            if (!result) {
-              reject(new Error('Subscription result missing'))
-              return
-            }
-            resolve(result)
+            clearTimeout(timeout)
+            disposeClient()
+            reject(new Error('Subscription completed before result'))
           },
         }
       )
-
-      pubsub.publish('eventTriggered', { id: 'test' })
     })
 
+    await connected
+    await new Promise<void>((resolve) => {
+      setTimeout(resolve, SUBSCRIPTION_READY_DELAY)
+    })
+    pubsub.publish('eventTriggered', { id: 'test' })
+
     const result = await event
-    assert.deepStrictEqual(result, { id: 'test' })
+    assert.deepStrictEqual(result, {
+      data: {
+        eventTriggered: {
+          id: 'test',
+        },
+      },
+    })
   })
 })

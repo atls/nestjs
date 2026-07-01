@@ -9,6 +9,10 @@ export interface GatewayHttpServer {
     event: 'upgrade',
     handler: (req: IncomingMessage, socket: Socket, head: Buffer) => void
   ) => void
+  off: (
+    event: 'upgrade',
+    handler: (req: IncomingMessage, socket: Socket, head: Buffer) => void
+  ) => void
 }
 
 export interface GatewayHttpBoundary {

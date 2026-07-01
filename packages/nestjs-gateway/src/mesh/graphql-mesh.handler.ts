@@ -1,11 +1,11 @@
 import type { OnModuleDestroy }               from '@nestjs/common'
 import type { OnModuleInit }                  from '@nestjs/common'
-import type { WebSocketServer }               from 'ws'
 
 import type { GatewayModuleOptions }          from '../module/interfaces.js'
 import type { GatewayHttpBoundary }           from './http/interfaces.js'
 import type { GatewayHttpServer }             from './http/interfaces.js'
 import type { GatewayGraphQLRuntime }         from './interfaces.js'
+import type { GatewaySubscriptionServer }     from './interfaces.js'
 
 import { Inject }                             from '@nestjs/common'
 import { Injectable }                         from '@nestjs/common'
@@ -22,7 +22,7 @@ import { GraphQLMeshRuntime }                 from './runtime.js'
 export class GraphQLMeshHandler implements OnModuleInit, OnModuleDestroy {
   private runtime?: GatewayGraphQLRuntime
 
-  private webSocketServer?: WebSocketServer
+  private subscriptionServer?: GatewaySubscriptionServer
 
   constructor(
     private readonly adapterHost: HttpAdapterHost,
@@ -46,7 +46,7 @@ export class GraphQLMeshHandler implements OnModuleInit, OnModuleDestroy {
     }
 
     this.runtime = runtime
-    this.webSocketServer = this.meshRuntime.registerSubscriptions(
+    this.subscriptionServer = this.meshRuntime.registerSubscriptions(
       runtime,
       this.adapterHost.httpAdapter.getHttpServer() as GatewayHttpServer,
       this.options.path || '/'
@@ -54,13 +54,8 @@ export class GraphQLMeshHandler implements OnModuleInit, OnModuleDestroy {
   }
 
   async onModuleDestroy(): Promise<void> {
+    await this.subscriptionServer?.dispose()
     await this.runtime?.apolloServer.stop()
-
-    if (this.webSocketServer) {
-      for (const client of this.webSocketServer.clients) {
-        client.close(1001, 'Going away')
-      }
-    }
   }
 
   private getHttpGateway(): GatewayHttpBoundary {
