@@ -1,25 +1,29 @@
-import type { GraphQLFormattedError }            from 'graphql'
-import type { IncomingMessage }                  from 'node:http'
-import type { Socket }                           from 'node:net'
+import type { GraphQLFormattedError }                from 'graphql'
+import type { IncomingMessage }                      from 'node:http'
+import type { Socket }                               from 'node:net'
 
-import type { GatewayModuleOptions }             from '../module/interfaces.js'
-import type { GraphQLMesh }                      from './graphql.mesh.js'
-import type { GatewayHttpServer }                from './http/interfaces.js'
-import type { GatewayContextBuilder }            from './interfaces.js'
-import type { GatewayGraphQLRuntime }            from './interfaces.js'
+import type { GatewayModuleOptions }                 from '../module/interfaces.js'
+import type { GraphQLMesh }                          from './graphql.mesh.js'
+import type { GatewayHttpServer }                    from './http/interfaces.js'
+import type { GatewayContextBuilder }                from './interfaces.js'
+import type { GatewayGraphQLRuntime }                from './interfaces.js'
+import type { GatewaySubscriptionServer }            from './interfaces.js'
 
-import { ApolloServer }                          from '@apollo/server'
-import { ApolloServerPluginLandingPageDisabled } from '@apollo/server/plugin/disabled'
+import { ApolloServer }                              from '@apollo/server'
+import { ApolloServerPluginLandingPageDisabled }     from '@apollo/server/plugin/disabled'
 import { ApolloServerPluginLandingPageLocalDefault } from '@apollo/server/plugin/landingPage/default'
-import { Injectable }                            from '@nestjs/common'
-import { unwrapResolverError }                   from '@apollo/server/errors'
-import { WebSocketServer }                       from 'ws'
-import { useServer }                             from 'graphql-ws/lib/use/ws'
+import { Injectable }                                from '@nestjs/common'
+import { unwrapResolverError }                       from '@apollo/server/errors'
+import { WebSocketServer }                           from 'ws'
+import { useServer as createGraphQLWebSocketServer } from 'graphql-ws/lib/use/ws'
 
-import { formatError }                           from './errors/format.js'
+import { formatError }                               from './errors/format.js'
 
-type GraphQLWsServerOptions = Parameters<typeof useServer>[0]
+type GraphQLWsServerOptions = Parameters<typeof createGraphQLWebSocketServer>[0]
 type LandingPageOptions = Parameters<typeof ApolloServerPluginLandingPageLocalDefault>[0]
+
+const isStoppedWebSocketServerError = (error: unknown): boolean =>
+  error instanceof Error && error.message === 'The server is not running'
 
 const createLandingPagePlugin = ({ playground }: GatewayModuleOptions) => {
   if (!playground) {
@@ -64,7 +68,7 @@ export class GraphQLMeshRuntime {
     runtime: GatewayGraphQLRuntime,
     server: GatewayHttpServer,
     path: string
-  ): WebSocketServer | undefined {
+  ): GatewaySubscriptionServer | undefined {
     if (!runtime.schema.getSubscriptionType()) {
       return undefined
     }
@@ -74,8 +78,7 @@ export class GraphQLMeshRuntime {
       path,
     })
 
-    // eslint-disable-next-line
-    useServer(
+    const graphqlWsServer = createGraphQLWebSocketServer(
       {
         schema: runtime.schema as unknown as GraphQLWsServerOptions['schema'],
         execute: async (args) =>
@@ -101,13 +104,26 @@ export class GraphQLMeshRuntime {
       webSocketServer
     )
 
-    server.on('upgrade', (req: IncomingMessage, socket: Socket, head: Buffer) => {
+    const handleUpgrade = (req: IncomingMessage, socket: Socket, head: Buffer) => {
       webSocketServer.handleUpgrade(req, socket, head, (ws) => {
         webSocketServer.emit('connection', ws, req)
       })
-    })
+    }
 
-    return webSocketServer
+    server.on('upgrade', handleUpgrade)
+
+    return {
+      dispose: async () => {
+        server.off('upgrade', handleUpgrade)
+        try {
+          await graphqlWsServer.dispose()
+        } catch (error) {
+          if (!isStoppedWebSocketServerError(error)) {
+            throw error
+          }
+        }
+      },
+    }
   }
 
   private applyConnectionHeaders(request: IncomingMessage, headers: unknown): void {
