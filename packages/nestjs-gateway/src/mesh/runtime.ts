@@ -25,9 +25,6 @@ type LandingPageOptions = Parameters<typeof ApolloServerPluginLandingPageLocalDe
 const isStoppedWebSocketServerError = (error: unknown): boolean =>
   error instanceof Error && error.message === 'The server is not running'
 
-const isSubscriptionUpgradePath = (requestPath: string | undefined, subscriptionPath: string) =>
-  requestPath === subscriptionPath
-
 const createLandingPagePlugin = ({ playground }: GatewayModuleOptions) => {
   if (!playground) {
     return ApolloServerPluginLandingPageDisabled()
@@ -108,10 +105,6 @@ export class GraphQLMeshRuntime {
     )
 
     const handleUpgrade = (req: IncomingMessage, socket: Socket, head: Buffer) => {
-      if (!isSubscriptionUpgradePath(req.url?.split('?')[0], path)) {
-        return
-      }
-
       webSocketServer.handleUpgrade(req, socket, head, (ws) => {
         webSocketServer.emit('connection', ws, req)
       })
