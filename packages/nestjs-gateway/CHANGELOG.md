@@ -1,5 +1,17 @@
 
 
+# [0.1.0](https://github.com/atls/nestjs/compare/@atls/nestjs-gateway@0.0.19...@atls/nestjs-gateway@0.1.0) (2026-07-01)
+
+
+### Features
+
+
+* **nestjs-gateway:** migrate express gateway to apollo server ([#417](https://github.com/atls/nestjs/issues/417)) ([7483dcd](https://github.com/atls/nestjs/commit/7483dcddc5c983b296d61b346f5222cc6808cdd9))
+
+
+
+
+
 ## [0.0.19](https://github.com/atls/nestjs/compare/@atls/nestjs-gateway@0.0.19...@atls/nestjs-gateway@0.0.19) (2026-01-11)
 
 
