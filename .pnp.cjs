@@ -59,6 +59,10 @@ const RAW_RUNTIME_STATE =
       "reference": "workspace:packages/nestjs-gateway"\
     },\
     {\
+      "name": "@atls/nestjs-gateway-errors",\
+      "reference": "workspace:packages/nestjs-gateway-errors"\
+    },\
+    {\
       "name": "@atls/nestjs-gcs-client",\
       "reference": "workspace:packages/nestjs-gcs-client"\
     },\
@@ -176,6 +180,7 @@ const RAW_RUNTIME_STATE =
     ["@atls/nestjs-dataloader", ["workspace:packages/nestjs-dataloader"]],\
     ["@atls/nestjs-external-renderer", ["workspace:packages/nestjs-external-renderer"]],\
     ["@atls/nestjs-gateway", ["workspace:packages/nestjs-gateway"]],\
+    ["@atls/nestjs-gateway-errors", ["virtual:420937aa6e26d1616b79bbc33a8fd56103fa773427edcab7136fa7cf5d0ad09a5a82319fc41e971fc166c28e110a660630c2b86b00cbc0db5b9268e5d3f2e8aa#workspace:packages/nestjs-gateway-errors", "workspace:packages/nestjs-gateway-errors"]],\
     ["@atls/nestjs-gcs-client", ["virtual:d0811ed27bbe998f2a12c5e875d25702d790db932248e9cd4c22d3771f27ac58970cb92e039afec78356382490581bcdbffd2df919a17c38bd0c4a3bbf7bb1ea#workspace:packages/nestjs-gcs-client", "workspace:packages/nestjs-gcs-client"]],\
     ["@atls/nestjs-graphql-redis-subscriptions", ["workspace:packages/nestjs-graphql-redis-subscriptions"]],\
     ["@atls/nestjs-grpc-errors", ["workspace:packages/nestjs-grpc-errors"]],\
@@ -1016,6 +1021,7 @@ const RAW_RUNTIME_STATE =
           ["@atls/grpc-error-status", "npm:0.1.6"],\
           ["@atls/logger", "npm:0.0.2"],\
           ["@atls/nestjs-gateway", "workspace:packages/nestjs-gateway"],\
+          ["@atls/nestjs-gateway-errors", "virtual:420937aa6e26d1616b79bbc33a8fd56103fa773427edcab7136fa7cf5d0ad09a5a82319fc41e971fc166c28e110a660630c2b86b00cbc0db5b9268e5d3f2e8aa#workspace:packages/nestjs-gateway-errors"],\
           ["@graphql-hive/pubsub", "virtual:420937aa6e26d1616b79bbc33a8fd56103fa773427edcab7136fa7cf5d0ad09a5a82319fc41e971fc166c28e110a660630c2b86b00cbc0db5b9268e5d3f2e8aa#npm:2.1.1"],\
           ["@graphql-mesh/cache-inmemory-lru", "virtual:420937aa6e26d1616b79bbc33a8fd56103fa773427edcab7136fa7cf5d0ad09a5a82319fc41e971fc166c28e110a660630c2b86b00cbc0db5b9268e5d3f2e8aa#npm:0.8.38"],\
           ["@graphql-mesh/config", "virtual:420937aa6e26d1616b79bbc33a8fd56103fa773427edcab7136fa7cf5d0ad09a5a82319fc41e971fc166c28e110a660630c2b86b00cbc0db5b9268e5d3f2e8aa#npm:0.108.45"],\
@@ -1066,6 +1072,33 @@ const RAW_RUNTIME_STATE =
           ["supertest", "npm:6.3.4"],\
           ["tslib", "npm:2.8.0"],\
           ["ws", "virtual:420937aa6e26d1616b79bbc33a8fd56103fa773427edcab7136fa7cf5d0ad09a5a82319fc41e971fc166c28e110a660630c2b86b00cbc0db5b9268e5d3f2e8aa#npm:8.18.0"]\
+        ],\
+        "linkType": "SOFT"\
+      }]\
+    ]],\
+    ["@atls/nestjs-gateway-errors", [\
+      ["virtual:420937aa6e26d1616b79bbc33a8fd56103fa773427edcab7136fa7cf5d0ad09a5a82319fc41e971fc166c28e110a660630c2b86b00cbc0db5b9268e5d3f2e8aa#workspace:packages/nestjs-gateway-errors", {\
+        "packageLocation": "./.yarn/__virtual__/@atls-nestjs-gateway-errors-virtual-34a4879389/1/packages/nestjs-gateway-errors/",\
+        "packageDependencies": [\
+          ["@atls/grpc-error-status", "npm:0.1.6"],\
+          ["@atls/nestjs-gateway-errors", "virtual:420937aa6e26d1616b79bbc33a8fd56103fa773427edcab7136fa7cf5d0ad09a5a82319fc41e971fc166c28e110a660630c2b86b00cbc0db5b9268e5d3f2e8aa#workspace:packages/nestjs-gateway-errors"],\
+          ["@grpc/grpc-js", "npm:1.12.2"],\
+          ["@types/graphql", null],\
+          ["graphql", "npm:16.11.0"]\
+        ],\
+        "packagePeers": [\
+          "@types/graphql",\
+          "graphql"\
+        ],\
+        "linkType": "SOFT"\
+      }],\
+      ["workspace:packages/nestjs-gateway-errors", {\
+        "packageLocation": "./packages/nestjs-gateway-errors/",\
+        "packageDependencies": [\
+          ["@atls/grpc-error-status", "npm:0.1.6"],\
+          ["@atls/nestjs-gateway-errors", "workspace:packages/nestjs-gateway-errors"],\
+          ["@grpc/grpc-js", "npm:1.12.2"],\
+          ["graphql", "npm:16.11.0"]\
         ],\
         "linkType": "SOFT"\
       }]\

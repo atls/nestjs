@@ -609,6 +609,18 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@atls/nestjs-gateway-errors@workspace:*, @atls/nestjs-gateway-errors@workspace:packages/nestjs-gateway-errors":
+  version: 0.0.0-use.local
+  resolution: "@atls/nestjs-gateway-errors@workspace:packages/nestjs-gateway-errors"
+  dependencies:
+    "@atls/grpc-error-status": "npm:0.1.6"
+    "@grpc/grpc-js": "npm:1.12.2"
+    graphql: "npm:16.11.0"
+  peerDependencies:
+    graphql: 16.11
+  languageName: unknown
+  linkType: soft
+
 "@atls/nestjs-gateway@workspace:packages/nestjs-gateway":
   version: 0.0.0-use.local
   resolution: "@atls/nestjs-gateway@workspace:packages/nestjs-gateway"
@@ -617,6 +629,7 @@ __metadata:
     "@as-integrations/express4": "npm:1.1.2"
     "@atls/grpc-error-status": "npm:0.1.6"
     "@atls/logger": "npm:0.0.2"
+    "@atls/nestjs-gateway-errors": "workspace:*"
     "@graphql-hive/pubsub": "npm:2.1.1"
     "@graphql-mesh/cache-inmemory-lru": "npm:0.8.38"
     "@graphql-mesh/config": "npm:0.108.45"
