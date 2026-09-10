@@ -85,6 +85,22 @@ describe('formatGrpcErrorStatus', () => {
 })
 
 describe('formatGraphQLGrpcError', () => {
+  it('places unwrapped gRPC errors in the established GraphQL exception extension', () => {
+    const formattedError = formatGraphQLGrpcError(
+      {
+        message: '3 INVALID_ARGUMENT: Test',
+      },
+      new Error('3 INVALID_ARGUMENT: Test')
+    )
+
+    assert.deepEqual(formattedError.extensions?.exception, {
+      status: 'INVALID_ARGUMENT',
+      code: status.INVALID_ARGUMENT,
+      message: 'Test',
+      details: [],
+    })
+  })
+
   it('places the formatted status in the established GraphQL exception extension', () => {
     const serviceError = new ErrorStatus(status.INVALID_ARGUMENT, 'Test').toServiceError()
     const formattedError = formatGraphQLGrpcError({
