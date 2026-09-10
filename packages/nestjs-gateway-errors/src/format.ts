@@ -8,20 +8,26 @@ type ErrorExtensions = {
   exception?: unknown
 }
 
-const grpcErrorMessagePattern = /^(?<code>\d+)\s+(?<status>[A-Z_]+):\s*(?<message>.*)$/
+type ServiceErrorCandidate = Partial<ServiceError> & {
+  metadata?: {
+    get?: unknown
+  }
+}
+
+const grpcErrorMessagePattern = /^(?<code>\d+)\s+(?<status>[A-Z_]+):\s*(?<message>[\s\S]*)$/
 
 const isGrpcErrorStatus = (error: unknown): error is ServiceError => {
   if (typeof error !== 'object' || error === null) {
     return false
   }
 
-  const candidate = error as Partial<ServiceError>
+  const candidate = error as ServiceErrorCandidate
 
   return (
     typeof candidate.code === 'number' &&
     Number(candidate.code) >= 0 &&
-    candidate.metadata !== undefined &&
-    candidate.details !== undefined
+    typeof candidate.details === 'string' &&
+    typeof candidate.metadata?.get === 'function'
   )
 }
 

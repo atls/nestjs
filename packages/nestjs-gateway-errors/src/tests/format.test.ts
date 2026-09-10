@@ -59,6 +59,15 @@ describe('formatGrpcErrorStatus', () => {
     })
   })
 
+  it('formats multiline gRPC errors unwrapped as regular errors', () => {
+    assert.deepEqual(formatGrpcErrorStatus(new Error('3 INVALID_ARGUMENT: Test\nDetails')), {
+      status: 'INVALID_ARGUMENT',
+      code: status.INVALID_ARGUMENT,
+      message: 'Test\nDetails',
+      details: [],
+    })
+  })
+
   it('formats GraphQL boundary statuses from gRPC service errors', () => {
     const cases = [
       [status.ALREADY_EXISTS, 'ALREADY_EXISTS'],
@@ -81,6 +90,17 @@ describe('formatGrpcErrorStatus', () => {
 
   it('does not format unrelated errors', () => {
     assert.equal(formatGrpcErrorStatus(new Error('Test')), undefined)
+  })
+
+  it('does not accept service error shaped objects without gRPC metadata', () => {
+    assert.equal(
+      formatGrpcErrorStatus({
+        code: status.INVALID_ARGUMENT,
+        details: 'Test',
+        metadata: {},
+      }),
+      undefined
+    )
   })
 })
 
