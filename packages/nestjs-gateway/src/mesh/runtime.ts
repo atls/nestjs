@@ -17,7 +17,7 @@ import { unwrapResolverError }                       from '@apollo/server/errors
 import { WebSocketServer }                           from 'ws'
 import { useServer as createGraphQLWebSocketServer } from 'graphql-ws/lib/use/ws'
 
-import { formatError }                               from './errors/format.js'
+import { formatError }                               from '@atls/nestjs-gateway-errors'
 
 type GraphQLWsServerOptions = Parameters<typeof createGraphQLWebSocketServer>[0]
 type LandingPageOptions = Parameters<typeof ApolloServerPluginLandingPageLocalDefault>[0]

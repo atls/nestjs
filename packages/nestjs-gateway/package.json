@@ -20,6 +20,7 @@
     "@as-integrations/express4": "1.1.2",
     "@atls/grpc-error-status": "0.1.6",
     "@atls/logger": "0.0.2",
+    "@atls/nestjs-gateway-errors": "workspace:*",
     "@graphql-hive/pubsub": "2.1.1",
     "@graphql-mesh/cache-inmemory-lru": "0.8.38",
     "@graphql-mesh/config": "0.108.45",

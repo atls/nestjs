@@ -1,10 +1,11 @@
+import type { ErrorStatusObject }     from '@atls/grpc-error-status'
 import type { ServiceError }          from '@grpc/grpc-js'
 import type { GraphQLFormattedError } from 'graphql'
 
 import { ErrorStatus }                from '@atls/grpc-error-status'
 
 type ErrorExtensions = {
-  exception?: Record<string, unknown> | ServiceError
+  exception?: unknown
 }
 
 const grpcErrorMessagePattern = /^(?<code>\d+)\s+(?<status>[A-Z_]+):\s*(?<message>.*)$/
@@ -17,28 +18,33 @@ const isGrpcErrorStatus = (error: unknown): error is ServiceError => {
   const candidate = error as Partial<ServiceError>
 
   return (
+    typeof candidate.code === 'number' &&
     Number(candidate.code) >= 0 &&
     candidate.metadata !== undefined &&
     candidate.details !== undefined
   )
 }
 
-const formatGrpcError = (error: ServiceError): Record<string, unknown> =>
-  ErrorStatus.fromServiceError(error).toObject()
-
-const formatGrpcMessageError = (error: Error): Record<string, unknown> | undefined => {
+const formatGrpcMessageError = (error: Error): ErrorStatusObject | undefined => {
   const match = grpcErrorMessagePattern.exec(error.message)
 
   if (!match?.groups) {
     return undefined
   }
 
-  return {
-    status: match.groups.status,
-    code: Number(match.groups.code),
-    message: match.groups.message,
-    details: [],
+  return new ErrorStatus(Number(match.groups.code), match.groups.message).toObject()
+}
+
+export const formatGrpcError = (error: unknown): ErrorStatusObject | undefined => {
+  if (isGrpcErrorStatus(error)) {
+    return ErrorStatus.fromServiceError(error).toObject()
   }
+
+  if (error instanceof Error) {
+    return formatGrpcMessageError(error)
+  }
+
+  return undefined
 }
 
 export const formatError = (
@@ -48,26 +54,27 @@ export const formatError = (
   const exception = isGrpcErrorStatus(exceptionOverride)
     ? exceptionOverride
     : error.extensions?.exception
+  const formattedException = isGrpcErrorStatus(exception) ? formatGrpcError(exception) : undefined
 
-  if (exception && isGrpcErrorStatus(exception)) {
+  if (formattedException) {
     return {
       ...error,
       extensions: {
         ...error.extensions,
-        exception: formatGrpcError(exception),
+        exception: formattedException,
       },
     }
   }
 
   if (exceptionOverride instanceof Error) {
-    const formattedException = formatGrpcMessageError(exceptionOverride)
+    const formattedOverride = formatGrpcError(exceptionOverride)
 
-    if (formattedException) {
+    if (formattedOverride) {
       return {
         ...error,
         extensions: {
           ...error.extensions,
-          exception: formattedException,
+          exception: formattedOverride,
         },
       }
     }
