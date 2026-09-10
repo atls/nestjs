@@ -17,7 +17,7 @@ import { unwrapResolverError }                       from '@apollo/server/errors
 import { WebSocketServer }                           from 'ws'
 import { useServer as createGraphQLWebSocketServer } from 'graphql-ws/lib/use/ws'
 
-import { formatError }                               from '@atls/nestjs-gateway-errors'
+import { formatGraphQLGrpcError }                    from '@atls/nestjs-gateway-errors'
 
 type GraphQLWsServerOptions = Parameters<typeof createGraphQLWebSocketServer>[0]
 type LandingPageOptions = Parameters<typeof ApolloServerPluginLandingPageLocalDefault>[0]
@@ -50,7 +50,7 @@ export class GraphQLMeshRuntime {
       allowBatchedHttpRequests: true,
       csrfPrevention: false,
       formatError: (formattedError: GraphQLFormattedError, error: unknown): GraphQLFormattedError =>
-        formatError(formattedError, unwrapResolverError(error)),
+        formatGraphQLGrpcError(formattedError, unwrapResolverError(error)),
     })
 
     await apolloServer.start()

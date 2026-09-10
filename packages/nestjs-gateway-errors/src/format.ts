@@ -25,7 +25,7 @@ const isGrpcErrorStatus = (error: unknown): error is ServiceError => {
   )
 }
 
-const formatGrpcMessageError = (error: Error): ErrorStatusObject | undefined => {
+const formatGrpcMessageErrorStatus = (error: Error): ErrorStatusObject | undefined => {
   const match = grpcErrorMessagePattern.exec(error.message)
 
   if (!match?.groups) {
@@ -35,26 +35,28 @@ const formatGrpcMessageError = (error: Error): ErrorStatusObject | undefined => 
   return new ErrorStatus(Number(match.groups.code), match.groups.message).toObject()
 }
 
-export const formatGrpcError = (error: unknown): ErrorStatusObject | undefined => {
+export const formatGrpcErrorStatus = (error: unknown): ErrorStatusObject | undefined => {
   if (isGrpcErrorStatus(error)) {
     return ErrorStatus.fromServiceError(error).toObject()
   }
 
   if (error instanceof Error) {
-    return formatGrpcMessageError(error)
+    return formatGrpcMessageErrorStatus(error)
   }
 
   return undefined
 }
 
-export const formatError = (
+export const formatGraphQLGrpcError = (
   error: GraphQLFormattedError & { extensions?: ErrorExtensions },
   exceptionOverride?: unknown
 ): GraphQLFormattedError => {
   const exception = isGrpcErrorStatus(exceptionOverride)
     ? exceptionOverride
     : error.extensions?.exception
-  const formattedException = isGrpcErrorStatus(exception) ? formatGrpcError(exception) : undefined
+  const formattedException = isGrpcErrorStatus(exception)
+    ? formatGrpcErrorStatus(exception)
+    : undefined
 
   if (formattedException) {
     return {
@@ -67,7 +69,7 @@ export const formatError = (
   }
 
   if (exceptionOverride instanceof Error) {
-    const formattedOverride = formatGrpcError(exceptionOverride)
+    const formattedOverride = formatGrpcErrorStatus(exceptionOverride)
 
     if (formattedOverride) {
       return {

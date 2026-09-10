@@ -1,19 +1,19 @@
-import assert              from 'node:assert/strict'
-import { describe }        from 'node:test'
-import { it }              from 'node:test'
+import assert                     from 'node:assert/strict'
+import { describe }               from 'node:test'
+import { it }                     from 'node:test'
 
-import { BadRequest }      from '@atls/grpc-error-status'
-import { ErrorStatus }     from '@atls/grpc-error-status'
-import { status }          from '@grpc/grpc-js'
+import { BadRequest }             from '@atls/grpc-error-status'
+import { ErrorStatus }            from '@atls/grpc-error-status'
+import { status }                 from '@grpc/grpc-js'
 
-import { formatError }     from '../format.js'
-import { formatGrpcError } from '../format.js'
+import { formatGraphQLGrpcError } from '../format.js'
+import { formatGrpcErrorStatus }  from '../format.js'
 
-describe('formatGrpcError', () => {
+describe('formatGrpcErrorStatus', () => {
   it('formats direct gRPC service errors', () => {
     const serviceError = new ErrorStatus(status.INVALID_ARGUMENT, 'Test').toServiceError()
 
-    assert.deepEqual(formatGrpcError(serviceError), {
+    assert.deepEqual(formatGrpcErrorStatus(serviceError), {
       status: 'INVALID_ARGUMENT',
       code: status.INVALID_ARGUMENT,
       message: 'Test',
@@ -32,7 +32,7 @@ describe('formatGrpcError', () => {
       .addDetail(badRequest)
       .toServiceError()
 
-    assert.deepEqual(formatGrpcError(serviceError), {
+    assert.deepEqual(formatGrpcErrorStatus(serviceError), {
       status: 'INVALID_ARGUMENT',
       code: status.INVALID_ARGUMENT,
       message: 'Request validation failed',
@@ -51,7 +51,7 @@ describe('formatGrpcError', () => {
   })
 
   it('formats gRPC errors unwrapped as regular errors', () => {
-    assert.deepEqual(formatGrpcError(new Error('3 INVALID_ARGUMENT: Test')), {
+    assert.deepEqual(formatGrpcErrorStatus(new Error('3 INVALID_ARGUMENT: Test')), {
       status: 'INVALID_ARGUMENT',
       code: status.INVALID_ARGUMENT,
       message: 'Test',
@@ -59,15 +59,35 @@ describe('formatGrpcError', () => {
     })
   })
 
+  it('formats GraphQL boundary statuses from gRPC service errors', () => {
+    const cases = [
+      [status.ALREADY_EXISTS, 'ALREADY_EXISTS'],
+      [status.INVALID_ARGUMENT, 'INVALID_ARGUMENT'],
+      [status.UNAUTHENTICATED, 'UNAUTHENTICATED'],
+      [status.UNAVAILABLE, 'UNAVAILABLE'],
+    ] as const
+
+    for (const [code, expectedStatus] of cases) {
+      const serviceError = new ErrorStatus(code, expectedStatus).toServiceError()
+
+      assert.deepEqual(formatGrpcErrorStatus(serviceError), {
+        status: expectedStatus,
+        code,
+        message: expectedStatus,
+        details: [],
+      })
+    }
+  })
+
   it('does not format unrelated errors', () => {
-    assert.equal(formatGrpcError(new Error('Test')), undefined)
+    assert.equal(formatGrpcErrorStatus(new Error('Test')), undefined)
   })
 })
 
-describe('formatError', () => {
+describe('formatGraphQLGrpcError', () => {
   it('places the formatted status in the established GraphQL exception extension', () => {
     const serviceError = new ErrorStatus(status.INVALID_ARGUMENT, 'Test').toServiceError()
-    const formattedError = formatError({
+    const formattedError = formatGraphQLGrpcError({
       message: '3 INVALID_ARGUMENT: Test',
       extensions: {
         exception: serviceError,
@@ -83,7 +103,7 @@ describe('formatError', () => {
   })
 
   it('leaves non-gRPC extensions unchanged', () => {
-    const formattedError = formatError({
+    const formattedError = formatGraphQLGrpcError({
       message: 'Test',
       extensions: {
         exception: new Error('Test'),
