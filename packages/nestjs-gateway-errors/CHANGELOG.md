@@ -1,5 +1,12 @@
 
 
+## [0.1.1](https://github.com/atls/nestjs/compare/@atls/nestjs-gateway-errors@0.1.0...@atls/nestjs-gateway-errors@0.1.1) (2026-09-11)
+
+
+
+
+
+
 # 0.1.0 (2026-09-10)
 
 
