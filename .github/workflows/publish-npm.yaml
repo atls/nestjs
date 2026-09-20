@@ -15,7 +15,7 @@ jobs:
     uses: atls/shared/.github/workflows/publish.yaml@master
     permissions: write-all
     with:
-      appId: ${{ vars.ATLANTIS_SUPER_BOT_APP_ID }}
+      clientId: ${{ vars.ATLANTIS_SUPER_BOT_CLIENT_ID }}
     secrets:
       appPrivateKey: ${{ secrets.ATLANTIS_SUPER_BOT_PRIVATE_KEY }}
       npmAuthToken: ${{ secrets.NPM_TOKEN }}
