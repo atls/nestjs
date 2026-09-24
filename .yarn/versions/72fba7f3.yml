@@ -1,3 +1,2 @@
 declined:
-  - "@atls/nestjs-gateway"
   - "@atls/nestjs-gateway-errors"
