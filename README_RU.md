@@ -14,7 +14,7 @@ NestJS Infrastructure-first toolkit
 
 - gRPC (errors, reflection, playground, http-proxy)
 - ConnectRPC (errors)
-- GraphQL Gateway (redis-subscriptions)
+- GraphQL (redis-subscriptions)
 
 ### Messaging & Async
 
@@ -61,3 +61,7 @@ NestJS Infrastructure-first toolkit
 - [`grpc-http-proxy`](examples/grpc-http-proxy) - пример HTTP-прокси для gRPC-сервисов
 - [`grpc-playground`](examples/grpc-playground) - пример использования gRPC Playground
 - [`grpc-reflection`](examples/grpc-reflection) - пример использования gRPC Server Reflection
+
+## Миграция
+
+- [Переход со старого GraphQL gateway на Mesh v1 и Hive Nest driver](docs/nestjs-gateway-migration.md)
