@@ -27,7 +27,7 @@ export const Loader: (type: string) => ParameterDecorator = createParamDecorator
       `)
   }
 
-  const getLoader = ctx[GET_LOADER_CONTEXT_KEY] as (type: string) => DataLoader<unknown, unknown>
+  const getLoader = ctx[GET_LOADER_CONTEXT_KEY]
 
   return getLoader(type)
 })

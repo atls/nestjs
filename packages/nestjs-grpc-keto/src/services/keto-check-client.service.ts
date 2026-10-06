@@ -12,9 +12,8 @@ import { Injectable }              from '@nestjs/common'
 import { KETO_MODULE_OPTIONS }     from '../module/index.js'
 
 const require = createRequire(import.meta.url)
-const checkServicePath = require.resolve(
-  '@ory/keto-grpc-client/ory/keto/relation_tuples/v1alpha2/check_service_grpc_pb.js'
-)
+const checkServicePath =
+  require.resolve('@ory/keto-grpc-client/ory/keto/relation_tuples/v1alpha2/check_service_grpc_pb.js')
 const oryGrpc = createRequire(checkServicePath)('@grpc/grpc-js') as {
   ChannelCredentials: typeof ChannelCredentials
   credentials: typeof credentials

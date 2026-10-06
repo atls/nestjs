@@ -13,8 +13,7 @@ import { SIGNED_URL_GATEWAY }         from './constants.js'
 export class SignedUrlSigner<
   ReadOptions extends SignedUrlReadOptions = SignedUrlReadOptions,
   WriteOptions extends SignedUrlWriteOptions = SignedUrlWriteOptions,
-> implements SignedUrlSigning<ReadOptions, WriteOptions>
-{
+> implements SignedUrlSigning<ReadOptions, WriteOptions> {
   constructor(
     @Inject(SIGNED_URL_GATEWAY)
     private readonly gateway: SignedUrlGateway<ReadOptions, WriteOptions>

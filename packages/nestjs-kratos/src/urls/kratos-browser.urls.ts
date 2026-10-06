@@ -8,12 +8,7 @@ import { Inject }                   from '@nestjs/common'
 import { KRATOS_MODULE_OPTIONS }    from '../module/kratos.constants.js'
 
 export type KratosBrowserUrlFlow =
-  | 'login'
-  | 'logout'
-  | 'recovery'
-  | 'registration'
-  | 'settings'
-  | 'verification'
+  'login' | 'logout' | 'recovery' | 'registration' | 'settings' | 'verification'
 
 export interface KratosBrowserUrlParams {
   returnTo?: string

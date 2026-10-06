@@ -6,11 +6,7 @@ import type { VerificationFlow } from '@ory/kratos-client'
 import type { UiContainer }      from '@ory/kratos-client'
 
 export type MethodConfigFlow =
-  | LoginFlow
-  | RecoveryFlow
-  | RegistrationFlow
-  | SettingsFlow
-  | VerificationFlow
+  LoginFlow | RecoveryFlow | RegistrationFlow | SettingsFlow | VerificationFlow
 
 export type MethodConfig = UiContainer
 

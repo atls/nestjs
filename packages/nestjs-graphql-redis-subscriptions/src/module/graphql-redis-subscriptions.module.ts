@@ -20,7 +20,7 @@ export class GraphQLRedisSubscriptionsModule {
         new RedisPubSub({
           serializer: (data) => stringify(data),
           // eslint-disable-next-line @typescript-eslint/no-unsafe-return
-          deserializer: (data) => parse(data instanceof Buffer ? data.toString() : data),
+          deserializer: (data) => parse(typeof data === 'string' ? data : data.toString()),
           publisher: redisFactory.create(),
           subscriber: redisFactory.create(),
           ...options,

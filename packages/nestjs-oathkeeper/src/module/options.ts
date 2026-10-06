@@ -1,4 +1,4 @@
-import type { Type }                         from '@nestjs/common/interfaces'
+import type { Type }                         from '@nestjs/common'
 
 import type { OathkeeperModuleAsyncOptions } from './interfaces.js'
 import type { OathkeeperOptionsFactory }     from './interfaces.js'
