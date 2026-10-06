@@ -1,17 +1,17 @@
-import type { DynamicModule }                  from '@nestjs/common'
-import type { Provider }                       from '@nestjs/common'
+import type { DynamicModule }                    from '@nestjs/common'
+import type { Provider }                         from '@nestjs/common'
 
 import type { GrpcReflectionModuleAsyncOptions } from './grpc-reflection-module-options.interface.js'
-import type { GrpcReflectionModuleOptions }    from './grpc-reflection-module-options.interface.js'
-import type { GrpcReflectionOptionsFactory }   from './grpc-reflection-module-options.interface.js'
+import type { GrpcReflectionModuleOptions }      from './grpc-reflection-module-options.interface.js'
+import type { GrpcReflectionOptionsFactory }     from './grpc-reflection-module-options.interface.js'
 
-import { Module }                              from '@nestjs/common'
+import { Module }                                from '@nestjs/common'
 
-import { GrpcReflectionController }            from '../controllers/index.js'
-import { GRPC_REFLECTION_MODULE_OPTIONS }      from './grpc-reflection.constants.js'
-import { createGrpcReflectionExportsProvider } from './grpc-reflection.providers.js'
-import { createGrpcReflectionProvider }        from './grpc-reflection.providers.js'
-import { createGrpcReflectionOptionsProvider } from './grpc-reflection.providers.js'
+import { GrpcReflectionController }              from '../controllers/index.js'
+import { GRPC_REFLECTION_MODULE_OPTIONS }        from './grpc-reflection.constants.js'
+import { createGrpcReflectionExportsProvider }   from './grpc-reflection.providers.js'
+import { createGrpcReflectionProvider }          from './grpc-reflection.providers.js'
+import { createGrpcReflectionOptionsProvider }   from './grpc-reflection.providers.js'
 
 @Module({})
 export class GrpcReflectionModule {

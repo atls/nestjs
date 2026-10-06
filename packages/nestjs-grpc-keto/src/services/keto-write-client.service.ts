@@ -1,8 +1,8 @@
-import type { RelationTuple } from '@ory/keto-grpc-client/ory/keto/relation_tuples/v1alpha2/relation_tuples_pb'
+import type { RelationTuple }           from '@ory/keto-grpc-client/ory/keto/relation_tuples/v1alpha2/relation_tuples_pb'
 
 import { Inject }                       from '@nestjs/common'
 import { Injectable }                   from '@nestjs/common'
-import writeService from '@ory/keto-grpc-client/ory/keto/relation_tuples/v1alpha2/write_service_pb.js'
+import writeService                     from '@ory/keto-grpc-client/ory/keto/relation_tuples/v1alpha2/write_service_pb.js'
 
 import { KetoGeneralException }         from '../exceptions/index.js'
 import { KETO_WRITE_NATIVE_CLIENT }     from '../module/index.js'

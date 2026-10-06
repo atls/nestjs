@@ -10,7 +10,7 @@ import type { CqrsKafkaEventsOptionsFactory }     from './cqrs-kafka-events.modu
 import { Module }                                 from '@nestjs/common'
 import { EventBus }                               from '@nestjs/cqrs'
 import { EVENTS_HANDLER_METADATA }                from '@nestjs/cqrs/dist/decorators/constants.js'
-import { ExplorerService } from '@nestjs/cqrs/dist/services/explorer.service.js'
+import { ExplorerService }                        from '@nestjs/cqrs/dist/services/explorer.service.js'
 
 import { KafkaModule }                            from '@atls/nestjs-kafka'
 import { KafkaFactory }                           from '@atls/nestjs-kafka'

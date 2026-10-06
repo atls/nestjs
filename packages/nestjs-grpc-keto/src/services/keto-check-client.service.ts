@@ -5,7 +5,7 @@ import type { KetoModuleOptions }  from '../module/index.js'
 
 import { createRequire }           from 'node:module'
 
-import * as checkService from '@ory/keto-grpc-client/ory/keto/relation_tuples/v1alpha2/check_service_grpc_pb.js'
+import * as checkService           from '@ory/keto-grpc-client/ory/keto/relation_tuples/v1alpha2/check_service_grpc_pb.js'
 import { Inject }                  from '@nestjs/common'
 import { Injectable }              from '@nestjs/common'
 

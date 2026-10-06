@@ -1,15 +1,15 @@
-import type { DynamicModule } from '@nestjs/common'
+import type { DynamicModule }                          from '@nestjs/common'
 
 import type { GraphQLRedisSubscriptionsModuleOptions } from './graphql-redis-subscriptions.module.interfaces.js'
 
-import { Module }             from '@nestjs/common'
-import { RedisPubSub }        from 'graphql-redis-subscriptions'
-import { PubSub }             from 'graphql-subscriptions'
-import { stringify }          from 'telejson'
-import { parse }              from 'telejson'
+import { Module }                                      from '@nestjs/common'
+import { RedisPubSub }                                 from 'graphql-redis-subscriptions'
+import { PubSub }                                      from 'graphql-subscriptions'
+import { stringify }                                   from 'telejson'
+import { parse }                                       from 'telejson'
 
-import { RedisModule }        from '@atls/nestjs-redis'
-import { RedisFactory }       from '@atls/nestjs-redis'
+import { RedisModule }                                 from '@atls/nestjs-redis'
+import { RedisFactory }                                from '@atls/nestjs-redis'
 
 @Module({})
 export class GraphQLRedisSubscriptionsModule {

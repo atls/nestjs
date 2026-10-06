@@ -1015,9 +1015,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@atls/raijin@npm:1.1.0":
-  version: 1.1.0
-  resolution: "@atls/raijin@npm:1.1.0"
+"@atls/raijin@npm:1.1.1":
+  version: 1.1.1
+  resolution: "@atls/raijin@npm:1.1.1"
   dependencies:
     "@angular-devkit/core": "npm:22.1.8"
     "@angular-devkit/schematics": "npm:22.1.8"
@@ -1050,7 +1050,7 @@ __metadata:
   bin:
     raijin: bin/raijin.js
     raijin-hooks: bin/raijin-hooks.js
-  checksum: 10c0/bd70d7997e53e285e49cb01dc6fc4f857f62cfd7a5a0245f9f3d53f99379efdad2dd2fd23b2abfcb72f838d1f7eb0da62689f4a994bcc0cc40e3ee8afad71876
+  checksum: 10c0/9e8e1803a910ac14593f078d68004bdc255ad027a6dad47fe34d3c0b8e34fadb59d5dc01991713718a605d38169eb31b3fd292a876cfa73c48131110867409cb
   languageName: node
   linkType: hard
 
@@ -12183,7 +12183,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "nestjs@workspace:."
   dependencies:
-    "@atls/raijin": "npm:1.1.0"
+    "@atls/raijin": "npm:1.1.1"
     "@types/node": "npm:22.20.0"
     typescript: "npm:5.5.4"
   languageName: unknown
