@@ -1,9 +1,9 @@
 import type { S3Client }                  from '@atls/nestjs-s3-client'
 import type { Storage }                   from '@google-cloud/storage'
-import type { InjectionToken }            from '@nestjs/common/interfaces'
-import type { ModuleMetadata }            from '@nestjs/common/interfaces'
-import type { OptionalFactoryDependency } from '@nestjs/common/interfaces'
-import type { Type }                      from '@nestjs/common/interfaces'
+import type { InjectionToken }            from '@nestjs/common'
+import type { ModuleMetadata }            from '@nestjs/common'
+import type { OptionalFactoryDependency } from '@nestjs/common'
+import type { Type }                      from '@nestjs/common'
 
 import type { SignedUrlGateway }          from '../interfaces.js'
 import type { SignedUrlReadOptions }      from '../interfaces.js'
@@ -34,9 +34,10 @@ export type SignedUrlModuleOptions<
   ReadOptions extends SignedUrlReadOptions = SignedUrlReadOptions,
   WriteOptions extends SignedUrlWriteOptions = SignedUrlWriteOptions,
 > =
-  | SignedUrlModuleClassOptions<ReadOptions, WriteOptions>
-  | SignedUrlModuleExistingOptions<ReadOptions, WriteOptions>
-  | SignedUrlModuleValueOptions<ReadOptions, WriteOptions>
+
+    | SignedUrlModuleClassOptions<ReadOptions, WriteOptions>
+    | SignedUrlModuleExistingOptions<ReadOptions, WriteOptions>
+    | SignedUrlModuleValueOptions<ReadOptions, WriteOptions>
 
 export interface SignedUrlModuleFactoryOptions<
   FactoryArgs extends ReadonlyArray<unknown> = ReadonlyArray<unknown>,
@@ -56,9 +57,10 @@ export type SignedUrlModuleAsyncOptions<
   ReadOptions extends SignedUrlReadOptions = SignedUrlReadOptions,
   WriteOptions extends SignedUrlWriteOptions = SignedUrlWriteOptions,
 > =
-  | SignedUrlModuleClassOptions<ReadOptions, WriteOptions>
-  | SignedUrlModuleExistingOptions<ReadOptions, WriteOptions>
-  | SignedUrlModuleFactoryOptions<FactoryArgs, ReadOptions, WriteOptions>
+
+    | SignedUrlModuleClassOptions<ReadOptions, WriteOptions>
+    | SignedUrlModuleExistingOptions<ReadOptions, WriteOptions>
+    | SignedUrlModuleFactoryOptions<FactoryArgs, ReadOptions, WriteOptions>
 
 export interface GcsSignedUrlModuleOptions {
   useValue: Storage

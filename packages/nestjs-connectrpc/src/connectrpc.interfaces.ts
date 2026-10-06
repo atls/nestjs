@@ -68,7 +68,4 @@ export interface FunctionPropertyDescriptor extends PropertyDescriptor {
 }
 
 export type ResultOrDeferred<T> =
-  | Observable<T>
-  | T
-  | { subscribe: () => void }
-  | { toPromise: () => Promise<T> }
+  Observable<T> | T | { subscribe: () => void } | { toPromise: () => Promise<T> }

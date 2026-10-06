@@ -1,9 +1,9 @@
-import type { CheckRequest }                 from '@ory/keto-grpc-client/ory/keto/relation_tuples/v1alpha2/check_service_pb'
-import type { Subject }                      from '@ory/keto-grpc-client/ory/keto/relation_tuples/v1alpha2/relation_tuples_pb'
-import type { SubjectSet }                   from '@ory/keto-grpc-client/ory/keto/relation_tuples/v1alpha2/relation_tuples_pb'
+import type { CheckRequest } from '@ory/keto-grpc-client/ory/keto/relation_tuples/v1alpha2/check_service_pb'
+import type { Subject } from '@ory/keto-grpc-client/ory/keto/relation_tuples/v1alpha2/relation_tuples_pb'
+import type { SubjectSet } from '@ory/keto-grpc-client/ory/keto/relation_tuples/v1alpha2/relation_tuples_pb'
 
-import checkService                          from '@ory/keto-grpc-client/ory/keto/relation_tuples/v1alpha2/check_service_pb.js'
-import relationTuples                        from '@ory/keto-grpc-client/ory/keto/relation_tuples/v1alpha2/relation_tuples_pb.js'
+import checkService from '@ory/keto-grpc-client/ory/keto/relation_tuples/v1alpha2/check_service_pb.js'
+import relationTuples from '@ory/keto-grpc-client/ory/keto/relation_tuples/v1alpha2/relation_tuples_pb.js'
 
 import { KetoRelationTupleInvalidException } from '../exceptions/index.js'
 

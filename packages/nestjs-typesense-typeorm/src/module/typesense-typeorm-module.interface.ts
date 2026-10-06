@@ -1,7 +1,7 @@
-import type { ModuleMetadata }            from '@nestjs/common/interfaces'
-import type { Type }                      from '@nestjs/common/interfaces'
-import type { InjectionToken }            from '@nestjs/common/interfaces'
-import type { OptionalFactoryDependency } from '@nestjs/common/interfaces'
+import type { ModuleMetadata }            from '@nestjs/common'
+import type { Type }                      from '@nestjs/common'
+import type { InjectionToken }            from '@nestjs/common'
+import type { OptionalFactoryDependency } from '@nestjs/common'
 
 // eslint-disable-next-line @typescript-eslint/no-empty-interface
 export interface TypesenseTypeOrmModuleOptions {}
@@ -9,8 +9,7 @@ export interface TypesenseTypeOrmModuleOptions {}
 export interface TypesenseTypeOrmOptionsFactory {
   // eslint-disable-next-line @typescript-eslint/method-signature-style
   createTypesenseTypeOrmOptions():
-    | Promise<TypesenseTypeOrmModuleOptions>
-    | TypesenseTypeOrmModuleOptions
+    Promise<TypesenseTypeOrmModuleOptions> | TypesenseTypeOrmModuleOptions
 }
 
 export interface TypesenseTypeOrmModuleAsyncOptions extends Pick<ModuleMetadata, 'imports'> {

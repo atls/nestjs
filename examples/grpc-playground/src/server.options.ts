@@ -4,7 +4,7 @@ import type { GrpcOptions } from '@nestjs/microservices'
 
 import { Transport }        from '@nestjs/microservices'
 
-import reflection           from '@atls/nestjs-grpc-reflection/proto/grpc/reflection/v1alpha/reflection.proto'
+import reflection from '@atls/nestjs-grpc-reflection/proto/grpc/reflection/v1alpha/reflection.proto'
 
 import playground           from '../proto/examples/playground/v1/playground.proto'
 

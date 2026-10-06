@@ -1,5 +1,4 @@
 import type { ArgumentsHost }              from '@nestjs/common'
-import type { HttpArgumentsHost }          from '@nestjs/common/interfaces/features/arguments-host.interface.js'
 
 import assert                              from 'node:assert/strict'
 import { describe }                        from 'node:test'
@@ -34,7 +33,7 @@ describe('KratosExceptionFilter', () => {
     }
 
     const host = {
-      switchToHttp: () => argumentHost as HttpArgumentsHost,
+      switchToHttp: () => argumentHost as ReturnType<ArgumentsHost['switchToHttp']>,
     }
 
     filter.catch(new KratosRedirectRequiredException('login'), host as ArgumentsHost)
@@ -80,7 +79,7 @@ describe('KratosExceptionFilter', () => {
     }
 
     const host = {
-      switchToHttp: () => argumentHost as HttpArgumentsHost,
+      switchToHttp: () => argumentHost as ReturnType<ArgumentsHost['switchToHttp']>,
     }
 
     filter.catch(new KratosRedirectRequiredException('login'), host as ArgumentsHost)

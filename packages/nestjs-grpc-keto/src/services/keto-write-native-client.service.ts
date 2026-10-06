@@ -5,16 +5,15 @@ import type { KetoModuleOptions }  from '../module/index.js'
 
 import { createRequire }           from 'node:module'
 
-import * as writeService           from '@ory/keto-grpc-client/ory/keto/relation_tuples/v1alpha2/write_service_grpc_pb.js'
+import * as writeService from '@ory/keto-grpc-client/ory/keto/relation_tuples/v1alpha2/write_service_grpc_pb.js'
 import { Inject }                  from '@nestjs/common'
 import { Injectable }              from '@nestjs/common'
 
 import { KETO_MODULE_OPTIONS }     from '../module/index.js'
 
 const require = createRequire(import.meta.url)
-const writeServicePath = require.resolve(
-  '@ory/keto-grpc-client/ory/keto/relation_tuples/v1alpha2/write_service_grpc_pb.js'
-)
+const writeServicePath =
+  require.resolve('@ory/keto-grpc-client/ory/keto/relation_tuples/v1alpha2/write_service_grpc_pb.js')
 const oryGrpc = createRequire(writeServicePath)('@grpc/grpc-js') as {
   ChannelCredentials: typeof ChannelCredentials
   credentials: typeof credentials

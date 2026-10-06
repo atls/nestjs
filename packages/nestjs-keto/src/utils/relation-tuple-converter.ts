@@ -1,7 +1,5 @@
 import type { SubjectSet }                   from '@ory/keto-client'
 
-import type { RelationShipTupleWithSet }     from '../module/index.js'
-import type { RelationShipTupleWithId }      from '../module/index.js'
 import type { RelationShipTuple }            from '../module/index.js'
 
 import { KetoRelationTupleInvalidException } from '../exceptions/index.js'
@@ -36,8 +34,6 @@ export class RelationTupleConverter {
     if (this.isSubjectSet()) {
       const subjectSet = this.getSubjectSet()
 
-      this.result = this.result as RelationShipTupleWithSet
-
       this.result = {
         namespace,
         // eslint-disable-next-line react/forbid-prop-types
@@ -47,8 +43,6 @@ export class RelationTupleConverter {
       }
     } else {
       const { subjectId } = this
-
-      this.result = this.result as RelationShipTupleWithId
 
       this.result = {
         namespace,

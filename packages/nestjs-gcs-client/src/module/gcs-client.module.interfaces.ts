@@ -1,7 +1,7 @@
-import type { InjectionToken }            from '@nestjs/common/interfaces'
-import type { ModuleMetadata }            from '@nestjs/common/interfaces'
-import type { OptionalFactoryDependency } from '@nestjs/common/interfaces'
-import type { Type }                      from '@nestjs/common/interfaces'
+import type { InjectionToken }            from '@nestjs/common'
+import type { ModuleMetadata }            from '@nestjs/common'
+import type { OptionalFactoryDependency } from '@nestjs/common'
+import type { Type }                      from '@nestjs/common'
 
 export interface GcsClientModuleOptions {
   apiEndpoint?: string

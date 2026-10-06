@@ -109,9 +109,10 @@ const buildReadInput = (
 }
 
 @Injectable()
-export class S3SignedUrlGateway
-  implements SignedUrlGateway<S3SignedUrlReadOptions, S3SignedUrlWriteOptions>
-{
+export class S3SignedUrlGateway implements SignedUrlGateway<
+  S3SignedUrlReadOptions,
+  S3SignedUrlWriteOptions
+> {
   constructor(
     @Inject(S3_SIGNED_URL_CLIENT)
     private readonly client: S3Client,

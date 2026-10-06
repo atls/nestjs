@@ -1,0 +1,40 @@
+releases:
+  "@atls/nestjs-batch-queue": patch
+  "@atls/nestjs-connectrpc": patch
+  "@atls/nestjs-connectrpc-errors": patch
+  "@atls/nestjs-cqrs": patch
+  "@atls/nestjs-cqrs-kafka-events": patch
+  "@atls/nestjs-dataloader": patch
+  "@atls/nestjs-external-renderer": patch
+  "@atls/nestjs-gcs-client": patch
+  "@atls/nestjs-graphql-redis-subscriptions": patch
+  "@atls/nestjs-gateway-errors": patch
+  "@atls/nestjs-grpc-errors": patch
+  "@atls/nestjs-grpc-http-proxy": patch
+  "@atls/nestjs-grpc-identity": patch
+  "@atls/nestjs-grpc-playground": patch
+  "@atls/nestjs-grpc-reflection": patch
+  "@atls/nestjs-hydra": patch
+  "@atls/nestjs-keto": patch
+  "@atls/nestjs-kratos": patch
+  "@atls/nestjs-kafka": patch
+  "@atls/nestjs-logger": patch
+  "@atls/nestjs-microservices-registry": patch
+  "@atls/nestjs-mikro-orm-config": patch
+  "@atls/nestjs-mikro-orm-request-context": patch
+  "@atls/nestjs-oathkeeper": patch
+  "@atls/nestjs-pipes": patch
+  "@atls/nestjs-proto-types": patch
+  "@atls/nestjs-redis": patch
+  "@atls/nestjs-s3-client": patch
+  "@atls/nestjs-signed-url": patch
+  "@atls/nestjs-typeorm-seeding": patch
+  "@atls/nestjs-typesense": patch
+  "@atls/nestjs-typesense-typeorm": patch
+  "@atls/nestjs-validation": patch
+
+declined:
+  - "@examples/grpc-http-proxy"
+  - "@examples/grpc-playground"
+  - "@examples/grpc-reflection"
+  - "@atls/grpc-keto"

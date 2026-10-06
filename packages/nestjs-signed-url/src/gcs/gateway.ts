@@ -51,9 +51,10 @@ const buildGcsConfig = (
 }
 
 @Injectable()
-export class GcsSignedUrlGateway
-  implements SignedUrlGateway<GcsSignedUrlReadOptions, GcsSignedUrlWriteOptions>
-{
+export class GcsSignedUrlGateway implements SignedUrlGateway<
+  GcsSignedUrlReadOptions,
+  GcsSignedUrlWriteOptions
+> {
   constructor(@Inject(GCS_SIGNED_URL_CLIENT) private readonly client: Storage) {}
 
   async generateWriteUrl(

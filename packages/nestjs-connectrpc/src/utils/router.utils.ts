@@ -21,7 +21,7 @@ import { transformToObservable }    from './async.utils.js'
  * @returns {string} - The JSON string pattern for the RPC method.
  */
 export const createPattern = (service: string, methodName: string, streaming: MethodType): string =>
-  JSON.stringify({ service, rpc: methodName, streaming } as ConnectRpcPattern)
+  JSON.stringify({ service, rpc: methodName, streaming })
 
 /**
  * Registers services and their handlers to the provided ConnectRouter instance.

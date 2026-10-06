@@ -9,18 +9,19 @@ export interface FieldMetadata {
 }
 
 export type FieldType =
-  | 'auto'
-  | 'bool'
-  | 'bool[]'
-  | 'float'
-  | 'float[]'
-  | 'geopoint'
-  | 'int32'
-  | 'int32[]'
-  | 'int64'
-  | 'int64[]'
-  | 'string'
-  | 'string[]'
+
+    | 'auto'
+    | 'bool'
+    | 'bool[]'
+    | 'float'
+    | 'float[]'
+    | 'geopoint'
+    | 'int32'
+    | 'int32[]'
+    | 'int64'
+    | 'int64[]'
+    | 'string'
+    | 'string[]'
 
 export const FIELD_METADATA = '__fieldMetadata__'
 

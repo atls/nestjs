@@ -1,3 +1,3 @@
 export type * from './typesense-module.interface.js'
-export * from './typesense.constants.js'
-export * from './typesense.module.js'
+export *      from './typesense.constants.js'
+export *      from './typesense.module.js'

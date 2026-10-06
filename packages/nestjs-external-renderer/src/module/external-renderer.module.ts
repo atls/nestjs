@@ -1,16 +1,16 @@
-import type { DynamicModule }                      from '@nestjs/common'
-import type { Provider }                           from '@nestjs/common'
+import type { DynamicModule }                    from '@nestjs/common'
+import type { Provider }                         from '@nestjs/common'
 
 import type { ExternalRendererModuleAsyncOptions } from './external-renderer-module-options.interface.js'
-import type { ExternalRendererModuleOptions }      from './external-renderer-module-options.interface.js'
-import type { ExternalRendererOptionsFactory }     from './external-renderer-module-options.interface.js'
+import type { ExternalRendererModuleOptions } from './external-renderer-module-options.interface.js'
+import type { ExternalRendererOptionsFactory } from './external-renderer-module-options.interface.js'
 
-import { Module }                                  from '@nestjs/common'
+import { Module }                                from '@nestjs/common'
 
-import { EXTERNAL_RENDERER_MODULE_OPTIONS }        from './external-renderer.constants.js'
-import { createExternalRendererExportsProvider }   from './external-renderer.providers.js'
-import { createExternalRendererProvider }          from './external-renderer.providers.js'
-import { createExternalRendererOptionsProvider }   from './external-renderer.providers.js'
+import { EXTERNAL_RENDERER_MODULE_OPTIONS }      from './external-renderer.constants.js'
+import { createExternalRendererExportsProvider } from './external-renderer.providers.js'
+import { createExternalRendererProvider }        from './external-renderer.providers.js'
+import { createExternalRendererOptionsProvider } from './external-renderer.providers.js'
 
 @Module({})
 export class ExternalRendererModule {

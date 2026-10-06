@@ -2,5 +2,7 @@
 
 import type { PubSubRedisOptions } from 'graphql-redis-subscriptions/dist/redis-pubsub.js'
 
-export interface GraphQLRedisSubscriptionsModuleOptions
-  extends Omit<PubSubRedisOptions, 'connection' | 'publisher' | 'subscriber'> {}
+export interface GraphQLRedisSubscriptionsModuleOptions extends Omit<
+  PubSubRedisOptions,
+  'connection' | 'publisher' | 'subscriber'
+> {}
