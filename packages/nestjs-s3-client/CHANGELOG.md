@@ -1,45 +1,22 @@
-
-
 ## [0.0.5](https://github.com/atls/nestjs/compare/@atls/nestjs-s3-client@0.0.4...@atls/nestjs-s3-client@0.0.5) (2026-06-29)
-
-
-
-
-
 
 ## [0.0.4](https://github.com/atls/nestjs/compare/@atls/nestjs-s3-client@0.0.3...@atls/nestjs-s3-client@0.0.4) (2026-06-24)
 
-
 ### Bug Fixes
 
-
-* **nestjs-signed-url:** tighten s3 signing options ([7c54be9](https://github.com/atls/nestjs/commit/7c54be9b1acf6c9e8812b516c449d0374ecbc68d))
-
-
-
-
+- **nestjs-signed-url:** tighten s3 signing options ([7c54be9](https://github.com/atls/nestjs/commit/7c54be9b1acf6c9e8812b516c449d0374ecbc68d))
 
 ## [0.0.3](https://github.com/atls/nestjs/compare/@atls/nestjs-s3-client@0.0.2...@atls/nestjs-s3-client@0.0.3) (2025-12-31)
 
-
 ### Bug Fixes
 
-
-* **packages:** linter errors ([204ce22](https://github.com/atls/nestjs/commit/204ce229e375b09ffd69d93e47c08bd1d1fbea1b))
-
-
-
-
+- **packages:** linter errors ([204ce22](https://github.com/atls/nestjs/commit/204ce229e375b09ffd69d93e47c08bd1d1fbea1b))
 
 ## [0.0.2](https://github.com/atls/nestjs/compare/@atls/nestjs-s3-client@0.0.1...@atls/nestjs-s3-client@0.0.2) (2025-01-24)
 
-
 ### Features
 
-
-* **nestjs:** update grpc reflection ([#341](https://github.com/atls/nestjs/issues/341)) ([3f78e26](https://github.com/atls/nestjs/commit/3f78e26340b9ba64eab425160e8cea7ba83a3538))
-
-
+- **nestjs:** update grpc reflection ([#341](https://github.com/atls/nestjs/issues/341)) ([3f78e26](https://github.com/atls/nestjs/commit/3f78e26340b9ba64eab425160e8cea7ba83a3538))
 
 ## 0.0.1 (2025-01-22)
 
