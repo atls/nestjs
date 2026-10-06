@@ -1,6 +1,6 @@
 {
   "name": "@atls/nestjs-cqrs-kafka-events",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "license": "BSD-3-Clause",
   "type": "module",
   "exports": {
@@ -17,7 +17,7 @@
     "postpack": "rm -rf dist"
   },
   "dependencies": {
-    "@atls/nestjs-kafka": "workspace:0.0.3",
+    "@atls/nestjs-kafka": "workspace:0.0.4",
     "telejson": "7.2.0"
   },
   "devDependencies": {
