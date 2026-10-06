@@ -8,11 +8,10 @@ on:
       - master
     paths-ignore:
       - '.github/**'
-
 jobs:
   publish:
     if: github.event.pull_request.merged == true
-    uses: atls/shared/.github/workflows/publish.yaml@master
+    uses: atls/shared/.github/workflows/publish-workspaces.yaml@master
     permissions: write-all
     with:
       clientId: ${{ vars.ATLANTIS_SUPER_BOT_CLIENT_ID }}
