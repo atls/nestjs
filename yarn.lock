@@ -143,13 +143,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@atls/grpc-error-status@npm:0.1.6":
-  version: 0.1.6
-  resolution: "@atls/grpc-error-status@npm:0.1.6"
+"@atls/grpc-error-status@npm:0.1.7":
+  version: 0.1.7
+  resolution: "@atls/grpc-error-status@npm:0.1.7"
   dependencies:
     "@grpc/grpc-js": "npm:1.12.2"
+    "@types/google-protobuf": "npm:3.15.12"
     google-protobuf: "npm:3.21.4"
-  checksum: 10c0/3e3c21af08320c416720f3fdfd839201941828e37e1bff25e822fae1b5767390a27c9d1c8e1cfbbeba5c0f7384a17c95930df44970307ffa6d3142f199bc88c0
+  checksum: 10c0/7d5cb3fcba52a5bed0c1ae2ae395869beded0f7db2b2887eda298343be00f49a4712b62b3d162e6bdd216e8a5493f432f108e5c83fd97ff5035b0268dc2861fa
   languageName: node
   linkType: hard
 
@@ -404,7 +405,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@atls/nestjs-gateway-errors@workspace:packages/nestjs-gateway-errors"
   dependencies:
-    "@atls/grpc-error-status": "npm:0.1.6"
+    "@atls/grpc-error-status": "npm:0.1.7"
     "@grpc/grpc-js": "npm:1.12.2"
     graphql: "npm:16.11.0"
   peerDependencies:
