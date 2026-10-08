@@ -17,7 +17,7 @@
     "postpack": "rm -rf dist"
   },
   "dependencies": {
-    "@atls/grpc-error-status": "0.1.6",
+    "@atls/grpc-error-status": "0.1.7",
     "@grpc/grpc-js": "1.12.2"
   },
   "devDependencies": {

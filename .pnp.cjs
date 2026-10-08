@@ -389,11 +389,12 @@ const RAW_RUNTIME_STATE =
         ],\
         "linkType": "HARD"\
       }],\
-      ["npm:0.1.6", {\
-        "packageLocation": "../.yarn/berry/cache/@atls-grpc-error-status-npm-0.1.6-e4c04d196d-10c0.zip/node_modules/@atls/grpc-error-status/",\
+      ["npm:0.1.7", {\
+        "packageLocation": "../.yarn/berry/cache/@atls-grpc-error-status-npm-0.1.7-74d3fea89a-10c0.zip/node_modules/@atls/grpc-error-status/",\
         "packageDependencies": [\
-          ["@atls/grpc-error-status", "npm:0.1.6"],\
+          ["@atls/grpc-error-status", "npm:0.1.7"],\
           ["@grpc/grpc-js", "npm:1.12.2"],\
+          ["@types/google-protobuf", "npm:3.15.12"],\
           ["google-protobuf", "npm:3.21.4"]\
         ],\
         "linkType": "HARD"\
@@ -667,7 +668,7 @@ const RAW_RUNTIME_STATE =
       ["workspace:packages/nestjs-gateway-errors", {\
         "packageLocation": "./packages/nestjs-gateway-errors/",\
         "packageDependencies": [\
-          ["@atls/grpc-error-status", "npm:0.1.6"],\
+          ["@atls/grpc-error-status", "npm:0.1.7"],\
           ["@atls/nestjs-gateway-errors", "workspace:packages/nestjs-gateway-errors"],\
           ["@grpc/grpc-js", "npm:1.12.2"],\
           ["graphql", "npm:16.11.0"]\
