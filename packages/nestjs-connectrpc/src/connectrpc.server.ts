@@ -105,7 +105,14 @@ export class HTTPServer {
         this.server.on(event, callback as (...args: Array<unknown>) => void)
       }
 
-      this.server.listen(this.options.port, () => {
+      const { server } = this
+      const rejectOnError = (error: Error): void => {
+        reject(error)
+      }
+
+      server.once('error', rejectOnError)
+      server.listen(this.options.port, () => {
+        server.off('error', rejectOnError)
         if (this.options.callback) this.options.callback()
         resolve()
       })
