@@ -12,7 +12,7 @@ export class KafkaConfigFactory {
     @Inject(KAFKA_MODULE_OPTIONS_CLIENT_ID)
     private readonly clientId: string,
     @Inject(KAFKA_MODULE_OPTIONS_BROKERS)
-    private readonly brokers: Array<string>
+    private readonly brokers: Array<string> | undefined
   ) {}
 
   createKafkaOptions(): KafkaConfig {
@@ -22,7 +22,7 @@ export class KafkaConfigFactory {
 
     return {
       clientId: this.clientId || process.env.KAFKA_CLIENT_ID,
-      brokers: this.brokers.length > 0 ? this.brokers : fallbackBrokers,
+      brokers: this.brokers?.length ? this.brokers : fallbackBrokers,
     }
   }
 }
