@@ -1,3 +1,0 @@
-releases:
-  "@atls/nestjs-cqrs-kafka-events": patch
-  "@atls/nestjs-kafka": patch
