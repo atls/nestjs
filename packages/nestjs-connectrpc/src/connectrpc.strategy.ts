@@ -16,6 +16,8 @@ export class ConnectRpcServer extends Server implements CustomTransportStrategy 
 
   private server: HTTPServer | null = null
 
+  private readonly listeners: Array<{ event: string; callback: Function }> = []
+
   private readonly options: ServerTypeOptions
 
   constructor(options: ServerTypeOptions) {
@@ -29,7 +31,7 @@ export class ConnectRpcServer extends Server implements CustomTransportStrategy 
   ): Promise<void> {
     try {
       const router = this.buildRouter()
-      this.server = new HTTPServer(this.options, router)
+      this.server = new HTTPServer(this.options, router, this.listeners)
 
       await this.server.listen()
 
@@ -44,13 +46,12 @@ export class ConnectRpcServer extends Server implements CustomTransportStrategy 
   }
 
   public on(event: string, callback: Function): void {
+    this.listeners.push({ event, callback })
     const server = this.server?.server
 
-    if (!server) {
-      throw new Error('ConnectRPC server is not listening')
+    if (server) {
+      server.on(event, callback as (...args: Array<unknown>) => void)
     }
-
-    server.on(event, callback as (...args: Array<unknown>) => void)
   }
 
   public unwrap<T>(): T {

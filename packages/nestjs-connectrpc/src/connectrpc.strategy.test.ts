@@ -8,6 +8,11 @@ import { ConnectRpcServer }          from './connectrpc.strategy.js'
 
 it('exposes native server events through the NestJS transport contract', async () => {
   const transport = new ConnectRpcServer({ protocol: ServerProtocol.HTTP, port: 0 })
+  let listening = false
+
+  transport.on('listening', () => {
+    listening = true
+  })
 
   await new Promise<void>((resolve, reject) => {
     transport
@@ -27,6 +32,7 @@ it('exposes native server events through the NestJS transport contract', async (
     const server = transport.unwrap<HttpServer>()
 
     assert.equal(server.listening, true)
+    assert.equal(listening, true)
 
     transport.on('close', () => {
       closed = true
