@@ -13,7 +13,7 @@ export class MikroORMRequestContextInterceptor implements NestInterceptor {
 
   intercept(_: ExecutionContext, next: CallHandler): Observable<unknown> {
     return new Observable<unknown>((subscriber) => {
-      RequestContext.createAsync(
+      RequestContext.create(
         this.orm.em,
         async () =>
           new Promise<void>((resolve) => {

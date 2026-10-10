@@ -5,7 +5,6 @@ import type { MessageHandler }          from '@nestjs/microservices'
 import type { ServerTypeOptions }       from './connectrpc.interfaces.js'
 
 import { Server }                       from '@nestjs/microservices'
-import { isString }                     from '@nestjs/common/utils/shared.utils.js'
 
 import { HTTPServer }                   from './connectrpc.server.js'
 import { CustomMetadataStore }          from './custom-metadata.storage.js'
@@ -44,12 +43,32 @@ export class ConnectRpcServer extends Server implements CustomTransportStrategy 
     await this.server?.close()
   }
 
+  public on(event: string, callback: Function): void {
+    const server = this.server?.server
+
+    if (!server) {
+      throw new Error('ConnectRPC server is not listening')
+    }
+
+    server.on(event, callback as (...args: Array<unknown>) => void)
+  }
+
+  public unwrap<T>(): T {
+    const server = this.server?.server
+
+    if (!server) {
+      throw new Error('ConnectRPC server is not listening')
+    }
+
+    return server as T
+  }
+
   public override addHandler(
     pattern: unknown,
     callback: MessageHandler,
     isEventHandler = false
   ): void {
-    const route = isString(pattern) ? pattern : JSON.stringify(pattern)
+    const route = typeof pattern === 'string' ? pattern : JSON.stringify(pattern)
     if (isEventHandler) {
       const modifiedCallback = callback
       modifiedCallback.isEventHandler = true
