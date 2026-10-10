@@ -1,1 +1,2 @@
-yarn commit message lint
+# Raijin-managed hook
+yarn commit message lint "$1"

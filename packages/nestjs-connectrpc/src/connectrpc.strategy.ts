@@ -5,7 +5,6 @@ import type { MessageHandler }          from '@nestjs/microservices'
 import type { ServerTypeOptions }       from './connectrpc.interfaces.js'
 
 import { Server }                       from '@nestjs/microservices'
-import { isString }                     from '@nestjs/common/utils/shared.utils.js'
 
 import { HTTPServer }                   from './connectrpc.server.js'
 import { CustomMetadataStore }          from './custom-metadata.storage.js'
@@ -16,6 +15,8 @@ export class ConnectRpcServer extends Server implements CustomTransportStrategy 
   private readonly customMetadataStore: CustomMetadataStore | null = null
 
   private server: HTTPServer | null = null
+
+  private readonly listeners: Array<{ event: string; callback: Function }> = []
 
   private readonly options: ServerTypeOptions
 
@@ -30,7 +31,7 @@ export class ConnectRpcServer extends Server implements CustomTransportStrategy 
   ): Promise<void> {
     try {
       const router = this.buildRouter()
-      this.server = new HTTPServer(this.options, router)
+      this.server = new HTTPServer(this.options, router, this.listeners)
 
       await this.server.listen()
 
@@ -44,12 +45,31 @@ export class ConnectRpcServer extends Server implements CustomTransportStrategy 
     await this.server?.close()
   }
 
+  public on(event: string, callback: Function): void {
+    this.listeners.push({ event, callback })
+    const server = this.server?.server
+
+    if (server) {
+      server.on(event, callback as (...args: Array<unknown>) => void)
+    }
+  }
+
+  public unwrap<T>(): T {
+    const server = this.server?.server
+
+    if (!server) {
+      throw new Error('ConnectRPC server is not listening')
+    }
+
+    return server as T
+  }
+
   public override addHandler(
     pattern: unknown,
     callback: MessageHandler,
     isEventHandler = false
   ): void {
-    const route = isString(pattern) ? pattern : JSON.stringify(pattern)
+    const route = typeof pattern === 'string' ? pattern : JSON.stringify(pattern)
     if (isEventHandler) {
       const modifiedCallback = callback
       modifiedCallback.isEventHandler = true

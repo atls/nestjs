@@ -1,1 +1,2 @@
-yarn commit message $@
+# Raijin-managed hook
+yarn commit message "$@"

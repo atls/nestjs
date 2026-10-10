@@ -3,6 +3,8 @@ import type { MikroOrmModuleOptions } from '@mikro-orm/nestjs'
 
 import { Logger }                     from '@atls/logger'
 import { MikroORMLogger }             from '@atls/mikro-orm-logger'
+import { ReflectMetadataProvider }    from '@mikro-orm/decorators/legacy'
+import { Migrator }                   from '@mikro-orm/migrations'
 
 export class MikroORMConfigBuilder {
   static build(options: Partial<MikroOrmModuleOptions>): MikroOrmModuleOptions {
@@ -16,6 +18,8 @@ export class MikroORMConfigBuilder {
       debug: options.debug || Boolean(process.env.DB_DEBUG) || false,
       migrations: options.migrations,
       entities: options.entities,
+      metadataProvider: options.metadataProvider || ReflectMetadataProvider,
+      extensions: options.extensions || [Migrator],
       forceUndefined: true,
 
       loggerFactory: (opts: LoggerOptions): MikroORMLogger => new MikroORMLogger(opts),

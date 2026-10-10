@@ -20,7 +20,8 @@ export class HTTPServer {
 
   constructor(
     private readonly options: ServerTypeOptions,
-    private readonly router: (router: ConnectRouter) => void
+    private readonly router: (router: ConnectRouter) => void,
+    private readonly listeners: Array<{ event: string; callback: Function }> = []
   ) {}
 
   set server(value: http.Server | http2.Http2Server | https.Server | null) {
@@ -100,7 +101,18 @@ export class HTTPServer {
         }
       }
 
-      this.server.listen(this.options.port, () => {
+      for (const { event, callback } of this.listeners) {
+        this.server.on(event, callback as (...args: Array<unknown>) => void)
+      }
+
+      const { server } = this
+      const rejectOnError = (error: Error): void => {
+        reject(error)
+      }
+
+      server.once('error', rejectOnError)
+      server.listen(this.options.port, () => {
+        server.off('error', rejectOnError)
         if (this.options.callback) this.options.callback()
         resolve()
       })

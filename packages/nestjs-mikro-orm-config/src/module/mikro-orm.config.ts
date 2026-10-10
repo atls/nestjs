@@ -1,10 +1,10 @@
 import type { AnyEntity }                       from '@mikro-orm/core'
-import type { EntityClass }                     from '@mikro-orm/core'
-import type { EntityClassGroup }                from '@mikro-orm/core'
-import type { EntitySchema }                    from '@mikro-orm/core'
+import type { EntityName }                      from '@mikro-orm/core'
 import type { MigrationObject }                 from '@mikro-orm/core'
 import type { MikroOrmOptionsFactory }          from '@mikro-orm/nestjs'
 import type { MikroOrmModuleOptions }           from '@mikro-orm/nestjs'
+
+import type { MikroORMConfigOptions }           from './mikro-orm-config.module.interfaces.js'
 
 import { Inject }                               from '@nestjs/common'
 import { Injectable }                           from '@nestjs/common'
@@ -12,7 +12,6 @@ import { Injectable }                           from '@nestjs/common'
 import { MIKRO_ORM_CONFIG_MODULE_OPTIONS }      from './mikro-orm-config.module.constants.js'
 import { MIKRO_ORM_CONFIG_MODULE_OPTIONS_HOST } from './mikro-orm-config.module.constants.js'
 import { MIKRO_ORM_CONFIG_MODULE_OPTIONS_PORT } from './mikro-orm-config.module.constants.js'
-import { MikroORMConfigOptions }                from './mikro-orm-config.module.interfaces.js'
 import { MikroORMConfigBuilder }                from './mikro-orm.config-builder.js'
 
 @Injectable()
@@ -40,17 +39,11 @@ export class MikroORMConfig implements MikroOrmOptionsFactory {
       migrationsTableName,
     } = this.options
 
-    let resolvedEntities: Array<
-      EntityClass<AnyEntity> | EntityClassGroup<AnyEntity> | EntitySchema | string
-    > = []
+    let resolvedEntities: Array<EntityName<AnyEntity>> = []
     if (Array.isArray(entities)) {
-      resolvedEntities = entities as Array<
-        EntityClass<AnyEntity> | EntityClassGroup<AnyEntity> | EntitySchema | string
-      >
+      resolvedEntities = entities
     } else if (entities) {
-      resolvedEntities = Object.values(entities) as Array<
-        EntityClass<AnyEntity> | EntityClassGroup<AnyEntity> | EntitySchema | string
-      >
+      resolvedEntities = Object.values(entities)
     }
 
     let resolvedMigrationsList: Array<MigrationObject> = []
