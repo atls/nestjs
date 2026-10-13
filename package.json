@@ -21,8 +21,7 @@
   },
   "resolutions": {
     "@ory/keto-grpc-client@npm:0.13.0-alpha.0": "patch:@ory/keto-grpc-client@npm%3A0.13.0-alpha.0#~/.yarn/patches/@ory-keto-grpc-client-npm-0.13.0-alpha.0-798a35fc57.patch",
-    "@types/node": "24.19.1",
-    "ts-morph@npm:21.0.1": "patch:ts-morph@npm%3A21.0.1#~/.yarn/patches/ts-morph-npm-21.0.1-4cd18d8bd4.patch"
+    "@types/node": "24.19.1"
   },
   "devDependencies": {
     "@atls/raijin": "latest",
