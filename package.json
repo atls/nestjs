@@ -9,11 +9,15 @@
   ],
   "lint-staged": {
     "*.{yml,yaml,json,graphql,md}": "yarn format",
-    "*.{js,mjs,cjs,jsx,ts,tsx}": [
+    "{packages,examples}/**/*.{js,mjs,cjs,jsx,ts,tsx}": [
       "yarn format",
       "yarn lint"
     ],
-    "*.{test,spec}.{ts,tsx}": "yarn test unit"
+    "project.types.d.ts": [
+      "yarn format",
+      "yarn lint"
+    ],
+    "{packages,examples}/**/*.{test,spec}.{ts,tsx}": "yarn test unit"
   },
   "devDependencies": {
     "@atls/raijin": "latest",
