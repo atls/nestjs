@@ -1582,13 +1582,12 @@ const RAW_RUNTIME_STATE =
         "packageLocation": "./packages/nestjs-typeorm-seeding/",\
         "packageDependencies": [\
           ["@atls/nestjs-typeorm-seeding", "workspace:packages/nestjs-typeorm-seeding"],\
-          ["@atls/typeorm-seeding", "npm:1.0.3"],\
-          ["@jest/globals", "npm:29.7.0"],\
+          ["@atls/typeorm-seeding", "npm:2.0.0"],\
           ["@nestjs/common", "virtual:77887786a24289fa840c9acd370d634accbe79bcf317ecf5401844ffff73b8a593879dd9cce463873637e6414a631dfdb1a2473704bf332d823bcfffac8c2469#npm:10.4.1"],\
           ["@nestjs/core", "virtual:32efc678226e64754471818dda8fe30dfb2e6b7e28f8b47fea1a50b926d8d4b6f1b3b66eb4d3cac5110197214b9be2f6d4b41b19fa675b77184f6f40ee3aa10f#npm:10.4.1"],\
           ["@nestjs/testing", "virtual:32efc678226e64754471818dda8fe30dfb2e6b7e28f8b47fea1a50b926d8d4b6f1b3b66eb4d3cac5110197214b9be2f6d4b41b19fa675b77184f6f40ee3aa10f#npm:10.4.1"],\
           ["@nestjs/typeorm", "virtual:c3e71143c610c1326c0ff38e746f90631aa0959f332b5fefcece7a14264d5862afa079f2f5593bfc9dde7c3d726e9eb01684a9696ad2f903290acd2976990918#npm:10.0.2"],\
-          ["@types/node", "npm:22.5.5"],\
+          ["@types/node", "npm:24.19.1"],\
           ["@types/sql.js", "npm:1.4.9"],\
           ["reflect-metadata", "npm:0.2.2"],\
           ["rxjs", "npm:7.8.1"],\
@@ -1813,10 +1812,10 @@ const RAW_RUNTIME_STATE =
       }]\
     ]],\
     ["@atls/typeorm-seeding", [\
-      ["npm:1.0.3", {\
-        "packageLocation": "../.yarn/berry/cache/@atls-typeorm-seeding-npm-1.0.3-738f9a507e-10c0.zip/node_modules/@atls/typeorm-seeding/",\
+      ["npm:2.0.0", {\
+        "packageLocation": "../.yarn/berry/cache/@atls-typeorm-seeding-npm-2.0.0-88d6a11f9e-10c0.zip/node_modules/@atls/typeorm-seeding/",\
         "packageDependencies": [\
-          ["@atls/typeorm-seeding", "npm:1.0.3"],\
+          ["@atls/typeorm-seeding", "npm:2.0.0"],\
           ["@faker-js/faker", "npm:9.0.1"],\
           ["typeorm", "virtual:5fdc09c7fdc30e48d390ab6ffff8ef725f2a327d08c70586e3df1d71e2657ff8df407f90899951495c83561309126b92db55566d67cf317480e9e55fd8e5b605#npm:0.3.20"]\
         ],\

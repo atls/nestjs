@@ -911,13 +911,12 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@atls/nestjs-typeorm-seeding@workspace:packages/nestjs-typeorm-seeding"
   dependencies:
-    "@atls/typeorm-seeding": "npm:1.0.3"
-    "@jest/globals": "npm:29.7.0"
+    "@atls/typeorm-seeding": "npm:2.0.0"
     "@nestjs/common": "npm:10.4.1"
     "@nestjs/core": "npm:10.4.1"
     "@nestjs/testing": "npm:10.4.1"
     "@nestjs/typeorm": "npm:10.0.2"
-    "@types/node": "npm:22.5.5"
+    "@types/node": "npm:24.19.1"
     "@types/sql.js": "npm:1.4.9"
     reflect-metadata: "npm:0.2.2"
     rxjs: "npm:7.8.1"
@@ -1071,13 +1070,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@atls/typeorm-seeding@npm:1.0.3":
-  version: 1.0.3
-  resolution: "@atls/typeorm-seeding@npm:1.0.3"
+"@atls/typeorm-seeding@npm:2.0.0":
+  version: 2.0.0
+  resolution: "@atls/typeorm-seeding@npm:2.0.0"
   dependencies:
     "@faker-js/faker": "npm:9.0.1"
     typeorm: "npm:0.3.20"
-  checksum: 10c0/d3680ca0ca5e95ba5c759822a9fc309bb91b8930c360718f51cf57a1ae2de3b6d549b8db439530c876212a05018eb7190cd130457852d6389302d657851ad093
+  checksum: 10c0/a69399dea4b445e1c34e565dc31a290244d8db499a8b3be165c73e442b61c38c5bae7d28950acefe5f815f685330d54893c8548ba8618d63f9fb26dd2429a342
   languageName: node
   linkType: hard
 
