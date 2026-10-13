@@ -1,0 +1,42 @@
+diff --git a/index.d.ts b/index.d.ts
+index 0c63c8df26c8dec41937bfb7af33fafc2f59d454..7360521aba369f846a034fb9c4121082709db5ca 100644
+--- a/index.d.ts
++++ b/index.d.ts
+@@ -1,5 +1,3 @@
+ import * as v1alpha2 from './ory/keto/relation_tuples/v1alpha2'
+ 
+-declare module '@ory/keto-grpc-client' {
+-  export default v1alpha2
+-}
++export default v1alpha2
+diff --git a/ory/keto/relation_tuples/v1alpha2/index.d.ts b/ory/keto/relation_tuples/v1alpha2/index.d.ts
+index 7e52c454dddc9314957b4015d1b0166f5f243c0d..1a398452a38730185003e420e554b3108580cadd 100644
+--- a/ory/keto/relation_tuples/v1alpha2/index.d.ts
++++ b/ory/keto/relation_tuples/v1alpha2/index.d.ts
+@@ -7,16 +7,14 @@ import * as expand from './expand_service_pb'
+ import * as expandService from './expand_service_grpc_pb'
+ import * as read from './read_service_pb'
+ import * as readService from './read_service_grpc_pb'
+-declare module '@ory/keto-grpc-client/ory/keto/relation_tuples/v1alpha2' {
+-  export {
+-    relationTuples,
+-    write,
+-    writeService,
+-    check,
+-    checkService,
+-    expand,
+-    expandService,
+-    read,
+-    readService
+-  }
++export {
++  relationTuples,
++  write,
++  writeService,
++  check,
++  checkService,
++  expand,
++  expandService,
++  read,
++  readService
+ }

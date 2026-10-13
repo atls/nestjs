@@ -37,7 +37,7 @@
     "@nestjs/microservices": "11.2.7",
     "@nestjs/platform-express": "11.2.7",
     "@nestjs/testing": "11.2.7",
-    "@types/node": "22.5.5",
+    "@types/node": "24.19.1",
     "class-transformer": "0.5.1",
     "class-validator": "0.14.1",
     "get-port": "7.1.0",
@@ -67,6 +67,5 @@
     },
     "main": "dist/index.js",
     "typings": "dist/index.d.ts"
-  },
-  "typecheckSkipLibCheck": true
+  }
 }
