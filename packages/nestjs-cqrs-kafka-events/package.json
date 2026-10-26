@@ -9,7 +9,8 @@
   },
   "main": "src/index.ts",
   "files": [
-    "dist"
+    "dist",
+    "!dist/module/tests"
   ],
   "scripts": {
     "build": "yarn library build",
