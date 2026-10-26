@@ -321,6 +321,7 @@ __metadata:
     "@nestjs/common": "npm:11.2.7"
     "@nestjs/core": "npm:11.2.7"
     "@nestjs/cqrs": "npm:11.0.3"
+    "@nestjs/testing": "npm:11.2.7"
     "@types/node": "npm:24.19.1"
     reflect-metadata: "npm:0.2.2"
     rxjs: "npm:^7.8.1"
