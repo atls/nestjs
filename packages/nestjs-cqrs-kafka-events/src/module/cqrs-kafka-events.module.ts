@@ -8,10 +8,9 @@ import type { CqrsKafkaEventsModuleAsyncOptions } from './cqrs-kafka-events.modu
 import type { CqrsKafkaEventsOptionsFactory }     from './cqrs-kafka-events.module.interfaces.js'
 
 import { Module }                                 from '@nestjs/common'
-import { DiscoveryModule }                        from '@nestjs/core'
-import { DiscoveryService }                       from '@nestjs/core'
 import { EventBus }                               from '@nestjs/cqrs'
 import { EVENTS_HANDLER_METADATA }                from '@nestjs/cqrs/dist/decorators/constants.js'
+import { ExplorerService }                        from '@nestjs/cqrs/dist/services/explorer.service.js'
 
 import { KafkaModule }                            from '@atls/nestjs-kafka'
 import { KafkaFactory }                           from '@atls/nestjs-kafka'
@@ -21,13 +20,13 @@ import { KafkaPublisher }                         from '../messaging/index.js'
 import { KafkaSubscriber }                        from '../messaging/index.js'
 import { CQRS_KAFKA_EVENTS_MODULE_OPTIONS }       from './cqrs-kafka-events.module.constants.js'
 
-@Module({ imports: [DiscoveryModule] })
+@Module({})
 export class CqrsKafkaEventsModule implements OnModuleInit {
   constructor(
     private readonly eventBus: EventBus,
     private readonly kafkaPublisher: KafkaPublisher,
     private readonly kafkaSubscriber: KafkaSubscriber,
-    private readonly discovery: DiscoveryService
+    private readonly explorerService: ExplorerService
   ) {}
 
   static register(options: CqrsKafkaEventsModuleOptions): DynamicModule {
@@ -147,13 +146,11 @@ export class CqrsKafkaEventsModule implements OnModuleInit {
   async onModuleInit(): Promise<void> {
     await this.kafkaPublisher.connect()
     await this.kafkaSubscriber.connect(
-      this.discovery
-        .getProviders()
-        .flatMap(({ instance }) =>
-          instance
-            ? (Reflect.getMetadata(EVENTS_HANDLER_METADATA, (instance as object).constructor) as
-                Array<FunctionConstructor> | undefined) || []
-            : [])
+      (this.explorerService.explore().events || [])
+        .map(
+          (handler) => Reflect.getMetadata(EVENTS_HANDLER_METADATA, handler) as FunctionConstructor
+        )
+        .flat()
     )
 
     this.eventBus.publisher = this.kafkaPublisher

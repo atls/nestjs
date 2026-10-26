@@ -40,8 +40,8 @@
     "@mikro-orm/decorators": "^7",
     "@mikro-orm/migrations": "^7",
     "@mikro-orm/nestjs": "^7",
-    "@nestjs/common": "^11 || ^12",
-    "@nestjs/core": "^11 || ^12",
+    "@nestjs/common": "^12",
+    "@nestjs/core": "^12",
     "reflect-metadata": "^0.2",
     "rxjs": "^7"
   },

@@ -321,7 +321,6 @@ __metadata:
     "@nestjs/common": "npm:11.2.7"
     "@nestjs/core": "npm:11.2.7"
     "@nestjs/cqrs": "npm:11.0.3"
-    "@nestjs/testing": "npm:11.2.7"
     "@types/node": "npm:24.19.1"
     reflect-metadata: "npm:0.2.2"
     rxjs: "npm:^7.8.1"
@@ -346,9 +345,9 @@ __metadata:
     reflect-metadata: "npm:0.2.2"
     rxjs: "npm:^7.8.1"
   peerDependencies:
-    "@nestjs/common": ^10 || ^11 || ^12
-    "@nestjs/core": ^10 || ^11 || ^12
-    "@nestjs/cqrs": ^10 || ^11 || ^12
+    "@nestjs/common": ^12
+    "@nestjs/core": ^12
+    "@nestjs/cqrs": ^12
     reflect-metadata: ^0.1 || ^0.2
     rxjs: ^7
   languageName: unknown
@@ -780,8 +779,8 @@ __metadata:
     "@mikro-orm/decorators": ^7
     "@mikro-orm/migrations": ^7
     "@mikro-orm/nestjs": ^7
-    "@nestjs/common": ^11 || ^12
-    "@nestjs/core": ^11 || ^12
+    "@nestjs/common": ^12
+    "@nestjs/core": ^12
     reflect-metadata: ^0.2
     rxjs: ^7
   languageName: unknown
@@ -1001,8 +1000,8 @@ __metadata:
     reflect-metadata: "npm:0.2.2"
     rxjs: "npm:^7.8.1"
   peerDependencies:
-    "@nestjs/common": ^10 || ^11 || ^12
-    "@nestjs/core": ^10 || ^11 || ^12
+    "@nestjs/common": ^12
+    "@nestjs/core": ^12
     class-transformer: 0.5
     class-validator: ^0.14
     reflect-metadata: ^0.1 || ^0.2
