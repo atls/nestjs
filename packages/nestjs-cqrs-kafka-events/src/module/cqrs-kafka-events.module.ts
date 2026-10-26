@@ -149,9 +149,9 @@ export class CqrsKafkaEventsModule implements OnModuleInit {
     await this.kafkaSubscriber.connect(
       this.discovery
         .getProviders()
-        .flatMap(({ instance, metatype }) =>
-          instance && metatype
-            ? (Reflect.getMetadata(EVENTS_HANDLER_METADATA, metatype) as
+        .flatMap(({ instance }) =>
+          instance
+            ? (Reflect.getMetadata(EVENTS_HANDLER_METADATA, (instance as object).constructor) as
                 Array<FunctionConstructor> | undefined) || []
             : [])
     )
