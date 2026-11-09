@@ -7,10 +7,17 @@ on:
       - edited
       - reopened
       - synchronize
-    paths-ignore:
-      - '.agents/**'
-      - '.codex/context/**'
-      - '**/*.md'
+    paths:
+      - '**'
+      - '!.agents/**'
+      - '!.codex/context/**'
+      - '!**/*.md'
+      - '!.github/assets/**'
+      - '**/src/**'
+      - '**/test*/**'
+      - '**/__tests__/**'
+      - '**/*fixtures*/**'
+      - '**/templates/**'
 
 jobs:
   check:
