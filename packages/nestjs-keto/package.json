@@ -1,6 +1,11 @@
 {
   "name": "@atls/nestjs-keto",
   "version": "0.0.15",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/atls/nestjs.git",
+    "directory": "packages/nestjs-keto"
+  },
   "license": "BSD-3-Clause",
   "type": "module",
   "exports": {
