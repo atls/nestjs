@@ -18,4 +18,3 @@ jobs:
       clientId: ${{ vars.ATLANTIS_SUPER_BOT_CLIENT_ID }}
     secrets:
       appPrivateKey: ${{ secrets.ATLANTIS_SUPER_BOT_PRIVATE_KEY }}
-      npmAuthToken: ${{ secrets.NPM_TOKEN }}
