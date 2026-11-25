@@ -20,7 +20,10 @@
     "{packages,examples}/**/*.{test,spec}.{ts,tsx}": "yarn test unit"
   },
   "resolutions": {
-    "@ory/keto-grpc-client@npm:0.13.0-alpha.0": "patch:@ory/keto-grpc-client@npm%3A0.13.0-alpha.0#~/.yarn/patches/@ory-keto-grpc-client-npm-0.13.0-alpha.0-798a35fc57.patch"
+    "@ory/keto-grpc-client@npm:0.13.0-alpha.0": "patch:@ory/keto-grpc-client@npm%3A0.13.0-alpha.0#~/.yarn/patches/@ory-keto-grpc-client-npm-0.13.0-alpha.0-798a35fc57.patch",
+    "@types/node@npm:*": "24.19.1",
+    "@types/node@npm:>=12.12.47": "24.19.1",
+    "@types/node@npm:>=13.7.0": "24.19.1"
   },
   "devDependencies": {
     "@atls/raijin": "latest",
