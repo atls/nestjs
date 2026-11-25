@@ -1,0 +1,89 @@
+name: Typesense CI diagnostic
+
+on:
+  push:
+    branches:
+      - test/diagnose-typesense-container-ci
+
+permissions:
+  contents: read
+
+jobs:
+  diagnose:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - name: Install
+        id: install
+        run: node .yarn/releases/yarn.js install --inline-builds
+      - name: Pull Typesense image
+        id: pull
+        if: steps.install.outcome == 'success'
+        continue-on-error: true
+        run: docker pull typesense/typesense:27.0
+      - name: Inspect Typesense image
+        if: steps.install.outcome == 'success'
+        run: |
+          docker image inspect typesense/typesense:27.0 \
+            --format 'id={{.Id}} os={{.Os}} arch={{.Architecture}}' || true
+      - name: Ryuk before unit
+        if: steps.install.outcome == 'success'
+        run: |
+          docker ps -a --filter label=org.testcontainers.ryuk=true \
+            --format 'id={{.ID}} image={{.Image}} status={{.Status}} ports={{.Ports}} name={{.Names}}'
+      - name: Unit phase
+        id: unit
+        if: steps.install.outcome == 'success'
+        continue-on-error: true
+        env:
+          DEBUG: testcontainers
+        run: node .yarn/releases/yarn.js test unit
+      - name: Ryuk between phases
+        if: always()
+        run: |
+          docker ps -a --filter label=org.testcontainers.ryuk=true \
+            --format 'id={{.ID}} image={{.Image}} status={{.Status}} ports={{.Ports}} name={{.Names}}'
+          ids=$(docker ps -aq --filter label=org.testcontainers.ryuk=true)
+          for id in $ids; do
+            docker inspect "$id" \
+              --format 'id={{.Id}} status={{.State.Status}} running={{.State.Running}} exit={{.State.ExitCode}} ports={{json .NetworkSettings.Ports}}' \
+              || printf 'ryuk-disappeared-before-inspect=%s\n' "$id"
+            docker logs --tail 80 "$id" 2>&1 || true
+          done
+      - name: Integration phase
+        id: integration
+        if: steps.install.outcome == 'success'
+        continue-on-error: true
+        env:
+          DEBUG: testcontainers,testcontainers:pull
+        run: node .yarn/releases/yarn.js test integration
+      - name: Ryuk after integration
+        if: always()
+        run: |
+          docker ps -a --filter label=org.testcontainers.ryuk=true \
+            --format 'id={{.ID}} image={{.Image}} status={{.Status}} ports={{.Ports}} name={{.Names}}'
+          ids=$(docker ps -aq --filter label=org.testcontainers.ryuk=true)
+          for id in $ids; do
+            docker inspect "$id" \
+              --format 'id={{.Id}} status={{.State.Status}} running={{.State.Running}} exit={{.State.ExitCode}} ports={{json .NetworkSettings.Ports}}' \
+              || printf 'ryuk-disappeared-before-inspect=%s\n' "$id"
+            docker logs --tail 80 "$id" 2>&1 || true
+          done
+      - name: Diagnostic result
+        if: always()
+        env:
+          INSTALL: ${{ steps.install.outcome }}
+          PULL: ${{ steps.pull.outcome }}
+          UNIT: ${{ steps.unit.outcome }}
+          INTEGRATION: ${{ steps.integration.outcome }}
+        run: |
+          printf 'install=%s pull=%s unit=%s integration=%s\n' \
+            "$INSTALL" "$PULL" "$UNIT" "$INTEGRATION"
+          test "$INSTALL" = success
+          test "$PULL" = success
+          test "$UNIT" = success
+          test "$INTEGRATION" = success
