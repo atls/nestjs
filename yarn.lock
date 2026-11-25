@@ -437,7 +437,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@atls/nestjs-graphql-redis-subscriptions@workspace:packages/nestjs-graphql-redis-subscriptions"
   dependencies:
-    "@atls/nestjs-redis": "npm:^0.0.5"
+    "@atls/nestjs-redis": "npm:^0.0.6"
     "@nestjs/common": "npm:^10.0.5"
     "@nestjs/core": "npm:^10.0.5"
     graphql-redis-subscriptions: "npm:^2.6.0"
@@ -849,7 +849,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@atls/nestjs-redis@npm:^0.0.5, @atls/nestjs-redis@workspace:packages/nestjs-redis":
+"@atls/nestjs-redis@npm:^0.0.6, @atls/nestjs-redis@workspace:packages/nestjs-redis":
   version: 0.0.0-use.local
   resolution: "@atls/nestjs-redis@workspace:packages/nestjs-redis"
   dependencies:

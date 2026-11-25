@@ -1,6 +1,6 @@
 {
   "name": "@atls/nestjs-grpc-playground",
-  "version": "0.0.39",
+  "version": "0.0.40",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/atls/nestjs.git",

@@ -1,6 +1,6 @@
 {
   "name": "@atls/nestjs-grpc-http-proxy",
-  "version": "0.0.20",
+  "version": "0.0.21",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/atls/nestjs.git",
