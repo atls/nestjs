@@ -1,6 +1,11 @@
 {
   "name": "@atls/nestjs-s3-client",
   "version": "0.0.6",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/atls/nestjs.git",
+    "directory": "packages/nestjs-s3-client"
+  },
   "license": "BSD-3-Clause",
   "type": "module",
   "exports": {

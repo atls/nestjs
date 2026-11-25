@@ -1,6 +1,11 @@
 {
   "name": "@atls/nestjs-graphql-redis-subscriptions",
   "version": "0.0.3",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/atls/nestjs.git",
+    "directory": "packages/nestjs-graphql-redis-subscriptions"
+  },
   "license": "BSD-3-Clause",
   "type": "module",
   "exports": {

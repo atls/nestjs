@@ -1,6 +1,11 @@
 {
   "name": "@atls/nestjs-connectrpc-errors",
   "version": "0.1.2",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/atls/nestjs.git",
+    "directory": "packages/nestjs-connectrpc-errors"
+  },
   "license": "BSD-3-Clause",
   "type": "module",
   "exports": {

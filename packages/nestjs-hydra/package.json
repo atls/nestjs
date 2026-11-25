@@ -1,6 +1,11 @@
 {
   "name": "@atls/nestjs-hydra",
   "version": "0.0.7",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/atls/nestjs.git",
+    "directory": "packages/nestjs-hydra"
+  },
   "license": "BSD-3-Clause",
   "type": "module",
   "exports": {

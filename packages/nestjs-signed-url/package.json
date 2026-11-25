@@ -1,7 +1,11 @@
 {
   "name": "@atls/nestjs-signed-url",
   "version": "0.6.6",
-  "repository": "git@github.com:atls/nestjs.git",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/atls/nestjs.git",
+    "directory": "packages/nestjs-signed-url"
+  },
   "license": "BSD-3-Clause",
   "type": "module",
   "exports": {

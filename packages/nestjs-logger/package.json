@@ -1,7 +1,11 @@
 {
   "name": "@atls/nestjs-logger",
   "version": "0.3.1",
-  "repository": "git@github.com:atls/nestjs.git",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/atls/nestjs.git",
+    "directory": "packages/nestjs-logger"
+  },
   "license": "BSD-3 Clause",
   "type": "module",
   "exports": {

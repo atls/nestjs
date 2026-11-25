@@ -1,6 +1,11 @@
 {
   "name": "@atls/nestjs-validation",
   "version": "1.0.0",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/atls/nestjs.git",
+    "directory": "packages/nestjs-validation"
+  },
   "license": "BSD-3-Clause",
   "type": "module",
   "exports": {

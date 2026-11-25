@@ -1,7 +1,11 @@
 {
   "name": "@atls/nestjs-oathkeeper",
   "version": "0.1.3",
-  "repository": "git@github.com:atls/nestjs.git",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/atls/nestjs.git",
+    "directory": "packages/nestjs-oathkeeper"
+  },
   "license": "BSD-3-Clause",
   "type": "module",
   "exports": {

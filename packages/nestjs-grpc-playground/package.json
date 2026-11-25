@@ -1,6 +1,11 @@
 {
   "name": "@atls/nestjs-grpc-playground",
   "version": "0.0.39",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/atls/nestjs.git",
+    "directory": "packages/nestjs-grpc-playground"
+  },
   "license": "BSD-3-Clause",
   "type": "module",
   "exports": {
